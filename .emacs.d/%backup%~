@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xinput set-prop 11 --type=int "Synaptics Circular Scrolling" 1
+xinput set-prop 11 --type=int "Synaptics Circular Scrolling Trigger" 0
