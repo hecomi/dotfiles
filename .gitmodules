@@ -13,3 +13,9 @@
 [submodule ".vim/bundle/vimproc"]
 	path = .vim/bundle/vimproc
 	url = git://github.com/Shougo/vimproc.git
+[submodule ".vim/bundle/quickfixstatus"]
+	path = .vim/bundle/quickfixstatus
+	url = git://github.com/dannyob/quickfixstatus.git
+[submodule ".vim/bundle/vim-hier"]
+	path = .vim/bundle/vim-hier
+	url = git://github.com/jceb/vim-hier.git
