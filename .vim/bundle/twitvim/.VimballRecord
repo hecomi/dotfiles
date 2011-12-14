@@ -1,0 +1,2 @@
+twitvim-0.7.2.vmb: call delete('/home/hecomi/.vim/bundle/TwitVim//plugin/twitvim.vim')|call delete('/home/hecomi/.vim/bundle/TwitVim//doc/twitvim.txt')
+twitvim-0.7.2.vmb: call delete('/home/hecomi/.vim/bundle/TwitVim/plugin/twitvim.vim')|call delete('/home/hecomi/.vim/bundle/TwitVim/doc/twitvim.txt')

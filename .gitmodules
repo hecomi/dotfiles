@@ -1,3 +1,15 @@
 [submodule ".vim/bundle/neocomplcache"]
 	path = .vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule ".vim/bundle/quickrun"]
+	path = .vim/bundle/quickrun
+	url = git://github.com/thinca/vim-quickrun.git
+[submodule ".vim/bundle/singlecompile"]
+	path = .vim/bundle/singlecompile
+	url = git://github.com/vim-scripts/SingleCompile.git
+[submodule ".vim/bundle/vimshell"]
+	path = .vim/bundle/vimshell
+	url = git://github.com/Shougo/vimshell.git
+[submodule ".vim/bundle/vimproc"]
+	path = .vim/bundle/vimproc
+	url = git://github.com/Shougo/vimproc.git
