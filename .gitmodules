@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-hier"]
 	path = .vim/bundle/vim-hier
 	url = git://github.com/jceb/vim-hier.git
+[submodule ".vim/bundle/unite"]
+	path = .vim/bundle/unite
+	url = git://github.com/Shougo/unite.vim.git
