@@ -1,5 +1,34 @@
-""====================================================================================================
-" Pathogen
+"====================================================================================================
+" Basic settings
+" Ref: https://gist.github.com/1278419
+"====================================================================================================
+syntax on
+
+" 行番号表示
+set number
+
+" Encoding
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+
+" Color scheme
+hi LineNr ctermfg=darkgray
+
+" Tabの設定
+set tabstop=4 shiftwidth=4 softtabstop=0
+
+"長い行でも折り返さない
+set nowrap
+
+"スクロール時の余白確保
+set scrolloff=5
+
+"いろいろスマート
+set smarttab
+set smartindenta
+
+"====================================================================================================
+" pathogen
 "====================================================================================================
 "pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
 filetype off
@@ -15,20 +44,14 @@ filetype on
 "====================================================================================================
 " Ref-vim
 "====================================================================================================
-""" alc
+" alc
 nmap ,ra :<C-u>Ref alc<Space>
 
 let g:ref_alc_start_linenumber = 39 " 表示する行数
 let g:ref_alc_encoding = 'UTF-8' " 文字化けするならここで文字コードを指定してみる
 
 "====================================================================================================
-" Encoding
-"====================================================================================================
-set encoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
-
-"====================================================================================================
-" neocomplcache 
+" neocomplcache で補完 
 "====================================================================================================
 let g:neocomplcache_enable_at_startup = 1
 
@@ -40,9 +63,13 @@ let g:neocomplcache_enable_at_startup = 1
 " quickrun_config をクリア
 let g:quickrun_config = {}
 
-" quickfix のエラー箇所を波線でハイライト
+" quickfix のエラー箇所を赤背景白字でハイライト
 hi qf_error_ucurl ctermfg=white ctermbg=red cterm=bold
 let g:hier_highlight_group_qf  = "qf_error_ucurl"
+
+" 警告を青背景白字で
+hi qf_warning_ucurl ctermfg=white ctermbg=blue cterm=bold
+let g:hier_highlight_group_qfw = "qf_warning_ucurl"
 
 " quickfix に出力して、ポッポアップはしない outputter/quickfix
 " すでに quickfix ウィンドウが開いている場合は閉じるので注意
@@ -65,7 +92,7 @@ let g:quickrun_config["CppSyntaxCheck_gcc"] = {
     \ "type"  : "cpp",
     \ "exec"      : "%c %o %s:p ",
     \ "command"   : "g++",
-    \ "cmdopt"    : "-fsyntax-only -std=gnu++0x ",
+    \ "cmdopt"    : "-fsyntax-only -std=gnu++0x -Wall",
     \ "outputter" : "silent_quickfix",
     \ "runner"    : "vimproc"
 \ }
@@ -121,5 +148,5 @@ endfunction
 call quickrun#register_outputter("my_outputter", my_outputter)
 
 " <leader>r を再定義
-nmap <silent> <leader>r :QuickRun -outputter my_outputter<CR>
+nmap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
 
