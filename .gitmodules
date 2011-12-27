@@ -34,3 +34,9 @@
 [submodule ".vim/bundle/rainbow_parentheses"]
 	path = .vim/bundle/rainbow_parentheses
 	url = git://github.com/kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/open-browser"]
+	path = .vim/bundle/open-browser
+	url = git://github.com/tyru/open-browser.vim.git
+[submodule ".vim/bundle/clang_complete"]
+	path = .vim/bundle/clang_complete
+	url = git://github.com/Shougo/clang_complete.git

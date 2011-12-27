@@ -1,31 +1,81 @@
 "====================================================================================================
 " Basic settings
-" Ref: https://gist.github.com/1278419
+" Ref: http://d.hatena.ne.jp/Yuzuemon/20110304/1299199079
 "====================================================================================================
-syntax on
+" Common -------------------------------
+set nocompatible					" vim
 
-" 行番号表示
-set number
+" File ---------------------------------
+set autoread						" 更新時自動再読込み
+set hidden							" 編集中でも他のファイルを開けるようにする
+set noswapfile						" スワップファイルを作らない
+set nobackup						" バックアップを取らない
+autocmd BufWritePre * :%s/\s\+$//ge	" 保存時に行末の空白を除去する
+syntax on							" シンタックスカラーリングオン
 
-" Encoding
-set encoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
-
-" Color scheme
-hi LineNr ctermfg=darkgray
-
-" Tabの設定
+" Indent -------------------------------
 set tabstop=4 shiftwidth=4 softtabstop=0
+set autoindent smartindent			" 自動インデント，スマートインデント
 
-"長い行でも折り返さない
-set nowrap
+" Color Scheme
+hi LineNr ctermfg=darkgray
+hi SpecialKey ctermfg=black
 
-"スクロール時の余白確保
-set scrolloff=5
+" Input Assist -------------------------
+set backspace=indent,eol,start		" バックスペースで特殊記号も削除可能に
+set formatoptions=lmoq				" 整形オプション，マルチバイト系を追加
+set whichwrap=b,s,h,s,<,>,[,]		" カーソルを行頭、行末で止まらないようにする
+"set clipboard=unnamed,autoselect	" バッファにクリップボードを利用する
 
-"いろいろスマート
-set smarttab
-set smartindent
+" Complement Command -------------------
+set wildmenu						" コマンド補完を強化
+set wildmode=list:full				" リスト表示，最長マッチ
+
+" Search -------------------------------
+set wrapscan						" 最後まで検索したら先頭へ戻る
+set ignorecase						" 大文字小文字無視
+set smartcase						" 大文字ではじめたら大文字小文字無視しない
+set incsearch						" インクリメンタルサーチ
+set hlsearch						" 検索文字をハイライト
+
+" View ---------------------------------
+set showmatch						" 括弧の対応をハイライト
+set showcmd							" 入力中のコマンドを表示
+set showmode						" 現在のモードを表示
+set number							" 行番号表示
+set nowrap							" 画面幅で折り返さない
+set list							" 不可視文字表示
+set listchars=tab:>\ ,extends:»,precedes:«	 "不可視文字の表示方法
+set notitle							" タイトル書き換えない
+set scrolloff=5						" 行送り
+set display=uhex					" 印字不可能文字を16進数で表示
+
+hi ZenkakuSpace gui=underline guibg=DarkBlue cterm=underline ctermfg=LightBlue
+match ZenkakuSpace /　/ 			" 全角スペースの色を変更
+
+set cursorline						" カーソル行をハイライト
+augroup cch
+	autocmd! cch
+	autocmd WinLeave * set nocursorline
+	autocmd WinEnter,BufRead * set cursorline
+augroup END
+:hi clear CursorLine
+:hi CursorLine gui=underline
+hi CursorLine ctermbg=black guibg=black
+
+
+" StatusLine ---------------------------
+set laststatus=2					" ステータスラインを2行に
+set statusline=%<%f\ #%n%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%=%l,%c%V%8P
+
+" Charset, Line ending -----------------
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
+set ffs=unix,dos,mac				" LF, CRLF, CR
+	if exists('&ambiwidth')
+		set ambiwidth=double		" UTF-8の□や○でカーソル位置がずれないようにする
+endif
 
 "====================================================================================================
 " pathogen
@@ -47,6 +97,11 @@ filetype on
 let g:vimfiler_as_default_explorer = 1
 
 "====================================================================================================
+" vimfiler
+"====================================================================================================
+nmap ,ufb :Unite file buffer<CR>
+
+"====================================================================================================
 " Ref-vim
 "====================================================================================================
 " alc
@@ -56,14 +111,38 @@ let g:ref_alc_start_linenumber = 39 " 表示する行数
 let g:ref_alc_encoding = 'UTF-8' " 文字化けするならここで文字コードを指定してみる
 
 "====================================================================================================
-" neocomplcache で補完 
+" neocomplcache で補完
+" Ref: http://wiki.livedoor.jp/kurt0027/d/gvim%A4%CD%A4%BF
 "====================================================================================================
 let g:neocomplcache_enable_at_startup = 1
 
+" <TAB> completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" snippets expand key
+imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+
+" libclang を使用して高速に補完を行う
+"let g:neocomplcache_clang_use_library=1
+
+" clang.dll へのディレクトリパス
+"let g:neocomplcache_clang_library_path='/usr/share/clang/scan-build/c++-analyzer'
+
+" clang のコマンドオプション
+" MinGW や Boost のパス周りの設定は手元の環境に合わせて下さい
+"let g:neocomplcache_clang_user_options =
+"\ '-I /usr/local/boost_1_47_0/'.
+"\ '-fms-extensions -fgnu-runtime '.
+"\ '-include malloc.h '
+
+" neocomplcache で表示される補完の数を増やす
+" これが少ないと候補が表示されない場合があります
+"let g:neocomplcache_max_list=1000
+
 ""====================================================================================================
 " シンタックスチェック用の quickrun.vim のコンフィグ
-" 参考：
-"     - http://d.hatena.ne.jp/osyo-manga/20110921/1316605254
+" Ref: http://d.hatena.ne.jp/osyo-manga/20110921/1316605254
 "====================================================================================================
 " quickrun_config をクリア
 let g:quickrun_config = {}
@@ -107,9 +186,9 @@ autocmd BufWritePost *.cpp,*.h,*.hpp :QuickRun CppSyntaxCheck_gcc
 
 "====================================================================================================
 " quickfixstatus と vim-hier で Syntaxチェック
-" 参照：
-"    - http://rohinomiya.posterous.com/vim-quickrun-ruby-quickrunquickfix
-"    - http://d.hatena.ne.jp/abulia/20111202/1322847516
+" Ref:
+"   - http://rohinomiya.posterous.com/vim-quickrun-ruby-quickrunquickfix
+"   - http://d.hatena.ne.jp/abulia/20111202/1322847516
 "====================================================================================================
 " 横分割をするようにする
 let g:quickrun_config['*'] = {'split': ''}
@@ -154,4 +233,32 @@ call quickrun#register_outputter("my_outputter", my_outputter)
 
 " <leader>r を再定義
 nmap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
+
+"====================================================================================================
+" quickfixstatus と vim-hier で Syntaxチェック
+" Ref: http://d.hatena.ne.jp/osyo-manga/20111017/1318845337
+"====================================================================================================
+" () をハイライト
+autocmd FileType * :RainbowParenthesesLoadRound
+
+" C++ の場合は、<> もハイライト
+autocmd FileType cpp :RainbowParenthesesLoadChevrons
+
+" ハイライトを切り替えるキーマップ
+nnoremap <silent> <Space>rr :RainbowParenthesesToggle<CR>
+
+"====================================================================================================
+" Open-Browser
+" Ref: http://d.hatena.ne.jp/tyru/20100619/git_push_vim_plugins_to_github
+"====================================================================================================
+nmap ,bo <Plug>(openbrowser-open)
+vmap ,bo <Plug>(openbrowser-open)
+
+"====================================================================================================
+" Key Mapping 出力
+" Ref: http://d.hatena.ne.jp/osyo-manga/20110902/1314963206
+"====================================================================================================
+nnoremap ? :Unite output:map\|map!\|lmap<CR>
+vnoremap ? :Unite output:map\|map!\|lmap<CR>
+
 
