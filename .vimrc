@@ -17,7 +17,7 @@ syntax on							" シンタックスカラーリングオン
 set tabstop=4 shiftwidth=4 softtabstop=0
 set autoindent smartindent			" 自動インデント，スマートインデント
 
-" Color Scheme
+" Color Scheme -------------------------
 hi LineNr ctermfg=darkgray
 hi SpecialKey ctermfg=black
 
@@ -120,7 +120,7 @@ let g:neocomplcache_enable_at_startup = 1
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " snippets expand key
-imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+imap <silent> <C-e> exec ":set paste<CR><Plug>(neocomplcache_snippets_expand)<CR>:set nopaste<CR>"
 smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 
 " libclang を使用して高速に補完を行う
