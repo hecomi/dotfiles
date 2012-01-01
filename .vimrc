@@ -45,10 +45,11 @@ set showmode
 set number
 set nowrap
 set list
-set listchars=tab:>\ ,extends:»,precedes:«
+set listchars=tab:>-,extends:»,precedes:«
 set notitle
 set scrolloff=5
 set display=uhex
+set completeopt=menuone
 
 hi ZenkakuSpace gui=underline guibg=DarkBlue cterm=underline ctermfg=LightBlue
 match ZenkakuSpace /　/
@@ -99,7 +100,6 @@ if has('vim_starting')
 endif
 
 " Shougo-san's Repos (default)
-NeoBundle 'git://github.com/Shougo/clang_complete.git'
 NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
@@ -119,6 +119,11 @@ NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
 NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
 NeoBundle 'git://github.com/ujihisa/unite-locate.git'
+NeoBundle 'git://github.com/tsukkee/lingr-vim.git'
+NeoBundle 'git://github.com/Rip-Rip/clang_complete.git'
+NeoBundle 'git://github.com/osyo-manga/neocomplcache-clang_complete.git'
+NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
+NeoBundle 'git://github.com/ujihisa/unite-font.git'
 
 " Vim-scripts Repos
 NeoBundle 'quickfixstatus.vim'
@@ -156,28 +161,44 @@ let g:ref_alc_encoding = 'UTF-8'
 let g:neocomplcache_enable_at_startup = 1
 
 " <TAB> completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 
 " snippets expand key
-imap <silent> <C-e> exec ":set paste<CR><Plug>(neocomplcache_snippets_expand)<CR>:set nopaste<CR>"
+imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 
 " libclang を使用して高速に補完を行う
-"let g:neocomplcache_clang_use_library=1
+let g:neocomplcache_clang_use_library=1
 
 " clang.dll へのディレクトリパス
-"let g:neocomplcache_clang_library_path='/usr/share/clang/scan-build/c++-analyzer'
+let g:neocomplcache_clang_library_path='/usr/share/clang'
 
 " clang のコマンドオプション
 " MinGW や Boost のパス周りの設定は手元の環境に合わせて下さい
 "let g:neocomplcache_clang_user_options =
-"\ '-I /usr/local/boost_1_47_0/'.
-"\ '-fms-extensions -fgnu-runtime '.
-"\ '-include malloc.h '
+		\ '-I /usr/include/ '.
+		\ '-fms-extensions -fgnu-runtime '.
+		\ '-include malloc.h '
 
 " neocomplcache で表示される補完の数を増やす
 " これが少ないと候補が表示されない場合があります
-"let g:neocomplcache_max_list=1000
+let g:neocomplcache_max_list=1000
+
+" add neocomplcache option
+let g:neocomplcache_force_overwrite_completefunc=1
+
+" add clang_complete option
+let g:clang_complete_auto=1
+
+""====================================================================================================
+" clang_complete
+"====================================================================================================
+let g:clang_complete_auto = 1
+let g:clang_use_library   = 1
+let g:clang_library_path  = '/usr/share/clang'
+let g:clang_user_options  = '2>/dev/null || exit 0"'
 
 ""====================================================================================================
 " quickrun
@@ -208,16 +229,19 @@ endfunction
 " quickrun に登録
 call quickrun#register_outputter("silent_quickfix", s:silent_quickfix)
 
-
 " シンタックスチェック用の quickrun.vim のコンフィグ
 " gcc 版
 let g:quickrun_config["CppSyntaxCheck_gcc"] = {
-    \ "type"  : "cpp",
+    \ "type"      : "cpp",
     \ "exec"      : "%c %o %s:p ",
     \ "command"   : "g++",
-    \ "cmdopt"    : "-fsyntax-only -std=gnu++0x -Wall",
+    \ "cmdopt"    : "-fsyntax-only -std=c++0x -Wall",
     \ "outputter" : "silent_quickfix",
     \ "runner"    : "vimproc"
+\ }
+
+let g:quickrun_config["cpp"] = {
+    \ "cmdopt"    : "-std=c++0x -Wall"
 \ }
 
 " ファイルの保存後に quickrun.vim が実行するように設定する
@@ -229,7 +253,7 @@ autocmd BufWritePost *.cpp,*.h,*.hpp :QuickRun CppSyntaxCheck_gcc
 "   - http://rohinomiya.posterous.com/vim-quickrun-ruby-quickrunquickfix
 "   - http://d.hatena.ne.jp/abulia/20111202/1322847516
 "====================================================================================================
-" 横分割をするようにする
+" 横分割
 let g:quickrun_config['*'] = {'split': ''}
 
 " RSpec 対応
@@ -284,6 +308,11 @@ autocmd FileType cpp :RainbowParenthesesLoadChevrons
 
 " ハイライトを切り替えるキーマップ
 nnoremap <silent> <Space>rr :RainbowParenthesesToggle<CR>
+
+"====================================================================================================
+" echodoc
+"====================================================================================================
+let g:echodoc_enable_at_startup = 1
 
 "====================================================================================================
 " Open-Browser

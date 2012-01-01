@@ -107,3 +107,7 @@ fi
 
 # Locale set
 export LC_MESSAGES=C
+
+# Path
+export PATH=/usr/local/clang-3.0/bin:"$PATH"
+
