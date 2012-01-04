@@ -82,13 +82,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# for c++
-alias g++0x='g++-4.6 -std=gnu++0x'
-alias g++gl='g++-4.6 -lglut -lGLU'
-
-# Emacs
-alias emacs='emacs -nw'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
