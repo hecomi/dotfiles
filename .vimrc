@@ -245,31 +245,31 @@ let g:quickrun_config = {}
 let g:quickrun_config["cpp"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-std=c++0x -Wall"
+	\ "cmdopt"    : "-std=c++0x -Wall",
 \ }
 
 let g:quickrun_config["g++-4.6"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-Wall"
+	\ "cmdopt"    : "-Wall",
 \ }
 
-let g:quickrun_config["g++-4.6_w/_0x"] = {
+let g:quickrun_config["g++-4.6_0x"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-std=c++0x -Wall"
+	\ "cmdopt"    : "-std=c++0x -Wall",
 \ }
 
-let g:quickrun_config["g++-4.6_w/_0x_OpenGL"] = {
+let g:quickrun_config["g++-4.6_0x_OpenGL"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-std=c++0x -lglut -lGLU -Wall"
+	\ "cmdopt"    : "-std=c++0x -lglut -lGLU -Wall",
 \ }
 
 let g:quickrun_config["Clang"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "clang++",
-	\ "cmdopt"    : "-std=c++0x"
+	\ "cmdopt"    : "-std=c++0x",
 \ }
 
 " quickfix のエラー箇所を赤背景白字でハイライト
@@ -301,7 +301,7 @@ let g:quickrun_config["CppSyntaxCheck"] = {
 	\ "command"   : "g++",
 	\ "cmdopt"    : "-fsyntax-only -std=c++0x -Wall",
 	\ "outputter" : "silent_quickfix",
-	\ "runner"    : "vimproc"
+	\ "runner"    : "vimproc",
 \ }
 
 " ファイルの保存後に quickrun.vim が実行するように設定する
@@ -332,11 +332,9 @@ let s:unite_source = {
 
 function! s:unite_source.gather_candidates(args, context)
     let cmds = filter(deepcopy(g:quickrun_config), "exists('v:val.type') ? v:val.type == &filetype : 0")
-
     return sort(values(map(cmds, "{
 \       'word' : v:key,
 \       'source' : 'quickrun-select',
-
 \   }")))
 endfunction
 
