@@ -13,6 +13,7 @@ set hidden
 set noswapfile
 set nobackup
 autocmd BufWritePre * :%s/\s\+$//ge
+autocmd BufWritePre * :%s/+$//ge
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -77,13 +78,13 @@ hi CursorLine ctermbg=black
 set laststatus=2
 set statusline=%<%f\ #%n%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%=%l,%c%V%8P
 
+
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
 set ffs=unix,dos,mac
 	if exists('&ambiwidth')
 		set ambiwidth=double
 endif
-
 
 "====================================================================================================
 " ◆ Key Mappings
@@ -161,6 +162,8 @@ NeoBundle 'git://github.com/scrooloose/syntastic.git'
 NeoBundle 'git://github.com/ujihisa/quicklearn.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 NeoBundle 'git://github.com/tsukkee/unite-help.git'
+NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
+
 NeoBundle 'git://github.com/osyo-manga/unite-banban.git'
 NeoBundle 'git://github.com/osyo-manga/unite-banban2.git'
 NeoBundle 'git://github.com/osyo-manga/unite-jojo.git'
@@ -420,4 +423,3 @@ nnoremap ,ql :<C-u>Unite quicklearn -immediately<CR>
 let g:syntastic_mode_map = { 'mode': 'active',
 	\ 'active_filetypes'  : ['ruby', 'php'],
 	\ 'passive_filetypes' : ['cpp'] }
-
