@@ -104,3 +104,6 @@ export LC_MESSAGES=C
 # Path
 export PATH=/usr/local/clang-3.0/bin:"$PATH"
 
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+

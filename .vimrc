@@ -13,7 +13,6 @@ set hidden
 set noswapfile
 set nobackup
 autocmd BufWritePre * :%s/\s\+$//ge
-autocmd BufWritePre * :%s/+$//ge
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -71,17 +70,19 @@ augroup cch
 augroup END
 :hi clear CursorLine
 :hi CursorLine gui=underline
-hi CursorLine ctermbg=black
+:hi CursorLine ctermbg=black
 
 " StatusLine
 " ---------------------------------------------------------------------------------------------------
+function! Last_point()
+    return reanimate#is_saved() ? reanimate#last_point() : "no save"
+endfunction
 set laststatus=2
-set statusline=%<%f\ #%n%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%=%l,%c%V%8P
-
+set statusline=%=[%{Last_point()}\]\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l,%03v]
 
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
-set ffs=unix,dos,mac
+set ffs=dos,unix,mac
 	if exists('&ambiwidth')
 		set ambiwidth=double
 endif
@@ -100,18 +101,31 @@ nnoremap <silent> co :ContinuousNumber <C-a><CR>
 vnoremap <silent> co :ContinuousNumber <C-a><CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 
+" date
+" ---------------------------------------------------------------------------------------------------
+inoremap <Leader>date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
+inoremap <Leader>time <C-R>=strftime('%H:%M')<CR>
+inoremap <Leader>w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
+
+" IME
+" ---------------------------------------------------------------------------------------------------
+imap <Nul> <C-^>
+augroup InsModeAu
+    autocmd!
+    autocmd InsertEnter,CmdwinEnter * set noimdisable
+    autocmd InsertLeave,CmdwinLeave * set imdisable
+augroup END
+
 "====================================================================================================
 " ◆ Pathogen
 "====================================================================================================
-if !(has('win32') || has('win64'))
-	filetype off
+filetype off
 
-	call pathogen#runtime_append_all_bundles()
-	call pathogen#helptags()
-	set helpfile=$VIMRUNTIME/doc/help.txt
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+set helpfile=$VIMRUNTIME/doc/help.txt
 
-	filetype on
-endif
+filetype on
 
 "====================================================================================================
 " ◆ neobundle.vim
@@ -163,6 +177,12 @@ NeoBundle 'git://github.com/ujihisa/quicklearn.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 NeoBundle 'git://github.com/tsukkee/unite-help.git'
 NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
+NeoBundle 'git://github.com/davidoc/taskpaper.vim.git'
+NeoBundle 'git://github.com/tomtom/ttoc_vim.git'
+NeoBundle 'git://github.com/tomtom/tlib_vim.git'
+NeoBundle 'git://github.com/toritori0318/vim-redmine.git'
+NeoBundle 'git://github.com/osyo-manga/unite-boost-online-doc.git'
+NeoBundle 'git://github.com/osyo-manga/vim-reanimate.git'
 
 NeoBundle 'git://github.com/osyo-manga/unite-banban.git'
 NeoBundle 'git://github.com/osyo-manga/unite-banban2.git'
@@ -197,6 +217,13 @@ nmap <silent> <Space>t :Unite tab<CR>
 " ◆ vimfiler
 "====================================================================================================
 let g:vimfiler_as_default_explorer = 1
+nmap <silent> vf :VimFiler<CR>
+
+let $OFFICE_PATH = 'C:/Program Files (x86)/Microsoft Office/Office12/'
+let g:vimfiler_execute_file_list = {}
+let g:vimfiler_execute_file_list['docx'] = 'open'
+let g:vimfiler_execute_file_list['xlsx'] = 'open'
+let g:vimfiler_execute_file_list['pptx'] = 'open'
 
 "====================================================================================================
 " ◆ vimshell
@@ -204,22 +231,35 @@ let g:vimfiler_as_default_explorer = 1
 " vimshell setting
 " ---------------------------------------------------------------------------------------------------
 let g:vimshell_interactive_update_time = 10
-let g:vimshell_prompt                  = $USERNAME."% "
+let g:vimshell_prompt = $USERNAME."$ "
+call unite#custom_default_action("vimshell/history", "insert")
 
 " vimshell map
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> vs  :VimShell<CR>
-nnoremap <silent> vsc :VimShellCreate<CR>
-nnoremap <silent> vp  :VimShellPop<CR>
+nnoremap <silent> vs  :VimShell %:p:h<CR>
+nnoremap <silent> vsc :VimShellCreate %:p:h<CR>
+nnoremap <silent> vp  :VimShellPop %:p:h<CR>
 
 "====================================================================================================
 " ◆ Ref-vim
 "====================================================================================================
+" lynx (Windows)
+" ---------------------------------------------------------------------------------------------------
+if has('win32') || has('win64')
+	let s:cfg         = "C:/MinGW/lynx/lynx.cfg"
+	let g:ref_alc_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
+endif
+
 " alc
+" ---------------------------------------------------------------------------------------------------
 nmap ,ra :<C-u>Ref alc<Space>
 
 let g:ref_alc_start_linenumber = 39
-let g:ref_alc_encoding = 'UTF-8'
+if has('win32') || has('win64')
+	let g:ref_alc_encoding = 'Shift_JIS'
+else
+	let g:ref_alc_encoding = 'UTF-8'
+endif
 
 "====================================================================================================
 " ◆ neocomplcache
@@ -240,57 +280,98 @@ inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 
-""====================================================================================================
+"====================================================================================================
 " ◆ clang_complete
 "====================================================================================================
-let g:neocomplcache_force_overwrite_completefunc=1
-let g:clang_complete_auto = 1
-let g:clang_use_library   = 1
-let g:clang_library_path  = '/usr/share/clang'
-let g:clang_user_options  = '2>/dev/null || exit 0"'
+" Include Path
+" ---------------------------------------------------------------------------------------------------
+let BOOST_INCLUDE_PATH = 'C:/include/boost'
+let BOOST_LIBRARY_PATH = 'C:/include/boost/stage/lib'
+let STL_PATH   = 'C:/include/STL'
+if has('win32') || has('win64')
+	let &path = &path . BOOST_INCLUDE_PATH . ','
+	let &path = &path . STL_PATH
+endif
 
-""====================================================================================================
+let g:neocomplcache_force_overwrite_completefunc = 1
+if has('win32') || has('win64')
+	let g:clang_complete_auto = 1
+	let g:clang_use_library   = 0
+	let g:clang_exec          = '"C:/MinGW/mingw32/bin/clang.exe'
+	let g:clang_user_options  = '-std=c++0x 2>NUL || exit 0"'
+else
+	let g:clang_complete_auto = 1
+	let g:clang_use_library   = 1
+	let g:clang_library_path  = '/usr/share/clang'
+	let g:clang_user_options  = '2>/dev/null || exit 0"'
+endif
+
+"====================================================================================================
 " ◆ quickrun
 "====================================================================================================
 " Compilers
 " ---------------------------------------------------------------------------------------------------
+if has('win32') || ('win64')
+	let quickrun_user_options_windows = ' -D_WIN32_WINNT=0x0601'
+else
+	let quickrun_user_options_windows = ' -lboost_system -lboost_thread -lpthread'
+endif
+
 let g:quickrun_config = {}
 
 let g:quickrun_config["cpp"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-std=c++0x -Wall",
+	\ "cmdopt"    : "-std=c++0x -Wall " . quickrun_user_options_windows,
 \ }
 
 let g:quickrun_config["g++-4.6"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-Wall",
+	\ "cmdopt"    : "-Wall " . quickrun_user_options_windows,
 \ }
 
 let g:quickrun_config["g++-4.6_0x"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-std=c++0x -Wall",
+	\ "cmdopt"    : "-std=c++0x -Wall " . quickrun_user_options_windows,
 \ }
 
 let g:quickrun_config["g++-4.6_0x_OpenGL"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "g++-4.6",
-	\ "cmdopt"    : "-std=c++0x -lglut -lGLU -Wall",
+	\ "cmdopt"    : "-std=c++0x -lglut -lGLU -Wall " . quickrun_user_options_windows,
 \ }
 
-let g:quickrun_config["Clang"] = {
+let g:quickrun_config["g++-4.7"] = {
+	\ "type"      : "cpp",
+	\ "command"   : "g++-4.7",
+	\ "cmdopt"    : "-Wall ",
+\ }
+
+let g:quickrun_config["g++-4.7_0x"] = {
+	\ "type"      : "cpp",
+	\ "command"   : "g++-4.7",
+	\ "cmdopt"    : "-std=c++0x -Wall ",
+\ }
+
+let g:quickrun_config["g++-4.7_0x_OpenGL"] = {
+	\ "type"      : "cpp",
+	\ "command"   : "g++-4.6",
+	\ "cmdopt"    : "-std=c++0x -lglut -lGLU -Wall ",
+\ }
+
+let g:quickrun_config["Clang3.0"] = {
 	\ "type"      : "cpp",
 	\ "command"   : "clang++",
-	\ "cmdopt"    : "-std=c++0x",
+	\ "cmdopt"    : "-std=c++0x " . quickrun_user_options_windows,
 \ }
 
 let g:quickrun_config["CppSyntaxCheck"] = {
 	\ "type"      : "cpp",
 	\ "exec"      : "%c %o %s:p ",
-	\ "command"   : "g++",
-	\ "cmdopt"    : "-fsyntax-only -std=c++0x -Wall",
+	\ "command"   : "g++-4.7",
+	\ "cmdopt"    : "-fsyntax-only -std=c++0x -Wall " . quickrun_user_options_windows,
 	\ "outputter" : "silent_quickfix",
 	\ "runner"    : "vimproc",
 \ }
@@ -298,7 +379,7 @@ let g:quickrun_config["CppSyntaxCheck"] = {
 " Error highlight
 " ---------------------------------------------------------------------------------------------------
 hi qf_error_ucurl ctermfg=white ctermbg=red cterm=bold
-let g:hier_highlight_group_qf  = "qf_error_ucurl"
+let g:hier_highlight_group_qf = "qf_error_ucurl"
 
 hi qf_warning_ucurl ctermfg=white ctermbg=blue cterm=bold
 let g:hier_highlight_group_qfw = "qf_warning_ucurl"
@@ -380,16 +461,10 @@ call quickrun#register_outputter("my_outputter", my_outputter)
 
 nmap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
 
-""====================================================================================================
-" ◆ Restart.vim
 "====================================================================================================
-let g:restart_sessionoptions
-	\ = 'blank,buffers,curdir,folds,help,localoptions,tabpages'
-
-"===================================================================================================e
 " ◆ Rainbow Parenthesis
 "====================================================================================================
-autocmd FileType *   :RainbowParenthesesLoadRound
+"autocmd FileType *   :RainbowParenthesesLoadRound
 autocmd FileType cpp :RainbowParenthesesLoadChevrons
 
 "====================================================================================================
@@ -423,3 +498,40 @@ nnoremap ,ql :<C-u>Unite quicklearn -immediately<CR>
 let g:syntastic_mode_map = { 'mode': 'active',
 	\ 'active_filetypes'  : ['ruby', 'php'],
 	\ 'passive_filetypes' : ['cpp'] }
+
+"====================================================================================================
+" ◆ TToC
+"====================================================================================================
+" Key Mapping
+" ---------------------------------------------------------------------------------------------------
+:noremap <F3> :TToC<CR>
+:noremap <F4> :TToC!<CR>
+:inoremap <F3> <C-o>:TToC<CR>
+:inoremap <F4> <C-o>:TToC!<CR>
+
+" For Memo
+" ---------------------------------------------------------------------------------------------------
+if has('win32') || has('win64')
+	:autocmd BufNewFile,BufRead *.txt :set filetype=memo
+else
+	:autocmd BufNewFile,BufRead *.txt :set filetype=txt
+endif
+:let g:ttoc_rx_memo = '^\k\+\>'
+
+"====================================================================================================
+" ◆ reanimate.vim
+"====================================================================================================
+let g:reanimate_save_dir          = $HOME."/.vim/save_point"
+let g:reanimate_default_save_name = "latest"
+set sessionoptions               += "buffers"
+let g:reanimate_sessionoptions    = "buffers,curdir,folds,help,localoptions,slash,tabpages,winsize"
+
+" augroup SavePoint
+" 	autocmd!
+" 	autocmd VimLeavePre * ReanimateSave
+" augroup END
+
+nnoremap <silent> ral :Unite reanimate -default-action=reanimate_load<CR>
+nnoremap <silent> ras :Unite reanimate -default-action=reanimate_save<CR>
+
+let $REANIMATE = g:reanimate_save_dir
