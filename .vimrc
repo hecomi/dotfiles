@@ -24,6 +24,10 @@ set autoindent smartindent
 colorscheme elflord
 hi LineNr ctermfg=darkgray
 hi SpecialKey ctermfg=black
+hi Pmenu ctermbg=darkgray ctermfg=white
+hi PmenuSel ctermbg=gray ctermfg=black
+hi PmenuSbar ctermbg=darkblue
+hi PmenuThumb ctermbg=white
 
 " Input Assist
 " ---------------------------------------------------------------------------------------------------
@@ -78,7 +82,7 @@ function! Last_point()
     return reanimate#is_saved() ? reanimate#last_point() : "no save"
 endfunction
 set laststatus=2
-set statusline=%=[%{Last_point()}\]\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l,%03v]
+set statusline=%=[%F][%{Last_point()}\]\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l/%L,%03v]
 
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
@@ -183,6 +187,7 @@ NeoBundle 'git://github.com/tomtom/tlib_vim.git'
 NeoBundle 'git://github.com/toritori0318/vim-redmine.git'
 NeoBundle 'git://github.com/osyo-manga/unite-boost-online-doc.git'
 NeoBundle 'git://github.com/osyo-manga/vim-reanimate.git'
+NeoBundle 'git://github.com/toritori0318/vim-redmine.git'
 
 NeoBundle 'git://github.com/osyo-manga/unite-banban.git'
 NeoBundle 'git://github.com/osyo-manga/unite-banban2.git'
@@ -430,6 +435,16 @@ call unite#define_source(s:unite_source)
 
 nnoremap <silent> <silent> ,qc :Unite quickrun-select<CR>
 nnoremap <silent> <F5> :execute ":QuickRun ".g:quickrun_compile_command[&filetype]<CR>
+
+"====================================================================================================
+" ◆ vimgdb
+"====================================================================================================
+if has('unix')
+	set previewheight=14
+	source ~/.vim/macros/gdb_mappings.vim
+	set asm=0
+	set gdbprg=gdb
+endif
 
 "====================================================================================================R
 " ◆ Syntax check with quickfixstatus & vim-hier

@@ -82,6 +82,17 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# vim
+alias vimgdb='/usr/local/bin/vim'
+# alias vi='/usr/local/bin/vim'
+
+# g++
+alias g++0x='g++-4.6 -std=c++0x'
+
+# clang
+alias clang='/usr/local/bin/clang'
+alias clang++='/usr/local/bin/clang++'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -100,9 +111,6 @@ fi
 
 # Locale set
 export LC_MESSAGES=C
-
-# Path
-export PATH=/usr/local/clang-3.0/bin:"$PATH"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
