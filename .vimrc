@@ -140,7 +140,7 @@ filetype off
 " ---------------------------------------------------------------------------------------------------
 if has('vim_starting')
 	set runtimepath+='~/.vim/bundle/neobundle'
-	call neobundle#rc(expand('~/.vim/bundle/neobundle/plugins'))
+	call neobundle#rc(expand('/home/hecomi/.vim/bundle/neobundle/plugins'))
 endif
 
 " Shougo-san's Repos (default)

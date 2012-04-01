@@ -15,7 +15,10 @@ SAVEHIST=10000
 setopt hist_ignore_dups
 setopt share_history
 autoload history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 zle -N history-beginning-search-backward-end history-search-end
+bindkey "^N" history-beginning-search-forward-end
+bindkey "^P" history-beginning-search-backward-end
 
 # color
 export LS_COLORS='di=1;34:ln=1;36:so=32:pi=33:ex=1;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -24,7 +27,7 @@ export LS_COLORS='di=1;34:ln=1;36:so=32:pi=33:ex=1;31:bd=46;34:cd=43;34:su=41;30
 export LANG=ja_JP.UTF-8
 setopt auto_cd
 setopt auto_pushd
-setopt correct
+#setopt correct
 setopt list_packed
 setopt nolistbeep
 setopt multios
@@ -48,8 +51,6 @@ alias egrep='egrep --color=auto'
 
 alias g++0x='g++-4.6 -std=c++0x'
 
-bindkey "^n" history-beginning-search-forward-end
-bindkey "^p" history-beginning-search-backward-end
 
 # Compilation
 # ---------------------------------------------------------------------------------------------------
@@ -82,7 +83,17 @@ local DEFAULT=$white
 
 # Prompt
 # ---------------------------------------------------------------------------------------------------
-PROMPT=$GREEN'${USER}@${HOST}%(!.#.$) '$DEFAULT
+local HOSTC=$GREEN
+case ${HOST} in
+hecom)
+	HOSTC=$PURPLE
+	;;
+*)
+	[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
+		HOSTC=$YELLOW
+	;;
+esac
+PROMPT=$HOSTC'${USER}@${HOST}%(!.#.$) '$DEFAULT
 PROMPT2=$blue'%_> '$DEFAULT
 RPROMPT=$GREEN'[%~]'$DEFAULT
 SPROMPT=$BLUE'correct: '$WHITE'%R'$BLUE' -> '$YELLOW'%r'$BLUE' [nyae]? '$DEFAULT
