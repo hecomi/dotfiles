@@ -22,13 +22,14 @@ set autoindent smartindent
 
 " Color Scheme
 " ---------------------------------------------------------------------------------------------------
-colorscheme elflord
+colorscheme desert
 hi LineNr     ctermfg=darkgray
 hi SpecialKey ctermfg=black
 hi Pmenu      ctermbg=darkgray ctermfg=white
 hi PmenuSel   ctermbg=gray     ctermfg=black
 hi PmenuSbar  ctermbg=darkblue
 hi PmenuThumb ctermbg=white
+hi CursorLine ctermbg=gray ctermfg=white
 
 " Input Assist
 " ---------------------------------------------------------------------------------------------------
@@ -80,7 +81,7 @@ set statusline=%=[%F][%{Last_point()}\]\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 if exists('&ambiwidth')
 	set ambiwidth=double
@@ -89,28 +90,60 @@ endif
 "====================================================================================================
 " * Key Mappings
 "====================================================================================================
-" Emacs like
+" edit vimrcs
+" ---------------------------------------------------------------------------------------------------
+nnoremap <silent> ,vimrc  :e ~/.vimrc<CR>
+nnoremap <silent> ,gvimrc :e ~/.gvimrc<CR>
+
+" Emacs-like mapping @ insert mode
 " Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
 " ---------------------------------------------------------------------------------------------------
-imap <C-p> <Up>
-imap <C-n> <Down>
-imap <C-b> <Left>
-imap <C-f> <Right>
-imap <C-e> <End>
-imap <C-a> <Home>
-imap <C-h> <Backspace>
-imap <C-d> <Del>
-imap <C-k> <C-r>=ExecNormalCommand('d$')<CR><Esc>A
-imap <C-l> <C-r>=ExecNormalCommand('zz')<CR>
-
 function! ExecNormalCommand(command)
   return ''
 endfunction
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-e> <End>
+inoremap <C-a> <Home>
+inoremap <C-h> <Backspace>
+inoremap <C-d> <Del>
+inoremap <C-k> <C-r>=ExecNormalCommand('d$')<CR><Esc>A
+inoremap <C-l> <C-r>=ExecNormalCommand('zz')<CR>
+
+" Centering when searching
+" ---------------------------------------------------------------------------------------------------
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
+" disable
+" ---------------------------------------------------------------------------------------------------
+nnoremap q <Nop>
+nnoremap Q <Nop>
+
+" Select
+" ---------------------------------------------------------------------------------------------------
+nnoremap <C-a> ggVG
+
+" Copy
+" ---------------------------------------------------------------------------------------------------
+nnoremap <Space>p :set paste<CR>
+nnoremap <Space>P :set nopaste<CR>
 
 " Scroll
 " ---------------------------------------------------------------------------------------------------
-nmap <silent> <S-j> <C-d>
-nmap <silent> <S-k> <C-u>
+nnoremap <silent> <S-j> <C-d>
+nnoremap <silent> <S-k> <C-u>
+
+" Pane transition
+" ---------------------------------------------------------------------------------------------------
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " help
 " ---------------------------------------------------------------------------------------------------
@@ -125,13 +158,13 @@ command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <co
 
 " date
 " ---------------------------------------------------------------------------------------------------
-inoremap <Leader>date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
-inoremap <Leader>time <C-R>=strftime('%H:%M')<CR>
-inoremap <Leader>w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
+inoremap ,date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
+inoremap ,time <C-R>=strftime('%H:%M')<CR>
+inoremap ,w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
 
 " IME
 " ---------------------------------------------------------------------------------------------------
-imap <Nul> <C-^>
+inoremap <Nul> <C-^>
 augroup InsModeAu
     autocmd!
     autocmd InsertEnter,CmdwinEnter * set noimdisable
@@ -207,6 +240,8 @@ NeoBundle 'git://github.com/mattn/vdbi-vim.git'
 NeoBundle 'git://github.com/taku-o/vim-zoom.git'
 NeoBundle 'git://github.com/mattn/quickrunex-vim.git'
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
+" NeoBundle 'git://github.com/hallettj/jslint.vim.git'
+NeoBundle 'git://github.com/mrkschan/vim-node-jslint.git'
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
@@ -401,14 +436,14 @@ let g:Powerline_colorscheme='my'
 "====================================================================================================
 " * unite.vim
 "====================================================================================================
-map  <C-s>    <Plug>(neocomplcache_start_unite_snippet
-nmap <silent> ,ufb :Unite file buffer<CR>
-nmap <silent> ,uft :tabnew<CR>:Unite file<CR>
-nmap <silent> ,ufw :tabnew<CR>:Unite file<CR>
-nmap <Space>u :Unite<Space>
-nmap <silent> <Space>b :Unite buffer<CR>
-nmap <silent> <Space>t :Unite tab<CR>
-nmap <silent> <Space>g :Unite grep<CR>
+noremap  <C-s>    <Plug>(neocomplcache_start_unite_snippet
+nnoremap <silent> ,ufb :Unite file buffer<CR>
+nnoremap <silent> ,uft :tabnew<CR>:Unite file<CR>
+nnoremap <silent> ,ufw :tabnew<CR>:Unite file<CR>
+nnoremap <Space>u :Unite<Space>
+nnoremap <silent> <Space>b :Unite buffer<CR>
+nnoremap <silent> <Space>t :Unite tab<CR>
+nnoremap <silent> <Space>g :Unite grep<CR>
 
 "====================================================================================================
 " * vimfiler
@@ -445,8 +480,8 @@ call unite#custom_action('file', 'my_vsplit', my_action)
 " Key binds
 " ---------------------------------------------------------------------------------------------------
 nnoremap <silent> <Space>f :VimFiler<CR>
-nnoremap <silent> vf       :VimFiler<CR>
-nnoremap <silent> vfx      :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+nnoremap <silent> ,vf       :VimFiler<CR>
+nnoremap <silent> <Space>F  :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 
 "====================================================================================================
 " * vimshell
@@ -460,9 +495,9 @@ call unite#custom_default_action('vimshell/history', 'insert')
 " key maping
 " ---------------------------------------------------------------------------------------------------
 nnoremap <silent> <Space>s  :VimShell<CR>
-nnoremap <silent> vs        :VimShell<CR>
-nnoremap <silent> vsc       :VimShellCReate<CR>
-nnoremap <silent> vsp       :VimShellPop<CR>
+nnoremap <silent> ,vs        :VimShell<CR>
+nnoremap <silent> ,vsc       :VimShellCReate<CR>
+nnoremap <silent> ,vsp       :VimShellPop<CR>
 
 "====================================================================================================
 " * Ref-vim
@@ -474,7 +509,7 @@ if has('win32') || has('win64')
 	let g:ref_alc_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
 endif
 
-nmap ,ra :<C-u>Ref alc<Space>
+nnoremap ,ra :<C-u>Ref alc<Space>
 
 let g:ref_alc_start_linenumber = 39
 if has('win32') || has('win64')
@@ -499,8 +534,8 @@ inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
 " snippets expand key
 " ---------------------------------------------------------------------------------------------------
-imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
-smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+inoremap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+snoremap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 
 "====================================================================================================
 " * clang_complete
@@ -600,6 +635,7 @@ let g:quickrun_config['CppSyntaxCheck'] = {
 let g:quickrun_config['node'] = {
 	\ 'type'    : 'javascript',
 	\ 'command' : 'node',
+	\ 'runner'  : 'shell'
 \ }
 
 let g:quickrun_config['ghci'] = {
@@ -713,7 +749,7 @@ endfunction
 
 call quickrun#register_outputter('my_outputter', my_outputter)
 
-nmap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
+nnoremap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
 
 "====================================================================================================
 " * Rainbow Parenthesis
@@ -729,17 +765,17 @@ let g:echodoc_enable_at_startup = 1
 "====================================================================================================
 " * Open-Browser
 "====================================================================================================
-nmap <silent> ,bo <Plug>(openbrowser-open)
-vmap <silent> ,bo <Plug>(openbrowser-open)
+nnoremap <silent> ,bo <Plug>(openbrowser-open)
+vnoremap <silent> ,bo <Plug>(openbrowser-open)
 
 "====================================================================================================
 " * quickhl
 "====================================================================================================
-nmap <Space>m <Plug>(quickhl-toggle)
-xmap <Space>m <Plug>(quickhl-toggle)
-nmap <Space>M <Plug>(quickhl-reset)
-xmap <Space>M <Plug>(quickhl-reset)
-nmap <Space>j <Plug>(quickhl-match)
+nnoremap <Space>m <Plug>(quickhl-toggle)
+xnoremap <Space>m <Plug>(quickhl-toggle)
+nnoremap <Space>M <Plug>(quickhl-reset)
+xnoremap <Space>M <Plug>(quickhl-reset)
+nnoremap <Space>j <Plug>(quickhl-match)
 
 "====================================================================================================
 " * quicklearn
@@ -758,10 +794,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 "====================================================================================================
 " Key Mapping
 " ---------------------------------------------------------------------------------------------------
-:noremap <F3> :TToC<CR>
-:noremap <F4> :TToC!<CR>
-:inoremap <F3> <C-o>:TToC<CR>
-:inoremap <F4> <C-o>:TToC!<CR>
+nnoremap <F3> :TToC<CR>
+nnoremap <F4> :TToC!<CR>
+inoremap <F3> <C-o>:TToC<CR>
+inoremap <F4> <C-o>:TToC!<CR>
 
 " For Memo
 " ---------------------------------------------------------------------------------------------------
@@ -794,9 +830,9 @@ let $REANIMATE = g:reanimate_save_dir
 " * MemoList.vim
 "====================================================================================================
 " map
-map ,mn  :MemoNew<CR>
-map ,ml  :MemoList<CR>
-map ,mg  :MemoGrep<CR>
+nnoremap ,mn  :MemoNew<CR>
+nnoremap ,ml  :MemoList<CR>
+nnoremap ,mg  :MemoGrep<CR>
 
 " parameters
 let g:memolist_path              = '$HOME/Memo'
@@ -821,3 +857,7 @@ endif
 let g:ref_lynx_use_cache = 1
 let g:ref_lynx_start_linenumber = 0
 
+"====================================================================================================
+" * jslint
+"====================================================================================================
+nmap <silent> ,jl <F7>
