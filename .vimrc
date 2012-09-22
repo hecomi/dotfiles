@@ -81,6 +81,7 @@ set statusline=%=[%F][%{Last_point()}\]\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
 set encoding=utf-8
+set termencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 if exists('&ambiwidth')
@@ -194,73 +195,80 @@ if has('vim_starting')
 	call neobundle#rc(expand('~/.vim/bundle/neobundle/plugins'))
 endif
 
-" Shougo-san's Repos (default)
+" Shougo-san's Repos
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'git://github.com/Shougo/echodoc.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-"NeoBundle 'git://github.com/Shougo/neocomplcache-clang.git'
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-"NeoBundle 'git://github.com/Shougo/vim-vcs.git'
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
-NeoBundle 'git://github.com/Shougo/vimshell.git'
-NeoBundle 'git://github.com/Shougo/vinarise.git'
-NeoBundle 'git://github.com/Shougo/vimproc.git'
-NeoBundle 'git://github.com/Shougo/unite-ssh.git'
+NeoBundle 'Shougo/echodoc'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
+"NeoBundle 'Shougo/neocomplcache-clang'
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/vim-vcs'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vinarise'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/unite-ssh'
 
 " GitHub Repos
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'git://github.com/h1mesuke/vim-alignta.git'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'git://github.com/tyru/open-browser.vim.git'
-NeoBundle 'git://github.com/tyru/caw.vim.git'
-NeoBundle 'git://github.com/jceb/vim-hier.git'
-NeoBundle 'git://github.com/thinca/vim-ref.git'
-NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
-NeoBundle 'git://github.com/tsukkee/lingr-vim.git'
-NeoBundle 'git://github.com/Rip-Rip/clang_complete.git'
-NeoBundle 'git://github.com/osyo-manga/neocomplcache-clang_complete.git'
-NeoBundle 'git://github.com/mattn/vimplenote-vim.git'
-NeoBundle 'git://github.com/mattn/webapi-vim.git'
-NeoBundle 'git://github.com/t9md/vim-quickhl.git'
-NeoBundle 'git://github.com/scrooloose/syntastic.git'
-NeoBundle 'git://github.com/ujihisa/quicklearn.git'
-NeoBundle 'git://github.com/mattn/zencoding-vim.git'
-NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
-NeoBundle 'git://github.com/davidoc/taskpaper.vim.git'
-NeoBundle 'git://github.com/tomtom/ttoc_vim.git'
-NeoBundle 'git://github.com/tomtom/tlib_vim.git'
-NeoBundle 'git://github.com/toritori0318/vim-redmine.git'
-NeoBundle 'git://github.com/osyo-manga/vim-reanimate.git'
-NeoBundle 'git://github.com/toritori0318/vim-redmine.git'
-NeoBundle 'git://github.com/glidenote/memolist.vim.git'
-NeoBundle 'git://github.com/fuenor/qfixgrep.git'
-NeoBundle 'git://github.com/osyo-manga/ref-lynx.git'
-NeoBundle 'git://github.com/mattn/vdbi-vim.git'
-NeoBundle 'git://github.com/taku-o/vim-zoom.git'
-NeoBundle 'git://github.com/mattn/quickrunex-vim.git'
-NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
-" NeoBundle 'git://github.com/hallettj/jslint.vim.git'
-NeoBundle 'git://github.com/mrkschan/vim-node-jslint.git'
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/caw.vim'
+NeoBundle 'jceb/vim-hier'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'tsukkee/lingr-vim'
+NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'osyo-manga/neocomplcache-clang_complete'
+NeoBundle 'mattn/vimplenote-vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 't9md/vim-quickhl'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'ujihisa/quicklearn'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'davidoc/taskpaper.vim'
+NeoBundle 'tomtom/ttoc_vim'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'toritori0318/vim-redmine'
+NeoBundle 'osyo-manga/vim-reanimate'
+NeoBundle 'toritori0318/vim-redmine'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'osyo-manga/ref-lynx'
+NeoBundle 'mattn/vdbi-vim'
+NeoBundle 'taku-o/vim-zoom'
+NeoBundle 'mattn/quickrunex-vim'
+NeoBundle 'Lokaltog/vim-powerline'
+" NeoBundle 'hallettj/jslint.vim'
+NeoBundle 'mrkschan/vim-node-jslint'
+NeoBundle 'vim-scripts/jshint.vim'
+NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundle 'osyo-manga/unite-quickrun_config'
+NeoBundle 'osyo-manga/unite-filetype'
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'git://github.com/osyo-manga/unite-boost-online-doc.git'
-NeoBundle 'git://github.com/tsukkee/unite-help.git'
-NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
-NeoBundle 'git://github.com/ujihisa/unite-locate.git'
-NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
-NeoBundle 'git://github.com/ujihisa/unite-font.git'
-NeoBundle 'git://github.com/osyo-manga/unite-banban.git'
-NeoBundle 'git://github.com/osyo-manga/unite-banban2.git'
-NeoBundle 'git://github.com/osyo-manga/unite-jojo.git'
-NeoBundle 'git://github.com/osyo-manga/unite-nyancat_anim.git'
-NeoBundle 'git://github.com/osyo-manga/unite-rofi.git'
-NeoBundle 'git://github.com/osyo-manga/unite-shimapan.git'
-NeoBundle 'https://github.com/osyo-manga/unite-sl.git'
-NeoBundle 'https://github.com/osyo-manga/unite-life-game.git'
-NeoBundle 'git://github.com/osyo-manga/unite-u-nya-.git'
-NeoBundle 'git://github.com/osyo-manga/unite-homo.git'
+NeoBundle 'osyo-manga/unite-boost-online-doc'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'ujihisa/unite-locate'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'ujihisa/unite-font'
+NeoBundle 'osyo-manga/unite-banban'
+NeoBundle 'osyo-manga/unite-banban2'
+NeoBundle 'osyo-manga/unite-jojo'
+NeoBundle 'osyo-manga/unite-nyancat_anim'
+NeoBundle 'osyo-manga/unite-rofi'
+NeoBundle 'osyo-manga/unite-shimapan'
+NeoBundle 'osyo-manga/unite-sl'
+NeoBundle 'osyo-manga/unite-life-game'
+NeoBundle 'osyo-manga/unite-u-nya-'
+NeoBundle 'osyo-manga/unite-homo'
 
 " Vim-scripts Repos
 " ---------------------------------------------------------------------------------------------------
@@ -436,7 +444,6 @@ let g:Powerline_colorscheme='my'
 "====================================================================================================
 " * unite.vim
 "====================================================================================================
-noremap  <C-s>    <Plug>(neocomplcache_start_unite_snippet
 nnoremap <silent> ,ufb :Unite file buffer<CR>
 nnoremap <silent> ,uft :tabnew<CR>:Unite file<CR>
 nnoremap <silent> ,ufw :tabnew<CR>:Unite file<CR>
@@ -534,8 +541,8 @@ inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
 " snippets expand key
 " ---------------------------------------------------------------------------------------------------
-inoremap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
-snoremap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
+smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 
 "====================================================================================================
 " * clang_complete
@@ -581,68 +588,68 @@ endif
 
 let g:quickrun_config = {}
 
-let g:quickrun_config['cpp'] = {
-	\ 'type'    : 'cpp',
-	\ 'command' : 'g++',
-	\ 'cmdopt'  : '-std=c++0x -Wall ' . quickrun_user_options_windows,
-\ }
-
-let g:quickrun_config['g++-4.4'] = {
-	\ 'type'    : 'cpp',
-	\ 'command' : 'g++-4.4',
-	\ 'cmdopt'  : '-std=c++0x -Wall ' . quickrun_user_options_windows,
-\ }
-
-let g:quickrun_config['g++-4.5'] = {
-	\ 'type'    : 'cpp',
-	\ 'command' : 'g++-4.5',
-	\ 'cmdopt'  : '-std=c++0x -Wall ' . quickrun_user_options_windows,
-\ }
-
-let g:quickrun_config['g++-4.6'] = {
-	\ 'type'    : 'cpp',
-	\ 'command' : 'g++-4.6',
-	\ 'cmdopt'  : '-std=c++0x -Wall ' . quickrun_user_options_windows,
-\ }
-
-let g:quickrun_config['g++-4.7'] = {
-	\ 'type'    : 'cpp',
-	\ 'command' : 'g++-4.7',
-	\ 'cmdopt'  : '-std=c++0x -Wall ',
-\ }
-
-let g:quickrun_config['g++-4.8'] = {
-	\ 'type'    : 'cpp',
-	\ 'command' : 'g++-4.8',
-	\ 'cmdopt'  : '-std=c++0x -Wall ',
-\ }
-
-let g:quickrun_config['Clang'] = {
-	\ 'type'    : 'cpp',
-	\ 'command' : 'clang++',
-	\ 'cmdopt'  : '-std=c++0x ' . quickrun_user_options_windows,
-\ }
-
-let g:quickrun_config['CppSyntaxCheck'] = {
+let g:quickrun_config['cpp/clang++'] = {
 	\ 'type'      : 'cpp',
-	\ 'exec'      : '%c %o %s:p ',
 	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : '-fsyntax-only -std=c++0x -Wall ' . quickrun_user_options_windows,
-	\ 'outputter' : 'silent_quickfix',
+	\ 'cmdopt'    : '-std=c++0x -Wall ',
 	\ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['node'] = {
-	\ 'type'    : 'javascript',
-	\ 'command' : 'node',
-	\ 'runner'  : 'shell'
+let g:quickrun_config['cpp/g++-4.6'] = {
+	\ 'type'      : 'cpp',
+	\ 'command'   : 'g++-4.8',
+	\ 'cmdopt'    : '-std=c++0x -Wall ',
+	\ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['ghci'] = {
+let g:quickrun_config['cpp/g++-4.7'] = {
+	\ 'type'      : 'cpp',
+	\ 'command'   : 'g++-4.8',
+	\ 'cmdopt'    : '-std=c++0x -Wall ',
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['cpp/g++-4.8'] = {
+	\ 'type'      : 'cpp',
+	\ 'command'   : 'g++-4.8',
+	\ 'cmdopt'    : '-std=c++0x -Wall ',
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['javascript/nodeSyntaxOnly'] = {
+	\ 'type'       : 'javascript',
+	\ 'command'    : 'cat',
+	\ 'runner'     : 'vimproc',
+	\ 'outputter'  : 'silent_quickfix'
+\ }
+
+let g:quickrun_config['haskell/ghci'] = {
 	\ 'type'    : 'haskell',
 	\ 'command' : 'ghci',
 	\ 'runner'  : 'shell'
 \ }
+
+let g:quickrun_config['_'] = {
+        \ "hook/echo/priority_exit"                      : 100,
+        \ "hook/echo/enable_output_exit"                 : 1,
+        \ "hook/close_unite_quickfix/enable_hook_loaded" : 1,
+        \ "hook/unite_quickfix/enable_failure"           : 1,
+        \ "hook/close_quickfix/enable_exit"              : 1,
+        \ "hook/close_buffer/enable_failure"             : 1,
+        \ "hook/close_buffer/enable_empty_data"          : 1,
+        \ "hook/echo/enable"                             : 1,
+        \ "hook/echo/output_success"                     : "(／・ω・)／ ﾆｬｰ",
+        \ "hook/echo/output_failure"                     : "(´・ω・｀) ｼｮﾎﾞｰﾝ",
+        \ "outputter"                                    : "multi:buffer:quickfix",
+        \ "hook/inu/enable"                              : 1,
+        \ "hook/inu/wait"                                : 5,
+        \ "outputter/buffer/split"                       : ":botright 8sp",
+        \ "runner"                                       : "vimproc",
+        \ "runner/vimproc/updatetime"                    : 40,
+\}
+
+call watchdogs#setup(g:quickrun_config)
+let g:watchdogs_check_BufWritePost_enable = 0
 
 " Error highlight
 " ---------------------------------------------------------------------------------------------------
@@ -663,41 +670,12 @@ function! s:silent_quickfix.finish(session)
 endfunction
 call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 
-" autocmd BufWritePost *.cpp,*.h,*.hpp :QuickRun CppSyntaxCheck
+" autocmd BufWritePost *.cpp,*.h,*.hpp :WatchdogsRun
 
 " Unite: quickrun-select
 " -------------------------------------------------------
-let g:quickrun_compile_command = {}
-
-let s:action = {
-      \ 'description'   : 'quickrun compile command',
-      \ 'is_selectable' : 1,
-\ }
-
-function! s:action.func(candidates)
-    for val in a:candidates
-        let g:quickrun_compile_command[&filetype] = val.word
-    endfor
-endfunction
-call unite#custom_action('common', 'quickrun_compile_command', s:action)
-unlet s:action
-
-let s:unite_source = {
-	\ 'name'           : 'quickrun-select',
-	\ 'default_action' : 'quickrun_compile_command'
-\ }
-
-function! s:unite_source.gather_candidates(args, context)
-	let cmds = filter(deepcopy(g:quickrun_config), 'exists('v:val.type') ? v:val.type == &filetype : 0')
-	return sort(values(map(cmds, '{
-		\ 'word'   : v:key,
-		\ 'source' : 'quickrun-select',
-\ }')))
-endfunction
-call unite#define_source(s:unite_source)
-
-nnoremap <silent> <silent> ,qc :Unite quickrun-select<CR>
-nnoremap <silent> <F5> :execute ':QuickRun '.g:quickrun_compile_command[&filetype]<CR>
+nnoremap <silent> <silent> ,qc :Unite quickrun_config<CR>
+nnoremap <silent> <leader>r :QuickRun<CR>
 
 "====================================================================================================
 " * vim-clang_declared
@@ -714,12 +692,12 @@ nnoremap <silent> <F10> :ClangDeclaredOpenTabDrop<CR>
 "====================================================================================================
 " * vimgdb
 "====================================================================================================
-if has('unix')
-	set previewheight=14
-	source ~/.vim/macros/gdb_mappings.vim
-	set asm=0
-	set gdbprg=gdb
-endif
+" if has('unix')
+" 	set previewheight=14
+" 	source ~/.vim/macros/gdb_mappings.vim
+" 	set asm=0
+" 	set gdbprg=gdb
+" endif
 
 "====================================================================================================R
 " * Syntax check with quickfixstatus & vim-hier

@@ -57,7 +57,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias g++='g++-4.8 -std=c++0x'
-
+alias nave='~/.nave/nave/nave.sh'
 
 # Compilation
 # ---------------------------------------------------------------------------------------------------
@@ -111,7 +111,7 @@ setopt PROMPT_SUBST
 local RUBY_PATH="$HOME/.rvm/bin/:$HOME/.rvm/gems/ruby-1.9.2-p290/gems/earthquake-0.9.0/bin/"
 local CLANG_PATH="/usr/local/clang-3.1/bin"
 local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
-local NODE_PATH="$HOME/.nave/installed/0.6.9/bin"
+local NODE_PATH="$HOME/.nave/installed/0.9.2/bin/"
 local GIT_PATH="$HOME/.git/git-tasukete"
 export PATH="/usr/local/bin:$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$NODE_PATH:$PATH"
 
