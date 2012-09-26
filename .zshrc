@@ -40,6 +40,7 @@ zmodload -i zsh/mathfunc
 # ---------------------------------------------------------------------------------------------------
 bindkey -e
 
+# ls
 case ${OSTYPE} in
 linux-gnu)
 	alias ls="ls -G -C --color"
@@ -52,12 +53,31 @@ alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -al"
 
+# grep
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias g++='g++-4.8 -std=c++0x'
+# C++
+case ${OSTYPE} in
+linux-gnu)
+	alias clang++='clang++ -std=c++11'
+	alias g++='g++-4.6 -std=c++0x'
+	;;
+darwin12.0)
+	alias clang++='clang++ -std=c++11 -stdlib=libc++ -I/usr/local/include/libcxx'
+	;;
+esac
+
+# Node.js
 alias nave='~/.nave/nave/nave.sh'
+
+# ctags
+case ${OSTYPE} in
+darwin12.0)
+	alias ctags="/usr/local/bin/ctags"
+	;;
+esac
 
 # Compilation
 # ---------------------------------------------------------------------------------------------------
@@ -111,9 +131,8 @@ setopt PROMPT_SUBST
 local RUBY_PATH="$HOME/.rvm/bin/:$HOME/.rvm/gems/ruby-1.9.2-p290/gems/earthquake-0.9.0/bin/"
 local CLANG_PATH="/usr/local/clang-3.1/bin"
 local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
-local NODE_PATH="$HOME/.nave/installed/0.9.2/bin/"
 local GIT_PATH="$HOME/.git/git-tasukete"
-export PATH="/usr/local/bin:$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$NODE_PATH:$PATH"
+export PATH="/usr/local/bin:$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$PATH"
 
 # RVM
 # ---------------------------------------------------------------------------------------------------

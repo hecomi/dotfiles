@@ -1,5 +1,5 @@
 "====================================================================================================
-" * Basic settings
+" Vim basic settings
 "====================================================================================================
 " Common
 " ---------------------------------------------------------------------------------------------------
@@ -88,13 +88,19 @@ if exists('&ambiwidth')
 	set ambiwidth=double
 endif
 
+
 "====================================================================================================
-" * Key Mappings
+" Common key mappings
 "====================================================================================================
 " edit vimrcs
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> ,vimrc  :e ~/.vimrc<CR>
-nnoremap <silent> ,gvimrc :e ~/.gvimrc<CR>
+if has('win32') || has('win64')
+	nnoremap <silent> ,vimrc  :e ~/_vimrc<CR>
+	nnoremap <silent> ,gvimrc :e ~/_gvimrc<CR>
+else
+	nnoremap <silent> ,vimrc  :e ~/.vimrc<CR>
+	nnoremap <silent> ,gvimrc :e ~/.gvimrc<CR>
+endif
 
 " Emacs-like mapping @ insert mode
 " Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
@@ -120,7 +126,7 @@ nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
 
-" disable
+" disable mappings
 " ---------------------------------------------------------------------------------------------------
 nnoremap q <Nop>
 nnoremap Q <Nop>
@@ -172,8 +178,32 @@ augroup InsModeAu
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
+
 "====================================================================================================
-" * Pathogen
+" Constants
+"====================================================================================================
+" Include Path
+" ---------------------------------------------------------------------------------------------------
+if has('mac')
+	let BOOST_INCLUDE_PATH = '/usr/local/include'
+	let BOOST_LIBRARY_PATH = '/usr/local/lib'
+	let STL_INCLUDE_PATH   = '/usr/local/include/libcxx'
+elseif has('win32') || has('win64')
+	let BOOST_INCLUDE_PATH = 'C:/include/boost'
+	let BOOST_LIBRARY_PATH = 'C:/include/boost/stage/lib'
+	let STL_INCLUDE_PATH   = 'C:/include/STL'
+else
+	let BOOST_INCLUDE_PATH = '/usr/include'
+	let BOOST_LIBRARY_PATH = '/usr/lib'
+	let STL_INCLUDE_PATH   = '/usr/local/include/c++/4.8.0'
+endif
+
+let &path = &path . STL_INCLUDE_PATH   . ','
+let &path = &path . BOOST_INCLUDE_PATH . ','
+
+
+"====================================================================================================
+" Pathogen
 "====================================================================================================
 filetype off
 
@@ -184,7 +214,7 @@ set helpfile=$VIMRUNTIME/doc/help.txt
 filetype on
 
 "====================================================================================================
-" * neobundle.vim
+" neobundle.vim
 "====================================================================================================
 filetype off
 
@@ -201,7 +231,7 @@ NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 "NeoBundle 'Shougo/neocomplcache-clang'
-NeoBundle 'Shougo/neobundle.vim'
+" NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/vim-vcs'
 NeoBundle 'Shougo/vimfiler'
@@ -221,7 +251,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'tsukkee/lingr-vim'
 NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'osyo-manga/neocomplcache-clang_complete'
+" NeoBundle 'osyo-manga/neocomplcache-clang_complete' Z m(_ _)m
 NeoBundle 'mattn/vimplenote-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 't9md/vim-quickhl'
@@ -250,6 +280,7 @@ NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'osyo-manga/unite-filetype'
+NeoBundle 'tsukkee/unite-tag'
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
@@ -280,54 +311,55 @@ NeoBundle 'restart.vim'
 filetype plugin on
 filetype indent on
 
+
 "====================================================================================================
-" * Vim-powerline
+" Vim-powerline
 "====================================================================================================
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
 
 " Copied from http://d.hatena.ne.jp/itchyny/20120609/1339249777
 call Pl#Hi#Allocate({
-  \ 'black'          : 16,
-  \ 'white'          : 231,
-  \
-  \ 'darkestgreen'   : 22,
-  \ 'darkgreen'      : 28,
-  \
-  \ 'darkestcyan'    : 23,
-  \ 'mediumcyan'     : 117,
-  \
-  \ 'darkestblue'    : 24,
-  \ 'darkblue'       : 31,
-  \
-  \ 'darkestred'     : 52,
-  \ 'darkred'        : 88,
-  \ 'mediumred'      : 124,
-  \ 'brightred'      : 160,
-  \ 'brightestred'   : 196,
-  \
-  \
-  \ 'darkestyellow'  : 59,
-  \ 'darkyellow'     : 100,
-  \ 'darkestpurple'  : 55,
-  \ 'mediumpurple'   : 98,
-  \ 'brightpurple'   : 189,
-  \
-  \ 'brightorange'   : 208,
-  \ 'brightestorange': 214,
-  \
-  \ 'gray0'          : 233,
-  \ 'gray1'          : 235,
-  \ 'gray2'          : 236,
-  \ 'gray3'          : 239,
-  \ 'gray4'          : 240,
-  \ 'gray5'          : 241,
-  \ 'gray6'          : 244,
-  \ 'gray7'          : 245,
-  \ 'gray8'          : 247,
-  \ 'gray9'          : 250,
-  \ 'gray10'         : 252,
-  \ })
+	\ 'black'          : 16,
+	\ 'white'          : 231,
+	\
+	\ 'darkestgreen'   : 22,
+	\ 'darkgreen'      : 28,
+	\
+	\ 'darkestcyan'    : 23,
+	\ 'mediumcyan'     : 117,
+	\
+	\ 'darkestblue'    : 24,
+	\ 'darkblue'       : 31,
+	\
+	\ 'darkestred'     : 52,
+	\ 'darkred'        : 88,
+	\ 'mediumred'      : 124,
+	\ 'brightred'      : 160,
+	\ 'brightestred'   : 196,
+	\
+	\
+	\ 'darkestyellow'  : 59,
+	\ 'darkyellow'     : 100,
+	\ 'darkestpurple'  : 55,
+	\ 'mediumpurple'   : 98,
+	\ 'brightpurple'   : 189,
+	\
+	\ 'brightorange'   : 208,
+	\ 'brightestorange': 214,
+	\
+	\ 'gray0'          : 233,
+	\ 'gray1'          : 235,
+	\ 'gray2'          : 236,
+	\ 'gray3'          : 239,
+	\ 'gray4'          : 240,
+	\ 'gray5'          : 241,
+	\ 'gray6'          : 244,
+	\ 'gray7'          : 245,
+	\ 'gray8'          : 247,
+	\ 'gray9'          : 250,
+	\ 'gray10'         : 252,
+	\ })
 
 " 'n': normal mode
 " 'i': insert mode
@@ -336,113 +368,114 @@ call Pl#Hi#Allocate({
 " 'N': not active
 
 let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
-  \ Pl#Hi#Segments(['SPLIT'], {
-    \ 'n': ['white', 'gray2'],
-    \ 'N': ['gray0', 'gray0'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['mode_indicator'], {
-    \ 'i': ['darkestgreen', 'white', ['bold']],
-    \ 'n': ['darkestcyan', 'white', ['bold']],
-    \ 'v': ['darkestpurple', 'white', ['bold']],
-    \ 'r': ['mediumred', 'white', ['bold']],
-    \ 's': ['white', 'gray5', ['bold']],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['fileinfo', 'filename'], {
-    \ 'i': ['white', 'darkestgreen', ['bold']],
-    \ 'n': ['white', 'darkestblue', ['bold']],
-    \ 'v': ['white', 'darkestpurple', ['bold']],
-    \ 'r': ['white', 'mediumred', ['bold']],
-    \ 'N': ['gray0', 'gray2', ['bold']],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['branch', 'scrollpercent', 'raw', 'filesize'], {
-    \ 'n': ['gray2', 'gray7'],
-    \ 'N': ['gray0', 'gray2'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['fileinfo.filepath', 'status'], {
-    \ 'n': ['gray10'],
-    \ 'N': ['gray5'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['static_str'], {
-    \ 'n': ['white', 'gray4'],
-    \ 'N': ['gray1', 'gray1'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['fileinfo.flags'], {
-    \ 'n': ['white'],
-    \ 'N': ['gray4'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup'], {
-    \ 'n': ['gray9', 'gray4'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['lineinfo'], {
-    \ 'n': ['gray2', 'gray10'],
-    \ 'N': ['gray2', 'gray4'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['errors'], {
-    \ 'n': ['white', 'gray2'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['lineinfo.line.tot'], {
-    \ 'n': ['gray2'],
-    \ 'N': ['gray2'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['paste_indicator', 'ws_marker'], {
-    \ 'n': ['white', 'brightred', ['bold']],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
-    \ 'n': ['white', 'mediumred', ['bold']],
-    \ 'N': ['brightred', 'darkestred', ['bold']],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['gundo:static_str.buffer', 'command_t:raw.line'], {
-    \ 'n': ['white', 'darkred'],
-    \ 'N': ['brightred', 'darkestred'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
-    \ 'n': ['white', 'darkred'],
-    \ 'N': ['white', 'darkestred'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['ctrlp:focus', 'ctrlp:byfname'], {
-    \ 'n': ['brightpurple', 'darkestpurple'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['ctrlp:prev', 'ctrlp:next', 'ctrlp:pwd'], {
-    \ 'n': ['white', 'mediumpurple'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['ctrlp:item'], {
-    \ 'n': ['darkestpurple', 'white', ['bold']],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['ctrlp:marked'], {
-    \ 'n': ['brightestred', 'darkestpurple', ['bold']],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['ctrlp:count'], {
-    \ 'n': ['darkestpurple', 'white'],
-    \ }),
-  \
-  \ Pl#Hi#Segments(['ctrlp:SPLIT'], {
-    \ 'n': ['white', 'darkestpurple'],
-    \ }),
-  \ ])
+	\ Pl#Hi#Segments(['SPLIT'], {
+		\ 'n': ['white', 'gray2'],
+		\ 'N': ['gray0', 'gray0'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['mode_indicator'], {
+		\ 'i': ['darkestgreen', 'white', ['bold']],
+		\ 'n': ['darkestcyan', 'white', ['bold']],
+		\ 'v': ['darkestpurple', 'white', ['bold']],
+		\ 'r': ['mediumred', 'white', ['bold']],
+		\ 's': ['white', 'gray5', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['fileinfo', 'filename'], {
+		\ 'i': ['white', 'darkestgreen', ['bold']],
+		\ 'n': ['white', 'darkestblue', ['bold']],
+		\ 'v': ['white', 'darkestpurple', ['bold']],
+		\ 'r': ['white', 'mediumred', ['bold']],
+		\ 'N': ['gray0', 'gray2', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['branch', 'scrollpercent', 'raw', 'filesize'], {
+		\ 'n': ['gray2', 'gray7'],
+		\ 'N': ['gray0', 'gray2'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['fileinfo.filepath', 'status'], {
+		\ 'n': ['gray10'],
+		\ 'N': ['gray5'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['static_str'], {
+		\ 'n': ['white', 'gray4'],
+		\ 'N': ['gray1', 'gray1'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['fileinfo.flags'], {
+		\ 'n': ['white'],
+		\ 'N': ['gray4'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup'], {
+		\ 'n': ['gray9', 'gray4'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['lineinfo'], {
+		\ 'n': ['gray2', 'gray10'],
+		\ 'N': ['gray2', 'gray4'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['errors'], {
+		\ 'n': ['white', 'gray2'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['lineinfo.line.tot'], {
+		\ 'n': ['gray2'],
+		\ 'N': ['gray2'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['paste_indicator', 'ws_marker'], {
+		\ 'n': ['white', 'brightred', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
+		\ 'n': ['white', 'mediumred', ['bold']],
+		\ 'N': ['brightred', 'darkestred', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['gundo:static_str.buffer', 'command_t:raw.line'], {
+		\ 'n': ['white', 'darkred'],
+		\ 'N': ['brightred', 'darkestred'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
+		\ 'n': ['white', 'darkred'],
+		\ 'N': ['white', 'darkestred'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:focus', 'ctrlp:byfname'], {
+		\ 'n': ['brightpurple', 'darkestpurple'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:prev', 'ctrlp:next', 'ctrlp:pwd'], {
+		\ 'n': ['white', 'mediumpurple'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:item'], {
+		\ 'n': ['darkestpurple', 'white', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:marked'], {
+		\ 'n': ['brightestred', 'darkestpurple', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:count'], {
+		\ 'n': ['darkestpurple', 'white'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:SPLIT'], {
+		\ 'n': ['white', 'darkestpurple'],
+		\ }),
+	\ ])
 
 let g:Powerline_colorscheme='my'
 
+
 "====================================================================================================
-" * unite.vim
+" unite.vim
 "====================================================================================================
 nnoremap <silent> ,ufb :Unite file buffer<CR>
 nnoremap <silent> ,uft :tabnew<CR>:Unite file<CR>
@@ -452,8 +485,9 @@ nnoremap <silent> <Space>b :Unite buffer<CR>
 nnoremap <silent> <Space>t :Unite tab<CR>
 nnoremap <silent> <Space>g :Unite grep<CR>
 
+
 "====================================================================================================
-" * vimfiler
+" vimfiler
 "====================================================================================================
 " Basic settings
 " ---------------------------------------------------------------------------------------------------
@@ -465,22 +499,22 @@ let g:vimfiler_safe_mode_by_default = 0
 " ---------------------------------------------------------------------------------------------------
 autocmd! FileType vimfiler call g:my_vimfiler_settings()
 function! g:my_vimfiler_settings()
-  nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
-  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<CR>
-  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<CR>
+	nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
+	nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<CR>
+	nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<CR>
 endfunction
 
 let my_action = { 'is_selectable' : 1 }
 function! my_action.func(candidates)
-  wincmd p
-  exec 'split '. a:candidates[0].action__path
+	wincmd p
+	exec 'split '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_split', my_action)
 
 let my_action = { 'is_selectable' : 1 }
 function! my_action.func(candidates)
-  wincmd p
-  exec 'vsplit '. a:candidates[0].action__path
+	wincmd p
+	exec 'vsplit '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_vsplit', my_action)
 
@@ -490,8 +524,9 @@ nnoremap <silent> <Space>f :VimFiler<CR>
 nnoremap <silent> ,vf       :VimFiler<CR>
 nnoremap <silent> <Space>F  :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 
+
 "====================================================================================================
-" * vimshell
+" vimshell
 "====================================================================================================
 " setting
 " ---------------------------------------------------------------------------------------------------
@@ -499,15 +534,15 @@ let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = $USERNAME . '$ '
 call unite#custom_default_action('vimshell/history', 'insert')
 
-" key maping
+" key mapping
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> <Space>s  :VimShell<CR>
+nnoremap <silent> <Space>s   :VimShell<CR>
 nnoremap <silent> ,vs        :VimShell<CR>
 nnoremap <silent> ,vsc       :VimShellCReate<CR>
 nnoremap <silent> ,vsp       :VimShellPop<CR>
 
 "====================================================================================================
-" * Ref-vim
+" Ref-vim
 "====================================================================================================
 " alc
 " ---------------------------------------------------------------------------------------------------
@@ -525,8 +560,9 @@ else
 	let g:ref_alc_encoding = 'UTF-8'
 endif
 
+
 "====================================================================================================
-" * neocomplcache
+" neocomplcache
 "====================================================================================================
 " Basic setting
 " ---------------------------------------------------------------------------------------------------
@@ -544,39 +580,39 @@ inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
 imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 
-"====================================================================================================
-" * clang_complete
-"====================================================================================================
-" Include Path
+" for clang_complete
 " ---------------------------------------------------------------------------------------------------
-if has('win32') || has('win64')
-	let BOOST_INCLUDE_PATH = 'C:/include/boost'
-	let BOOST_LIBRARY_PATH = 'C:/include/boost/stage/lib'
-	let STL_INCLUDE_PATH   = 'C:/include/STL'
-	let &path = &path . BOOST_INCLUDE_PATH . ','
-	let &path = &path . STL_PATH . ','
-else
-	let STL_INCLUDE_PATH   = '/usr/local/include/c++/4.4/'
-	let CLANG_INCLUDE_PATH = '/usr/local/lib/clang/3.1/include'
-	let &path = &path . ',' . STL_INCLUDE_PATH . ',' . CLANG_INCLUDE_PATH . ','
-	let &path = CLANG_INCLUDE_PATH . ',' . &path
+if !exists("g:neocomplcache_force_omni_patterns")
+	let g:neocomplcache_force_omni_patterns = {}
 endif
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 
+
+"====================================================================================================
+" clang_complete
+"====================================================================================================
+" Ref: http://d.hatena.ne.jp/osyo-manga/20120911/1347354707
+" ---------------------------------------------------------------------------------------------------
 let g:neocomplcache_force_overwrite_completefunc = 1
-if has('win32') || has('win64')
-	let g:clang_complete_auto = 1
+let g:clang_complete_auto=0
+
+if has('mac')
+	let g:clang_use_library   = 1
+	let g:clang_library_path  = '/usr/local/lib'
+	let g:clang_user_options  = '-std=c++11 -libstd=libc++ -I' . STL_INCLUDE_PATH
+elseif has('win32') || has('win64')
 	let g:clang_use_library   = 0
 	let g:clang_exec          = 'C:/MinGW/mingw32/bin/clang.exe'
 	let g:clang_user_options  = '-std=c++0x 2>NUL || exit 0'
 else
-	let g:clang_complete_auto = 1
 	let g:clang_use_library   = 1
 	let g:clang_library_path  = '/usr/share/clang'
 	let g:clang_user_options  = '2>/dev/null || exit 0'
 endif
 
+
 "====================================================================================================
-" * quickrun
+" quickrun
 "====================================================================================================
 " Compilers
 " ---------------------------------------------------------------------------------------------------
@@ -588,23 +624,32 @@ endif
 
 let g:quickrun_config = {}
 
-let g:quickrun_config['cpp/clang++'] = {
-	\ 'type'      : 'cpp',
-	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : '-std=c++0x -Wall ',
-	\ 'runner'    : 'vimproc',
-\ }
+if has('mac')
+	let g:quickrun_config['cpp/clang++'] = {
+		\ 'type'      : 'cpp',
+		\ 'command'   : 'clang++',
+		\ 'cmdopt'    : '-std=c++11 -stdlib=libc++ -I' . STL_INCLUDE_PATH . ' -Wall',
+		\ 'runner'    : 'vimproc',
+	\ }
+else
+	let g:quickrun_config['cpp/clang++'] = {
+		\ 'type'      : 'cpp',
+		\ 'command'   : 'clang++',
+		\ 'cmdopt'    : '-std=c++0x -Wall',
+		\ 'runner'    : 'vimproc',
+	\ }
+endif
 
 let g:quickrun_config['cpp/g++-4.6'] = {
 	\ 'type'      : 'cpp',
-	\ 'command'   : 'g++-4.8',
+	\ 'command'   : 'g++-4.6',
 	\ 'cmdopt'    : '-std=c++0x -Wall ',
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.7'] = {
 	\ 'type'      : 'cpp',
-	\ 'command'   : 'g++-4.8',
+	\ 'command'   : 'g++-4.7',
 	\ 'cmdopt'    : '-std=c++0x -Wall ',
 	\ 'runner'    : 'vimproc',
 \ }
@@ -616,13 +661,6 @@ let g:quickrun_config['cpp/g++-4.8'] = {
 	\ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['javascript/nodeSyntaxOnly'] = {
-	\ 'type'       : 'javascript',
-	\ 'command'    : 'cat',
-	\ 'runner'     : 'vimproc',
-	\ 'outputter'  : 'silent_quickfix'
-\ }
-
 let g:quickrun_config['haskell/ghci'] = {
 	\ 'type'    : 'haskell',
 	\ 'command' : 'ghci',
@@ -630,23 +668,23 @@ let g:quickrun_config['haskell/ghci'] = {
 \ }
 
 let g:quickrun_config['_'] = {
-        \ "hook/echo/priority_exit"                      : 100,
-        \ "hook/echo/enable_output_exit"                 : 1,
-        \ "hook/close_unite_quickfix/enable_hook_loaded" : 1,
-        \ "hook/unite_quickfix/enable_failure"           : 1,
-        \ "hook/close_quickfix/enable_exit"              : 1,
-        \ "hook/close_buffer/enable_failure"             : 1,
-        \ "hook/close_buffer/enable_empty_data"          : 1,
-        \ "hook/echo/enable"                             : 1,
-        \ "hook/echo/output_success"                     : "(／・ω・)／ ﾆｬｰ",
-        \ "hook/echo/output_failure"                     : "(´・ω・｀) ｼｮﾎﾞｰﾝ",
-        \ "outputter"                                    : "multi:buffer:quickfix",
-        \ "hook/inu/enable"                              : 1,
-        \ "hook/inu/wait"                                : 5,
-        \ "outputter/buffer/split"                       : ":botright 8sp",
-        \ "runner"                                       : "vimproc",
-        \ "runner/vimproc/updatetime"                    : 40,
-\}
+	\ 'hook/echo/priority_exit'                      : 100,
+	\ 'hook/echo/enable_output_exit'                 : 1,
+	\ 'hook/close_unite_quickfix/enable_hook_loaded' : 1,
+	\ 'hook/unite_quickfix/enable_failure'           : 1,
+	\ 'hook/close_quickfix/enable_exit'              : 1,
+	\ 'hook/close_buffer/enable_failure'             : 1,
+	\ 'hook/close_buffer/enable_empty_data'          : 1,
+	\ 'hook/echo/enable'                             : 1,
+	\ 'hook/echo/output_success'                     : '(／・ω・)／ ﾆｬｰ',
+	\ 'hook/echo/output_failure'                     : '(´・ω・｀) ｼｮﾎﾞｰﾝ',
+	\ 'outputter'                                    : 'multi:buffer:quickfix',
+	\ 'hook/inu/enable'                              : 1,
+	\ 'hook/inu/wait'                                : 5,
+	\ 'outputter/buffer/split'                       : ':botright 8sp',
+	\ 'runner'                                       : 'vimproc',
+	\ 'runner/vimproc/updatetime'                    : 40,
+\ }
 
 call watchdogs#setup(g:quickrun_config)
 let g:watchdogs_check_BufWritePost_enable = 0
@@ -677,8 +715,35 @@ call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 nnoremap <silent> <silent> ,qc :Unite quickrun_config<CR>
 nnoremap <silent> <leader>r :QuickRun<CR>
 
+
+"====================================================================================================R
+" ctags
+" Ref: http://d.hatena.ne.jp/osyo-manga/20120205/1328368314
 "====================================================================================================
-" * vim-clang_declared
+function! s:TagsUpdate()
+	setlocal tags=
+	for filename in neocomplcache#sources#include_complete#get_include_files(bufnr('%'))
+		execute "setlocal tags+=".neocomplcache#cache#encode_name('tags_output', filename)
+	endfor
+endfunction
+
+command!
+	\ -nargs=? PopupTags
+	\ call <SID>TagsUpdate()
+	\ |Unite tag:<args>
+
+function! s:get_func_name(word)
+	let end = match(a:word, '<\|[\|(')
+	return end == -1 ? a:word : a:word[ : end-1 ]
+endfunction
+
+noremap <silent> g<C-]> :<C-u>execute "PopupTags ".expand('<cword>')<CR>
+noremap <silent> G<C-]> :<C-u>execute "PopupTags "
+    \.substitute(<SID>get_func_name(expand('<cWORD>')), '\:', '\\\:', "g")<CR>
+
+
+"====================================================================================================
+" vim-clang_declared
 "====================================================================================================
 if has('win32') || has('win64')
 	let g:clang_declared_c_index_test_cmd = 'c-index-test.exe'
@@ -689,65 +754,71 @@ let g:clang_declared_options = '-std=c++0x'
 let g:clang_declared_debug_mode = 1
 nnoremap <silent> <F10> :ClangDeclaredOpenTabDrop<CR>
 
+
 "====================================================================================================
-" * vimgdb
+" vimgdb
 "====================================================================================================
-" if has('unix')
-" 	set previewheight=14
-" 	source ~/.vim/macros/gdb_mappings.vim
-" 	set asm=0
-" 	set gdbprg=gdb
-" endif
+if has('unix') && !has('mac')
+	set previewheight=14
+	source ~/.vim/macros/gdb_mappings.vim
+	set asm=0
+	set gdbprg=gdb
+endif
+
 
 "====================================================================================================R
-" * Syntax check with quickfixstatus & vim-hier
+" Syntax check with quickfixstatus & vim-hier
 "====================================================================================================
 let g:quickrun_config['*'] = {'split': ''}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
 
 augroup RSpec
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+	autocmd!
+	autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
 
 let my_outputter = quickrun#outputter#multi#new()
 let my_outputter.config.targets = ['buffer', 'quickfix']
 
 function! my_outputter.init(session)
-    :cclose
-    call call(quickrun#outputter#multi#new().init, [a:session], self)
+	:cclose
+	call call(quickrun#outputter#multi#new().init, [a:session], self)
 endfunction
 
 function! my_outputter.finish(session)
-    call call(quickrun#outputter#multi#new().finish, [a:session], self)
-    bwipeout [quickrun
-    :HierUpdate
-    :QuickfixStatusEnable
+	call call(quickrun#outputter#multi#new().finish, [a:session], self)
+	bwipeout [quickrun
+	:HierUpdate
+	:QuickfixStatusEnable
 endfunction
 
 call quickrun#register_outputter('my_outputter', my_outputter)
 
 nnoremap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
 
+
 "====================================================================================================
-" * Rainbow Parenthesis
+" Rainbow Parenthesis
 "====================================================================================================
 "autocmd FileType *   :RainbowParenthesesLoadRound
 autocmd FileType cpp :RainbowParenthesesLoadChevrons
 
+
 "====================================================================================================
-" * echodoc
+" echodoc
 "====================================================================================================
 let g:echodoc_enable_at_startup = 1
 
+
 "====================================================================================================
-" * Open-Browser
+" Open-Browser
 "====================================================================================================
 nnoremap <silent> ,bo <Plug>(openbrowser-open)
 vnoremap <silent> ,bo <Plug>(openbrowser-open)
 
+
 "====================================================================================================
-" * quickhl
+" quickhl
 "====================================================================================================
 nnoremap <Space>m <Plug>(quickhl-toggle)
 xnoremap <Space>m <Plug>(quickhl-toggle)
@@ -755,20 +826,23 @@ nnoremap <Space>M <Plug>(quickhl-reset)
 xnoremap <Space>M <Plug>(quickhl-reset)
 nnoremap <Space>j <Plug>(quickhl-match)
 
+
 "====================================================================================================
-" * quicklearn
+" quicklearn
 "====================================================================================================
 nnoremap ,ql :<C-u>Unite quicklearn -immediately<CR>
 
+
 "====================================================================================================
-" * Syntastic
+" Syntastic
 "====================================================================================================
 let g:syntastic_mode_map = { 'mode': 'active',
 	\ 'active_filetypes'  : ['ruby', 'php'],
 	\ 'passive_filetypes' : ['cpp'] }
 
+
 "====================================================================================================
-" * TToC
+" TToC
 "====================================================================================================
 " Key Mapping
 " ---------------------------------------------------------------------------------------------------
@@ -786,8 +860,9 @@ else
 endif
 :let g:ttoc_rx_memo = '^\k\+\>'
 
+
 "====================================================================================================
-" * reanimate.vim
+" reanimate.vim
 "====================================================================================================
 let g:reanimate_save_dir          = '~/.vim/save_point'
 let g:reanimate_default_save_name = 'latest'
@@ -804,8 +879,9 @@ nnoremap <silent> ras :Unite reanimate -default-action=reanimate_save<CR>
 
 let $REANIMATE = g:reanimate_save_dir
 
+
 "====================================================================================================
-" * MemoList.vim
+" MemoList.vim
 "====================================================================================================
 " map
 nnoremap ,mn  :MemoNew<CR>
@@ -822,8 +898,9 @@ let g:memolist_qfixgrep          = 1
 let g:memolist_vimfiler          = 1
 let g:memolist_template_dir_path = '~/.vim/template/memolist'
 
+
 "====================================================================================================
-" * ref-lynx
+" ref-lynx
 "====================================================================================================
 if has('win32') || has('win64')
 	let s:cfg = 'C:/MinGW/lynx/lynx.cfg'
@@ -835,7 +912,3 @@ endif
 let g:ref_lynx_use_cache = 1
 let g:ref_lynx_start_linenumber = 0
 
-"====================================================================================================
-" * jslint
-"====================================================================================================
-nmap <silent> ,jl <F7>
