@@ -134,6 +134,14 @@ local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
 local GIT_PATH="$HOME/.git/git-tasukete"
 export PATH="/usr/local/bin:$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$PATH"
 
+# for mac ports
+case ${OSTYPE} in
+darwin12.0)
+	export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+	export MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
+	;;
+esac
+
 # RVM
 # ---------------------------------------------------------------------------------------------------
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
