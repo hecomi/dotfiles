@@ -22,23 +22,12 @@ autocmd BufWritePre * :%s/\s\+$//ge
 set tabstop=4 shiftwidth=4 softtabstop=0
 set autoindent smartindent
 
-" Color Scheme
-" ---------------------------------------------------------------------------------------------------
-colorscheme desert
-hi LineNr     ctermfg=darkgray
-hi SpecialKey ctermfg=black
-hi Pmenu      ctermbg=darkgray ctermfg=white
-hi PmenuSel   ctermbg=gray     ctermfg=black
-hi PmenuSbar  ctermbg=darkblue
-hi PmenuThumb ctermbg=white
-hi CursorLine ctermbg=gray ctermfg=white
-
 " Input Assist
 " ---------------------------------------------------------------------------------------------------
 set backspace=indent,eol,start
 set formatoptions=lmoq
 set whichwrap=b,s,h,l,<,>,[,]
-set clipboard=unnamed,autoselect
+set clipboard=autoselect,unnamed
 
 " Complement Command
 " ---------------------------------------------------------------------------------------------------
@@ -96,21 +85,27 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
 	set ambiwidth=double
 endif
-
 " }}}
 
 "====================================================================================================
 " Common key mappings
 "====================================================================================================
 " {{{
+" prefix
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix] <nop>
+nmap <Space> [prefix]
+nnoremap [subprefix] <nop>
+nmap , [subprefix]
+
 " edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if has('win32') || has('win64')
-	nnoremap <silent> ,vimrc  :e ~/_vimrc<CR>
-	nnoremap <silent> ,gvimrc :e ~/_gvimrc<CR>
+	nnoremap <silent> [subprefix]vimrc  :e ~/_vimrc<CR>
+	nnoremap <silent> [subprefix]gvimrc :e ~/_gvimrc<CR>
 else
-	nnoremap <silent> ,vimrc  :e ~/.vimrc<CR>
-	nnoremap <silent> ,gvimrc :e ~/.gvimrc<CR>
+	nnoremap <silent> [subprefix]vimrc  :e ~/.vimrc<CR>
+	nnoremap <silent> [subprefix]gvimrc :e ~/.gvimrc<CR>
 endif
 
 " Emacs-like mapping @ insert mode
@@ -130,8 +125,9 @@ inoremap <C-d> <Del>
 inoremap <C-k> <C-r>=ExecNormalCommand('d$')<CR><Esc>A
 inoremap <C-l> <C-r>=ExecNormalCommand('zz')<CR>
 
-" Centering when searching
+" Search
 " ---------------------------------------------------------------------------------------------------
+nnoremap <Esc><Esc> :nohlsearch<CR>
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -148,20 +144,13 @@ nnoremap <C-a> ggVG
 
 " Copy
 " ---------------------------------------------------------------------------------------------------
-nnoremap <Space>p :set paste<CR>
-nnoremap <Space>P :set nopaste<CR>
+nnoremap [subprefix]sp  :set paste<CR>
+nnoremap [subprefix]nsp :set nopaste<CR>
 
 " Scroll
 " ---------------------------------------------------------------------------------------------------
 nnoremap <silent> <S-j> <C-d>
 nnoremap <silent> <S-k> <C-u>
-
-" Pane transition
-" ---------------------------------------------------------------------------------------------------
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " help
 " ---------------------------------------------------------------------------------------------------
@@ -169,16 +158,17 @@ nnoremap ? :Unite output:map\|map!\|lmap<CR>
 vnoremap ? :Unite output:map\|map!\|lmap<CR>
 
 " continuous number
+" Ref: http://d.hatena.ne.jp/fuenor/20090907/1252315621
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> ,co :ContinuousNumber <C-a><CR>
-vnoremap <silent> ,co :ContinuousNumber <C-a><CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
+nmap <silent> [subprefix]co :ContinuousNumber <C-a><CR>
+vmap <silent> [subprefix]co :ContinuousNumber <C-a><CR>
 
 " date
 " ---------------------------------------------------------------------------------------------------
-inoremap ,date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
-inoremap ,time <C-R>=strftime('%H:%M')<CR>
-inoremap ,w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
+inoremap [subprefix]date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
+inoremap [subprefix]time <C-R>=strftime('%H:%M')<CR>
+inoremap [subprefix]w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
 
 " auto close tag
 " Ref: http://d.hatena.ne.jp/babie/20110130/1296347719
@@ -198,7 +188,6 @@ augroup InsModeAu
     autocmd InsertEnter,CmdwinEnter * set noimdisable
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
-
 " }}}
 
 "====================================================================================================
@@ -223,7 +212,6 @@ endif
 
 let &path = &path . STL_INCLUDE_PATH   . ','
 let &path = &path . BOOST_INCLUDE_PATH . ','
-
 " }}}
 
 "====================================================================================================
@@ -237,7 +225,6 @@ call pathogen#helptags()
 set helpfile=$VIMRUNTIME/doc/help.txt
 
 filetype on
-
 " }}}
 
 "====================================================================================================
@@ -255,87 +242,76 @@ endif
 
 " Shougo-san's Repos
 " ---------------------------------------------------------------------------------------------------
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
-"NeoBundle 'Shougo/neocomplcache-clang'
-" NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/unite-ssh'
 NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/vim-vcs'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vinarise'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/unite-ssh'
-
-" GitHub Repos
-" ---------------------------------------------------------------------------------------------------
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'dannyob/quickfixstatus'
+NeoBundle 'davidoc/taskpaper.vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/caw.vim'
 NeoBundle 'jceb/vim-hier'
-NeoBundle 'thinca/vim-ref'
 NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'tsukkee/lingr-vim'
-NeoBundle 'Rip-Rip/clang_complete'
-" NeoBundle 'osyo-manga/neocomplcache-clang_complete' Z m(_ _)m
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/quickrunex-vim'
+NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'mattn/vimplenote-vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 't9md/vim-quickhl'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'ujihisa/quicklearn'
 NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'davidoc/taskpaper.vim'
-NeoBundle 'tomtom/ttoc_vim'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'toritori0318/vim-redmine'
-NeoBundle 'osyo-manga/vim-reanimate'
-NeoBundle 'toritori0318/vim-redmine'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'osyo-manga/ref-lynx'
-NeoBundle 'mattn/vdbi-vim'
-NeoBundle 'taku-o/vim-zoom'
-NeoBundle 'mattn/quickrunex-vim'
-NeoBundle 'Lokaltog/vim-powerline'
-" NeoBundle 'hallettj/jslint.vim'
-NeoBundle 'mrkschan/vim-node-jslint'
-NeoBundle 'vim-scripts/jshint.vim'
-NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'osyo-manga/unite-filetype'
+NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'osyo-manga/unite-quickrun_config'
+NeoBundle 'osyo-manga/vim-reanimate'
+NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'spolu/dwm.vim'
+NeoBundle 't9md/vim-quickhl'
+NeoBundle 'taku-o/vim-zoom'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'toritori0318/vim-redmine'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tsukkee/lingr-vim'
 NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'tyru/caw.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/restart.vim'
+NeoBundle 'ujihisa/quicklearn'
+NeoBundle 'vim-scripts/TwitVim'
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'vim-scripts/jshint.vim'
+NeoBundle 'vim-scripts/sudo.vim'
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'osyo-manga/unite-boost-online-doc'
-NeoBundle 'tsukkee/unite-help'
 NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'ujihisa/unite-locate'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-font'
 NeoBundle 'osyo-manga/unite-banban'
 NeoBundle 'osyo-manga/unite-banban2'
+NeoBundle 'osyo-manga/unite-boost-online-doc'
+NeoBundle 'osyo-manga/unite-homo'
 NeoBundle 'osyo-manga/unite-jojo'
+NeoBundle 'osyo-manga/unite-life-game'
 NeoBundle 'osyo-manga/unite-nyancat_anim'
 NeoBundle 'osyo-manga/unite-rofi'
 NeoBundle 'osyo-manga/unite-shimapan'
 NeoBundle 'osyo-manga/unite-sl'
-NeoBundle 'osyo-manga/unite-life-game'
 NeoBundle 'osyo-manga/unite-u-nya-'
-NeoBundle 'osyo-manga/unite-homo'
-
-" Vim-scripts Repos
-" ---------------------------------------------------------------------------------------------------
-NeoBundle 'quickfixstatus.vim'
-NeoBundle 'TwitVim'
-NeoBundle 'surround.vim'
-NeoBundle 'restart.vim'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'ujihisa/unite-font'
+NeoBundle 'ujihisa/unite-locate'
 
 filetype plugin on
 filetype indent on
@@ -503,21 +479,44 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 	\ ])
 
 let g:Powerline_colorscheme='my'
-
 " }}}
 
+"====================================================================================================
+" Color Scheme
+"====================================================================================================
+" {{{
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
+hi Normal     ctermbg=none     ctermfg=lightgray
+hi Comment    ctermfg=darkgray
+hi LineNr     ctermbg=none     ctermfg=darkgray
+hi SpecialKey ctermbg=none     ctermfg=black
+hi FoldColumn ctermbg=none     ctermfg=darkgreen
+hi Pmenu      ctermbg=darkgray ctermfg=white
+hi PmenuSel   ctermbg=gray     ctermfg=black
+hi PmenuSbar  ctermbg=darkblue
+hi PmenuThumb ctermbg=white
+hi CursorLine ctermbg=gray     ctermfg=white
+" }}}
+"
 "====================================================================================================
 " unite.vim
 "====================================================================================================
 " {{{
-nnoremap <silent> ,ufb :Unite file buffer<CR>
-nnoremap <silent> ,uft :tabnew<CR>:Unite file<CR>
-nnoremap <silent> ,ufw :tabnew<CR>:Unite file<CR>
-nnoremap <Space>u :Unite<Space>
-nnoremap <silent> <Space>b :Unite buffer<CR>
-nnoremap <silent> <Space>t :Unite tab<CR>
-nnoremap <silent> <Space>g :Unite grep<CR>
+nnoremap [unite] <nop>
+nmap <space> [unite]
 
+let g:unite_source_history_yank_enable =1
+
+nnoremap <silent> [unite]b   :Unite buffer<CR>
+nnoremap <silent> [unite]t   :Unite tab<CR>
+nnoremap <silent> [unite]w   :Unite window<CR>
+nnoremap <silent> [unite]g   :Unite grep<CR>
+nnoremap <silent> [unite]o   :Unite outline<CR>
+nnoremap <silent> [unite]s   :Unite snippet<CR>
+nnoremap <silent> [unite]y   :Unite history/yank<CR>
 " }}}
 
 "====================================================================================================
@@ -534,7 +533,7 @@ let g:vimfiler_safe_mode_by_default = 0
 " ---------------------------------------------------------------------------------------------------
 autocmd! FileType vimfiler call g:my_vimfiler_settings()
 function! g:my_vimfiler_settings()
-	nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
+	" nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
 	nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<CR>
 	nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<CR>
 endfunction
@@ -555,10 +554,9 @@ call unite#custom_action('file', 'my_vsplit', my_action)
 
 " Key binds
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> <Space>f :VimFiler<CR>
-nnoremap <silent> ,vf       :VimFiler<CR>
-nnoremap <silent> <Space>F  :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
-
+nnoremap <silent> [prefix]f     :VimFiler<CR>
+nnoremap <silent> [subprefix]vf :VimFiler<CR>
+nnoremap <silent> [prefix]F     :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 " }}}
 
 "====================================================================================================
@@ -573,11 +571,10 @@ call unite#custom_default_action('vimshell/history', 'insert')
 
 " key mapping
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> <Space>s   :VimShell<CR>
-nnoremap <silent> ,vs        :VimShell<CR>
-nnoremap <silent> ,vsc       :VimShellCReate<CR>
-nnoremap <silent> ,vsp       :VimShellPop<CR>
-
+nnoremap <silent> [prefix]s      :VimShell<CR>
+nnoremap <silent> [subprefix]vs  :VimShell<CR>
+nnoremap <silent> [subprefix]vsc :VimShellCReate<CR>
+nnoremap <silent> [subprefix]vsp :VimShellPop<CR>
 " }}}
 
 "====================================================================================================
@@ -599,7 +596,6 @@ if has('win32') || has('win64')
 else
 	let g:ref_alc_encoding = 'UTF-8'
 endif
-
 " }}}
 
 "====================================================================================================
@@ -617,18 +613,29 @@ inoremap <expr><TAB>   pumvisible() ? "<C-n>" : "<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "<C-p>" : "<S-TAB>"
 inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
-" snippets expand key
-" ---------------------------------------------------------------------------------------------------
-imap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
-smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
-
 " for clang_complete
 " ---------------------------------------------------------------------------------------------------
 if !exists("g:neocomplcache_force_omni_patterns")
 	let g:neocomplcache_force_omni_patterns = {}
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
+" }}}
 
+"====================================================================================================
+" neosnippet
+"====================================================================================================
+" {{{
+" directory
+" ---------------------------------------------------------------------------------------------------
+if !exists('g:neosnippet#snippets_directory')
+    let g:neosnippet#snippets_directory=''
+endif
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+
+" expand key
+" ---------------------------------------------------------------------------------------------------
+imap <silent> <C-e> <Plug>(neosnippet_jump_or_expand)
+smap <silent> <C-e> <Plug>(neosnippet_jump_or_expand)
 " }}}
 
 "====================================================================================================
@@ -653,7 +660,6 @@ else
 	let g:clang_library_path  = '/usr/share/clang'
 	let g:clang_user_options  = '2>/dev/null || exit 0'
 endif
-
 " }}}
 
 "====================================================================================================
@@ -719,6 +725,12 @@ let g:quickrun_config['typescript/tsc'] = {
 	\ 'runner'  : 'vimproc'
 \ }
 
+let g:quickrun_config['javascript/node'] = {
+	\ 'type'    : 'javascript',
+	\ 'command' : 'node',
+	\ 'runner'  : 'vimproc'
+\ }
+
 let g:quickrun_config['_'] = {
 	\ 'hook/echo/priority_exit'                      : 100,
 	\ 'hook/echo/enable_output_exit'                 : 1,
@@ -760,12 +772,13 @@ function! s:silent_quickfix.finish(session)
 endfunction
 call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 
-" autocmd BufWritePost *.cpp,*.h,*.hpp :WatchdogsRun
-
 " Unite: quickrun-select
 " -------------------------------------------------------
-nnoremap <silent> <silent> ,qc :Unite quickrun_config<CR>
+nnoremap <silent> [unite]qc :Unite quickrun_config<CR>
+nnoremap <silent> [prefix]r :QuickRun<CR>
 nnoremap <silent> <leader>r :QuickRun<CR>
+
+" autocmd BufWritePost *.cpp,*.h,*.hpp :WatchdogsRun
 
 " }}}
 
@@ -794,7 +807,6 @@ endfunction
 noremap <silent> g<C-]> :<C-u>execute "PopupTags ".expand('<cword>')<CR>
 noremap <silent> G<C-]> :<C-u>execute "PopupTags "
     \.substitute(<SID>get_func_name(expand('<cWORD>')), '\:', '\\\:', "g")<CR>
-
 " }}}
 
 "====================================================================================================
@@ -809,7 +821,6 @@ endif
 let g:clang_declared_options = '-std=c++0x'
 let g:clang_declared_debug_mode = 1
 nnoremap <silent> <F10> :ClangDeclaredOpenTabDrop<CR>
-
 " }}}
 
 "====================================================================================================
@@ -822,7 +833,6 @@ if has('unix') && !has('mac')
 	set asm=0
 	set gdbprg=gdb
 endif
-
 " }}}
 
 "====================================================================================================R
@@ -855,7 +865,6 @@ endfunction
 call quickrun#register_outputter('my_outputter', my_outputter)
 
 nnoremap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
-
 " }}}
 
 "====================================================================================================
@@ -876,8 +885,7 @@ augroup vim-auto-typescript
 augroup END
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
-" }}}
+autocmd QuickFixCmdPost    l* nested lwindow" }}}
 
 "====================================================================================================
 " Rainbow Parenthesis
@@ -885,7 +893,6 @@ autocmd QuickFixCmdPost    l* nested lwindow
 " {{{
 "autocmd FileType *   :RainbowParenthesesLoadRound
 autocmd FileType cpp :RainbowParenthesesLoadChevrons
-
 " }}}
 
 "====================================================================================================
@@ -893,16 +900,14 @@ autocmd FileType cpp :RainbowParenthesesLoadChevrons
 "====================================================================================================
 "{{{
 let g:echodoc_enable_at_startup = 1
-
 " }}}
 
 "====================================================================================================
 " Open-Browser
 "====================================================================================================
 " {{{
-nnoremap <silent> ,bo <Plug>(openbrowser-open)
-vnoremap <silent> ,bo <Plug>(openbrowser-open)
-
+nnoremap <silent> [subprefix]bo <Plug>(openbrowser-open)
+vnoremap <silent> [subprefix]bo <Plug>(openbrowser-open)
 " }}}
 
 "====================================================================================================
@@ -914,15 +919,13 @@ xnoremap <Space>m <Plug>(quickhl-toggle)
 nnoremap <Space>M <Plug>(quickhl-reset)
 xnoremap <Space>M <Plug>(quickhl-reset)
 nnoremap <Space>j <Plug>(quickhl-match)
-
 " }}}
 
 "====================================================================================================
 " quicklearn
 "====================================================================================================
 " {{{
-nnoremap ,ql :<C-u>Unite quicklearn -immediately<CR>
-
+nnoremap [unite]ql :<C-u>Unite quicklearn -immediately<CR>
 " }}}
 
 "====================================================================================================
@@ -932,51 +935,25 @@ nnoremap ,ql :<C-u>Unite quicklearn -immediately<CR>
 let g:syntastic_mode_map = { 'mode': 'active',
 	\ 'active_filetypes'  : ['ruby', 'php'],
 	\ 'passive_filetypes' : ['cpp'] }
-
-" }}}
-
-"====================================================================================================
-" TToC
-"====================================================================================================
-" {{{
-" Key Mapping
-" ---------------------------------------------------------------------------------------------------
-nnoremap <F3> :TToC<CR>
-nnoremap <F4> :TToC!<CR>
-inoremap <F3> <C-o>:TToC<CR>
-inoremap <F4> <C-o>:TToC!<CR>
-
-" For Memo
-" ---------------------------------------------------------------------------------------------------
-if has('win32') || has('win64')
-	:autocmd BufNewFile,BufRead *.txt :set filetype=memo
-else
-	:autocmd BufNewFile,BufRead *.txt :set filetype=txt
-endif
-:let g:ttoc_rx_memo = '^\k\+\>'
-
 " }}}
 
 "====================================================================================================
 " reanimate.vim
-" ToDo: 新しいバージョンに変更して設定する
 "====================================================================================================
 " {{{
-let g:reanimate_save_dir          = '~/.vim/save_point'
+let g:reanimate_save_dir          = $HOME.'/.vim/save_point'
 let g:reanimate_default_save_name = 'latest'
-set sessionoptions                = "buffers"
 let g:reanimate_sessionoptions    = 'buffers,curdir,folds,help,localoptions,slash,tabpages,winsize'
 
-" augroup SavePoint
-" 	autocmd!
-" 	autocmd VimLeavePre * ReanimateSave
-" augroup END
+augroup savepoint
+	autocmd!
+	autocmd vimleavepre * reanimatesave
+augroup end
 
-nnoremap <silent> ral :Unite reanimate -default-action=reanimate_load<CR>
-nnoremap <silent> ras :Unite reanimate -default-action=reanimate_save<CR>
+nnoremap <silent> [unite]ral :Unite reanimate -default-action=reanimate_load<CR>
+nnoremap <silent> [unite]ras :Unite reanimate -default-action=reanimate_save<CR>
 
 let $REANIMATE = g:reanimate_save_dir
-
 " }}}
 
 "====================================================================================================
@@ -984,12 +961,12 @@ let $REANIMATE = g:reanimate_save_dir
 "====================================================================================================
 " {{{
 " map
-nnoremap ,mn  :MemoNew<CR>
-nnoremap ,ml  :MemoList<CR>
-nnoremap ,mg  :MemoGrep<CR>
+nnoremap [subprefix]mn  :MemoNew<CR>
+nnoremap [subprefix]ml  :MemoList<CR>
+nnoremap [subprefix]mg  :MemoGrep<CR>
 
 " parameters
-let g:memolist_path              = '$HOME/Memo'
+let g:memolist_path              = '~/Memo'
 let g:memolist_memo_suffix       = 'txt'
 let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
 let g:memolist_prompt_tags       = 1
@@ -997,7 +974,6 @@ let g:memolist_prompt_categories = 1
 let g:memolist_qfixgrep          = 1
 let g:memolist_vimfiler          = 1
 let g:memolist_template_dir_path = '~/.vim/template/memolist'
-
 " }}}
 
 "====================================================================================================
@@ -1013,6 +989,22 @@ endif
 
 let g:ref_lynx_use_cache = 1
 let g:ref_lynx_start_linenumber = 0
-
 " }}}
 
+"====================================================================================================
+" gist.vim
+"====================================================================================================
+" {{{
+let g:gist_detect_filetype         = 1
+let g:gist_open_browser_after_post = 1
+" }}}
+
+"====================================================================================================
+" Alignta
+"====================================================================================================
+" {{{
+vnoremap a  :Alignta
+vnoremap a= :Alignta =<CR>
+vnoremap a+ :Alignta +<CR>
+vnoremap a: :Alignta :<CR>
+" }}}

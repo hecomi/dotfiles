@@ -60,12 +60,13 @@ alias egrep='egrep --color=auto'
 
 # C++
 case ${OSTYPE} in
-linux-gnu)
+linux*)
 	alias clang++='clang++ -std=c++11'
 	alias g++='g++-4.6 -std=c++0x'
 	;;
-darwin12.0)
+darwin*)
 	alias clang++='clang++ -std=c++11 -stdlib=libc++ -I/usr/local/include/libcxx'
+	alias vim='/usr/local/bin/vim'
 	;;
 esac
 
@@ -128,11 +129,12 @@ setopt PROMPT_SUBST
 
 # Path
 # ---------------------------------------------------------------------------------------------------
-local RUBY_PATH="$HOME/.rvm/bin/:$HOME/.rvm/gems/ruby-1.9.2-p290/gems/earthquake-0.9.0/bin/"
+local RUBY_PATH="$HOME/.rvm/bin/"
 local CLANG_PATH="/usr/local/clang-3.1/bin"
 local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
 local GIT_PATH="$HOME/.git/git-tasukete"
-export PATH="/usr/local/bin:$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$PATH"
+local VIM_PATH="/usr/local/bin/vim"
+export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$PATH"
 
 # for mac ports
 case ${OSTYPE} in
