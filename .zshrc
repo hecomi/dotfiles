@@ -136,14 +136,6 @@ local GIT_PATH="$HOME/.git/git-tasukete"
 local VIM_PATH="/usr/local/bin/vim"
 export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$PATH"
 
-# for mac ports
-case ${OSTYPE} in
-darwin12.0)
-	export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-	export MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
-	;;
-esac
-
 # RVM
 # ---------------------------------------------------------------------------------------------------
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function

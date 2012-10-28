@@ -3,14 +3,14 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/Dropbox/Program/javascript/node.js/julius
+cd ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 julius.cpp
-args julius.cpp
-edit julius.cpp
+badd +0 mecab.cc
+args mecab.cc
+edit mecab.cc
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -34,7 +34,7 @@ setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
-setlocal completefunc=neocomplcache#manual_complete
+setlocal completefunc=neocomplcache#auto_complete
 setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
@@ -116,12 +116,13 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 4 - ((3 * winheight(0) + 19) / 39)
+let s:l = 29 - ((10 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 0
+29
+normal! 01l
+lcd ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

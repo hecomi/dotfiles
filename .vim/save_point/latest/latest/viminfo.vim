@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/latest
+~MSle0~/path
 
 # Last Substitute Search Pattern:
 ~MSle0&4.2.1
@@ -17,48 +17,48 @@
 $
 
 # Command Line History (newest to oldest):
-:q
 :wq
-:Unite neobundle
-:e bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
 :w
-:Ref alc l
-:qa
+:q
+:e ../../binding.gyp
+:e julius.hpp
+:/::Close
+:%S/JavaScript/ JavaScript/c
+:%S/„Ç≥„Éº„É´„Éê„ÉÉ„ÇØÂëº„Å≥Âá∫„Åó/JavaScript ÂÅ¥„ÅÆ„Ç≥„Éº„É´„Éê„ÉÉ„ÇØÂëº„Å≥Âá∫„Åó/c
+:%S/Âá¶ÁêÜ/„Ç≥„Éº„É´„Éê„ÉÉ„ÇØÂëº„Å≥Âá∫„Åó/c
+:80
 :qa!
-:Ref alc s
-:NeoBundleClean
-:source %
-:qw
-:'<,'>ContinuousNumber
-:ContinuousNumber
-:%S/prefix/subprefix/c
-:echo $VIMRUNTIME
-:echo $HOME
-:'<,'>sort
-:'<,'>Alignta 
-:'<,'>Alignta
+:qa
+:echo LIBRARY_OPTIONS
+:echo NODE_INCLUDE_PATH
+:echo system('node -v')[1:-2]
+:echo system('node -v')[1:-3]
+:echo len(system('node -v'))
+:echo system('node -v')[1:5]
+:echo system('node -v')[1:4]
+:echo system('node -v')[1:2]
 
 # Search String History (newest to oldest):
 ? \s\+$
-?/latest
-?/rainbow
-?/rainbo
-?/save_point
-?/reanimate
-?/save_dir
-?/substitute
-?/exception
-?/call
-?/g:
-?/save
-?/reanima
-?/ttoc
-?/continuous
-?/subprefix
-?/quickrun
-?/tlib
-?/,
-?/cWORD
+?/path
+?/hoge
+?/result[
+?/result
+?/resu;t
+?/12
+?/n
+?/num
+?/Tagger
+?/make
+?/tagger
+?/getInstance
+?/lib
+?/mecab
+?/exec
+?/jconf
+?/init
+?/const
+?/destru
 
 # Expression History (newest to oldest):
 
@@ -87,347 +87,254 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	CHAR	0
-	g:reanimate_save_dir
-""1	LINE	0
+"0	LINE	0
 	
+	class MeCabTagger : private boost::noncopyable
+	{
+	public:
+		static MeCab::Tagger* getInstance() {
+			static MeCab::Tagger *tagger = MeCab::createTagger("");
+			return tagger;
+		}
+	};
+	
+"1	CHAR	0
+	;
 "2	LINE	0
-	"autocmd FileType *   :RainbowParenthesesLoadRound
+		std::shared_ptr<
 "3	LINE	0
-	autocmd FileType cpp RainbowParenthesesLoadChevrons
-"4	CHAR	0
-	:
-"5	CHAR	0
-	\
-"6	CHAR	0
-	\
-"7	CHAR	0
-	~
-"8	CHAR	0
-	"
+		std::cout << *str << std::endl;
+"4	LINE	0
+	
+	class MeCabTagger : private boost::noncopyable
+	{
+	public:
+		static MeCab::Tagger* getInstance() {
+			static MeCab::Tagger *tagger = MeCab::createTagger("");
+			return tagger;
+		}
+	};
+	
+"5	LINE	0
+	#include <boost/noncopyable.hpp>
+"6	LINE	0
+		std::cout << "hoge" << std::endl;
+"7	LINE	0
+		std::cout << "hoge" << std::endl;
+"8	LINE	0
+	                    'library_dirs' : [
+	                        '/usr/local/lib',
+	                    ],
 "9	CHAR	0
-	.
+	include/libcxx
 "j	CHAR	0
 	JJJJJJJKJJJJJJJ/power./gÄkbfgnnnnnnnnnnnnnnnnnnnKKKK:messages:echo string(ÄkbÄkbÄkbÄkbÄkbÄkbÄkbÄkb highÄkbÄkbÄkbÄkbÄkbÄkbÄkbÄkbÄkuÄkuÄkdÄkdÄkbmÄku:echo hi['gui']
 "k	CHAR	0
 	k
 "q	CHAR	0
 	j
-"-	CHAR	0
-	:
+""-	CHAR	0
+	;
 
 # File marks:
-'0  4  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
-'1  6  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
-'2  5  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
-'3  972  32  ~/.vimrc
-'4  917  0  ~/.vimrc
-'5  911  0  ~/.vimrc
-'6  2  0  ~/Dropbox/dotfiles
-'7  6  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
-'8  4  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
-'9  966  42  ~/.vimrc
+'0  29  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+'1  235  36  ~/.vimrc
+'2  31  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+'3  14  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+'4  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+'5  8  20  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+'6  15  21  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+'7  12  58  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+'8  11  18  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
+'9  3  0  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
 
 # Jumplist (newest first):
--'  4  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  6  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
--'  5  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
--'  972  32  ~/.vimrc
+-'  29  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  2  18  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  235  36  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  42  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
--'  917  0  ~/.vimrc
--'  524  0  ~/.vimrc
--'  103  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
--'  82  0  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
--'  911  0  ~/.vimrc
--'  913  4  ~/.vimrc
--'  893  3  ~/.vimrc
--'  263  16  ~/.vimrc
--'  47  3  ~/Dropbox/Program/javascript/node.js/julius/export_to_nodejs.cpp
--'  2  0  ~/Dropbox/dotfiles
--'  1  0  ~/Dropbox/dotfiles
--'  6  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
--'  5  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
--'  4  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
--'  966  42  ~/.vimrc
--'  3  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
--'  873  0  ~/.vimrc
--'  963  2  ~/.vimrc
--'  276  26  ~/.vimrc
--'  74  36  ~/.vimrc
--'  2  0  ~/Dropbox/Program/javascript/node.js/test/mynode.js
--'  1026  0  ~/.vimrc
--'  1027  0  ~/.vimrc
--'  149  12  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  44  36  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  20  10  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  150  31  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  139  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  165  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  122  12  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  253  30  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  242  30  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  237  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  89  9  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  145  1  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  85  1  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  82  9  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  71  9  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  67  1  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  65  9  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  16  8  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  15  1  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  259  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  258  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  47  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  1  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  1  0  bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  967  4  ~/.vimrc
--'  198  0  ~/.vimrc
--'  3  0  ~/*unite* - default
--'  1  0  ~/*unite* - default
--'  93  0  ~/.vimrc
--'  91  0  ~/.vimrc
--'  936  0  ~/.vimrc
--'  100  13  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  99  23  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  80  29  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  63  40  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  52  20  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  48  22  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  43  20  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  37  28  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  36  27  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  264  8  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  263  13  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  243  22  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  202  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  3  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/plugin/reanimate.vim
--'  3  71  ~/Dropbox/dotfiles/.vim/*vimfiler* - default
--'  1  0  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/plugin/reanimate.vim
--'  1  0  ~/Dropbox/dotfiles/.vim/*vimfiler* - default
--'  215  1  ~/Dropbox/dotfiles/.vim/bundle/neobundle/plugins/vim-reanimate/autoload/reanimate.vim
--'  89  0  ~/.vimrc
--'  811  0  ~/.vimrc
--'  90  0  ~/.vimrc
--'  61  0  ~/yankring_history_v2.txt
--'  1  0  ~/yankring_history_v2.txt
--'  194  0  ~/.vimrc
--'  16  0  ~/vim_save_point/test/tmp/*vimfiler* - default
--'  1  0  ~/vim_save_point/test/tmp/*vimfiler* - default
--'  3  0  ~/.vimrc
--'  943  0  ~/sudo:.vimrc
--'  1  0  ~/sudo:.vimrc
+-'  30  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  46  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  31  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  14  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+-'  8  20  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  15  21  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  12  58  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+-'  11  18  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
+-'  1  0  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
+-'  3  0  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
+-'  17  1  ~/Dropbox/Program/cpp/mecab/test/test.cpp
+-'  1  0  ~/Dropbox/Program/cpp/mecab/test/test.cpp
+-'  11  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/export_to_nodejs.cpp
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/export_to_nodejs.cpp
+-'  24  2  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  11  32  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+-'  18  25  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+-'  20  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  52  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  5  22  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.js
+-'  10  23  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  50  40  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  42  6  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  33  33  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  12  2  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  64  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  3  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  5  16  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  56  28  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+-'  4  33  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  12  30  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  39  5  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
+-'  4  3  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
+-'  3  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  5  35  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
+-'  3  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/juliusData
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/juliusData
+-'  26  22  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
+-'  6  4  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
+-'  335  16  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
+-'  7  60  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
+-'  268  5  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
+-'  1  0  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
+-'  54  19  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  44  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  165  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  164  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  158  37  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  153  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  149  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  51  29  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  50  19  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  3  0  ~/Dropbox/Program/javascript/node.js/julius/setting.jconf
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/setting.jconf
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/model/phone_m/hmmdefs_monof_mix16_gid.binhmm
+-'  271  22  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  262  16  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  223  12  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  221  23  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  138  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  37  0  ~/Dropbox/Program/javascript/node.js/julius/test.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/test.js
+-'  147  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  152  60  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  70  1  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  108  20  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  103  13  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  98  8  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  79  10  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  69  18  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  68  18  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  19  7  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  18  3  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  12  8  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  285  3  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  217  12  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  211  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  205  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  199  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  186  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  180  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  172  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  3  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
+-'  24  11  ~/Dropbox/Program/javascript/node.js/julius/test.js
+-'  21  11  ~/Dropbox/Program/javascript/node.js/julius/test.js
+-'  17  11  ~/Dropbox/Program/javascript/node.js/julius/test.js
+-'  14  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
 
 # History of marks within files (newest to oldest):
 
-> ~/Dropbox/Program/javascript/node.js/julius/*unite* - default
-	"	3	0
-	.	3	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	136	0
-	+	134	0
-	+	1	0
-	+	132	0
-	+	130	0
-	+	1	0
-	+	129	0
-	+	126	0
-	+	1	0
-	+	123	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	120	0
-	+	1	0
-	+	118	0
-	+	1	0
-	+	116	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	111	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	104	0
-	+	1	0
-	+	96	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	24	0
-	+	44	0
-	+	64	0
-	+	84	0
-	+	93	0
-	+	93	0
-	+	93	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	13	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	7	0
-	+	5	0
+> ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
+	"	29	1
+	.	2	0
+	+	12	0
+	+	12	0
+	+	12	16
+	+	12	26
+	+	12	0
+	+	12	0
+	+	12	0
+	+	12	0
+	+	12	0
 	+	3	0
-
-> ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
-	"	4	0
-	.	228	0
-	+	62	51
-	+	71	9
-	+	62	52
-	+	71	37
-	+	71	0
-	+	71	47
-	+	71	0
-	+	71	18
-	+	71	19
-	+	64	0
-	+	65	1
-	+	65	0
-	+	62	40
-	+	71	0
-	+	72	0
-	+	71	15
-	+	71	14
-	+	71	0
-	+	71	22
-	+	71	16
-	+	214	0
-	+	215	19
-	+	71	68
-	+	65	0
-	+	71	0
-	+	71	12
-	+	71	21
-	+	92	0
-	+	24	0
-	+	22	16
-	+	23	18
-	+	21	0
-	+	71	0
-	+	69	15
-	+	70	0
-	+	67	0
-	+	70	9
-	+	62	66
-	+	70	12
-	+	71	0
-	+	70	21
-	+	92	36
-	+	91	29
-	+	91	99
-	+	92	39
-	+	16	0
-	+	156	0
-	+	163	0
-	+	170	0
-	+	129	0
-	+	234	0
-	+	236	0
-	+	234	0
-	+	235	0
-	+	234	0
-	+	235	0
-	+	111	37
-	+	47	0
-	+	86	0
-	+	97	0
-	+	87	29
-	+	87	0
-	+	83	0
-	+	83	14
-	+	92	0
-	+	91	0
-	+	92	70
-	+	82	0
-	+	83	0
-	+	86	0
-	+	92	0
-	+	91	0
-	+	87	0
-	+	97	0
-	+	84	0
-	+	235	0
-	+	229	0
-	+	234	0
-	+	225	17
-	+	75	0
-	+	74	58
-	+	225	0
-	+	228	31
-	+	225	6
-	+	224	38
-	+	227	3
-	+	228	26
-	+	228	0
-	+	227	63
-	+	16	0
-	+	156	0
-	+	163	0
-	+	170	0
-	+	17	21
-	+	186	18
-	+	228	0
-	+	186	0
-	+	228	8
-	+	17	0
-	+	228	0
+	+	31	23
+	+	56	0
+	+	60	40
+	+	61	0
+	+	12	0
+	+	4	16
+	+	31	0
+	+	12	0
+	+	4	0
+	+	1	0
+	+	31	73
+	+	12	0
+	+	40	28
+	+	41	52
+	+	40	21
+	+	60	0
+	+	31	34
+	+	30	65
+	+	31	10
+	+	33	34
+	+	10	40
+	+	9	43
+	+	38	60
+	+	2	16
+	+	33	0
+	+	33	33
+	+	33	0
+	+	44	31
+	+	38	25
+	+	45	0
+	+	35	0
+	+	33	0
+	+	34	0
+	+	33	0
+	+	48	48
+	+	49	0
+	+	34	36
+	+	44	11
+	+	48	44
+	+	53	0
+	+	50	40
+	+	51	0
+	+	53	0
+	+	52	0
+	+	50	40
+	+	20	33
+	+	28	0
+	+	32	0
+	+	46	0
+	+	52	0
+	+	20	0
+	+	20	0
+	+	28	0
+	+	31	0
+	+	30	0
+	+	31	0
+	+	32	0
+	+	20	0
+	+	24	17
+	+	25	33
+	+	22	5
+	+	37	84
+	+	31	31
+	+	30	4
+	+	12	0
+	+	12	0
+	+	3	31
+	+	30	41
+	+	46	0
+	+	52	0
+	+	3	0
+	+	12	0
+	+	11	0
+	+	31	0
+	+	30	0
+	+	2	0

@@ -196,22 +196,44 @@ augroup END
 " {{{
 " Include Path
 " ---------------------------------------------------------------------------------------------------
+"
+let COMMON_INCLUDE_PATH = ''
+let COMMON_LIBRARY_PATH = ''
+let BOOST_INCLUDE_PATH = ''
+let BOOST_LIBRARY_PATH = ''
+let STL_INCLUDE_PATH   = ''
+
+" for MacBook Air
 if has('mac')
-	let BOOST_INCLUDE_PATH = '/usr/local/include'
-	let BOOST_LIBRARY_PATH = '/usr/local/lib'
-	let STL_INCLUDE_PATH   = '/usr/local/include/libcxx'
+	let COMMON_INCLUDE_PATH = '/usr/local/include'
+	let COMMON_LIBRARY_PATH = '/usr/local/lib'
+	let STL_INCLUDE_PATH    = '/usr/local/include/libcxx'
+" for Windows 7 Desktop
 elseif has('win32') || has('win64')
 	let BOOST_INCLUDE_PATH = 'C:/include/boost'
 	let BOOST_LIBRARY_PATH = 'C:/include/boost/stage/lib'
 	let STL_INCLUDE_PATH   = 'C:/include/STL'
+" for Ubuntu 10.04 (Server) / 11.10 (Let's note)
 else
-	let BOOST_INCLUDE_PATH = '/usr/include'
-	let BOOST_LIBRARY_PATH = '/usr/lib'
+	let COMMON_INCLUDE_PATH = '/usr/include'
+	let COMMON_LIBRARY_PATH = '/usr/lib'
 	let STL_INCLUDE_PATH   = '/usr/local/include/c++/4.8.0'
 endif
 
-let &path = &path . STL_INCLUDE_PATH   . ','
-let &path = &path . BOOST_INCLUDE_PATH . ','
+let INCLUDE_PATHS = [
+	\ COMMON_INCLUDE_PATH,
+	\ STL_INCLUDE_PATH,
+	\ BOOST_INCLUDE_PATH,
+\ ]
+let LIBRARY_PATHS = [
+	\ COMMON_LIBRARY_PATH,
+	\ BOOST_LIBRARY_PATH,
+\ ]
+
+let INCLUDE_OPTIONS = ' -I' . join(INCLUDE_PATHS, ' -I')
+let LIBRARY_OPTIONS = ' -L' . join(LIBRARY_PATHS, ' -L')
+let &path .= join(INCLUDE_PATHS, ',')
+
 " }}}
 
 "====================================================================================================
@@ -315,7 +337,6 @@ NeoBundle 'ujihisa/unite-locate'
 
 filetype plugin on
 filetype indent on
-
 "}}}
 
 "====================================================================================================
@@ -510,13 +531,13 @@ nmap <space> [unite]
 
 let g:unite_source_history_yank_enable =1
 
-nnoremap <silent> [unite]b   :Unite buffer<CR>
-nnoremap <silent> [unite]t   :Unite tab<CR>
-nnoremap <silent> [unite]w   :Unite window<CR>
-nnoremap <silent> [unite]g   :Unite grep<CR>
-nnoremap <silent> [unite]o   :Unite outline<CR>
-nnoremap <silent> [unite]s   :Unite snippet<CR>
-nnoremap <silent> [unite]y   :Unite history/yank<CR>
+nnoremap <silent> [unite]b :Unite buffer<CR>
+nnoremap <silent> [unite]t :Unite tab<CR>
+nnoremap <silent> [unite]w :Unite window<CR>
+nnoremap <silent> [unite]g :Unite grep<CR>
+nnoremap <silent> [unite]o :Unite outline<CR>
+nnoremap <silent> [unite]s :Unite snippet<CR>
+nnoremap <silent> [unite]y :Unite history/yank<CR>
 " }}}
 
 "====================================================================================================
@@ -680,14 +701,14 @@ if has('mac')
 	let g:quickrun_config['cpp/clang++'] = {
 		\ 'type'      : 'cpp',
 		\ 'command'   : 'clang++',
-		\ 'cmdopt'    : '-std=c++11 -stdlib=libc++ -I' . STL_INCLUDE_PATH . ' -Wall',
+		\ 'cmdopt'    : '-std=c++11 -stdlib=libc++ -Wall' . INCLUDE_OPTIONS . LIBRARY_OPTIONS,
 		\ 'runner'    : 'vimproc',
 	\ }
 else
 	let g:quickrun_config['cpp/clang++'] = {
 		\ 'type'      : 'cpp',
 		\ 'command'   : 'clang++',
-		\ 'cmdopt'    : '-std=c++0x -Wall',
+		\ 'cmdopt'    : '-std=c++11 -Wall',
 		\ 'runner'    : 'vimproc',
 	\ }
 endif
@@ -695,21 +716,21 @@ endif
 let g:quickrun_config['cpp/g++-4.6'] = {
 	\ 'type'      : 'cpp',
 	\ 'command'   : 'g++-4.6',
-	\ 'cmdopt'    : '-std=c++0x -Wall ',
+	\ 'cmdopt'    : '-std=c++0x -Wall',
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.7'] = {
 	\ 'type'      : 'cpp',
 	\ 'command'   : 'g++-4.7',
-	\ 'cmdopt'    : '-std=c++0x -Wall ',
+	\ 'cmdopt'    : '-std=c++0x -Wall',
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.8'] = {
 	\ 'type'      : 'cpp',
 	\ 'command'   : 'g++-4.8',
-	\ 'cmdopt'    : '-std=c++0x -Wall ',
+	\ 'cmdopt'    : '-std=c++0x -Wall',
 	\ 'runner'    : 'vimproc',
 \ }
 
