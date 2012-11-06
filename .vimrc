@@ -259,11 +259,12 @@ filetype off
 " ---------------------------------------------------------------------------------------------------
 if has('vim_starting')
 	set runtimepath+='~/.vim/bundle/neobundle'
-	call neobundle#rc(expand('~/.vim/bundle/neobundle/plugins'))
+	call neobundle#rc(expand('~/.vim/plugins'))
 endif
 
 " Shougo-san's Repos
 " ---------------------------------------------------------------------------------------------------
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'Shougo/echodoc'
@@ -272,10 +273,15 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite-ssh'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', { 'build' : {
+	\    'mingw' : 'make -f make_mingw.mak',
+	\    'mac'   : 'make -f make_mac.mak',
+	\    'unix'  : 'make -f make_unix.mak',
+	\ }, }
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vinarise'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'basyura/TweetVim'
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'davidoc/taskpaper.vim'
 NeoBundle 'fuenor/qfixgrep'
@@ -315,6 +321,7 @@ NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'vim-scripts/jshint.vim'
 NeoBundle 'vim-scripts/sudo.vim'
+" NeoBundle 'fuenor/JpFormat.vim'
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
@@ -1050,4 +1057,17 @@ vnoremap a  :Alignta
 vnoremap a= :Alignta =<CR>
 vnoremap a+ :Alignta +<CR>
 vnoremap a: :Alignta :<CR>
+" }}}
+
+"====================================================================================================
+" Easy Motion
+" Ref: http://blog.remora.cx/2012/08/vim-easymotion.html
+"====================================================================================================
+" {{{
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_leader_key="'"
+let g:EasyMotion_grouping=1
+
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=blue
 " }}}

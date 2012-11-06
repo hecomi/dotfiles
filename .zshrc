@@ -61,8 +61,9 @@ alias egrep='egrep --color=auto'
 # C++
 case ${OSTYPE} in
 linux*)
-	alias clang++='clang++ -std=c++11'
-	alias g++='g++-4.6 -std=c++0x'
+	alias clang++='clang++ -std=c++0x'
+	alias g++='g++-4.7 -std=c++0x'
+	export CXX=g++-4.7
 	;;
 darwin*)
 	alias clang++='clang++ -std=c++11 -stdlib=libc++ -I/usr/local/include/libcxx'
@@ -72,6 +73,11 @@ esac
 
 # Node.js
 alias nave='~/.nave/nave/nave.sh'
+case ${OSTYPE} in
+linux*)
+	export SHELL=/bin/bash
+	;;
+esac
 
 # ctags
 case ${OSTYPE} in

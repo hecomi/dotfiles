@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/path
+~MSle0~/vimproc
 
 # Last Substitute Search Pattern:
 ~MSle0&4.2.1
@@ -18,51 +18,54 @@ $
 
 # Command Line History (newest to oldest):
 :wq
-:w
 :q
-:e ../../binding.gyp
-:e julius.hpp
-:/::Close
-:%S/JavaScript/ JavaScript/c
-:%S/コールバック呼び出し/JavaScript 側のコールバック呼び出し/c
-:%S/処理/コールバック呼び出し/c
-:80
-:qa!
-:qa
-:echo LIBRARY_OPTIONS
-:echo NODE_INCLUDE_PATH
-:echo system('node -v')[1:-2]
-:echo system('node -v')[1:-3]
-:echo len(system('node -v'))
-:echo system('node -v')[1:5]
-:echo system('node -v')[1:4]
-:echo system('node -v')[1:2]
+:Unite neobundle
+:TweetVimAddAccount
+:unite neobundle
+:'<,'>sort
+://blog.remora.cx/2012/08/vim-easymotion.html
+:'<,'>Alignta
+:set wrap
+:w
+:%JpFormat
+:'<,'>JpFormat
+:set formatexpr=jpfmt#formatexpr()
+:e binding.gyp
+:e test.js
+:!
+:!clang++ -v
+:e ~/.zshrc
+:set textwidth=80
+:set formatoptions+=mM
 
 # Search String History (newest to oldest):
 ? \s\+$
-?/path
-?/hoge
-?/result[
-?/result
-?/resu;t
-?/12
-?/n
-?/num
-?/Tagger
-?/make
-?/tagger
-?/getInstance
-?/lib
-?/mecab
-?/exec
+?/vimproc
+?/cyg
+?/neobundle
+?/tweetvim
+?/TweetVim
+?/ba
+?/easy
+?/Lo
+?/easymotion
+?/jpformat
+?/format
+?/Format
+?/clang
+?/boost
+?/cout
 ?/jconf
-?/init
-?/const
-?/destru
+? "
+?/recog_
+?/make_recog
 
 # Expression History (newest to oldest):
 
 # Input Line History (newest to oldest):
+@hatena
+@はてダ下書き
+@MESH_メモ
 @y
 @test3
 @test2
@@ -80,261 +83,249 @@ $
 @TL からピザの匂いがしてきた…
 @うどん煮こむか
 @風吹いてきた
-@3 時くらいに昼飯食べたけどもうお腹すいてきた…
-@あー、やっと直った…、時間浪費した…。
-@あぁ、http と https 自動で割り振ってくれるのか。
 
 # Input Line History (newest to oldest):
 
 # Registers:
 "0	LINE	0
-	
-	class MeCabTagger : private boost::noncopyable
-	{
-	public:
-		static MeCab::Tagger* getInstance() {
-			static MeCab::Tagger *tagger = MeCab::createTagger("");
-			return tagger;
-		}
-	};
-	
-"1	CHAR	0
-	;
-"2	LINE	0
-		std::shared_ptr<
-"3	LINE	0
-		std::cout << *str << std::endl;
-"4	LINE	0
-	
-	class MeCabTagger : private boost::noncopyable
-	{
-	public:
-		static MeCab::Tagger* getInstance() {
-			static MeCab::Tagger *tagger = MeCab::createTagger("");
-			return tagger;
-		}
-	};
-	
-"5	LINE	0
-	#include <boost/noncopyable.hpp>
-"6	LINE	0
-		std::cout << "hoge" << std::endl;
-"7	LINE	0
-		std::cout << "hoge" << std::endl;
-"8	LINE	0
-	                    'library_dirs' : [
-	                        '/usr/local/lib',
-	                    ],
+		\    'mingw' : 'make -f make_mingw.mak',
+""1	LINE	0
+		\    'mingw' : 'make -f make_mingw.mak',
+"2	CHAR	0
+	mingw
+"3	CHAR	0
+	 
+"4	CHAR	0
+	 
+"5	CHAR	0
+	 
+"6	CHAR	0
+	, }
+"7	CHAR	0
+	, { build : { mingw : make -f make_mingw.mak, mac : make -f make_mac.mak, unix : make -f make_unix.mak, }, }
+"8	CHAR	0
+	cygwin
 "9	CHAR	0
-	include/libcxx
+	cygwin
 "j	CHAR	0
 	JJJJJJJKJJJJJJJ/power./g�kbfgnnnnnnnnnnnnnnnnnnnKKKK:messages:echo string(�kb�kb�kb�kb�kb�kb�kb�kb high�kb�kb�kb�kb�kb�kb�kb�kb�ku�ku�kd�kd�kbm�ku:echo hi['gui']
 "k	CHAR	0
 	k
 "q	CHAR	0
 	j
-""-	CHAR	0
-	;
+"-	CHAR	0
+	mingw
 
 # File marks:
-'0  29  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
-'1  235  36  ~/.vimrc
-'2  31  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
-'3  14  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
-'4  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
-'5  8  20  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
-'6  15  21  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
-'7  12  58  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
-'8  11  18  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
-'9  3  0  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
+'0  194  10  ~/.vimrc
+'1  278  1  ~/.vimrc
+'2  276  25  ~/.vimrc
+'3  257  0  ~/.vimrc
+'4  262  34  ~/.vimrc
+'5  3  0  ~/.vimrc
+'6  1  0  ~/.vimrc
+'7  317  0  ~/.vimrc
+'8  281  26  ~/.vimrc
+'9  324  0  ~/.vimrc
 
 # Jumplist (newest first):
--'  29  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  2  18  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  235  36  ~/.vimrc
+-'  194  10  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  30  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  46  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  31  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  14  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
--'  8  20  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  15  21  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  12  58  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
--'  11  18  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
--'  1  0  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
--'  3  0  ~/Dropbox/Program/cpp/mecab/test/test2.cpp
--'  17  1  ~/Dropbox/Program/cpp/mecab/test/test.cpp
--'  1  0  ~/Dropbox/Program/cpp/mecab/test/test.cpp
--'  11  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/export_to_nodejs.cpp
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/export_to_nodejs.cpp
--'  24  2  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  11  32  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
--'  18  25  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
--'  20  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  52  1  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  5  22  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.js
--'  10  23  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  50  40  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  42  6  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  33  33  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  12  2  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  64  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  3  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  5  16  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  56  28  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
--'  4  33  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  12  30  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  39  5  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
--'  4  3  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
--'  3  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  5  35  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/binding.gyp
--'  3  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/juliusData
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/juliusData
--'  26  22  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
--'  6  4  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
--'  335  16  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
--'  7  60  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
--'  268  5  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
--'  1  0  ~/Dropbox/Program/cpp/node/HAS/node_addon/juliusData/juliusData.js
--'  54  19  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  44  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  165  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  164  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  158  37  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  153  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  149  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  51  29  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  50  19  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  3  0  ~/Dropbox/Program/javascript/node.js/julius/setting.jconf
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/setting.jconf
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/model/phone_m/hmmdefs_monof_mix16_gid.binhmm
--'  271  22  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  262  16  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  223  12  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  221  23  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  138  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  37  0  ~/Dropbox/Program/javascript/node.js/julius/test.js
+-'  278  1  ~/.vimrc
+-'  277  1  ~/.vimrc
+-'  280  2  ~/.vimrc
+-'  279  4  ~/.vimrc
+-'  276  130  ~/.vimrc
+-'  275  26  ~/.vimrc
+-'  712  19  ~/.vimrc
+-'  297  0  ~/.vimrc
+-'  257  0  ~/.vimrc
+-'  262  34  ~/.vimrc
+-'  253  2  ~/.vimrc
+-'  90  0  ~/.vimrc
+-'  3  0  ~/.vimrc
+-'  317  0  ~/.vimrc
+-'  281  26  ~/.vimrc
+-'  324  0  ~/.vimrc
+-'  267  0  ~/.vimrc
+-'  274  0  ~/.vimrc
+-'  632  0  ~/.vimrc
+-'  7  57  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  1065  0  ~/.vimrc
+-'  1045  0  ~/.vimrc
+-'  839  0  ~/.vimrc
+-'  653  0  ~/.vimrc
+-'  815  0  ~/.vimrc
+-'  666  0  ~/.vimrc
+-'  655  0  ~/.vimrc
+-'  238  0  ~/.vimrc
+-'  511  0  ~/.vimrc
+-'  89  0  ~/.vimrc
+-'  1068  28  ~/.vimrc
+-'  1073  46  ~/.vimrc
+-'  1066  4  ~/.vimrc
+-'  1067  48  ~/.vimrc
+-'  272  0  ~/.vimrc
+-'  268  0  ~/.vimrc
+-'  942  39  ~/.vimrc
+-'  320  0  ~/.vimrc
+-'  325  34  ~/.vimrc
+-'  323  27  ~/.vimrc
+-'  349  0  ~/.vimrc
+-'  14  2  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  21  3  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  19  54  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  16  46  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  4  28  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  8  19  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/tmp.voca
+-'  23  5  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  22  26  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  45  2  ~/Dropbox/Program/javascript/node.js/julius/test.js
 -'  1  0  ~/Dropbox/Program/javascript/node.js/julius/test.js
--'  147  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  152  60  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  70  1  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  108  20  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  103  13  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  98  8  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  79  10  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  69  18  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  68  18  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  19  7  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  18  3  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  12  8  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  285  3  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  217  12  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  211  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  205  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  199  9  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  186  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  180  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  172  2  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  3  0  ~/Dropbox/Program/javascript/node.js/julius/julius.cpp
--'  24  11  ~/Dropbox/Program/javascript/node.js/julius/test.js
--'  21  11  ~/Dropbox/Program/javascript/node.js/julius/test.js
--'  17  11  ~/Dropbox/Program/javascript/node.js/julius/test.js
--'  14  0  ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/wscript
+-'  5  0  ~/Dropbox/Program/javascript/node.js/julius/test2.js
+-'  16  0  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  34  50  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  188  0  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  132  0  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  149  0  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  5  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
+-'  135  2  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  8  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
+-'  133  6  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  116  2  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  49  2  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  44  2  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  19  1  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  15  3  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  11  13  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  14  28  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  9  106  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  11  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
+-'  10  0  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  190  36  ~/Memo/2012-11-04-はてダ下書き.txt
+-'  14  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
+-'  17  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
+-'  16  16  ~/Dropbox/Program/javascript/node.js/julius/README.md
+-'  21  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
+-'  7  0  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
+-'  5  2  ~/Dropbox/Program/javascript/node.js/julius/package.json
+-'  1  0  ~/Dropbox/Program/javascript/node.js/julius/package.json
+-'  8  8  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
+-'  4  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
+-'  127  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
+-'  708  19  ~/.vimrc
+-'  293  0  ~/.vimrc
+-'  313  0  ~/.vimrc
 
 # History of marks within files (newest to oldest):
 
-> ~/Dropbox/Program/javascript/node.js/julius/node_modules/mecab/mecab.cc
-	"	29	1
-	.	2	0
-	+	12	0
-	+	12	0
-	+	12	16
-	+	12	26
-	+	12	0
-	+	12	0
-	+	12	0
-	+	12	0
-	+	12	0
-	+	3	0
-	+	31	23
-	+	56	0
-	+	60	40
-	+	61	0
-	+	12	0
-	+	4	16
-	+	31	0
-	+	12	0
-	+	4	0
-	+	1	0
-	+	31	73
-	+	12	0
-	+	40	28
-	+	41	52
-	+	40	21
-	+	60	0
-	+	31	34
-	+	30	65
-	+	31	10
-	+	33	34
-	+	10	40
-	+	9	43
-	+	38	60
-	+	2	16
-	+	33	0
-	+	33	33
-	+	33	0
-	+	44	31
-	+	38	25
-	+	45	0
-	+	35	0
-	+	33	0
-	+	34	0
-	+	33	0
-	+	48	48
-	+	49	0
-	+	34	36
-	+	44	11
-	+	48	44
-	+	53	0
-	+	50	40
-	+	51	0
-	+	53	0
-	+	52	0
-	+	50	40
-	+	20	33
-	+	28	0
-	+	32	0
-	+	46	0
-	+	52	0
-	+	20	0
-	+	20	0
-	+	28	0
-	+	31	0
-	+	30	0
-	+	31	0
-	+	32	0
-	+	20	0
-	+	24	17
-	+	25	33
-	+	22	5
-	+	37	84
-	+	31	31
-	+	30	4
-	+	12	0
-	+	12	0
-	+	3	31
-	+	30	41
-	+	46	0
-	+	52	0
-	+	3	0
-	+	12	0
-	+	11	0
-	+	31	0
-	+	30	0
-	+	2	0
+> ~/.vimrc
+	"	194	10
+	.	92	0
+	+	711	86
+	+	234	41
+	+	231	6
+	+	200	0
+	+	210	0
+	+	204	0
+	+	220	0
+	+	200	9
+	+	201	9
+	+	208	10
+	+	209	23
+	+	210	0
+	+	209	24
+	+	202	8
+	+	203	8
+	+	218	10
+	+	219	10
+	+	224	8
+	+	229	8
+	+	227	0
+	+	231	0
+	+	235	36
+	+	160	0
+	+	159	0
+	+	160	8
+	+	160	0
+	+	160	0
+	+	160	0
+	+	160	0
+	+	160	0
+	+	160	33
+	+	160	6
+	+	160	0
+	+	160	11
+	+	160	0
+	+	160	0
+	+	160	0
+	+	160	54
+	+	160	2
+	+	160	0
+	+	160	0
+	+	160	35
+	+	160	0
+	+	160	16
+	+	160	26
+	+	160	0
+	+	323	0
+	+	325	0
+	+	268	0
+	+	1062	0
+	+	1061	0
+	+	1063	12
+	+	1073	0
+	+	1067	0
+	+	1066	0
+	+	1067	0
+	+	1073	0
+	+	1072	0
+	+	1071	0
+	+	1070	0
+	+	1069	0
+	+	1068	0
+	+	1067	0
+	+	1064	35
+	+	1064	0
+	+	267	11
+	+	292	0
+	+	267	0
+	+	324	0
+	+	276	136
+	+	276	25
+	+	262	34
+	+	276	135
+	+	276	130
+	+	276	141
+	+	276	44
+	+	277	39
+	+	278	38
+	+	279	38
+	+	280	5
+	+	280	8
+	+	277	0
+	+	278	0
+	+	280	8
+	+	277	5
+	+	278	5
+	+	279	5
+	+	280	5
+	+	276	29
+	+	280	4
+	+	276	30
+	+	280	3
+	+	277	0
+	+	280	5
+	+	277	0
+	+	281	0
+	+	280	2
+	+	277	0
+	+	278	0
+	+	92	0
+	e	513	7
+	o	513	7
