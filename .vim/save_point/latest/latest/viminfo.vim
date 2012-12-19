@@ -8,61 +8,64 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/vimproc
+~MSle0~/snippet
 
 # Last Substitute Search Pattern:
-~MSle0&4.2.1
+~MSle0&j
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:wq
 :q
-:Unite neobundle
-:TweetVimAddAccount
-:unite neobundle
-:'<,'>sort
-://blog.remora.cx/2012/08/vim-easymotion.html
-:'<,'>Alignta
-:set wrap
+:wq
 :w
-:%JpFormat
-:'<,'>JpFormat
-:set formatexpr=jpfmt#formatexpr()
-:e binding.gyp
+:h neosnippet
+:e ../openjtalk/Makefile
+:e kana2voca.js
+:'<,'>S/$/,/
+:'<,'>Alignta ,
+:'<,'>%S
+:%S/\tboost::algorithm::replace_all\(w , "(.*?)","(.*?)");/"\1", "\2"/
+:%S/\tboost::algorithm::replaceall\(w , "(.*?)","(.*?)");/"\1", "\2"/
+:set fileformat=vimrc
+:qa
+:e testApp.h
+:%S/threshould/threshold/g
+:grayImage
+:e src/testApp.cpp
+:s/j/i/g
+:e twmidi.js
 :e test.js
-:!
-:!clang++ -v
-:e ~/.zshrc
-:set textwidth=80
-:set formatoptions+=mM
 
 # Search String History (newest to oldest):
 ? \s\+$
-?/vimproc
-?/cyg
-?/neobundle
-?/tweetvim
-?/TweetVim
-?/ba
-?/easy
-?/Lo
-?/easymotion
-?/jpformat
-?/format
-?/Format
-?/clang
-?/boost
-?/cout
-?/jconf
-? "
-?/recog_
-?/make_recog
+?/snippet
+?/e
+?/C-e
+?/expand
+?/わ
+?/を
+?/toVoca
+? $
+? \tboost::algorithm::replace_all(w , "\(.\{-}\)","\(.\{-}\)");
+? \tboost::algorithm::replaceall(w , "\(.\{-}\)","\(.\{-}\)");
+?/Shift
+?/findCon
+?/mousePres
+?/update
+? threshould
+?/grayImage
+?/set
+?/draw
+? j
 
 # Expression History (newest to oldest):
 
 # Input Line History (newest to oldest):
+@K
+@nodefest
+@/usr/local/Cellar/nginx/1.2.3/html/enchant.js/examples/plugins/gl/mmd/stage
 @hatena
 @はてダ下書き
 @MESH_メモ
@@ -80,33 +83,31 @@ $
 @ssdp たたいて iRemocon 発見できるように出来ないかなー
 @net.createConnection でいけそうだ。
 @Node.js に TCP/IP でメッセージ送れるヤツあるかな。
-@TL からピザの匂いがしてきた…
-@うどん煮こむか
-@風吹いてきた
 
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-		\    'mingw' : 'make -f make_mingw.mak',
-""1	LINE	0
-		\    'mingw' : 'make -f make_mingw.mak',
+""0	LINE	0
+	nnoremap <silent> <S-j> <C-d>
+	nnoremap <silent> <S-k> <C-u>
+"1	CHAR	0
+	C-e
 "2	CHAR	0
-	mingw
+	e
 "3	CHAR	0
-	 
+	x
 "4	CHAR	0
-	 
+	-
 "5	CHAR	0
-	 
+	C
 "6	CHAR	0
-	, }
+	 
 "7	CHAR	0
-	, { build : { mingw : make -f make_mingw.mak, mac : make -f make_mac.mak, unix : make -f make_unix.mak, }, }
+	w
 "8	CHAR	0
-	cygwin
-"9	CHAR	0
-	cygwin
+	e
+"9	LINE	0
+		npm install
 "j	CHAR	0
 	JJJJJJJKJJJJJJJ/power./g�kbfgnnnnnnnnnnnnnnnnnnnKKKK:messages:echo string(�kb�kb�kb�kb�kb�kb�kb�kb high�kb�kb�kb�kb�kb�kb�kb�kb�ku�ku�kd�kd�kbm�ku:echo hi['gui']
 "k	CHAR	0
@@ -114,218 +115,122 @@ $
 "q	CHAR	0
 	j
 "-	CHAR	0
-	mingw
+	C-e
 
 # File marks:
-'0  194  10  ~/.vimrc
-'1  278  1  ~/.vimrc
-'2  276  25  ~/.vimrc
-'3  257  0  ~/.vimrc
-'4  262  34  ~/.vimrc
-'5  3  0  ~/.vimrc
-'6  1  0  ~/.vimrc
-'7  317  0  ~/.vimrc
-'8  281  26  ~/.vimrc
-'9  324  0  ~/.vimrc
+'0  2  0  ~/Dropbox/dotfiles/.vimrc
+'1  1  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
+'2  1  0  ~/tmp/julius/node_modules/julius/main.cpp
+'3  90  100  ~/.vimrc
+'4  154  26  ~/.vimrc
+'5  29  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
+'6  11  88  ~/tmp/julius/node_modules/julius/test/test.js
+'7  7  0  ~/tmp/julius/node_modules/julius/test/test2.js
+'8  4  0  ~/tmp/julius/node_modules/node-julius/package.json
+'9  372  15  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
 
 # Jumplist (newest first):
--'  194  10  ~/.vimrc
+-'  2  0  ~/Dropbox/dotfiles/.vimrc
+-'  1  0  ~/Dropbox/dotfiles/.vimrc
+-'  1  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
+-'  1  0  ~/tmp/julius/node_modules/julius/main.cpp
+-'  2  0  ~/tmp/julius/node_modules/julius/main.cpp
+-'  90  100  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  278  1  ~/.vimrc
--'  277  1  ~/.vimrc
--'  280  2  ~/.vimrc
--'  279  4  ~/.vimrc
--'  276  130  ~/.vimrc
--'  275  26  ~/.vimrc
--'  712  19  ~/.vimrc
--'  297  0  ~/.vimrc
--'  257  0  ~/.vimrc
--'  262  34  ~/.vimrc
--'  253  2  ~/.vimrc
--'  90  0  ~/.vimrc
--'  3  0  ~/.vimrc
--'  317  0  ~/.vimrc
--'  281  26  ~/.vimrc
--'  324  0  ~/.vimrc
--'  267  0  ~/.vimrc
--'  274  0  ~/.vimrc
--'  632  0  ~/.vimrc
--'  7  57  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  1065  0  ~/.vimrc
--'  1045  0  ~/.vimrc
--'  839  0  ~/.vimrc
--'  653  0  ~/.vimrc
--'  815  0  ~/.vimrc
--'  666  0  ~/.vimrc
--'  655  0  ~/.vimrc
--'  238  0  ~/.vimrc
--'  511  0  ~/.vimrc
--'  89  0  ~/.vimrc
--'  1068  28  ~/.vimrc
--'  1073  46  ~/.vimrc
--'  1066  4  ~/.vimrc
--'  1067  48  ~/.vimrc
--'  272  0  ~/.vimrc
--'  268  0  ~/.vimrc
--'  942  39  ~/.vimrc
--'  320  0  ~/.vimrc
--'  325  34  ~/.vimrc
--'  323  27  ~/.vimrc
--'  349  0  ~/.vimrc
--'  14  2  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  21  3  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  19  54  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  16  46  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  4  28  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  8  19  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/tmp.voca
--'  23  5  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  22  26  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  45  2  ~/Dropbox/Program/javascript/node.js/julius/test.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/test.js
--'  5  0  ~/Dropbox/Program/javascript/node.js/julius/test2.js
--'  16  0  ~/Memo/2012-11-04-はてダ下書き.txt
--'  34  50  ~/Memo/2012-11-04-はてダ下書き.txt
--'  188  0  ~/Memo/2012-11-04-はてダ下書き.txt
--'  132  0  ~/Memo/2012-11-04-はてダ下書き.txt
--'  149  0  ~/Memo/2012-11-04-はてダ下書き.txt
--'  5  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
--'  135  2  ~/Memo/2012-11-04-はてダ下書き.txt
--'  8  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
--'  133  6  ~/Memo/2012-11-04-はてダ下書き.txt
--'  116  2  ~/Memo/2012-11-04-はてダ下書き.txt
--'  49  2  ~/Memo/2012-11-04-はてダ下書き.txt
--'  44  2  ~/Memo/2012-11-04-はてダ下書き.txt
--'  19  1  ~/Memo/2012-11-04-はてダ下書き.txt
--'  15  3  ~/Memo/2012-11-04-はてダ下書き.txt
--'  11  13  ~/Memo/2012-11-04-はてダ下書き.txt
--'  14  28  ~/Memo/2012-11-04-はてダ下書き.txt
--'  9  106  ~/Memo/2012-11-04-はてダ下書き.txt
--'  11  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
--'  10  0  ~/Memo/2012-11-04-はてダ下書き.txt
--'  190  36  ~/Memo/2012-11-04-はてダ下書き.txt
--'  14  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
--'  17  0  ~/Dropbox/Program/javascript/node.js/julius/*vimfiler* - default
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
--'  16  16  ~/Dropbox/Program/javascript/node.js/julius/README.md
--'  21  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
--'  7  0  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
--'  5  2  ~/Dropbox/Program/javascript/node.js/julius/package.json
--'  1  0  ~/Dropbox/Program/javascript/node.js/julius/package.json
--'  8  8  ~/Dropbox/Program/javascript/node.js/julius/binding.gyp
--'  4  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
--'  127  0  ~/Dropbox/Program/javascript/node.js/julius/README.md
--'  708  19  ~/.vimrc
--'  293  0  ~/.vimrc
--'  313  0  ~/.vimrc
+-'  154  26  ~/.vimrc
+-'  548  34  ~/.vimrc
+-'  275  21  ~/.vimrc
+-'  856  0  ~/.vimrc
+-'  126  0  ~/.vimrc
+-'  127  3  ~/.vimrc
+-'  117  0  ~/.vimrc
+-'  29  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
+-'  48  1  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
+-'  11  88  ~/tmp/julius/node_modules/julius/test/test.js
+-'  1  0  ~/tmp/julius/node_modules/julius/test/test.js
+-'  7  0  ~/tmp/julius/node_modules/julius/test/test2.js
+-'  1  0  ~/tmp/julius/node_modules/julius/test/test2.js
+-'  4  0  ~/tmp/julius/node_modules/node-julius/package.json
+-'  1  0  ~/tmp/julius/node_modules/node-julius/package.json
+-'  372  15  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  358  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  54  10  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  218  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  55  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  19  5  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/Makefile
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/Makefile
+-'  15  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/Makefile
+-'  18  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
+-'  13  22  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/openjtalk/package.json
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
+-'  4  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/openjtalk/Makefile
+-'  4  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/openjtalk/package.json
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/README.md
+-'  7  4  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
+-'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
+-'  22  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
+-'  1  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/[quickrun output]
+-'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/[quickrun output]
+-'  2  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/[quickrun output]
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/split
+-'  3  60  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/test.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/test.js
+-'  2  30  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  69  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
+-'  86  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
+-'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/*unite* - quickrun-hook-unite-quickfix
+-'  8  18  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  14  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  13  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  12  15  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  16  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
+-'  9  99  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
+-'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  82  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
+-'  5  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
+-'  42  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  98  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  100  13  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  391  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  99  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  101  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  102  20  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  16  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  38  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  15  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  103  8  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  392  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  393  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
+-'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/julius
+-'  613  0  ~/.vrapperrc
+-'  1  0  ~/.vrapperrc
+-'  144  44  ~/.zshrc
+-'  1  0  ~/.zshrc
+-'  150  0  ~/.zshrc
+-'  145  72  ~/.zshrc
+-'  144  21  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
+-'  115  3  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
+-'  94  33  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
+-'  44  84  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
+-'  26  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
+-'  51  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.h
+-'  1  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
+-'  228  16  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/*vimshell* - default
+-'  219  16  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/*vimshell* - default
+-'  8  82  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/Project.xcconfig
+-'  31  1  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/*vimshell* - default
+-'  7  18  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/Project.xcconfig
+-'  1  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/Project.xcconfig
+-'  8  18  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  14  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
 
 # History of marks within files (newest to oldest):
 
-> ~/.vimrc
-	"	194	10
-	.	92	0
-	+	711	86
-	+	234	41
-	+	231	6
-	+	200	0
-	+	210	0
-	+	204	0
-	+	220	0
-	+	200	9
-	+	201	9
-	+	208	10
-	+	209	23
-	+	210	0
-	+	209	24
-	+	202	8
-	+	203	8
-	+	218	10
-	+	219	10
-	+	224	8
-	+	229	8
-	+	227	0
-	+	231	0
-	+	235	36
-	+	160	0
-	+	159	0
-	+	160	8
-	+	160	0
-	+	160	0
-	+	160	0
-	+	160	0
-	+	160	0
-	+	160	33
-	+	160	6
-	+	160	0
-	+	160	11
-	+	160	0
-	+	160	0
-	+	160	0
-	+	160	54
-	+	160	2
-	+	160	0
-	+	160	0
-	+	160	35
-	+	160	0
-	+	160	16
-	+	160	26
-	+	160	0
-	+	323	0
-	+	325	0
-	+	268	0
-	+	1062	0
-	+	1061	0
-	+	1063	12
-	+	1073	0
-	+	1067	0
-	+	1066	0
-	+	1067	0
-	+	1073	0
-	+	1072	0
-	+	1071	0
-	+	1070	0
-	+	1069	0
-	+	1068	0
-	+	1067	0
-	+	1064	35
-	+	1064	0
-	+	267	11
-	+	292	0
-	+	267	0
-	+	324	0
-	+	276	136
-	+	276	25
-	+	262	34
-	+	276	135
-	+	276	130
-	+	276	141
-	+	276	44
-	+	277	39
-	+	278	38
-	+	279	38
-	+	280	5
-	+	280	8
-	+	277	0
-	+	278	0
-	+	280	8
-	+	277	5
-	+	278	5
-	+	279	5
-	+	280	5
-	+	276	29
-	+	280	4
-	+	276	30
-	+	280	3
-	+	277	0
-	+	280	5
-	+	277	0
-	+	281	0
-	+	280	2
-	+	277	0
-	+	278	0
-	+	92	0
-	e	513	7
-	o	513	7
+> ~/Dropbox/dotfiles/.vimrc
+	"	2	0

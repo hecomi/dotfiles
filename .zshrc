@@ -140,7 +140,9 @@ local CLANG_PATH="/usr/local/clang-3.1/bin"
 local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
 local GIT_PATH="$HOME/.git/git-tasukete"
 local VIM_PATH="/usr/local/bin/vim"
-export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$PATH"
+local LOCAL_SBIN_PATH="/usr/local/sbin"
+local ANDROID_SDK_TOOLS_PATH="/Users/hecomi/android-sdks/platform-tools"
+export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$PATH"
 
 # RVM
 # ---------------------------------------------------------------------------------------------------

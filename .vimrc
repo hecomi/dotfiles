@@ -151,6 +151,8 @@ nnoremap [subprefix]nsp :set nopaste<CR>
 " ---------------------------------------------------------------------------------------------------
 nnoremap <silent> <S-j> <C-d>
 nnoremap <silent> <S-k> <C-u>
+vnoremap <silent> <S-j> <C-d>
+vnoremap <silent> <S-k> <C-u>
 
 " help
 " ---------------------------------------------------------------------------------------------------
@@ -653,6 +655,7 @@ let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 " neosnippet
 "====================================================================================================
 " {{{
+
 " directory
 " ---------------------------------------------------------------------------------------------------
 if !exists('g:neosnippet#snippets_directory')
@@ -662,8 +665,11 @@ let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 " expand key
 " ---------------------------------------------------------------------------------------------------
-imap <silent> <C-e> <Plug>(neosnippet_jump_or_expand)
-smap <silent> <C-e> <Plug>(neosnippet_jump_or_expand)
+if g:neocomplcache_enable_at_startup
+  imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+endif
+vmap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<Tab>"
+
 " }}}
 
 "====================================================================================================
@@ -755,7 +761,7 @@ let g:quickrun_config['typescript/tsc'] = {
 
 let g:quickrun_config['javascript/node'] = {
 	\ 'type'    : 'javascript',
-	\ 'command' : 'node',
+	\ 'command' : 'node-dev',
 	\ 'runner'  : 'vimproc'
 \ }
 
