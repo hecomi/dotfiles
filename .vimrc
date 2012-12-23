@@ -91,6 +91,10 @@ endif
 " Common key mappings
 "====================================================================================================
 " {{{
+" ;
+" ---------------------------------------------------------------------------------------------------
+nnoremap ; :
+
 " prefix
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix] <nop>
@@ -198,7 +202,6 @@ augroup END
 " {{{
 " Include Path
 " ---------------------------------------------------------------------------------------------------
-"
 let COMMON_INCLUDE_PATH = ''
 let COMMON_LIBRARY_PATH = ''
 let BOOST_INCLUDE_PATH = ''
@@ -323,6 +326,7 @@ NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'vim-scripts/jshint.vim'
 NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'vim-scripts/javacomplete'
 " NeoBundle 'fuenor/JpFormat.vim'
 
 " Unite Sources
@@ -643,12 +647,28 @@ inoremap <expr><TAB>   pumvisible() ? "<C-n>" : "<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "<C-p>" : "<S-TAB>"
 inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
+" dict files
+" Ref: https://github.com/yuroyoro/dotfiles
+" ---------------------------------------------------------------------------------------------------
+let g:neocomplcache_dictionary_filetype_lists = {
+	\ 'java'       : $HOME.'/.vim/dict/java.dict',
+	\ 'c'          : $HOME.'/.vim/dict/c.dict',
+	\ 'cpp'        : $HOME.'/.vim/dict/cpp.dict',
+	\ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+	\ 'ocaml'      : $HOME.'/.vim/dict/ocaml.dict',
+	\ 'perl'       : $HOME.'/.vim/dict/perl.dict',
+	\ 'php'        : $HOME.'/.vim/dict/php.dict',
+	\ 'scheme'     : $HOME.'/.vim/dict/scheme.dict',
+	\ 'vm'         : $HOME.'/.vim/dict/vim.dict'
+	\ }
+
 " for clang_complete
 " ---------------------------------------------------------------------------------------------------
-if !exists("g:neocomplcache_force_omni_patterns")
+if !exists('g:neocomplcache_force_omni_patterns')
 	let g:neocomplcache_force_omni_patterns = {}
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
+
 " }}}
 
 "====================================================================================================
@@ -818,13 +838,15 @@ nnoremap <silent> <leader>r :QuickRun<CR>
 
 "====================================================================================================R
 " ctags
-" Ref: http://d.hatena.ne.jp/osyo-manga/20120205/1328368314
 "====================================================================================================
 " {{{
+
+" Ref: http://d.hatena.ne.jp/osyo-manga/20120205/1328368314
+" ---------------------------------------------------------------------------------------------------
 function! s:TagsUpdate()
 	setlocal tags=
 	for filename in neocomplcache#sources#include_complete#get_include_files(bufnr('%'))
-		execute "setlocal tags+=".neocomplcache#cache#encode_name('tags_output', filename)
+		execute 'setlocal tags+='.neocomplcache#cache#encode_name('tags_output', filename)
 	endfor
 endfunction
 
@@ -841,6 +863,12 @@ endfunction
 noremap <silent> g<C-]> :<C-u>execute "PopupTags ".expand('<cword>')<CR>
 noremap <silent> G<C-]> :<C-u>execute "PopupTags "
     \.substitute(<SID>get_func_name(expand('<cWORD>')), '\:', '\\\:', "g")<CR>
+
+" set tags by filetype
+" ---------------------------------------------------------------------------------------------------
+autocmd FileType java :setlocal tags+=~/.vim/tags/java
+autocmd FileType java :setlocal tags+=~/.vim/tags/android
+
 " }}}
 
 "====================================================================================================

@@ -8,57 +8,57 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/snippet
+~MSle0~/dict
 
 # Last Substitute Search Pattern:
-~MSle0&j
+~MSle0&4.2.1
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:q
 :wq
+:q
 :w
-:h neosnippet
-:e ../openjtalk/Makefile
-:e kana2voca.js
-:'<,'>S/$/,/
-:'<,'>Alignta ,
-:'<,'>%S
-:%S/\tboost::algorithm::replace_all\(w , "(.*?)","(.*?)");/"\1", "\2"/
-:%S/\tboost::algorithm::replaceall\(w , "(.*?)","(.*?)");/"\1", "\2"/
-:set fileformat=vimrc
+:e ~/.vimrc
+:set tags=~/.vim/tags/android
+:set tags=~/.vim/tags/java
+:NeoComplCacheCachingTags
+::NeoComplCacheCachingTags
+:Unite neobundle
+:h javascriptcomplete
+:h javascripcomplete
+:h javascript
+:qa!
 :qa
-:e testApp.h
-:%S/threshould/threshold/g
-:grayImage
-:e src/testApp.cpp
-:s/j/i/g
-:e twmidi.js
-:e test.js
+:setlocal omnifunc=javacomplete#Complete
+:set setlocal omnifunc=javacomplete#Complete
+:NeoBundleInstall
+:h neocompl
+:h java
+:h CompleteJS
 
 # Search String History (newest to oldest):
 ? \s\+$
-?/snippet
-?/e
-?/C-e
-?/expand
-?/„Çè
-?/„Çí
-?/toVoca
-? $
-? \tboost::algorithm::replace_all(w , "\(.\{-}\)","\(.\{-}\)");
-? \tboost::algorithm::replaceall(w , "\(.\{-}\)","\(.\{-}\)");
-?/Shift
-?/findCon
-?/mousePres
-?/update
-? threshould
-?/grayImage
-?/set
-?/draw
-? j
+?/dict
+?/„ÅÇ
+?/neocompl
+?/a
+?/vim
+?/vrapper
+?/uncomment
+?/right
+?/Right
+?/wrap
+?/which
+?/next
+?/navigate
+?/LineEnd
+?/Down
+?/Back
+?/Up
+?/emacs
+?/javascript
 
 # Expression History (newest to oldest):
 
@@ -87,150 +87,159 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-""0	LINE	0
-	nnoremap <silent> <S-j> <C-d>
-	nnoremap <silent> <S-k> <C-u>
+"0	LINE	0
+	" prefix
+	" ---------------------------------------------------------------------------------------------------
 "1	CHAR	0
-	C-e
-"2	CHAR	0
-	e
-"3	CHAR	0
-	x
-"4	CHAR	0
-	-
-"5	CHAR	0
-	C
-"6	CHAR	0
-	 
+	prefix
+"2	LINE	0
+	inoremap <C-u> <Esc>:DeleteLineToBeginning<CR>i
+"3	LINE	0
+	
+	
+	
+	
+"4	LINE	0
+	inoremap <C-k> <Esc><Right>:DeleteLineToEnd<CR>a
+	inoremap <C-u> <Esc>:DeleteLineToBeginning<CR>i
+"5	LINE	0
+	inoremap <C-d> <Esc><Right>xi
+"6	LINE	0
+	inoremap <C-a> <Esc>0i
+	inoremap <C-e> <Esc>:LineEnd<CR>a
 "7	CHAR	0
-	w
-"8	CHAR	0
-	e
+	<CR>
+"8	LINE	0
+	inoremap <C-f> <Esc><Right>a
+	inoremap <C-b> <Esc>i
 "9	LINE	0
-		npm install
+	inoremap <C-f> <Right>
+	inoremap <C-b> <Left>
 "j	CHAR	0
 	JJJJJJJKJJJJJJJ/power./gÄkbfgnnnnnnnnnnnnnnnnnnnKKKK:messages:echo string(ÄkbÄkbÄkbÄkbÄkbÄkbÄkbÄkb highÄkbÄkbÄkbÄkbÄkbÄkbÄkbÄkbÄkuÄkuÄkdÄkdÄkbmÄku:echo hi['gui']
 "k	CHAR	0
 	k
 "q	CHAR	0
 	j
-"-	CHAR	0
-	C-e
+""-	CHAR	0
+	prefix
 
 # File marks:
-'0  2  0  ~/Dropbox/dotfiles/.vimrc
-'1  1  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
-'2  1  0  ~/tmp/julius/node_modules/julius/main.cpp
-'3  90  100  ~/.vimrc
-'4  154  26  ~/.vimrc
-'5  29  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
-'6  11  88  ~/tmp/julius/node_modules/julius/test/test.js
-'7  7  0  ~/tmp/julius/node_modules/julius/test/test2.js
-'8  4  0  ~/tmp/julius/node_modules/node-julius/package.json
-'9  372  15  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
+'0  2  10  ~/.gitignore
+'1  1  0  ~/.gitignore
+'2  2  0  ~/.vrapperrc
+'3  96  11  ~/.vimrc
+'4  6  0  ~/.vrapperrc
+'5  95  0  ~/Dropbox/dotfiles/.vim/dict/cpp.dict
+'6  12  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/DetailActivity.java
+'7  656  1  ~/.vimrc
+'8  1  0  ~/hoge.java
+'9  651  5  ~/.vimrc
 
 # Jumplist (newest first):
--'  2  0  ~/Dropbox/dotfiles/.vimrc
--'  1  0  ~/Dropbox/dotfiles/.vimrc
--'  1  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
--'  1  0  ~/tmp/julius/node_modules/julius/main.cpp
--'  2  0  ~/tmp/julius/node_modules/julius/main.cpp
--'  90  100  ~/.vimrc
--'  1  0  ~/.vimrc
--'  154  26  ~/.vimrc
--'  548  34  ~/.vimrc
--'  275  21  ~/.vimrc
--'  856  0  ~/.vimrc
--'  126  0  ~/.vimrc
--'  127  3  ~/.vimrc
--'  117  0  ~/.vimrc
--'  29  0  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
--'  48  1  ~/tmp/julius/node_modules/julius/JuliusGrammar.js
--'  11  88  ~/tmp/julius/node_modules/julius/test/test.js
--'  1  0  ~/tmp/julius/node_modules/julius/test/test.js
--'  7  0  ~/tmp/julius/node_modules/julius/test/test2.js
--'  1  0  ~/tmp/julius/node_modules/julius/test/test2.js
--'  4  0  ~/tmp/julius/node_modules/node-julius/package.json
--'  1  0  ~/tmp/julius/node_modules/node-julius/package.json
--'  372  15  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  358  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  54  10  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  218  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  55  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  19  5  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/Makefile
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/Makefile
--'  15  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/Makefile
--'  18  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
--'  13  22  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/openjtalk/package.json
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
--'  4  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/openjtalk/Makefile
--'  4  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/openjtalk/package.json
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/README.md
--'  7  4  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/package.json
--'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
--'  22  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
--'  1  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/[quickrun output]
--'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/[quickrun output]
--'  2  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/[quickrun output]
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/split
--'  3  60  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/test.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/test.js
--'  2  30  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  69  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
--'  86  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
--'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/kana2voca.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/*unite* - quickrun-hook-unite-quickfix
--'  8  18  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
--'  14  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
--'  13  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
--'  12  15  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
--'  16  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
--'  9  99  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/README.md
--'  3  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
--'  82  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
--'  5  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/JuliusGrammar.js
--'  42  1  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  98  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  100  13  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  391  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  99  2  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  101  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  102  20  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  16  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  38  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  15  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  103  8  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  392  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  393  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/k2v.js
--'  1  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/julius
--'  613  0  ~/.vrapperrc
+-'  2  10  ~/.gitignore
+-'  1  0  ~/.gitignore
+-'  2  0  ~/.vrapperrc
 -'  1  0  ~/.vrapperrc
--'  144  44  ~/.zshrc
--'  1  0  ~/.zshrc
--'  150  0  ~/.zshrc
--'  145  72  ~/.zshrc
--'  144  21  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
--'  115  3  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
--'  94  33  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
--'  44  84  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
--'  26  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
--'  51  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.h
--'  1  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/bgDiff/src/testApp.cpp
--'  228  16  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/*vimshell* - default
--'  219  16  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/*vimshell* - default
--'  8  82  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/Project.xcconfig
--'  31  1  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/*vimshell* - default
--'  7  18  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/Project.xcconfig
--'  1  0  ~/ProgramLocal/of_v0072_osx_release/apps/myApps/ofxBox2D/Project.xcconfig
--'  8  18  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
--'  14  0  ~/Dropbox/Program/javascript/node.js/has/node_modules/julius/node_modules/kana2voca/package.json
+-'  96  11  ~/.vimrc
+-'  4  1  ~/.vimrc
+-'  20  47  ~/.vrapperrc
+-'  22  13  ~/.vrapperrc
+-'  28  0  ~/.vrapperrc
+-'  6  0  ~/.vrapperrc
+-'  7  0  ~/.vrapperrc
+-'  95  0  ~/Dropbox/dotfiles/.vim/dict/cpp.dict
+-'  1  0  ~/Dropbox/dotfiles/.vim/dict/cpp.dict
+-'  12  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/DetailActivity.java
+-'  17  15  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/DetailActivity.java
+-'  18  5  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/DetailActivity.java
+-'  1  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/DetailActivity.java
+-'  656  1  ~/.vimrc
+-'  1  0  ~/.vimrc
+-'  1  0  ~/hoge.java
+-'  651  5  ~/.vimrc
+-'  652  3  ~/.vimrc
+-'  276  18  ~/.vimrc
+-'  10  32  ~/.vrapperrc
+-'  9  25  ~/.vrapperrc
+-'  26  9  ~/.vrapperrc
+-'  188  0  ~/.vrapperrc
+-'  312  14  ~/.vrapperrc
+-'  311  32  ~/.vrapperrc
+-'  317  0  ~/.vrapperrc
+-'  477  19  ~/.vrapperrc
+-'  476  40  ~/.vrapperrc
+-'  503  0  ~/.vrapperrc
+-'  270  66  ~/.vrapperrc
+-'  269  37  ~/.vrapperrc
+-'  150  47  ~/.vrapperrc
+-'  149  22  ~/.vrapperrc
+-'  146  22  ~/.vrapperrc
+-'  143  22  ~/.vrapperrc
+-'  140  22  ~/.vrapperrc
+-'  137  22  ~/.vrapperrc
+-'  49  0  ~/.vrapperrc
+-'  381  14  ~/.vrapperrc
+-'  363  61  ~/.vrapperrc
+-'  357  61  ~/.vrapperrc
+-'  171  18  ~/.vrapperrc
+-'  567  0  ~/.vrapperrc
+-'  81  0  ~/.vrapperrc
+-'  121  0  ~/.vimrc
+-'  46  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  47  8  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  1  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  20  1  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  18  7  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  24  8  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  671  0  ~/.vimrc
+-'  296  0  ~/.vimrc
+-'  11  0  ~/Dropbox/Program/javascript/user.js/20111128_google_reader_plusone.user.js
+-'  9  4  ~/Dropbox/Program/javascript/user.js/20111128_google_reader_plusone.user.js
+-'  1  0  ~/Dropbox/Program/javascript/user.js/20111128_google_reader_plusone.user.js
+-'  782  23  ~/.vimrc
+-'  8  0  ~/Dropbox/Program/javascript/user.js/20111128_google_reader_plusone.user.js
+-'  10  18  ~/Dropbox/Program/javascript/user.js/20111128_google_reader_plusone.user.js
+-'  16  21  ~/Dropbox/Program/javascript/user.js/20111128_google_reader_plusone.user.js
+-'  314  0  ~/.vimrc
+-'  615  0  ~/.vimrc
+-'  19  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  9  14  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  641  40  ~/.vimrc
+-'  667  34  ~/.vimrc
+-'  8  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  16  4  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  15  7  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  10  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  21  14  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  329  23  ~/.vimrc
+-'  90  0  ~/.vimrc
+-'  32  7  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  33  9  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  870  38  ~/.vimrc
+-'  2  0  ~/.vimrc
+-'  4  24  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  871  0  ~/.vimrc
+-'  698  0  ~/.vimrc
+-'  3  0  ~/.vimrc
+-'  13  32  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  53  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  869  1  ~/.vimrc
+-'  14  9  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  582  0  ~/.vrapperrc
+-'  46  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  47  8  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  1  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  20  1  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/MainActivity.java
+-'  95  0  ~/Dropbox/dotfiles/.vim/dict/cpp.dict
+-'  1  0  ~/Dropbox/dotfiles/.vim/dict/cpp.dict
+-'  12  0  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/DetailActivity.java
+-'  17  15  ~/Dropbox/Program/Java/android/AndroidVersionBook/src/jp/asciimw/androidbook/chapter1/androidversionbook/DetailActivity.java
 
 # History of marks within files (newest to oldest):
 
-> ~/Dropbox/dotfiles/.vimrc
-	"	2	0
+> ~/.gitignore
+	"	2	10
+	^	2	11
+	.	2	0
+	+	2	0

@@ -1,76 +1,33 @@
-et smartindent
+set smartindent
 set autoindent
 set ignorecase
 set smartcase
 set saney
 
-" keymap
+noremap ; :
 
-" 標準コマンド
-nnoremap <Space>w :<C-u>w<cr>
-nnoremap <Space>q :<C-u>q<cr>
+inoremap <C-a> <Esc>0i
+inoremap <C-e> <Esc>:LineEnd<CR>a
 
-" ソース
-nnoremap <space>sd :CreateDelegateMethods<CR>
-nnoremap <space>sg :CreateGetterSetter<CR>
-nnoremap <space>sc :GenerateConstructorUsingFields<CR>
-nnoremap <space>so :OverrideMethods<CR>
-nnoremap <space>sf :Format<CR>
+inoremap <C-f> <Esc><Right>a
+inoremap <C-b> <Esc>i
+inoremap <C-n> <Esc>:LineDown<CR>a
+inoremap <C-p> <Esc>:LineUp<CR>a
 
-" リファクタリング
-nnoremap <space>rt :ChangeType<CR>
-nnoremap <space>rv :PromoteLocalVariable<CR>
+inoremap <C-o> <Esc>o
+inoremap <C-h> <BS>
+inoremap <C-d> <Esc><Right>xi
+inoremap <C-k> <Esc><Right>:DeleteLineToEnd<CR>i
 
-" ナビゲーション
-nnoremap <space>nc :OpenCallHierarchy<CR>
-nnoremap <space>ns :OpenStructure<CR>
-nnoremap <space>nt :OpenTypeHierarchy<CR>
+nnoremap J 10j
+nnoremap K 10k
+vnoremap J 10j
+vnoremap K 10k
 
-" vim like
-nnoremap <C-]> :OpenEditor<CR>
-nnoremap ]] :GotoNextMember<CR>
-nnoremap [[ :GotoPreviousMember<CR>
-
-" ;と:を入れ替え
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
-
-" Esc
-noremap  <C-c> <C-[>
-noremap! <C-c> <C-[>
-
-" 移動
-nnoremap <C-j> 5j
-nnoremap <C-k> 5k
-vnoremap <C-j> 5j
-vnoremap <C-k> 5k
-
-" tab
-nnoremap gr gT
-
-" text-objectを割り当て
-onoremap aa  a>
-vnoremap aa  a>
-onoremap ia  i>
-vnoremap ia  i>
-
-onoremap ar  a]
-vnoremap ar  a]
-onoremap ir  i]
-vnoremap ir  i]
-
-onoremap ad  a"
-vnoremap ad  a"
-onoremap id  i"
-vnoremap id  i"
-
-onoremap aq  a'
-vnoremap aq  a'
-onoremap iq  i'
-vnoremap iq  i'
-
+" ref
+" http://help.eclipse.org/help33/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/ui/texteditor/IWorkbenchActionDefinitionIds.html
+" http://help.eclipse.org/help33/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/ui/texteditor/ITextEditorActionDefinitionIds.html
+" http://help.eclipse.org/ganymede/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/ui/actions/IJavaEditorActionDefinitionIds.html
 
 "Action definition ID of the source -> add block comment action
 eclipseaction AddBlockComment org.eclipse.jdt.ui.edit.text.java.add.block.comment
@@ -189,7 +146,7 @@ eclipseaction OpenExternalJavadoc org.eclipse.jdt.ui.edit.text.java.open.externa
 "definition ID of the navigate -> Show Hierarchy action
 eclipseaction OpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
 
-"definition ID of the navigate -> Open Structure action
+"definition ID of the Navigate -> Open Structure action
 eclipseaction OpenStructure org.eclipse.jdt.ui.navigate.java.open.structure
 
 "definition ID of the navigate -> open super implementation action
@@ -356,9 +313,6 @@ eclipseaction Uncomment org.eclipse.jdt.ui.edit.text.java.uncomment
 
 "definition ID of the refactor -> use supertype action
 eclipseaction UseSupertype org.eclipse.jdt.ui.edit.text.java.use.supertype
-
-
-
 
 "Action definition id of the edit delete line action.
 eclipseaction DeleteLine org.eclipse.ui.edit.text.delete.line
