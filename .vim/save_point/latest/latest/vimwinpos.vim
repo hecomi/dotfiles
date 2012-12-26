@@ -1,3 +1,3 @@
-set columns=150
-set lines=40
-winpos -1 -1
+set columns=70
+set lines=37
+winpos 0 22

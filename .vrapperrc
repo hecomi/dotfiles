@@ -1,11 +1,17 @@
+" Basic setting
+" --------------------------------------------------------------------------------
 set smartindent
 set autoindent
 set ignorecase
 set smartcase
 set saney
 
+" 英字キーボード用
+" --------------------------------------------------------------------------------
 noremap ; :
 
+" Insert mode 時に Emacs っぽくする
+" --------------------------------------------------------------------------------
 inoremap <C-a> <Esc>0i
 inoremap <C-e> <Esc>:LineEnd<CR>a
 
@@ -19,11 +25,25 @@ inoremap <C-h> <BS>
 inoremap <C-d> <Esc><Right>xi
 inoremap <C-k> <Esc><Right>:DeleteLineToEnd<CR>i
 
+" コピー
+" --------------------------------------------------------------------------------
+nnoremap Y Vy
+
+" 移動
+" --------------------------------------------------------------------------------
 nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
 vnoremap K 10k
 
+" 整形
+" --------------------------------------------------------------------------------
+vnoremap = :Format<CR>
+
+
+" Eclipse コマンド
+" Ref: https://github.com/basyura/vrapperrc/blob/master/vrapperrc
+" --------------------------------------------------------------------------------
 " ref
 " http://help.eclipse.org/help33/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/ui/texteditor/IWorkbenchActionDefinitionIds.html
 " http://help.eclipse.org/help33/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/ui/texteditor/ITextEditorActionDefinitionIds.html
@@ -543,8 +563,6 @@ eclipseaction ShowWhitespaceCharacters org.eclipse.ui.edit.text.toggleShowWhites
 
 "Command ID of the command to display information for the current caret location in a sticky hover.
 eclipseaction ShowInformation org.eclipse.ui.edit.text.showInformation
-
-
 
 "Action definition id of the file print action. Value:
 eclipseaction Print org.eclipse.ui.file.print

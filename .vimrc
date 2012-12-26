@@ -225,15 +225,14 @@ else
 	let STL_INCLUDE_PATH   = '/usr/local/include/c++/4.8.0'
 endif
 
-let INCLUDE_PATHS = [
-	\ COMMON_INCLUDE_PATH,
-	\ STL_INCLUDE_PATH,
-	\ BOOST_INCLUDE_PATH,
-\ ]
-let LIBRARY_PATHS = [
-	\ COMMON_LIBRARY_PATH,
-	\ BOOST_LIBRARY_PATH,
-\ ]
+let INCLUDE_PATHS = []
+	\ + split(COMMON_INCLUDE_PATH, ',')
+	\ + split(STL_INCLUDE_PATH,    ',')
+	\ + split(BOOST_INCLUDE_PATH,  ',')
+
+let LIBRARY_PATHS = []
+	\ + split(COMMON_LIBRARY_PATH, ',')
+	\ + split(BOOST_LIBRARY_PATH,  ',')
 
 let INCLUDE_OPTIONS = ' -I' . join(INCLUDE_PATHS, ' -I')
 let LIBRARY_OPTIONS = ' -L' . join(LIBRARY_PATHS, ' -L')
@@ -301,6 +300,7 @@ NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'mattn/vimplenote-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'msanders/cocoa.vim.git'
 NeoBundle 'osyo-manga/ref-lynx'
 NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/unite-filetype'

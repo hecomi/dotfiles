@@ -1,0 +1,33 @@
+" Basic setting
+" ---------------------------------------------------------------------------------------------------
+set incsearch
+set ignorecase
+set smartcase
+
+" ;
+" ---------------------------------------------------------------------------------------------------
+nnoremap ; :
+
+" Emacs-like key mapping @ insert mode
+" ---------------------------------------------------------------------------------------------------
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-e> <End>
+inoremap <C-a> <Home>
+inoremap <C-h> <Backspace>
+inoremap <C-d> <Del>
+
+" Other key mappings
+" ---------------------------------------------------------------------------------------------------
+nnoremap J 10j
+nnoremap K 10k
+vnoremap J 10j
+vnoremap K 10k
+nnoremap <Esc><Esc> :nohlsearch<CR>
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap <C-a> ggVG
