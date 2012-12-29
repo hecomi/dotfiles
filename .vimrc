@@ -70,11 +70,7 @@ match ZenkakuSpace /　/
 
 " StatusLine
 " ---------------------------------------------------------------------------------------------------
-" function! Last_point()
-"     return reanimate#is_saved() ? reanimate#last_point() : 'no save'
-" endfunction
 set laststatus=2
-" set statusline=%=[%F][%{Last_point()}\]\[%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%03l/%L,%03v]
 
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
@@ -97,19 +93,19 @@ nnoremap ; :
 
 " prefix
 " ---------------------------------------------------------------------------------------------------
+nnoremap [unite] <nop>
+nmap <Space> [unite]
 nnoremap [prefix] <nop>
-nmap <Space> [prefix]
-nnoremap [subprefix] <nop>
-nmap , [subprefix]
+nmap , [prefix]
 
 " edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if has('win32') || has('win64')
-	nnoremap <silent> [subprefix]vimrc  :e ~/_vimrc<CR>
-	nnoremap <silent> [subprefix]gvimrc :e ~/_gvimrc<CR>
+	nnoremap <silent> [prefix]vimrc  :e ~/_vimrc<CR>
+	nnoremap <silent> [prefix]gvimrc :e ~/_gvimrc<CR>
 else
-	nnoremap <silent> [subprefix]vimrc  :e ~/.vimrc<CR>
-	nnoremap <silent> [subprefix]gvimrc :e ~/.gvimrc<CR>
+	nnoremap <silent> [prefix]vimrc  :e ~/.vimrc<CR>
+	nnoremap <silent> [prefix]gvimrc :e ~/.gvimrc<CR>
 endif
 
 " Emacs-like mapping @ insert mode
@@ -148,42 +144,29 @@ nnoremap <C-a> ggVG
 
 " Copy
 " ---------------------------------------------------------------------------------------------------
-nnoremap [subprefix]sp  :set paste<CR>
-nnoremap [subprefix]nsp :set nopaste<CR>
+nnoremap [prefix]sp  :set paste<CR>
+nnoremap [prefix]nsp :set nopaste<CR>
 
 " Scroll
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> <S-j> <C-d>
-nnoremap <silent> <S-k> <C-u>
-vnoremap <silent> <S-j> <C-d>
-vnoremap <silent> <S-k> <C-u>
+nnoremap J <C-d>
+nnoremap K <C-u>
+vnoremap J <C-d>
+vnoremap K <C-u>
 
 " help
 " ---------------------------------------------------------------------------------------------------
 nnoremap ? :Unite output:map\|map!\|lmap<CR>
 vnoremap ? :Unite output:map\|map!\|lmap<CR>
 
-" continuous number
-" Ref: http://d.hatena.ne.jp/fuenor/20090907/1252315621
-" ---------------------------------------------------------------------------------------------------
-command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
-nmap <silent> [subprefix]co :ContinuousNumber <C-a><CR>
-vmap <silent> [subprefix]co :ContinuousNumber <C-a><CR>
-
-" date
-" ---------------------------------------------------------------------------------------------------
-inoremap [subprefix]date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
-inoremap [subprefix]time <C-R>=strftime('%H:%M')<CR>
-inoremap [subprefix]w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
-
 " auto close tag
 " Ref: http://d.hatena.ne.jp/babie/20110130/1296347719
 " ---------------------------------------------------------------------------------------------------
 augroup MyXML
 	autocmd!
-	autocmd Filetype xml   inoremap <buffer> </ </<C-x><C-o>
-	autocmd Filetype html  inoremap <buffer> </ </<C-x><C-o>
-	autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+	autocmd Filetype xml   inoremap <buffer> </ </<C-x><C-o><<
+	autocmd Filetype html  inoremap <buffer> </ </<C-x><C-o><<
+	autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o><<
 augroup END
 
 " IME
@@ -202,41 +185,26 @@ augroup END
 " {{{
 " Include Path
 " ---------------------------------------------------------------------------------------------------
-let COMMON_INCLUDE_PATH = ''
-let COMMON_LIBRARY_PATH = ''
-let BOOST_INCLUDE_PATH = ''
-let BOOST_LIBRARY_PATH = ''
-let STL_INCLUDE_PATH   = ''
+let INCLUDE_PATH = ''
+let LIBRARY_PATH = ''
 
 " for MacBook Air
 if has('mac')
-	let COMMON_INCLUDE_PATH = '/usr/local/include'
-	let COMMON_LIBRARY_PATH = '/usr/local/lib'
-	let STL_INCLUDE_PATH    = '/usr/local/include/libcxx'
-" for Windows 7 Desktop
+	let INCLUDE_PATH = '/usr/local/include,/usr/local/include/libcxx'
+	let LIBRARY_PATH = '/usr/local/lib'
+" for Windows 7/8 Desktop
 elseif has('win32') || has('win64')
-	let BOOST_INCLUDE_PATH = 'C:/include/boost'
-	let BOOST_LIBRARY_PATH = 'C:/include/boost/stage/lib'
-	let STL_INCLUDE_PATH   = 'C:/include/STL'
+	let INCLUDE_PATH = 'C:/include,C:/include/STL'
+	let LIBRARY_PATH = 'C:/include/boost/stage/lib'
 " for Ubuntu 10.04 (Server) / 11.10 (Let's note)
 else
-	let COMMON_INCLUDE_PATH = '/usr/include'
-	let COMMON_LIBRARY_PATH = '/usr/lib'
-	let STL_INCLUDE_PATH   = '/usr/local/include/c++/4.8.0'
+	let INCLUDE_PATH = '/usr/include,/usr/local/include/c++/4.8.0'
+	let LIBRARY_PATH = '/usr/lib'
 endif
 
-let INCLUDE_PATHS = []
-	\ + split(COMMON_INCLUDE_PATH, ',')
-	\ + split(STL_INCLUDE_PATH,    ',')
-	\ + split(BOOST_INCLUDE_PATH,  ',')
-
-let LIBRARY_PATHS = []
-	\ + split(COMMON_LIBRARY_PATH, ',')
-	\ + split(BOOST_LIBRARY_PATH,  ',')
-
-let INCLUDE_OPTIONS = ' -I' . join(INCLUDE_PATHS, ' -I')
-let LIBRARY_OPTIONS = ' -L' . join(LIBRARY_PATHS, ' -L')
-let &path .= join(INCLUDE_PATHS, ',')
+let INCLUDE_OPTIONS = ' -I' . join( split(INCLUDE_PATH, ','), ' -I' )
+let LIBRARY_OPTIONS = ' -L' . join( split(LIBRARY_PATH, ','), ' -L' )
+let &path .= ',' . INCLUDE_PATH
 
 " }}}
 
@@ -291,9 +259,11 @@ NeoBundle 'davidoc/taskpaper.vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'hrsh7th/vim-versions.git'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'mattn/excitetranslate-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/quickrunex-vim'
 NeoBundle 'mattn/vdbi-vim'
@@ -327,7 +297,6 @@ NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'vim-scripts/jshint.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-scripts/javacomplete'
-" NeoBundle 'fuenor/JpFormat.vim'
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
@@ -539,17 +508,16 @@ hi CursorLine ctermbg=gray     ctermfg=white
 " unite.vim
 "====================================================================================================
 " {{{
-nnoremap [unite] <nop>
-nmap <space> [unite]
-
 let g:unite_source_history_yank_enable =1
 
+" Key mappings
+" ---------------------------------------------------------------------------------------------------
 nnoremap <silent> [unite]b :Unite buffer<CR>
 nnoremap <silent> [unite]t :Unite tab<CR>
 nnoremap <silent> [unite]w :Unite window<CR>
 nnoremap <silent> [unite]g :Unite grep<CR>
 nnoremap <silent> [unite]o :Unite outline<CR>
-nnoremap <silent> [unite]s :Unite snippet<CR>
+nnoremap <silent> [unite]S :Unite snippet<CR>
 nnoremap <silent> [unite]y :Unite history/yank<CR>
 " }}}
 
@@ -568,8 +536,8 @@ let g:vimfiler_safe_mode_by_default = 0
 autocmd! FileType vimfiler call g:my_vimfiler_settings()
 function! g:my_vimfiler_settings()
 	" nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
-	nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<CR>
-	nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<CR>
+	nnoremap <buffer>s :call vimfiler#mappings#do_action('my_split')<CR>
+	nnoremap <buffer>v :call vimfiler#mappings#do_action('my_vsplit')<CR>
 endfunction
 
 let my_action = { 'is_selectable' : 1 }
@@ -588,9 +556,9 @@ call unite#custom_action('file', 'my_vsplit', my_action)
 
 " Key binds
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> [prefix]f     :VimFiler<CR>
-nnoremap <silent> [subprefix]vf :VimFiler<CR>
-nnoremap <silent> [prefix]F     :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+nnoremap <silent> [unite]f   :VimFiler<CR>
+nnoremap <silent> [prefix]vf :VimFiler<CR>
+nnoremap <silent> [prefix]vF :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 " }}}
 
 "====================================================================================================
@@ -605,10 +573,10 @@ call unite#custom_default_action('vimshell/history', 'insert')
 
 " key mapping
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> [prefix]s      :VimShell<CR>
-nnoremap <silent> [subprefix]vs  :VimShell<CR>
-nnoremap <silent> [subprefix]vsc :VimShellCReate<CR>
-nnoremap <silent> [subprefix]vsp :VimShellPop<CR>
+nnoremap <silent> [unite]s    :VimShell<CR>
+nnoremap <silent> [prefix]vs  :VimShell<CR>
+nnoremap <silent> [prefix]vsc :VimShellCreate<CR>
+nnoremap <silent> [prefix]vsp :VimShellPop<CR>
 " }}}
 
 "====================================================================================================
@@ -617,19 +585,19 @@ nnoremap <silent> [subprefix]vsp :VimShellPop<CR>
 " {{{
 " alc
 " ---------------------------------------------------------------------------------------------------
-if has('win32') || has('win64')
-	let s:cfg         = 'C:/MinGW/lynx/lynx.cfg'
-	let g:ref_alc_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
-endif
-
-nnoremap ,ra :<C-u>Ref alc<Space>
-
-let g:ref_alc_start_linenumber = 39
-if has('win32') || has('win64')
-	let g:ref_alc_encoding = 'Shift_JIS'
-else
-	let g:ref_alc_encoding = 'UTF-8'
-endif
+" if has('win32') || has('win64')
+" 	let s:cfg         = 'C:/MinGW/lynx/lynx.cfg'
+" 	let g:ref_alc_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
+" endif
+"
+" nnoremap [prefix]ra :<C-u>Ref alc<Space>
+"
+" let g:ref_alc_start_linenumber = 39
+" if has('win32') || has('win64')
+" 	let g:ref_alc_encoding = 'Shift_JIS'
+" else
+" 	let g:ref_alc_encoding = 'UTF-8'
+" endif
 " }}}
 
 "====================================================================================================
@@ -704,14 +672,14 @@ let g:clang_complete_auto=0
 if has('mac')
 	let g:clang_use_library   = 1
 	let g:clang_library_path  = '/usr/local/lib'
-	let g:clang_user_options  = '-std=c++11 -libstd=libc++ -I' . STL_INCLUDE_PATH
+	let g:clang_user_options  = '-std=c++11 -libstd=libc++ ' . INCLUDE_OPTIONS
 elseif has('win32') || has('win64')
 	let g:clang_use_library   = 0
-	let g:clang_exec          = 'C:/MinGW/mingw32/bin/clang.exe'
+	let g:clang_exec          = 'C:/MinGW/mingw32/bin/clang.exe ' . INCLUDE_OPTIONS
 	let g:clang_user_options  = '-std=c++0x 2>NUL || exit 0'
 else
 	let g:clang_use_library   = 1
-	let g:clang_library_path  = '/usr/share/clang'
+	let g:clang_library_path  = '/usr/share/clang ' . INCLUDE_OPTIONS
 	let g:clang_user_options  = '2>/dev/null || exit 0'
 endif
 " }}}
@@ -829,7 +797,7 @@ call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 " Unite: quickrun-select
 " -------------------------------------------------------
 nnoremap <silent> [unite]qc :Unite quickrun_config<CR>
-nnoremap <silent> [prefix]r :QuickRun<CR>
+nnoremap <silent> [unite]r  :QuickRun<CR>
 nnoremap <silent> <leader>r :QuickRun<CR>
 
 " autocmd BufWritePost *.cpp,*.h,*.hpp :WatchdogsRun
@@ -990,19 +958,19 @@ let g:echodoc_enable_at_startup = 1
 " Open-Browser
 "====================================================================================================
 " {{{
-nnoremap <silent> [subprefix]bo <Plug>(openbrowser-open)
-vnoremap <silent> [subprefix]bo <Plug>(openbrowser-open)
+nnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
+vnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
 " }}}
 
 "====================================================================================================
 " quickhl
 "====================================================================================================
 " {{{
-nnoremap <Space>m <Plug>(quickhl-toggle)
-xnoremap <Space>m <Plug>(quickhl-toggle)
-nnoremap <Space>M <Plug>(quickhl-reset)
-xnoremap <Space>M <Plug>(quickhl-reset)
-nnoremap <Space>j <Plug>(quickhl-match)
+nnoremap [prefix]m <Plug>(quickhl-toggle)
+xnoremap [prefix]m <Plug>(quickhl-toggle)
+nnoremap [prefix]M <Plug>(quickhl-reset)
+xnoremap [prefix]M <Plug>(quickhl-reset)
+nnoremap [prefix]j <Plug>(quickhl-match)
 " }}}
 
 "====================================================================================================
@@ -1045,9 +1013,9 @@ let $REANIMATE = g:reanimate_save_dir
 "====================================================================================================
 " {{{
 " map
-nnoremap [subprefix]mn  :MemoNew<CR>
-nnoremap [subprefix]ml  :MemoList<CR>
-nnoremap [subprefix]mg  :MemoGrep<CR>
+nnoremap [prefix]mn :MemoNew<CR>
+nnoremap [prefix]ml :MemoList<CR>
+nnoremap [prefix]mg :MemoGrep<CR>
 
 " parameters
 let g:memolist_path              = '~/Memo'

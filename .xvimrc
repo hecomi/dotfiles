@@ -8,7 +8,7 @@ set smartcase
 " ---------------------------------------------------------------------------------------------------
 nnoremap ; :
 
-" Emacs-like key mapping @ insert mode
+" Emacs-like key mappings @ insert mode
 " ---------------------------------------------------------------------------------------------------
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
@@ -19,15 +19,24 @@ inoremap <C-a> <Home>
 inoremap <C-h> <Backspace>
 inoremap <C-d> <Del>
 
+" whichwrap
+" CAUTION!: move 2 chars when using 'h'
+" ---------------------------------------------------------------------------------------------------
+nmap h i<Left><Esc>
+nmap l a<Right><Esc>
+vmap h <Left>
+vmap l <Right>
+
 " Other key mappings
 " ---------------------------------------------------------------------------------------------------
 nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
 vnoremap K 10k
-nnoremap <Esc><Esc> :nohlsearch<CR>
+
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
+
 nnoremap <C-a> ggVG
