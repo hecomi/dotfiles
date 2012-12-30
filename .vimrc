@@ -48,7 +48,7 @@ NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'hrsh7th/vim-versions'
+" NeoBundle 'hrsh7th/vim-versions'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'leafgarland/typescript-vim'
@@ -59,7 +59,7 @@ NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'mattn/vimplenote-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/zencoding-vim'
-" NeoBundle 'msanders/cocoa.vim.git'
+" NeoBundle 'msanders/cocoa.vim'
 NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/unite-filetype'
@@ -74,13 +74,13 @@ NeoBundle 'teramako/jscomplete-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'toritori0318/vim-redmine'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/lingr-vim'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/restart.vim'
-NeoBundle 'ujihisa/quicklearn'
 NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'vim-scripts/jshint.vim'
@@ -118,7 +118,6 @@ filetype indent on
 " ---------------------------------------------------------------------------------------------------
 syntax on
 set nocompatible
-set cmdheight=2
 
 " File
 " ---------------------------------------------------------------------------------------------------
@@ -141,7 +140,7 @@ set formatoptions=lmoq
 set whichwrap=b,s,h,l,<,>,[,]
 set clipboard=autoselect,unnamed
 
-" Complement Command
+" Wild darou?
 " ---------------------------------------------------------------------------------------------------
 set wildmenu
 set wildmode=list:full
@@ -177,6 +176,7 @@ set foldcolumn=2
 
 " StatusLine
 " ---------------------------------------------------------------------------------------------------
+set cmdheight=2
 set laststatus=2
 
 " Charset, Line ending
@@ -332,7 +332,7 @@ let LIBRARY_PATH = ''
 
 " for MacBook Air
 if has('mac')
-	let INCLUDE_PATH = '/usr/local/include,/usr/local/include/libcxx'
+	let INCLUDE_PATH = '/usr/local/include'
 	let LIBRARY_PATH = '/usr/local/lib'
 " for Windows 7/8 Desktop
 elseif has('win32') || has('win64')
@@ -340,7 +340,7 @@ elseif has('win32') || has('win64')
 	let LIBRARY_PATH = 'C:/include/boost/stage/lib'
 " for Ubuntu 10.04 (Server) / 11.10 (Let's note)
 else
-	let INCLUDE_PATH = '/usr/include,/usr/local/include/c++/4.8.0'
+	let INCLUDE_PATH = '/usr/include'
 	let LIBRARY_PATH = '/usr/lib'
 endif
 
@@ -357,7 +357,9 @@ let &path .= ',' . INCLUDE_PATH
 let g:unite_source_history_yank_enable =1
 
 " Key mappings
+" Note: Other mappings are located in each plugin setting place.
 " ---------------------------------------------------------------------------------------------------
+nnoremap <silent> [unite]u :Unite source<CR>
 nnoremap <silent> [unite]b :Unite buffer<CR>
 nnoremap <silent> [unite]t :Unite tab<CR>
 nnoremap <silent> [unite]w :Unite window<CR>
@@ -498,14 +500,14 @@ let g:clang_complete_auto=0
 if has('mac')
 	let g:clang_use_library   = 1
 	let g:clang_library_path  = '/usr/local/lib'
-	let g:clang_user_options  = '-std=c++11 -libstd=libc++ ' . INCLUDE_OPTIONS
+	let g:clang_user_options  = '-std=c++11 -libstd=libc++'
 elseif has('win32') || has('win64')
 	let g:clang_use_library   = 0
-	let g:clang_exec          = 'C:/MinGW/mingw32/bin/clang.exe ' . INCLUDE_OPTIONS
+	let g:clang_exec          = 'C:/MinGW/mingw32/bin/clang.exe'
 	let g:clang_user_options  = '-std=c++0x 2>NUL || exit 0'
 else
 	let g:clang_use_library   = 1
-	let g:clang_library_path  = '/usr/share/clang ' . INCLUDE_OPTIONS
+	let g:clang_library_path  = '/usr/share/clang'
 	let g:clang_user_options  = '2>/dev/null || exit 0'
 endif
 " }}}
@@ -514,71 +516,48 @@ endif
 " quickrun
 "====================================================================================================
 " {{{
-" Compilers
-" ---------------------------------------------------------------------------------------------------
-if has('win32') || ('win64')
-	let quickrun_user_options_windows = ' -D_WIN32_WINNT=0x0601'
-else
-	let quickrun_user_options_windows = ''
-endif
-
 let g:quickrun_config = {}
 
-if has('mac')
-	let g:quickrun_config['cpp/clang++'] = {
-		\ 'type'      : 'cpp',
-		\ 'command'   : 'clang++',
-		\ 'cmdopt'    : '-std=c++11 -stdlib=libc++ -Wall' . INCLUDE_OPTIONS . LIBRARY_OPTIONS,
-		\ 'runner'    : 'vimproc',
-	\ }
-else
-	let g:quickrun_config['cpp/clang++'] = {
-		\ 'type'      : 'cpp',
-		\ 'command'   : 'clang++',
-		\ 'cmdopt'    : '-std=c++11 -Wall',
-		\ 'runner'    : 'vimproc',
-	\ }
+" C++
+" ---------------------------------------------------------------------------------------------------
+let s:quickrun_cpp_options = '-std=c++0x -Wall ' . INCLUDE_OPTIONS . LIBRARY_OPTIONS
+if has('win32') || ('win64')
+	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
 endif
 
+" Todo: これフリーズする...
+" let g:quickrun_config['cpp'] = {
+" 	\ "type" : "cpp/clang++",
+" 	\ "hook/extend_config/enable" : 1,
+" \ }
+
+" Todo: cmdopt をフックしてまとめたい / g++ 系の実行結果が表示されない...
+let g:quickrun_config['cpp/clang++'] = {
+	\ 'command'   : 'clang++',
+ 	\ 'cmdopt'    : s:quickrun_cpp_options.' -I/usr/local/include/libcxx'.' -stdlib=libc++',
+	\ 'runner'    : 'vimproc',
+\ }
+
 let g:quickrun_config['cpp/g++-4.6'] = {
-	\ 'type'      : 'cpp',
 	\ 'command'   : 'g++-4.6',
-	\ 'cmdopt'    : '-std=c++0x -Wall',
+	\ 'cmdopt'    : s:quickrun_cpp_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.7'] = {
-	\ 'type'      : 'cpp',
 	\ 'command'   : 'g++-4.7',
-	\ 'cmdopt'    : '-std=c++0x -Wall',
+	\ 'cmdopt'    : s:quickrun_cpp_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.8'] = {
-	\ 'type'      : 'cpp',
 	\ 'command'   : 'g++-4.8',
-	\ 'cmdopt'    : '-std=c++0x -Wall',
+	\ 'cmdopt'    : s:quickrun_cpp_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['haskell/ghci'] = {
-	\ 'type'    : 'haskell',
-	\ 'command' : 'ghci',
-	\ 'runner'  : 'shell'
-\ }
-
-let g:quickrun_config['typescript/tsc'] = {
-	\ 'type'    : 'typescript',
-	\ 'command' : 'tsc',
-	\ 'runner'  : 'vimproc'
-\ }
-
-let g:quickrun_config['javascript/node'] = {
-	\ 'type'    : 'javascript',
-	\ 'command' : 'node-dev',
-	\ 'runner'  : 'vimproc'
-\ }
-
+" Watchdogs
+" ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['_'] = {
 	\ 'hook/echo/priority_exit'                      : 100,
 	\ 'hook/echo/enable_output_exit'                 : 1,
@@ -590,9 +569,9 @@ let g:quickrun_config['_'] = {
 	\ 'hook/echo/enable'                             : 1,
 	\ 'hook/echo/output_success'                     : '(／・ω・)／ ﾆｬｰ',
 	\ 'hook/echo/output_failure'                     : '(´・ω・｀) ｼｮﾎﾞｰﾝ',
-	\ 'outputter'                                    : 'multi:buffer:quickfix',
 	\ 'hook/inu/enable'                              : 1,
 	\ 'hook/inu/wait'                                : 5,
+	\ 'outputter'                                    : 'multi:buffer:quickfix',
 	\ 'outputter/buffer/split'                       : ':botright 8sp',
 	\ 'runner'                                       : 'vimproc',
 	\ 'runner/vimproc/updatetime'                    : 40,
@@ -600,6 +579,7 @@ let g:quickrun_config['_'] = {
 
 call watchdogs#setup(g:quickrun_config)
 let g:watchdogs_check_BufWritePost_enable = 0
+" autocmd BufWritePost *.cpp,*.h,*.hpp :WatchdogsRun
 
 " Error highlight
 " ---------------------------------------------------------------------------------------------------
@@ -623,14 +603,12 @@ call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 " Unite: quickrun-select
 " -------------------------------------------------------
 nnoremap <silent> [unite]qc :Unite quickrun_config<CR>
-nnoremap <silent> [unite]r  :QuickRun<CR>
+nnoremap <silent> [prefix]r :QuickRun<CR>
 nnoremap <silent> <leader>r :QuickRun<CR>
-
-" autocmd BufWritePost *.cpp,*.h,*.hpp :WatchdogsRun
 
 " }}}
 
-"====================================================================================================R
+"====================================================================================================
 " ctags
 "====================================================================================================
 " {{{
@@ -695,14 +673,6 @@ endif
 " vim-hier
 "====================================================================================================
 " {{{
-let g:quickrun_config['*'] = {'split': ''}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
-
-augroup RSpec
-	autocmd!
-	autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
-augroup END
-
 let my_outputter = quickrun#outputter#multi#new()
 let my_outputter.config.targets = ['buffer', 'quickfix']
 
@@ -764,6 +734,19 @@ let g:syntastic_auto_loc_list      = 1
 let g:syntastic_javascript_checker = 'jshint'
 
 nnoremap [prefix]s :SyntasticCheck<CR>
+" }}}
+
+"====================================================================================================
+" vim-fugitive
+"====================================================================================================
+" {{{
+nnoremap <silent> [prefix]gb :Gblame<CR>
+nnoremap <silent> [prefix]gd :Gdiff<CR>
+nnoremap <silent> [prefix]gs :Gstatus<CR>
+nnoremap <silent> [prefix]gl :Glog<CR>
+nnoremap <silent> [prefix]ga :Gwrite<CR>
+nnoremap <silent> [prefix]gc :Gread<CR>
+nnoremap <silent> [prefix]gC :Gcommit<CR>
 " }}}
 
 "====================================================================================================
@@ -857,13 +840,6 @@ hi EasyMotionShade  ctermbg=none ctermfg=black
 
 nmap f 'w
 nmap F 'b
-" }}}
-
-"====================================================================================================
-" quicklearn
-"====================================================================================================
-" {{{
-nnoremap [unite]ql :<C-u>Unite quicklearn -immediately<CR>
 " }}}
 
 "====================================================================================================
