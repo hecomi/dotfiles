@@ -1,5 +1,117 @@
 "====================================================================================================
-" Vim basic settings
+" Pathogen
+"====================================================================================================
+" {{{
+filetype off
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+set helpfile=$VIMRUNTIME/doc/help.txt
+
+filetype on
+" }}}
+
+"====================================================================================================
+" NeoBundle
+"====================================================================================================
+" {{{
+filetype off
+
+" Path
+" ---------------------------------------------------------------------------------------------------
+if has('vim_starting')
+	set runtimepath+='~/.vim/bundle/neobundle'
+	call neobundle#rc(expand('~/.vim/plugins'))
+endif
+
+" Shougo-san's Repos
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'Shougo/echodoc'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/unite-ssh'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimproc', { 'build' : {
+	\    'mingw' : 'make -f make_mingw.mak',
+	\    'mac'   : 'make -f make_mac.mak',
+	\    'unix'  : 'make -f make_unix.mak',
+	\ }, }
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vinarise'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'dannyob/quickfixstatus'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'hrsh7th/vim-versions'
+NeoBundle 'jceb/vim-hier'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'mattn/excitetranslate-vim'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/quickrunex-vim'
+NeoBundle 'mattn/vdbi-vim'
+NeoBundle 'mattn/vimplenote-vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/zencoding-vim'
+" NeoBundle 'msanders/cocoa.vim.git'
+NeoBundle 'myhere/vim-nodejs-complete'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/unite-filetype'
+NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'osyo-manga/unite-quickrun_config'
+NeoBundle 'osyo-manga/vim-reanimate'
+NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'spolu/dwm.vim'
+NeoBundle 'taku-o/vim-zoom'
+NeoBundle 'teramako/jscomplete-vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'toritori0318/vim-redmine'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tsukkee/lingr-vim'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'tyru/caw.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/restart.vim'
+NeoBundle 'ujihisa/quicklearn'
+NeoBundle 'vim-scripts/TwitVim'
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'vim-scripts/jshint.vim'
+NeoBundle 'vim-scripts/sudo.vim'
+" NeoBundle 'vim-scripts/javacomplete'
+
+" Unite Sources
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'osyo-manga/unite-banban'
+NeoBundle 'osyo-manga/unite-banban2'
+NeoBundle 'osyo-manga/unite-boost-online-doc'
+NeoBundle 'osyo-manga/unite-homo'
+NeoBundle 'osyo-manga/unite-jojo'
+NeoBundle 'osyo-manga/unite-life-game'
+NeoBundle 'osyo-manga/unite-nyancat_anim'
+NeoBundle 'osyo-manga/unite-rofi'
+NeoBundle 'osyo-manga/unite-shimapan'
+NeoBundle 'osyo-manga/unite-sl'
+NeoBundle 'osyo-manga/unite-u-nya-'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'ujihisa/unite-font'
+NeoBundle 'ujihisa/unite-locate'
+
+filetype plugin on
+filetype indent on
+"}}}
+
+"====================================================================================================
+" Flags
 "====================================================================================================
 " {{{
 " Common
@@ -63,11 +175,6 @@ set foldenable
 set foldmethod=marker
 set foldcolumn=2
 
-" Highlight
-" ---------------------------------------------------------------------------------------------------
-hi ZenkakuSpace gui=underline guibg=DarkBlue cterm=underline ctermfg=LightBlue
-match ZenkakuSpace /　/
-
 " StatusLine
 " ---------------------------------------------------------------------------------------------------
 set laststatus=2
@@ -84,7 +191,7 @@ endif
 " }}}
 
 "====================================================================================================
-" Common key mappings
+" Common Key Mappings
 "====================================================================================================
 " {{{
 " ;
@@ -164,25 +271,60 @@ vnoremap ? :Unite output:map\|map!\|lmap<CR>
 " ---------------------------------------------------------------------------------------------------
 augroup MyXML
 	autocmd!
-	autocmd Filetype xml   inoremap <buffer> </ </<C-x><C-o><<
-	autocmd Filetype html  inoremap <buffer> </ </<C-x><C-o><<
-	autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o><<
+	autocmd Filetype xml   inoremap <buffer> </ </<C-x><C-o>
+	autocmd Filetype html  inoremap <buffer> </ </<C-x><C-o>
+	autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 " IME
 " ---------------------------------------------------------------------------------------------------
 inoremap <Nul> <C-^>
-augroup InsModeAu
+augroup MyIME
     autocmd!
     autocmd InsertEnter,CmdwinEnter * set noimdisable
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
+
+" Continuous Number
+" ---------------------------------------------------------------------------------------------------
+nnoremap <silent> co :ContinuousNumber <C-a><CR>
+vnoremap <silent> co :ContinuousNumber <C-a><CR>
+	command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
+
+" Indent
+" ---------------------------------------------------------------------------------------------------
+nnoremap > >>
+nnoremap < <<
+vnoremap > >gv
+vnoremap < <gv
+
+" }}}
+
+"====================================================================================================
+" Color Scheme
+"====================================================================================================
+" {{{
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
+hi Normal     ctermbg=none     ctermfg=lightgray
+hi Comment    ctermfg=darkgray
+hi LineNr     ctermbg=none     ctermfg=darkgray
+hi SpecialKey ctermbg=none     ctermfg=black
+hi FoldColumn ctermbg=none     ctermfg=darkgreen
+hi Pmenu      ctermbg=darkgray ctermfg=white
+hi PmenuSel   ctermbg=gray     ctermfg=black
+hi PmenuSbar  ctermbg=darkblue
+hi PmenuThumb ctermbg=white
+hi CursorLine ctermbg=gray     ctermfg=white
 " }}}
 
 "====================================================================================================
 " Constants
 "====================================================================================================
 " {{{
+
 " Include Path
 " ---------------------------------------------------------------------------------------------------
 let INCLUDE_PATH = ''
@@ -209,303 +351,7 @@ let &path .= ',' . INCLUDE_PATH
 " }}}
 
 "====================================================================================================
-" Pathogen
-"====================================================================================================
-" {{{
-filetype off
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-set helpfile=$VIMRUNTIME/doc/help.txt
-
-filetype on
-" }}}
-
-"====================================================================================================
-" neobundle.vim
-"====================================================================================================
-" {{{
-filetype off
-
-" Path
-" ---------------------------------------------------------------------------------------------------
-if has('vim_starting')
-	set runtimepath+='~/.vim/bundle/neobundle'
-	call neobundle#rc(expand('~/.vim/plugins'))
-endif
-
-" Shougo-san's Repos
-" ---------------------------------------------------------------------------------------------------
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'Shougo/echodoc'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/unite-ssh'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc', { 'build' : {
-	\    'mingw' : 'make -f make_mingw.mak',
-	\    'mac'   : 'make -f make_mac.mak',
-	\    'unix'  : 'make -f make_unix.mak',
-	\ }, }
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vinarise'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'basyura/TweetVim'
-NeoBundle 'dannyob/quickfixstatus'
-NeoBundle 'davidoc/taskpaper.vim'
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'hrsh7th/vim-versions.git'
-NeoBundle 'jceb/vim-hier'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'mattn/excitetranslate-vim'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/quickrunex-vim'
-NeoBundle 'mattn/vdbi-vim'
-NeoBundle 'mattn/vimplenote-vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'msanders/cocoa.vim.git'
-NeoBundle 'osyo-manga/ref-lynx'
-NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/unite-filetype'
-NeoBundle 'osyo-manga/unite-quickfix'
-NeoBundle 'osyo-manga/unite-quickrun_config'
-NeoBundle 'osyo-manga/vim-reanimate'
-NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'spolu/dwm.vim'
-NeoBundle 't9md/vim-quickhl'
-NeoBundle 'taku-o/vim-zoom'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'toritori0318/vim-redmine'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tsukkee/lingr-vim'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'tyru/caw.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/restart.vim'
-NeoBundle 'ujihisa/quicklearn'
-NeoBundle 'vim-scripts/TwitVim'
-NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'vim-scripts/jshint.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'vim-scripts/javacomplete'
-
-" Unite Sources
-" ---------------------------------------------------------------------------------------------------
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'osyo-manga/unite-banban'
-NeoBundle 'osyo-manga/unite-banban2'
-NeoBundle 'osyo-manga/unite-boost-online-doc'
-NeoBundle 'osyo-manga/unite-homo'
-NeoBundle 'osyo-manga/unite-jojo'
-NeoBundle 'osyo-manga/unite-life-game'
-NeoBundle 'osyo-manga/unite-nyancat_anim'
-NeoBundle 'osyo-manga/unite-rofi'
-NeoBundle 'osyo-manga/unite-shimapan'
-NeoBundle 'osyo-manga/unite-sl'
-NeoBundle 'osyo-manga/unite-u-nya-'
-NeoBundle 'tsukkee/unite-help'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-font'
-NeoBundle 'ujihisa/unite-locate'
-
-filetype plugin on
-filetype indent on
-"}}}
-
-"====================================================================================================
-" Vim-powerline
-" Ref: http://d.hatena.ne.jp/itchyny/20120609/1339249777
-"====================================================================================================
-" {{{
-let g:Powerline_symbols = 'fancy'
-set t_Co=256
-
-call Pl#Hi#Allocate({
-	\ 'black'          : 16,
-	\ 'white'          : 231,
-	\
-	\ 'darkestgreen'   : 22,
-	\ 'darkgreen'      : 28,
-	\
-	\ 'darkestcyan'    : 23,
-	\ 'mediumcyan'     : 117,
-	\
-	\ 'darkestblue'    : 24,
-	\ 'darkblue'       : 31,
-	\
-	\ 'darkestred'     : 52,
-	\ 'darkred'        : 88,
-	\ 'mediumred'      : 124,
-	\ 'brightred'      : 160,
-	\ 'brightestred'   : 196,
-	\
-	\
-	\ 'darkestyellow'  : 59,
-	\ 'darkyellow'     : 100,
-	\ 'darkestpurple'  : 55,
-	\ 'mediumpurple'   : 98,
-	\ 'brightpurple'   : 189,
-	\
-	\ 'brightorange'   : 208,
-	\ 'brightestorange': 214,
-	\
-	\ 'gray0'          : 233,
-	\ 'gray1'          : 235,
-	\ 'gray2'          : 236,
-	\ 'gray3'          : 239,
-	\ 'gray4'          : 240,
-	\ 'gray5'          : 241,
-	\ 'gray6'          : 244,
-	\ 'gray7'          : 245,
-	\ 'gray8'          : 247,
-	\ 'gray9'          : 250,
-	\ 'gray10'         : 252,
-	\ })
-
-" 'n': normal mode
-" 'i': insert mode
-" 'v': visual mode
-" 'r': replace mode
-" 'N': not active
-
-let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
-	\ Pl#Hi#Segments(['SPLIT'], {
-		\ 'n': ['white', 'gray2'],
-		\ 'N': ['gray0', 'gray0'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['mode_indicator'], {
-		\ 'i': ['darkestgreen', 'white', ['bold']],
-		\ 'n': ['darkestcyan', 'white', ['bold']],
-		\ 'v': ['darkestpurple', 'white', ['bold']],
-		\ 'r': ['mediumred', 'white', ['bold']],
-		\ 's': ['white', 'gray5', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['fileinfo', 'filename'], {
-		\ 'i': ['white', 'darkestgreen', ['bold']],
-		\ 'n': ['white', 'darkestblue', ['bold']],
-		\ 'v': ['white', 'darkestpurple', ['bold']],
-		\ 'r': ['white', 'mediumred', ['bold']],
-		\ 'N': ['gray0', 'gray2', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['branch', 'scrollpercent', 'raw', 'filesize'], {
-		\ 'n': ['gray2', 'gray7'],
-		\ 'N': ['gray0', 'gray2'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['fileinfo.filepath', 'status'], {
-		\ 'n': ['gray10'],
-		\ 'N': ['gray5'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['static_str'], {
-		\ 'n': ['white', 'gray4'],
-		\ 'N': ['gray1', 'gray1'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['fileinfo.flags'], {
-		\ 'n': ['white'],
-		\ 'N': ['gray4'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup'], {
-		\ 'n': ['gray9', 'gray4'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['lineinfo'], {
-		\ 'n': ['gray2', 'gray10'],
-		\ 'N': ['gray2', 'gray4'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['errors'], {
-		\ 'n': ['white', 'gray2'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['lineinfo.line.tot'], {
-		\ 'n': ['gray2'],
-		\ 'N': ['gray2'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['paste_indicator', 'ws_marker'], {
-		\ 'n': ['white', 'brightred', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
-		\ 'n': ['white', 'mediumred', ['bold']],
-		\ 'N': ['brightred', 'darkestred', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['gundo:static_str.buffer', 'command_t:raw.line'], {
-		\ 'n': ['white', 'darkred'],
-		\ 'N': ['brightred', 'darkestred'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
-		\ 'n': ['white', 'darkred'],
-		\ 'N': ['white', 'darkestred'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:focus', 'ctrlp:byfname'], {
-		\ 'n': ['brightpurple', 'darkestpurple'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:prev', 'ctrlp:next', 'ctrlp:pwd'], {
-		\ 'n': ['white', 'mediumpurple'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:item'], {
-		\ 'n': ['darkestpurple', 'white', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:marked'], {
-		\ 'n': ['brightestred', 'darkestpurple', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:count'], {
-		\ 'n': ['darkestpurple', 'white'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:SPLIT'], {
-		\ 'n': ['white', 'darkestpurple'],
-		\ }),
-	\ ])
-
-let g:Powerline_colorscheme='my'
-" }}}
-
-"====================================================================================================
-" Color Scheme
-"====================================================================================================
-" {{{
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-
-hi Normal     ctermbg=none     ctermfg=lightgray
-hi Comment    ctermfg=darkgray
-hi LineNr     ctermbg=none     ctermfg=darkgray
-hi SpecialKey ctermbg=none     ctermfg=black
-hi FoldColumn ctermbg=none     ctermfg=darkgreen
-hi Pmenu      ctermbg=darkgray ctermfg=white
-hi PmenuSel   ctermbg=gray     ctermfg=black
-hi PmenuSbar  ctermbg=darkblue
-hi PmenuThumb ctermbg=white
-hi CursorLine ctermbg=gray     ctermfg=white
-" }}}
-"
-"====================================================================================================
-" unite.vim
+" Unite.vim
 "====================================================================================================
 " {{{
 let g:unite_source_history_yank_enable =1
@@ -522,7 +368,7 @@ nnoremap <silent> [unite]y :Unite history/yank<CR>
 " }}}
 
 "====================================================================================================
-" vimfiler
+" VimFiler
 "====================================================================================================
 " {{{
 " Basic settings
@@ -562,7 +408,7 @@ nnoremap <silent> [prefix]vF :VimFiler -buffer-name=explorer -split -winwidth=45
 " }}}
 
 "====================================================================================================
-" vimshell
+" VimShell
 "====================================================================================================
 " {{{
 " setting
@@ -577,27 +423,6 @@ nnoremap <silent> [unite]s    :VimShell<CR>
 nnoremap <silent> [prefix]vs  :VimShell<CR>
 nnoremap <silent> [prefix]vsc :VimShellCreate<CR>
 nnoremap <silent> [prefix]vsp :VimShellPop<CR>
-" }}}
-
-"====================================================================================================
-" Ref-vim
-"====================================================================================================
-" {{{
-" alc
-" ---------------------------------------------------------------------------------------------------
-" if has('win32') || has('win64')
-" 	let s:cfg         = 'C:/MinGW/lynx/lynx.cfg'
-" 	let g:ref_alc_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
-" endif
-"
-" nnoremap [prefix]ra :<C-u>Ref alc<Space>
-"
-" let g:ref_alc_start_linenumber = 39
-" if has('win32') || has('win64')
-" 	let g:ref_alc_encoding = 'Shift_JIS'
-" else
-" 	let g:ref_alc_encoding = 'UTF-8'
-" endif
 " }}}
 
 "====================================================================================================
@@ -619,7 +444,8 @@ inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
 " Ref: https://github.com/yuroyoro/dotfiles
 " ---------------------------------------------------------------------------------------------------
 let g:neocomplcache_dictionary_filetype_lists = {
-	\ 'java'       : $HOME.'/.vim/dict/java.dict',
+    \ 'default'    : '',
+    \ 'java'       : $HOME.'/.vim/dict/java.dict',
 	\ 'c'          : $HOME.'/.vim/dict/c.dict',
 	\ 'cpp'        : $HOME.'/.vim/dict/cpp.dict',
 	\ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
@@ -866,7 +692,7 @@ endif
 " }}}
 
 "====================================================================================================R
-" Syntax check with quickfixstatus & vim-hier
+" vim-hier
 "====================================================================================================
 " {{{
 let g:quickrun_config['*'] = {'split': ''}
@@ -898,6 +724,14 @@ nnoremap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
 " }}}
 
 "====================================================================================================
+" jscomplete-vim
+"====================================================================================================
+" {{{
+autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+let g:jscomplete_use = ['dom', 'moz', 'ex6th']
+" }}}
+
+"====================================================================================================
 " TypeScript
 " Ref: http://d.hatena.ne.jp/osyo-manga/20121006/1349450529
 "====================================================================================================
@@ -918,75 +752,18 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow" }}}
 
 "====================================================================================================
-" Rainbow Parenthesis
-"====================================================================================================
-" {{{
-let g:rbpt_colorpairs = [
-	\ ['brown',       'RoyalBlue3'],
-	\ ['Darkblue',    'SeaGreen3'],
-	\ ['darkgray',    'DarkOrchid3'],
-	\ ['darkgreen',   'firebrick3'],
-	\ ['darkcyan',    'RoyalBlue3'],
-	\ ['darkred',     'SeaGreen3'],
-	\ ['darkmagenta', 'DarkOrchid3'],
-	\ ['brown',       'firebrick3'],
-	\ ['gray',        'RoyalBlue3'],
-	\ ['black',       'SeaGreen3'],
-	\ ['darkmagenta', 'DarkOrchid3'],
-	\ ['Darkblue',    'firebrick3'],
-	\ ['darkgreen',   'RoyalBlue3'],
-	\ ['darkcyan',    'SeaGreen3'],
-	\ ['darkred',     'DarkOrchid3'],
-	\ ['red',         'firebrick3'],
-\ ]
-let g:rbpt_max = 16
-autocmd VimEnter *   RainbowParenthesesToggle
-autocmd Syntax   *   RainbowParenthesesLoadRound
-autocmd Syntax   *   RainbowParenthesesLoadSquare
-autocmd Syntax   *   RainbowParenthesesLoadBraces
-" autocmd FileType cpp RainbowParenthesesLoadChevrons
-" }}}
-
-"====================================================================================================
-" echodoc
-"====================================================================================================
-"{{{
-let g:echodoc_enable_at_startup = 1
-" }}}
-
-"====================================================================================================
-" Open-Browser
-"====================================================================================================
-" {{{
-nnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
-vnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
-" }}}
-
-"====================================================================================================
-" quickhl
-"====================================================================================================
-" {{{
-nnoremap [prefix]m <Plug>(quickhl-toggle)
-xnoremap [prefix]m <Plug>(quickhl-toggle)
-nnoremap [prefix]M <Plug>(quickhl-reset)
-xnoremap [prefix]M <Plug>(quickhl-reset)
-nnoremap [prefix]j <Plug>(quickhl-match)
-" }}}
-
-"====================================================================================================
-" quicklearn
-"====================================================================================================
-" {{{
-nnoremap [unite]ql :<C-u>Unite quicklearn -immediately<CR>
-" }}}
-
-"====================================================================================================
 " Syntastic
 "====================================================================================================
 " {{{
-let g:syntastic_mode_map = { 'mode': 'active',
-	\ 'active_filetypes'  : ['ruby', 'php'],
-	\ 'passive_filetypes' : ['cpp'] }
+let g:syntastic_mode_map = {
+	\ 'mode'              : 'active',
+	\ 'active_filetypes'  : ['ruby', 'php', 'python', 'javascript'],
+	\ 'passive_filetypes' : ['cpp', 'html']
+\ }
+let g:syntastic_auto_loc_list      = 1
+let g:syntastic_javascript_checker = 'jshint'
+
+nnoremap [prefix]s :SyntasticCheck<CR>
 " }}}
 
 "====================================================================================================
@@ -1029,18 +806,24 @@ let g:memolist_template_dir_path = '~/.vim/template/memolist'
 " }}}
 
 "====================================================================================================
-" ref-lynx
+" Ref-vim
 "====================================================================================================
 " {{{
+" alc
+" ---------------------------------------------------------------------------------------------------
 if has('win32') || has('win64')
-	let s:cfg = 'C:/MinGW/lynx/lynx.cfg'
-	let g:ref_lynx_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
-else
-	let g:ref_lynx_cmd = 'lynx -dump %s'
+	let s:cfg         = 'C:/MinGW/lynx/lynx.cfg'
+	let g:ref_alc_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
 endif
 
-let g:ref_lynx_use_cache = 1
-let g:ref_lynx_start_linenumber = 0
+nnoremap [prefix]ra :<C-u>Ref alc<Space>
+
+let g:ref_alc_start_linenumber = 39
+if has('win32') || has('win64')
+	let g:ref_alc_encoding = 'Shift_JIS'
+else
+	let g:ref_alc_encoding = 'UTF-8'
+endif
 " }}}
 
 "====================================================================================================
@@ -1063,13 +846,231 @@ vnoremap a: :Alignta :<CR>
 
 "====================================================================================================
 " Easy Motion
-" Ref: http://blog.remora.cx/2012/08/vim-easymotion.html
 "====================================================================================================
 " {{{
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 let g:EasyMotion_leader_key="'"
 let g:EasyMotion_grouping=1
 
-hi EasyMotionTarget ctermbg=none ctermfg=red
-hi EasyMotionShade  ctermbg=none ctermfg=blue
+hi EasyMotionTarget ctermbg=none ctermfg=darkred
+hi EasyMotionShade  ctermbg=none ctermfg=black
+
+nmap f 'w
+nmap F 'b
 " }}}
+
+"====================================================================================================
+" quicklearn
+"====================================================================================================
+" {{{
+nnoremap [unite]ql :<C-u>Unite quicklearn -immediately<CR>
+" }}}
+
+"====================================================================================================
+" echodoc
+"====================================================================================================
+"{{{
+let g:echodoc_enable_at_startup = 1
+" }}}
+
+"====================================================================================================
+" Open-Browser
+"====================================================================================================
+" {{{
+nnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
+vnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
+" }}}
+
+"====================================================================================================
+" Rainbow Parenthesis
+"====================================================================================================
+" {{{
+let g:rbpt_colorpairs = [
+	\ ['brown',       'RoyalBlue3'],
+	\ ['Darkblue',    'SeaGreen3'],
+	\ ['darkgray',    'DarkOrchid3'],
+	\ ['darkgreen',   'firebrick3'],
+	\ ['darkcyan',    'RoyalBlue3'],
+	\ ['darkred',     'SeaGreen3'],
+	\ ['darkmagenta', 'DarkOrchid3'],
+	\ ['brown',       'firebrick3'],
+	\ ['gray',        'RoyalBlue3'],
+	\ ['black',       'SeaGreen3'],
+	\ ['darkmagenta', 'DarkOrchid3'],
+	\ ['Darkblue',    'firebrick3'],
+	\ ['darkgreen',   'RoyalBlue3'],
+	\ ['darkcyan',    'SeaGreen3'],
+	\ ['darkred',     'DarkOrchid3'],
+	\ ['red',         'firebrick3'],
+\ ]
+let g:rbpt_max = 16
+autocmd VimEnter *   RainbowParenthesesToggle
+autocmd Syntax   *   RainbowParenthesesLoadRound
+autocmd Syntax   *   RainbowParenthesesLoadSquare
+autocmd Syntax   *   RainbowParenthesesLoadBraces
+" autocmd FileType cpp RainbowParenthesesLoadChevrons
+" }}}
+
+"====================================================================================================
+" Vim-powerline
+" Ref: http://d.hatena.ne.jp/itchyny/20120609/1339249777
+"====================================================================================================
+" {{{
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+
+call Pl#Hi#Allocate({
+	\ 'black'          : 16,
+	\ 'white'          : 231,
+	\
+	\ 'darkestgreen'   : 22,
+	\ 'darkgreen'      : 28,
+	\
+	\ 'darkestcyan'    : 23,
+	\ 'mediumcyan'     : 117,
+	\
+	\ 'darkestblue'    : 24,
+	\ 'darkblue'       : 31,
+	\
+	\ 'darkestred'     : 52,
+	\ 'darkred'        : 88,
+	\ 'mediumred'      : 124,
+	\ 'brightred'      : 160,
+	\ 'brightestred'   : 196,
+	\
+	\
+	\ 'darkestyellow'  : 59,
+	\ 'darkyellow'     : 100,
+	\ 'darkestpurple'  : 55,
+	\ 'mediumpurple'   : 98,
+	\ 'brightpurple'   : 189,
+	\
+	\ 'brightorange'   : 208,
+	\ 'brightestorange': 214,
+	\
+	\ 'gray0'          : 233,
+	\ 'gray1'          : 235,
+	\ 'gray2'          : 236,
+	\ 'gray3'          : 239,
+	\ 'gray4'          : 240,
+	\ 'gray5'          : 241,
+	\ 'gray6'          : 244,
+	\ 'gray7'          : 245,
+	\ 'gray8'          : 247,
+	\ 'gray9'          : 250,
+	\ 'gray10'         : 252,
+	\ })
+
+" 'n': normal mode
+" 'i': insert mode
+" 'v': visual mode
+" 'r': replace mode
+" 'N': not active
+
+let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
+	\ Pl#Hi#Segments(['SPLIT'], {
+		\ 'n': ['white', 'gray2'],
+		\ 'N': ['gray0', 'gray0'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['mode_indicator'], {
+		\ 'i': ['darkestgreen', 'white', ['bold']],
+		\ 'n': ['darkestcyan', 'white', ['bold']],
+		\ 'v': ['darkestpurple', 'white', ['bold']],
+		\ 'r': ['mediumred', 'white', ['bold']],
+		\ 's': ['white', 'gray5', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['fileinfo', 'filename'], {
+		\ 'i': ['white', 'darkestgreen', ['bold']],
+		\ 'n': ['white', 'darkestblue', ['bold']],
+		\ 'v': ['white', 'darkestpurple', ['bold']],
+		\ 'r': ['white', 'mediumred', ['bold']],
+		\ 'N': ['gray0', 'gray2', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['branch', 'scrollpercent', 'raw', 'filesize'], {
+		\ 'n': ['gray2', 'gray7'],
+		\ 'N': ['gray0', 'gray2'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['fileinfo.filepath', 'status'], {
+		\ 'n': ['gray10'],
+		\ 'N': ['gray5'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['static_str'], {
+		\ 'n': ['white', 'gray4'],
+		\ 'N': ['gray1', 'gray1'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['fileinfo.flags'], {
+		\ 'n': ['white'],
+		\ 'N': ['gray4'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup'], {
+		\ 'n': ['gray9', 'gray4'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['lineinfo'], {
+		\ 'n': ['gray2', 'gray10'],
+		\ 'N': ['gray2', 'gray4'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['errors'], {
+		\ 'n': ['white', 'gray2'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['lineinfo.line.tot'], {
+		\ 'n': ['gray2'],
+		\ 'N': ['gray2'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['paste_indicator', 'ws_marker'], {
+		\ 'n': ['white', 'brightred', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
+		\ 'n': ['white', 'mediumred', ['bold']],
+		\ 'N': ['brightred', 'darkestred', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['gundo:static_str.buffer', 'command_t:raw.line'], {
+		\ 'n': ['white', 'darkred'],
+		\ 'N': ['brightred', 'darkestred'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
+		\ 'n': ['white', 'darkred'],
+		\ 'N': ['white', 'darkestred'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:focus', 'ctrlp:byfname'], {
+		\ 'n': ['brightpurple', 'darkestpurple'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:prev', 'ctrlp:next', 'ctrlp:pwd'], {
+		\ 'n': ['white', 'mediumpurple'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:item'], {
+		\ 'n': ['darkestpurple', 'white', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:marked'], {
+		\ 'n': ['brightestred', 'darkestpurple', ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:count'], {
+		\ 'n': ['darkestpurple', 'white'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['ctrlp:SPLIT'], {
+		\ 'n': ['white', 'darkestpurple'],
+		\ }),
+	\ ])
+
+let g:Powerline_colorscheme='my'
+" }}}
+
