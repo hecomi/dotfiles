@@ -8,19 +8,6 @@ let s:is_unix    = has('unix')
 " }}}
 
 "====================================================================================================
-" Pathogen
-"====================================================================================================
-" {{{
-filetype off
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-set helpfile=$VIMRUNTIME/doc/help.txt
-
-filetype on
-" }}}
-
-"====================================================================================================
 " NeoBundle
 "====================================================================================================
 " {{{
@@ -29,15 +16,12 @@ filetype off
 " Path
 " ---------------------------------------------------------------------------------------------------
 if has('vim_starting')
-	set runtimepath+='~/.vim/bundle/neobundle'
-	call neobundle#rc(expand('~/.vim/plugins'))
+	set runtimepath+=~/.vim/bundle/neobundle
 endif
+call neobundle#rc(expand('~/.vim/plugins'))
 
-" Shougo-san's Repos
+" Shougo-san's repos
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
@@ -51,6 +35,12 @@ NeoBundle 'Shougo/vimproc', { 'build' : {
 	\ }, }
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vinarise'
+
+" Github repos
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'basyura/TweetVim'
 NeoBundle 'dannyob/quickfixstatus'
@@ -76,6 +66,7 @@ NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-watchdogs'
 " NeoBundle 'scrooloose/syntastic'
+NeoBundle 'sjl/gundo.vim'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'taku-o/vim-zoom'
 NeoBundle 'teramako/jscomplete-vim'
@@ -89,11 +80,16 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/restart.vim'
-NeoBundle 'vim-scripts/TwitVim'
-NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'vim-scripts/jshint.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-" NeoBundle 'vim-scripts/javacomplete'
+NeoBundle 'TwitVim'
+NeoBundle 'YankRing.vim'
+NeoBundle 'jshint.vim'
+NeoBundle 'sudo.vim'
+" NeoBundle 'javacomplete'
+
+" Others
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'eregex255',    {'type': 'nosync', 'base': '~/.vim/bundle'}
+NeoBundle 'SmoothScroll', {'type': 'nosync', 'base': '~/.vim/bundle'}
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
@@ -114,8 +110,7 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-font'
 NeoBundle 'ujihisa/unite-locate'
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 "}}}
 
 "====================================================================================================
@@ -134,7 +129,9 @@ set noautochdir
 set hidden
 set noswapfile
 set backupdir=>/tmp
-autocmd BufWritePre * :%s/\s\+$//ge
+augroup DeleteSpace
+	autocmd BufWritePre * :%s/\s\+$//ge
+augroup END
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -175,6 +172,7 @@ set scrolloff=5
 set pumheight=10
 set display=uhex
 set completeopt=menuone
+set t_Co=256
 
 " Folding
 " ---------------------------------------------------------------------------------------------------
@@ -190,6 +188,7 @@ set laststatus=2
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
 set encoding=utf-8
+scriptencoding utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
 set fileformats=unix,dos,mac
@@ -216,9 +215,6 @@ nmap , [prefix]
 " Emacs-like
 " Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
 " ---------------------------------------------------------------------------------------------------
-function! ExecNormalCommand(command)
-  return ''
-endfunction
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-b> <Left>
@@ -227,8 +223,8 @@ inoremap <C-e> <End>
 inoremap <C-a> <Home>
 inoremap <C-h> <Backspace>
 inoremap <C-d> <Del>
-inoremap <C-k> <C-r>=ExecNormalCommand('d$')<CR><Esc>A
-inoremap <C-l> <C-r>=ExecNormalCommand('zz')<CR>
+inoremap <expr> <C-k> col('.')==col('$')?'':'<C-o>D'
+inoremap <C-l> <C-o>zz
 
 " Search
 " ---------------------------------------------------------------------------------------------------
@@ -241,7 +237,7 @@ nnoremap # #zz
 " Disable macro
 " ---------------------------------------------------------------------------------------------------
 nnoremap q <Nop>
-nnoremap Q <Nop>
+nnoremap Q q
 
 " Select
 " ---------------------------------------------------------------------------------------------------
@@ -250,7 +246,9 @@ nnoremap <C-a> ggVG
 " Copy
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]sp  :set paste<CR>
-nnoremap [prefix]nsp :set nopaste<CR>
+augroup SetNoPaste
+	autocmd InsertLeave :set nopaste<CR>
+augroup END
 
 " Scroll
 " ---------------------------------------------------------------------------------------------------
@@ -264,23 +262,21 @@ vnoremap K <C-u>
 nnoremap ? :Unite output:map\|map!\|lmap<CR>
 vnoremap ? :Unite output:map\|map!\|lmap<CR>
 
-" Auto close tag
+" Close tag automatically
 " Ref: http://d.hatena.ne.jp/babie/20110130/1296347719
 " ---------------------------------------------------------------------------------------------------
 augroup MyXML
 	autocmd!
-	autocmd Filetype xml   inoremap <buffer> </ </<C-x><C-o>
-	autocmd Filetype html  inoremap <buffer> </ </<C-x><C-o>
-	autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+	autocmd Filetype xml,html,eruby   inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 " IME
 " ---------------------------------------------------------------------------------------------------
 inoremap <Nul> <C-^>
 augroup MyIME
-    autocmd!
-    autocmd InsertEnter,CmdwinEnter * set noimdisable
-    autocmd InsertLeave,CmdwinLeave * set imdisable
+	autocmd!
+	autocmd InsertEnter,CmdwinEnter * set noimdisable
+	autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
 " Continuous Number
@@ -299,19 +295,19 @@ vnoremap < <gv
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if s:is_windows
-	nnoremap <silent> [prefix]vimrc  :e ~/_vimrc<CR>
-	nnoremap <silent> [prefix]gvimrc :e ~/_gvimrc<CR>
+	nnoremap [prefix]vimrc  :e ~/_vimrc<CR>
+	nnoremap [prefix]gvimrc :e ~/_gvimrc<CR>
 else
-	nnoremap <silent> [prefix]vimrc  :e ~/.vimrc<CR>
-	nnoremap <silent> [prefix]gvimrc :e ~/.gvimrc<CR>
+	nnoremap [prefix]vimrc  :e ~/.vimrc<CR>
+	nnoremap [prefix]gvimrc :e ~/.gvimrc<CR>
 endif
 
 " Directory shortcuts
 " ---------------------------------------------------------------------------------------------------
 if s:is_windows
-	nnoremap <silent> [prefix]program :e C:/Users/hecomi/Dropbox/Program<CR>
+	nnoremap [prefix]program :e C:/Users/hecomi/Dropbox/Program<CR>
 else
-	nnoremap <silent> [prefix]program :e ~/Program<CR>
+	nnoremap [prefix]program :e ~/Program<CR>
 endif
 
 " }}}
@@ -340,17 +336,18 @@ hi CursorLine ctermbg=gray     ctermfg=white
 " Unite.vim
 "====================================================================================================
 " {{{
-let g:unite_source_history_yank_enable =1
+let g:unite_source_history_yank_enable = 1
 
 " Key mappings
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> [unite]u :Unite source<CR>
 nnoremap <silent> [unite]b :Unite buffer<CR>
-nnoremap <silent> [unite]t :Unite tab<CR>
-nnoremap <silent> [unite]w :Unite window<CR>
 nnoremap <silent> [unite]g :Unite grep<CR>
 nnoremap <silent> [unite]o :Unite outline<CR>
-nnoremap <silent> [unite]S :Unite snippet<CR>
+nnoremap <silent> [unite]f :Unite find<CR>
+nnoremap <silent> [unite]s :Unite snippet<CR>
+nnoremap <silent> [unite]t :Unite tab<CR>
+nnoremap <silent> [unite]u :Unite source<CR>
+nnoremap <silent> [unite]w :Unite window<CR>
 nnoremap <silent> [unite]y :Unite history/yank<CR>
 " }}}
 
@@ -363,8 +360,8 @@ nnoremap <silent> [unite]y :Unite history/yank<CR>
 let g:vimfiler_as_default_explorer  = 1
 let g:vimfiler_safe_mode_by_default = 0
 
+" NERDtree-like mode
 " Ref: http://d.hatena.ne.jp/hrsh7th/20120229/1330525683
-" for NERDtree-like mode
 " ---------------------------------------------------------------------------------------------------
 autocmd! FileType vimfiler call g:my_vimfiler_settings()
 function! g:my_vimfiler_settings()
@@ -373,14 +370,14 @@ function! g:my_vimfiler_settings()
 	nnoremap <buffer>v :call vimfiler#mappings#do_action('my_vsplit')<CR>
 endfunction
 
-let my_action = { 'is_selectable' : 1 }
+let g:my_action = { 'is_selectable' : 1 }
 function! my_action.func(candidates)
 	wincmd p
 	exec 'split '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_split', my_action)
 
-let my_action = { 'is_selectable' : 1 }
+let g:my_action = { 'is_selectable' : 1 }
 function! my_action.func(candidates)
 	wincmd p
 	exec 'vsplit '. a:candidates[0].action__path
@@ -389,9 +386,8 @@ call unite#custom_action('file', 'my_vsplit', my_action)
 
 " Key binds
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> [unite]f   :VimFiler<CR>
-nnoremap <silent> [prefix]vf :VimFiler<CR>
-nnoremap <silent> [prefix]vF :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+nnoremap [prefix]vf :VimFiler<CR>
+nnoremap [prefix]vF :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 " }}}
 
 "====================================================================================================
@@ -406,10 +402,9 @@ call unite#custom_default_action('vimshell/history', 'insert')
 
 " key mapping
 " ---------------------------------------------------------------------------------------------------
-nnoremap <silent> [unite]s    :VimShell<CR>
-nnoremap <silent> [prefix]vs  :VimShell<CR>
-nnoremap <silent> [prefix]vsc :VimShellCreate<CR>
-nnoremap <silent> [prefix]vsp :VimShellPop<CR>
+nnoremap [prefix]vs  :VimShell<CR>
+nnoremap [prefix]vsc :VimShellCreate<CR>
+nnoremap [prefix]vsp :VimShellPop<CR>
 " }}}
 
 "====================================================================================================
@@ -423,25 +418,17 @@ let g:neocomplcache_max_list          = 1000
 
 " <TAB> completion.
 " ---------------------------------------------------------------------------------------------------
-inoremap <expr><TAB>   pumvisible() ? "<C-n>" : "<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "<C-p>" : "<S-TAB>"
-inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
+inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
+inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
+inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : '<CR>'
 
-" dict files
-" Ref: https://github.com/yuroyoro/dotfiles
+" Dict files
 " ---------------------------------------------------------------------------------------------------
-let g:neocomplcache_dictionary_filetype_lists = {
-	\ 'default'    : '',
-	\ 'java'       : $HOME.'/.vim/dict/java.dict',
-	\ 'c'          : $HOME.'/.vim/dict/c.dict',
-	\ 'cpp'        : $HOME.'/.vim/dict/cpp.dict',
-	\ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
-	\ 'ocaml'      : $HOME.'/.vim/dict/ocaml.dict',
-	\ 'perl'       : $HOME.'/.vim/dict/perl.dict',
-	\ 'php'        : $HOME.'/.vim/dict/php.dict',
-	\ 'scheme'     : $HOME.'/.vim/dict/scheme.dict',
-	\ 'vm'         : $HOME.'/.vim/dict/vim.dict'
-	\ }
+let g:neocomplcache_dictionary_filetype_lists = {}
+for s:dict in split(glob($HOME.'/.vim/dict/*.dict'))
+	let s:ft = matchstr(s:dict, '\w\+\ze\.dict$')
+	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
+endfor
 
 " for clang_complete
 " ---------------------------------------------------------------------------------------------------
@@ -457,17 +444,14 @@ let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 " {{{
 " directory
 " ---------------------------------------------------------------------------------------------------
-if !exists('g:neosnippet#snippets_directory')
-    let g:neosnippet#snippets_directory=''
-endif
 let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 " expand key
 " ---------------------------------------------------------------------------------------------------
 if g:neocomplcache_enable_at_startup
-  imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+	imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
-vmap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<Tab>"
+vmap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
 " }}}
 
 "====================================================================================================
@@ -476,26 +460,26 @@ vmap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" 
 " {{{
 " Include Path
 " ---------------------------------------------------------------------------------------------------
-let INCLUDE_PATH = ''
-let LIBRARY_PATH = ''
+let s:cpp_include_path = ''
+let s:cpp_library_path = ''
 
 " for MacBook Air
 if s:is_mac
-	let INCLUDE_PATH = '/usr/local/include'
-	let LIBRARY_PATH = '/usr/local/lib'
+	let s:cpp_include_path = '/usr/local/include'
+	let s:cpp_library_path = '/usr/local/lib'
 " for Windows
 elseif s:is_windows
-	let INCLUDE_PATH = 'C:/include'
-	let LIBRARY_PATH = 'C:/include/boost/stage/lib'
+	let s:cpp_include_path = 'C:/include'
+	let s:cpp_library_path = 'C:/include/boost/stage/lib'
 " for Ubuntu
 else
-	let INCLUDE_PATH = '/usr/include,/usr/local/include'
-	let LIBRARY_PATH = '/usr/lib,/usr/local/lib'
+	let s:cpp_include_path = '/usr/include,/usr/local/include'
+	let s:cpp_library_path = '/usr/lib,/usr/local/lib'
 endif
 
-let INCLUDE_OPTIONS = ' -I' . join( split(INCLUDE_PATH, ','), ' -I' )
-let LIBRARY_OPTIONS = ' -L' . join( split(LIBRARY_PATH, ','), ' -L' )
-let &path .= ',' . INCLUDE_PATH
+let INCLUDE_OPTIONS = ' -I' . join( split(s:cpp_include_path, ','), ' -I' )
+let LIBRARY_OPTIONS = ' -L' . join( split(s:cpp_library_path, ','), ' -L' )
+let &path .= ',' . s:cpp_include_path
 " }}}
 
 "====================================================================================================
@@ -548,12 +532,6 @@ let g:quickrun_config['cpp/g++-4.8'] = {
 
 " JavaScript
 " ---------------------------------------------------------------------------------------------------
-let g:quickrun_config['javascript'] = {
-	\ 'exec'      : '%c %s:p ',
-	\ 'command'   : 'node',
-	\ 'runner'    : 'vimproc',
-\ }
-
 let g:quickrun_config['javascript/jshint'] = {
 	\ 'exec'      : '%c %s:p ',
 	\ 'command'   : 'jshint',
@@ -644,7 +622,6 @@ call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 " -------------------------------------------------------
 nnoremap <silent> [unite]qc :Unite quickrun_config<CR>
 nnoremap <silent> [prefix]r :QuickRun<CR>
-nnoremap <silent> <leader>r :QuickRun<CR>
 " }}}
 
 "====================================================================================================
@@ -708,7 +685,7 @@ endif
 " vimgdb
 "====================================================================================================
 " {{{
-if s:is_unix && !s:is_mac
+if exists('&asm')
 	set previewheight=14
 	source ~/.vim/macros/gdb_mappings.vim
 	set asm=0
@@ -729,15 +706,12 @@ let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 " Ref: http://d.hatena.ne.jp/osyo-manga/20121006/1349450529
 "====================================================================================================
 " {{{
-set autoread
 set updatetime=50
-
-let s:system = exists('g:loaded_vimproc') ? 'vimproc#system_bg' : 'system'
+let s:system = neobundle#is_installed('vimproc') ? 'vimproc#system_bg' : 'system'
 
 augroup vim-auto-typescript
 	autocmd!
-	autocmd CursorHold   *.ts :checktime
-	autocmd CursorMoved  *.ts :checktime
+	autocmd CursorHold,CursorMoved *.ts :checktime
 	autocmd BufWritePost *.ts :call {s:system}('tsc ' . expand('%'))
 augroup END
 
@@ -789,7 +763,7 @@ augroup end
 
 nnoremap <silent> [unite]ral :Unite reanimate -default-action=reanimate_load<CR>
 nnoremap <silent> [unite]ras :Unite reanimate -default-action=reanimate_save<CR>
-nnoremap <silent> [prefix]latest :ReanimateLoadLatest<CR>
+nnoremap [prefix]latest :ReanimateLoadLatest<CR>
 
 let $REANIMATE = g:reanimate_save_dir
 " }}}
@@ -830,6 +804,14 @@ vnoremap a  :Alignta
 vnoremap a= :Alignta =<CR>
 vnoremap a+ :Alignta +<CR>
 vnoremap a: :Alignta :<CR>
+" }}}
+
+"====================================================================================================
+" gundo
+"====================================================================================================
+" {{{
+nnoremap [prefix]gundo   :GundoShow<CR>
+nnoremap [prefix]grender :GundoRenderGraph<CR>
 " }}}
 
 "====================================================================================================
@@ -898,7 +880,6 @@ autocmd Syntax   *   RainbowParenthesesLoadBraces
 "====================================================================================================
 " {{{
 let g:Powerline_symbols = 'fancy'
-set t_Co=256
 
 call Pl#Hi#Allocate({
 	\ 'black'          : 16,
@@ -1025,30 +1006,6 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 	\ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
 		\ 'n': ['white', 'darkred'],
 		\ 'N': ['white', 'darkestred'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:focus', 'ctrlp:byfname'], {
-		\ 'n': ['brightpurple', 'darkestpurple'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:prev', 'ctrlp:next', 'ctrlp:pwd'], {
-		\ 'n': ['white', 'mediumpurple'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:item'], {
-		\ 'n': ['darkestpurple', 'white', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:marked'], {
-		\ 'n': ['brightestred', 'darkestpurple', ['bold']],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:count'], {
-		\ 'n': ['darkestpurple', 'white'],
-		\ }),
-	\
-	\ Pl#Hi#Segments(['ctrlp:SPLIT'], {
-		\ 'n': ['white', 'darkestpurple'],
 		\ }),
 	\ ])
 
