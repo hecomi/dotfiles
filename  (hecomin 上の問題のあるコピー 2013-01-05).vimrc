@@ -66,7 +66,7 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-watchdogs'
-" NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'taku-o/vim-zoom'
 NeoBundle 'teramako/jscomplete-vim'
@@ -480,12 +480,12 @@ if has('mac')
 	let LIBRARY_PATH = '/usr/local/lib'
 " for Windows
 elseif has('win32') || has('win64')
-	let INCLUDE_PATH = 'C:/include'
+	let INCLUDE_PATH = 'C:/include,C:\MinGW\mingw64\include\c++\4.8.0'
 	let LIBRARY_PATH = 'C:/include/boost/stage/lib'
 " for Ubuntu (usr 直下...)
 else
-	let INCLUDE_PATH = '/usr/include,/usr/local/include'
-	let LIBRARY_PATH = '/usr/lib,/usr/local/lib'
+	let INCLUDE_PATH = '/usr/include'
+	let LIBRARY_PATH = '/usr/lib'
 endif
 
 let INCLUDE_OPTIONS = ' -I' . join( split(INCLUDE_PATH, ','), ' -I' )
@@ -502,73 +502,43 @@ let g:quickrun_config = {}
 
 " C++
 " ---------------------------------------------------------------------------------------------------
-let s:quickrun_cpp_options = '-std=c++0x ' . INCLUDE_OPTIONS . ' ' . LIBRARY_OPTIONS
+let s:quickrun_cpp_options = '-std=c++0x -Wall ' . INCLUDE_OPTIONS . LIBRARY_OPTIONS
 if has('win32') || ('win64')
 	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
 endif
 
-let g:quickrun_config['cpp'] = {
-	\ 'exec'      : '%c %o %s:p ',
-	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : s:quickrun_cpp_options.' -I/usr/local/include/libcxx'.' -stdlib=libc++',
-	\ 'runner'    : 'vimproc',
-\ }
+" Todo: これフリーズする...
+" let g:quickrun_config['cpp'] = {
+" 	\ "type" : "cpp/clang++",
+" 	\ "hook/extend_config/enable" : 1,
+" \ }
 
+" Todo: cmdopt をフックしてまとめたい / g++ 系の実行結果が表示されなった...
 let g:quickrun_config['cpp/clang++'] = {
-	\ 'exec'      : '%c %o %s:p ',
 	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : s:quickrun_cpp_options.' -I/usr/local/include/libcxx'.' -stdlib=libc++',
+ 	\ 'cmdopt'    : s:quickrun_cpp_options.' -I/usr/local/include/libcxx'.' -stdlib=libc++',
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.6'] = {
-	\ 'exec'      : '%c %o %s:p ',
 	\ 'command'   : 'g++-4.6',
 	\ 'cmdopt'    : s:quickrun_cpp_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.7'] = {
-	\ 'exec'      : '%c %o %s:p ',
 	\ 'command'   : 'g++-4.7',
 	\ 'cmdopt'    : s:quickrun_cpp_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.8'] = {
-	\ 'exec'      : '%c %o %s:p ',
 	\ 'command'   : 'g++-4.8',
 	\ 'cmdopt'    : s:quickrun_cpp_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
-" JavaScript
-" ---------------------------------------------------------------------------------------------------
-let g:quickrun_config['javascript'] = {
-	\ 'exec'      : '%c %s:p ',
-	\ 'command'   : 'node',
-	\ 'runner'    : 'vimproc',
-\ }
-
-let g:quickrun_config['javascript/jshint'] = {
-	\ 'exec'      : '%c %s:p ',
-	\ 'command'   : 'jshint',
-	\ 'runner'    : 'vimproc',
-\ }
-
-let g:quickrun_config['javascript/jslint'] = {
-	\ 'exec'      : '%c %s:p ',
-	\ 'command'   : 'jslint',
-	\ 'runner'    : 'vimproc',
-\ }
-
-let g:quickrun_config['javascript/gjslint'] = {
-	\ 'exec'      : '%c %s:p ',
-	\ 'command'   : 'gjslint',
-	\ 'runner'    : 'vimproc',
-\ }
-
-" Shabadou
+" Watchdogs
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['_'] = {
 	\ 'hook/echo/priority_exit'                      : 100,
@@ -589,33 +559,9 @@ let g:quickrun_config['_'] = {
 	\ 'runner/vimproc/updatetime'                    : 40,
 \ }
 
-" Watchdogs
-" ---------------------------------------------------------------------------------------------------
-let g:quickrun_config['cpp/watchdogs_checker'] = {
-	\ 'type' : 'watchdogs_checker/clang++',
-\ }
-
-let g:quickrun_config['watchdogs_checker/clang++'] = {
-	\ 'command' : 'clang++',
-	\ 'exec'    : '%c %o -fsyntax-only %s:p ',
-	\ 'cmdopt'  : s:quickrun_cpp_options,
-\ }
-
-let g:quickrun_config['javascript/watchdogs_checker'] = {
-	\ 'type' : 'watchdogs_checker/jshint',
-\ }
-
-let g:quickrun_config['watchdogs_checker/jshint'] = {
-	\ 'command' : 'jshint',
-	\ 'exec'    : '%c %s:p ',
-\ }
-
 call watchdogs#setup(g:quickrun_config)
-let g:watchdogs_check_BufWritePost_enables = {
-	\ "cpp"        : 0,
-	\ "javascript" : 1,
-\ }
-nnoremap <Leader>R :WatchdogsRun<CR>
+let g:watchdogs_check_BufWritePost_enable = 0
+" autocmd BufWritePost *.cpp,*.h,*.hpp :WatchdogsRun
 
 " Error highlight
 " ---------------------------------------------------------------------------------------------------
@@ -729,6 +675,30 @@ if has('unix') && !has('mac')
 endif
 " }}}
 
+"====================================================================================================R
+" vim-hier
+"====================================================================================================
+" {{{
+let my_outputter = quickrun#outputter#multi#new()
+let my_outputter.config.targets = ['buffer', 'quickfix']
+
+function! my_outputter.init(session)
+	:cclose
+	call call(quickrun#outputter#multi#new().init, [a:session], self)
+endfunction
+
+function! my_outputter.finish(session)
+	call call(quickrun#outputter#multi#new().finish, [a:session], self)
+	bwipeout [quickrun
+	:HierUpdate
+	:QuickfixStatusEnable
+endfunction
+
+call quickrun#register_outputter('my_outputter', my_outputter)
+
+nnoremap <silent> <leader>R :QuickRun -outputter my_outputter<CR>
+" }}}
+
 "====================================================================================================
 " jscomplete-vim
 "====================================================================================================
@@ -761,15 +731,15 @@ autocmd QuickFixCmdPost    l* nested lwindow" }}}
 " Syntastic
 "====================================================================================================
 " {{{
-" let g:syntastic_mode_map = {
-" 	\ 'mode'              : 'active',
-" 	\ 'active_filetypes'  : ['ruby', 'php', 'python', 'html'],
-" 	\ 'passive_filetypes' : ['javascript', 'cpp']
-" \ }
-" let g:syntastic_auto_loc_list      = 1
-" let g:syntastic_javascript_checker = 'gjslint'
-"
-" nnoremap [prefix]syntax :SyntasticCheck<CR>
+let g:syntastic_mode_map = {
+	\ 'mode'              : 'active',
+	\ 'active_filetypes'  : ['ruby', 'php', 'python', 'javascript'],
+	\ 'passive_filetypes' : ['cpp', 'html']
+\ }
+let g:syntastic_auto_loc_list      = 1
+let g:syntastic_javascript_checker = 'jshint'
+
+nnoremap [prefix]s :SyntasticCheck<CR>
 " }}}
 
 "====================================================================================================
@@ -800,7 +770,6 @@ augroup end
 
 nnoremap <silent> [unite]ral :Unite reanimate -default-action=reanimate_load<CR>
 nnoremap <silent> [unite]ras :Unite reanimate -default-action=reanimate_save<CR>
-nnoremap <silent> [prefix]latest :ReanimateLoadLatest<CR>
 
 let $REANIMATE = g:reanimate_save_dir
 " }}}

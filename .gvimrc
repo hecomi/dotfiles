@@ -3,8 +3,8 @@
 "====================================================================================================
 " Font Setting
 " ---------------------------------------------------------------------------------------------------
-set guifont=Ricty:h14
-set guifontwide=Ricty:h14
+set guifont=Ricty_for_Powerline:h14
+set guifontwide=Ricty_for_Powerline:h14
 set ambiwidth=double
 
 " Color Scheme
@@ -32,4 +32,4 @@ let g:restart_sessionoptions = 'blank,buffers,curdir,folds,help,localoptions,tab
 " * Transparent
 "====================================================================================================
 gui
-set transparency=220
+set transparency=230

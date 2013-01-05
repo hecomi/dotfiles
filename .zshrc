@@ -142,8 +142,9 @@ local GIT_PATH="$HOME/.git/git-tasukete"
 local VIM_PATH="/usr/local/bin/vim"
 local LOCAL_SBIN_PATH="/usr/local/sbin"
 local ANDROID_SDK_TOOLS_PATH="/Users/hecomi/android-sdks/platform-tools"
+local ANDROID_NDK_TOOLS_PATH="/Users/hecomi/android-ndk/"
 local NODEBREW_PATH="$HOME/.nodebrew/current/bin"
-export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$PATH"
+export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$ANDROID_NDK_TOOLS_PATH:$PATH"
 
 # RVM
 # ---------------------------------------------------------------------------------------------------
