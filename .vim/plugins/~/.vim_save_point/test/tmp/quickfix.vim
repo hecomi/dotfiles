@@ -1,2 +1,0 @@
-call setqflist( [
-\], 'r')

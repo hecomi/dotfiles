@@ -1,4 +1,13 @@
 "====================================================================================================
+" OS
+"====================================================================================================
+" {{{
+let s:is_windows = has('win32') || has('win64')
+let s:is_mac     = has('mac')
+let s:is_unix    = has('unix')
+" }}}
+
+"====================================================================================================
 " Pathogen
 "====================================================================================================
 " {{{
@@ -289,7 +298,7 @@ vnoremap < <gv
 
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
-if has('win32') || has('win64')
+if s:is_windows
 	nnoremap <silent> [prefix]vimrc  :e ~/_vimrc<CR>
 	nnoremap <silent> [prefix]gvimrc :e ~/_gvimrc<CR>
 else
@@ -299,7 +308,7 @@ endif
 
 " Directory shortcuts
 " ---------------------------------------------------------------------------------------------------
-if has('win32') || has('win64')
+if s:is_windows
 	nnoremap <silent> [prefix]program :e C:/Users/hecomi/Dropbox/Program<CR>
 else
 	nnoremap <silent> [prefix]program :e ~/Program<CR>
@@ -422,8 +431,8 @@ inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : "<CR>"
 " Ref: https://github.com/yuroyoro/dotfiles
 " ---------------------------------------------------------------------------------------------------
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default'    : '',
-    \ 'java'       : $HOME.'/.vim/dict/java.dict',
+	\ 'default'    : '',
+	\ 'java'       : $HOME.'/.vim/dict/java.dict',
 	\ 'c'          : $HOME.'/.vim/dict/c.dict',
 	\ 'cpp'        : $HOME.'/.vim/dict/cpp.dict',
 	\ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
@@ -440,14 +449,12 @@ if !exists('g:neocomplcache_force_omni_patterns')
 	let g:neocomplcache_force_omni_patterns = {}
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
-
 " }}}
 
 "====================================================================================================
 " neosnippet
 "====================================================================================================
 " {{{
-
 " directory
 " ---------------------------------------------------------------------------------------------------
 if !exists('g:neosnippet#snippets_directory')
@@ -461,28 +468,26 @@ if g:neocomplcache_enable_at_startup
   imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
 vmap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<Tab>"
-
 " }}}
 
 "====================================================================================================
 " C++ Include/Linkage
 "====================================================================================================
 " {{{
-
 " Include Path
 " ---------------------------------------------------------------------------------------------------
 let INCLUDE_PATH = ''
 let LIBRARY_PATH = ''
 
 " for MacBook Air
-if has('mac')
+if s:is_mac
 	let INCLUDE_PATH = '/usr/local/include'
 	let LIBRARY_PATH = '/usr/local/lib'
 " for Windows
-elseif has('win32') || has('win64')
+elseif s:is_windows
 	let INCLUDE_PATH = 'C:/include'
 	let LIBRARY_PATH = 'C:/include/boost/stage/lib'
-" for Ubuntu (usr 直下...)
+" for Ubuntu
 else
 	let INCLUDE_PATH = '/usr/include,/usr/local/include'
 	let LIBRARY_PATH = '/usr/lib,/usr/local/lib'
@@ -491,7 +496,6 @@ endif
 let INCLUDE_OPTIONS = ' -I' . join( split(INCLUDE_PATH, ','), ' -I' )
 let LIBRARY_OPTIONS = ' -L' . join( split(LIBRARY_PATH, ','), ' -L' )
 let &path .= ',' . INCLUDE_PATH
-
 " }}}
 
 "====================================================================================================
@@ -503,7 +507,7 @@ let g:quickrun_config = {}
 " C++
 " ---------------------------------------------------------------------------------------------------
 let s:quickrun_cpp_options = '-std=c++0x ' . INCLUDE_OPTIONS . ' ' . LIBRARY_OPTIONS
-if has('win32') || ('win64')
+if s:is_windows
 	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
 endif
 
@@ -641,14 +645,12 @@ call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 nnoremap <silent> [unite]qc :Unite quickrun_config<CR>
 nnoremap <silent> [prefix]r :QuickRun<CR>
 nnoremap <silent> <leader>r :QuickRun<CR>
-
 " }}}
 
 "====================================================================================================
 " ctags
 "====================================================================================================
 " {{{
-
 " Ref: http://d.hatena.ne.jp/osyo-manga/20120205/1328368314
 " ---------------------------------------------------------------------------------------------------
 function! s:TagsUpdate()
@@ -676,7 +678,6 @@ noremap <silent> G<C-]> :<C-u>execute "PopupTags "
 " ---------------------------------------------------------------------------------------------------
 autocmd FileType java :setlocal tags+=~/.vim/tags/java
 autocmd FileType java :setlocal tags+=~/.vim/tags/android
-
 " }}}
 
 "====================================================================================================
@@ -688,13 +689,13 @@ autocmd FileType java :setlocal tags+=~/.vim/tags/android
 let g:neocomplcache_force_overwrite_completefunc = 1
 let g:clang_complete_auto=0
 
-if has('mac')
+if s:is_mac
 	let g:clang_use_library   = 1
 	let g:clang_library_path  = '/usr/local/lib'
 	let g:clang_user_options  = '-std=c++11 -libstd=libc++'
-elseif has('win32') || has('win64')
+elseif s:is_windows
 	let g:clang_use_library   = 0
-	let g:clang_exec          = 'C:/MinGW/mingw32/bin/clang.exe'
+	let g:clang_exec          = 'C:/clang/bin/clang.exe'
 	let g:clang_user_options  = '-std=c++0x 2>NUL || exit 0'
 else
 	let g:clang_use_library   = 1
@@ -704,24 +705,10 @@ endif
 " }}}
 
 "====================================================================================================
-" vim-clang_declared
-"====================================================================================================
-" {{{
-if has('win32') || has('win64')
-	let g:clang_declared_c_index_test_cmd = 'c-index-test.exe'
-else
-	let g:clang_declared_c_index_test_cmd = 'c-index-test'
-endif
-let g:clang_declared_options = '-std=c++0x'
-let g:clang_declared_debug_mode = 1
-nnoremap <silent> <F10> :ClangDeclaredOpenTabDrop<CR>
-" }}}
-
-"====================================================================================================
 " vimgdb
 "====================================================================================================
 " {{{
-if has('unix') && !has('mac')
+if s:is_unix && !s:is_mac
 	set previewheight=14
 	source ~/.vim/macros/gdb_mappings.vim
 	set asm=0
@@ -755,10 +742,12 @@ augroup vim-auto-typescript
 augroup END
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow" }}}
+autocmd QuickFixCmdPost    l* nested lwindow
+" }}}
 
 "====================================================================================================
 " Syntastic
+" Note: --> Watchdogs
 "====================================================================================================
 " {{{
 " let g:syntastic_mode_map = {
@@ -823,27 +812,6 @@ let g:memolist_prompt_categories = 1
 let g:memolist_qfixgrep          = 1
 let g:memolist_vimfiler          = 1
 let g:memolist_template_dir_path = '~/.vim/template/memolist'
-" }}}
-
-"====================================================================================================
-" Ref-vim
-"====================================================================================================
-" {{{
-" alc
-" ---------------------------------------------------------------------------------------------------
-if has('win32') || has('win64')
-	let s:cfg         = 'C:/MinGW/lynx/lynx.cfg'
-	let g:ref_alc_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
-endif
-
-nnoremap [prefix]ra :<C-u>Ref alc<Space>
-
-let g:ref_alc_start_linenumber = 39
-if has('win32') || has('win64')
-	let g:ref_alc_encoding = 'Shift_JIS'
-else
-	let g:ref_alc_encoding = 'UTF-8'
-endif
 " }}}
 
 "====================================================================================================
