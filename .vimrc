@@ -2,9 +2,9 @@
 " OS
 "====================================================================================================
 " {{{
-let s:is_windows = has('win32') || has('win64')
-let s:is_mac     = has('mac')
-let s:is_unix    = has('unix')
+let s:is_win   = has('win32') || has('win64')
+let s:is_mac   = has('mac') || system('uname') =~? '^darwin'
+let s:is_linux = !s:is_mac && has('unix')
 " }}}
 
 "====================================================================================================
@@ -65,7 +65,6 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-watchdogs'
-" NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'taku-o/vim-zoom'
@@ -246,9 +245,11 @@ nnoremap <C-a> ggVG
 " Copy
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]sp  :set paste<CR>
+nnoremap [prefix]snp :set nopaste<CR>
 augroup SetNoPaste
-	autocmd InsertLeave :set nopaste<CR>
+	autocmd InsertLeave * if &paste | set nopaste | endif
 augroup END
+nnoremap p :set paste<CR>p:set nopaste<CR>
 
 " Scroll
 " ---------------------------------------------------------------------------------------------------
@@ -294,7 +295,7 @@ vnoremap < <gv
 
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
-if s:is_windows
+if s:is_win
 	nnoremap [prefix]vimrc  :e ~/_vimrc<CR>
 	nnoremap [prefix]gvimrc :e ~/_gvimrc<CR>
 else
@@ -304,7 +305,7 @@ endif
 
 " Directory shortcuts
 " ---------------------------------------------------------------------------------------------------
-if s:is_windows
+if s:is_win
 	nnoremap [prefix]program :e C:/Users/hecomi/Dropbox/Program<CR>
 else
 	nnoremap [prefix]program :e ~/Program<CR>
@@ -468,7 +469,7 @@ if s:is_mac
 	let s:cpp_include_path = '/usr/local/include'
 	let s:cpp_library_path = '/usr/local/lib'
 " for Windows
-elseif s:is_windows
+elseif s:is_win
 	let s:cpp_include_path = 'C:/include'
 	let s:cpp_library_path = 'C:/include/boost/stage/lib'
 " for Ubuntu
@@ -491,7 +492,7 @@ let g:quickrun_config = {}
 " C++
 " ---------------------------------------------------------------------------------------------------
 let s:quickrun_cpp_options = '-std=c++0x ' . INCLUDE_OPTIONS . ' ' . LIBRARY_OPTIONS
-if s:is_windows
+if s:is_win
 	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
 endif
 
@@ -670,7 +671,7 @@ if s:is_mac
 	let g:clang_use_library   = 1
 	let g:clang_library_path  = '/usr/local/lib'
 	let g:clang_user_options  = '-std=c++11 -libstd=libc++'
-elseif s:is_windows
+elseif s:is_win
 	let g:clang_use_library   = 0
 	let g:clang_exec          = 'C:/clang/bin/clang.exe'
 	let g:clang_user_options  = '-std=c++0x 2>NUL || exit 0'
@@ -717,22 +718,6 @@ augroup END
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
-" }}}
-
-"====================================================================================================
-" Syntastic
-" Note: --> Watchdogs
-"====================================================================================================
-" {{{
-" let g:syntastic_mode_map = {
-" 	\ 'mode'              : 'active',
-" 	\ 'active_filetypes'  : ['ruby', 'php', 'python', 'html'],
-" 	\ 'passive_filetypes' : ['javascript', 'cpp']
-" \ }
-" let g:syntastic_auto_loc_list      = 1
-" let g:syntastic_javascript_checker = 'gjslint'
-"
-" nnoremap [prefix]syntax :SyntasticCheck<CR>
 " }}}
 
 "====================================================================================================
@@ -1012,3 +997,13 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 let g:Powerline_colorscheme='my'
 " }}}
 
+"====================================================================================================
+" Local
+"====================================================================================================
+if filereadable(expand('~/.vimrc.local'))
+	source ~/.vimrc.local
+endif
+
+if filereadable(expand('~/.vimrc.experiment'))
+	source ~/.vimrc.experiment
+endif
