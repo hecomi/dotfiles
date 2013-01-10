@@ -25,91 +25,155 @@ call neobundle#rc(expand('~/.vim/plugins'))
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/unite-ssh'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc', { 'build' : {
-	\    'mingw' : 'make -f make_mingw.mak',
-	\    'mac'   : 'make -f make_mac.mak',
-	\    'unix'  : 'make -f make_unix.mak',
-	\ }, }
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vinarise'
+NeoBundleLazy 'Shougo/unite.vim', {
+\	'commands' : ['Unite'],
+\ }
+NeoBundleLazy 'Shougo/vimfiler', {
+\	'depends'  : 'Shougo/unite.vim',
+\	'commands' : ['VimFiler', 'VimFilerExplorer'],
+\ }
+NeoBundle 'Shougo/vimproc', {
+\	'build' : {
+\		'cygwin'  : 'make -f make_cygwin.mak',
+\		'mac'     : 'make -f make_mac.mak',
+\		'unix'    : 'make -f make_unix.mak',
+\	},
+\ }
+NeoBundleLazy 'Shougo/vimshell', {
+\	'autoload' : {
+\		'commands' : ['VimShell', 'VimShellPop', 'VimShellInteractive', 'VimShellCreate'],
+\	}
+\ }
+NeoBundleLazy 'Shougo/vinarise', {
+\	'autoload' : {
+\		'commands' : 'Vinarise',
+\	}
+\ }
 
 " Github repos
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'Rip-Rip/clang_complete'
+NeoBundleLazy 'Rip-Rip/clang_complete', {
+\	'autoload' : {
+\		'filetypes' : ['c', 'cpp'],
+\	},
+\ }
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'basyura/TweetVim'
+NeoBundleLazy 'basyura/TweetVim', {
+\	'depends'  : ['basyura/twibill.vim', 'tyru/open-browser.vim'],
+\	'autoload' : {
+\		'commands' : 'TweetVimHomeTimeline'
+\	}
+\ }
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'glidenote/memolist.vim'
+NeoBundleLazy 'glidenote/memolist.vim', {
+\	'autoload' : {
+\		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
+\	}
+\ }
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'mattn/excitetranslate-vim'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/quickrunex-vim'
+NeoBundleLazy 'leafgarland/typescript-vim', {
+\	'autoload' : {
+\		'filetypes' : ['typescript'],
+\	},
+\ }
+NeoBundleLazy 'mattn/excitetranslate-vim'
+NeoBundleLazy 'mattn/gist-vim'
+NeoBundle 'mattn/quickrunex-vim', {
+\	'autoload' : {
+\		'filetypes' : ['cpp'],
+\	},
+\ }
 NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'mattn/vimplenote-vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundleLazy 'mattn/zencoding-vim', {
+\	'autoload' : {
+\		'filetypes' : ['html', 'xml'],
+\	},
+\ }
 " NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'myhere/vim-nodejs-complete'
+NeoBundleLazy 'myhere/vim-nodejs-complete', {
+\	'autoload' : {
+\		'filetypes' : ['javascript', 'typescript'],
+\	},
+\ }
 NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/unite-filetype'
-NeoBundle 'osyo-manga/unite-quickfix'
-NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'sjl/gundo.vim'
+NeoBundleLazy 'sjl/gundo.vim'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'taku-o/vim-zoom'
 NeoBundle 'teramako/jscomplete-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'toritori0318/vim-redmine'
+NeoBundleLazy 'toritori0318/vim-redmine'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'tsukkee/lingr-vim'
-NeoBundle 'tsukkee/unite-tag'
+NeoBundleLazy 'tsukkee/lingr-vim'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/restart.vim'
-NeoBundle 'TwitVim'
+NeoBundleLazy 'TwitVim', {
+\	'autoload' : {
+\		'commands' : 'PostToTwitter',
+\	},
+\ }
 NeoBundle 'YankRing.vim'
-NeoBundle 'jshint.vim'
 NeoBundle 'sudo.vim'
-" NeoBundle 'javacomplete'
+NeoBundleLazy 'javacomplete', {
+\	'autoload' : {
+\		'filetypes' : ['java'],
+\	},
+\ }
 
 " Others
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'eregex255',    {'type': 'nosync', 'base': '~/.vim/bundle'}
-NeoBundle 'SmoothScroll', {'type': 'nosync', 'base': '~/.vim/bundle'}
+NeoBundle 'eregex255',    {
+\	'type': 'nosync',
+\	'base': '~/.vim/bundle'
+\ }
+NeoBundle 'SmoothScroll', {
+\	'type': 'nosync',
+\	'base': '~/.vim/bundle'
+\ }
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'osyo-manga/unite-banban'
-NeoBundle 'osyo-manga/unite-banban2'
-NeoBundle 'osyo-manga/unite-boost-online-doc'
-NeoBundle 'osyo-manga/unite-homo'
-NeoBundle 'osyo-manga/unite-jojo'
-NeoBundle 'osyo-manga/unite-life-game'
-NeoBundle 'osyo-manga/unite-nyancat_anim'
-NeoBundle 'osyo-manga/unite-rofi'
-NeoBundle 'osyo-manga/unite-shimapan'
-NeoBundle 'osyo-manga/unite-sl'
-NeoBundle 'osyo-manga/unite-u-nya-'
+NeoBundleLazy 'Shougo/unite-ssh'
+NeoBundleLazy 'h1mesuke/unite-outline'
+NeoBundleLazy 'osyo-manga/unite-banban'
+NeoBundleLazy 'osyo-manga/unite-banban2'
+NeoBundleLazy 'osyo-manga/unite-boost-online-doc', {
+\	'autoload' : {
+\		'filetypes' : ['cpp'],
+\	},
+\ }
+NeoBundle 'osyo-manga/unite-filetype'
+NeoBundleLazy 'osyo-manga/unite-homo'
+NeoBundleLazy 'osyo-manga/unite-jojo'
+NeoBundleLazy 'osyo-manga/unite-life-game'
+NeoBundleLazy 'osyo-manga/unite-nyancat_anim'
+NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'osyo-manga/unite-quickrun_config'
+NeoBundleLazy 'osyo-manga/unite-rofi'
+NeoBundleLazy 'osyo-manga/unite-shimapan'
+NeoBundleLazy 'osyo-manga/unite-sl'
+NeoBundleLazy 'osyo-manga/unite-u-nya-'
 NeoBundle 'tsukkee/unite-help'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-font'
+NeoBundleLazy 'tsukkee/unite-tag'
+NeoBundleLazy 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-locate'
 
 filetype plugin indent on
+
+" Key binds
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix]nbs :NeoBundleSource<CR>
+
 "}}}
 
 "====================================================================================================
@@ -203,6 +267,7 @@ endif
 " ;
 " ---------------------------------------------------------------------------------------------------
 nnoremap ; :
+vnoremap ; :
 
 " Prefix
 " ---------------------------------------------------------------------------------------------------
@@ -280,6 +345,10 @@ augroup MyIME
 	autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
+" Sort
+" ---------------------------------------------------------------------------------------------------
+vnoremap <silent> s :sort<CR>
+
 " Continuous Number
 " ---------------------------------------------------------------------------------------------------
 nnoremap <silent> co :ContinuousNumber <C-a><CR>
@@ -355,7 +424,7 @@ nnoremap <silent> [unite]y :Unite history/yank<CR>
 "====================================================================================================
 " VimFiler
 "====================================================================================================
-" {{{
+"' {{{
 " Basic settings
 " ---------------------------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer  = 1
@@ -364,31 +433,38 @@ let g:vimfiler_safe_mode_by_default = 0
 " NERDtree-like mode
 " Ref: http://d.hatena.ne.jp/hrsh7th/20120229/1330525683
 " ---------------------------------------------------------------------------------------------------
-autocmd! FileType vimfiler call g:my_vimfiler_settings()
-function! g:my_vimfiler_settings()
-	" nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
-	nnoremap <buffer>s :call vimfiler#mappings#do_action('my_split')<CR>
-	nnoremap <buffer>v :call vimfiler#mappings#do_action('my_vsplit')<CR>
-endfunction
+let s:bundle = neobundle#get('vimfiler')
+let s:bundle.hooks = get(s:bundle, 'hooks', {})
+function! s:bundle.hooks.on_source(bundle)
+	autocmd! FileType vimfiler call g:my_vimfiler_settings()
+	function! g:my_vimfiler_settings()
+		" nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
+		nnoremap <buffer>s :call vimfiler#mappings#do_action('my_split')<CR>
+		nnoremap <buffer>v :call vimfiler#mappings#do_action('my_vsplit')<CR>
+	endfunction
 
-let g:my_action = { 'is_selectable' : 1 }
-function! my_action.func(candidates)
-	wincmd p
-	exec 'split '. a:candidates[0].action__path
-endfunction
-call unite#custom_action('file', 'my_split', my_action)
+	let g:my_action = { 'is_selectable' : 1 }
+	function! my_action.func(candidates)
+		wincmd p
+		exec 'split '. a:candidates[0].action__path
+	endfunction
+	call unite#custom_action('file', 'my_split', my_action)
 
-let g:my_action = { 'is_selectable' : 1 }
-function! my_action.func(candidates)
-	wincmd p
-	exec 'vsplit '. a:candidates[0].action__path
+	let g:my_action = { 'is_selectable' : 1 }
+	function! my_action.func(candidates)
+		wincmd p
+		exec 'vsplit '. a:candidates[0].action__path
+	endfunction
+	call unite#custom_action('file', 'my_vsplit', my_action)
 endfunction
-call unite#custom_action('file', 'my_vsplit', my_action)
+unlet s:bundle
 
 " Key binds
 " ---------------------------------------------------------------------------------------------------
-nnoremap [prefix]vf :VimFiler<CR>
-nnoremap [prefix]vF :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+nnoremap [prefix]vf     :VimFiler<CR>
+nnoremap [prefix]vf<CR> :VimFiler<CR>
+nnoremap [prefix]vF     :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+nnoremap [prefix]vfe    :VimFilerExplorer<CR>
 " }}}
 
 "====================================================================================================
@@ -399,11 +475,11 @@ nnoremap [prefix]vF :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle 
 " ---------------------------------------------------------------------------------------------------
 let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = $USERNAME . '$ '
-call unite#custom_default_action('vimshell/history', 'insert')
 
 " key mapping
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]vs  :VimShell<CR>
+nnoremap [prefix]vsi :VimShellInteractive<CR>
 nnoremap [prefix]vsc :VimShellCreate<CR>
 nnoremap [prefix]vsp :VimShellPop<CR>
 " }}}
@@ -478,8 +554,8 @@ else
 	let s:cpp_library_path = '/usr/lib,/usr/local/lib'
 endif
 
-let INCLUDE_OPTIONS = ' -I' . join( split(s:cpp_include_path, ','), ' -I' )
-let LIBRARY_OPTIONS = ' -L' . join( split(s:cpp_library_path, ','), ' -L' )
+let s:include_options = ' -I' . join( split(s:cpp_include_path, ','), ' -I' )
+let s:library_options = ' -L' . join( split(s:cpp_library_path, ','), ' -L' )
 let &path .= ',' . s:cpp_include_path
 " }}}
 
@@ -489,45 +565,69 @@ let &path .= ',' . s:cpp_include_path
 " {{{
 let g:quickrun_config = {}
 
+" Shabadou
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['_'] = {
+	\ 'hook/echo/priority_exit'                      : 100,
+	\ 'hook/echo/enable_output_exit'                 : 1,
+	\ 'hook/close_unite_quickfix/enable_hook_loaded' : 1,
+	\ 'hook/unite_quickfix/enable_failure'           : 1,
+	\ 'hook/close_quickfix/enable_exit'              : 1,
+	\ 'hook/close_buffer/enable_failure'             : 1,
+	\ 'hook/close_buffer/enable_empty_data'          : 1,
+	\ 'hook/echo/enable'                             : 1,
+	\ 'hook/echo/output_success'                     : '(／・ω・)／ ﾆｬｰ',
+	\ 'hook/echo/output_failure'                     : '(´・ω・｀) ｼｮﾎﾞｰﾝ',
+	\ 'hook/inu/enable'                              : 1,
+	\ 'hook/inu/wait'                                : 5,
+	\ 'outputter'                                    : 'multi:buffer:quickfix',
+	\ 'outputter/buffer/split'                       : ':botright 8sp',
+	\ 'runner'                                       : 'vimproc',
+	\ 'runner/vimproc/updatetime'                    : 40,
+\ }
+
 " C++
 " ---------------------------------------------------------------------------------------------------
-let s:quickrun_cpp_options = '-std=c++0x ' . INCLUDE_OPTIONS . ' ' . LIBRARY_OPTIONS
+let s:quickrun_cpp_options = '-std=gnu++0x ' . s:include_options . ' ' . s:library_options
 if s:is_win
 	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
 endif
+let s:quickrun_gcc_options   = s:quickrun_cpp_options
+let s:quickrun_clang_options = s:quickrun_cpp_options.' -I/usr/local/include/libcxx -stdlib=libc++'
+let s:quickrun_cpp_exec      = ['%c %o %s -o %s:p:r.hoge', '%s:p:r.hoge', 'rm %s:p:r.hoge']
 
 let g:quickrun_config['cpp'] = {
-	\ 'exec'      : '%c %o %s:p ',
+	\ 'exec'      : s:quickrun_cpp_exec,
 	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : s:quickrun_cpp_options.' -I/usr/local/include/libcxx'.' -stdlib=libc++',
+	\ 'cmdopt'    : s:quickrun_clang_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/clang++'] = {
-	\ 'exec'      : '%c %o %s:p ',
+	\ 'exec'      : s:quickrun_cpp_exec,
 	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : s:quickrun_cpp_options.' -I/usr/local/include/libcxx'.' -stdlib=libc++',
+	\ 'cmdopt'    : s:quickrun_clang_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.6'] = {
-	\ 'exec'      : '%c %o %s:p ',
+	\ 'exec'      : s:quickrun_cpp_exec,
 	\ 'command'   : 'g++-4.6',
-	\ 'cmdopt'    : s:quickrun_cpp_options,
+	\ 'cmdopt'    : s:quickrun_gcc_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.7'] = {
-	\ 'exec'      : '%c %o %s:p ',
+	\ 'exec'      : s:quickrun_cpp_exec,
 	\ 'command'   : 'g++-4.7',
-	\ 'cmdopt'    : s:quickrun_cpp_options,
+	\ 'cmdopt'    : s:quickrun_gcc_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.8'] = {
-	\ 'exec'      : '%c %o %s:p ',
+	\ 'exec'      : s:quickrun_cpp_exec,
 	\ 'command'   : 'g++-4.8',
-	\ 'cmdopt'    : s:quickrun_cpp_options,
+	\ 'cmdopt'    : s:quickrun_gcc_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
@@ -549,27 +649,6 @@ let g:quickrun_config['javascript/gjslint'] = {
 	\ 'exec'      : '%c %s:p ',
 	\ 'command'   : 'gjslint',
 	\ 'runner'    : 'vimproc',
-\ }
-
-" Shabadou
-" ---------------------------------------------------------------------------------------------------
-let g:quickrun_config['_'] = {
-	\ 'hook/echo/priority_exit'                      : 100,
-	\ 'hook/echo/enable_output_exit'                 : 1,
-	\ 'hook/close_unite_quickfix/enable_hook_loaded' : 1,
-	\ 'hook/unite_quickfix/enable_failure'           : 1,
-	\ 'hook/close_quickfix/enable_exit'              : 1,
-	\ 'hook/close_buffer/enable_failure'             : 1,
-	\ 'hook/close_buffer/enable_empty_data'          : 1,
-	\ 'hook/echo/enable'                             : 1,
-	\ 'hook/echo/output_success'                     : '(／・ω・)／ ﾆｬｰ',
-	\ 'hook/echo/output_failure'                     : '(´・ω・｀) ｼｮﾎﾞｰﾝ',
-	\ 'hook/inu/enable'                              : 1,
-	\ 'hook/inu/wait'                                : 5,
-	\ 'outputter'                                    : 'multi:buffer:quickfix',
-	\ 'outputter/buffer/split'                       : ':botright 8sp',
-	\ 'runner'                                       : 'vimproc',
-	\ 'runner/vimproc/updatetime'                    : 40,
 \ }
 
 " Watchdogs
@@ -607,17 +686,6 @@ let g:hier_highlight_group_qf = 'qf_error_ucurl'
 
 hi qf_warning_ucurl ctermfg=white ctermbg=blue cterm=bold
 let g:hier_highlight_group_qfw = 'qf_warning_ucurl'
-
-" quickfix setting
-" ---------------------------------------------------------------------------------------------------
-let s:silent_quickfix = quickrun#outputter#quickfix#new()
-function! s:silent_quickfix.finish(session)
-    call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
-    :cclose
-    :HierUpdate
-    :QuickfixStatusEnable
-endfunction
-call quickrun#register_outputter('silent_quickfix', s:silent_quickfix)
 
 " Unite: quickrun-select
 " -------------------------------------------------------
