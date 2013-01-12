@@ -19,21 +19,23 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle
 endif
 call neobundle#rc(expand('~/.vim/plugins'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Shougo-san's repos
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-NeoBundleLazy 'Shougo/unite.vim', {
-\	'commands' : ['Unite'],
-\ }
+NeoBundle 'Shougo/unite.vim'
 NeoBundleLazy 'Shougo/vimfiler', {
 \	'depends'  : 'Shougo/unite.vim',
-\	'commands' : ['VimFiler', 'VimFilerExplorer'],
+\	'autoload' : {
+\		'commands' : ['VimFiler', 'VimFilerExplorer'],
+\	},
 \ }
 NeoBundle 'Shougo/vimproc', {
 \	'build' : {
+\		'windows' : 'make -f make_mingw64.mak',
 \		'cygwin'  : 'make -f make_cygwin.mak',
 \		'mac'     : 'make -f make_mac.mak',
 \		'unix'    : 'make -f make_unix.mak',
@@ -42,96 +44,127 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundleLazy 'Shougo/vimshell', {
 \	'autoload' : {
 \		'commands' : ['VimShell', 'VimShellPop', 'VimShellInteractive', 'VimShellCreate'],
-\	}
+\	},
 \ }
 NeoBundleLazy 'Shougo/vinarise', {
 \	'autoload' : {
 \		'commands' : 'Vinarise',
-\	}
+\	},
 \ }
 
-" Github repos
+" Common
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundleLazy 'Rip-Rip/clang_complete', {
-\	'autoload' : {
-\		'filetypes' : ['c', 'cpp'],
-\	},
-\ }
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundleLazy 'basyura/TweetVim', {
-\	'depends'  : ['basyura/twibill.vim', 'tyru/open-browser.vim'],
-\	'autoload' : {
-\		'commands' : 'TweetVimHomeTimeline'
-\	}
-\ }
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
-NeoBundleLazy 'glidenote/memolist.vim', {
-\	'autoload' : {
-\		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
-\	}
-\ }
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundleLazy 'leafgarland/typescript-vim', {
-\	'autoload' : {
-\		'filetypes' : ['typescript'],
-\	},
-\ }
-NeoBundleLazy 'mattn/excitetranslate-vim'
-NeoBundleLazy 'mattn/gist-vim'
 NeoBundle 'mattn/quickrunex-vim', {
 \	'autoload' : {
 \		'filetypes' : ['cpp'],
 \	},
 \ }
 NeoBundle 'mattn/vdbi-vim'
-NeoBundle 'mattn/vimplenote-vim'
-NeoBundle 'mattn/webapi-vim'
 NeoBundleLazy 'mattn/zencoding-vim', {
 \	'autoload' : {
 \		'filetypes' : ['html', 'xml'],
 \	},
 \ }
-" NeoBundle 'msanders/cocoa.vim'
-NeoBundleLazy 'myhere/vim-nodejs-complete', {
-\	'autoload' : {
-\		'filetypes' : ['javascript', 'typescript'],
-\	},
-\ }
+NeoBundleLazy 'msanders/cocoa.vim'
 NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundleLazy 'sjl/gundo.vim'
 NeoBundle 'spolu/dwm.vim'
-NeoBundle 'taku-o/vim-zoom'
-NeoBundle 'teramako/jscomplete-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundleLazy 'toritori0318/vim-redmine'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-NeoBundleLazy 'tsukkee/lingr-vim'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'YankRing.vim'
+NeoBundle 'sudo.vim'
+
+" Web service
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'basyura/TweetVim', {
+\	'depends'  : ['basyura/twibill.vim', 'tyru/open-browser.vim'],
+\	'autoload' : {
+\		'commands' : 'TweetVimHomeTimeline'
+\	},
+\ }
+NeoBundleLazy 'mattn/excitetranslate-vim', {
+\	'depends'  : ['mattn/webapi-vim'],
+\	'autoload' : {
+\		'commands' : 'ExciteTranslate'
+\	},
+\ }
+NeoBundleLazy 'mattn/gist-vim', {
+\	'depends'  : ['mattn/webapi-vim'],
+\	'autoload' : {
+\		'commands' : 'Gist'
+\	},
+\ }
+NeoBundleLazy 'mattn/vimplenote-vim', {
+\	'depends'  : ['mattn/webapi-vim'],
+\	'autoload' : {
+\		'commands' : ['VimpleNote'],
+\	},
+\ }
+NeoBundleLazy 'mattn/webapi-vim'
+NeoBundleLazy 'tsukkee/lingr-vim', {
+\	'autoload' : {
+\		'commands' : 'LingrLaunch',
+\	},
+\ }
 NeoBundleLazy 'TwitVim', {
 \	'autoload' : {
 \		'commands' : 'PostToTwitter',
 \	},
 \ }
-NeoBundle 'YankRing.vim'
-NeoBundle 'sudo.vim'
+NeoBundleLazy 'toritori0318/vim-redmine'
+
+" Complete
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'Rip-Rip/clang_complete', {
+\	'autoload' : {
+\		'filetypes' : ['c', 'cpp'],
+\	},
+\ }
+NeoBundleLazy 'myhere/vim-nodejs-complete', {
+\	'autoload' : {
+\		'filetypes' : ['javascript', 'typescript'],
+\	},
+\ }
+NeoBundle 'teramako/jscomplete-vim', {
+\	'autoload' : {
+\		'filetypes' : ['javascript', 'typescript'],
+\	},
+\ }
 NeoBundleLazy 'javacomplete', {
 \	'autoload' : {
 \		'filetypes' : ['java'],
 \	},
 \ }
 
+" Syntax Hilight
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'leafgarland/typescript-vim', {
+\	'autoload' : {
+\		'filetypes' : ['typescript'],
+\	},
+\ }
+
 " Others
 " ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'glidenote/memolist.vim', {
+\	'autoload' : {
+\		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
+\	},
+\ }
 NeoBundle 'eregex255',    {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
@@ -169,6 +202,8 @@ NeoBundleLazy 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-locate'
 
 filetype plugin indent on
+
+NeoBundleCheck
 
 " Key binds
 " ---------------------------------------------------------------------------------------------------
@@ -229,7 +264,11 @@ set showmode
 set number
 set nowrap
 set list
-set listchars=tab:>-,trail:-,extends:>,precedes:<
+if s:is_win
+	set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+else
+	set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%
+endif
 set notitle
 set scrolloff=5
 set pumheight=10
@@ -328,7 +367,7 @@ vnoremap K <C-u>
 nnoremap ? :Unite output:map\|map!\|lmap<CR>
 vnoremap ? :Unite output:map\|map!\|lmap<CR>
 
-" Close tag automatically
+" Close braquet/tag automatically
 " Ref: http://d.hatena.ne.jp/babie/20110130/1296347719
 " ---------------------------------------------------------------------------------------------------
 augroup MyXML
@@ -426,44 +465,34 @@ nnoremap <silent> [unite]y :Unite history/yank<CR>
 "====================================================================================================
 "' {{{
 " Basic settings
+" thx to itchyny-san m(_ _)m
 " ---------------------------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer  = 1
 let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_sort_type = 'TIME'
 
-" NERDtree-like mode
-" Ref: http://d.hatena.ne.jp/hrsh7th/20120229/1330525683
-" ---------------------------------------------------------------------------------------------------
-let s:bundle = neobundle#get('vimfiler')
-let s:bundle.hooks = get(s:bundle, 'hooks', {})
-function! s:bundle.hooks.on_source(bundle)
-	autocmd! FileType vimfiler call g:my_vimfiler_settings()
-	function! g:my_vimfiler_settings()
-		" nmap     <buffer><expr><CR> vimfiler#smart_cursor_map('\<Plug>(vimfiler_expand_tree)', '\<Plug>(vimfiler_edit_file)')
-		nnoremap <buffer>s :call vimfiler#mappings#do_action('my_split')<CR>
-		nnoremap <buffer>v :call vimfiler#mappings#do_action('my_vsplit')<CR>
-	endfunction
-
-	let g:my_action = { 'is_selectable' : 1 }
-	function! my_action.func(candidates)
-		wincmd p
-		exec 'split '. a:candidates[0].action__path
-	endfunction
-	call unite#custom_action('file', 'my_split', my_action)
-
-	let g:my_action = { 'is_selectable' : 1 }
-	function! my_action.func(candidates)
-		wincmd p
-		exec 'vsplit '. a:candidates[0].action__path
-	endfunction
-	call unite#custom_action('file', 'my_vsplit', my_action)
-endfunction
-unlet s:bundle
+if s:is_win
+	let g:vimfiler_tree_leaf_icon = '|'
+	let g:vimfiler_tree_opened_icon = '-'
+	let g:vimfiler_tree_closed_icon = '+'
+else
+	let g:vimfiler_tree_leaf_icon = ' '
+	let g:vimfiler_tree_opened_icon = '▾'
+	let g:vimfiler_tree_closed_icon = '▸'
+endif
+let g:vimfiler_file_icon = '-'
+if s:is_mac
+	let g:vimfiler_readonly_file_icon = '✗'
+	let g:vimfiler_marked_file_icon = '✓'
+else
+	let g:vimfiler_readonly_file_icon = 'x'
+	let g:vimfiler_marked_file_icon = 'v'
+endif
 
 " Key binds
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]vf     :VimFiler<CR>
 nnoremap [prefix]vf<CR> :VimFiler<CR>
-nnoremap [prefix]vF     :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
 nnoremap [prefix]vfe    :VimFilerExplorer<CR>
 " }}}
 
