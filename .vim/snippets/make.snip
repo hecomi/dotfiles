@@ -1,0 +1,14 @@
+snippet    android_ndk_build
+alias      android_ndk_build
+abbr       ANDROID_NDK_BUILD
+    LOCAL_PATH := $(call my-dir)
+
+    include $(CLEAR_VARS)
+
+    LOCAL_SRC_FILES := ${1:hoge.cpp}
+    LOCAL_MODULE    := ${2:hoge}
+    LOCAL_CFLAGS    := ${3:-Wno-psabi}
+    LOCAL_LDLIBS    := ${4:-llog -landroid -lEGL -lGLESv1_CM}
+    LOCAL_STATIC_LIBRARIES := ${5:android_native_app_glue}
+
+    include $(BUILD_SHARED_LIBRARY)

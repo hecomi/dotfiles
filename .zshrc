@@ -150,3 +150,7 @@ export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SB
 # ---------------------------------------------------------------------------------------------------
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
+# .NET C#
+# ---------------------------------------------------------------------------------------------------
+export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
+

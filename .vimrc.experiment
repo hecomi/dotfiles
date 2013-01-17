@@ -1,0 +1,33 @@
+"====================================================================================================
+" Unite kill_process
+"====================================================================================================
+" {{{
+let s:source = {
+\    'name'        : 'kill_process',
+\    'description' : 'kill processes immediately',
+\}
+
+call unite#define_source(s:source)
+
+function! s:source.gather_candidates(args, context)
+    let l:system = neobundle#is_installed('vimproc') ? 'vimproc#system_bg' : 'system'
+    let l:kill_command = "call " . l:system . "(\"kill -TERM %d\")"
+    return map(
+        \ reverse(split(
+        \     unite#util#system('ps'),
+        \     '\n'
+        \ )[1:]),
+        \ '{
+        \     "word"            : v:val,
+        \     "source"          : "kill_process",
+        \     "kind"            : "command",
+        \     "action__command" : printf(l:kill_command, matchstr(v:val, "\\d\\+"))
+        \ }')
+endfunction
+
+call unite#define_source(s:source)
+unlet s:source
+
+nnoremap [unite]kp :Unite kill_process<CR>
+" }}}
+

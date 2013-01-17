@@ -27,12 +27,7 @@ NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
-NeoBundleLazy 'Shougo/vimfiler', {
-\	'depends'  : 'Shougo/unite.vim',
-\	'autoload' : {
-\		'commands' : ['VimFiler', 'VimFilerExplorer'],
-\	},
-\ }
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc', {
 \	'build' : {
 \		'windows' : 'make -f make_mingw64.mak',
@@ -55,38 +50,139 @@ NeoBundleLazy 'Shougo/vinarise', {
 " Common
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'dannyob/quickfixstatus'
-NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'jceb/vim-hier'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'mattn/quickrunex-vim', {
-\	'autoload' : {
-\		'filetypes' : ['cpp'],
-\	},
-\ }
-NeoBundle 'mattn/vdbi-vim'
-NeoBundleLazy 'mattn/zencoding-vim', {
-\	'autoload' : {
-\		'filetypes' : ['html', 'xml'],
-\	},
-\ }
-NeoBundleLazy 'msanders/cocoa.vim'
-NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/vim-reanimate'
-NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundleLazy 'sjl/gundo.vim'
 NeoBundle 'spolu/dwm.vim'
-NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'YankRing.vim'
 NeoBundle 'sudo.vim'
+
+" Apperance
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'kien/rainbow_parentheses.vim'
+
+" Programming
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'jceb/vim-hier'
+NeoBundle 'dannyob/quickfixstatus'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundleLazy 'kana/vim-textobj-function', {
+\	'autoload' : {
+\		'filetypes' : ['c', 'vim'],
+\	},
+\ }
+NeoBundle 'mattn/vdbi-vim'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-fugitive'
+
+" textobj (common)
+" ---------------------------------------------------------------------------------------------------
+
+" C/C++
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'mattn/quickrunex-vim', {
+\	'autoload' : {
+\		'filetypes' : ['cpp'],
+\	},
+\ }
+NeoBundleLazy 'Rip-Rip/clang_complete', {
+\	'autoload' : {
+\		'filetypes' : ['c', 'cpp'],
+\	},
+\ }
+
+" JavaScript
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'myhere/vim-nodejs-complete', {
+\	'autoload' : {
+\		'filetypes' : ['javascript', 'typescript'],
+\	},
+\ }
+NeoBundle 'teramako/jscomplete-vim', {
+\	'autoload' : {
+\		'filetypes' : ['javascript', 'typescript'],
+\	},
+\ }
+NeoBundleLazy 'leafgarland/typescript-vim', {
+\	'autoload' : {
+\		'filetypes' : ['typescript'],
+\	},
+\ }
+NeoBundleLazy 'thinca/vim-textobj-plugins', {
+\	'depends'  : ['kana/vim-textobj-function'],
+\	'autoload' : {
+\		'filetypes' : ['javascript', 'perl'],
+\	},
+\ }
+
+" Ruby
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'Shougo/neocomplcache-rsense', {
+\	'autoload' : {
+\		'filetypes' : ['ruby'],
+\	},
+\ }
+NeoBundleLazy 'rhysd/unite-ruby-require.vim', {
+\	'autoload' : {
+\		'filetypes' : ['ruby'],
+\	},
+\ }
+NeoBundleLazy 'rhysd/neco-ruby-keyword-args', {
+\	'autoload' : {
+\		'filetypes' : ['ruby'],
+\	},
+\ }
+NeoBundleLazy 'rhysd/vim-textobj-ruby', {
+\	'autoload' : {
+\		'filetypes' : ['ruby'],
+\	},
+\ }
+
+" Obj-C
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'msanders/cocoa.vim', {
+\	'autoload' : {
+\		'filetypes' : ['objc', 'objcpp'],
+\	},
+\ }
+
+" Java
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'javacomplete', {
+\	'autoload' : {
+\		'filetypes' : ['java'],
+\	},
+\ }
+
+" C#
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'yuratomo/dotnet-complete', {
+\	'autoload' : {
+\		'filetypes' : ['cs'],
+\	},
+\ }
+
+" HTML
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'mjbrownie/html-textobjects', {
+\	'autoload' : {
+\		'filetypes' : ['html', 'xml'],
+\	},
+\ }
+NeoBundleLazy 'mattn/zencoding-vim', {
+\	'autoload' : {
+\		'filetypes' : ['html', 'xml'],
+\	},
+\ }
 
 " Web service
 " ---------------------------------------------------------------------------------------------------
@@ -127,37 +223,6 @@ NeoBundleLazy 'TwitVim', {
 \ }
 NeoBundleLazy 'toritori0318/vim-redmine'
 
-" Complete
-" ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'Rip-Rip/clang_complete', {
-\	'autoload' : {
-\		'filetypes' : ['c', 'cpp'],
-\	},
-\ }
-NeoBundleLazy 'myhere/vim-nodejs-complete', {
-\	'autoload' : {
-\		'filetypes' : ['javascript', 'typescript'],
-\	},
-\ }
-NeoBundle 'teramako/jscomplete-vim', {
-\	'autoload' : {
-\		'filetypes' : ['javascript', 'typescript'],
-\	},
-\ }
-NeoBundleLazy 'javacomplete', {
-\	'autoload' : {
-\		'filetypes' : ['java'],
-\	},
-\ }
-
-" Syntax Hilight
-" ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'leafgarland/typescript-vim', {
-\	'autoload' : {
-\		'filetypes' : ['typescript'],
-\	},
-\ }
-
 " Others
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'glidenote/memolist.vim', {
@@ -197,7 +262,7 @@ NeoBundleLazy 'osyo-manga/unite-shimapan'
 NeoBundleLazy 'osyo-manga/unite-sl'
 NeoBundleLazy 'osyo-manga/unite-u-nya-'
 NeoBundle 'tsukkee/unite-help'
-NeoBundleLazy 'tsukkee/unite-tag'
+NeoBundle 'tsukkee/unite-tag'
 NeoBundleLazy 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-locate'
 
@@ -542,6 +607,10 @@ if !exists('g:neocomplcache_force_omni_patterns')
 	let g:neocomplcache_force_omni_patterns = {}
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
+
+" Key binds
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix]nct :NeoComplCacheCachingTags<CR>
 " }}}
 
 "====================================================================================================
@@ -555,9 +624,9 @@ let g:neosnippet#snippets_directory='~/.vim/snippets'
 " expand key
 " ---------------------------------------------------------------------------------------------------
 if g:neocomplcache_enable_at_startup
-	imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+	imap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
-vmap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
+vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
 " }}}
 
 "====================================================================================================
@@ -566,26 +635,29 @@ vmap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" 
 " {{{
 " Include Path
 " ---------------------------------------------------------------------------------------------------
-let s:cpp_include_path = ''
-let s:cpp_library_path = ''
+let s:include_path = ''
+let s:library_path = ''
 
 " for MacBook Air
 if s:is_mac
-	let s:cpp_include_path = '/usr/local/include'
-	let s:cpp_library_path = '/usr/local/lib'
+	let s:include_path  = '/usr/local/include,'
+	                  " \ . $HOME.'/.nodebrew/current/include/node,'
+	                  " \ . $HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include,'
+	                  " \ . $HOME.'/android-ndk/sources/android/native_app_glue'
+	let s:library_path  = '/usr/local/lib'
 " for Windows
 elseif s:is_win
-	let s:cpp_include_path = 'C:/include'
-	let s:cpp_library_path = 'C:/include/boost/stage/lib'
+	let s:include_path = 'C:/include'
+	let s:library_path = 'C:/include/boost/stage/lib'
 " for Ubuntu
 else
-	let s:cpp_include_path = '/usr/include,/usr/local/include'
-	let s:cpp_library_path = '/usr/lib,/usr/local/lib'
+	let s:include_path = '/usr/include,/usr/local/include'
+	let s:library_path = '/usr/lib,/usr/local/lib'
 endif
 
-let s:include_options = ' -I' . join( split(s:cpp_include_path, ','), ' -I' )
-let s:library_options = ' -L' . join( split(s:cpp_library_path, ','), ' -L' )
-let &path .= ',' . s:cpp_include_path
+let s:include_options = ' -I' . join( split(s:include_path, ','), ' -I' )
+let s:library_options = ' -L' . join( split(s:library_path, ','), ' -L' )
+let &path .= ',' . s:include_path
 " }}}
 
 "====================================================================================================
@@ -615,6 +687,14 @@ let g:quickrun_config['_'] = {
 	\ 'runner/vimproc/updatetime'                    : 40,
 \ }
 
+" C
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['c/ndk-build'] = {
+	\ 'exec'      : '%c',
+	\ 'command'   : 'ndk-build',
+	\ 'runner'    : 'vimproc',
+\ }
+
 " C++
 " ---------------------------------------------------------------------------------------------------
 let s:quickrun_cpp_options = '-std=gnu++0x ' . s:include_options . ' ' . s:library_options
@@ -623,40 +703,44 @@ if s:is_win
 endif
 let s:quickrun_gcc_options   = s:quickrun_cpp_options
 let s:quickrun_clang_options = s:quickrun_cpp_options.' -I/usr/local/include/libcxx -stdlib=libc++'
-let s:quickrun_cpp_exec      = ['%c %o %s -o %s:p:r.hoge', '%s:p:r.hoge', 'rm %s:p:r.hoge']
+let s:quickrun_gcc_cpp_exec      = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
 
 let g:quickrun_config['cpp'] = {
-	\ 'exec'      : s:quickrun_cpp_exec,
 	\ 'command'   : 'clang++',
 	\ 'cmdopt'    : s:quickrun_clang_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/clang++'] = {
-	\ 'exec'      : s:quickrun_cpp_exec,
 	\ 'command'   : 'clang++',
 	\ 'cmdopt'    : s:quickrun_clang_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.6'] = {
-	\ 'exec'      : s:quickrun_cpp_exec,
+	\ 'exec'      : s:quickrun_gcc_cpp_exec,
 	\ 'command'   : 'g++-4.6',
 	\ 'cmdopt'    : s:quickrun_gcc_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.7'] = {
-	\ 'exec'      : s:quickrun_cpp_exec,
+	\ 'exec'      : s:quickrun_gcc_cpp_exec,
 	\ 'command'   : 'g++-4.7',
 	\ 'cmdopt'    : s:quickrun_gcc_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
 let g:quickrun_config['cpp/g++-4.8'] = {
-	\ 'exec'      : s:quickrun_cpp_exec,
+	\ 'exec'      : s:quickrun_gcc_cpp_exec,
 	\ 'command'   : 'g++-4.8',
 	\ 'cmdopt'    : s:quickrun_gcc_options,
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['cpp/ndk-build'] = {
+	\ 'exec'      : '%c',
+	\ 'command'   : 'ndk-build',
 	\ 'runner'    : 'vimproc',
 \ }
 
@@ -680,8 +764,19 @@ let g:quickrun_config['javascript/gjslint'] = {
 	\ 'runner'    : 'vimproc',
 \ }
 
+" C#
+" ---------------------------------------------------------------------------------------------------
+" TODO: add win config
+let g:quickrun_config['cs']  = {
+	\ 'command'              : 'mcs',
+	\ 'exec'                 : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
+	\ 'cmdopt'               : '-warn:4 -pkg:dotnet',
+	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+\ }
+
 " Watchdogs
 " ---------------------------------------------------------------------------------------------------
+" C++
 let g:quickrun_config['cpp/watchdogs_checker'] = {
 	\ 'type' : 'watchdogs_checker/clang++',
 \ }
@@ -692,6 +787,7 @@ let g:quickrun_config['watchdogs_checker/clang++'] = {
 	\ 'cmdopt'  : s:quickrun_cpp_options,
 \ }
 
+" JavaScript
 let g:quickrun_config['javascript/watchdogs_checker'] = {
 	\ 'type' : 'watchdogs_checker/jshint',
 \ }
@@ -701,10 +797,24 @@ let g:quickrun_config['watchdogs_checker/jshint'] = {
 	\ 'exec'    : '%c %s:p ',
 \ }
 
+" C#
+let g:quickrun_config['cs/watchdogs_checker'] = {
+	\ 'type' : 'watchdogs_checker/mcs',
+\ }
+
+let g:quickrun_config['watchdogs_checker/mcs'] = {
+	\ 'command'              : 'mcs',
+	\ 'exec'                 : '%c %o %s:p',
+	\ 'cmdopt'               : '--parse',
+	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+\ }
+
+" Common
 call watchdogs#setup(g:quickrun_config)
 let g:watchdogs_check_BufWritePost_enables = {
 	\ "cpp"        : 0,
 	\ "javascript" : 1,
+	\ "cs"         : 1,
 \ }
 nnoremap <Leader>R :WatchdogsRun<CR>
 
@@ -749,10 +859,30 @@ noremap <silent> g<C-]> :<C-u>execute "PopupTags ".expand('<cword>')<CR>
 noremap <silent> G<C-]> :<C-u>execute "PopupTags "
     \.substitute(<SID>get_func_name(expand('<cWORD>')), '\:', '\\\:', "g")<CR>
 
-" set tags by filetype
+let s:source = {
+\    'name'        : 'set_tags',
+\    'description' : 'include tag files',
+\}
+
+" Unite source: set_tags
 " ---------------------------------------------------------------------------------------------------
-autocmd FileType java :setlocal tags+=~/.vim/tags/java
-autocmd FileType java :setlocal tags+=~/.vim/tags/android
+call unite#define_source(s:source)
+function! s:source.gather_candidates(args, context)
+    let l:set_tag_command = "setlocal tags+=%s"
+    let l:tag_file_lists = split(glob($HOME.'/.vim/tags/*/*'))
+    return map(
+        \ l:tag_file_lists,
+        \ '{
+        \     "word"            : v:val,
+        \     "source"          : "set_tags",
+        \     "kind"            : "command",
+        \     "action__command" : printf(l:set_tag_command, v:val)
+        \ }')
+endfunction
+call unite#define_source(s:source)
+unlet s:source
+
+nnoremap [unite]st :Unite set_tags<CR>
 " }}}
 
 "====================================================================================================
@@ -780,23 +910,27 @@ endif
 " }}}
 
 "====================================================================================================
-" vimgdb
+" nodejs-complete & jscomplete
 "====================================================================================================
 " {{{
-if exists('&asm')
-	set previewheight=14
-	source ~/.vim/macros/gdb_mappings.vim
-	set asm=0
-	set gdbprg=gdb
-endif
+autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+let g:node_usejscomplete = 1
+let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 " }}}
 
 "====================================================================================================
-" jscomplete-vim
+" javacomplete
 "====================================================================================================
 " {{{
-autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
-let g:jscomplete_use = ['dom', 'moz', 'ex6th']
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
+" }}}
+
+"====================================================================================================
+" dotnet-complete
+"====================================================================================================
+" {{{
+autocmd FileType cs setlocal omnifunc=cs#complete
 " }}}
 
 "====================================================================================================
@@ -1092,6 +1226,18 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 	\ ])
 
 let g:Powerline_colorscheme='my'
+" }}}
+
+"====================================================================================================
+" vimgdb
+"====================================================================================================
+" {{{
+if exists('&asm')
+	set previewheight=14
+	source ~/.vim/macros/gdb_mappings.vim
+	set asm=0
+	set gdbprg=gdb
+endif
 " }}}
 
 "====================================================================================================

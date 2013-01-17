@@ -35,8 +35,6 @@ nnoremap Y Vy
 
 " 移動
 " --------------------------------------------------------------------------------
-nnoremap h :ToggleInsertModei<Left><Esc>
-nnoremap l :ToggleInsertModei<Right><Esc>
 nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
