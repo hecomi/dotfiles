@@ -1,0 +1,9 @@
+requires=test.unit.ui.testrunnerutilities,test.unit.ui.testrunnermediator,test.unit,test.unit.testcase,test.unit.assertions,test.unit.testsuite,test.unit.autorunner,test.unit.util.observable,test.unit.testresult
+classes=Test=Unit=UI=Console=TestRunner
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+コンソール上でユニットテストを実行し、結果を表示するための
+ライブラリです。

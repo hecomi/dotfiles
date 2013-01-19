@@ -1,0 +1,8 @@
+names=greeting
+visibility=public
+kind=defined
+
+--- greeting -> Net::IMAP::UntaggedResponse
+サーバから最初に送られてくるメッセージ(greeting message)
+を返します。
+

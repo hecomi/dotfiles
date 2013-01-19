@@ -1,0 +1,7 @@
+names=VT_I2
+visibility=public
+kind=defined
+
+--- VT_I2 -> Integer
+符号付き16ビット整数（short）を示します（2）。
+

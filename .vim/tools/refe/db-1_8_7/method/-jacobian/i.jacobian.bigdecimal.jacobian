@@ -1,0 +1,8 @@
+names=jacobian
+visibility=public
+kind=defined
+
+--- jacobian(f, fx, x)
+@todo
+
+

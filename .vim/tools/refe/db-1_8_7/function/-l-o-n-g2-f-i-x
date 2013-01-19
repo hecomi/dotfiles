@@ -1,0 +1,10 @@
+filename=ruby.h
+macro=true
+private=false
+type=VALUE
+name=LONG2FIX
+params=(long i)
+
+
+INT2FIX と同じです。
+

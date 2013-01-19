@@ -1,0 +1,7 @@
+names=clear_cache
+visibility=public
+kind=defined
+
+--- clear_cache(file = None)
+@todo
+

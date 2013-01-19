@@ -1,0 +1,9 @@
+names=isPermaLink
+visibility=public
+kind=defined
+
+--- isPermaLink
+@todo
+
+ * [[url:http://purl.org/dc/elements/1.1/]]
+

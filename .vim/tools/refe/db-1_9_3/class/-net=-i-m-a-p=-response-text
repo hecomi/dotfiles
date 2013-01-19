@@ -1,0 +1,9 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=net.imap
+aliases=
+aliasof=
+
+応答のテキストを表すクラスです。

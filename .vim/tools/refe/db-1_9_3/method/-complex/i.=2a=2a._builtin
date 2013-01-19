@@ -1,0 +1,14 @@
+names=**
+visibility=public
+kind=defined
+
+--- **(other) -> Complex
+
+冪(べき)乗を計算します。
+
+@param other 自身を other 乗する数
+
+例:
+
+  Complex('i') ** 2             # => (-1+0i)
+

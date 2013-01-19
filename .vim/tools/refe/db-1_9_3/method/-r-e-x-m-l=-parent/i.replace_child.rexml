@@ -1,0 +1,7 @@
+names=replace_child
+visibility=public
+kind=defined
+
+--- replace_child(to_replace, replacement)
+@todo
+

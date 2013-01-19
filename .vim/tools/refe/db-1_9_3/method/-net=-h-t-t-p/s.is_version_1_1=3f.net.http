@@ -1,0 +1,10 @@
+names=is_version_1_1?,version_1_1?
+visibility=public
+kind=defined
+
+--- version_1_1? -> false
+--- is_version_1_1? -> false
+何もしません。互換性のために残されており、常に false を返します。
+
+@see [[m:Net::HTTP.version_1_2]], [[m:Net::HTTP.version_1_2?]]
+

@@ -1,0 +1,7 @@
+names=tk_tcl2ruby
+visibility=public
+kind=defined
+
+--- tk_tcl2ruby(val, enc_mode = false, listobj = true)
+@todo
+

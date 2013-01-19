@@ -1,0 +1,7 @@
+names=deref_key
+visibility=protected 
+kind=defined
+
+--- deref_key(key)
+@todo
+

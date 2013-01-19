@@ -1,0 +1,7 @@
+names=unnormalize
+visibility=public
+kind=defined
+
+--- unnormalize(string, doctype = nil, filter = nil, illegal = nil)
+@todo
+

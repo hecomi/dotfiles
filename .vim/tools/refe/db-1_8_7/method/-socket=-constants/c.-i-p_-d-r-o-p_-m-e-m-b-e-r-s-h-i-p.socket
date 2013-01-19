@@ -1,0 +1,12 @@
+names=IP_DROP_MEMBERSHIP
+visibility=public
+kind=defined
+
+--- IP_DROP_MEMBERSHIP -> Integer
+Drop a multicast group membership。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], 
+     [[man:ip(4freebsd)]], [[man:ip(7linux)]]
+

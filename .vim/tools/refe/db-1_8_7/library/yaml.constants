@@ -1,0 +1,8 @@
+requires=
+classes=
+methods=YAML/c.VERSION.yaml.constants,YAML/c.SUPPORTED_YAML_VERSIONS.yaml.constants,YAML/c.DEFAULTS.yaml.constants
+sublibraries=
+is_sublibrary=true
+category=
+
+YAML 関連の定数のためのサブライブラリです。

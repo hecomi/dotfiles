@@ -1,0 +1,11 @@
+requires=
+classes=IRB=MagicFile
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+irb が扱う入力やファイル中のマジックコメントを正しく扱うためのサブライ
+ブラリです。
+
+ユーザが直接使用するものではありません。

@@ -1,0 +1,11 @@
+names=sync_point?
+visibility=public
+kind=defined
+
+--- sync_point? -> bool
+@todo zlib.h にもドキュメントが無い？
+
+What is this?
+
+
+

@@ -1,0 +1,8 @@
+names=current_grab,grab_current
+visibility=public
+kind=defined
+
+--- grab_current
+--- current_grab
+@todo
+

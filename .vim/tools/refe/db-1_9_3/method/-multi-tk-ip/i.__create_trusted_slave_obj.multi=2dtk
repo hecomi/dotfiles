@@ -1,0 +1,7 @@
+names=__create_trusted_slave_obj
+visibility=public
+kind=defined
+
+--- __create_trusted_slave_obj(name, keys)
+@todo
+

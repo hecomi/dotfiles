@@ -1,0 +1,8 @@
+names=CLEAR
+visibility=public
+kind=defined
+
+--- CLEAR -> Integer
+
+スクリーンのクリアを表す定数です。
+

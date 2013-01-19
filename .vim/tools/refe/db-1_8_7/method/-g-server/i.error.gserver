@@ -1,0 +1,10 @@
+names=error
+visibility=protected 
+kind=defined
+
+--- error(detail) -> ()
+
+[[m:GServer#debug]] が真の場合、例外が発生すると呼ばれます。
+
+@param detail 例外オブジェクトです。
+

@@ -1,0 +1,10 @@
+names=NI_MAXHOST
+visibility=public
+kind=defined
+
+--- NI_MAXHOST -> Integer
+
+[[man:getnameinfo(3)]] で用いるホスト名文字列の最大長さ。
+
+@see [[man:getnameinfo(3linux)]]
+

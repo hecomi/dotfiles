@@ -1,0 +1,7 @@
+names=tag_bind
+visibility=public
+kind=defined
+
+--- tag_bind(tag, seq, *args)
+@todo
+

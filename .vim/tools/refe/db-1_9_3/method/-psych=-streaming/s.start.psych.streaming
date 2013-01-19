@@ -1,0 +1,8 @@
+names=start
+visibility=public
+kind=defined
+
+--- start(encoding = Nodes::Stream::UTF8)
+@todo
+
+Start streaming using +encoding+

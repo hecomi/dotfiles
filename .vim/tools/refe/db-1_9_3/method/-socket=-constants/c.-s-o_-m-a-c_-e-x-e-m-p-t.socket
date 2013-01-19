@@ -1,0 +1,8 @@
+names=SO_MAC_EXEMPT
+visibility=public
+kind=defined
+
+--- SO_MAC_EXEMPT -> Integer
+@todo
+Mandatory Access Control exemption for unlabeled peers。
+

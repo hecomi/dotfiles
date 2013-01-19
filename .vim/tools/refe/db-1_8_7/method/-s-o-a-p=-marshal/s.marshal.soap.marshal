@@ -1,0 +1,7 @@
+names=marshal
+visibility=public
+kind=defined
+
+--- marshal(obj, mapping_registry = SOAP::Marshal::MarshalMappingRegistry, io = nil)
+@todo
+

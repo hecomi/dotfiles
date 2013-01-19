@@ -1,0 +1,9 @@
+names=show_all
+visibility=public
+kind=defined
+
+--- show_all -> bool
+
+コマンドライン引数の --all オプションを指定していた場合、true を返しま
+す。そうでない場合は false を返します。
+

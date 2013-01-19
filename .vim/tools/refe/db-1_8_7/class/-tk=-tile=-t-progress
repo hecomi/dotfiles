@@ -1,0 +1,9 @@
+type=class
+superclass=TkScale
+included=Tk=Tile=TileWidget
+extended=
+library=tkextlib.tile.tscale
+aliases=
+aliasof=Tk=Tile=Progress
+
+Alias of [[c:Tk::Tile::Progress]]

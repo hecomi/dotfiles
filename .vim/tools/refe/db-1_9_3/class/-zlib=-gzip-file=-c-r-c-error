@@ -1,0 +1,10 @@
+type=class
+superclass=Zlib=GzipFile=Error
+included=
+extended=
+library=zlib
+aliases=
+aliasof=
+
+フッターに記録されている CRC 値と実際に展開したデータの CRC 値が
+異なる時に発生します。

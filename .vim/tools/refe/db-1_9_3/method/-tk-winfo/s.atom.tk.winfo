@@ -1,0 +1,7 @@
+names=atom
+visibility=public
+kind=defined
+
+--- atom(name, win = nil)
+@todo
+

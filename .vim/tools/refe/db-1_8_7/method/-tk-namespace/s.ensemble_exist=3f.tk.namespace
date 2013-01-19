@@ -1,0 +1,7 @@
+names=ensemble_exist?
+visibility=public
+kind=defined
+
+--- ensemble_exist?(cmd)
+@todo
+

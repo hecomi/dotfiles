@@ -1,0 +1,7 @@
+names===
+visibility=public
+kind=defined
+
+--- ==(ohter) -> bool
+otherと自身が同一のセッションであれば真を返します。
+

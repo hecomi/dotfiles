@@ -1,0 +1,16 @@
+#coords_3D_to_pixel	Tk::Tcllib::Plotchart::ChartMethod#coords_3D_to_pixel
+#coords_to_pixel	Tk::Tcllib::Plotchart::ChartMethod#coords_to_pixel
+#determine_scale	Tk::Tcllib::Plotchart::ChartMethod#determine_scale
+#pixel_to_coords	Tk::Tcllib::Plotchart::ChartMethod#pixel_to_coords
+#polar_coordinates	Tk::Tcllib::Plotchart::ChartMethod#polar_coordinates
+#polar_to_pixel	Tk::Tcllib::Plotchart::ChartMethod#polar_to_pixel
+#save_plot	Tk::Tcllib::Plotchart::ChartMethod#save_plot
+#set_zoom_pan	Tk::Tcllib::Plotchart::ChartMethod#set_zoom_pan
+#title	Tk::Tcllib::Plotchart::ChartMethod#title
+#view_port	Tk::Tcllib::Plotchart::ChartMethod#view_port
+#world_3D_coordinates	Tk::Tcllib::Plotchart::ChartMethod#world_3D_coordinates
+#world_coordinates	Tk::Tcllib::Plotchart::ChartMethod#world_coordinates
+#xconfig	Tk::Tcllib::Plotchart::ChartMethod#xconfig
+#xtext	Tk::Tcllib::Plotchart::ChartMethod#xtext
+#yconfig	Tk::Tcllib::Plotchart::ChartMethod#yconfig
+#ytext	Tk::Tcllib::Plotchart::ChartMethod#ytext

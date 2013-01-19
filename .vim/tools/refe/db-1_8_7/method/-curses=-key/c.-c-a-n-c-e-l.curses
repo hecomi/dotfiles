@@ -1,0 +1,8 @@
+names=CANCEL
+visibility=public
+kind=defined
+
+--- CANCEL -> Integer
+
+Cancel キーを表す定数です。
+

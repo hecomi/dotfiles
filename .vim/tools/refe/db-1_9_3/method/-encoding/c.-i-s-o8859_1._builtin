@@ -1,0 +1,16 @@
+names=ISO8859_1,ISO_8859_1
+visibility=public
+kind=defined
+
+--- ISO_8859_1 -> Encoding
+--- ISO8859_1 -> Encoding
+
+ISO-8859-1 エンコーディングです。
+
+多くの西欧言語を含むさまざまなラテン文字言語を表現するための 
+8bitエンコーディングです。
+
+Latin-1 とも呼ばれます。
+
+
+

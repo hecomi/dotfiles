@@ -1,0 +1,9 @@
+names=conj,conjugate
+visibility=public
+kind=added
+
+--- conj -> self
+--- conjugate -> self
+
+自身の共役複素数(実数の場合は常に自身)を返します。
+

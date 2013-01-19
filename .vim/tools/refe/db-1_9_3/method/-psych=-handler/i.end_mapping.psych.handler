@@ -1,0 +1,9 @@
+names=end_mapping
+visibility=public
+kind=added
+
+--- end_mapping
+@todo
+
+Called when a map ends
+

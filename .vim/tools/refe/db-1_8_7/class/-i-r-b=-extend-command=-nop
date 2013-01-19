@@ -1,0 +1,10 @@
+type=class
+superclass=Object
+included=
+extended=
+library=irb.cmd.nop
+aliases=
+aliasof=
+
+irb 中でコマンドを拡張するクラスのベースになるクラスです。サブクラスを
+定義してコマンドを拡張します。

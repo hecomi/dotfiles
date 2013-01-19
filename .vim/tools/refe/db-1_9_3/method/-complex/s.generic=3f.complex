@@ -1,0 +1,14 @@
+names=generic?
+visibility=public
+kind=added
+
+--- generic?(other) -> bool
+
+other が [[c:Integer]] [[c:Float]] [[c:Rational]] クラスのオブジェクト
+かどうか判定します。
+
+@param other 判定対象のオブジェクト
+
+@return [[c:Integer]] [[c:Float]] [[c:Rational]] クラスのオブジェクトの
+        時 trueそれ以外の場合には false を返します。
+

@@ -1,0 +1,7 @@
+names=current_configinfo
+visibility=public
+kind=defined
+
+--- current_configinfo(key = nil)
+@todo
+

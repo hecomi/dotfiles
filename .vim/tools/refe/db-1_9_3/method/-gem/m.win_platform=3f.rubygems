@@ -1,0 +1,10 @@
+names=win_platform?
+visibility=public
+kind=defined
+
+--- win_platform? -> bool
+
+Windows プラットフォームであれば真を返します。そうでなければ偽を返します。
+
+@see [[m:Kernel::RUBY_PLATFORM]]
+

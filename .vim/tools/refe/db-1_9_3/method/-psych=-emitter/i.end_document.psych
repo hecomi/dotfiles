@@ -1,0 +1,13 @@
+names=end_document
+visibility=public
+kind=defined
+
+--- end_document(implicit) -> Psych::Emitter
+@todo
+
+End a document emission with an +implicit+ ending.
+
+自身を返します。
+
+@see [[m:Psych::Handler#end_document]]
+

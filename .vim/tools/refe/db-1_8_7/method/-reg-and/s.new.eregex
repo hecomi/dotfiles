@@ -1,0 +1,12 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(re1, re2) -> RegAnd
+
+新しい RegAnd オブジェクトを生成します。
+
+@param re1 正規表現オブジェクト。
+
+@param re2 正規表現オブジェクト。
+

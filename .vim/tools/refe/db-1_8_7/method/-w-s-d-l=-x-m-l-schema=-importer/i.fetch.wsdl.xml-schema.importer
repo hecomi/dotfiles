@@ -1,0 +1,7 @@
+names=fetch
+visibility=private 
+kind=defined
+
+--- fetch(location)
+@todo
+

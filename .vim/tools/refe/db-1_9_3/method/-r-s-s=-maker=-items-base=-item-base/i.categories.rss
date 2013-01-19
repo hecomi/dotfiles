@@ -1,0 +1,11 @@
+names=categories,enclosure,guid,source
+visibility=public
+kind=defined
+
+--- guid
+--- enclosure
+--- source
+--- categories
+@todo
+
+

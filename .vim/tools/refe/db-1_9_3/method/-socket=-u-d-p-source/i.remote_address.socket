@@ -1,0 +1,7 @@
+names=remote_address
+visibility=public
+kind=defined
+
+--- remote_address -> Addrinfo
+リモート側のアドレス情報を [[c:Addrinfo]] オブジェクトで返します。
+

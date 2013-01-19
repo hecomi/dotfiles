@@ -1,0 +1,8 @@
+names=SO_NREAD
+visibility=public
+kind=defined
+
+--- SO_NREAD -> Integer
+@todo
+Get first packet byte count。
+

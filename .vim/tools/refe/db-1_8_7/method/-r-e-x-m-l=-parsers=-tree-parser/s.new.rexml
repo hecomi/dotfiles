@@ -1,0 +1,7 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(source, build_context = REXML::Document.new)
+@todo
+

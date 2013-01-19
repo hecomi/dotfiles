@@ -1,0 +1,11 @@
+names=find_module_named
+visibility=public
+kind=defined
+
+--- find_module_named(name) -> RDoc::NormalModule | nil
+
+追加された [[c:RDoc::NormalModule]] から引数で指定した名前のモジュール
+を検索します。見つからなかった場合は nil を返します。
+
+@param name モジュールの名前を文字列で指定します。
+

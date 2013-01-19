@@ -1,0 +1,7 @@
+names=raise
+visibility=public
+kind=defined
+
+--- raise(above = Tk::None)
+@todo
+

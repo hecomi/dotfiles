@@ -1,0 +1,9 @@
+type=class
+superclass=WEBrick=HTTPStatus=Redirect
+included=
+extended=
+library=webrick.httpstatus
+aliases=
+aliasof=
+
+HTTP のステータスコード 305 Use Proxy を表すクラスです。

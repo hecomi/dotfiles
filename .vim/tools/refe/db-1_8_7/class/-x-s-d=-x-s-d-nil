@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=XSDAnySimpleType
+included=
+extended=
+library=xsd.datatypes
+aliases=
+aliasof=
+
+

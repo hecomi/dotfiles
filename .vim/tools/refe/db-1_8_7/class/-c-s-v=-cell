@@ -1,0 +1,10 @@
+type=class
+superclass=String
+included=
+extended=
+library=csv
+aliases=
+aliasof=
+
+CSV形式データのカラム（Cell）を操作するためのクラス。
+このクラスはバージョン1.8.7で廃止されました。

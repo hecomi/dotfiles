@@ -1,0 +1,7 @@
+names=tag_bindinfo
+visibility=public
+kind=defined
+
+--- tag_bindinfo(tag, context = nil)
+@todo
+

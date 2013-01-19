@@ -1,0 +1,9 @@
+requires=
+classes=Gem=Package=TarReader=Entry
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+tar アーカイブ中のそれぞれのエントリを扱うためのクラスを提供するライブ
+ラリです。

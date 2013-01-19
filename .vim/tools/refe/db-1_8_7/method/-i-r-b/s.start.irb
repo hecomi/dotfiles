@@ -1,0 +1,10 @@
+names=start
+visibility=public
+kind=defined
+
+--- start(ap_path = nil) -> ()
+
+[[c:IRB]] を初期化して、トップレベルの irb を開始します。
+
+@param ap_path irb コマンドのパスを指定します。
+

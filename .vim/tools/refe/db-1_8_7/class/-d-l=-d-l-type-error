@@ -1,0 +1,9 @@
+type=class
+superclass=DL=DLError
+included=
+extended=
+library=dl
+aliases=
+aliasof=
+
+型に関するエラーが発生したときに投げられます。

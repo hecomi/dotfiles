@@ -1,0 +1,7 @@
+names=DEFAULT_CONFIG_FILE
+visibility=public
+kind=defined
+
+--- DEFAULT_CONFIG_FILE -> String
+デフォルトの設定ファイル名を返します。
+

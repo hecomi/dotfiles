@@ -1,0 +1,9 @@
+type=class
+superclass=Psych=Visitors=Visitor
+included=
+extended=
+library=psych.visitors.to_ruby
+aliases=
+aliasof=
+
+This class walks a YAML AST, converting each node to ruby

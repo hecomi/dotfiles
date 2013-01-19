@@ -1,0 +1,8 @@
+names=install_bind
+visibility=public
+kind=defined
+
+--- install_bind(cmd, *args)
+@todo
+
+

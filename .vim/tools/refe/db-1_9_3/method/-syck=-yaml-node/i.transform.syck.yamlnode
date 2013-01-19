@@ -1,0 +1,10 @@
+names=transform
+visibility=public
+kind=defined
+
+--- transform -> object
+
+自身が表現するオブジェクトを Ruby のオブジェクトにして返します。
+
+[注意] 動作しません。
+

@@ -1,0 +1,16 @@
+.clear	Tk::Tcllib::Tooltip.clear
+.clear_children	Tk::Tcllib::Tooltip.clear_children
+.clear_glob	Tk::Tcllib::Tooltip.clear_glob
+.clear_widgets	Tk::Tcllib::Tooltip.clear_widgets
+.database_class	Tk::Tcllib::Tooltip.database_class
+.database_classname	Tk::Tcllib::Tooltip.database_classname
+.delay	Tk::Tcllib::Tooltip.delay
+.delay=	Tk::Tcllib::Tooltip.delay=
+.disable	Tk::Tcllib::Tooltip.disable
+.enable	Tk::Tcllib::Tooltip.enable
+.erase	Tk::Tcllib::Tooltip.erase
+.off	Tk::Tcllib::Tooltip.off
+.on	Tk::Tcllib::Tooltip.on
+.package_name	Tk::Tcllib::Tooltip.package_name
+.package_version	Tk::Tcllib::Tooltip.package_version
+.register	Tk::Tcllib::Tooltip.register

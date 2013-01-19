@@ -1,0 +1,7 @@
+names=name
+visibility=public
+kind=defined
+
+--- name -> String
+ハッシュ関数の名前を返します。
+

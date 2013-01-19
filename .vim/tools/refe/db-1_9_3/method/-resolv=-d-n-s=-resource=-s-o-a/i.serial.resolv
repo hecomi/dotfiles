@@ -1,0 +1,7 @@
+names=serial
+visibility=public
+kind=defined
+
+--- serial -> Integer
+ゾーンファイルのバージョンを返します。
+

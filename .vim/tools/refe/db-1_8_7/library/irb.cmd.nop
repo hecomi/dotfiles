@@ -1,0 +1,12 @@
+requires=
+classes=IRB=ExtendCommand=Nop
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+irb 中でコマンドを拡張する各ライブラリのベースになるクラスを扱うサブラ
+イブラリです。
+
+このライブラリで定義されているメソッドはユーザが直接使用するものではあ
+りません。

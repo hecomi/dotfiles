@@ -1,0 +1,18 @@
+names=cosh
+visibility=public
+kind=defined
+
+--- cosh(x) -> Float
+
+x の双曲線余弦関数の値を返します。
+
+=== 定義
+
+    cosh(x) = (exp(x) + exp(-x)) / 2
+
+@param x 実数
+
+@raise TypeError x に数値以外を指定した場合に発生します。
+
+@raise RangeError x に実数以外の数値を指定した場合に発生します。
+

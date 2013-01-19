@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=rb_mod_le
+params=(VALUE mod, VALUE arg)
+
+

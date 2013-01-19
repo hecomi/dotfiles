@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rubygems.user_interaction
+aliases=
+aliasof=
+
+シンプルなストリームを実装したユーザインターフェイスです。

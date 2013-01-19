@@ -1,0 +1,14 @@
+names=debug?
+visibility=public
+kind=defined
+
+--- debug? -> bool
+
+irb がデバッグモード([[m:IRB::Context#debug_level]] が 1 以上)で動作し
+ているかどうかを返します。
+
+デフォルト値は true です。
+
+@see [[m:IRB::Context#debug_level]], [[m:IRB::Context#debug_level=]]
+
+

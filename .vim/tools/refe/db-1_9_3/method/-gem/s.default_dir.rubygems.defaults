@@ -1,0 +1,8 @@
+names=default_dir
+visibility=public
+kind=added
+
+--- default_dir -> String
+
+デフォルトの Gem パッケージをインストールするディレクトリを返します。
+

@@ -1,0 +1,7 @@
+names=open
+visibility=public
+kind=defined
+
+--- open(fname, access = nil)
+@todo
+

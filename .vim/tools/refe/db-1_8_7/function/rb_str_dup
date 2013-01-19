@@ -1,0 +1,10 @@
+filename=string.c
+macro=false
+private=false
+type=VALUE
+name=rb_str_dup
+params=(VALUE str)
+
+
+文字列 str の複製を作成し返します。
+

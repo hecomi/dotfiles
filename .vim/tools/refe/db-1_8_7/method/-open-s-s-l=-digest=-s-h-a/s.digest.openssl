@@ -1,0 +1,9 @@
+names=digest
+visibility=public
+kind=defined
+
+--- digest(data) -> String
+data のダイジェストを SHA で計算します。
+
+@param data ダイジェストを計算する文字列
+

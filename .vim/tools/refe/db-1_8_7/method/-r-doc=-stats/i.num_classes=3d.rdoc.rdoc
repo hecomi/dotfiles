@@ -1,0 +1,10 @@
+names=num_classes=
+visibility=public
+kind=defined
+
+--- num_classes=(val)
+
+解析したクラスの数を指定します。
+
+@param val 数値を指定します。
+

@@ -1,0 +1,6 @@
+names=delete_by_dependant
+visibility=public
+kind=defined
+
+--- delete_by_dependant(dependant, method = :finalize)
+

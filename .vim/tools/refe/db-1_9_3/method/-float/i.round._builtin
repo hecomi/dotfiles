@@ -1,0 +1,46 @@
+names=round
+visibility=public
+kind=defined
+
+--- round(ndigits = 0)  -> Fixnum | Float
+
+自身ともっとも近い整数もしくは実数を返します。
+
+中央値 0.5, -0.5 はそれぞれ 1,-1 に切り上げされます。
+いわゆる四捨五入ですが、偶数丸めではありません。
+
+@param ndigits 丸める位を指定します。
+       ndigitsが0ならば、小数点以下を四捨五入し、整数を返します。
+       ndigitsが0以上ならば、小数点以下の指定された位で四捨五入されます。
+       ndigitsが0以下ならば、小数点以上の指定された位で四捨五入されます。
+
+@return 指定された引数に応じて、整数もしくは実数を返します。
+       ndigitsが0ならば、整数を返します。
+       ndigitsが0以上ならば、実数を返します。
+       ndigitsが0以下ならば、整数を返します。
+
+@raise TypeError ndigits で指定されたオブジェクトが整数に変換できない場
+                 合発生します。
+
+  p 1.0.round      #=> 1
+  p 1.2.round      #=> 1
+  p (-1.2).round   #=> -1
+  p (-1.5).round   #=> -2
+
+  p t = Math::PI #=> 3.141592653589793
+  p t.round(3)   #=> 3.142
+  p t.round(0)   #=> 3
+  p t.round(1)   #=> 3.1
+
+  p t = t**10      #=> 93648.04747608298
+  p t.round(-0)    #=> 93648
+  p t.round(-1)    #=> 93650
+  p t.round(-2)    #=> 93600
+  p t.round(-3)    #=> 94000
+  p t.round(-100)  #=> 0
+
+
+@see [[m:Float#ceil]], [[m:Float#floor]], [[m:Float#truncate]]
+
+
+

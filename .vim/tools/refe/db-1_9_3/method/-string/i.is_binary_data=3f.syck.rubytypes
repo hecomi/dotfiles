@@ -1,0 +1,15 @@
+names=is_binary_data?
+visibility=public
+kind=added
+
+--- is_binary_data? -> true | nil
+
+自身が ASCII 文字以外の文字列を含む場合に true を返します。
+
+この値が true になる場合、self.to_yaml した結果、"!binary ..." というよ
+うな文字列を返します。
+
+  print "テスト".to_yaml
+  # => --- !binary |
+  44OG44K544OI
+

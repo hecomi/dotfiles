@@ -1,0 +1,24 @@
+names=udp_server_recv
+visibility=public
+kind=defined
+
+--- udp_server_recv(sockets){|msg, msg_src| ... } -> ()
+socketsで与えられた各 UDP ソケットからデータを読み取ります。
+
+各ソケットからメッセージを読み取るごとにブロックを呼び出します。
+ブロックに渡される引数は msg と msg_src の 2 つで、
+msg は受け取ったメッセージ文字列で、 msg_src は 
+通信相手の [[c:Socket::UDPSource]] オブジェクトです。
+
+[[m:Socket.udp_server_loop]] はこのメソッドの用いて以下のようにして
+実装できます。
+
+  udp_server_sockets(host, port) {|sockets|
+    loop {
+      readable, _, _ = IO.select(sockets)
+      udp_server_recv(readable) {|msg, msg_src| ... }
+    }
+  }
+
+@param sockets 読み込むソケットの配列
+

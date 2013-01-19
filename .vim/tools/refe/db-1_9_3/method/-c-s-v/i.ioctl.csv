@@ -1,0 +1,8 @@
+names=ioctl
+visibility=public
+kind=defined
+
+--- ioctl(cmd, arg = 0)    -> Integer
+
+[[m:IO#ioctl]] に委譲します。
+

@@ -1,0 +1,8 @@
+names=short_display
+visibility=public
+kind=defined
+
+--- short_display -> String
+
+アサーションに失敗した時の簡単な説明を文字列で返します。
+

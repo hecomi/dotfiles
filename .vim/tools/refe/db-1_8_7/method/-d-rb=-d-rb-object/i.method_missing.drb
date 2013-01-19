@@ -1,0 +1,9 @@
+names=method_missing
+visibility=public
+kind=defined
+
+--- method_missing(msg_id, *a, &b)
+@todo
+
+Routes method calls to the referenced object.
+

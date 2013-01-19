@@ -1,0 +1,11 @@
+names=seqno
+visibility=public
+kind=defined
+
+--- seqno -> Integer
+
+メッセージの sequence number を返します。
+
+[[m:Net::IMAP#uid_fetch]]、[[m:Net::IMAP#uid_store]]であっても
+UID ではなく、sequence numberを返します。
+

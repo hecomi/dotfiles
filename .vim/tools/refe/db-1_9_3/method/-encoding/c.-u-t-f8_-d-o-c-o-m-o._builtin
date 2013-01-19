@@ -1,0 +1,16 @@
+names=UTF8_DOCOMO,UTF8_DoCoMo
+visibility=public
+kind=defined
+
+--- UTF8_DOCOMO -> Encoding
+--- UTF8_DoCoMo -> Encoding
+UTF8-DoCoMo エンコーディングです。
+
+UTF-8 の亜種です。
+DoCoMo の携帯電話で使われる絵文字が含まれています。
+
+
+@see [[url:http://www.nttdocomo.co.jp/english/service/imode/make/content/pictograph/basic/index.html]],
+     [[url:http://www.nttdocomo.co.jp/english/service/imode/make/content/pictograph/extention/index.html]],
+
+

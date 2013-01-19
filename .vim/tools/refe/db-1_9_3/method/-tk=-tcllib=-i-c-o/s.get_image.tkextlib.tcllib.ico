@@ -1,0 +1,7 @@
+names=get_image
+visibility=public
+kind=defined
+
+--- get_image(file, index, keys = {})
+@todo
+

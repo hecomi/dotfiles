@@ -1,0 +1,17 @@
+names=irb_abort
+visibility=public
+kind=defined
+
+--- irb_abort(irb, exception = Abort)
+
+実行中の処理を中断します。必ず例外が発生するため、何も返しません。
+
+@param irb 現在の [[c:IRB::Irb]] オブジェクトを指定します。
+
+@param exception 発生させる例外を指定します。指定しなかった場合は
+                 [[c:IRB::Abort]] が発生します。
+
+@raise exception 引数 exception で指定した例外が発生します。
+
+ユーザが直接使用するものではありません。
+

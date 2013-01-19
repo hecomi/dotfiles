@@ -1,0 +1,8 @@
+names=set_window_element_type
+visibility=public
+kind=defined
+
+--- set_window_element_type(idxs, win)
+@todo
+
+

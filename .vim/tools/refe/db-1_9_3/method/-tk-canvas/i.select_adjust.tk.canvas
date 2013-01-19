@@ -1,0 +1,9 @@
+names=select_adjust
+visibility=public
+kind=defined
+
+--- select_adjust(tagOrId, index)
+@todo
+
+
+

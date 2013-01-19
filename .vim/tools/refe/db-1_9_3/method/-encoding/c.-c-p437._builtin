@@ -1,0 +1,13 @@
+names=CP437,IBM437
+visibility=public
+kind=defined
+
+--- IBM437 -> Encoding
+--- CP437 -> Encoding
+
+CP437 エンコーディング。
+
+@see [[url:http://en.wikipedia.org/wiki/Code_page_437]],
+     [[m:Encoding::CP869]]
+
+

@@ -1,0 +1,8 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(soapaction, receiver, name, param_def, opt)
+@todo
+
+

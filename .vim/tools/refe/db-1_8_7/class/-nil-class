@@ -1,0 +1,12 @@
+type=class
+superclass=Object
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+nil のクラス。
+nil は NilClass クラスの唯一のインスタンスです。
+nil は false オブジェクトとともに偽を表し、
+その他の全てのオブジェクトは真です。

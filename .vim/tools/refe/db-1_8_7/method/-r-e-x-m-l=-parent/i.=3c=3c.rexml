@@ -1,0 +1,9 @@
+names=<<,add,push
+visibility=public
+kind=defined
+
+--- add(object)
+--- push(object)
+--- <<(object)
+@todo
+

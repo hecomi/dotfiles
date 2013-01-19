@@ -1,0 +1,10 @@
+names=tag=
+visibility=public
+kind=defined
+
+--- tag=(tag)
+タグ番号を設定します。
+
+@param tag 設定するタグ番号
+@see [[m:OpenSSL::ASN1::ASN1Data#tag]]
+

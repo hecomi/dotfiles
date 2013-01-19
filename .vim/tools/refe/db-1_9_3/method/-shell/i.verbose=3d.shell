@@ -1,0 +1,7 @@
+names=verbose=
+visibility=public
+kind=defined
+
+--- verbose=(flag)
+@todo
+

@@ -1,0 +1,7 @@
+names=prefix
+visibility=public
+kind=defined
+
+--- prefix(namespace = nil)
+@todo
+

@@ -1,0 +1,18 @@
+names=yaml_tag_read_class
+visibility=public
+kind=added
+
+--- yaml_tag_read_class(name) -> String
+
+引数 name に Struct:: を加えた文字列を返します。
+
+@param name 構造体の名前を指定します。
+
+@return 引数 name に Struct:: を加えた文字列。
+
+  require 'yaml'
+  
+  YStruct = Struct.new("YStruct", :name)
+  p YStruct::yaml_tag_read_class("YStruct")
+  #=> "Struct::YStruct"
+

@@ -1,0 +1,10 @@
+names=each_classmodule
+visibility=public
+kind=defined
+
+--- each_classmodule {|m| ... } -> [RDoc::SingleClass | RDoc::NormalClass | RDoc::NormalModule]
+
+追加されたクラス、モジュールに対してブロックを評価します。
+
+@see [[m:RDoc::Context#classes]], [[m:RDoc::Context#modules]]
+

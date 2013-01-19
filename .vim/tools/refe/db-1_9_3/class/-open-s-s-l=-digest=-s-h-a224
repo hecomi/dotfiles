@@ -1,0 +1,9 @@
+type=class
+superclass=OpenSSL=Digest
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+ハッシュ関数 SHA224 を表すクラス

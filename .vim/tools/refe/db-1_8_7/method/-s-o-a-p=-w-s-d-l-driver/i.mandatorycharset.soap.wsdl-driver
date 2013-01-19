@@ -1,0 +1,8 @@
+names=mandatorycharset,mandatorycharset=
+visibility=public
+kind=defined
+
+--- mandatorycharset
+--- mandatorycharset=(mandatorycharset)
+@todo
+

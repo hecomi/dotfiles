@@ -1,0 +1,8 @@
+names=TYPES
+visibility=public
+kind=defined
+
+--- TYPES -> ["class", "instance"]
+
+メソッドの種類を文字列の配列で返します。
+

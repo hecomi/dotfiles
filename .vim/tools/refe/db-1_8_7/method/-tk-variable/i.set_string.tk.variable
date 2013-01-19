@@ -1,0 +1,8 @@
+names=set_string,string=
+visibility=public
+kind=defined
+
+--- string=
+--- set_string(val)
+@todo
+

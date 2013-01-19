@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=tkextlib.tile.tframe
+aliases=Tk=Tile=TFrame
+aliasof=
+
+

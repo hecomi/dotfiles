@@ -1,0 +1,7 @@
+names=attribute_manager
+visibility=public
+kind=defined
+
+--- attribute_manager -> RDoc::AttributeManager
+
+自身の [[c:RDoc::AttributeManager]] オブジェクトを返します。

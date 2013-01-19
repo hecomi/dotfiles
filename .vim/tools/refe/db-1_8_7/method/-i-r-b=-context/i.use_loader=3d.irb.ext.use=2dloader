@@ -1,0 +1,16 @@
+names=use_loader=
+visibility=public
+kind=added
+
+--- use_loader=(opt)
+
+load または require 時に irb のファイル読み込み機能(irb_load、
+irb_require)を使うかどうかを設定します。
+
+.irbrc ファイル中で IRB.conf[:USE_LOADER] を設定する事でも同様の事が行
+えます。
+
+
+デフォルト値は false です。
+
+@see [[m:IRB::Context#use_loader?]]

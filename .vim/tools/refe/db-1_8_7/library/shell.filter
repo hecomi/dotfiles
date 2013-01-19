@@ -1,0 +1,8 @@
+requires=
+classes=Shell=Filter
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:Shell::Filter]] を定義しているライブラリです。

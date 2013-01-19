@@ -1,0 +1,8 @@
+names=EXIT
+visibility=public
+kind=defined
+
+--- EXIT -> Integer
+
+Exit キーを表す定数です。
+

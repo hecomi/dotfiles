@@ -1,0 +1,7 @@
+names=add_ervant
+visibility=public
+kind=defined
+
+--- add_ervant(obj, namespace)
+@todo
+

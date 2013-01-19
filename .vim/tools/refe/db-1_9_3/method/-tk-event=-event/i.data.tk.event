@@ -1,0 +1,8 @@
+names=data,detail
+visibility=public
+kind=defined
+
+--- detail
+--- data
+@todo
+

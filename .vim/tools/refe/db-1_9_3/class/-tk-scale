@@ -1,0 +1,9 @@
+type=class
+superclass=TkWindow
+included=
+extended=
+library=tk.scale
+aliases=
+aliasof=Scale
+
+

@@ -1,0 +1,12 @@
+filename=ruby.h
+macro=true
+private=false
+type=int
+name=SPECIAL_CONST_P
+params=(VALUE obj)
+
+
+obj が実体の構造体を持たないとき真。
+現時点で真になるのは Qnil, Qtrue, Qfalse と、
+Fixnum, Symbol のインスタンス。
+

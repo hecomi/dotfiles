@@ -1,0 +1,8 @@
+names=<<
+visibility=public
+kind=defined
+
+--- <<(str)    -> self
+
+WEBrick::HTTPUtils の内部で使われます。ユーザがこのメソッドを直接呼ぶことはありません。
+

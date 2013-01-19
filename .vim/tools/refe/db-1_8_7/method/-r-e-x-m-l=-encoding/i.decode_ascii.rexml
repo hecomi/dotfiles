@@ -1,0 +1,8 @@
+names=decode_ascii
+visibility=public
+kind=added
+
+--- decode_ascii(str)
+@todo
+
+

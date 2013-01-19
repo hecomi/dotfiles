@@ -1,0 +1,10 @@
+names=BUTTON3_PRESSED
+visibility=public
+kind=defined
+
+--- BUTTON3_PRESSED -> Integer
+
+マウスボタン 3 を押したことを表すマウスイベント用の定数です。
+
+@see [[m:Curses.getmouse]]
+

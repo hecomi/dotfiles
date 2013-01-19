@@ -1,0 +1,14 @@
+names=CP951
+visibility=public
+kind=defined
+
+--- CP951 -> Encoding
+CP951 エンコーディングです。
+
+Windows で使われる Big5-HKSCS の亜種です。
+
+@see [[url:http://www.microsoft.com/hk/hkscs/default.aspx]],
+     [[url:http://www.microsoft.com/downloads/en/details.aspx?FamilyID=0e6f5ac8-7baa-4571-b8e8-78b3b776afd7&DisplayLang=en]],
+     [[url:http://blogs.msdn.com/b/shawnste/archive/2007/03/12/cp-951-hkscs.aspx]]
+
+

@@ -1,0 +1,7 @@
+names=_get_eval_enc_str
+visibility=public
+kind=defined
+
+--- _get_eval_enc_str(obj)
+@todo
+

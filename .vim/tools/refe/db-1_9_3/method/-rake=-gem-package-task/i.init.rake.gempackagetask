@@ -1,0 +1,8 @@
+names=init
+visibility=public 
+kind=defined
+
+--- init(gem_spec)
+
+自身の各属性に初期値をセットします。
+

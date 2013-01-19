@@ -1,0 +1,10 @@
+requires=irb.ws=2dfor=2dcase=2d2
+classes=IRB=WorkSpace
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+irb 中で self を扱うためのサブライブラリです。
+
+このライブラリで定義されているメソッドはユーザが直接使用するものではありません。

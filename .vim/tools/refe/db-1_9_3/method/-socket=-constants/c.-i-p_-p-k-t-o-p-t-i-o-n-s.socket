@@ -1,0 +1,8 @@
+names=IP_PKTOPTIONS
+visibility=public
+kind=defined
+
+--- IP_PKTOPTIONS -> Integer
+@todo
+Receive packet options with datagrams
+

@@ -1,0 +1,10 @@
+filename=st.c
+macro=false
+private=false
+type=st_table *
+name=st_init_numtable
+params=(void)
+
+
+キーが int 型であるハッシュテーブルを作成する。
+

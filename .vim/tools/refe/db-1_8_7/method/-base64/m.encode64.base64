@@ -1,0 +1,10 @@
+names=encode64
+visibility=public
+kind=defined
+
+--- encode64(str) -> String
+
+文字列strをBase64エンコードします。
+
+@param str エンコードしたい文字列です。
+

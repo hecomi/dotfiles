@@ -1,0 +1,12 @@
+names=to_r
+visibility=public
+kind=defined
+
+--- to_r -> Rational
+
+自身を [[c:Rational]] に変換します。
+
+例:
+
+  0.5.to_r      # => (1/2)
+

@@ -1,0 +1,8 @@
+names=each
+visibility=public
+kind=defined
+
+--- each {|item| ... } -> self
+構造型のデータに含まれる各要素に対してブロックを
+評価します。
+

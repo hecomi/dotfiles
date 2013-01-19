@@ -1,0 +1,16 @@
+type=module
+superclass=
+included=
+extended=
+library=rdoc.parsers.parserfactory
+aliases=
+aliasof=
+
+ソースコードを解析するパーサを生成するためのファクトリクラスです。
+
+新しいパーサを作成する場合には extend して使用します。
+
+[注意] 1.9 系では、require 先やクラス名が以下のように変更になりました。
+
+ * require 先: rdoc/parser
+ * クラス名: RDoc::Parser

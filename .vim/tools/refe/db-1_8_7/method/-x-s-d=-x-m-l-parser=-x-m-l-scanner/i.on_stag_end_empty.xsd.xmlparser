@@ -1,0 +1,7 @@
+names=on_stag_end_empty
+visibility=public
+kind=defined
+
+--- on_stag_end_empty(name)
+@todo
+

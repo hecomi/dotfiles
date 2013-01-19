@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=tkextlib.tile.tcombobox
+aliases=Tk=Tile=TCombobox
+aliasof=
+
+

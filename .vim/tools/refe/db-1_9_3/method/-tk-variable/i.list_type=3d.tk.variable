@@ -1,0 +1,8 @@
+names=list_type=,set_list_type
+visibility=public
+kind=defined
+
+--- list_type=
+--- set_list_type(val)
+@todo
+

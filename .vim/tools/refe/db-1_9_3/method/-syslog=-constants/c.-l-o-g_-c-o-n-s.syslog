@@ -1,0 +1,14 @@
+names=LOG_CONS,LOG_NDELAY,LOG_NOWAIT,LOG_ODELAY,LOG_PERROR,LOG_PID
+visibility=public
+kind=defined
+
+--- LOG_PID      -> Fixnum
+--- LOG_CONS     -> Fixnum
+--- LOG_ODELAY   -> Fixnum
+--- LOG_NDELAY   -> Fixnum
+--- LOG_NOWAIT   -> Fixnum
+--- LOG_PERROR   -> Fixnum
+
+オプション(options)を示す定数。
+定数の詳細については [[man:syslog(3)]] を参照してください。
+

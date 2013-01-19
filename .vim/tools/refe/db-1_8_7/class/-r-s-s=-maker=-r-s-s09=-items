@@ -1,0 +1,9 @@
+type=class
+superclass=RSS=Maker=ItemsBase
+included=
+extended=
+library=rss
+aliases=
+aliasof=
+
+

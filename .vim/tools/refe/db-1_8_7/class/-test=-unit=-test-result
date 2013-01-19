@@ -1,0 +1,12 @@
+type=class
+superclass=Object
+included=Test=Unit=Util=Observable
+extended=
+library=test.unit.testresult
+aliases=
+aliasof=
+
+テストの結果を保持するためのクラスです。
+
+[[c:Test::Unit::Failure]] オブジェクトと [[c:Test::Unit::Error]] オブジェクトを
+集めて、ユーザに表示するために使われます。

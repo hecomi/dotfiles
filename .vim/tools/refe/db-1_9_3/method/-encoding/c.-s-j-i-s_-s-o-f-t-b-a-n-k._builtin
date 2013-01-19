@@ -1,0 +1,15 @@
+names=SJIS_SOFTBANK,SJIS_SoftBank
+visibility=public
+kind=defined
+
+--- SJIS_SOFTBANK -> Encoding
+--- SJIS_SoftBank -> Encoding
+SJIS-SoftBank エンコーディングです。
+
+Shift_JIS, CP932 の亜種です。
+SoftBank の携帯電話で使われる絵文字が含まれています。
+
+@see [[url:http://creation.mb.softbank.jp/web/web_pic_about.html]],
+     [[url:http://www2.developers.softbankmobile.co.jp/dp/tool_dl/download.php?docid=120&companyid=]]
+
+

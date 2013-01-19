@@ -1,0 +1,7 @@
+names=record_separator
+visibility=public
+kind=defined
+
+--- record_separator -> String
+@todo
+

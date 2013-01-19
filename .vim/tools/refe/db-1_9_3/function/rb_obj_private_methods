@@ -1,0 +1,10 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=rb_obj_private_methods
+params=(VALUE obj)
+
+
+[[m:Object#private_methods]] の実体。
+

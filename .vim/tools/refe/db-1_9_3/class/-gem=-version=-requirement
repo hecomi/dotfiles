@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=rubygems.requirement
+aliases=
+aliasof=Gem=Requirement
+
+Alias of [[c:Gem::Requirement]]

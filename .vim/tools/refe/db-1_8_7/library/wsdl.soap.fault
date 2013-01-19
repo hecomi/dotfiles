@@ -1,0 +1,8 @@
+requires=wsdl.info
+classes=WSDL=SOAP=Fault
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

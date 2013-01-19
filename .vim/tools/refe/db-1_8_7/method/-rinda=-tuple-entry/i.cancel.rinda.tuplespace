@@ -1,0 +1,9 @@
+names=cancel
+visibility=public
+kind=defined
+
+--- cancel
+@todo
+
+Marks this TupleEntry as canceled.
+

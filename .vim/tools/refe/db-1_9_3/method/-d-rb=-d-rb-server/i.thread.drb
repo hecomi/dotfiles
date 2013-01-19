@@ -1,0 +1,10 @@
+names=thread
+visibility=public
+kind=defined
+
+--- thread
+@todo
+The main thread of this DRbServer.
+
+This is the thread that listens for and accepts connections from clients, not that handles each client’s request-response session.
+

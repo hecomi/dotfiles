@@ -1,0 +1,7 @@
+names=image_configure
+visibility=public
+kind=defined
+
+--- image_configure(index, slot, value = Tk::None)
+@todo
+

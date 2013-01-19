@@ -1,0 +1,7 @@
+names=cursor_propagate
+visibility=public
+kind=defined
+
+--- cursor_propagate(win, cursor)
+@todo
+

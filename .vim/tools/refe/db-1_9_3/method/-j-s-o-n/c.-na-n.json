@@ -1,0 +1,10 @@
+names=NaN
+visibility=public
+kind=defined
+
+--- NaN -> Float
+
+NaN (Not a Number) を表します。
+
+@see [[c:Float]]
+

@@ -1,0 +1,16 @@
+names=ignore_eof=
+visibility=public
+kind=defined
+
+--- ignore_eof=(val)
+
+Ctrl-D(EOF) が入力された時に irb を終了するかどうかを val に設定します。
+
+.irbrc ファイル中で IRB.conf[:IGNORE_EOF] を設定する事でも同様の操作が
+行えます。
+
+@param val true を指定した場合、 Ctrl-D を無視します。false を指定した
+           場合は Ctrl-D の入力時に irb を終了します。
+
+@see [[m:IRB::Context#ignore_eof]]
+

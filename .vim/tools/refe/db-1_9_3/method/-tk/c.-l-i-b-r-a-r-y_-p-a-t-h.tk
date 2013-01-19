@@ -1,0 +1,7 @@
+names=LIBRARY_PATH
+visibility=public
+kind=defined
+
+--- LIBRARY_PATH
+@todo
+

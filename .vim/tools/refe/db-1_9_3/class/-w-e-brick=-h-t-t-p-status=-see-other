@@ -1,0 +1,9 @@
+type=class
+superclass=WEBrick=HTTPStatus=Redirect
+included=
+extended=
+library=webrick.httpstatus
+aliases=
+aliasof=
+
+HTTP のステータスコード 303 See Other を表すクラスです。

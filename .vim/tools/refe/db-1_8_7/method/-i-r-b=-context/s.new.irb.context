@@ -1,0 +1,21 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(irb, workspace = nil, input_method = nil, output_method = nil) -> IRB::Context
+
+自身を初期化します。
+
+@param irb [[c:IRB::Irb]] オブジェクトを指定します。
+
+@param workspace [[c:IRB::WorkSpace]] オブジェクトを指定します。省略し
+                 た場合は新しく作成されます。
+
+@param input_method [[c:String]]、[[c:IRB::InputMethod]] のサブクラスの
+                    オブジェクト、nil のいずれかを指定します。
+
+@param output_method [[c:IRB::OutputMethod]] のサブクラスのオブジェクト
+                     を指定します。省略した場合は
+                     [[c:IRB::StdioOutputMethod]] オブジェクトが新しく
+                     作成されます。
+

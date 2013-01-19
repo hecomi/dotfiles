@@ -1,0 +1,8 @@
+names=last_value
+visibility=public
+kind=defined
+
+--- last_value -> object
+
+irb 中での最後の実行結果を返します。
+

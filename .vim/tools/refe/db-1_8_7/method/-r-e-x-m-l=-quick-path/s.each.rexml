@@ -1,0 +1,7 @@
+names=each
+visibility=public
+kind=defined
+
+--- each(element, path, namespaces = EMPTY_HASH) {|element| ... }
+@todo
+

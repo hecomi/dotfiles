@@ -1,0 +1,10 @@
+names=even?
+visibility=public
+kind=defined
+
+--- even? -> bool
+
+自身が偶数であれば真を返します。
+そうでない場合は偽を返します。
+
+

@@ -1,0 +1,13 @@
+names=IPV6_CHECKSUM
+visibility=public
+kind=defined
+
+--- IPV6_CHECKSUM -> Integer
+Byte offset into a packet where the checksum is located.
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[man:ip6(4freebsd)]],
+     [[RFC:3542]]
+

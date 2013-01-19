@@ -1,0 +1,7 @@
+names=load_documents
+visibility=public
+kind=added
+
+--- load_documents(yaml, &block)
+@todo
+

@@ -1,0 +1,11 @@
+names=IP_PORTRANGE
+visibility=public
+kind=defined
+
+--- IP_PORTRANGE -> Integer
+Set the port range for sockets with unspecified port numbers。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], [[man:ip(4freebsd)]]
+

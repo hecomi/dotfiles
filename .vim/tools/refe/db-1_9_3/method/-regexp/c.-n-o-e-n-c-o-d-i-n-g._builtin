@@ -1,0 +1,12 @@
+names=NOENCODING
+visibility=public
+kind=defined
+
+--- NOENCODING -> Fixnum
+
+正規表現のマッチ時に文字列のエンコーディングを無視し、
+バイト列としてマッチすることを意味します。
+
+正規表現リテラルの n オプションに対応します。
+
+

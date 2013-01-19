@@ -1,0 +1,12 @@
+names=IP_UNBLOCK_SOURCE
+visibility=public
+kind=defined
+
+--- IP_UNBLOCK_SOURCE -> Integer
+Unblock IPv4 multicast packets with a give source address。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], 
+     [[man:ip(4freebsd)]]
+

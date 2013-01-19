@@ -1,0 +1,136 @@
+names=slice_before
+visibility=public
+kind=defined
+
+--- slice_before(pattern) -> Enumerator
+--- slice_before {|elt| bool } -> Enumerator
+--- slice_before(initial_state) {|elt, state| bool } -> Enumerator
+
+パターンがマッチした要素、もしくはブロックが真を返した要素から
+次にマッチする手前までを
+チャンク化(グループ化)したものを繰り返す [[c:Enumerator]] を
+返します。
+
+パターンを渡した場合は各要素に対し === が呼び出され、
+それが真になったところをチャンクの先頭と見なします。
+ブロックを渡した場合は、各要素に対しブロックを適用し
+返り値が真であった要素をチャンクの先頭と見なします。
+
+より厳密にいうと、「先頭要素」の手前で分割していきます。
+最初の要素の評価は無視されます。
+
+各チャンクは配列として表現されます。
+
+[[m:Enumerable#map]] のようなメソッドを使うこともできます。
+  
+  # 偶数要素をチャンクの先頭と見なす 
+  [0,2,4,1,2,4,5,3,1,4,2].slice_before(&:even?).to_a
+  # => [[0], [2], [4, 1], [2], [4, 5, 3, 1], [4], [2]]
+  
+  # 奇数要素をチャンクの先頭と見なす 
+  [0,2,4,1,2,4,5,3,1,4,2].slice_before(&:odd?).to_a
+  # => [[0, 2, 4], [1, 2, 4], [5], [3], [1, 4, 2]]
+
+  # ChangeLog のエントリーを順に取る
+  open("ChangeLog") {|f|
+    f.slice_before(/\A\S/).each {|e| pp e}
+  }
+
+  # 上と同じだが、パターンでなくブロックを使う
+  open("ChangeLog") {|f|
+    f.slice_before {|line| /\A\S/ === line }.each {|e| pp e}
+  }
+  
+  # "svn proplist -R" の結果を分割する
+  # これは一要素が複数行にまたがっている
+
+  IO.popen([{"LC_ALL"=>"C"}, "svn", "proplist", "-R"]) {|f|
+    f.lines.slice_before(/\AProp/).each {|lines| p lines }
+  }
+  #=> ["Properties on '.':\n", "  svn:ignore\n", "  svk:merge\n"]
+  #   ["Properties on 'goruby.c':\n", "  svn:eol-style\n"]
+  #   ["Properties on 'complex.c':\n", "  svn:mime-type\n", "  svn:eol-style\n"]
+  #   ["Properties on 'regparse.c':\n", "  svn:eol-style\n"]
+  #   ...
+
+複数要素にわたる状態遷移が必要な場合は、ローカル変数でこれを実現する
+ことができます。例えば、連続に増える数値が3つ以上ある場合、これを
+まとめる処理をするためには以下のようにします。
+  a = [0,2,3,4,6,7,9]
+  prev = a[0]
+  p a.slice_before {|e|
+    prev, prev2 = e, prev
+    prev2 + 1 != e
+  }.map {|es|
+    es.length <= 2 ? es.join(",") : "#{es.first}-#{es.last}"
+  }.join(",")
+  #=> "0,2-4,6,7,9"
+
+しかし、ローカル変数を使うのが不適切な場合もあります。
+その場合、引数 initial_state に状態を保持するオブジェクトを
+渡すと、そのオブジェクトを [[m:Object#dup]] したオブジェクトを
+各要素ごとのブロック呼び出しの第2引数として渡します。
+  # word wrapping.
+  # this assumes all characters have same width.
+  def wordwrap(words, maxwidth)
+    # if cols is a local variable, 2nd "each" may start with non-zero cols.
+    words.slice_before(cols: 0) {|w, h|
+      h[:cols] += 1 if h[:cols] != 0
+      h[:cols] += w.length
+      if maxwidth < h[:cols]
+        h[:cols] = w.length
+        true
+      else
+        false
+      end
+    }
+  end
+  text = (1..20).to_a.join(" ")
+  enum = wordwrap(text.split(/\s+/), 10)
+  puts "-"*10
+  enum.each {|ws| puts ws.join(" ") }
+  puts "-"*10
+  #=> ----------
+  #   1 2 3 4 5
+  #   6 7 8 9 10
+  #   11 12 13
+  #   14 15 16
+  #   17 18 19
+  #   20
+  #   ----------
+
+以下は mbox を分割する例です。mbox 内の各メールは Unix From line 
+で始まっています。そこで slice_before を用います。
+
+  # parse mbox
+  open("mbox") {|f|
+    f.slice_before {|line|
+      line.start_with? "From "
+    }.each {|mail|
+      unix_from = mail.shift
+      i = mail.index("\n")
+      header = mail[0...i]
+      body = mail[(i+1)..-1]
+      body.pop if body.last == "\n"
+      fields = header.slice_before {|line| !" \t".include?(line[0]) }.to_a
+      p unix_from
+      pp fields
+      pp body
+    }
+  }
+  
+  # split mails in mbox (slice before Unix From line after an empty line)
+  open("mbox") {|f|
+    f.slice_before(emp: true) {|line,h|
+      prevemp = h[:emp]
+      h[:emp] = line == "\n"
+      prevemp && line.start_with?("From ")
+    }.each {|mail|
+      mail.pop if mail.last == "\n"
+      pp mail
+    }
+  }
+
+@param initial_state 状態を保持するオブジェクト
+@see [[m:Enumerable#chunk]]
+

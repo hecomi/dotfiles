@@ -1,0 +1,10 @@
+names=attroff
+visibility=public
+kind=defined
+
+--- attroff(attrs) -> Integer
+@todo
+Turns on the named attributes +attrs+ without affecting any others.
+
+@see [[m:Curses::Window.attrset]]
+

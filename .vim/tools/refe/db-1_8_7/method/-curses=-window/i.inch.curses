@@ -1,0 +1,8 @@
+names=inch
+visibility=public
+kind=defined
+
+--- inch -> Integer
+
+ウィンドウのカーソル位置から 1 バイト読みとって返します。
+

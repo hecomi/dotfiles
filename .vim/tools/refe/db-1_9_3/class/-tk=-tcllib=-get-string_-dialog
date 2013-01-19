@@ -1,0 +1,9 @@
+type=class
+superclass=TkWindow
+included=
+extended=
+library=tkextlib.tcllib.getstring
+aliases=
+aliasof=
+
+

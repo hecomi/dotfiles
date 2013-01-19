@@ -1,0 +1,23 @@
+names=detect_implicit
+visibility=public
+kind=defined
+
+--- detect_implicit(val) -> String
+
+タグを省略した値の型を判定します。
+
+@param val 判定される文字列を指定します。
+
+  require 'yaml'
+  
+  p YAML.detect_implicit("")
+  # => "null"
+  p YAML.detect_implicit("Cat")
+  # => "str"
+  p YAML.detect_implicit("true")
+  # => "bool#yes"
+  p YAML.detect_implicit("10")
+  # => "int"
+  p YAML.detect_implicit("0x10")
+  # => "int#hex"
+

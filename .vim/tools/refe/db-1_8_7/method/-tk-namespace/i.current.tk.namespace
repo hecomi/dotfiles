@@ -1,0 +1,8 @@
+names=current,current_namespace
+visibility=public
+kind=defined
+
+--- current_namespace
+--- current
+@todo
+

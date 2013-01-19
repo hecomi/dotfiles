@@ -1,0 +1,8 @@
+names=BINARY
+visibility=public
+kind=defined
+
+--- BINARY -> Fixnum
+
+[[m:Zlib::ZStream#data_type]] の返す、データタイプを表す整数です。
+

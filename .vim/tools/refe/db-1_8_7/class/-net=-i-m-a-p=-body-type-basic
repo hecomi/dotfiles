@@ -1,0 +1,15 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=net.imap
+aliases=
+aliasof=
+
+text 型([[c:Net::IMAP::BodyTypeText]])、
+multipart 型([[c:Net::IMAP::BodyTypeMultipart]])、
+message 型([[c:Net::IMAP::BodyTypeMessage]])、
+のいずれでもないようなメッセージボディ構造を表すクラスです。
+
+添付ファイルなどを表します。
+詳しくは MIME のRFC([[RFC:2045]])を参照してください。

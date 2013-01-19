@@ -1,0 +1,9 @@
+names=addtag
+visibility=public
+kind=defined
+
+--- addtag(tag, mode, *args)
+@todo
+
+
+

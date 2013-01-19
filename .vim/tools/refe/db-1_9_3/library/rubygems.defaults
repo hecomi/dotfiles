@@ -1,0 +1,8 @@
+requires=
+classes=
+methods=Gem/s.default_sources.rubygems.defaults,Gem/s.default_dir.rubygems.defaults,Gem/s.user_dir.rubygems.defaults,Gem/s.default_path.rubygems.defaults,Gem/s.default_exec_format.rubygems.defaults,Gem/s.default_bindir.rubygems.defaults,Gem/s.default_system_source_cache_dir.rubygems.defaults,Gem/s.default_user_source_cache_dir.rubygems.defaults,Gem/s.ruby_engine.rubygems.defaults
+sublibraries=
+is_sublibrary=true
+category=
+
+RubyGems ライブラリで使用するデフォルト値を返すメソッドを定義したライブラリです。

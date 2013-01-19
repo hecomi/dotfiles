@@ -1,0 +1,10 @@
+requires=
+classes=
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+Ruby のソースコード中の各種トークンを定義したサブライブラリです。
+
+このライブラリで定義されているメソッドはユーザが直接使用するものではありません。

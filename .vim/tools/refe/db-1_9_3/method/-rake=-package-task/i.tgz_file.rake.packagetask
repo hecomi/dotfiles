@@ -1,0 +1,8 @@
+names=tgz_file
+visibility=public 
+kind=defined
+
+--- tgz_file -> String
+
+tgz 用のファイル名を返します。
+

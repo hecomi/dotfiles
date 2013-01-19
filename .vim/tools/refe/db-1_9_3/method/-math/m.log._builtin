@@ -1,0 +1,17 @@
+names=log
+visibility=public
+kind=defined
+
+--- log(x) -> Float
+--- log(x, b) -> Float
+
+x の対数を返します。
+
+@param x 正の実数を指定します。
+
+@param b 底を指定します。省略した場合は自然対数を計算します。
+
+@raise TypeError 引数のどちらかに数値以外を指定した場合に発生します。
+
+@raise RangeError 引数のどちらかに実数以外の数値を指定した場合に発生します。
+

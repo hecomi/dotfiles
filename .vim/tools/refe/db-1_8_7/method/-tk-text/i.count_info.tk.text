@@ -1,0 +1,7 @@
+names=count_info
+visibility=public
+kind=defined
+
+--- count_info(idx1, idx2, update = true)
+@todo
+

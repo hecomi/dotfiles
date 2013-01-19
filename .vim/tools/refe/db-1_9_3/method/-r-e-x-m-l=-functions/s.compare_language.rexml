@@ -1,0 +1,7 @@
+names=compare_language
+visibility=public
+kind=defined
+
+--- compare_language(lang1, lang2)
+@todo
+

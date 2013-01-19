@@ -1,0 +1,15 @@
+names=MSG_WAITALL
+visibility=public
+kind=defined
+
+--- MSG_WAITALL -> Integer
+Wait for full request or error
+
+[[m:BasicSocket#recv]], [[m:BasicSocket#recvmsg]] の
+flags 引数に用います。
+
+@see [[man:sys/socket.h(header)]],
+     [[man:recv(2)]], [[man:recvfrom(2)]], [[man:recvmsg(2)]],
+     [[man:recv(2linux)]],
+     [[man:recv(2freebsd)]],
+

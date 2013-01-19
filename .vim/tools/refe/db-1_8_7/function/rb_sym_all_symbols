@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=false
+type=VALUE
+name=rb_sym_all_symbols
+params=(void)
+
+
+呼び出し時までに変換が行われたすべてのシンボルの
+配列を返す。
+

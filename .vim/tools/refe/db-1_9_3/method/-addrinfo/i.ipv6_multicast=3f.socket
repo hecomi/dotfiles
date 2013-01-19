@@ -1,0 +1,8 @@
+names=ipv6_multicast?
+visibility=public
+kind=defined
+
+--- ipv6_multicast? -> bool
+IPv6 のマルチキャストアドレス(ff00::/8)であれば真を返します。
+
+

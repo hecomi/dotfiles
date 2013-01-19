@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=json
+aliases=
+aliasof=JSON=Parser
+
+Alias of [[c:JSON::Parser]]

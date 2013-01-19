@@ -1,0 +1,9 @@
+names=split
+visibility=public
+kind=defined
+
+--- split -> Array
+File.split(self.to_s) と同じです。
+
+@see [[m:File.split]]
+

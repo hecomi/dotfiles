@@ -1,0 +1,21 @@
+names=ipv6_pktinfo
+visibility=public
+kind=defined
+
+--- ipv6_pktinfo -> [Addrinfo, Integer]
+自身の type が IPV6_PKTINFO である場合、保持しているデータ
+(アドレス、インターフェースのインデックス)
+を2要素の配列で返します。
+
+IPV6_PKTINFO については [[RFC:3542]] を参照してください。
+
+  addr = Addrinfo.ip("::1")
+  ifindex = 0
+  ancdata = Socket::AncillaryData.ipv6_pktinfo(addr, ifindex)
+  p ancdata.ipv6_pktinfo #=> [#<Addrinfo: ::1>, 0]
+
+@see [[m:Socket::AncillaryData.ipv6_pktinfo]], 
+     [[m:Socket::AncillaryData#ipv6_pktinfo_addr]], 
+     [[m:Socket::AncillaryData#ipv6_pktinfo_ifindex]],
+     [[m:Socket::Constants::IPV6_PKTINFO]]
+

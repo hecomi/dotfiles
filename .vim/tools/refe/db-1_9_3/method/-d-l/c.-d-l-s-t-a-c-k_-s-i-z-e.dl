@@ -1,0 +1,6 @@
+names=DLSTACK_SIZE
+visibility=public
+kind=defined
+
+--- DLSTACK_SIZE
+

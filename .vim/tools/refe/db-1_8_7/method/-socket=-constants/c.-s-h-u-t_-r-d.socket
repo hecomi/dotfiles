@@ -1,0 +1,7 @@
+names=SHUT_RD
+visibility=public
+kind=defined
+
+--- SHUT_RD -> Integer
+[[m:BasicSocket#shutdown]] の how 引数に使用します。
+

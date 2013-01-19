@@ -1,0 +1,7 @@
+names=predicate_to_string
+visibility=public
+kind=defined
+
+--- predicate_to_string(path) {|path| ... }
+@todo
+

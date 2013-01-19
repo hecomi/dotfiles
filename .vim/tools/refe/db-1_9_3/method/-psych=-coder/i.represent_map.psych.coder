@@ -1,0 +1,9 @@
+names=represent_map
+visibility=public
+kind=defined
+
+--- represent_map(tag, map)
+@todo
+
+Emit a sequence with +map+ and +tag+
+

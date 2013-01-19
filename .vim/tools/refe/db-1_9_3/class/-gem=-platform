@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rubygems.platform
+aliases=
+aliasof=
+
+選択した Gem のインストールを実行できるプラットフォームのリストを扱うクラスです。

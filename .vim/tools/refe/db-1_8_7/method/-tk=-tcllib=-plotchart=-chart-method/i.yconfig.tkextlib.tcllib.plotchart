@@ -1,0 +1,7 @@
+names=yconfig
+visibility=public
+kind=defined
+
+--- yconfig(key, value = None)
+@todo
+

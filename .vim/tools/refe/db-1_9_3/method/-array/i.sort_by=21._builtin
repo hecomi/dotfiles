@@ -1,0 +1,13 @@
+names=sort_by!
+visibility=public
+kind=defined
+
+--- sort_by!               -> Enumerator
+--- sort_by! {|item| ... } -> self
+sort_by の破壊的バージョンです。
+
+ブロックを省略した場合は返り値によって配列を破壊的に
+ソートする [[c:Enumerator]] を返します。
+
+@see [[m:Enumerable#sort_by]]
+

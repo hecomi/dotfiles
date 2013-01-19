@@ -1,0 +1,8 @@
+names=line_width=
+visibility=public
+kind=defined
+
+--- line_width=(width)
+@todo
+
+Set the preferred line with to +width+.

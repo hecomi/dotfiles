@@ -1,0 +1,11 @@
+filename=class.c
+macro=false
+private=false
+type=VALUE
+name=rb_singleton_class_clone
+params=(VALUE klass)
+
+
+特異クラス klass を clone して返します。
+klass が特異クラスでないときはただ klass を返します。
+

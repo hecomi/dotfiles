@@ -1,0 +1,8 @@
+names=gid
+visibility=public
+kind=defined
+
+--- gid -> Integer
+
+このユーザの gid を返します。
+

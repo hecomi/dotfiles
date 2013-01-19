@@ -1,0 +1,18 @@
+names=def_extend_command
+visibility=public
+kind=defined
+
+--- def_extend_command(cmd_name, load_file, *aliases) -> object
+
+[[c:IRB::Context]] に cmd_name で指定したメソッドが実行できるように拡張
+します。
+
+@param cmd_name メソッド名を [[c:Symbol]] で指定します。
+                [[c:IRB::Context]] クラスのインスタンスメソッドとして定
+                義してある必要があります。
+
+@param load_file cmd_name で指定したメソッドが定義されたファイル名を指
+                 定します。このファイルは自動的に require されます。
+
+@param aliases cmd_name の別名を [[c:Symbol]] で指定します。複数指定する事ができます。
+

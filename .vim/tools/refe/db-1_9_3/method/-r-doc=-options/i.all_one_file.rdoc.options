@@ -1,0 +1,10 @@
+names=all_one_file
+visibility=public
+kind=defined
+
+--- all_one_file -> bool
+
+コマンドライン引数の --one-file を指定していた場合、もしくは --fmt オプ
+ションに xml 指定した場合に true を返します。そうでない場合は false を
+返します。
+

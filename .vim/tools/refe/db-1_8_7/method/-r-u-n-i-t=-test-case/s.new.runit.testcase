@@ -1,0 +1,8 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(test_name, suite_name = RUNIT::TestCase.name) -> RUNIT::TestCase
+
+自身を初期化します。
+

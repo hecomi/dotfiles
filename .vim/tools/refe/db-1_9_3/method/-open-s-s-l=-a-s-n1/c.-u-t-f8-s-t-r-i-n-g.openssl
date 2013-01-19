@@ -1,0 +1,9 @@
+names=UTF8STRING
+visibility=public
+kind=defined
+
+--- UTF8STRING -> Integer
+
+ASN.1 UNIVERSAL タグの、
+UTF8STRING のタグ番号 12 を表す定数です。
+

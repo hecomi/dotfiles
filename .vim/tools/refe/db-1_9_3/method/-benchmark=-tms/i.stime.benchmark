@@ -1,0 +1,8 @@
+names=stime
+visibility=public
+kind=defined
+
+--- stime -> Float
+
+System CPU time
+

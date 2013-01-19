@@ -1,0 +1,10 @@
+names=terminate_job
+visibility=public
+kind=defined
+
+--- terminate_job(command)
+
+指定されたコマンドを終了します。
+
+@param command コマンドを指定します。
+

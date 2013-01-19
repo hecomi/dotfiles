@@ -1,0 +1,9 @@
+type=class
+superclass=Gem=Exception
+included=
+extended=
+library=rubygems.remote_fetcher
+aliases=
+aliasof=
+
+[[c:Gem::RemoteFetcher]] での処理で発生する IO や HTTP の例外をラップする例外クラスです。

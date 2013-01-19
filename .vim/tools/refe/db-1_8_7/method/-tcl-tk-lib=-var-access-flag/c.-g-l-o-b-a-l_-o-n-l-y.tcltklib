@@ -1,0 +1,7 @@
+names=GLOBAL_ONLY
+visibility=public
+kind=defined
+
+--- GLOBAL_ONLY
+@todo
+

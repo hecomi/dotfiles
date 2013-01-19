@@ -1,0 +1,7 @@
+names=delegate
+visibility=public
+kind=defined
+
+--- delegate(option, *wins)
+@todo
+

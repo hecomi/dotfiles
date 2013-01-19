@@ -1,0 +1,8 @@
+names=toggle_visibility,togglevisibility
+visibility=public
+kind=defined
+
+--- toggle_visibility(first, last = nil)
+--- togglevisibility(first, last = nil)
+@todo
+

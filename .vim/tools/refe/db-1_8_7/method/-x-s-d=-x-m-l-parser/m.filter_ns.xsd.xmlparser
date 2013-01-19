@@ -1,0 +1,6 @@
+names=filter_ns
+visibility=public
+kind=defined
+
+--- filter_ns(ns, attrs)
+@todo

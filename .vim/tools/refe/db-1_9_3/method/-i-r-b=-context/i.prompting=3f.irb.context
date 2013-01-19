@@ -1,0 +1,8 @@
+names=prompting?
+visibility=public
+kind=defined
+
+--- prompting? -> bool
+
+ライブラリ内部で使用します。
+

@@ -1,0 +1,9 @@
+names=visibility
+visibility=public
+kind=defined
+
+--- visibility -> :public | :protected | :private
+
+コマンドライン引数の --visibility で指定したオプションを [[c:Symbol]]
+で返します。
+

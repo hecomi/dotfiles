@@ -1,0 +1,7 @@
+names=get_attribute
+visibility=public
+kind=defined
+
+--- get_attribute(obj, attr_name)
+@todo
+

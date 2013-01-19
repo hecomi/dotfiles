@@ -1,0 +1,7 @@
+names=new_proc_class
+visibility=public
+kind=defined
+
+--- new_proc_class(klass, func, safe = 4, add = false, parent = nil, &block)
+@todo
+

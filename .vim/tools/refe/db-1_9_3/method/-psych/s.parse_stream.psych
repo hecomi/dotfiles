@@ -1,0 +1,16 @@
+names=parse_stream
+visibility=public
+kind=defined
+
+--- parse_stream(yaml)
+@todo
+
+Parse a YAML string in +yaml+.  Returns the full AST for the YAML document.
+This method can handle multiple YAML documents contained in +yaml+.
+
+Example:
+
+  Psych.parse_stream("---\n - a\n - b") # => #<Psych::Nodes::Stream:0x00>
+
+See Psych::Nodes for more information about YAML AST.
+

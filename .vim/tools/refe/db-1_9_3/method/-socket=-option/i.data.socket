@@ -1,0 +1,15 @@
+names=data,to_s
+visibility=public
+kind=defined
+
+--- data -> String
+--- to_s -> String
+
+オプションのデータ(内容)を文字列で返します。
+
+内容が整数や真偽値、もしくは struct linger であることがわかっている場合には、
+[[m:Socket::Option#int]], [[m:Socket::Option#bool]], [[m:Socket::Option#linger]]
+を用いて
+
+to_s は過去との互換性のために存在します。
+

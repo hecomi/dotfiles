@@ -1,0 +1,8 @@
+names=ludecomp
+visibility=public
+kind=defined
+
+--- ludecomp(a, n, zero = 0, one = 1)
+@todo
+
+

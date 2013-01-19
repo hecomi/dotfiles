@@ -1,0 +1,9 @@
+type=class
+superclass=Exception
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+メモリの確保に失敗すると発生します。

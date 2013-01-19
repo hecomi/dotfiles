@@ -1,0 +1,7 @@
+names=_add_tk_procs
+visibility=public
+kind=defined
+
+--- _add_tk_procs(name, args, body)
+@todo
+

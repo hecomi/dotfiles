@@ -1,0 +1,8 @@
+names=numeric_type=,set_numeric_type
+visibility=public
+kind=defined
+
+--- set_numeric_type(val)
+--- numeric_type=
+@todo
+

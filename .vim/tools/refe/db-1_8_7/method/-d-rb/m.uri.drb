@@ -1,0 +1,12 @@
+names=uri
+visibility=public
+kind=defined
+
+--- uri
+@todo
+
+Get the URI defining the local dRuby space.
+
+This is the URI of the current server. See #current_server.
+
+

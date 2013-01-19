@@ -1,0 +1,12 @@
+names=irb_name=
+visibility=public
+kind=defined
+
+--- irb_name=(val)
+
+起動しているコマンド名を val に設定します。
+
+@param val コマンド名を [[c:String]] で指定します。
+
+@see [[m:IRB::Context#irb_name]]
+

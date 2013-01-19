@@ -1,0 +1,9 @@
+type=class
+superclass=Digest=Class
+included=
+extended=
+library=digest.sha2
+aliases=
+aliasof=
+
+

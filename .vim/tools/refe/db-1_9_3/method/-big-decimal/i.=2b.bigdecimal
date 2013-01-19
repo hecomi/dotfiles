@@ -1,0 +1,11 @@
+names=+
+visibility=public
+kind=defined
+
+--- +(other)
+@todo
+
+加算 (c = a + b)。
+
+c の精度については「計算精度について」を参照してください。 
+

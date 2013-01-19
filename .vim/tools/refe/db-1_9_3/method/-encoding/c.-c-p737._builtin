@@ -1,0 +1,14 @@
+names=CP737,IBM737
+visibility=public
+kind=defined
+
+--- IBM737 -> Encoding
+--- CP737 -> Encoding
+
+CP437 エンコーディング。
+
+ギリシャ語を取り扱う 8bit single-byteエンコーディングです。
+
+@see [[url:http://en.wikipedia.org/wiki/Code_page_737]]
+
+

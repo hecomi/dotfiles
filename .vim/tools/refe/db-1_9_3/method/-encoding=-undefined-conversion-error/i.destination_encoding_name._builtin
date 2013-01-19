@@ -1,0 +1,9 @@
+names=destination_encoding_name
+visibility=public
+kind=defined
+
+--- destination_encoding_name -> String
+エラーを発生させた変換の変換先のエンコーディングを文字列で返します。
+
+@see [[m:Encoding::UndefinedConversionError#destination_encoding]]
+

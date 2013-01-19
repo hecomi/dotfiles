@@ -1,0 +1,7 @@
+names=cursor_restore
+visibility=public
+kind=added
+
+--- cursor_restore(cursor = None)
+@todo
+

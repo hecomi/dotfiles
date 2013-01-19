@@ -1,0 +1,10 @@
+names=protocol
+visibility=public
+kind=defined
+
+--- protocol -> Integer
+
+ソケットプロトコルを整数で返します。
+
+  Addrinfo.tcp("localhost", 80).protocol == Socket::IPPROTO_TCP #=> true
+

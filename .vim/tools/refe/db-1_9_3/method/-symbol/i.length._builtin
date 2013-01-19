@@ -1,0 +1,15 @@
+names=length,size
+visibility=public
+kind=defined
+
+--- length -> Integer
+--- size -> Integer
+
+シンボルに対応する文字列の長さを返します。
+
+(self.to_s.length と同じです。)
+
+  :foo.length #=> 3
+
+@see [[m:String#length]], [[m:String#size]]
+

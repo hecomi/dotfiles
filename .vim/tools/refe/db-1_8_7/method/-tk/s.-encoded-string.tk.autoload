@@ -1,0 +1,9 @@
+names=EncodedString
+visibility=public
+kind=added
+
+--- Tk.EncodedString(str, enc = nil)
+@todo
+
+[[m:Tk::EncodedString.new]] と同じ
+

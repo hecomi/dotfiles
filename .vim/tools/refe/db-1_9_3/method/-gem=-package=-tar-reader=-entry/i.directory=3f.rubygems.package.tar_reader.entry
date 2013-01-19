@@ -1,0 +1,9 @@
+names=directory?
+visibility=public 
+kind=defined
+
+--- directory? -> bool
+
+自身がディレクトリであれば、真を返します。
+そうでない場合は、偽を返します。
+

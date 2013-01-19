@@ -1,0 +1,8 @@
+names=idle_done
+visibility=public
+kind=defined
+
+--- idle_done -> ()
+[[m:Net::IMAP#idle]] で
+停止しているスレッドを1つ起こします。
+

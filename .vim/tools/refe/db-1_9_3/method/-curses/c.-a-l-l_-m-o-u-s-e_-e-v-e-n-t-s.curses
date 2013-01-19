@@ -1,0 +1,10 @@
+names=ALL_MOUSE_EVENTS
+visibility=public
+kind=defined
+
+--- ALL_MOUSE_EVENTS -> Integer
+
+全てのボタンの状態の変化を取得するために使用するマスク用の定数です。
+
+@see [[m:Curses.getmouse]]
+

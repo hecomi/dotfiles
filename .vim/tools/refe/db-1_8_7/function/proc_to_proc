@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=proc_to_proc
+params=(VALUE proc)
+
+

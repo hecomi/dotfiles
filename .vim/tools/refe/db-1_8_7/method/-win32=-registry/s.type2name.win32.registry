@@ -1,0 +1,9 @@
+names=type2name
+visibility=public
+kind=defined
+
+--- type2name(type)
+@todo
+
+レジストリ値の型を整数から可読文字列に変換します。
+

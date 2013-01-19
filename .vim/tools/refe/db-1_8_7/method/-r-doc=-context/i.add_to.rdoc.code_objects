@@ -1,0 +1,19 @@
+names=add_to
+visibility=public
+kind=defined
+
+--- add_to(array, thing) -> ()
+
+array に thing を追加します。
+
+@param array 配列を指定します。
+
+@param thing 追加する要素を指定します。
+
+[[m:RDoc::Context#add_alias]] などで使われています。ライブラリ内部で使
+用します。
+
+@see [[m:RDoc::Context#add_alias]], [[m:RDoc::Context#add_attribute]],
+     [[m:RDoc::Context#add_constant]], [[m:RDoc::Context#add_include]],
+     [[m:RDoc::Context#add_method]], [[m:RDoc::Context#add_require]]
+

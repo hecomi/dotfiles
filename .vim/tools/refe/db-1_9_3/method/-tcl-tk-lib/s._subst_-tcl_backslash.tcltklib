@@ -1,0 +1,7 @@
+names=_subst_Tcl_backslash
+visibility=public
+kind=defined
+
+--- _subst_Tcl_backslash(str)
+@todo
+

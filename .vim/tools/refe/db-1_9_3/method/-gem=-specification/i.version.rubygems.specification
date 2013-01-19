@@ -1,0 +1,8 @@
+names=version
+visibility=public
+kind=defined
+
+--- version -> Gem::Version
+
+この Gem パッケージのバージョンを返します。
+

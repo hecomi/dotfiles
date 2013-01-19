@@ -1,0 +1,7 @@
+names=return_code=
+visibility=public
+kind=defined
+
+--- return_code=(string)
+このメソッドは obsolete です。使わないでください。
+

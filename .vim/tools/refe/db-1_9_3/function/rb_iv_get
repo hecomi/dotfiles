@@ -1,0 +1,11 @@
+filename=variable.c
+macro=false
+private=false
+type=VALUE
+name=rb_iv_get
+params=(VALUE obj, char *name)
+
+
+オブジェクト obj のインスタンス変数 name の値を
+取得します。
+

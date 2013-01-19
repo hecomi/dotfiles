@@ -1,0 +1,12 @@
+names=AI_PASSIVE
+visibility=public
+kind=defined
+
+--- AI_PASSIVE -> Integer
+Get address to use with bind。
+
+[[m:Socket.getaddrinfo]], [[m:Addrinfo.getaddrinfo]] の引数 flags に渡す
+定数です。
+
+@see [[man:getaddrinfo(3)]]
+

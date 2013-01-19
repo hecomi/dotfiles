@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=Comparable,Singleton
+extended=
+library=rake
+aliases=
+aliasof=
+
+このクラスは全てのタイムスタンプより前の時刻をあらわします。

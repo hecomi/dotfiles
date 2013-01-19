@@ -1,0 +1,9 @@
+names=remainder
+visibility=public
+kind=defined
+
+--- remainder(n)
+@todo
+
+詳細は [[m:Float#remainder]] を参照して下さい。 
+

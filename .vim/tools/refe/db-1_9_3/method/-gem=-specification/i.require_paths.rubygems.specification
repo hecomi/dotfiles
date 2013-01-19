@@ -1,0 +1,9 @@
+names=require_paths
+visibility=public
+kind=defined
+
+--- require_paths -> [String]
+
+この Gem パッケージを使用した際に require するファイルが置かれているディレクトリ
+のリストを返します。
+

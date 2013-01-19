@@ -1,0 +1,8 @@
+names=KEY_CTRL_L
+visibility=public
+kind=defined
+
+--- KEY_CTRL_L -> Integer
+
+Ctrl + L を表す定数です。
+

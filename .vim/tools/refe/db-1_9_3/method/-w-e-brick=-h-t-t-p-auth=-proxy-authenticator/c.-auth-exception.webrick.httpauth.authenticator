@@ -1,0 +1,8 @@
+names=AuthException
+visibility=public
+kind=defined
+
+--- AuthException -> Class
+
+[[c:WEBrick::HTTPStatus::ProxyAuthenticationRequired]] です。
+

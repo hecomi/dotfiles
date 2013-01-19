@@ -1,0 +1,9 @@
+names=selection_anchor
+visibility=public
+kind=defined
+
+--- selection_anchor(index)
+@todo
+
+((|index|))で指定した((*位置*))の要素を((<アンカー>))にします。
+

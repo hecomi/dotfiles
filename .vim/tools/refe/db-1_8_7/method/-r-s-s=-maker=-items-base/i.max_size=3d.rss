@@ -1,0 +1,9 @@
+names=max_size=
+visibility=public
+kind=defined
+
+--- max_size=()
+@todo
+出力するitemの数の最大値を設定します．
+
+

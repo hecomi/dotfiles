@@ -1,0 +1,8 @@
+names=insertln
+visibility=public
+kind=defined
+
+--- insertln -> nil
+@todo
+Inserts a line above the cursor, and the bottom line is lost
+

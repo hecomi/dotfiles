@@ -1,0 +1,6 @@
+names=DIGEST_SHA1
+visibility=public
+kind=defined
+
+--- DIGEST_SHA1 -> Symbol | Class
+@todo

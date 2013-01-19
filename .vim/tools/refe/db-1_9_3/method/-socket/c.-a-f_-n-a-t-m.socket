@@ -1,0 +1,11 @@
+names=AF_NATM,PF_NATM
+visibility=public
+kind=defined
+
+--- AF_NATM -> Integer
+--- PF_NATM -> Integer
+@todo
+Native ATM access。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

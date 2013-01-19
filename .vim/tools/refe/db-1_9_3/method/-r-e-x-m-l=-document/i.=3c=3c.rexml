@@ -1,0 +1,8 @@
+names=<<,add
+visibility=public
+kind=defined
+
+--- add(child)
+--- <<(child)
+@todo
+

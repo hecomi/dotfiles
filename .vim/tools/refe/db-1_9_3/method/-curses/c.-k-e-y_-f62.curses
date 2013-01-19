@@ -1,0 +1,8 @@
+names=KEY_F62
+visibility=public
+kind=defined
+
+--- KEY_F62 -> Integer
+
+F62 キーを表す定数です。
+

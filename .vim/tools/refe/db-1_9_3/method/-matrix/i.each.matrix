@@ -1,0 +1,13 @@
+names=each
+visibility=public
+kind=defined
+
+--- each {|e| ... } -> self
+@todo
+
+Yields all elements of the matrix, starting with those of the first row,
+or returns an Enumerator is no block given
+
+   Matrix[ [1,2], [3,4] ].each { |e| puts e }
+    # => prints the numbers 1 to 4
+

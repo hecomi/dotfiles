@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=
+extended=
+library=open=2duri
+aliases=
+aliasof=
+
+http/ftp に簡単にアクセスするためのモジュールです。

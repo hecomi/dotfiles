@@ -1,0 +1,7 @@
+names=wellformed_error
+visibility=public
+kind=defined
+
+--- wellformed_error(msg)
+@todo
+

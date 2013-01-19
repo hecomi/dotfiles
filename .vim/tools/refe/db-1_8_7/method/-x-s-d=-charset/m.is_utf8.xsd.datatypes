@@ -1,0 +1,7 @@
+names=is_utf8
+visibility=public
+kind=defined
+
+--- is_utf8(str)
+@todo
+

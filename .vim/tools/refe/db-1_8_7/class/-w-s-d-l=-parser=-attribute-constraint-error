@@ -1,0 +1,9 @@
+type=class
+superclass=WSDL=Parser=FormatDecodeError
+included=
+extended=
+library=wsdl.parser
+aliases=
+aliasof=
+
+

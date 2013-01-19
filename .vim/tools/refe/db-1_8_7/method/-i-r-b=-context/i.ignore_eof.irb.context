@@ -1,0 +1,15 @@
+names=ignore_eof,ignore_eof?
+visibility=public
+kind=defined
+
+--- ignore_eof  -> bool
+--- ignore_eof? -> bool
+
+Ctrl-D(EOF) が入力された時に irb を終了するかどうかを返します。
+
+true の時は Ctrl-D を無視します。false の時は irb を終了します。
+
+デフォルト値は false です。
+
+@see [[m:IRB::Context#ignore_eof=]]
+

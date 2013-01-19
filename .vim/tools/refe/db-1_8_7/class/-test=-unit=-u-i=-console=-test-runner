@@ -1,0 +1,10 @@
+type=class
+superclass=Object
+included=
+extended=Test=Unit=UI=TestRunnerUtilities
+library=test.unit.ui.console.testrunner
+aliases=
+aliasof=
+
+コンソール上でユニットテストを実行し、結果を表示するための
+クラスです。

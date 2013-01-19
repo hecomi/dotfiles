@@ -1,0 +1,9 @@
+type=class
+superclass=IOError
+included=
+extended=
+library=readbytes
+aliases=
+aliasof=
+
+[[m:IO#readbytes]] が発生させる例外です。

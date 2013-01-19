@@ -1,0 +1,10 @@
+filename=parse.y
+macro=false
+private=true
+type=void
+name=top_local_init
+params=(void)
+
+
+パース中のプログラムのトップレベルのためのローカル変数テーブルをプッシュする。
+

@@ -1,0 +1,9 @@
+names=flush
+visibility=public
+kind=defined
+
+--- flush
+@todo
+
+キーの全てのデータをレジストリファイルに書き込みます。
+

@@ -1,0 +1,27 @@
+names=getpty,spawn
+visibility=public
+kind=defined
+
+--- getpty(command)                          -> [IO, IO, Integer]
+--- getpty(command){|read, write, pid| ... } -> nil
+--- spawn(command)                           -> [IO, IO, Integer]
+--- spawn(command){|read, write, pid| ... }  -> nil
+
+擬似 tty を確保し、指定されたコマンドをその擬似 tty の向こうで実行し、配列を返します。
+
+プラットフォームに依存しますが、対応していれば、作られたプロセスはセッションリーダーに
+なり、その制御端末は作成された擬似 tty に設定されます。
+
+
+@param command 擬似 tty 上で実行するコマンド
+
+@return 返値は3つの要素からなる配列です。最初の要素は擬似 tty から
+        読み出すための IO オブジェクト、2番目の要素は書きこむための IO オブジェクト、
+        3番目の要素は子プロセスのプロセス ID です。
+        このメソッドがブロック付き呼ばれた場合、これらの要素はブロックパラメータとして渡され、
+        メソッド自体は nil を返します。
+
+
+@see [[m:Kernel.#spawn]], [[m:Kernel.#system]], [[m:IO.popen]], [[man:signal(2)]]
+
+

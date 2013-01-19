@@ -1,0 +1,10 @@
+type=module
+superclass=
+included=
+extended=
+library=rubygems.install_update_options
+aliases=
+aliasof=
+
+[[c:Gem::Command]] で使用するインストールとアップデートに関するオプションを
+扱うためのモジュールです。

@@ -1,0 +1,12 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=net.imap
+aliases=
+aliasof=
+
+Content-Type が text であるメッセージを表すクラスです。
+
+平文のメールを表します。
+詳しくは MIME のRFC([[RFC:2045]])を参照してください。

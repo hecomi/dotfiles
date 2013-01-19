@@ -1,0 +1,10 @@
+names=prompt_s
+visibility=public
+kind=defined
+
+--- prompt_s -> String
+
+文字列中のプロンプトを表現するフォーマット文字列を返します。
+
+@see [[m:IRB::Context#prompt_s=]], [[ref:lib:irb#customize_prompt]]
+

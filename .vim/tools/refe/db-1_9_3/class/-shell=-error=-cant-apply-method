@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=shell.error
+aliases=
+aliasof=
+
+メソッドを適用できないときに発生する例外です。

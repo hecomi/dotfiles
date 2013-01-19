@@ -1,0 +1,11 @@
+names=load_modules
+visibility=public
+kind=defined
+
+--- load_modules -> [String]
+
+irb の起動時に -r オプション指定で読み込まれたライブラリ、~/.irbrc など
+の設定ファイル内で IRB.conf[:LOAD_MODULES] 指定で読み込まれたライブラリ
+の名前の配列を返します。
+
+

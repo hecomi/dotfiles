@@ -1,0 +1,35 @@
+names=timestamp
+visibility=public
+kind=defined
+
+--- timestamp -> Time
+
+タイムスタンプ制御メッセージに含まれる時刻を [[c:Time]] オブジェクト
+で返します。
+
+"タイムスタンプ制御メッセージ" は以下のいずれかです。
+  *  SOL_SOCKET/SCM_TIMESTAMP (micro second) GNU/Linux, FreeBSD, NetBSD, OpenBSD, Solaris, MacOS X
+  *  SOL_SOCKET/SCM_TIMESTAMPNS (nano second) GNU/Linux
+  *  SOL_SOCKET/SCM_BINTIME (2**(-64) second) FreeBSD
+
+  Addrinfo.udp("127.0.0.1", 0).bind {|s1|
+    Addrinfo.udp("127.0.0.1", 0).bind {|s2|
+      s1.setsockopt(:SOCKET, :TIMESTAMP, true)
+      s2.send "a", 0, s1.local_address
+      ctl = s1.recvmsg.last
+      p ctl    
+      #=> #<Socket::AncillaryData: INET SOCKET TIMESTAMP 2009-02-24 17:35:46.775581>
+      t = ctl.timestamp
+      p t      #=> 2009-02-24 17:35:46 +0900
+      p t.usec #=> 775581
+      p t.nsec #=> 775581000
+    }
+  }
+
+@see [[m:Socket::Constants::SCM_TIMESTAMP]],
+     [[m:Socket::Constants::SCM_TIMESTAMPNS]],
+     [[m:Socket::Constants::SCM_BINTIME]],
+     [[m:Socket::Constants::SO_TIMESTAMP]],
+     [[m:Socket::Constants::SO_TIMESTAMPNS]],
+     [[m:Socket::Constants::SO_BINTIME]]
+

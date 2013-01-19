@@ -1,0 +1,10 @@
+filename=class.c
+macro=false
+private=false
+type=VALUE
+name=rb_mod_included_modules
+params=(VALUE mod)
+
+
+モジュール mod にインクルードされているモジュールの配列を返します。
+

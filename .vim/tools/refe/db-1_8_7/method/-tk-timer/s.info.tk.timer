@@ -1,0 +1,7 @@
+names=info
+visibility=public
+kind=defined
+
+--- info(obj = nil)
+@todo
+

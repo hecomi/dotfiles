@@ -1,0 +1,10 @@
+names=uninstall
+visibility=public 
+kind=defined
+
+--- uninstall
+
+Gem をアンインストールします。
+
+スペックファイルやキャッシュも削除します。
+

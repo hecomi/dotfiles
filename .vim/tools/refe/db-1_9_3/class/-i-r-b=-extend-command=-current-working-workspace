@@ -1,0 +1,10 @@
+type=class
+superclass=IRB=ExtendCommand=Nop
+included=
+extended=
+library=irb.cmd.chws
+aliases=
+aliasof=
+
+irb 中の irb_current_working_workspace コマンドのための拡張を定義したク
+ラスです。

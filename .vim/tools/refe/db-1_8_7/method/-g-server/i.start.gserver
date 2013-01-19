@@ -1,0 +1,10 @@
+names=start
+visibility=public
+kind=defined
+
+--- start(maxConnections = -1) -> self
+
+自身を起動します。
+
+@param maxConnections 0 より大きい数値を指定すると、最大接続数として設定されます。
+

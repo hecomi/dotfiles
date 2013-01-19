@@ -1,0 +1,12 @@
+type=class
+superclass=RDoc=CodeObject
+included=
+extended=
+library=rdoc.code_objects
+aliases=
+aliasof=
+
+includeされるファイルを表現します。
+
+
+ライブラリの内部で使用します。

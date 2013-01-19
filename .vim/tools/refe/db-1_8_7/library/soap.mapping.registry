@@ -1,0 +1,8 @@
+requires=soap.baseData,soap.soap,soap.mapping.typeMap,soap.mapping.mapping,soap.mapping.factory,soap.mapping.rubytypeFactory
+classes=SOAP=Marshallable,SOAP=Mapping=MappedException,SOAP=Mapping=SOAPException,SOAP=Mapping=Object,SOAP=Mapping=MappingError,SOAP=Mapping=Registry,SOAP=Mapping=Registry=Map
+methods=SOAP=Mapping/c.RubyTypeName.soap.mapping.registry,SOAP=Mapping/c.RubyExtendName.soap.mapping.registry,SOAP=Mapping/c.RubyIVarName.soap.mapping.registry,SOAP=Mapping/c.DefaultRegistry.soap.mapping.registry,SOAP=Mapping/c.RubyOriginalRegistry.soap.mapping.registry
+sublibraries=
+is_sublibrary=true
+category=
+
+

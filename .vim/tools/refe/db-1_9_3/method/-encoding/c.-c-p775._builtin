@@ -1,0 +1,12 @@
+names=CP775,IBM775
+visibility=public
+kind=defined
+
+--- IBM775 -> Encoding
+--- CP775 -> Encoding
+CP775 エンコーディング。
+
+バルト語派の言語を扱うための 8bit single-byteエンコーディングです。
+
+@see [[url:http://en.wikipedia.org/wiki/Code_page_775]]
+

@@ -1,0 +1,13 @@
+names=SCM_CREDS
+visibility=public
+kind=defined
+
+--- SCM_CREDS -> Integer
+Process credentials
+
+[[c:Socket::AncillaryData]] の type として利用します。
+
+@see [[c:Socket::AncillaryData]], 
+     [[m:BasicSocket#sendmsg]], [[m:BasicSocket#recvmsg]],
+     [[man:unix(4freebsd)]]
+

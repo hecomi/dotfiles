@@ -1,0 +1,7 @@
+names=add_namespace
+visibility=public
+kind=defined
+
+--- add_namespace(prefix, uri = nil)
+@todo
+

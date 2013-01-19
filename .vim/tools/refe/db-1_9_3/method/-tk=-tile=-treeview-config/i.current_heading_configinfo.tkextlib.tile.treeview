@@ -1,0 +1,9 @@
+names=current_heading_configinfo,current_headingconfiginfo
+visibility=public
+kind=defined
+
+--- current_headingconfiginfo(tagOrId, slot = nil)
+--- current_heading_configinfo(tagOrId, slot = nil)
+@todo
+
+

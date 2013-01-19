@@ -1,0 +1,8 @@
+requires=test.unit.util.observable
+classes=Test=Unit=TestResult
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+テストの結果を処理するときに使われます。

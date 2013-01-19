@@ -1,0 +1,13 @@
+names=alias
+visibility=public
+kind=defined
+
+--- alias(anchor) -> Psych::Emitter
+@todo
+
+Emit an alias with +anchor+.
+
+自身を返します。
+
+@see [[m:Psych::Handler#alias]]
+

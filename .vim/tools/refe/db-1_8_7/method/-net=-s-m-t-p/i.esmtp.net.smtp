@@ -1,0 +1,11 @@
+names=esmtp,esmtp?
+visibility=public
+kind=defined
+
+--- esmtp? -> bool
+--- esmtp -> bool
+その Net::SMTP オブジェクトが ESMTP を使う場合に真を返します。
+デフォルトは真です。
+
+@see [[m:Net::SMTP#esmtp=]]
+

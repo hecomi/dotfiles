@@ -1,0 +1,12 @@
+names=length,size
+visibility=public
+kind=defined
+
+--- length    -> Integer
+--- size      -> Integer
+
+配列の長さを返します。配列が空のときは 0 を返します。
+
+  p [1, nil, 3, nil].size    #=> 4
+
+

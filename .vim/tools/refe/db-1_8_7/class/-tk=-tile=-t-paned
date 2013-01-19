@@ -1,0 +1,9 @@
+type=class
+superclass=TkWindow
+included=Tk=Tile=TileWidget
+extended=
+library=tkextlib.tile.tpaned
+aliases=
+aliasof=Tk=Tile=Paned
+
+Alias of [[c:Tk::Tile::Paned]]

@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rubygems.digest.digest_adapter
+aliases=
+aliasof=
+
+

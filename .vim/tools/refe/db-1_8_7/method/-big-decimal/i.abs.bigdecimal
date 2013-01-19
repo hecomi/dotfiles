@@ -1,0 +1,11 @@
+names=abs
+visibility=public
+kind=defined
+
+--- abs
+@todo
+
+a の絶対値
+
+    c = a.abs
+

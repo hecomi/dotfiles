@@ -1,0 +1,9 @@
+names=file?
+visibility=public
+kind=defined
+
+--- file? -> bool
+FileTest.file?(self.to_s) と同じです。
+
+@see [[m:FileTest.#file?]]
+

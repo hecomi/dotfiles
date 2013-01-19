@@ -1,0 +1,23 @@
+names=rotate
+visibility=public
+kind=defined
+
+--- rotate(cnt = 1) -> Array
+
+cnt で指定したインデックスの要素が先頭になる配列を新しく作成します。
+cnt より前の要素は末尾に移動します。cnt に負の数を指定した場合、逆の操
+作を行います。
+
+@param cnt 先頭にする要素のインデックスを指定します。指定しなかった場合
+           は 1 になります。
+
+例:
+
+   a = [ "a", "b", "c", "d" ]
+   a.rotate         # => ["b", "c", "d", "a"]
+   a                # => ["a", "b", "c", "d"]
+   a.rotate(2)      # => ["c", "d", "a", "b"]
+   a.rotate(-1)     # => ["d", "a", "b", "c"]
+   a.rotate(-3)     # => ["b", "c", "d", "a"]
+
+@see [[m:Array#rotate!]]

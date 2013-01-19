@@ -1,0 +1,9 @@
+type=class
+superclass=Net=ProtoAuthError
+included=Net=SMTPError
+extended=
+library=net.smtp
+aliases=
+aliasof=
+
+SMTP 認証エラー(エラーコード 530)に対応する例外クラスです。

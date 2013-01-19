@@ -1,0 +1,7 @@
+names=decode_iconv
+visibility=public
+kind=added
+
+--- decode_iconv(str)
+@todo
+

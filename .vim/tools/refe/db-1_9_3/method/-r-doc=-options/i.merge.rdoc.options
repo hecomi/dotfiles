@@ -1,0 +1,9 @@
+names=merge
+visibility=public
+kind=defined
+
+--- merge -> true | nil
+
+コマンドライン引数の --merge オプションを指定していた場合、true を返し
+ます。そうでない場合は nil を返します。
+

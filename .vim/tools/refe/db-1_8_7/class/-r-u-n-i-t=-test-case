@@ -1,0 +1,12 @@
+type=class
+superclass=Test=Unit=TestCase
+included=RUNIT=Assert
+extended=
+library=runit.testcase
+aliases=
+aliasof=
+
+テストの基本単位(あるいは「テスト本体」)を構成するクラスです。
+
+このモジュールは RubyUnit との互換性のためにのみ提供されています。
+これからユニットテストを書くときは [[lib:test/unit]] を使ってください。

@@ -1,0 +1,9 @@
+names=socket?
+visibility=public
+kind=defined
+
+--- socket? -> bool
+FileTest.socket?(self.to_s) と同じです。
+
+@see [[m:FileTest.#socket?]]
+

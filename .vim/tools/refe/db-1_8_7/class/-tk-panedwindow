@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=tk.panedwindow
+aliases=
+aliasof=TkPanedWindow
+
+Alias of [[c:TkPanedWindow]]

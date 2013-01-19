@@ -1,0 +1,7 @@
+names=starts_with
+visibility=public
+kind=defined
+
+--- starts_with(string, test)
+@todo
+

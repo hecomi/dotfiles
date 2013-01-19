@@ -1,0 +1,7 @@
+names=warning
+visibility=public
+kind=defined
+
+--- warning(msg)
+@todo
+

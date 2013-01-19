@@ -1,0 +1,7 @@
+names=clear_children
+visibility=public
+kind=defined
+
+--- clear_children(*args)
+@todo
+

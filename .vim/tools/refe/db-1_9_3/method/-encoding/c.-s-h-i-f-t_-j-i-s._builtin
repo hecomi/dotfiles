@@ -1,0 +1,12 @@
+names=SHIFT_JIS,SJIS,Shift_JIS
+visibility=public
+kind=defined
+
+--- Shift_JIS -> Encoding
+--- SHIFT_JIS -> Encoding
+--- SJIS -> Encoding
+IANA Character Sets にある Shift_JIS のことです。
+
+基本的にはJIS X 0208:1997の付属書1にある「シフト符号化表現」のことですが、
+Ruby M17N では 7bit 部分が US-ASCII になっています。
+

@@ -1,0 +1,8 @@
+names=toplevel
+visibility=public
+kind=defined
+
+--- toplevel -> RDoc::TopLevel
+
+自身が所属する [[c:RDoc::TopLevel]] オブジェクトを返します。
+

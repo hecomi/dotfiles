@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=false
+type=char *
+name=rb_source_filename
+params=(const char *f)
+
+

@@ -1,0 +1,11 @@
+names=linger
+visibility=public
+kind=defined
+
+--- linger(onoff, secs) -> Socket::Option
+SOL_SOCKET/SO_LINGER 用の Socket::Option オブジェクト
+を新たに生成し返します。
+
+@param onoff 0/1もしくは真偽値
+@param secs 整数値
+

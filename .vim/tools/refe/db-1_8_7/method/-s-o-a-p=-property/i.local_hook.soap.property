@@ -1,0 +1,7 @@
+names=local_hook
+visibility=protected 
+kind=defined
+
+--- local_hook(key, dirent)
+@todo
+

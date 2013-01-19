@@ -1,0 +1,10 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(io) -> Gem::Package::TarWriter
+
+自身を初期化します。
+
+@param io 自身に関連付ける IO を指定します。
+

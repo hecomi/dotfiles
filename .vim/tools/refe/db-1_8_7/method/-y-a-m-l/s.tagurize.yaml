@@ -1,0 +1,19 @@
+names=tagurize
+visibility=public
+kind=defined
+
+--- tagurize(val) -> String
+
+val で指定したタグを元にタグ URI を作成します。
+
+@param val タグを文字列で指定します。
+
+例:
+
+  require 'yaml'
+  YAML.tagurize("str")      # => "tag:yaml.org,2002:str"
+  YAML.tagurize("ruby/sym") # => "tag:ruby.yaml.org,2002:sym"
+  YAML.tagurize("tag:ruby.yaml.org,2002:sym")
+  # => "tag:ruby.yaml.org,2002:sym"
+
+

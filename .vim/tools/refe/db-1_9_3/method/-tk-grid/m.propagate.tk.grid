@@ -1,0 +1,7 @@
+names=propagate
+visibility=public
+kind=defined
+
+--- propagate(master, mode = Tk::None)
+@todo
+

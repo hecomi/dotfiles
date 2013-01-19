@@ -1,0 +1,7 @@
+names=set_translation_list
+visibility=public
+kind=defined
+
+--- set_translation_list(locale, trans_list, enc = "utf-8")
+@todo
+

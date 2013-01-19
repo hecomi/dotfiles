@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=rb_class_s_new
+params=(int argc, VALUE *argv)
+
+

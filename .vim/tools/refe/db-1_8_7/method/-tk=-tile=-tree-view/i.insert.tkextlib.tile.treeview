@@ -1,0 +1,7 @@
+names=insert
+visibility=public
+kind=defined
+
+--- insert(parent, idx, keys = {})
+@todo
+

@@ -1,0 +1,7 @@
+names=after_idle
+visibility=public
+kind=defined
+
+--- after_idle(cmd = Proc.new)
+@todo
+

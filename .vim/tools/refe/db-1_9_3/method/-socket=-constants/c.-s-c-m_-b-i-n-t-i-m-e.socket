@@ -1,0 +1,12 @@
+names=SCM_BINTIME
+visibility=public
+kind=defined
+
+--- SCM_BINTIME -> Integer
+Timestamp (bintime).
+
+[[c:Socket::AncillaryData]] の type として利用します。
+
+@see [[c:Socket::AncillaryData]], [[m:Socket::AncillaryData#timestamp]]
+     [[m:BasicSocket#sendmsg]], [[m:BasicSocket#recvmsg]]
+

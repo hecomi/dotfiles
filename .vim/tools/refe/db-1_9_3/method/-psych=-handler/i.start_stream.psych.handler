@@ -1,0 +1,12 @@
+names=start_stream
+visibility=public
+kind=added
+
+--- start_stream(encoding)
+@todo
+
+Called with +encoding+ when the YAML stream starts.  This method is
+called once per stream.  A stream may contain multiple documents.
+
+See the constants in Psych::Parser for the possible values of +encoding+.
+

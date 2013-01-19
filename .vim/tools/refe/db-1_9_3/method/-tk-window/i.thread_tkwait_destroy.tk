@@ -1,0 +1,12 @@
+names=thread_tkwait_destroy,thread_tkwait_window,thread_wait_destroy,thread_wait_window
+visibility=public
+kind=defined
+
+--- thread_wait_destroy
+--- thread_tkwait_destroy
+--- thread_tkwait_window
+--- thread_wait_window
+@todo
+
+
+

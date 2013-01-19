@@ -1,0 +1,12 @@
+names=ip_unpack
+visibility=public
+kind=defined
+
+--- ip_unpack -> [String, Integer]
+IP アドレスとポート番号を 2 要素の配列で返します。
+
+  Addrinfo.tcp("127.0.0.1", 80).ip_unpack    #=> ["127.0.0.1", 80]
+  Addrinfo.tcp("::1", 80).ip_unpack          #=> ["::1", 80]
+
+@see [[m:Addrinfo#ip_address]], [[m:Addrinfo#ip_port]]
+

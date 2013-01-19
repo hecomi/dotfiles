@@ -1,0 +1,8 @@
+names=bool=,set_bool
+visibility=public
+kind=defined
+
+--- bool=
+--- set_bool
+@todo
+

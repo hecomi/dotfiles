@@ -1,0 +1,8 @@
+names=execute
+visibility=public
+kind=defined
+
+--- execute -> IRB::JobManager
+
+サブ irb のリストを返します。
+

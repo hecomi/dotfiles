@@ -1,0 +1,13 @@
+names=message
+visibility=public
+kind=defined
+
+--- message(message, title = "", header = ["Content-Type: text/html"]) -> true
+メッセージを標準出力に出力します。
+
+@param message メッセージを指定します。
+
+@param title タイトルを指定します。
+
+@param header HTTP ヘッダーを指定します。
+

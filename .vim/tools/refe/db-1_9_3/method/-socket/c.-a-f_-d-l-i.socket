@@ -1,0 +1,11 @@
+names=AF_DLI,PF_DLI
+visibility=public
+kind=defined
+
+--- AF_DLI -> Integer
+--- PF_DLI -> Integer
+@todo
+DEC Direct data link interface。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

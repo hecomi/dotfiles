@@ -1,0 +1,8 @@
+names=alias_map
+visibility=public
+kind=defined
+
+--- alias_map -> Hash
+
+[[m:Shell::CommandProcessor.alias_command]] で定義したエイリアスの一覧を返します。
+

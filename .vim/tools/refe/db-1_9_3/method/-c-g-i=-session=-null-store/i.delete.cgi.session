@@ -1,0 +1,9 @@
+names=delete
+visibility=public
+kind=defined
+
+--- delete -> ()
+
+セッションを削除します。
+このクラスでは何もしません。
+

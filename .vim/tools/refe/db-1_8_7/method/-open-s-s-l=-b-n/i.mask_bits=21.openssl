@@ -1,0 +1,13 @@
+names=mask_bits!
+visibility=public
+kind=defined
+
+--- mask_bits!(n) -> self
+自身を下位 n ビットでマスクします。
+
+n が自身のビット数より大きい場合は例外 [[c:OpenSSL::BNError]]
+が発生します。
+
+@param n マスクするビット数
+@raise OpenSSL::BNError 計算時エラー
+

@@ -1,0 +1,6 @@
+names=get_attribute_ns
+visibility=public
+kind=defined
+
+--- get_attribute_ns(namespace, name)
+@todo

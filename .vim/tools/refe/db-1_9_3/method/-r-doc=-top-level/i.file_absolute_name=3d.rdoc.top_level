@@ -1,0 +1,9 @@
+names=file_absolute_name=
+visibility=public
+kind=defined
+
+--- file_absolute_name=(val)
+
+自身が管理するファイルに関する絶対パスを文字列で設定します。
+
+@param val パスを文字列で指定します。

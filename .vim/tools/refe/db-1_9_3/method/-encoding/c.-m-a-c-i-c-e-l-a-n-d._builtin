@@ -1,0 +1,15 @@
+names=MACICELAND,MacIceland
+visibility=public
+kind=defined
+
+--- MacIceland -> Encoding
+--- MACICELAND -> Encoding
+
+MacIceland エンコーディング。
+
+Mac OSで使われる
+8bit single-byte エンコーディングで、
+アイスランド語のために使われます
+
+@see [[url:http://en.wikipedia.org/wiki/Mac_Icelandic_encoding]]
+

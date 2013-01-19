@@ -1,0 +1,15 @@
+names=auto_indent_mode
+visibility=public
+kind=defined
+
+--- auto_indent_mode -> bool
+
+入力が次の行に継続した時に自動で字下げを行うかどうかを返します。
+
+デフォルト値は false です。
+
+@return 自動で字下げを行う場合は true を返します。行わない場合は false
+        を返します。
+
+@see [[m:IRB::Context#auto_indent_mode=]]
+

@@ -1,0 +1,7 @@
+names=NAMESPACE_ONLY
+visibility=public
+kind=defined
+
+--- NAMESPACE_ONLY
+@todo
+

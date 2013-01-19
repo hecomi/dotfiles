@@ -1,0 +1,8 @@
+names=empty_marshal_checksum
+visibility=public
+kind=defined
+
+--- empty_marshal_checksum -> String
+
+空のデータのチェックサムを返します。
+

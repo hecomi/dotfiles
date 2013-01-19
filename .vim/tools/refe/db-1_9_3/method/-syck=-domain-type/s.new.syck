@@ -1,0 +1,9 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(domain, type_id, val) -> YAML::DomainType
+@todo
+
+自身を初期化します。
+

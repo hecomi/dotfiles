@@ -1,0 +1,7 @@
+names=new
+visibility=public
+kind=defined
+
+--- new -> Psych::Visitors::ToRuby
+@todo
+

@@ -1,0 +1,11 @@
+names=PI
+visibility=public
+kind=defined
+
+--- PI -> Float
+
+円周率
+
+    p Math::PI
+    # => 3.141592654
+

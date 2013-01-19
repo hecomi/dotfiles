@@ -1,0 +1,8 @@
+names=VERSION
+visibility=public
+kind=defined
+
+--- VERSION -> String
+
+Ruby/zlib のバージョンを表す文字列です。
+

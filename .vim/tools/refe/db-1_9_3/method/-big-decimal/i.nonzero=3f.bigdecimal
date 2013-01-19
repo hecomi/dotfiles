@@ -1,0 +1,11 @@
+names=nonzero?
+visibility=public
+kind=defined
+
+--- nonzero?
+@todo
+
+a が 0 なら nil、0 以外なら a そのものが返ります。
+
+    c = a.nonzero? 
+

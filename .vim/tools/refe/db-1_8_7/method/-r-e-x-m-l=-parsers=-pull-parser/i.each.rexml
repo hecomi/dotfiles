@@ -1,0 +1,7 @@
+names=each
+visibility=public
+kind=defined
+
+--- each {|event| ... }
+@todo
+

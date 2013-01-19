@@ -1,0 +1,7 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(arg = UNDEFINED, parent = nil, context = nil)
+@todo
+

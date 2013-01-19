@@ -1,0 +1,12 @@
+names=AF_NETGRAPH,PF_NETGRAPH
+visibility=public
+kind=defined
+
+--- AF_NETGRAPH -> Integer
+--- PF_NETGRAPH -> Integer
+
+Netgraph sockets。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:socket(2freebsd)]]
+

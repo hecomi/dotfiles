@@ -1,0 +1,10 @@
+names=documents=
+visibility=public
+kind=defined
+
+--- documents=(val)
+
+現在のドキュメントを配列で設定します。
+
+@param val YAML に変換できる任意のオブジェクトを配列で指定します。
+

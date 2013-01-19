@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=true
+type=int
+name=local_cnt
+params=(ID id)
+
+
+ローカル変数 id の変数 ID を取得します。
+定義されていてもいなくても正しい ID が取得できます。
+

@@ -1,0 +1,9 @@
+names=BENCHMARK_VERSION
+visibility=public
+kind=defined
+
+--- BENCHMARK_VERSION -> String
+
+benchmark ライブラリのバージョンを表します。
+
+

@@ -1,0 +1,13 @@
+names=save_history
+visibility=public
+kind=added
+
+--- save_history -> Integer | nil
+
+履歴の最大保存件数を [[c:Integer]] か nil で返します。
+
+@return 履歴の最大保存件数を [[c:Integer]] か nil で返します。0 以下や
+        nil を返した場合は追加の保存は行いません。
+
+@see [[ref:lib:irb#history]]
+

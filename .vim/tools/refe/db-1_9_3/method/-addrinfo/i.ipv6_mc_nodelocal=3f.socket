@@ -1,0 +1,8 @@
+names=ipv6_mc_nodelocal?
+visibility=public
+kind=defined
+
+--- ipv6_mc_nodelocal? -> bool
+IPv6 のマルチキャスト(ノードローカルスコープ)アドレスであれば真を返します。
+
+

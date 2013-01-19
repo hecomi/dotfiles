@@ -1,0 +1,9 @@
+type=class
+superclass=WEBrick=HTTPServlet=AbstractServlet
+included=
+extended=
+library=soap.rpc.soaplet
+aliases=
+aliasof=
+
+

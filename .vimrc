@@ -21,7 +21,7 @@ endif
 call neobundle#rc(expand('~/.vim/plugins'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Shougo-san's repos
+" Shougo-san's plugin
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
@@ -67,7 +67,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kien/rainbow_parentheses.vim'
 
-" Programming
+" Programming (Common)
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
@@ -84,23 +84,24 @@ NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
 
-" textobj (common)
+" C / C++
 " ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'mattn/quickrunex-vim'
+NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
+NeoBundleLazy 'Rip-Rip/clang_complete'
+NeoBundleLazy 'rhysd/unite-n3337'
+NeoBundleLazy 'vim-jp/cpp-vim'
+augroup NeoBundleLazyLoadCpp
+	autocmd!
+	autocmd FileType c,cpp NeoBundleSource
+		\ quickrunex-vim
+		\ unite-boost-online-doc
+		\ clang_complete
+		\ unite-n3337
+		\ cpp-vim
+augroup END
 
-" C/C++
-" ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'mattn/quickrunex-vim', {
-\	'autoload' : {
-\		'filetypes' : ['cpp'],
-\	},
-\ }
-NeoBundleLazy 'Rip-Rip/clang_complete', {
-\	'autoload' : {
-\		'filetypes' : ['c', 'cpp'],
-\	},
-\ }
-
-" JavaScript
+" JavaScript / TypeScript
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'myhere/vim-nodejs-complete', {
 \	'autoload' : {
@@ -126,26 +127,22 @@ NeoBundleLazy 'thinca/vim-textobj-plugins', {
 
 " Ruby
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'Shougo/neocomplcache-rsense', {
-\	'autoload' : {
-\		'filetypes' : ['ruby'],
-\	},
-\ }
-NeoBundleLazy 'rhysd/unite-ruby-require.vim', {
-\	'autoload' : {
-\		'filetypes' : ['ruby'],
-\	},
-\ }
-NeoBundleLazy 'rhysd/neco-ruby-keyword-args', {
-\	'autoload' : {
-\		'filetypes' : ['ruby'],
-\	},
-\ }
-NeoBundleLazy 'rhysd/vim-textobj-ruby', {
-\	'autoload' : {
-\		'filetypes' : ['ruby'],
-\	},
-\ }
+NeoBundleLazy 'Shougo/neocomplcache-rsense'
+NeoBundleLazy 'rhysd/unite-ruby-require.vim'
+NeoBundleLazy 'rhysd/neco-ruby-keyword-args'
+NeoBundleLazy 'rhysd/vim-textobj-ruby'
+NeoBundleLazy 'skwp/vim-rspec'
+NeoBundleLazy 'taka84u9/vim-ref-ri'
+augroup NeoBundleLazyLoadRuby
+	autocmd!
+	autocmd FileType ruby NeoBundleSource
+		\ neocomplcache-rsense
+		\ unite-ruby-require
+		\ unite-ruby-keyword-args
+		\ vim-textobj-ruby
+		\ vim-rspec
+		\ vim-ref-ri
+augroup END
 
 " Obj-C
 " ---------------------------------------------------------------------------------------------------
@@ -221,7 +218,6 @@ NeoBundleLazy 'TwitVim', {
 \		'commands' : 'PostToTwitter',
 \	},
 \ }
-NeoBundleLazy 'toritori0318/vim-redmine'
 
 " Others
 " ---------------------------------------------------------------------------------------------------
@@ -245,11 +241,6 @@ NeoBundleLazy 'Shougo/unite-ssh'
 NeoBundleLazy 'h1mesuke/unite-outline'
 NeoBundleLazy 'osyo-manga/unite-banban'
 NeoBundleLazy 'osyo-manga/unite-banban2'
-NeoBundleLazy 'osyo-manga/unite-boost-online-doc', {
-\	'autoload' : {
-\		'filetypes' : ['cpp'],
-\	},
-\ }
 NeoBundle 'osyo-manga/unite-filetype'
 NeoBundleLazy 'osyo-manga/unite-homo'
 NeoBundleLazy 'osyo-manga/unite-jojo'
@@ -584,8 +575,11 @@ nnoremap [prefix]vsp :VimShellPop<CR>
 " {{{
 " Basic setting
 " ---------------------------------------------------------------------------------------------------
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list          = 1000
+let g:neocomplcache_enable_at_startup            = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion   = 1
+let g:neocomplcache_skip_auto_completion_time    = '0.3'
+let g:neocomplcache_max_list                     = 1000
 
 " <TAB> completion.
 " ---------------------------------------------------------------------------------------------------
@@ -627,6 +621,13 @@ if g:neocomplcache_enable_at_startup
 	imap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
 vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
+" }}}
+
+"====================================================================================================
+" vim-ref
+"====================================================================================================
+" {{{
+nnoremap ,refe :Unite ref/refe<CR>
 " }}}
 
 "====================================================================================================
@@ -1241,7 +1242,7 @@ endif
 " }}}
 
 "====================================================================================================
-" Local
+" load .vimrc.*
 "====================================================================================================
 if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local
@@ -1250,3 +1251,4 @@ endif
 if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
+

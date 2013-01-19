@@ -1,0 +1,16 @@
+names=CP1251,WINDOWS_1251,Windows_1251
+visibility=public
+kind=defined
+
+--- Windows_1251 -> Encoding
+--- CP1251 -> Encoding
+--- WINDOWS_1251 -> Encoding
+
+Windows-1251 エンコーディング。
+
+キリル文字を用いる言語を取り扱う8bit single-byteエンコーディングです。
+
+@see [[url:http://www.iana.org/assignments/character-sets]],
+     [[url:http://www.microsoft.com/globaldev/reference/sbcs/1251.mspx]],
+     [[url:http://en.wikipedia.org/wiki/Windows-1251]]
+

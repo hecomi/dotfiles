@@ -1,0 +1,10 @@
+names=failures=
+visibility=public 
+kind=defined
+
+--- failures=(count)
+
+失敗したアサーション数をセットします。
+
+@param count 件数を指定します。
+

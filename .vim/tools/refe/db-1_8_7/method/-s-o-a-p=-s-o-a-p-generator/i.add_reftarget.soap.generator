@@ -1,0 +1,7 @@
+names=add_reftarget
+visibility=public
+kind=defined
+
+--- add_reftarget(name, node)
+@todo
+

@@ -1,0 +1,10 @@
+names=load_history
+visibility=public
+kind=defined
+
+--- load_history -> ()
+
+irb のヒストリを履歴ファイルから読み込みます。
+
+@see [[ref:lib:irb#history]]
+

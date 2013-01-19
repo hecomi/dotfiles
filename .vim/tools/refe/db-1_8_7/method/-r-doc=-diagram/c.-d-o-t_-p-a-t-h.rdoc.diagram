@@ -1,0 +1,8 @@
+names=DOT_PATH
+visibility=public
+kind=defined
+
+--- DOT_PATH -> "dot"
+
+画像を作成するサブディレクトリ名を返します。
+

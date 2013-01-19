@@ -1,0 +1,17 @@
+names=back_trace_limit=
+visibility=public
+kind=defined
+
+--- back_trace_limit=(val)
+
+エラー発生時のバックトレース表示の先頭、末尾の上限の行数をそれぞれ val
+行に設定します。
+
+.irbrc ファイル中で IRB.conf[:BACK_TRACE_LIMIT] を設定する事でも同様の
+操作が行えます。
+
+@param val バックトレース表示の先頭、末尾の上限を [[c:Integer]] で指定
+           します。
+
+@see [[m:IRB::Context#back_trace_limit]]
+

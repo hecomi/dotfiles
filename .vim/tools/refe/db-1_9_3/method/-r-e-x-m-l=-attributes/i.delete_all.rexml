@@ -1,0 +1,7 @@
+names=delete_all
+visibility=public
+kind=defined
+
+--- delete_all(name)
+@todo
+

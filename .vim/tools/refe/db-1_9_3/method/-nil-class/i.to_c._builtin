@@ -1,0 +1,12 @@
+names=to_c
+visibility=public
+kind=defined
+
+--- to_c -> Complex
+
+0+0i を返します。
+
+例:
+
+  nil.to_c # => (0+0i)
+

@@ -1,0 +1,13 @@
+names=IPV6_HOPOPTS
+visibility=public
+kind=defined
+
+--- IPV6_HOPOPTS -> Integer
+Hop-by-hop options。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[man:ip6(4freebsd)]], [[man:ipv6(7linux)]],
+     [[RFC:3542]]
+

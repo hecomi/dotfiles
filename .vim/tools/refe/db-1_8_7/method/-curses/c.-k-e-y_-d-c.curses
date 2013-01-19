@@ -1,0 +1,8 @@
+names=KEY_DC
+visibility=public
+kind=defined
+
+--- KEY_DC -> Integer
+@todo ???
+Delete キーを表す定数です。
+

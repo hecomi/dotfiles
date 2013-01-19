@@ -1,0 +1,10 @@
+names=decode64
+visibility=public
+kind=defined
+
+--- decode64(str) -> String
+
+Base64エンコードされた文字列strをデコードします。
+
+@param str デコードしたい文字列です。
+

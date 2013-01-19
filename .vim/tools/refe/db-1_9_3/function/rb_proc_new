@@ -1,0 +1,11 @@
+filename=eval.c
+macro=false
+private=false
+type=VALUE
+name=rb_proc_new
+params=(func, val)
+
+
+VALUE (*func)(ANYARGS);
+VALUE val;
+

@@ -1,0 +1,8 @@
+names=done
+visibility=public 
+kind=defined
+
+--- done -> nil
+
+終了メッセージを表示します。
+

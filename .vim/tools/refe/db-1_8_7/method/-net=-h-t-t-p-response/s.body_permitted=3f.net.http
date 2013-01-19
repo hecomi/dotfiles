@@ -1,0 +1,9 @@
+names=body_permitted?
+visibility=public
+kind=defined
+
+--- body_permitted? -> bool
+エンティティボディを含むことが許されているレスポンスクラス
+ならば真を、そうでなければ偽を返します。
+
+

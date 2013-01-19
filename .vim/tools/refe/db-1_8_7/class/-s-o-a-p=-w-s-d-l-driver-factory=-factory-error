@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=soap.wsdlDriver
+aliases=
+aliasof=
+
+

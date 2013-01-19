@@ -1,0 +1,8 @@
+names=abs
+visibility=public
+kind=defined
+
+--- abs    -> Numeric
+
+自身が 0 以上ならば self を、そうでない場合は -self を返します。
+

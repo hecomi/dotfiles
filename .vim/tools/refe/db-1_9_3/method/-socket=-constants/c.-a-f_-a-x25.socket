@@ -1,0 +1,12 @@
+names=AF_AX25,PF_AX25
+visibility=public
+kind=defined
+
+--- AF_AX25 -> Integer
+--- PF_AX25 -> Integer
+
+ITU-T X.25 / ISO-8208。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:socket(2linux)]]
+

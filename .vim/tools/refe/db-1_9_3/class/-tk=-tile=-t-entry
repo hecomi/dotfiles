@@ -1,0 +1,9 @@
+type=class
+superclass=TkEntry
+included=Tk=Tile=TileWidget
+extended=
+library=tkextlib.tile.tentry
+aliases=
+aliasof=Tk=Tile=Entry
+
+Alias of [[c:Tk::Tile::Entry]]

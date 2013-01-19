@@ -1,0 +1,11 @@
+type=class
+superclass=RDoc=ClassModule
+included=
+extended=
+library=rdoc.single_class
+aliases=
+aliasof=
+
+特異クラスを表現するクラスです。
+
+ライブラリの内部で使用します。

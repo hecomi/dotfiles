@@ -1,0 +1,7 @@
+names=def_attr
+visibility=public
+kind=defined
+
+--- def_attr(attrname, writable = true, varname = nil)
+@todo
+

@@ -1,0 +1,7 @@
+names=dump_arraydef
+visibility=private 
+kind=defined
+
+--- dump_arraydef(complextype)
+@todo
+

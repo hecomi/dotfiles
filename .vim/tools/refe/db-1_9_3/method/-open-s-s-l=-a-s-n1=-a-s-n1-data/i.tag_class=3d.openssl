@@ -1,0 +1,10 @@
+names=tag_class=
+visibility=public
+kind=defined
+
+--- tag_class=(tag_class)
+タグクラスを設定します。
+
+@param tag_class 設定するタグクラス。:UNIVERSAL、:ONTEXT_SPECIFIC、:APPLICATION、:PRIVATE のいずれか
+@see [[m:OpenSSL::ASN1::ASN1Data#tag_class]]
+

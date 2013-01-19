@@ -1,0 +1,9 @@
+type=class
+superclass=OpenSSL=ASN1=Primitive
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+ASN.1 の ISO64String 型(Universal タグのタグ番号26)を表すクラスです。

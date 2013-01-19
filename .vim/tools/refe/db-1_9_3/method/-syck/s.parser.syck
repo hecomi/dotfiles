@@ -1,0 +1,10 @@
+names=parser
+visibility=public
+kind=defined
+
+--- parser -> Syck::Parser
+
+YAML パーサを返します。
+
+@see [[m:YAML.generic_parser]]
+

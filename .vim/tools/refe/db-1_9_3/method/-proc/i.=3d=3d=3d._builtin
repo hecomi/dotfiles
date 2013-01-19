@@ -1,0 +1,34 @@
+names====,[],call,yield
+visibility=public
+kind=defined
+
+--- [](*arg) -> ()
+--- call(*arg) -> ()
+--- ===(*arg) -> ()
+--- yield(*arg) -> ()
+
+手続きオブジェクトを実行してその結果を返します。
+
+引数の渡され方はオブジェクトの生成方法によって異なります。
+詳しくは [[m:Proc#lambda?]] を参照してください。
+
+「===」は when の所に手続きを渡せるようにするためのものです。
+
+  def sign(n)
+    case n
+    when lambda{|n| n > 0} then 1
+    when lambda{|n| n < 0} then -1
+    else 0
+    end
+  end
+  
+  p sign(-4) #=> -1
+  p sign(0)  #=> 0
+  p sign(7)  #=> 1
+
+
+@param arg 手続きオブジェクトに与える引数を指定します。
+
+@raise LocalJumpError Procを生成したメソッドからリターンしてしまった場合に発生します。
+
+

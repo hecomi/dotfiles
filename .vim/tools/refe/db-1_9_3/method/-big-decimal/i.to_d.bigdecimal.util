@@ -1,0 +1,10 @@
+names=to_d
+visibility=public
+kind=added
+
+--- to_d -> BigDecimal
+
+自身を返します。
+
+@return [[c:BigDecimal]] オブジェクト
+

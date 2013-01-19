@@ -1,0 +1,22 @@
+names=do_not_reverse_lookup
+visibility=public
+kind=defined
+
+--- do_not_reverse_lookup -> bool
+
+この値が真ならアドレスからホスト名への逆引きを行わなくなります。
+
+この設定は大域的に作用します。
+
+デフォルトは false です。
+
+以下のメソッドの動作に影響します。
+
+  * [[m:BasicSocket#recv]]
+  * [[m:IPSocket#recvfrom]]
+  * [[m:UNIXSocket#recvfrom]]
+  * [[m:Socket#recvfrom]]
+  * [[m:IPSocket#addr]]
+  * [[m:IPSocket#peeraddr]]
+  * [[m:Socket.getaddrinfo]]
+

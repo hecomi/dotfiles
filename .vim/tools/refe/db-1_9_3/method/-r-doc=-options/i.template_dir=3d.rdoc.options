@@ -1,0 +1,12 @@
+names=template_dir=
+visibility=public
+kind=defined
+
+--- template_dir=(val)
+
+コマンドライン引数の --template オプションで指定したテンプレートに対応
+するディレクトリを設定します。
+
+@param val パスを文字列で指定します。
+
+

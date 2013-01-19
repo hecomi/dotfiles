@@ -1,0 +1,8 @@
+names=total_in
+visibility=public
+kind=defined
+
+--- total_in -> Integer
+
+ストリームに入力されたデータの総バイト数を返します。
+

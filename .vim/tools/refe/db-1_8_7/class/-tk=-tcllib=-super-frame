@@ -1,0 +1,9 @@
+type=class
+superclass=TkWindow
+included=
+extended=
+library=tkextlib.tcllib.superframe
+aliases=
+aliasof=Tk=Tcllib=Superframe
+
+Alias of [[c:Tk::Tcllib::Superframe]]

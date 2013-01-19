@@ -1,0 +1,11 @@
+names=AF_CNT,PF_CNT
+visibility=public
+kind=defined
+
+--- AF_CNT -> Integer
+--- PF_CNT -> Integer
+@todo
+Computer Network Technology。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

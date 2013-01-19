@@ -1,0 +1,10 @@
+names=tv_usec,usec
+visibility=public
+kind=defined
+
+--- usec         -> Integer
+--- tv_usec      -> Integer
+
+時刻のマイクロ秒の部分を整数で返します。
+
+

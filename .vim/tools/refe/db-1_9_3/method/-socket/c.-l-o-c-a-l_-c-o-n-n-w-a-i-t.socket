@@ -1,0 +1,11 @@
+names=LOCAL_CONNWAIT
+visibility=public
+kind=defined
+
+--- LOCAL_CONNWAIT -> Integer
+Retrieve peer credentials。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:ip(4freebsd)]]
+

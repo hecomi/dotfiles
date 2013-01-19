@@ -1,0 +1,7 @@
+names=read_entries
+visibility=public
+kind=defined
+
+--- read_entries(file, f_enc = nil)
+@todo
+

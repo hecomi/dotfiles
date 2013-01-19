@@ -1,0 +1,9 @@
+names=invert!
+visibility=public
+kind=defined
+
+--- invert! -> self
+自身をその逆元に設定します。
+
+@raise OpenSSL::PKey::EC::Point::Error エラーが生じた場合に発生します
+

@@ -1,0 +1,8 @@
+names=classes
+visibility=public
+kind=defined
+
+--- classes -> [RDoc::SingleClass | RDoc::NormalClass]
+
+追加されたクラスの配列を返します。
+

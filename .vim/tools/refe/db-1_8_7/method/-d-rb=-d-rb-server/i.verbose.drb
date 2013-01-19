@@ -1,0 +1,11 @@
+names=verbose,verbose=
+visibility=public
+kind=defined
+
+--- verbose
+--- verbose=
+@todo
+
+Get whether the server is in verbose mode.
+In verbose mode, failed calls are logged to stdout.
+

@@ -1,0 +1,7 @@
+names=LOCK_UN
+visibility=public
+kind=defined
+
+--- LOCK_UN -> Integer
+アンロック。[[m:File#flock]] で使用します。
+

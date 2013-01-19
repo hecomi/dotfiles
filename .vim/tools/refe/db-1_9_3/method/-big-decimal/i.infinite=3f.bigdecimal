@@ -1,0 +1,10 @@
+names=infinite?
+visibility=public
+kind=defined
+
+--- infinite?
+@todo
+
+a.infinite? は a が+∞のとき 1 、-∞のときは -1、
+それ以外のときは nil を返します。 
+

@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+入出力でエラーが起きると発生します。

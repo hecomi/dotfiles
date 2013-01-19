@@ -1,0 +1,8 @@
+requires=
+classes=SOAP=NetHttpClient,SOAP=NetHttpClient=SessionManager,SOAP=NetHttpClient=Response
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

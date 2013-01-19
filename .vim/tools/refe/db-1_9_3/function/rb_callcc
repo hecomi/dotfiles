@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=rb_callcc
+params=(VALUE self)
+
+
+Continuation オブジェクトを生成します。
+

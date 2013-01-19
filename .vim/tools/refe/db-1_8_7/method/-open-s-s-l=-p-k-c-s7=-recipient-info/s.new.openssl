@@ -1,0 +1,9 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(cert) -> RecipientInfo
+送信先オブジェクトを証明書から生成します。
+
+@param cert 証明書([[c:OpenSSL::X509::Certificate]] オブジェクト)
+

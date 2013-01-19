@@ -1,0 +1,13 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(opts = {}) -> YAML::Stream
+
+ストリームを返します。ストリームはYAMLドキュメントを複数保持することができます。
+
+@param opts オプションを指定します。設定可能なオプションは
+            [[m:YAML::DEFAULTS]] を参照してください。
+
+@see [[m:YAML::Stream#options]], [[m:YAML::Stream#options=]]
+

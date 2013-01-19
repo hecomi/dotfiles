@@ -1,0 +1,18 @@
+names=connect_nonblock
+visibility=public
+kind=defined
+
+--- connect_nonblock(server_sockaddr) -> 0
+
+ソケットをノンブロッキングモードに設定した後、
+[[man:connect(2)]] を呼び出します。
+
+引数、返り値は [[m:Socket#connect]] と同じです。
+
+
+
+@param server_sockaddr 接続先アドレス
+@raise Errno::EXXX [[man:connect(2)]] がエラーを報告した場合に発生します。詳しくは
+       man を参照してください。
+
+

@@ -1,0 +1,11 @@
+names=intern,to_sym
+visibility=public
+kind=defined
+
+--- intern -> self
+--- to_sym -> self
+self を返します。
+
+@see [[m:String#intern]]
+
+

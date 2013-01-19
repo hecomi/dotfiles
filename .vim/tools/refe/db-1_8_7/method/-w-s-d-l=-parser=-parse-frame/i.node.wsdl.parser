@@ -1,0 +1,10 @@
+names=node,node=
+visibility=public
+kind=defined
+
+--- node
+--- node=(node)
+@todo
+
+属性
+

@@ -1,0 +1,22 @@
+names=rotate!
+visibility=public
+kind=defined
+
+--- rotate!(cnt = 1) -> self
+
+cnt で指定したインデックスの要素が先頭になるように自身の順番を変更しま
+す。cnt より前の要素は末尾に移動します。cnt に負の数を指定した場合、逆
+の操作を行います。
+
+@param cnt 先頭にする要素のインデックスを指定します。指定しなかった場合
+           は 1 になります。
+
+例:
+
+   a = [ "a", "b", "c", "d" ]
+   a.rotate!        #=> ["b", "c", "d", "a"]
+   a                #=> ["b", "c", "d", "a"]
+   a.rotate!(2)     #=> ["d", "a", "b", "c"]
+   a.rotate!(-3)    #=> ["a", "b", "c", "d"]
+
+@see [[m:Array#rotate]]

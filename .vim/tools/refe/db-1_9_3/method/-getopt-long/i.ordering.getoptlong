@@ -1,0 +1,7 @@
+names=ordering
+visibility=public
+kind=defined
+
+--- ordering -> Fixnum
+現在の順序形式を返します。
+

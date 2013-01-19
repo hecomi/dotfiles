@@ -1,0 +1,14 @@
+names=name
+visibility=public
+kind=defined
+
+--- name    -> String
+
+関数名を文字列で返します。
+
+ require 'dl'
+ h = DL.dlopen('./libtest.so')
+ s = h.sym('slen', 'IS')
+ 
+ p s.name #=> "slen"
+

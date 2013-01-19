@@ -1,0 +1,8 @@
+names=cache_data
+visibility=public
+kind=defined
+
+--- cache_data -> Hash
+
+キャッシュしているデータを返します。
+

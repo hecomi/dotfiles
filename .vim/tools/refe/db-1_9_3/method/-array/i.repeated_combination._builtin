@@ -1,0 +1,28 @@
+names=repeated_combination
+visibility=public
+kind=defined
+
+--- repeated_combination(n) { |c| ... } -> Array
+--- repeated_combination(n)             -> Enumerator
+
+サイズ n の重複組み合わせをすべて生成し、それを引数としてブロックを実行
+します。
+
+得られる組み合わせの順序は保証されません。ブロックなしで呼び出されると、
+組み合わせを生成する Enumerator オブジェクトを返します。
+
+@param n 生成される配列のサイズ。
+
+例:
+
+    a = [1, 2, 3]
+    a.repeated_combination(1).to_a  #=> [[1], [2], [3]]
+    a.repeated_combination(2).to_a  #=> [[1,1],[1,2],[1,3],[2,2],[2,3],[3,3]]
+    a.repeated_combination(3).to_a  #=> [[1,1,1],[1,1,2],[1,1,3],[1,2,2],[1,2,3],
+                                    #    [1,3,3],[2,2,2],[2,2,3],[2,3,3],[3,3,3]]
+    a.repeated_combination(4).to_a  #=> [[1,1,1,1],[1,1,1,2],[1,1,1,3],[1,1,2,2],[1,1,2,3],
+                                    #    [1,1,3,3],[1,2,2,2],[1,2,2,3],[1,2,3,3],[1,3,3,3],
+                                    #    [2,2,2,2],[2,2,2,3],[2,2,3,3],[2,3,3,3],[3,3,3,3]]
+    a.repeated_combination(0).to_a  #=> [[]] # one combination of length 0
+
+@see [[m:Array#repeated_permutation]], [[m:Array#combination]]

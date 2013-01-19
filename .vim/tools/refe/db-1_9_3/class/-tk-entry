@@ -1,0 +1,9 @@
+type=class
+superclass=TkLabel
+included=Tk=X_Scrollable,TkValidation
+extended=
+library=tk.entry
+aliases=
+aliasof=Entry
+
+

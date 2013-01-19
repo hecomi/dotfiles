@@ -1,0 +1,8 @@
+names=detail,detail=
+visibility=public
+kind=defined
+
+--- detail
+--- detail=(rhs)
+@todo
+

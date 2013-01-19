@@ -1,0 +1,9 @@
+names=itemconfig_hash_kv
+visibility=public
+kind=defined
+
+--- itemconfig_hash_kv(id, keys, enc_mode = nil, conf = nil)
+@todo
+
+
+

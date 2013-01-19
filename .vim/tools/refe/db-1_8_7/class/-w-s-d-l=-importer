@@ -1,0 +1,9 @@
+type=class
+superclass=WSDL=XMLSchema=Importer
+included=
+extended=
+library=wsdl.importer
+aliases=
+aliasof=
+
+

@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=false
+type=struct global_entry *
+name=rb_global_entry
+params=(ID id)
+
+

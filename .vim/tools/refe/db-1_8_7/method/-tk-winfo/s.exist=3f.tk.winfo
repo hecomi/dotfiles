@@ -1,0 +1,7 @@
+names=exist?
+visibility=public
+kind=defined
+
+--- exist?(win)
+@todo
+

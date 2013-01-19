@@ -1,0 +1,13 @@
+filename=class.c
+macro=false
+private=false
+type=void
+name=rb_define_singleton_method
+params=(VALUE obj, const char *name, VALUE (*func)(), int argc)
+
+
+obj に特異メソッド name を定義します。
+メソッドの実体を func に関数ポインタで与え、その関数がとる
+引数のタイプを argc に渡します。argc のフォーマットに
+ついては rb_define_method の記述を参照してください。
+

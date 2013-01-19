@@ -1,0 +1,9 @@
+names=configure
+visibility=public
+kind=defined
+
+--- configure(key, value = Tk::None)
+@todo
+
+
+

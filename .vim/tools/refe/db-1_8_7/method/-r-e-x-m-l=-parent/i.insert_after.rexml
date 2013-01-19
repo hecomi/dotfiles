@@ -1,0 +1,7 @@
+names=insert_after
+visibility=public
+kind=defined
+
+--- insert_after(child1, child2)
+@todo
+

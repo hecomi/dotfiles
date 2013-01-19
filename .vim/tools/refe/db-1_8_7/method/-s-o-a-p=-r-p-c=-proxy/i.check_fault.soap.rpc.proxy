@@ -1,0 +1,10 @@
+names=check_fault
+visibility=public
+kind=defined
+
+--- check_fault(body)
+@todo
+
+
+
+

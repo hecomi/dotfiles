@@ -1,0 +1,8 @@
+names=column_configinfo,columnconfiginfo
+visibility=public
+kind=defined
+
+--- columnconfiginfo(tagOrId, slot = nil)
+--- column_configinfo(tagOrId, slot = nil)
+@todo
+

@@ -1,0 +1,7 @@
+names=dup_name
+visibility=public
+kind=defined
+
+--- dup_name(name)
+@todo
+

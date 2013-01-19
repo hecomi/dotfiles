@@ -1,0 +1,10 @@
+names=[]
+visibility=public
+kind=defined
+
+--- [](index)
+@todo
+
+index番目の値を返します。
+selfはTclの配列でなければなりません。
+

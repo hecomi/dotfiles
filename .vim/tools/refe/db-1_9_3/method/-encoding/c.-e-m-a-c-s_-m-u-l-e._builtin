@@ -1,0 +1,14 @@
+names=EMACS_MULE,Emacs_Mule
+visibility=public
+kind=defined
+
+--- EMACS_MULE -> Encoding
+--- Emacs_Mule -> Encoding
+
+Emacs-Mule エンコーディングです。
+
+Emacsの多言語化(Mule)で使われているステートレスのエンコーディングです。
+
+@see [[url:http://www.m17n.org/mule/pricai96/mule.en.html]]
+
+

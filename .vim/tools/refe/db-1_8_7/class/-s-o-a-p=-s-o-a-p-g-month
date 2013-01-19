@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=XSDGMonth
+included=SOAP=SOAPBasetype
+extended=SOAP=SOAPModuleUtils
+library=soap.baseData
+aliases=
+aliasof=
+
+

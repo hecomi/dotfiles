@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=
+extended=
+library=erb
+aliases=
+aliasof=
+
+def_erb_methodを提供するモジュールです。

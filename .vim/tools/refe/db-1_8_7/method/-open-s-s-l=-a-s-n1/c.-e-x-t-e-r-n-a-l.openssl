@@ -1,0 +1,9 @@
+names=EXTERNAL
+visibility=public
+kind=defined
+
+--- EXTERNAL -> Integer
+
+ASN.1 UNIVERSAL タグの、
+EXTERNAL のタグ番号 8 を表す定数です。
+

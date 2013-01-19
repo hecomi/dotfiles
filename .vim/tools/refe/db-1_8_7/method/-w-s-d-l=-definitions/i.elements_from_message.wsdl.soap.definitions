@@ -1,0 +1,7 @@
+names=elements_from_message
+visibility=private 
+kind=defined
+
+--- elements_from_message(message)
+@todo
+

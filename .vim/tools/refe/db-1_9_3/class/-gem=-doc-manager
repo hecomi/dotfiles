@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=Gem=UserInteraction
+extended=
+library=rubygems.doc_manager
+aliases=
+aliasof=
+
+Gem パッケージの RDoc, RI を生成するためのクラスです。

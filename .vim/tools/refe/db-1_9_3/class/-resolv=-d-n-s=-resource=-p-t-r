@@ -1,0 +1,13 @@
+type=class
+superclass=Resolv=DNS=Resource=DomainName
+included=
+extended=
+library=resolv
+aliases=
+aliasof=
+
+DNS リソースの PTR レコード
+を表す抽象クラスです。
+
+[[m:Resolv::DNS#getresource]] で PTR レコードを得たい場合は
+[[c:Resolv::DNS::Resource::IN::PTR]] を使うべきです。

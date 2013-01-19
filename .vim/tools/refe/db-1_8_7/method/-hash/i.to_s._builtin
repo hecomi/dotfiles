@@ -1,0 +1,11 @@
+names=to_s
+visibility=public
+kind=defined
+
+--- to_s     -> String
+
+ハッシュの内容を self.to_a.to_s で文字列化して返します。
+
+    h = { "c" => 300, "a" => 100, "d" => 400, "c" => 300  }
+    h.to_s   # => "a100c300d400"
+

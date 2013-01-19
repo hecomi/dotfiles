@@ -1,0 +1,7 @@
+names=getobj
+visibility=public
+kind=defined
+
+--- getobj(event)
+@todo
+

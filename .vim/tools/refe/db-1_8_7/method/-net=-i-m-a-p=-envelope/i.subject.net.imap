@@ -1,0 +1,10 @@
+names=subject
+visibility=public
+kind=defined
+
+--- subject -> String | nil
+メッセージのサブジェクトを返します。
+
+エンベロープに存在しないときは nil を返します。
+
+

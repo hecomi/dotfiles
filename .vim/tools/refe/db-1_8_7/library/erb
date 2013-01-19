@@ -1,0 +1,8 @@
+requires=
+classes=ERB,ERB=Util,ERB=DefMethod
+methods=
+sublibraries=
+is_sublibrary=false
+category=Text
+
+eRuby スクリプトを扱うためのライブラリです。

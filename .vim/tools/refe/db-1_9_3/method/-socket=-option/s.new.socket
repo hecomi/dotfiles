@@ -1,0 +1,22 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(family, level, optname, data) -> Socket::Option
+
+Socket::Option オブジェクト新たに生成し返します。
+
+family, level, optname には Socket::SOL_SOCKET のような整数の他、
+文字列("SOL_SOCKET", "SOCKET")、シンボル(:SOL_SOCKET, :SOCKET)を
+指定することができます。
+
+@param family ソケットファミリー
+@param level ソケットオプションレベル
+@param optname オプションの名前
+@param data データ(文字列)
+
+@see [[m:Socket::Option.int]], [[m:Socket::Option.bool]], [[m:Socket::Option.linger]]
+
+  sockopt = Socket::Option.new(:INET, :SOCKET, :KEEPALIVE, [1].pack("i"))
+  p sockopt #=> #<Socket::Option: INET SOCKET KEEPALIVE 1>
+

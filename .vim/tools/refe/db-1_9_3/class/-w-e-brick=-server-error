@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=webrick.server
+aliases=
+aliasof=
+
+

@@ -1,0 +1,8 @@
+names=count
+visibility=public 
+kind=defined
+
+--- count -> nil
+
+何もしません。
+

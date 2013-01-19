@@ -1,0 +1,10 @@
+filename=ruby.h
+macro=true
+private=false
+type=int
+name=FIXNUM_P
+params=(VALUE obj)
+
+
+obj が Fixnum のインスタンスのとき真。
+

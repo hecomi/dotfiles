@@ -1,0 +1,16 @@
+names=document_children=
+visibility=public
+kind=defined
+
+--- document_children=(val)
+
+自身に含まれるメソッド、エイリアス、定数や属性をドキュメントに含めるか
+どうかを設定します。
+
+:nodoc:、:stopdoc: を指定した時に false が設定されます。
+
+@param val true を指定した場合、上記をドキュメントに含めます。
+
+@see [[m:RDoc::CodeObject#document_self=]],
+     [[m:RDoc::CodeObject#remove_classes_and_modules]]
+

@@ -1,0 +1,11 @@
+filename=variable.c
+macro=false
+private=false
+type=void
+name=rb_cvar_set
+params=(VALUE klass, ID name, VALUE val)
+
+
+klass のクラス変数 name に val を代入します。
+変数がまだ定義されていない場合は NameError を発生します。
+

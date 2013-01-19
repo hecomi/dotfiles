@@ -1,0 +1,13 @@
+type=class
+superclass=RDoc=ClassModule
+included=
+extended=
+library=rdoc.normal_class
+aliases=
+aliasof=
+
+クラスを表現するためのクラスです。
+
+特異クラスや匿名クラスは含まれません。
+
+ライブラリの内部で使用します。

@@ -1,0 +1,7 @@
+names=tag_cget
+visibility=public
+kind=defined
+
+--- tag_cget(tagOrId, option)
+@todo
+

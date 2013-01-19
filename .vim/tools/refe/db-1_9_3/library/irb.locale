@@ -1,0 +1,10 @@
+requires=
+classes=
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+ライブラリ内部で使用します。
+
+このライブラリで定義されているメソッドはユーザが直接使用するものではありません。

@@ -1,0 +1,11 @@
+names=GB18030
+visibility=public
+kind=defined
+
+--- GB18030 -> Encoding
+GBK エンコーディング
+
+中国で用いられる中国語のエンコーディングです。
+
+@see [[url:http://www.iana.org/assignments/charset-reg/GB18030]]
+

@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=etc
+aliases=
+aliasof=Struct=Group
+
+Alias of [[c:Struct::Group]]

@@ -1,0 +1,8 @@
+names=numlist_type=,set_numlist_type
+visibility=public
+kind=defined
+
+--- set_numlist_type(val)
+--- numlist_type=
+@todo
+

@@ -1,0 +1,8 @@
+names=ASCII
+visibility=public
+kind=defined
+
+--- ASCII -> Encoding
+
+ASCII コードを表します。
+

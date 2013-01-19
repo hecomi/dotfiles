@@ -1,0 +1,12 @@
+filename=eval.c
+macro=false
+private=false
+type=void
+name=rb_disable_super
+params=(VALUE klass, const char *name)
+
+
+クラス klass のメソッド name からの super を禁止します。
+klass とそのスーパークラスで name というメソッドが定義
+されていないときは例外 NameError を発生します。
+

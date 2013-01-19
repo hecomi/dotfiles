@@ -1,0 +1,8 @@
+names=gregorian?
+visibility=public
+kind=defined
+
+--- gregorian? -> bool
+グレゴリオ暦なら真を返します。
+
+

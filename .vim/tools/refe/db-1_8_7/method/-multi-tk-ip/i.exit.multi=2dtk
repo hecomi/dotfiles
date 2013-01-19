@@ -1,0 +1,7 @@
+names=exit
+visibility=public
+kind=defined
+
+--- exit(st = true)
+@todo
+

@@ -1,0 +1,29 @@
+names=squeeze
+visibility=public
+kind=redefined
+
+--- squeeze(str = nil) -> String
+
+[[m:String#squeeze]] の日本語対応版です。
+指定した文字を1文字にまとめた文字列を返します。
+
+ただしこのメソッドは置き換え前の物とは異なり、
+2つ以上の引数を取ることはできません。
+
+@param str 1文字にまとめる文字のパターン。
+
+例：
+
+  #!/usr/bin/env ruby
+
+  $KCODE = 'EUC'
+  zstr = 'ＡＡＢＢＣＣ'
+  hoge = 'hhoge'
+
+  p zstr.squeeze   # => "ＡＡＢＢＣＣ"
+  p hoge.squeeze   # => "hoge"
+
+  require 'jcode'
+  p zstr.squeeze   # => "ＡＢＣ"
+  p hoge.squeeze   # => "hoge"
+

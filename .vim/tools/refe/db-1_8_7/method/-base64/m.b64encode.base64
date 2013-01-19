@@ -1,0 +1,11 @@
+names=b64encode
+visibility=public
+kind=defined
+
+--- b64encode(bin, len = 60) -> ()
+
+文字列 bin をエンコードし、len の長さで折り返し、表示します。
+
+表示までしてしまうのはサンプルだからです。
+
+

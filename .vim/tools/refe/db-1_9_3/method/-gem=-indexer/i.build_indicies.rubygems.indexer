@@ -1,0 +1,8 @@
+names=build_indicies
+visibility=public 
+kind=defined
+
+--- build_indicies
+
+インデックスを構築します。
+

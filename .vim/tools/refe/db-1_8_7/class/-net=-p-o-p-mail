@@ -1,0 +1,12 @@
+type=class
+superclass=Object
+included=
+extended=
+library=net.pop
+aliases=
+aliasof=
+
+POP サーバー上のメール一通を表現するクラス。
+
+メールの取得や消去といった操作をカプセル化します。
+[[c:Net::POP3]] クラスが生成するもので、ユーザが直接は生成しません。

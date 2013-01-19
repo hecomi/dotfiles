@@ -1,0 +1,8 @@
+names=body
+visibility=public
+kind=defined
+
+--- body -> Net::IMAP::BodyTypeBasic | Net::IMAP::BodyTypeMessage | Net::IMAP::BodyTypeText | Net::IMAP::BodyTypeMultipart
+
+ボディを返します。
+

@@ -1,0 +1,7 @@
+names=delegate_alias
+visibility=public
+kind=defined
+
+--- delegate_alias(alias_opt, option, *wins)
+@todo
+

@@ -1,0 +1,19 @@
+names=verbose=
+visibility=public
+kind=defined
+
+--- verbose=(val)
+
+標準出力に詳細なメッセージを出力するかどうかを val に設定します。
+
+.irbrc ファイル中で IRB.conf[:VERBOSE] を設定する事でも同様の操作が行え
+ます。
+
+false や nil を指定した場合でも、[[m:IRB::Context#verbose?]] が true を
+返す場合は詳細なメッセージを出力する事に注意してください。
+
+@param val true を指定した場合、詳細なメッセージを出力します。false や
+           nil を指定した場合、詳細なメッセージを出力しません。
+
+@see [[m:IRB::Context#verbose]], [[m:IRB::Context#verbose?]]
+

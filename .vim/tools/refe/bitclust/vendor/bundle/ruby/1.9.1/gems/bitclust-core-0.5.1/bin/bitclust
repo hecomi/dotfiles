@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+#
+# bitclust.rb
+#
+# Copyright (c) 2006-2008 Minero Aoki
+#
+# This program is free software.
+# You can distribute/modify this program under the Ruby License.
+#
+
+require 'bitclust'
+require 'bitclust/runner'
+
+BitClust::Runner.new.run(ARGV)

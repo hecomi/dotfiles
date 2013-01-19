@@ -1,0 +1,7 @@
+names=add
+visibility=public
+kind=defined
+
+--- add(type, keys = nil)
+@todo
+

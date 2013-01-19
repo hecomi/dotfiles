@@ -1,0 +1,11 @@
+names=ISO8859_16,ISO_8859_16
+visibility=public
+kind=defined
+
+--- ISO_8859_16 -> Encoding
+--- ISO8859_16 -> Encoding
+
+ISO 8859-16 エンコーディング。
+
+東欧を中心とした地域の諸語を扱う 8bit single-byte エンコーディングです。
+

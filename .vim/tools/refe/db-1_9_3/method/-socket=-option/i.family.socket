@@ -1,0 +1,7 @@
+names=family
+visibility=public
+kind=defined
+
+--- family -> Integer
+ソケットファミリを表す整数を返します。
+

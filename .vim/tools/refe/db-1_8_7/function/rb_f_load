@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=rb_f_load
+params=(int argc, VALUE *argv)
+
+
+load の実体。
+

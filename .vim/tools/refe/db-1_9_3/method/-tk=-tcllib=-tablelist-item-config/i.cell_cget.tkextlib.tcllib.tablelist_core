@@ -1,0 +1,7 @@
+names=cell_cget
+visibility=public
+kind=defined
+
+--- cell_cget(tagOrId, option)
+@todo
+

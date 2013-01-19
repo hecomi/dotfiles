@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=false
+type=int
+name=rb_thread_fd_writable
+params=(int fd)
+
+

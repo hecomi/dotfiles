@@ -1,0 +1,7 @@
+names=def_method
+visibility=public
+kind=defined
+
+--- def_method(name, *params) { ... }
+@todo
+

@@ -1,0 +1,9 @@
+type=class
+superclass=Hash
+included=
+extended=
+library=soap.mimemessage
+aliases=
+aliasof=
+
+

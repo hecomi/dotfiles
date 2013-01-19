@@ -1,0 +1,11 @@
+names=SO_BINDTODEVICE
+visibility=public
+kind=defined
+
+--- SO_BINDTODEVICE -> Integer
+Bind this socket to a particular device。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:socket(7linux)]], [[m:Socket::Constants::SOL_SOCKET]]
+

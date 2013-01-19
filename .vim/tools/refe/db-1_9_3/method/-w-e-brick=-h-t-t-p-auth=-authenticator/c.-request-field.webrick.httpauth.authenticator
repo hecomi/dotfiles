@@ -1,0 +1,8 @@
+names=RequestField
+visibility=public
+kind=defined
+
+--- RequestField -> String
+
+リクエストフィールドのキーの名前です。
+

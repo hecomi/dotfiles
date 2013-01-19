@@ -1,0 +1,11 @@
+names=TCP_INFO
+visibility=public
+kind=defined
+
+--- TCP_INFO -> Integer
+Retrieve information about this socket。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:tcp(4freebsd)]], [[man:tcp(7linux)]]
+

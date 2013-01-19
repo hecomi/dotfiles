@@ -1,0 +1,12 @@
+names=Null
+visibility=public
+kind=defined
+
+--- Null -> WIN32OLE_VARIANT
+NULL型のWIN32OLE_VARIANTオブジェクトです。
+
+このオブジェクトは、ADOなどのデータベースインターフェイスでNULLを指定す
+るのに利用可能です。
+
+@see [[m:WIN32OLE::VARIANT::VT_NULL]]
+

@@ -1,0 +1,8 @@
+requires=
+classes=RDoc=Include
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:RDoc::Include]] を定義するサブライブラリです。

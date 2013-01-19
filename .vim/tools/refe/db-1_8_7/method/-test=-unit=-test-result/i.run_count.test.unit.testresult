@@ -1,0 +1,7 @@
+names=run_count
+visibility=public
+kind=defined
+
+--- run_count    -> Integer
+今までに実行を記録したテストメソッドの数を返します。
+

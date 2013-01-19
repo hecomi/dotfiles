@@ -1,0 +1,8 @@
+names=F10
+visibility=public
+kind=defined
+
+--- F10 -> Integer
+
+F10 キーを表す定数です。
+

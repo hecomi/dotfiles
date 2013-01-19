@@ -1,0 +1,8 @@
+filename=parse.y
+macro=false
+private=true
+type=NODE *
+name=literal_concat_string
+params=(NODE *head, NODE *tail, VALUE str)
+
+

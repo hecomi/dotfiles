@@ -1,0 +1,13 @@
+names=start_stream
+visibility=public
+kind=defined
+
+--- start_stream(encoding) -> Psych::Emitter
+@todo
+
+Start a stream emission with +encoding+
+
+自身を返します。
+
+@see [[m:Psych::Handler#start_stream]]
+

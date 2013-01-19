@@ -1,0 +1,11 @@
+requires=
+classes=
+methods=
+sublibraries=soap.attachment,soap.baseData,soap.mapping,soap.soap,soap.mapping.typeMap,soap.element,soap.encodingstyle.aspDotNetHandler,soap.encodingstyle.handler,soap.encodingstyle.literalHandler,soap.encodingstyle.soapHandler,soap.generator,soap.header.handler,soap.header.handlerset,soap.header.simplehandler,soap.httpconfigloader,soap.property,soap.mapping.mapping,soap.mapping.registry,soap.mapping.factory,soap.mapping.rubytypeFactory,soap.mapping.wsdlencodedregistry,soap.mapping.wsdlliteralregistry,soap.marshal,soap.processor,soap.mimemessage,soap.netHttpClient,soap.parser,soap.rpc.cgistub,soap.streamHandler,soap.rpc.soaplet,soap.rpc.driver,soap.rpc.rpc,soap.rpc.proxy,soap.rpc.element,soap.rpc.httpserver,soap.rpc.router,soap.rpc.standaloneServer,soap.wsdlDriver
+is_sublibrary=false
+category=Network
+
+SOAP を扱うためのライブラリです。
+
+このページは soap ライブラリのまとめのページであり、require 'soap' を実行しても
+エラーになることに注意して下さい。

@@ -1,0 +1,10 @@
+names=rewind
+visibility=public
+kind=defined
+
+--- rewind -> 0
+
+[[m:IO#rewind]] に似ています。[[m:CSV#lineno]] を 0 にします。
+
+@see [[m:IO#rewind]]
+

@@ -1,0 +1,8 @@
+names====,eql?
+visibility=public
+kind=defined
+
+--- ===(rhs)
+--- eql?(rhs)
+@todo
+

@@ -1,0 +1,39 @@
+names=respond_to?
+visibility=public
+kind=defined
+
+--- respond_to?(name, include_private = false) -> bool
+
+オブジェクトがメソッド name を持つとき真を返します。
+
+オブジェクトが メソッド name を持つというのは、
+オブジェクトが メソッド name に応答することができることをいいます。
+
+@param name [[c:Symbol]] または文字列で指定するメソッド名です。
+
+@param include_private private メソッドを確認の対象に含めるかを true か
+                       false で指定します。省略した場合は false(含めな
+                       い) を指定した事になります。
+
+  class F
+    def hello
+      "Bonjour"
+    end
+  end
+  
+  class D
+  private
+    def hello
+      "Guten Tag"
+    end
+  end
+  list = [F.new,D.new]
+
+  list.each{|it| puts it.hello if it.respond_to?(:hello)}
+  #=> Bonjour
+
+  list.each{|it| it.instance_eval("puts hello if it.respond_to?(:hello, true)")}
+  #=> Bonjour
+  #   Guten Tag
+
+@see [[m:Module#method_defined?]]

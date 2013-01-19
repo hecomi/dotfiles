@@ -1,0 +1,9 @@
+names=IP_PASSSEC
+visibility=public
+kind=defined
+
+--- IP_PASSSEC -> Integer
+@todo
+Retrieve security context with datagram。
+
+

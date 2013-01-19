@@ -1,0 +1,7 @@
+names=address
+visibility=public
+kind=defined
+
+--- address -> Resolv::IPv4
+IPv4アドレスを返します。
+

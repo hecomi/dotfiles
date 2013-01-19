@@ -1,0 +1,11 @@
+names=find_class_named
+visibility=public
+kind=defined
+
+--- find_class_named(name) -> RDoc::NormalClass | RDoc::SingleClass | nil
+
+RDoc が収集したクラスの内、name で指定した名前のクラスを返します。見つ
+からなかった場合は nil を返します。
+
+@param name クラス名を文字列で指定します。
+

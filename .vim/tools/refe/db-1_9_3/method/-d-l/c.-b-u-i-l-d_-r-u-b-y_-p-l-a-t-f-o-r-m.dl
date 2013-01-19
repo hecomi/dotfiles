@@ -1,0 +1,7 @@
+names=BUILD_RUBY_PLATFORM,BUILD_RUBY_VERSION
+visibility=public
+kind=defined
+
+--- BUILD_RUBY_PLATFORM
+--- BUILD_RUBY_VERSION
+

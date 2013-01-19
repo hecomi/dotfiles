@@ -1,0 +1,11 @@
+names=irb_require
+visibility=public
+kind=added
+
+--- irb_require(*opts, &b) -> bool
+
+現在の irb に関する [[c:IRB::Context]] に対して irb_require コマンドを
+実行します。
+
+@see [[m:IRB::ExtendCommand::Require#execute]]
+

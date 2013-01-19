@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=RDoc=ParserFactory
+library=rdoc.parsers.parse_f95
+aliases=
+aliasof=
+
+Fortran95 のソースコードを解析するためのクラスです。

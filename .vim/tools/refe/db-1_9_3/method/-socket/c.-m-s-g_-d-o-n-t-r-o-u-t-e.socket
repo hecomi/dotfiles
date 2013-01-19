@@ -1,0 +1,14 @@
+names=MSG_DONTROUTE
+visibility=public
+kind=defined
+
+--- MSG_DONTROUTE -> Integer
+Send without using the routing tables。
+
+[[m:BasicSocket#send]], [[m:BasicSocket#sendmsg]] の
+flags 引数に用います。
+
+@see [[man:sys/socket.h(header)]],
+     [[man:send(2linux)]]
+     [[man:send(2freebsd)]]
+

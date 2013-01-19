@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=tkextlib.tcllib.tablelist_core
+aliases=Tk=Tcllib=Tablelist
+aliasof=
+
+

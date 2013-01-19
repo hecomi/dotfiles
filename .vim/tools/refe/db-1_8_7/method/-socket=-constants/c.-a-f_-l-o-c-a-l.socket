@@ -1,0 +1,14 @@
+names=AF_LOCAL,AF_UNIX,PF_LOCAL,PF_UNIX
+visibility=public
+kind=defined
+
+--- AF_LOCAL -> Integer
+--- AF_UNIX -> Integer
+--- PF_LOCAL -> Integer
+--- PF_UNIX -> Integer
+
+Unix domain socket。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:sys/socket.h(header)]], [[man:unix(7linux)]]
+

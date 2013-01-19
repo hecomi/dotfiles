@@ -1,0 +1,18 @@
+names=verbose?
+visibility=public
+kind=defined
+
+--- verbose? -> bool | nil
+
+標準出力に詳細なメッセージを出力するかどうかを返します。
+
+@return 詳細なメッセージを出力する場合は true を返します。そうでない場
+        合は false か nil を返します。
+
+設定を行っていた場合([[m:IRB::Context#verbose]] が true か false を返す
+場合)は設定した通りに動作します。設定を行っていない場合は、ファイルを指
+定して irb を実行した場合などに true を返します。
+
+
+@see [[m:IRB::Context#verbose]], [[m:IRB::Context#verbose=]]
+

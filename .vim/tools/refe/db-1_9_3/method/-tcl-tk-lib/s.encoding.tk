@@ -1,0 +1,9 @@
+names=encoding
+visibility=public
+kind=added
+
+--- encoding
+@todo
+
+[[m:TkCore::INTERP.encoding]] を呼び出す
+

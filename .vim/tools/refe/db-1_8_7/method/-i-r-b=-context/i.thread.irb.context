@@ -1,0 +1,10 @@
+names=thread
+visibility=public
+kind=defined
+
+--- thread -> Thread
+
+現在のスレッドを返します。
+
+@see [[m:Thread.current]]
+

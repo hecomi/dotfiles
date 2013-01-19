@@ -1,0 +1,14 @@
+names=SEEN
+visibility=public
+kind=defined
+
+--- SEEN -> Symbol
+「:Seen」というシンボルを返します。
+
+そのメッセージが既に読まれていることを意味します。
+
+フラグメッセージ属性として用いられます
+([[m:Net::IMAP::FetchData#attr]])。
+
+詳しくは [[RFC:2060]] を参照してください。
+

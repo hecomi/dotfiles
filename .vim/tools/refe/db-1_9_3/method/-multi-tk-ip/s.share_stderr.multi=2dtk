@@ -1,0 +1,7 @@
+names=share_stderr
+visibility=public
+kind=defined
+
+--- share_stderr(dist, src = '')
+@todo
+

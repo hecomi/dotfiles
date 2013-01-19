@@ -1,0 +1,29 @@
+names=install_extend_commands
+visibility=public
+kind=defined
+
+--- install_extend_commands -> object
+
+定義済みの拡張を読み込みます。
+
+irb で以下のメソッドが利用できるようになります。(それぞれ 1 つだけ抜粋)
+
+ * irb_current_working_workspace
+ * irb_change_workspace
+ * irb_workspaces
+ * irb_push_workspace
+ * irb_pop_workspace
+ * irb_load
+ * irb_require
+ * irb_source
+ * irb
+ * irb_jobs
+ * irb_fg
+ * irb_kill
+ * irb_help
+
+[[lib:irb/extend-command]] が require された時にライブラリ内部で自動的
+に実行されます。
+
+@see [[m:IRB::ExtendCommandBundle.install_extend_commands]]
+

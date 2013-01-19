@@ -1,0 +1,12 @@
+type=class
+superclass=Object
+included=
+extended=RDoc=ParserFactory
+library=rdoc.parsers.parse_rb
+aliases=
+aliasof=
+
+include RubyToken
+include TokenStream
+
+Ruby のソースコードを解析するためのクラスです。

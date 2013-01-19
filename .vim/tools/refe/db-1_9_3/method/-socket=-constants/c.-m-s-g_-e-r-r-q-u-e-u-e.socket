@@ -1,0 +1,12 @@
+names=MSG_ERRQUEUE
+visibility=public
+kind=defined
+
+--- MSG_ERRQUEUE -> Integer
+Fetch message from error queue
+
+[[m:BasicSocket#recv]], [[m:BasicSocket#recvmsg]] の
+flags 引数に用います。
+
+@see [[man:recv(2linux)]]
+

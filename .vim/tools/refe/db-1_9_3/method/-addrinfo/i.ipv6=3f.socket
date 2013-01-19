@@ -1,0 +1,13 @@
+names=ipv6?
+visibility=public
+kind=defined
+
+--- ipv6? -> bool
+アドレスが IPv6 のものならば true を返します。
+
+  Addrinfo.tcp("127.0.0.1", 80).ipv6? #=> false
+  Addrinfo.tcp("::1", 80).ipv6?       #=> true
+  Addrinfo.unix("/tmp/sock").ipv6?    #=> false
+
+@see [[m:Addrinfo#ipv4?]], [[m:Addrinfo#ip?]]
+

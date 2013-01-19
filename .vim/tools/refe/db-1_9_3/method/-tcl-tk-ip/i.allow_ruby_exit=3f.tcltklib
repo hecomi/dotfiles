@@ -1,0 +1,8 @@
+names=allow_ruby_exit?
+visibility=public
+kind=defined
+
+--- allow_ruby_exit?
+@todo
+
+

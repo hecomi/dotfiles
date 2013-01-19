@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=json
+aliases=
+aliasof=JSON=State
+
+Alias of [[c:JSON::State]]

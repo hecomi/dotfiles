@@ -1,0 +1,42 @@
+names=recvfrom_nonblock
+visibility=public
+kind=defined
+
+--- recvfrom_nonblock(maxlen, flags=0) -> [String, Array]
+ソケットをノンブロッキングモードに設定した後、
+[[man:recvfrom(2)]] でソケットからデータを受け取ります。
+
+maxlen で受け取るデータの最大バイト数を指定します。
+
+flags はフラグで、Socket::MSG_* の bitwise OR を渡します。
+詳しくは [[man:recvfrom(2)]] を参照してください。
+
+返り値はデータの文字列と送り元のアドレス情報の
+2要素の配列となります。
+
+[[man:recvfrom(2)]] がエラーになった場合、
+Errno::EAGAIN, Errno::EINTR を含め例外 [[c:Errno::EXXX]] が発生します。
+Errno::EWOULDBLOCK、Errno::EAGAIN のような待ってからリトライすることが
+可能であることを意味する例外には、[[c:IO::WaitReadable]] が extend
+されています。
+
+  require 'socket'
+  s1 = UDPSocket.new
+  s1.bind("127.0.0.1", 0)
+  s2 = UDPSocket.new
+  s2.bind("127.0.0.1", 0)
+  s2.connect(*s1.addr.values_at(3,1))
+  s1.connect(*s2.addr.values_at(3,1))
+  s1.send "aaa", 0
+  begin # emulate blocking recvfrom
+    p s2.recvfrom_nonblock(10)  
+    #=> ["aaa", ["AF_INET", 33302, "localhost.localdomain", "127.0.0.1"]]
+  rescue IO::WaitReadable
+    IO.select([s2])
+    retry
+  end
+
+@param maxlen 受け取るデータの最大バイト数
+@param flags フラグ
+@see [[m:IPSocket#recvfrom]]
+

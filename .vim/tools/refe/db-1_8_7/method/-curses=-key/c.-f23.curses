@@ -1,0 +1,8 @@
+names=F23
+visibility=public
+kind=defined
+
+--- F23 -> Integer
+
+F23 キーを表す定数です。
+

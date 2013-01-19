@@ -1,0 +1,9 @@
+type=class
+superclass=Gem=Commands=QueryCommand
+included=
+extended=
+library=rubygems.commands.search_command
+aliases=
+aliasof=
+
+指定された文字列を含む Gem パッケージを全て表示するためのクラスです。

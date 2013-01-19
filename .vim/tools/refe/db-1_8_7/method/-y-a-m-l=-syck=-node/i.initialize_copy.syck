@@ -1,0 +1,9 @@
+names=initialize_copy
+visibility=public
+kind=defined
+
+--- initialize_copy(orig) -> YAML::Syck::Node
+@todo
+
+Cloning method for all node types
+

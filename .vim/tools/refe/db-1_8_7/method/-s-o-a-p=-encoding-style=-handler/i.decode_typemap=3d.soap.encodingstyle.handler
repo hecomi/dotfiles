@@ -1,0 +1,7 @@
+names=decode_typemap=
+visibility=public
+kind=defined
+
+--- decode_typemap=(definedtypes)
+@todo
+

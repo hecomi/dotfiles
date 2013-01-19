@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=umethod_proc
+params=(VALUE method)
+
+

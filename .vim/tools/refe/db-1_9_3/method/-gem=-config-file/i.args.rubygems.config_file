@@ -1,0 +1,8 @@
+names=args
+visibility=public 
+kind=defined
+
+--- args -> Array
+
+設定ファイルオブジェクトに与えられたコマンドライン引数のリストを返します。
+

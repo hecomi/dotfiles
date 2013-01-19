@@ -1,0 +1,8 @@
+names=check_lexical_format
+visibility=public
+kind=defined
+
+--- check_lexical_format(value)
+@todo
+
+

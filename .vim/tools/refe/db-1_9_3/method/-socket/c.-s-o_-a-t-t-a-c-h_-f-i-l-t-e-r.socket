@@ -1,0 +1,12 @@
+names=SO_ATTACH_FILTER
+visibility=public
+kind=defined
+
+--- SO_ATTACH_FILTER -> Integer
+Attach socket filter。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:socket(7linux)]], [[url:http://git.kernel.org/?p=linux/kernel/git/torvalds/linux.git;a=blob;f=Documentation/networking/filter.txt;hb=HEAD]],
+     [[m:Socket::Constants::SOL_SOCKET]]
+

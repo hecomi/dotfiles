@@ -1,0 +1,8 @@
+names=__name__
+visibility=public 
+kind=defined
+
+--- __name__ -> String
+
+自身の名前を返します。
+

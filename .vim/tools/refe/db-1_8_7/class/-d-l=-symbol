@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=dl
+aliases=
+aliasof=
+
+ダイナミックライブラリの関数を表すクラスです。

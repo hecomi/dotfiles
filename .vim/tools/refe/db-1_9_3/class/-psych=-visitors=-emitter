@@ -1,0 +1,9 @@
+type=class
+superclass=Psych=Visitors=Visitor
+included=
+extended=
+library=psych.visitors.emitter
+aliases=
+aliasof=
+
+

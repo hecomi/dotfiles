@@ -1,0 +1,8 @@
+names=match_segment
+visibility=public
+kind=defined
+
+--- match_segment(ypath, depth) -> Array
+
+ライブラリの内部で使用します。
+

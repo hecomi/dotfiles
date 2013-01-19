@@ -1,0 +1,19 @@
+names=sqrt
+visibility=public
+kind=defined
+
+--- sqrt(z) -> Float | Complex
+
+z の平方根を返します。
+
+@param z 数値
+
+@raise TypeError z に数値以外を指定した場合に発生します。
+
+例:
+
+  require "cmath"
+  CMath.sqrt(-1)               # => (0+1.0i)
+  CMath.sqrt(1)                # => 1.0
+  CMath.sqrt(Complex(0, 8))    # => (2.0+2.0i)
+

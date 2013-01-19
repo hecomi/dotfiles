@@ -1,0 +1,7 @@
+names=on_xmldecl_encoding
+visibility=public
+kind=defined
+
+--- on_xmldecl_encoding(str)
+@todo
+

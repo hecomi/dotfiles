@@ -1,0 +1,8 @@
+names=default_executable
+visibility=public
+kind=defined
+
+--- default_executable -> String | nil
+
+Gem パッケージ内で gem コマンド経由で実行するファイルを返します。
+

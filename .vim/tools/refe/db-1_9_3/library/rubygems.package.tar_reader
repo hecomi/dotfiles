@@ -1,0 +1,8 @@
+requires=
+classes=Gem=Package=TarReader,Gem=Package=TarReader=UnexpectedEOF
+methods=
+sublibraries=rubygems.package.tar_reader.entry
+is_sublibrary=true
+category=
+
+gem-format な tar ファイルを読むためのクラスを提供するライブラリです。

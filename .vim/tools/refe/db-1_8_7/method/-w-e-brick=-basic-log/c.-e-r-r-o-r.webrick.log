@@ -1,0 +1,8 @@
+names=ERROR
+visibility=public
+kind=defined
+
+--- ERROR
+
+ログレベルを表す定数です。重要度は2番です。
+

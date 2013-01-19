@@ -1,0 +1,7 @@
+names=MD5
+visibility=public
+kind=added
+
+--- MD5 -> Class
+
+[[c:Digest::MD5]] です。

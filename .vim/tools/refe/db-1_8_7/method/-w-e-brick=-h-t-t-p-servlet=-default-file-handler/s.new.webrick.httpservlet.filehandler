@@ -1,0 +1,14 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(server, local_path) -> WEBrick::HTTPServlet::DefaultFileHandler
+
+DefaultFileHandler サーブレットを生成します。ユーザが直接使うことはあま
+りありません。
+
+@param server [[c:WEBrick::GenericServer]] のサブクラスのインスタンスを
+              指定します。
+
+@param local_path 処理するファイルのパスを指定します。
+

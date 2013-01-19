@@ -1,0 +1,9 @@
+names=sysopen
+visibility=public
+kind=defined
+
+--- sysopen(*args) -> Integer
+IO.sysopen(self.to_s, *args)と同じです。
+
+@see [[m:IO.sysopen]]
+

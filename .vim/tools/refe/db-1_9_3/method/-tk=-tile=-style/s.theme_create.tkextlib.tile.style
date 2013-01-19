@@ -1,0 +1,7 @@
+names=theme_create
+visibility=public
+kind=defined
+
+--- theme_create(name, keys = nil)
+@todo
+

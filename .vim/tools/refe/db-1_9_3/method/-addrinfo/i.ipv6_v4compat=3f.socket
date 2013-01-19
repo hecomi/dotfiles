@@ -1,0 +1,8 @@
+names=ipv6_v4compat?
+visibility=public
+kind=defined
+
+--- ipv6_v4compat? -> bool
+IPv6 の v4互換アドレス(::/80)であれば真を返します。
+
+

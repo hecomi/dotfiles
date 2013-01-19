@@ -1,0 +1,18 @@
+names=default_proc=
+visibility=public
+kind=defined
+
+--- default_proc=(pr)
+
+ハッシュのデフォルト値を返す [[c:Proc]] オブジェクトを
+変更します。
+
+以前のデフォルトは値([[m:Hash#default]])の場合も
+Proc の場合([[m:Hash#default_proc]])でも上書きされます。
+
+引数には to_proc で [[c:Proc]] オブジェクトに変換できる
+オブジェクトも受け付けます。
+
+@param pr デフォルト値を返す手続きオブジェクト
+@see [[m:Hash#default_proc]], [[m:Hash#default]]
+

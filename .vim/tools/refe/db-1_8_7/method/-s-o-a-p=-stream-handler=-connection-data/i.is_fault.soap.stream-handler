@@ -1,0 +1,8 @@
+names=is_fault,is_fault=
+visibility=public
+kind=defined
+
+--- is_fault
+--- is_fault=(value)
+@todo
+

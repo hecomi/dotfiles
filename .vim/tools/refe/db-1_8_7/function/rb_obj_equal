@@ -1,0 +1,10 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=rb_obj_equal
+params=(VALUE obj1, VALUE obj2)
+
+
+obj1 と obj2 が同一のオブジェクトなら真。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=OpenSSL=OpenSSLError
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+OpenSSL の公開鍵関連のエラーの場合に発生する例外

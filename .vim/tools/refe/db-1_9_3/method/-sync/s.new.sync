@@ -1,0 +1,11 @@
+names=new
+visibility=public
+kind=defined
+
+--- new -> Sync
+
+[[c:Sync_m]]をincludeしたクラスのオブジェクトを返します。
+使い方は[[c:Sync_m]]を参照してください。
+
+@see [[c:Sync_m]]
+

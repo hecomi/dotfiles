@@ -1,0 +1,7 @@
+names=create_method_response
+visibility=public
+kind=defined
+
+--- create_method_response(response_name = nil)
+@todo
+

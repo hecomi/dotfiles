@@ -1,0 +1,8 @@
+names=display_char,display_chars
+visibility=public
+kind=defined
+
+--- display_chars(mod)
+--- display_char(mod)
+@todo
+

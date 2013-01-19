@@ -1,0 +1,21 @@
+names=connect_to
+visibility=public
+kind=defined
+
+--- connect_to(host, port) -> Socket
+--- connect_to(host, port){|sock| ... } -> object
+
+自身のアドレスから指定したホストへソケット接続します。
+
+接続元のアドレスは [[m:Addrinfo#family_addrinfo]] により生成された
+ものが用いられます。
+
+ブロックが渡されたときにはそのブロックに接続済み [[c:Socket]]
+オブジェクトが渡されます。ブロックの返り値がメソッドの返り値となります。
+ブロックを省略した場合は、接続済み [[c:Socket]]
+オブジェクトが返されます。
+
+@param host ホスト(IP アドレスもしくはホスト名)
+@param port ポート番号(整数)もしくはサービス名(文字列)
+
+

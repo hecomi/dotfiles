@@ -1,0 +1,7 @@
+names=tk_send_to_simplelist
+visibility=public
+kind=defined
+
+--- tk_send_to_simplelist(cmd, *rest)
+@todo
+

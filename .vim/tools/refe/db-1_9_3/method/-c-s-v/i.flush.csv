@@ -1,0 +1,8 @@
+names=flush
+visibility=public
+kind=defined
+
+--- flush    -> self
+
+[[m:IO#flush]] に委譲します。
+

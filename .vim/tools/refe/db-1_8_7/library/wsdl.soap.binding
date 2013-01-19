@@ -1,0 +1,8 @@
+requires=wsdl.info
+classes=WSDL=SOAP=Binding
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

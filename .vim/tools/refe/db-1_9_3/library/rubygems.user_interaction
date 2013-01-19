@@ -1,0 +1,8 @@
+requires=
+classes=Gem=DefaultUserInteraction,Gem=UserInteraction,Gem=StreamUI,Gem=StreamUI=SilentProgressReporter,Gem=StreamUI=SimpleProgressReporter,Gem=StreamUI=VerboseProgressReporter,ConsoleUI,SilentUI
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+ユーザとのやりとりを行うライブラリです。

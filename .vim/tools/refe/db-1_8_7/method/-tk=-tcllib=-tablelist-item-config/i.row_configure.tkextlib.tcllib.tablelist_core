@@ -1,0 +1,7 @@
+names=row_configure
+visibility=public
+kind=defined
+
+--- row_configure(tagOrId, slot, value = None)
+@todo
+

@@ -1,0 +1,8 @@
+names=insert_list,insertlist
+visibility=public
+kind=defined
+
+--- insert_list(idx, list)
+--- insertlist(idx, list)
+@todo
+

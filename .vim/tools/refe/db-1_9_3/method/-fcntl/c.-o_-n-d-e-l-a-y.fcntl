@@ -1,0 +1,8 @@
+names=O_NDELAY,O_NONBLOCK
+visibility=public
+kind=defined
+
+--- O_NONBLOCK -> Integer
+--- O_NDELAY -> Integer
+ファイルを non-blocking モードで開きます。
+

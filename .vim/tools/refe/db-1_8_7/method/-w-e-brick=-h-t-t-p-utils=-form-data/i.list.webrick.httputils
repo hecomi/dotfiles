@@ -1,0 +1,19 @@
+names=list,to_ary
+visibility=public
+kind=defined
+
+--- list      -> Array
+--- to_ary    -> Array
+
+自身が表す各フォームデータを収納した配列を生成して返します。
+
+例:
+
+ require "webrick/cgi"
+ class MyCGI < WEBrick::CGI
+   def do_GET(req, res)
+     p req.query['q'].list    #=> ["val1", "val2", "val3"]
+   end
+ end
+ MyCGI.new.start()
+

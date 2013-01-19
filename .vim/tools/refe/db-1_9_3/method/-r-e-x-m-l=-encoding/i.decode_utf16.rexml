@@ -1,0 +1,8 @@
+names=decode_utf16
+visibility=public
+kind=added
+
+--- decode_utf16(str)
+@todo
+
+

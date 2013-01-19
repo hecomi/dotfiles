@@ -1,0 +1,7 @@
+names=delete_attribute
+visibility=public
+kind=defined
+
+--- delete_attribute(key)
+@todo
+

@@ -1,0 +1,8 @@
+names=cookie
+visibility=public
+kind=defined
+
+--- cookie -> Hash
+
+クッキーを表すハッシュ。
+

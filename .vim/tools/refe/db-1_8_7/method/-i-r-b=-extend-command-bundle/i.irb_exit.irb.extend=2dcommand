@@ -1,0 +1,12 @@
+names=irb_exit
+visibility=public
+kind=defined
+
+--- irb_exit(ret = 0) -> object
+
+irb を終了します。ret で指定したオブジェクトを返します。
+
+@param ret 戻り値を指定します。
+
+ユーザが直接使用するものではありません。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=TkBindTag
+included=
+extended=
+library=tk.bindtag
+aliases=
+aliasof=
+
+

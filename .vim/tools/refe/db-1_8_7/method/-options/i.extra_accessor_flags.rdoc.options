@@ -1,0 +1,12 @@
+names=extra_accessor_flags
+visibility=public
+kind=defined
+
+--- extra_accessor_flags -> {String => String}
+
+コマンドライン引数の --accessor オプションで指定したアクセサがキー、ア
+クセサの種類が値のハッシュを返します。
+
+値は r、w、rw のいずれかです。それぞれ attr_reader、attr_writer、
+attr_accessor に対応します。
+

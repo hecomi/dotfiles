@@ -1,0 +1,8 @@
+names=spec
+visibility=public 
+kind=defined
+
+--- spec -> Gem::Specification
+
+Gem の [[c:Gem::Specification]] を返します。
+

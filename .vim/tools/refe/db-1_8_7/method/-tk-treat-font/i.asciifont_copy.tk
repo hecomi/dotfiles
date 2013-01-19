@@ -1,0 +1,9 @@
+names=asciifont_copy,latinfont_copy
+visibility=public
+kind=defined
+
+--- latinfont_copy(win, wintag = nil, winkey = nil, targetkey = nil)
+--- asciifont_copy(win, wintag = nil, winkey = nil, targetkey = nil)
+@todo
+
+

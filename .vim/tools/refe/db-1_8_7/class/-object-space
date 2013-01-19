@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+全てのオブジェクトを操作するためのモジュールです。

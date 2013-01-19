@@ -1,0 +1,9 @@
+names=accept_charset
+visibility=public
+kind=defined
+
+--- accept_charset -> String
+
+受けとることができるキャラクタセットを文字列で返します。
+デフォルトは UTF-8 です。
+

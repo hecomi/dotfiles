@@ -1,0 +1,11 @@
+names=iseuc
+visibility=public
+kind=added
+
+--- iseuc -> bool
+
+self が EUC-JP なバイト列として正当であるかどうかを判定します。
+
+[[m:Kconv.#iseuc]](self) と同じです。
+
+

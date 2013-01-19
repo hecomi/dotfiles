@@ -1,0 +1,11 @@
+type=class
+superclass=RDoc=ClassModule
+included=
+extended=
+library=rdoc.anon_class
+aliases=
+aliasof=
+
+匿名クラスを表現するクラスです。
+
+現在は使用されていません。

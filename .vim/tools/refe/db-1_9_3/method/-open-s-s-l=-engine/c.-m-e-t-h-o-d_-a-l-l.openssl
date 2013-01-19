@@ -1,0 +1,10 @@
+names=METHOD_ALL
+visibility=public
+kind=defined
+
+--- METHOD_ALL -> Integer
+engine が持っている機能をすべて openssl のデフォルトにすること
+を意味します。
+
+[[m:OpenSSL::Engine#set_default]] のフラグとして使います。
+

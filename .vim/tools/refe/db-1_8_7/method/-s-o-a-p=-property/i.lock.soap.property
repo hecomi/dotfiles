@@ -1,0 +1,7 @@
+names=lock
+visibility=public
+kind=defined
+
+--- lock(cascade = false)
+@todo
+

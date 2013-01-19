@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=pstore
+aliases=
+aliasof=
+
+ダミーのミューテックス。このクラスを使ってもスレッドセーフにはなりません。

@@ -1,0 +1,8 @@
+names=sync=
+visibility=public
+kind=defined
+
+--- sync=(newstate)
+
+[[m:IO#sync=]] に委譲します。
+

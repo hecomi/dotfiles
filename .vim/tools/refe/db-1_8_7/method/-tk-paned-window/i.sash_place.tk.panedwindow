@@ -1,0 +1,7 @@
+names=sash_place
+visibility=public
+kind=defined
+
+--- sash_place(index, x, y)
+@todo
+

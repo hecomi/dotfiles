@@ -1,0 +1,9 @@
+requires=test.unit.ui.testrunnerutilities,test.unit.ui.testrunnermediator,test.unit,test.unit.testcase,test.unit.assertions,test.unit.testsuite,test.unit.autorunner,test.unit.util.observable,test.unit.testresult
+classes=Test=Unit=UI=GTK=TestRunner
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+GTK を用いた UI 上でユニットテストを実行し、結果を表示するためのライブ
+ラリです。

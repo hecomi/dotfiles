@@ -1,0 +1,8 @@
+requires=xsd.codegen.gensupport,wsdl.xmlSchema.importer,soap.httpconfigloader,soap.property,wsdl.xmlSchema.parser,xsd.qname,xsd.ns,xsd.charset,xsd.datatypes,xsd.xmlparser,wsdl.xmlSchema.data,wsdl.xmlSchema.annotation,wsdl.info,wsdl.xmlSchema.schema,xsd.namedelements,wsdl.xmlSchema.import,wsdl.xmlSchema.include,wsdl.xmlSchema.simpleType,wsdl.xmlSchema.simpleRestriction,wsdl.xmlSchema.simpleExtension,wsdl.xmlSchema.complexType,wsdl.xmlSchema.content,wsdl.xmlSchema.element,wsdl.xmlSchema.complexContent,wsdl.xmlSchema.simpleContent,wsdl.xmlSchema.any,wsdl.xmlSchema.all,wsdl.xmlSchema.choice,wsdl.xmlSchema.sequence,wsdl.xmlSchema.attribute,wsdl.xmlSchema.unique,wsdl.xmlSchema.enumeration,wsdl.xmlSchema.length,wsdl.xmlSchema.pattern,wsdl.soap.classDefCreator,wsdl.data,wsdl.wsdl,wsdl.documentation,wsdl.definitions,wsdl.types,wsdl.message,wsdl.part,wsdl.portType,wsdl.operation,wsdl.param,wsdl.binding,wsdl.operationBinding,wsdl.service,wsdl.port,wsdl.import,wsdl.importer,wsdl.parser,wsdl.soap.data,wsdl.soap.definitions,soap.mapping,soap.mapping.mapping,soap.mapping.registry,soap.baseData,soap.soap,soap.mapping.typeMap,soap.mapping.factory,soap.mapping.rubytypeFactory,wsdl.soap.binding,wsdl.soap.operation,wsdl.soap.body,wsdl.soap.element,wsdl.soap.header,wsdl.soap.headerfault,wsdl.soap.fault,wsdl.soap.address,wsdl.soap.complexType,wsdl.soap.classDefCreatorSupport,xsd.codegen
+classes=WSDL=XMLSchema=XSD2Ruby
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

@@ -1,0 +1,10 @@
+names=SIMPLE_LIST_RE
+visibility=public
+kind=defined
+
+--- SIMPLE_LIST_RE -> Regexp
+
+リストにマッチする正規表現です。ライブラリの内部で使用します。
+
+ラベルの有無を問わずマッチします。
+

@@ -1,0 +1,16 @@
+names=start_document
+visibility=public
+kind=defined
+
+--- start_document(version, tags, implicit) -> Psych::Emitter
+@todo
+
+Start a document emission with YAML +version+, +tags+, and an +implicit+
+start.
+
+自身を返します。
+
+@raise RuntimeError tag tuple の長さが 2 以下の場合に発生します。
+
+@see [[m:Psych::Handler#start_document]]
+

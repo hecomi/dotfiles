@@ -1,0 +1,8 @@
+names=allow_unqualified_element,allow_unqualified_element=
+visibility=public
+kind=defined
+
+--- allow_unqualified_element
+--- allow_unqualified_element=(value)
+@todo
+

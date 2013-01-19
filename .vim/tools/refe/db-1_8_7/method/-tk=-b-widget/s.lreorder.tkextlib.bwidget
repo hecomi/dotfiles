@@ -1,0 +1,9 @@
+names=lreorder
+visibility=public
+kind=defined
+
+--- lreorder(list, neworder)
+@todo
+
+
+

@@ -1,0 +1,14 @@
+names=tr,trace
+visibility=public
+kind=defined
+
+--- trace -> Fixnum | Float | Rational
+--- tr -> Fixnum | Float | Rational
+
+トレース (trace) を返します。
+
+行列のトレース (trace) とは、対角要素の和です。
+
+例:
+  Matrix[[7,6], [3,9]].trace #=> 16
+

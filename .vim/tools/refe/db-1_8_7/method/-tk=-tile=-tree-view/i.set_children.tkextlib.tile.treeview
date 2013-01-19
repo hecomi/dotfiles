@@ -1,0 +1,7 @@
+names=set_children
+visibility=public
+kind=defined
+
+--- set_children(item, *items)
+@todo
+

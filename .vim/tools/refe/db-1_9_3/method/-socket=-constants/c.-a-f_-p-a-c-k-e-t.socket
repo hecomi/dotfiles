@@ -1,0 +1,11 @@
+names=AF_PACKET,PF_PACKET
+visibility=public
+kind=defined
+
+--- AF_PACKET -> Integer
+--- PF_PACKET -> Integer
+
+デバイスレベルインターフェース。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:socket(2linux)]], [[man:packet(7linux)]]     

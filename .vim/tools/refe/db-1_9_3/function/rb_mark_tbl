@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=false
+type=void
+name=rb_mark_tbl
+params=(st_table *tbl)
+
+

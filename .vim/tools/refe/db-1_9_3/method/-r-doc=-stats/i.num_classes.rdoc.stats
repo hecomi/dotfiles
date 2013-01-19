@@ -1,0 +1,8 @@
+names=num_classes
+visibility=public
+kind=defined
+
+--- num_classes -> Integer
+
+解析したクラスの数を返します。
+

@@ -1,0 +1,7 @@
+names=cell_configinfo
+visibility=public
+kind=defined
+
+--- cell_configinfo(tagOrId, slot = nil)
+@todo
+

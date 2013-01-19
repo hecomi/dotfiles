@@ -1,0 +1,11 @@
+names=inspect,to_s
+visibility=public
+kind=defined
+
+--- inspect -> String
+--- to_s -> String
+
+オブジェクトを人間が読める形式に変換した文字列を返します。
+
+@see [[m:Object#inspect]]
+

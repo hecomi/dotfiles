@@ -1,0 +1,11 @@
+names=cols
+visibility=public
+kind=defined
+
+--- cols -> Integer
+
+画面に表示可能な桁数(バイト)を返します。
+
+ただし実際にはもう 1 バイト少なくしか表示できないライブラリが
+あるようです。
+

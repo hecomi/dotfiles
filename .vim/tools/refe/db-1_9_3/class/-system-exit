@@ -1,0 +1,9 @@
+type=class
+superclass=Exception
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+Ruby インタプリタを終了させるときに発生します。

@@ -1,0 +1,12 @@
+.coords_3D_to_pixel	Tk::Tcllib::Plotchart.coords_3D_to_pixel
+.coords_to_pixel	Tk::Tcllib::Plotchart.coords_to_pixel
+.determine_scale	Tk::Tcllib::Plotchart.determine_scale
+.package_name	Tk::Tcllib::Plotchart.package_name
+.package_version	Tk::Tcllib::Plotchart.package_version
+.pixel_to_coords	Tk::Tcllib::Plotchart.pixel_to_coords
+.polar_coordinates	Tk::Tcllib::Plotchart.polar_coordinates
+.polar_to_pixel	Tk::Tcllib::Plotchart.polar_to_pixel
+.set_zoom_pan	Tk::Tcllib::Plotchart.set_zoom_pan
+.view_port	Tk::Tcllib::Plotchart.view_port
+.world_3D_coordinates	Tk::Tcllib::Plotchart.world_3D_coordinates
+.world_coordinates	Tk::Tcllib::Plotchart.world_coordinates

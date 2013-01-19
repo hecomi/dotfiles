@@ -1,0 +1,9 @@
+type=class
+superclass=CSV=Reader
+included=
+extended=
+library=csv
+aliases=
+aliasof=
+
+CSVの読み込み処理を行うクラス

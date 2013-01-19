@@ -1,0 +1,11 @@
+names=RLIMIT_DATA
+visibility=public
+kind=defined
+
+--- RLIMIT_DATA -> Fixnum
+
+リソースの種類がプロセスのデータ領域のサイズであることを示す定数です。
+
+[[m:Process.#getrlimit]]、[[m:Process.#setrlimit]] で使われます。
+システムによっては定義されていません。
+

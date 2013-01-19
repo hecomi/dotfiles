@@ -1,0 +1,8 @@
+names=ascii_replace,latin_replace
+visibility=public
+kind=defined
+
+--- latin_replace(ltn)
+--- ascii_replace(ltn)
+@todo
+

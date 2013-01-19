@@ -1,0 +1,8 @@
+names=read_file,readfile
+visibility=public
+kind=defined
+
+--- readfile(file, pri = Tk::None)
+--- read_file(file, pri = Tk::None)
+@todo
+

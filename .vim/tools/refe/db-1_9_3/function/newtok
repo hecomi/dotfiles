@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=true
+type=char *
+name=newtok
+params=(void)
+
+
+トークンバッファを初期化またはクリアし、
+次のトークンを開始する。
+

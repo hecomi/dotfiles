@@ -1,0 +1,11 @@
+names=readpartial
+visibility=public
+kind=defined
+
+--- readpartial(length, str = nil) -> String
+[[m:IO#readpartial]]を参照
+
+@see [[m:IO#readpartial]]
+
+
+

@@ -1,0 +1,25 @@
+names=min_by
+visibility=public
+kind=defined
+
+--- min_by               -> Enumerator
+--- min_by {|item| ... } -> object
+
+各要素を順番にブロックに渡して評価し、
+その評価結果を <=> で比較して、
+最小であった値に対応する元の要素を返します。
+
+要素が存在しないときは nil を返します。
+
+該当する要素が複数存在する場合、どの要素を返すかは不定です。
+
+ブロックを省略した場合は、各要素を順番にブロックに渡して評価し、
+その結果が最小となる値に対応する要素を返す [[c:Enumerator]] を
+返します。
+
+[[m:Enumerable#min]] と [[m:Enumerable#min_by]] の
+違いは [[m:Enumerable#sort]] と [[m:Enumerable#sort_by]] の違いと同じです。
+
+@see [[m:Enumerable#sort_by]]
+
+

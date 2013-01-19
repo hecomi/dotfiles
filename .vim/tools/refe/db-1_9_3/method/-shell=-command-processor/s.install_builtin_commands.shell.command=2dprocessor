@@ -1,0 +1,8 @@
+names=install_builtin_commands
+visibility=public
+kind=defined
+
+--- install_builtin_commands -> ()
+
+ビルトインコマンドを定義します。
+

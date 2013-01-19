@@ -1,0 +1,9 @@
+names=digest
+visibility=public
+kind=defined
+
+--- digest(data) -> String
+data のダイジェストを RIPEMD160 で計算します。
+
+@param data ダイジェストを計算する文字列
+

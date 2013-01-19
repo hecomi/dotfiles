@@ -1,0 +1,9 @@
+names=begy
+visibility=public
+kind=defined
+
+--- begy -> Integer
+
+親ウィンドウの中でウィンドウの左上がある y 座標を返します。
+始点は 0 です。
+

@@ -1,0 +1,8 @@
+names=SCREATE
+visibility=public
+kind=defined
+
+--- SCREATE -> Integer
+
+Shift + Create キーを表す定数です。
+

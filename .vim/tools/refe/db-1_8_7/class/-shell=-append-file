@@ -1,0 +1,9 @@
+type=class
+superclass=Shell=AppendIO
+included=
+extended=
+library=shell.builtin=2dcommand
+aliases=
+aliasof=
+
+

@@ -1,0 +1,7 @@
+names=start_sequence
+visibility=public
+kind=defined
+
+--- start_sequence(anchor, tag, implicit, style)
+@todo
+

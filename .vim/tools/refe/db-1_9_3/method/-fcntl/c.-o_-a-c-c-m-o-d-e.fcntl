@@ -1,0 +1,7 @@
+names=O_ACCMODE
+visibility=public
+kind=defined
+
+--- O_ACCMODE -> Integer
+ファイルアクセスモードのマスクです。
+

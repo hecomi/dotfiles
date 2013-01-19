@@ -1,0 +1,7 @@
+names=teardown
+visibility=public
+kind=defined
+
+--- teardown    -> ()
+各テストメソッドが呼ばれた後に必ず呼ばれます。
+

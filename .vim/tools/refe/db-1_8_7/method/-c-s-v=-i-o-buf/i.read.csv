@@ -1,0 +1,9 @@
+names=read
+visibility=private 
+kind=defined
+
+--- read(size) -> ()
+バッファリングしたデータの読み出しを行います。
+
+@param size 読み出しデータサイズ
+

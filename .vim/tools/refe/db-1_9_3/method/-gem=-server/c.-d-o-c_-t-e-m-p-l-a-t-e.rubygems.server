@@ -1,0 +1,8 @@
+names=DOC_TEMPLATE
+visibility=public
+kind=defined
+
+--- DOC_TEMPLATE -> String
+
+ドキュメントのテンプレートを表す文字列です。
+

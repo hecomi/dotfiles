@@ -1,0 +1,8 @@
+names=raise,raise_window
+visibility=public
+kind=defined
+
+--- raise(above = Tk::None)
+--- raise_window(above = Tk::None)
+@todo
+

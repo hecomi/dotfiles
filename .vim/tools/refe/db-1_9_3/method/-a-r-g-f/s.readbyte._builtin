@@ -1,0 +1,12 @@
+names=readbyte
+visibility=public
+kind=defined
+
+--- readbyte   -> Integer
+
+自身から 1 バイトを読み込み整数として返します。
+既に EOF に達していれば EOFError が発生します。
+
+@raise EOFError 既に EOF に達している場合に発生します。
+
+

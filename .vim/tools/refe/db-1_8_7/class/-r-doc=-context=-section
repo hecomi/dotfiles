@@ -1,0 +1,14 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rdoc.code_objects
+aliases=
+aliasof=
+
+section に関する情報を保持するクラスです。
+
+ドキュメント中で以下のように記述した情報を保持しています。
+
+  # :section: The title
+  # The body

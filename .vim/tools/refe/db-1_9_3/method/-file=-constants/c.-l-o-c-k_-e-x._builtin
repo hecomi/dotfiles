@@ -1,0 +1,8 @@
+names=LOCK_EX
+visibility=public
+kind=defined
+
+--- LOCK_EX -> Integer
+排他ロック。同時にはただひとつのプロセスだけがロックを保持できます。
+[[m:File#flock]] で使用します。
+

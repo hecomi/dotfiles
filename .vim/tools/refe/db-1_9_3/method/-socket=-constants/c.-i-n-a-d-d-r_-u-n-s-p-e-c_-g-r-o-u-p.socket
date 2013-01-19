@@ -1,0 +1,10 @@
+names=INADDR_UNSPEC_GROUP
+visibility=public
+kind=defined
+
+--- INADDR_UNSPEC_GROUP -> Integer
+The reserved multicast group。
+IPv4の 244.0.0.0 に対応する整数です。
+
+@see [[url:http://www.iana.org/assignments/multicast-addresses/multicast-addresses.xml]], [[RFC:5771]]
+

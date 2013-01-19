@@ -1,0 +1,10 @@
+names=map
+visibility=public
+kind=defined
+
+--- map(tag = self.tag, style = self.style)
+--- map(tag = self.tag, style = self.style) { ... }
+@todo
+
+Emit a map.  The coder will be yielded to the block.
+

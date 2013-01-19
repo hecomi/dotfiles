@@ -1,0 +1,16 @@
+names=unix_rights
+visibility=public
+kind=defined
+
+--- unix_rights(*ios) -> Socket::AncillaryData
+ios で指定したファイルのファイルデスクリプタを
+データとして持つ family=AF_UNIX, level=SOL_SOCKET, type=SCM_RIGHTS
+という Socket::AncillaryData オブジェクトを生成して返します。
+
+  p Socket::AncillaryData.unix_rights(STDERR)
+  #=> #<Socket::AncillaryData: UNIX SOCKET RIGHTS 2>
+
+@param ios IO オブジェクトの配列
+@see [[m:Socket::AncillaryData#unix_rights]],
+     [[m:Socket::Constants::SCM_RIGHTS]]
+

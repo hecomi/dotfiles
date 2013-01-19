@@ -1,0 +1,14 @@
+names=squeeze!
+visibility=public
+kind=redefined
+
+--- squeeze!(str = nil) -> self | nil
+
+[[m:String#squeeze!]] の日本語対応版です。
+指定した文字を1文字にまとめた文字列に自身を置き換えます。
+
+ただしこのメソッドは置き換え前の物とは異なり、
+2つ以上の引数を取ることはできません。
+
+@param str 1文字にまとめる文字のパターン。
+    

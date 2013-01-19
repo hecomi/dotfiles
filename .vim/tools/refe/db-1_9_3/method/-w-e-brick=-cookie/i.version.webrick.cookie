@@ -1,0 +1,10 @@
+names=version,version=
+visibility=public
+kind=defined
+
+--- version           -> Integer
+--- version=(value)
+
+Cookie のバージョン番号を整数で表すアクセサです。
+
+@param value Cookie のバージョン番号を整数で指定します。

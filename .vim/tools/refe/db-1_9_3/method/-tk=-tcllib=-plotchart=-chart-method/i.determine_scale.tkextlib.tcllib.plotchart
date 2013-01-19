@@ -1,0 +1,7 @@
+names=determine_scale
+visibility=public
+kind=defined
+
+--- determine_scale(xmax, ymax)
+@todo
+

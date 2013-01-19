@@ -1,0 +1,171 @@
+class,IO,m17n,多言語化と IO のエンコーディング
+class,IO,io_encoding,IO のエンコーディングとエンコーディングの変換
+class,Proc,should_use_next,手続きを中断して値を返す
+class,Proc,block,Proc オブジェクトをブロック付きメソッド呼び出しに使う
+class,Proc,lambda_proc,lambda と proc と Proc.new とイテレータの違い
+class,Proc,orphan,orphan な手続きオブジェクトの挙動
+class,String,mutable,破壊的な変更
+class,String,m17n,多言語化と文字列のエンコーディング
+class,Thread,exception,例外発生時のスレッドの振る舞い
+class,FileUtils,options,オプションの説明
+class,OpenSSL::X509,verify_error,検証時エラー定数
+library,iconv,gnu_options,環境依存の機能
+library,irb,customize_prompt,プロンプトのカスタマイズ
+library,irb,configure_sub_irb,サブ irb の設定
+library,irb,history,履歴の保存
+library,irb,inspect_mode,実行結果の出力方式
+library,openssl,references,参考文献
+library,optparse,optiondef,オプションの定義
+library,optparse,optionarg,オプションの引数
+library,optparse,longoption,ロングオプション
+library,optparse,help,ヘルプ
+library,optparse,subcmd,サブコマンド
+library,optparse,argv,ARGV の機能
+library,optparse,hyphen_start_file,'-'で始まるファイル名
+library,rdoc,usage,使いかた
+library,rdoc,markup,Markup
+library,rdoc,list,リスト
+library,rdoc,labeled_list,ラベル付きリスト
+library,rdoc,headline,見出し
+library,rdoc,ruled_line,罫線
+library,rdoc,italic_bold_typewriter,イタリック体、ボールド体、タイプライター体
+library,rdoc,escape,エスケープ
+library,rdoc/markup,output_format,出力可能な形式
+library,socket,host_format,ホスト指定形式
+library,socket,service_format,サービス指定形式
+library,socket,pack_string,ソケットアドレス構造体を pack した文字列
+method,Kernel.#lambda,should_use_next,手続きを中断して値を返す
+method,Kernel.#proc,should_use_next,手続きを中断して値を返す
+method,Kernel.#lambda,block,Proc オブジェクトをブロック付きメソッド呼び出しに使う
+method,Kernel.#proc,block,Proc オブジェクトをブロック付きメソッド呼び出しに使う
+method,Kernel.#lambda,lambda_proc,lambda と proc と Proc.new とイテレータの違い
+method,Kernel.#proc,lambda_proc,lambda と proc と Proc.new とイテレータの違い
+method,Kernel.#lambda,orphan,orphan な手続きオブジェクトの挙動
+method,Kernel.#proc,orphan,orphan な手続きオブジェクトの挙動
+method,String#scanf,format,scanfフォーマット文字列
+doc,spec/lexical,identifier,識別子
+doc,spec/lexical,comment,コメント
+doc,spec/lexical,embed,埋め込みドキュメント
+doc,spec/lexical,reserved,予約語
+doc,spec/operator,assign,代入
+doc,spec/operator,selfassign,自己代入
+doc,spec/operator,multiassign,多重代入
+doc,spec/operator,range,範囲式
+doc,spec/operator,range_cond,条件式としての範囲式
+doc,spec/operator,and,and
+doc,spec/operator,or,or
+doc,spec/operator,not,not
+doc,spec/operator,cond,条件演算子
+doc,spec/control,if,if
+doc,spec/control,unless,unless
+doc,spec/control,case,case
+doc,spec/control,while,while
+doc,spec/control,until,until
+doc,spec/control,for,for
+doc,spec/control,break,break
+doc,spec/control,next,next
+doc,spec/control,redo,redo
+doc,spec/control,retry,retry
+doc,spec/control,raise,raise
+doc,spec/control,begin,begin
+doc,spec/control,return,return
+doc,spec/control,BEGIN,BEGIN
+doc,spec/control,END,END
+doc,spec/rubycmd,cmd_option,コマンドラインオプション
+doc,spec/rubycmd,shebang,インタプリタ行の解釈
+doc,spec/call,super,super
+doc,spec/call,block,ブロック付きメソッド呼び出し
+doc,spec/call,yield,yield
+doc,spec/call,block_arg,ブロックパラメータの挙動
+doc,spec/variables,local,ローカル変数
+doc,spec/variables,instance,インスタンス変数
+doc,spec/variables,class,クラス変数
+doc,spec/variables,class_var_scope,クラス変数のスコープ
+doc,spec/variables,global,グローバル変数
+doc,spec/variables,builtin,組み込み変数
+doc,spec/variables,pseudo,疑似変数
+doc,spec/variables,const,定数
+doc,spec/variables,prio,定数参照の優先順位
+doc,spec/literal,num,数値リテラル
+doc,spec/literal,string,文字列リテラル
+doc,spec/literal,backslash,バックスラッシュ記法
+doc,spec/literal,exp,式展開
+doc,spec/literal,command,コマンド出力
+doc,spec/literal,here,ヒアドキュメント (行指向文字列リテラル)
+doc,spec/literal,regexp,正規表現リテラル
+doc,spec/literal,array,配列式
+doc,spec/literal,hash,ハッシュ式
+doc,spec/literal,range,範囲オブジェクト
+doc,spec/literal,symbol,シンボル
+doc,spec/literal,percent,%記法
+doc,spec/thread,exception,例外発生時のスレッドの振る舞い
+doc,spec/safelevel,level4,レベル 4
+doc,spec/def,class,クラス定義
+doc,spec/def,singleton_class,特異クラス定義
+doc,spec/def,module,モジュール定義
+doc,spec/def,method,メソッド定義
+doc,spec/def,operator,演算子式の定義
+doc,spec/def,nest_method,メソッド定義のネスト
+doc,spec/def,eval_method,メソッドの評価
+doc,spec/def,singleton_method,特異メソッド定義
+doc,spec/def,class_method,クラスメソッドの定義
+doc,spec/def,limit,呼び出し制限
+doc,spec/def,alias,alias
+doc,spec/def,undef,undef
+doc,spec/def,defined,defined?
+doc,spec/lambda_proc,def,手続きオブジェクトとは
+doc,spec/lambda_proc,should_use_next,手続きを中断して値を返す
+doc,spec/lambda_proc,block,Proc オブジェクトをブロック付きメソッド呼び出しに使う
+doc,spec/lambda_proc,lambda_proc,lambda と proc と Proc.new とイテレータの違い
+doc,spec/lambda_proc,orphan,orphan な手続きオブジェクトの挙動
+doc,spec/regexp,regexp,正規表現記号
+doc,spec/regexp,backref,後方参照
+doc,spec/regexp,string,文字クラス
+doc,spec/regexp,backtrack,バックトラック
+doc,spec/regexp,sample,サンプル
+doc,spec/m17n,m17n_prog,M17N プログラミングの基本
+doc,spec/m17n,convert,エンコーディングの変更
+doc,spec/m17n,ruby18,Ruby 1.8 からの移行
+doc,spec/m17n,encoding,Ruby がサポートするエンコーディング
+doc,spec/m17n,ascii_compat,ASCII互換エンコーディング
+doc,spec/m17n,7bit_clean,7bit クリーンな文字列
+doc,spec/m17n,binary,バイナリの取扱い
+doc,spec/m17n,dummy,ダミーエンコーディング
+doc,spec/m17n,script_encoding,スクリプトエンコーディング
+doc,spec/m17n,magic_comment,magic comment
+doc,spec/m17n,incompat,1.8 からのスクリプトエンコーディングに関する非互換性
+doc,spec/m17n,literal,リテラルのエンコーディング
+doc,symref,ex,!
+doc,symref,q,?
+doc,symref,num,#
+doc,symref,per,%
+doc,symref,and,&
+doc,symref,or,|
+doc,symref,plus,+
+doc,symref,minus,-
+doc,symref,ast,*
+doc,symref,slash,/
+doc,symref,hat,^
+doc,symref,colon,:
+doc,symref,period,.
+doc,symref,comma,\,
+doc,symref,langl,<
+doc,symref,rangl,>
+doc,symref,eq,=
+doc,symref,tilde,~
+doc,symref,dollar,$
+doc,symref,at,@
+doc,symref,under,_
+doc,symref,lbra,{
+doc,symref,rbra,}
+doc,symref,lbra2,[
+doc,symref,rbra2,]
+doc,symref,lbra3,(
+doc,symref,rbra3,)
+doc,symref,dq,"
+doc,symref,sq,'
+doc,symref,ac,`
+doc,symref,backslash,\
+doc,symref,semicolon,;
+doc,spec/program,exp,式
+doc,spec/program,terminate,プログラムの終り

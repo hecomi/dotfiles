@@ -1,0 +1,10 @@
+names=correct?
+visibility=public
+kind=defined
+
+--- correct?(version) -> bool
+
+version が正しいバージョンであれば真を返します。そうでなければ偽を返します。
+
+@param version バージョンを文字列か数値で指定します。
+

@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=false_to_s
+params=(VALUE obj)
+
+

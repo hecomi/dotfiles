@@ -1,0 +1,9 @@
+type=class
+superclass=TkEntry
+included=
+extended=
+library=tk.spinbox
+aliases=
+aliasof=Spinbox
+
+

@@ -1,0 +1,7 @@
+names=tcl_pkgconfig_get
+visibility=public
+kind=defined
+
+--- tcl_pkgconfig_get
+@todo
+

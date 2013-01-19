@@ -1,0 +1,7 @@
+names=kanji_input_start
+visibility=public
+kind=defined
+
+--- kanji_input_start(keys = nil)
+@todo
+

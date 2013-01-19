@@ -1,0 +1,8 @@
+requires=
+classes=Shell=BuiltInCommand,Shell=AppendFile,Shell=AppendIO,Shell=Cat,Shell=Concat,Shell=Echo,Shell=Glob,Shell=Tee,Shell=Void
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:Shell]] で使用するビルトインコマンドを定義しているライブラリです。

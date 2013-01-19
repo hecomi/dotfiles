@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+未定義のローカル変数や定数を使用したときに発生します。

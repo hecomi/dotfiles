@@ -1,0 +1,7 @@
+names=tagurize
+visibility=public
+kind=defined
+
+--- tagurize(val) -> String
+@todo
+

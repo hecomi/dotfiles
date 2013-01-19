@@ -1,0 +1,10 @@
+names=PURPOSE_ANY
+visibility=public
+kind=defined
+
+--- PURPOSE_ANY -> Integer
+証明書の目的を確認しないことを意味します。
+
+[[m:OpenSSL::X509::Store#purpose=]] や
+[[m:OpenSSL::X509::StoreContext#purpose=]] で設定します。
+

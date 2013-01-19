@@ -1,0 +1,10 @@
+names=odd?
+visibility=public
+kind=defined
+
+--- odd? -> bool
+
+自身が奇数であれば真を返します。
+そうでない場合は偽を返します。
+
+

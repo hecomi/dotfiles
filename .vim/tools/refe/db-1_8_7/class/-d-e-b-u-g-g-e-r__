@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=debug
+aliases=
+aliasof=
+
+ライブラリの内部で使用します。

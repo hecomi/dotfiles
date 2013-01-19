@@ -1,0 +1,7 @@
+names=image_cget
+visibility=public
+kind=defined
+
+--- image_cget(index, slot)
+@todo
+

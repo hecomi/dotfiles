@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=TkUtil,TkEvent
+extended=TkUtil,TkEvent
+library=tk
+aliases=
+aliasof=
+
+

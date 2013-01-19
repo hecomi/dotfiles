@@ -1,0 +1,8 @@
+names=skipHours
+visibility=public
+kind=defined
+
+--- skipHours
+@todo
+skipHoursを返します．
+

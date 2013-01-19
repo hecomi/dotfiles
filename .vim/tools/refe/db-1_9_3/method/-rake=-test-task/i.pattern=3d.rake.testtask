@@ -1,0 +1,9 @@
+names=pattern=
+visibility=public 
+kind=defined
+
+--- pattern=(pattern)
+
+テストファイルにマッチする glob パターンを指定します。
+
+

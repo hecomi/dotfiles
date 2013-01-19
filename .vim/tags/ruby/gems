@@ -1,0 +1,309 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+<<	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def <<( str )$/;"	f
+AlwaysDifferent	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  class AlwaysDifferent$/;"	c	class:MethodCompletionTester
+Class	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^class Class$/;"	c	class:load_test_classes
+ClassNode	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^  class ClassNode < ModuleNode$/;"	c	class:ReFe.InheritanceGraph
+ClassTable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class ClassTable$/;"	c	class:ReFe
+CompletionError	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class CompletionError < Error; end$/;"	c	class:ReFe
+CompletionTable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^  class CompletionTable$/;"	c	class:ReFe
+CompletionTableTester	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testcompletiontable.rb	/^class CompletionTableTester < RUNIT::TestCase$/;"	c
+Database	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class Database$/;"	c	class:ReFe
+DatabaseError	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class DatabaseError < Error; end$/;"	c	class:ReFe
+Encoding	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^  module Encoding$/;"	m	class:ReFe
+Error	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class Error < StandardError; end$/;"	c	class:ReFe
+ExtentionAPIReferenceManualParser	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/extrefmparser.rb	/^  class ExtentionAPIReferenceManualParser$/;"	c	class:ReFe
+ExtentionAPIReferenceManualParserTester	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testextrefmparser.rb	/^class ExtentionAPIReferenceManualParserTester < RUNIT::TestCase$/;"	c
+FSDBM	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^class FSDBM$/;"	c
+FatalError	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class FatalError < StandardError; end$/;"	c	class:ReFe
+File	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^class File$/;"	c
+FileUtils	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fileutils.rb	/^  module FileUtils$/;"	m	class:ReFe
+FunctionCompletionTester	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testfcompletion.rb	/^class FunctionCompletionTester < RUNIT::TestCase$/;"	c
+FunctionSearcher	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^  class FunctionSearcher$/;"	c	class:ReFe
+FunctionTable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class FunctionTable$/;"	c	class:ReFe
+InheritanceGraph	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^  class InheritanceGraph$/;"	c	class:ReFe
+InvalidGraph	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^  class InvalidGraph < StandardError; end$/;"	c	class:ReFe
+LineInput	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^class LineInput$/;"	c
+LookupError	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class LookupError < FatalError; end$/;"	c	class:ReFe
+MFRelationParser	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^  class MFRelationParser$/;"	c	class:ReFe
+MFRelationParserTester	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmfrelationparser.rb	/^class MFRelationParserTester < RUNIT::TestCase$/;"	c
+MFRelationTable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class MFRelationTable$/;"	c	class:ReFe
+MethodCompletion	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  module MethodCompletion$/;"	m	class:ReFe
+MethodCompletionTester	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^class MethodCompletionTester < RUNIT::TestCase$/;"	c
+MethodSearcher	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^  class MethodSearcher$/;"	c	class:ReFe
+MethodTable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^  class MethodTable$/;"	c	class:ReFe
+Module	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^class Module$/;"	c	class:load_test_classes
+ModuleNode	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^  class ModuleNode$/;"	c	class:ReFe.InheritanceGraph
+MultilangDocument	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/multilangdoc.rb	/^class MultilangDocument$/;"	c
+MyGetoptLong	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mygetopt.rb	/^class MyGetoptLong < GetoptLong$/;"	c
+OutputPolicy	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^  class OutputPolicy$/;"	c	class:ReFe
+RDUtils	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rdutils.rb	/^  module RDUtils$/;"	m	class:ReFe
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/config.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/extrefmparser.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fileutils.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/info.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rdutils.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubysrcparser.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^module ReFe$/;"	m
+ReFe	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/traceutils.rb	/^module ReFe$/;"	m
+ReferenceRDParser	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^  class ReferenceRDParser$/;"	c	class:ReFe
+RubyReferenceManualParser	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^  class RubyReferenceManualParser$/;"	c	class:ReFe
+RubyReferenceManualParserTester	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^class RubyReferenceManualParserTester < RUNIT::TestCase$/;"	c
+RubySourceCodeParser	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubysrcparser.rb	/^  class RubySourceCodeParser$/;"	c	class:ReFe
+RubySourceCodeParserTester	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubysrcparser.rb	/^class RubySourceCodeParserTester < RUNIT::TestCase$/;"	c
+String	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/extrefmparser.rb	/^class String$/;"	c
+StringInput	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^class StringInput$/;"	c
+StringOutput	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^class StringOutput$/;"	c
+TraceUtils	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/traceutils.rb	/^  module TraceUtils$/;"	m	class:ReFe
+[]	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []( method )$/;"	f	class:ReFe.MFRelationTable
+[]	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []( name )$/;"	f	class:ReFe.ClassTable
+[]	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []( name )$/;"	f	class:ReFe.FunctionTable
+[]	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []( name )$/;"	f	class:ReFe.MethodTable
+[]	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^  def []( *keys )$/;"	f	class:FSDBM
+[]	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^    def []( *key )$/;"	f	class:MethodCompletionTester.AlwaysDifferent
+[]=	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []=( method, function )$/;"	f	class:ReFe.MFRelationTable
+[]=	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []=( name, content )$/;"	f	class:ReFe.ClassTable
+[]=	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []=( name, content )$/;"	f	class:ReFe.FunctionTable
+[]=	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def []=( spec, content )$/;"	f	class:ReFe.MethodTable
+[]=	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^  def []=( *args )$/;"	f	class:FSDBM
+_get_method_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^    def _get_method_name( line )$/;"	f	class:ReFe.ReferenceRDParser
+_get_method_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def _get_method_name( line )$/;"	f	class:ReFe
+add	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^    def add( item )$/;"	f	class:ReFe.CompletionTable
+add_class_node	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def add_class_node( name, super_class )$/;"	f	class:ReFe.InheritanceGraph.add_include_edge
+add_include_edge	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def add_include_edge( dest, incl )$/;"	f	class:ReFe.InheritanceGraph
+add_relations	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def add_relations( relations, f )$/;"	f	class:ReFe.MFRelationParser
+adjust_encoding	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def adjust_encoding( str )$/;"	f	class:ReFe.Encoding
+ancestors	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def ancestors$/;"	f	class:ReFe.InheritanceGraph.ClassNode
+ancestors	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def ancestors$/;"	f	class:ReFe.InheritanceGraph.ModuleNode
+ancestors_of	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def ancestors_of( name )$/;"	f	class:ReFe.InheritanceGraph
+balanced?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def balanced?( line )$/;"	f	class:ReFe
+belongs_to_one_class?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def belongs_to_one_class?( items )$/;"	f	class:ReFe.MethodCompletion
+build_regexp	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def build_regexp( c, t, m, extended )$/;"	f	class:ReFe.MethodCompletion
+catch_specified	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def catch_specified$/;"	f	class:ReFe.MethodCompletion
+check_methods	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def check_methods( ok, result )$/;"	f	class:RubyReferenceManualParserTester
+class_and_method_exact_match	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def class_and_method_exact_match( items, ctarget, mtarget )$/;"	f	class:ReFe.MethodCompletion
+class_document	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def class_document$/;"	f	class:ReFe.Database
+class_document_comptable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def class_document_comptable$/;"	f	class:ReFe.Database
+class_document_dbm	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def class_document_dbm$/;"	f	class:ReFe.Database
+class_exact_match	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def class_exact_match( items, ctarget )$/;"	f	class:ReFe.MethodCompletion
+class_node	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def class_node( name )$/;"	f	class:ReFe.InheritanceGraph.add_include_edge
+class_re	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def class_re( c, extended_completion )$/;"	f	class:ReFe.MethodCompletion
+classes	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def classes$/;"	f	class:ReFe.ClassTable
+close	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def close$/;"	f
+closed?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def closed?$/;"	f
+compare_hash	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def compare_hash( ok, result )$/;"	f	class:RubyReferenceManualParserTester
+compile_class	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def compile_class( c )$/;"	f	class:ReFe.MethodCompletion
+compile_pattern	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def compile_pattern( pattern )$/;"	f	class:ReFe.ClassTable
+compile_pattern	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def compile_pattern( pattern )$/;"	f	class:ReFe.FunctionTable
+complete	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def complete( c, t, m )$/;"	f	class:ReFe.MFRelationTable
+complete	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def complete( c, t, m )$/;"	f	class:ReFe.MethodTable
+complete	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def complete( pattern )$/;"	f	class:ReFe.ClassTable
+complete	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def complete( words )$/;"	f	class:ReFe.FunctionTable
+complete	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testfcompletion.rb	/^  def complete( *args )$/;"	f	class:FunctionCompletionTester
+complete	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def complete( c, t, m )$/;"	f	class:MethodCompletionTester
+complete0	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def complete0( table, comptable, c, t, m )$/;"	f	class:ReFe.MethodCompletion
+curfile	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def curfile$/;"	f	class:ReFe
+decode	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^  def decode( str )$/;"	f	class:FSDBM
+deftype	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def deftype( line )$/;"	f	class:ReFe
+do_split	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def do_split( old )$/;"	f
+each	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/multilangdoc.rb	/^  def each$/;"	f	class:MultilangDocument
+each	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def each( &block )$/;"	f
+encode	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^  def encode( str )$/;"	f	class:FSDBM
+eof?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def eof?$/;"	f	class:LineInput
+eof?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/multilangdoc.rb	/^  def eof?$/;"	f	class:MultilangDocument
+eof?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def eof?$/;"	f
+exist_pages	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/misc/fetch-extrefm.rb	/^def exist_pages( h )$/;"	f
+expand	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^    def expand( re )$/;"	f	class:ReFe.CompletionTable
+extract	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/multilangdoc.rb	/^  def MultilangDocument.extract( f, lang )$/;"	F	class:MultilangDocument
+fail	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def fail( msg, status = 1 )$/;"	f	class:load_test_classes.Class
+file	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def file$/;"	f	class:File
+find_same_method	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^    def find_same_method( table, mnames )$/;"	f	class:ReFe.ReferenceRDParser
+find_same_method	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def find_same_method( table, mnames )$/;"	f	class:ReFe
+find_target_class	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def find_target_class( t_file, classes, target )$/;"	f
+find_target_class_0	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def find_target_class_0( classes, target )$/;"	f
+first_line	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/extrefmparser.rb	/^  def first_line$/;"	f	class:String
+flush	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^    def flush$/;"	f	class:ReFe.CompletionTable
+flush	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def flush$/;"	f	class:ReFe.ClassTable
+flush	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def flush$/;"	f	class:ReFe.FunctionTable
+flush	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def flush$/;"	f	class:ReFe.MFRelationTable
+flush	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def flush$/;"	f	class:ReFe.MethodTable
+function_document	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def function_document$/;"	f	class:ReFe.Database
+function_document_comptable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def function_document_comptable$/;"	f	class:ReFe.Database
+function_document_dbm	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def function_document_dbm$/;"	f	class:ReFe.Database
+function_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/extrefmparser.rb	/^    def function_name( str )$/;"	f	class:ReFe.ExtentionAPIReferenceManualParser
+function_source	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def function_source$/;"	f	class:ReFe.Database
+function_source_comptable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def function_source_comptable$/;"	f	class:ReFe.Database
+function_source_dbm	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def function_source_dbm$/;"	f	class:ReFe.Database
+get_function_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def get_function_name( line )$/;"	f	class:ReFe
+get_function_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubysrcparser.rb	/^    def get_function_name( header )$/;"	f	class:ReFe.RubySourceCodeParser
+get_method_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def get_method_name( line )$/;"	f	class:ReFe
+get_method_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^    def get_method_name( line, f )$/;"	f	class:ReFe.ReferenceRDParser
+get_method_name	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def get_method_name( line, f )$/;"	f	class:ReFe
+get_suite	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def get_suite( t_file, t_class, t_methods )$/;"	f
+getc	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def getc$/;"	f
+getclass	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def getclass( line )$/;"	f	class:ReFe
+getcvar	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def getcvar( line )$/;"	f	class:ReFe
+getmethod	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def getmethod( line )$/;"	f	class:ReFe
+gets	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def gets$/;"	f	class:LineInput
+gets	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/multilangdoc.rb	/^  def gets$/;"	f	class:MultilangDocument
+gets	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def gets$/;"	f
+gets_if	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def gets_if( re )$/;"	f	class:LineInput
+gets_unless	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def gets_unless( re )$/;"	f	class:LineInput
+include	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def include( mod )$/;"	f	class:ReFe.InheritanceGraph.ModuleNode
+inheritance_graph	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def inheritance_graph$/;"	f	class:ReFe.Database
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^    def initialize( path, writeok = false )$/;"	f	class:ReFe.CompletionTable
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def initialize( dbm, comp )$/;"	f	class:ReFe.ClassTable
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def initialize( dbm, comp )$/;"	f	class:ReFe.FunctionTable
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def initialize( dbm, comp )$/;"	f	class:ReFe.MethodTable
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def initialize( mdoc, mtof_dbm, mtof_comp, fsrc )$/;"	f	class:ReFe.MFRelationTable
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def initialize( rootdir = nil, init = false )$/;"	f	class:ReFe.Database
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^  def initialize( basedir )$/;"	f	class:FSDBM
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def initialize$/;"	f	class:ReFe.InheritanceGraph
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def initialize( name )$/;"	f	class:ReFe.InheritanceGraph.ModuleNode
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def initialize( name, super_node )$/;"	f	class:ReFe.InheritanceGraph.ClassNode
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def initialize( f )$/;"	f	class:LineInput
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/multilangdoc.rb	/^  def initialize( f, lang )$/;"	f	class:MultilangDocument
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def initialize( all, short, line )$/;"	f	class:ReFe.OutputPolicy
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def initialize( ctable, mtable, igraph, policy )$/;"	f	class:ReFe.MethodSearcher
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def initialize( table, policy )$/;"	f	class:ReFe.FunctionSearcher
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def initialize( str )$/;"	f
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def initialize( str = '' )$/;"	f
+initialize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^    def initialize$/;"	f	class:MethodCompletionTester.AlwaysDifferent
+inspect	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^    def inspect$/;"	f	class:ReFe.CompletionTable
+inspect	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def inspect$/;"	f	class:ReFe.InheritanceGraph.ModuleNode
+inspect	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def inspect$/;"	f
+instance_methods_of	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def instance_methods_of( c, include_super )$/;"	f	class:ReFe.MethodTable
+isdbdir	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def isdbdir( dir )$/;"	f	class:ReFe.Database
+isdbfile	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def isdbfile( file )$/;"	f	class:ReFe.Database
+key?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def key?( name )$/;"	f	class:ReFe.MethodTable
+keys_to_path	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^  def keys_to_path( keys )$/;"	f	class:FSDBM
+lineno	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def lineno$/;"	f	class:LineInput
+list	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/completiontable.rb	/^    def list$/;"	f	class:ReFe.CompletionTable
+load_all_test_cases	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def load_all_test_cases$/;"	f
+load_selected_test_cases	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def load_selected_test_cases( specs )$/;"	f
+load_test_classes	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def load_test_classes( fname )$/;"	f
+load_test_suite	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def load_test_suite( specs )$/;"	f
+main	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/bin/refe	/^def main$/;"	f
+main	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def main$/;"	f
+method_comp_file	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def method_comp_file$/;"	f	class:ReFe.Database
+method_document	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def method_document$/;"	f	class:ReFe.Database
+method_document_comptable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def method_document_comptable$/;"	f	class:ReFe.Database
+method_document_dbm	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def method_document_dbm$/;"	f	class:ReFe.Database
+method_exact_match	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def method_exact_match( items, mtarget )$/;"	f	class:ReFe.MethodCompletion
+method_origin	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def method_origin( spec )$/;"	f	class:ReFe.MethodSearcher
+method_re	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def method_re( m )$/;"	f	class:ReFe.MethodCompletion
+mf_relation	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def mf_relation$/;"	f	class:ReFe.Database
+mf_relation_comptable	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def mf_relation_comptable$/;"	f	class:ReFe.Database
+mf_relation_dbm	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def mf_relation_dbm$/;"	f	class:ReFe.Database
+mkdir_p	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fileutils.rb	/^    def mkdir_p( path )$/;"	f	class:ReFe.FileUtils
+module_node	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def module_node( name )$/;"	f	class:ReFe.InheritanceGraph.add_include_edge
+new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mygetopt.rb	/^    def new( usage, descripter )$/;"	f	class:MyGetoptLong
+new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^    def new( str )$/;"	f	class:StringInput
+new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^    def new( str = '' )$/;"	f	class:StringOutput
+new2	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def OutputPolicy.new2( opts )$/;"	F	class:ReFe.OutputPolicy
+noop	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def noop( items )$/;"	f	class:ReFe.MethodCompletion
+normalize	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def normalize( words )$/;"	f	class:ReFe.FunctionTable
+packed_print	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def packed_print( list )$/;"	f	class:ReFe.OutputPolicy
+parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/extrefmparser.rb	/^    def parse( f )$/;"	f	class:ReFe.ExtentionAPIReferenceManualParser
+parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/inheritancegraph.rb	/^    def InheritanceGraph.parse( path )$/;"	F	class:ReFe.InheritanceGraph
+parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def parse( f )$/;"	f	class:ReFe.MFRelationParser
+parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^    def parse( f )$/;"	f	class:ReFe.ReferenceRDParser
+parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def parse( input )$/;"	f	class:ReFe.RubyReferenceManualParser
+parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubysrcparser.rb	/^    def parse( f )$/;"	f	class:ReFe.RubySourceCodeParser
+parse_datafile	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmfrelationparser.rb	/^  def parse_datafile( fname )$/;"	f	class:MFRelationParserTester
+parse_datafile	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubysrcparser.rb	/^  def parse_datafile( fname )$/;"	f	class:RubySourceCodeParserTester
+parse_target_spec	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^def parse_target_spec( arg )$/;"	f
+parse_testdata	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testextrefmparser.rb	/^  def parse_testdata( fname )$/;"	f	class:ExtentionAPIReferenceManualParserTester
+pos	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def pos$/;"	f
+print	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def print( *args )$/;"	f
+print_class	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def print_class( results )$/;"	f	class:ReFe.MethodSearcher
+print_method	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def print_method( results )$/;"	f	class:ReFe.MethodSearcher
+print_names	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def print_names( list )$/;"	f	class:ReFe.OutputPolicy
+print_options	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mygetopt.rb	/^  def print_options( f )$/;"	f
+printf	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def printf( *args )$/;"	f
+putc	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def putc( ch )$/;"	f
+puts	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def puts( *args )$/;"	f
+read	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def read( len = nil )$/;"	f
+read_all	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def read_all$/;"	f
+read_body	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubysrcparser.rb	/^    def read_body( f, first_line )$/;"	f	class:ReFe.RubySourceCodeParser
+read_class_document	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^    def read_class_document( f )$/;"	f	class:ReFe.ReferenceRDParser
+read_entry	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/refrdparser.rb	/^    def read_entry( f, first_line )$/;"	f	class:ReFe.ReferenceRDParser
+read_entry	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def read_entry( first_line, f )$/;"	f	class:ReFe
+read_page	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def read_page( f, first_line )$/;"	f	class:ReFe
+read_parsed	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def read_parsed( fname )$/;"	f	class:RubyReferenceManualParserTester
+read_section	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def read_section(f, first_line)$/;"	f	class:ReFe
+register_entry_to	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def register_entry_to( table, first_line, f )$/;"	f	class:ReFe
+reject_inherited	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def reject_inherited( specs )$/;"	f	class:ReFe.MethodCompletion
+remove_class_spec	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rubyrefmparser.rb	/^    def remove_class_spec( str )$/;"	f	class:ReFe
+return_if_specified	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def return_if_specified( mid, *args )$/;"	f	class:ReFe.MethodCompletion
+rewind	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def rewind$/;"	f
+search	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def search( keys )$/;"	f	class:ReFe.FunctionSearcher
+search	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def search( keys )$/;"	f	class:ReFe.MethodSearcher
+seek	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def seek( offset, whence = IO::SEEK_SET )$/;"	f
+setup	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testcompletiontable.rb	/^  def setup$/;"	f	class:CompletionTableTester
+setup	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testextrefmparser.rb	/^  def setup$/;"	f	class:ExtentionAPIReferenceManualParserTester
+setup	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testfcompletion.rb	/^  def setup$/;"	f	class:FunctionCompletionTester
+setup	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def setup$/;"	f	class:MethodCompletionTester
+setup	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmfrelationparser.rb	/^  def setup$/;"	f	class:MFRelationParserTester
+setup	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def setup$/;"	f	class:RubyReferenceManualParserTester
+setup	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubysrcparser.rb	/^  def setup$/;"	f	class:RubySourceCodeParserTester
+setup_dirs	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^  def setup_dirs( dirs )$/;"	f	class:FSDBM
+shift_jis_platform?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def shift_jis_platform?$/;"	f	class:ReFe.Encoding
+should_print_content?	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def should_print_content?( results )$/;"	f	class:ReFe.OutputPolicy
+singleton_methods_of	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def singleton_methods_of( c, include_super )$/;"	f	class:ReFe.MethodTable
+size	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def size$/;"	f
+stream_check!	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def stream_check!$/;"	f
+string	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def string$/;"	f
+test_add	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testcompletiontable.rb	/^  def test_add$/;"	f	class:CompletionTableTester
+test_capital	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_capital$/;"	f	class:MethodCompletionTester
+test_complete	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testfcompletion.rb	/^  def test_complete$/;"	f	class:FunctionCompletionTester
+test_empty_string	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_empty_string$/;"	f	class:MethodCompletionTester
+test_exact_match	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_exact_match$/;"	f	class:MethodCompletionTester
+test_expand	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testcompletiontable.rb	/^  def test_expand$/;"	f	class:CompletionTableTester
+test_extent	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testfcompletion.rb	/^  def test_extent$/;"	f	class:FunctionCompletionTester
+test_ignore_case	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_ignore_case$/;"	f	class:MethodCompletionTester
+test_inspect	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testcompletiontable.rb	/^  def test_inspect$/;"	f	class:CompletionTableTester
+test_list	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testcompletiontable.rb	/^  def test_list$/;"	f	class:CompletionTableTester
+test_metachar_ASTER	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_metachar_ASTER$/;"	f	class:MethodCompletionTester
+test_metachar_Q	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_metachar_Q$/;"	f	class:MethodCompletionTester
+test_nil	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_nil$/;"	f	class:MethodCompletionTester
+test_notfound	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_notfound$/;"	f	class:MethodCompletionTester
+test_parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testextrefmparser.rb	/^  def test_parse$/;"	f	class:ExtentionAPIReferenceManualParserTester
+test_parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmfrelationparser.rb	/^  def test_parse$/;"	f	class:MFRelationParserTester
+test_parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def test_parse$/;"	f	class:RubyReferenceManualParserTester
+test_parse	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubysrcparser.rb	/^  def test_parse$/;"	f	class:RubySourceCodeParserTester
+test_s_new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testcompletiontable.rb	/^  def test_s_new$/;"	f	class:CompletionTableTester
+test_s_new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testextrefmparser.rb	/^  def test_s_new$/;"	f	class:ExtentionAPIReferenceManualParserTester
+test_s_new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmfrelationparser.rb	/^  def test_s_new$/;"	f	class:MFRelationParserTester
+test_s_new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubyrefmparser.rb	/^  def test_s_new$/;"	f	class:RubyReferenceManualParserTester
+test_s_new	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testrubysrcparser.rb	/^  def test_s_new$/;"	f	class:RubySourceCodeParserTester
+test_suffix	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_suffix$/;"	f	class:MethodCompletionTester
+test_underbar	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testfcompletion.rb	/^  def test_underbar$/;"	f	class:FunctionCompletionTester
+test_wrong_argument	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/testmcompletion.rb	/^  def test_wrong_argument$/;"	f	class:MethodCompletionTester
+testme!	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^  def testme!$/;"	f	class:load_test_classes.Class
+testme!	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test.rb	/^  def testme!$/;"	f	class:load_test_classes.Module
+trace	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/fsdbm.rb	/^    def trace( msg )$/;"	f	class:FSDBM
+trace	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/traceutils.rb	/^    def trace( msg )$/;"	f	class:ReFe.TraceUtils
+try	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def try( items, table, c, t, m )$/;"	f	class:ReFe.MethodCompletion
+try	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/searcher.rb	/^    def try( c, t, m )$/;"	f	class:ReFe.MethodSearcher
+type_re	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def type_re( t )$/;"	f	class:ReFe.MethodCompletion
+ungets	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def ungets( line )$/;"	f	class:LineInput
+unify_if_contents_are_same	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def unify_if_contents_are_same( items, db )$/;"	f	class:ReFe.MethodCompletion
+unify_if_differ_only_suffix	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/database.rb	/^    def unify_if_differ_only_suffix( items )$/;"	f	class:ReFe.MethodCompletion
+untag	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/rdutils.rb	/^    def untag( str )$/;"	f	class:ReFe.RDUtils
+until_match	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def until_match( re )$/;"	f	class:LineInput
+until_terminator	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def until_terminator( re )$/;"	f	class:LineInput
+usage	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mygetopt.rb	/^  def usage( status, errmsg = nil )$/;"	f
+var2class	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/mfrelationparser.rb	/^    def var2class( var )$/;"	f	class:ReFe
+while_match	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/lib/refe/lineinput.rb	/^  def while_match( re )$/;"	f	class:LineInput
+write	/Users/hecomi/.rvm/gems/ruby-1.9.3-head/gems/refe-0.8.0.3/test/mystringio.rb	/^  def write( str )$/;"	f

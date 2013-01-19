@@ -1,0 +1,11 @@
+names=AF_LAT,PF_LAT
+visibility=public
+kind=defined
+
+--- AF_LAT -> Integer
+--- PF_LAT -> Integer
+@todo
+Local Area Transport protocol。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

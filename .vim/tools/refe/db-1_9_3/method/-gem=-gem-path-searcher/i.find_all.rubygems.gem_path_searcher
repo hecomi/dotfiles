@@ -1,0 +1,10 @@
+names=find_all
+visibility=public 
+kind=defined
+
+--- find_all(path) -> [Gem::Specification]
+
+与えられたパスにマッチする [[c:Gem::Specification]] を全て返します。
+
+@see [[m:Array#find_all]]
+

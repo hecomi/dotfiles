@@ -1,0 +1,9 @@
+names=libyaml_version
+visibility=public
+kind=defined
+
+--- libyaml_version
+@todo
+
+Returns the version of libyaml being used
+

@@ -1,0 +1,8 @@
+names=version=
+visibility=public 
+kind=defined
+
+--- version=(version)
+
+self のバージョン情報を書き換えます。
+

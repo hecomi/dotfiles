@@ -1,0 +1,7 @@
+names=encoding_conv
+visibility=public
+kind=defined
+
+--- encoding_conv(str, enc_from, enc_to)
+@todo
+

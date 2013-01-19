@@ -1,0 +1,9 @@
+names=fileno,to_i
+visibility=public
+kind=defined
+
+--- fileno -> Integer
+--- to_i   -> Integer
+
+[[m:IO#fileno]], [[m:IO#to_i]] に委譲します。
+

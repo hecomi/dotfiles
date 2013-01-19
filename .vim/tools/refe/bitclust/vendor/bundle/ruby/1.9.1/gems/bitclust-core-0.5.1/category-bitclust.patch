@@ -1,0 +1,245 @@
+Index: data/bitclust/catalog/ja_JP.EUC-JP
+===================================================================
+--- data/bitclust/catalog/ja_JP.EUC-JP	(revision 4968)
++++ data/bitclust/catalog/ja_JP.EUC-JP	(working copy)
+@@ -10,22 +10,42 @@ All Functions
+ 関数一覧
+ All Libraries
+ ライブラリ一覧
++Builtin
++組み込み
+ Builtin Library
+ 組み込みライブラリ
++CharacterEncoding
++文字コード
+ Class Index
+ クラス一覧
+ Classes/Modules
+ クラスとモジュール
++CommandLine
++コマンドライン
+ Constants
+ 定数
++Database
++データベース
++Date/Time
++時間・日付
+ Description
+ 説明
++DesignPattern
++デザインパターン
++Development
++開発
+ Entry
+ エントリ
+ Exception Classes
+ 例外クラス
++File
++ファイル
++FileFormat
++ファイルフォーマット
+ Function Index
+ 関数一覧
++I/O
++入出力
+ Inherited Methods
+ 継承したメソッド
+ Instance Methods
+@@ -34,10 +54,16 @@ Library
+ ライブラリ
+ Library Index
+ ライブラリ一覧
++Math
++数学
+ Method
+ メソッド
+ Module Functions
+ モジュール関数
++Network
++ネットワーク
++Other
++その他
+ Private Instance Methods
+ privateメソッド
+ Private Singleton Methods
+@@ -60,6 +86,10 @@ Special Variables
+ 特殊変数
+ Sub-Libraries
+ サブライブラリ
++Text
++テキスト
++Thread
++スレッド
+ ancestors
+ クラスの継承リスト
+ class %s
+Index: data/bitclust/template.offline/library-index
+===================================================================
+--- data/bitclust/template.offline/library-index	(revision 4968)
++++ data/bitclust/template.offline/library-index	(working copy)
+@@ -7,26 +7,41 @@
+     headline_init
+ %>
+ <%= headline(_("Library Index")) %>
+-<table class="entries libraries">
+ <%
+     headline_push
+-    lib = @entries.detect {|lib| lib.id == '_builtin' }
++    weight = {"Builtin" => "", "" => "\x7f\x7f"}
++    entry_table = @entries.group_by{|lib| lib.category }.to_a
++    entry_table.sort_by! do |pair|
++      category = pair[0]
++      pair.last.sort!
++      pair[0] = "Other" if category == ""
++      weight[category] || category
++    end
++    first = true
++    entry_table.each do |category, libs|
+ %>
+-<tr>
+-<td class="signature"><%= library_link(lib.name, _('Builtin Library')) %></td>
+-<td class="description"><%= compile_rd(lib.synopsis_source) %></td>
+-</tr>
++<% if first then first = false else %> / <% end %>
++<a href="#<%= category %>"><%= h _(category) %></a>
+ <%
+-    @entries.each do |lib|
+-      next if lib.id == '_builtin'
+-      next if lib.is_sublibrary
++    end
++    entry_table.each do |category, libs|
++%>
++<span id="<%= category %>"><%= headline(_(category)) %></span>
++<table class="entries libraries">
++<%
++      libs.each do |lib|
++        next if lib.is_sublibrary
++        label = _('Builtin Library') if lib.id == '_builtin'
+ %>
+ <tr>
+-<td class="signature"><%= library_link(lib.name) %></td>
++<td class="signature"><%= library_link(lib.name, label) %></td>
+ <td class="description"><%= compile_rd(lib.synopsis_source) %></td>
+ </tr>
+ <%
++      end
++%>
++</table>
++<%
+     end
+     headline_pop
+ %>
+-</table>
+Index: data/bitclust/template/library-index
+===================================================================
+--- data/bitclust/template/library-index	(revision 4968)
++++ data/bitclust/template/library-index	(working copy)
+@@ -9,27 +9,42 @@
+     headline_init
+ %>
+ <%= headline(_("Library Index")) %>
+-<table class="entries libraries">
+ <%
+     headline_push
+-    lib = @entries.detect {|lib| lib.id == '_builtin' }
++    weight = {"Builtin" => "", "" => "\x7f\x7f"}
++    entry_table = @entries.group_by{|lib| lib.category }.to_a
++    entry_table.sort_by! do |pair|
++      category = pair[0]
++      pair.last.sort!
++      pair[0] = "Other" if category == ""
++      weight[category] || category
++    end
++    first = true
++    entry_table.each do |category, libs|
+ %>
+-<tr>
+-<td class="signature"><%= library_link(lib.name, _('Builtin Library')) %></td>
+-<td class="description"><%= compile_rd(lib.synopsis_source) %></td>
+-</tr>
++<% if first then first = false else %> / <% end %>
++<a href="#<%= category %>"><%= h _(category) %></a>
+ <%
+-    @entries.each do |lib|
+-      next if lib.id == '_builtin'
+-      next if lib.is_sublibrary
++    end
++    entry_table.each do |category, libs|
++%>
++<span id="<%= category %>"><%= headline(_(category)) %></span>
++<table class="entries libraries">
++<%
++      libs.each do |lib|
++        next if lib.is_sublibrary
++        label = _('Builtin Library') if lib.id == '_builtin'
+ %>
+ <tr>
+-<td class="signature"><%= library_link(lib.name) %></td>
++<td class="signature"><%= library_link(lib.name, label) %></td>
+ <td class="description"><%= compile_rd(lib.synopsis_source) %></td>
+ </tr>
+ <%
++      end
++%>
++</table>
++<%
+     end
+     headline_pop
+ %>
+-</table>
+ 
+Index: lib/bitclust/libraryentry.rb
+===================================================================
+--- lib/bitclust/libraryentry.rb	(revision 4968)
++++ lib/bitclust/libraryentry.rb	(working copy)
+@@ -71,6 +71,7 @@ module BitClust
+       property :source,   'String'
+       property :sublibraries, '[LibraryEntry]'
+       property :is_sublibrary,   'bool'
++      property :category, 'String'
+     }
+ 
+     def inspect
+Index: lib/bitclust/lineinput.rb
+===================================================================
+--- lib/bitclust/lineinput.rb	(revision 4968)
++++ lib/bitclust/lineinput.rb	(working copy)
+@@ -80,12 +80,13 @@ class LineInput
+     n
+   end
+ 
+-  def gets_if(re)
++  def gets_if(re, index = nil)
+     line = gets()
+     if not line or not (re =~ line)
+       ungets line
+       return nil
+     end
++    return $~[index] if index
+     line
+   end
+ 
+Index: lib/bitclust/rrdparser.rb
+===================================================================
+--- lib/bitclust/rrdparser.rb	(revision 4968)
++++ lib/bitclust/rrdparser.rb	(working copy)
+@@ -84,6 +84,8 @@ module BitClust
+ 
+     def do_parse(f)
+       f.skip_blank_lines
++      @context.categorize f.gets_if(/\Acategory\s(.*)/, 1)
++      f.skip_blank_lines
+       f.while_match(/\Arequire\s/) do |line|
+         @context.require line.split[1]
+       end
+@@ -332,6 +334,10 @@ end
+       attr_accessor :type
+       attr_accessor :visibility
+ 
++      def categorize(category)
++        @library.category = category
++      end
++
+       def require(libname)
+         @library.require @db.get_library(libname)
+       end

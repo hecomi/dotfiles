@@ -1,0 +1,8 @@
+names=quick_emit
+visibility=public
+kind=defined
+
+--- quick_emit(oid, opts={}) {|obj| ...} -> String
+
+ライブラリ内部で使用します。
+

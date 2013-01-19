@@ -1,0 +1,13 @@
+names=use_loader,use_loader?
+visibility=public
+kind=added
+
+--- use_loader  -> bool
+--- use_loader? -> bool
+
+load または require 時に irb のファイル読み込み機能(irb_load、
+irb_require)を使うかどうかを返します。
+
+
+@see [[m:IRB::Context#use_loader=]]
+

@@ -1,0 +1,7 @@
+names=is_us_ascii
+visibility=public
+kind=defined
+
+--- is_us_ascii(str)
+@todo
+

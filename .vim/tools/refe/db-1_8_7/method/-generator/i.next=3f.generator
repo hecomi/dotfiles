@@ -1,0 +1,8 @@
+names=next?
+visibility=public
+kind=defined
+
+--- next? -> bool
+
+次の要素が存在するなら真を返します。
+

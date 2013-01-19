@@ -1,0 +1,5 @@
+.cursor_display	Tk::Tcllib::Cursor.cursor_display
+.cursor_propagate	Tk::Tcllib::Cursor.cursor_propagate
+.cursor_restore	Tk::Tcllib::Cursor.cursor_restore
+.package_name	Tk::Tcllib::Cursor.package_name
+.package_version	Tk::Tcllib::Cursor.package_version

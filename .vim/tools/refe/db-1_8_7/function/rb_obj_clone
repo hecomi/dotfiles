@@ -1,0 +1,10 @@
+filename=object.c
+macro=false
+private=false
+type=VALUE
+name=rb_obj_clone
+params=(VALUE obj)
+
+
+[[m:Object#clone]] の実体です。
+

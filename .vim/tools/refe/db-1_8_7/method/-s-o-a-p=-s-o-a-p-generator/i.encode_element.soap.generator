@@ -1,0 +1,7 @@
+names=encode_element
+visibility=public
+kind=defined
+
+--- encode_element(ns, obj, parent)
+@todo
+

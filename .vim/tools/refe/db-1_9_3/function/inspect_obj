@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=inspect_obj
+params=(VALUE obj, VALUE str)
+
+

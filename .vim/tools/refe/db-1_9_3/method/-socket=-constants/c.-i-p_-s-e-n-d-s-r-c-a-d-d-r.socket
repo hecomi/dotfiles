@@ -1,0 +1,11 @@
+names=IP_SENDSRCADDR
+visibility=public
+kind=defined
+
+--- IP_SENDSRCADDR -> Integer
+ource address for outgoing UDP datagrams。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], [[man:ip(4freebsd)]]
+

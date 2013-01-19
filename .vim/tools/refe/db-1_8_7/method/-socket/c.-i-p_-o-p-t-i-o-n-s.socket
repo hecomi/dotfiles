@@ -1,0 +1,12 @@
+names=IP_OPTIONS
+visibility=public
+kind=defined
+
+--- IP_OPTIONS -> Integer
+IP options to be included in packets。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], 
+     [[man:ip(4freebsd)]], [[man:ip(7linux)]]
+

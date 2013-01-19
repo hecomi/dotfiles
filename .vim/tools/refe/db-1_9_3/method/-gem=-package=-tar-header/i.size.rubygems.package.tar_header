@@ -1,0 +1,8 @@
+names=size
+visibility=public 
+kind=defined
+
+--- size -> Integer
+
+tar のヘッダに含まれる size を返します。
+

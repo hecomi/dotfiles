@@ -1,0 +1,10 @@
+names=**
+visibility=public
+kind=defined
+
+--- **(n) -> Matrix
+
+self の n乗をした行列を返します。
+
+@param n べき数の指定
+

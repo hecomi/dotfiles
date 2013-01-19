@@ -1,0 +1,8 @@
+names=each
+visibility=public
+kind=defined
+
+--- each {|key, value| ... }
+@todo
+
+

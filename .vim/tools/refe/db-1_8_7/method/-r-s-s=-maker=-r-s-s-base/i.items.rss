@@ -1,0 +1,9 @@
+names=items
+visibility=public
+kind=defined
+
+--- items
+@todo
+item要素を生成するオブジェクトを管理するオブジェクトを
+返します．
+

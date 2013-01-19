@@ -1,0 +1,51 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rdoc.markup.simple_markup
+aliases=
+aliasof=
+
+RDoc 形式のドキュメントを目的の形式に変換するためのクラスです。
+
+例:
+
+  require 'rdoc/markup/simple_markup'
+  require 'rdoc/markup/simple_markup/to_html'
+
+  m = SM::SimpleMarkup.new
+  h = SM::ToHtml.new
+
+  puts m.convert(input_string, h)
+
+独自のフォーマットを行うようにパーサを拡張する事もできます。
+
+例:
+
+  require 'rdoc/markup/simple_markup'
+  require 'rdoc/markup/simple_markup/to_html'
+
+  class WikiHtml < SM::ToHtml
+    # WikiWord のフォントを赤く表示。
+    def handle_special_WIKIWORD(special)
+      "<font color=red>" + special.text + "</font>"
+    end
+  end
+
+  m = SM::SimpleMarkup.new
+  # { 〜 } までを :STRIKE でフォーマットする。
+  m.add_word_pair("{", "}", :STRIKE)
+  # <no> 〜 </no> までを :STRIKE でフォーマットする。
+  m.add_html("no", :STRIKE)
+
+  # WikiWord を追加。
+  m.add_special(/\b([A-Z][a-z]+[A-Z]\w+)/, :WIKIWORD)
+
+  h = WikiHtml.new
+  # :STRIKE のフォーマットを <strike> 〜 </strike> に指定。
+  h.add_tag(:STRIKE, "<strike>", "</strike>")
+
+  puts "<body>" + m.convert(ARGF.read, h) + "</body>"
+
+変換する形式を変更する場合、フォーマッタ(例. [[c:SM::ToHtml]]) を変更、
+拡張する必要があります。

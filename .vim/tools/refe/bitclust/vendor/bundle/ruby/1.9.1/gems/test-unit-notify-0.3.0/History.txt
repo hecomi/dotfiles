@@ -1,0 +1,31 @@
+=== 0.3.0 / 2011-04-15
+
+* 2 minor enhancements
+
+  * added kinotan for omission. [Mayu & Co.]
+  * added kinotan for error. [Mayu & Co.]
+
+=== 0.2.1 / 2011-02-10
+
+* 1 minor enhancements
+
+  * supported Ruby 1.9.
+
+=== 0.2.0 / 2011-02-10
+
+* 1 major enhancements
+
+  * supported Mac OS X by growlnotify.
+
+=== 0.1.0 / 2010-11-25
+
+* 2 major enhancements
+
+  * added Test::Unit::Notify.enable=.
+  * changed license: Ruby's -> LGPLv2 or later.
+
+=== 0.0.1 / 2010-07-17
+
+* 1 major enhancement
+
+  * Birthday!

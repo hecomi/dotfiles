@@ -1,0 +1,10 @@
+names=VERSION
+visibility=public
+kind=defined
+
+--- VERSION -> String
+
+このライブラリのバージョンを返します。
+
+
+

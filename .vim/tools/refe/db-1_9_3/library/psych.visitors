@@ -1,0 +1,8 @@
+requires=psych.visitors.visitor,psych.visitors.to_ruby,psych.scalar_scanner,strscan,psych.visitors.emitter,psych.visitors.yaml_tree,psych.visitors.json_tree,psych.visitors.depth_first
+classes=
+methods=
+sublibraries=psych.visitors.visitor,psych.visitors.to_ruby,psych.visitors.emitter,psych.visitors.yaml_tree,psych.visitors.json_tree,psych.visitors.depth_first
+is_sublibrary=true
+category=
+
+

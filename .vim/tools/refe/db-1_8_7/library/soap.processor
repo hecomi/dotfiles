@@ -1,0 +1,8 @@
+requires=soap.soap,soap.element,soap.baseData,soap.mapping.typeMap,soap.generator,soap.encodingstyle.handler,soap.encodingstyle.soapHandler,soap.encodingstyle.literalHandler,soap.encodingstyle.aspDotNetHandler
+classes=SOAP=Processor
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

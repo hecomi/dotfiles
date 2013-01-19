@@ -1,0 +1,7 @@
+names=public?
+visibility=public
+kind=defined
+
+--- public? -> bool
+自身が公開鍵をもっている場合に true を返します。
+

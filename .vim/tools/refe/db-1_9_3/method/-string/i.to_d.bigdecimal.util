@@ -1,0 +1,10 @@
+names=to_d
+visibility=public
+kind=added
+
+--- to_d -> BigDecimal
+
+自身を [[c:BigDecimal]] に変換します。BigDecimal(self) と同じです。
+
+@return [[c:BigDecimal]] に変換したオブジェクト
+

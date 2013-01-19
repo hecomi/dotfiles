@@ -1,0 +1,7 @@
+names=clear
+visibility=public
+kind=defined
+
+--- clear(sel = nil)
+@todo
+

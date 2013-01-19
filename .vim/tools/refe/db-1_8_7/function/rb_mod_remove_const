@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=false
+type=VALUE
+name=rb_mod_remove_const
+params=(VALUE mod, VALUE name)
+
+

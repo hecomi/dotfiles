@@ -1,0 +1,8 @@
+names=locked?,mu_locked?
+visibility=public
+kind=defined
+
+--- mu_locked? -> bool
+--- locked? -> bool
+self がロックされている時、真を返します。
+

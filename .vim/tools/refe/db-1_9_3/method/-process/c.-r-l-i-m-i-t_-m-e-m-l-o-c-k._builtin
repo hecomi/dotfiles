@@ -1,0 +1,11 @@
+names=RLIMIT_MEMLOCK
+visibility=public
+kind=defined
+
+--- RLIMIT_MEMLOCK -> Fixnum
+
+リソースの種類が [[man:mlock(2)]] でロックできるトータルのサイズであることを示す定数です。
+
+[[m:Process.#getrlimit]]、[[m:Process.#setrlimit]] で使われます。
+システムによっては定義されていません。
+

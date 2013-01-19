@@ -1,0 +1,7 @@
+names=cert_from_file
+visibility=public
+kind=defined
+
+--- cert_from_file(filename)
+@todo
+

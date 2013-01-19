@@ -1,0 +1,7 @@
+names=expand_ref_in
+visibility=protected 
+kind=defined
+
+--- expand_ref_in(arry, ind)
+@todo
+

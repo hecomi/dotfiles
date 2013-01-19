@@ -1,0 +1,13 @@
+filename=eval.c
+macro=false
+private=false
+type=void
+name=rb_iter_break
+params=(void)
+
+
+break の C 用インターフェイスです。
+現在評価中のブロックから抜けます。
+
+代表的には、rb_iterate の block_proc 中で使います。
+

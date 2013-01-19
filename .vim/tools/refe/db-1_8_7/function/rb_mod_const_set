@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=rb_mod_const_set
+params=(VALUE mod, VALUE name, VALUE value)
+
+

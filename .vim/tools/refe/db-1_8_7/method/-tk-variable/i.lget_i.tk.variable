@@ -1,0 +1,7 @@
+names=lget_i
+visibility=public
+kind=defined
+
+--- lget_i(idx)
+@todo
+

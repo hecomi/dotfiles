@@ -1,0 +1,7 @@
+names=scan
+visibility=public
+kind=defined
+
+--- scan(pattern, cons = false)
+@todo
+

@@ -1,0 +1,17 @@
+names=UTF8_SOFTBANK,UTF8_SoftBank
+visibility=public
+kind=defined
+
+--- UTF8_SOFTBANK -> Encoding
+--- UTF8_SoftBank -> Encoding
+UTF8-SoftBank エンコーディングです。
+
+UTF-8 の亜種です。
+SoftBank の携帯電話で使われる絵文字が含まれています。
+
+
+@see [[url:http://creation.mb.softbank.jp/web/web_pic_about.html]],
+     [[url:http://www2.developers.softbankmobile.co.jp/dp/tool_dl/download.php?docid=120&companyid=]]
+
+
+

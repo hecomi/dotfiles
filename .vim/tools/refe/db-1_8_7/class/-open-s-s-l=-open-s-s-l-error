@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+すべての OpenSSL 関連の例外クラスのベースとなる例外クラスです。

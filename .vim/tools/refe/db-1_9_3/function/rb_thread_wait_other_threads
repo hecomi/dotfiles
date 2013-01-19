@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=void
+name=rb_thread_wait_other_threads
+params=(void)
+
+

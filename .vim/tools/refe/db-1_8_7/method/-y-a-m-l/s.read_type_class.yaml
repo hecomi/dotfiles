@@ -1,0 +1,8 @@
+names=read_type_class
+visibility=public
+kind=defined
+
+--- read_type_class(type, obj_class) -> [String, Class]
+
+ライブラリ内部で使用します。
+

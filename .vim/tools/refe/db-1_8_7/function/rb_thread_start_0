@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=rb_thread_start_0
+params=(VALUE (*fn)(), void *arg, rb_thread_t th_arg)
+
+

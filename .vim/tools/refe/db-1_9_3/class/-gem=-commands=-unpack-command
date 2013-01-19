@@ -1,0 +1,9 @@
+type=class
+superclass=Gem=Command
+included=Gem=VersionOption
+extended=
+library=rubygems.commands.unpack_command
+aliases=
+aliasof=
+
+指定された Gem パッケージをカレントディレクトリに展開するためのクラスです。

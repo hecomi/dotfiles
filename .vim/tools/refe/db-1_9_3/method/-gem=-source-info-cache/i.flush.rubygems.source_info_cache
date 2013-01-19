@@ -1,0 +1,8 @@
+names=flush
+visibility=public 
+kind=defined
+
+--- flush -> false
+
+キャッシュをローカルファイルに書き込みます。
+

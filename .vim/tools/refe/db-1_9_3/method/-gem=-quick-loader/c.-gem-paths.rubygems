@@ -1,0 +1,8 @@
+names=GemPaths
+visibility=public
+kind=defined
+
+--- GemPaths -> Hash
+
+prelude.c で定義されている内部用の定数です。
+

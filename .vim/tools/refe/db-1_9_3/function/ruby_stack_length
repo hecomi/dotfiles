@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=false
+type=int
+name=ruby_stack_length
+params=(VALUE **p)
+
+

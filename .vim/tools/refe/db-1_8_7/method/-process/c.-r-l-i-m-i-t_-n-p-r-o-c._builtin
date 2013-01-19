@@ -1,0 +1,11 @@
+names=RLIMIT_NPROC
+visibility=public
+kind=defined
+
+--- RLIMIT_NPROC -> Fixnum
+
+リソースの種類がユーザのプロセスの最大数であることを示す定数です。
+
+[[m:Process.#getrlimit]]、[[m:Process.#setrlimit]] で使われます。
+システムによっては定義されていません。
+

@@ -1,0 +1,38 @@
+names=add_special
+visibility=public
+kind=defined
+
+--- add_special(pattern, name) -> ()
+
+pattern で指定した正規表現にマッチする文字列をフォーマットの対象にしま
+す。
+
+例えば WikiWord のような、[[m:SM::SimpleMarkup#add_word_pair]]、
+[[m:SM::SimpleMarkup#add_html]] でフォーマットできないものに対して使用
+します。
+
+@param pattern 正規表現を指定します。
+
+@param name [[c:SM::ToHtml]] などのフォーマッタに識別させる時の名前を
+            [[c:Symbol]] で指定します。
+
+例:
+
+  require 'rdoc/markup/simple_markup'
+  require 'rdoc/markup/simple_markup/to_html'
+
+  class WikiHtml < SM::ToHtml
+    def handle_special_WIKIWORD(special)
+      "<font color=red>" + special.text + "</font>"
+    end
+  end
+
+  m = SM::SimpleMarkup.new
+  m.add_special(/\b([A-Z][a-z]+[A-Z]\w+)/, :WIKIWORD)
+
+  h = WikiHtml.new
+  puts m.convert(input_string, h)
+
+変換時に実際にフォーマットを行うには SM::ToHtml#accept_special_<name で指定した名前>
+のように、フォーマッタ側でも操作を行う必要があります。
+

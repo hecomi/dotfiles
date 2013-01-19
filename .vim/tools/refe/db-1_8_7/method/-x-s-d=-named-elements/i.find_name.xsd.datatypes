@@ -1,0 +1,7 @@
+names=find_name
+visibility=public
+kind=defined
+
+--- find_name(name)
+@todo
+

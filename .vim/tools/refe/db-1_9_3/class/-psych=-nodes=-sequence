@@ -1,0 +1,9 @@
+type=class
+superclass=Psych=Nodes=Node
+included=
+extended=
+library=psych.nodes.sequence
+aliases=
+aliasof=
+
+

@@ -1,0 +1,16 @@
+requires=
+classes=
+methods=Psych=Handler/i.start_stream.psych.handler,Psych=Handler/i.start_document.psych.handler,Psych=Handler/i.end_document.psych.handler,Psych=Handler/i.alias.psych.handler,Psych=Handler/i.scalar.psych.handler,Psych=Handler/i.start_sequence.psych.handler,Psych=Handler/i.end_sequence.psych.handler,Psych=Handler/i.start_mapping.psych.handler,Psych=Handler/i.end_mapping.psych.handler,Psych=Handler/i.empty.psych.handler,Psych=Handler/i.end_stream.psych.handler,Psych=Handler/i.streaming=3f.psych.handler
+sublibraries=
+is_sublibrary=true
+category=
+
+Psych::Handler is an abstract base class that defines the events used
+when dealing with Psych::Parser.  Clients who want to use Psych::Parser
+should implement a class that inherits from Psych::Handler and define
+events that they can handle.
+
+Psych::Handler defines all events that Psych::Parser can possibly send to
+event handlers.
+
+See Psych::Parser for more details

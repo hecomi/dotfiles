@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=rb_thread_t
+name=rb_thread_check
+params=(VALUE data)
+
+

@@ -1,0 +1,11 @@
+names=TCP_KEEPIDLE
+visibility=public
+kind=defined
+
+--- TCP_KEEPIDLE -> Integer
+Idle time before keepalive probes are sent。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:tcp(7linux)]]
+

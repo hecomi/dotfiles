@@ -1,0 +1,9 @@
+type=class
+superclass=SystemExit
+included=
+extended=
+library=rubygems.exceptions
+aliases=
+aliasof=
+
+何らかの理由でコマンドを実行出来ない場合に使用する例外です。

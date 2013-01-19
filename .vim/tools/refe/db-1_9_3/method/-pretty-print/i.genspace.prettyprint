@@ -1,0 +1,8 @@
+names=genspace
+visibility=public
+kind=defined
+
+--- genspace    -> Proc
+
+空白を生成する Proc を返します。
+

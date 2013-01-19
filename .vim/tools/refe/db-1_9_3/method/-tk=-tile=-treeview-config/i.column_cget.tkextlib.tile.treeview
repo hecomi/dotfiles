@@ -1,0 +1,8 @@
+names=column_cget,columncget
+visibility=public
+kind=defined
+
+--- columncget(tagOrId, option)
+--- column_cget(tagOrId, option)
+@todo
+

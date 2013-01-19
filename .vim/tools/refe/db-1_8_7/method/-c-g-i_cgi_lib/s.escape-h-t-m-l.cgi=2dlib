@@ -1,0 +1,10 @@
+names=escapeHTML
+visibility=public
+kind=defined
+
+--- escapeHTML(str) -> String
+
+与えられた文字列に含まれる危険な文字列を実態参照に置き換えます。
+
+@param str 文字列を指定します。
+

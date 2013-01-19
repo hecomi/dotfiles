@@ -1,0 +1,9 @@
+type=class
+superclass=SOAP=Mapping=Factory
+included=
+extended=
+library=soap.mapping.factory
+aliases=
+aliasof=
+
+

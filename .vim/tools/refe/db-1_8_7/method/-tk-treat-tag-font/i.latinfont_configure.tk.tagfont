@@ -1,0 +1,10 @@
+names=latinfont_configure
+visibility=public
+kind=defined
+
+--- latinfont_configure(ltn, keys = nil)
+@todo
+alias asciifont_configure
+
+
+

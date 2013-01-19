@@ -1,0 +1,12 @@
+filename=class.c
+macro=false
+private=false
+type=void
+name=rb_include_module
+params=(VALUE klass, VALUE module)
+
+
+Module#append_features の実体。
+クラスまたはモジュール klass にモジュール module を
+インクルードします。
+

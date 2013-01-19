@@ -1,0 +1,11 @@
+names=scan
+visibility=public
+kind=defined
+
+--- scan -> RDoc::TopLevel
+
+自身の持つ [[c:RDoc::TopLevel]] のコメントとしてファイルの内容を解析し
+ます。
+
+@return [[c:RDoc::TopLevel]] オブジェクトを返します。
+

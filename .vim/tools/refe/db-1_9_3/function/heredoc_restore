@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=true
+type=void
+name=heredoc_restore
+params=(NODE *here)
+
+
+ヒアドキュメントの本体の読み込みに失敗したとき、開始記号
+のある行を復帰します。here は lex_strterm です。
+

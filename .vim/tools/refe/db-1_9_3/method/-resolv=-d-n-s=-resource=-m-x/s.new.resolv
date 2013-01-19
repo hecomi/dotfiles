@@ -1,0 +1,11 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(preference, exchange) -> Resolv::DNS::Resource::MX
+Resolv::DNS::Resource::MX のインスタンスを返します。
+
+@param preference MXの優先度
+@param exchange MXのホスト
+
+

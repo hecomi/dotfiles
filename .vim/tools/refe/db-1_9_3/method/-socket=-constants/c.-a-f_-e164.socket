@@ -1,0 +1,10 @@
+names=AF_E164
+visibility=public
+kind=defined
+
+--- AF_E164 -> Integer
+@todo
+CCITT E.164 recommendation。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

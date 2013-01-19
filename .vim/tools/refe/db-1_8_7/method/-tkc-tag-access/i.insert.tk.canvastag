@@ -1,0 +1,9 @@
+names=insert
+visibility=public
+kind=defined
+
+--- insert(beforethis, string)
+@todo
+
+
+

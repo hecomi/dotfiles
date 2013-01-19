@@ -1,0 +1,9 @@
+names=strip_stars
+visibility=public
+kind=defined
+
+--- strip_stars(text) -> String
+
+引数から /* 〜 */ 形式のコメントを削除します。
+
+@param text 文字列を指定します。

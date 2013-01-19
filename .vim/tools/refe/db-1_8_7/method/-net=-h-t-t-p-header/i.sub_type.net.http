@@ -1,0 +1,10 @@
+names=sub_type
+visibility=public
+kind=defined
+
+--- sub_type -> String|nil
+"text/html" における "html" のようなサブタイプを表す
+文字列を返します。
+
+Content-Type: ヘッダフィールドが存在しない場合には nil を返します。
+

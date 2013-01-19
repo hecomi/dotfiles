@@ -1,0 +1,8 @@
+requires=xsd.qname,wsdl.soap.definitions,wsdl.info,xsd.namedelements,soap.mapping,soap.mapping.mapping,soap.mapping.registry,soap.baseData,soap.soap,soap.mapping.typeMap,soap.mapping.factory,soap.mapping.rubytypeFactory,wsdl.soap.binding,wsdl.soap.operation,wsdl.soap.body,wsdl.soap.element,wsdl.xmlSchema.element,wsdl.soap.header,wsdl.soap.headerfault,wsdl.soap.fault,wsdl.soap.address,wsdl.soap.complexType,wsdl.xmlSchema.complexType,wsdl.xmlSchema.content
+classes=WSDL=SOAP
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

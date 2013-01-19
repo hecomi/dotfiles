@@ -1,0 +1,8 @@
+names=gem_home
+visibility=public 
+kind=defined
+
+--- gem_home -> String
+
+Gem のインストール先を返します。
+

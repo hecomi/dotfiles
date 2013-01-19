@@ -1,0 +1,7 @@
+names=export_with_clear
+visibility=public
+kind=defined
+
+--- export_with_clear(*patterns)
+@todo
+

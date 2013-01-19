@@ -1,0 +1,12 @@
+names=IPV6_TCLASS
+visibility=public
+kind=defined
+
+--- IPV6_TCLASS -> Integer
+Specify the traffic class。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[RFC:3542]]
+

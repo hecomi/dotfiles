@@ -1,0 +1,7 @@
+names=config
+visibility=public
+kind=defined
+
+--- config -> OpenSSL::Config
+自身に設定されているコンフィグファイルオブジェクトを設定します。
+

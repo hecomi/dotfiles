@@ -1,0 +1,8 @@
+names=each_value
+visibility=public
+kind=defined
+
+--- each_value {|value|  ...  } -> self
+
+全ての value に対して繰り返すイテレータ。
+

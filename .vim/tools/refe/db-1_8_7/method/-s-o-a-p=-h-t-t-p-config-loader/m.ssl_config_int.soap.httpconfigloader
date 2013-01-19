@@ -1,0 +1,7 @@
+names=ssl_config_int
+visibility=public
+kind=defined
+
+--- ssl_config_int(value)
+@todo
+

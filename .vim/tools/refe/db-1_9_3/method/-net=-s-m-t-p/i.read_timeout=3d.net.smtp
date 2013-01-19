@@ -1,0 +1,8 @@
+names=read_timeout=
+visibility=public
+kind=defined
+
+--- read_timeout=(n)
+読み込みでブロックしてよい最大秒数を設定します。
+
+@see [[m:Net::SMTP#read_timeout]]

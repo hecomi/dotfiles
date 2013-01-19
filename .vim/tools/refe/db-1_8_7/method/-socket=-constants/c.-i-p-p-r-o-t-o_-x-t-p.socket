@@ -1,0 +1,15 @@
+names=IPPROTO_XTP
+visibility=public
+kind=defined
+
+--- IPPROTO_XTP -> Integer
+@todo
+Xpress Transport Protocol。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+
+
+
+

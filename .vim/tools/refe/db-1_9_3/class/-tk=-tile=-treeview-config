@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=TkItemConfigMethod
+extended=
+library=tkextlib.tile.treeview
+aliases=
+aliasof=
+
+

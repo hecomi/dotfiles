@@ -1,0 +1,8 @@
+names=tag
+visibility=public
+kind=defined
+
+--- tag -> String
+
+レスポンスに対応付けられたタグを返します。
+

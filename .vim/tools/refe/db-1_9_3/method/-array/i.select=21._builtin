@@ -1,0 +1,19 @@
+names=select!
+visibility=public
+kind=defined
+
+--- select! {|item| block } -> self | nil
+--- select! -> Enumerator
+
+ブロックが false を返した要素を自身から削除します。
+変更があった場合は self を、
+変更がなかった場合には nil を返します。
+
+   a = %w{ a b c d e f }
+   a.select! {|v| v =~ /[a-z]/ }   # => nil
+   a # => ["a", "b", "c", "d", "e", "f"]
+
+ブロックが与えられなかった場合は、自身と select! から生成した
+[[c:Enumerator]] オブジェクトを返します。
+
+@see [[m:Array#keep_if]]

@@ -1,0 +1,10 @@
+names=list
+visibility=public
+kind=defined
+
+--- list -> [Benchmark::Tms]
+
+[[m:Benchmark::Report#item]] 実行時に作成された [[c:Benchmark::Tms]] オ
+ブジェクトの一覧を返します。
+
+@see [[m:Benchmark::Report#item]]

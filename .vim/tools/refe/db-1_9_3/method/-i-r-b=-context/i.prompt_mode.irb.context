@@ -1,0 +1,17 @@
+names=prompt_mode
+visibility=public
+kind=defined
+
+--- prompt_mode -> Symbol
+
+現在のプロンプトモードを [[c:Symbol]] で返します。
+
+オリジナルのプロンプトモードを定義していた場合はそのモードを返します。
+そうでない場合は、:DEFAULT、:CLASSIC、:SIMPLE、:INF_RUBY、:XMP、:NULL
+のいずれかを返します。
+
+定義済みのプロンプトモードの内容については、IRB.conf[:PROMPT][mode] を
+参照してください。
+
+@see [[m:IRB::Context#prompt_mode=]], [[ref:lib:irb#customize_prompt]]
+

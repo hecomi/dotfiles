@@ -1,0 +1,14 @@
+names=IPPROTO_ICMPV6
+visibility=public
+kind=defined
+
+--- IPPROTO_ICMPV6 -> Integer
+Internet Control Message Protocol for IPv6。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+
+@see [[man:icmp6(4freebsd)]], [[rfc:2292]]
+     
+

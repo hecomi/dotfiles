@@ -1,0 +1,10 @@
+type=module
+superclass=
+included=
+extended=
+library=webrick.httpauth.authenticator
+aliases=
+aliasof=
+
+このモジュールはプロキシのためにダイジェスト認証とベーシック認証の両方
+の一般的なサポートを提供します。

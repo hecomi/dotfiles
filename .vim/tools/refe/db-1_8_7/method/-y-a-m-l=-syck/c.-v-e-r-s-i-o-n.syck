@@ -1,0 +1,8 @@
+names=VERSION
+visibility=public
+kind=defined
+
+--- VERSION -> String
+
+[[lib:syck]] のバージョンを返します。
+

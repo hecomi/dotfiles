@@ -1,0 +1,10 @@
+names=updated
+visibility=public 
+kind=defined
+
+--- updated(message) -> nil
+
+現在の [[m:Gem::StreamUI::VerboseProgressReporter#count]] と全体の数とメッセージを表示します。
+
+@param message 表示するメッセージを指定します。
+

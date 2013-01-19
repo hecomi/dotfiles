@@ -1,0 +1,12 @@
+names=AF_PUP,PF_PUP
+visibility=public
+kind=defined
+
+--- AF_PUP -> Integer
+--- PF_PUP -> Integer
+
+PUP(PARC Universal Packet)。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:socket(2freebsd)]]
+

@@ -1,0 +1,10 @@
+names=name
+visibility=public
+kind=defined
+
+--- name -> String
+
+自身の名前を返します。
+
+サブクラスによっては、メソッド名やクラス名を意味します。
+

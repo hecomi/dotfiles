@@ -1,0 +1,8 @@
+names=uri
+visibility=public
+kind=defined
+
+--- uri
+@todo
+The URI of this DRbServer.
+

@@ -1,0 +1,23 @@
+names=remote_address
+visibility=public
+kind=defined
+
+--- remote_address -> Addrinfo
+[[man:getpeername(2)]] で得られたリモートアドレス情報を
+[[c:Addrinfo]] オブジェクトとして返します。
+
+返されたオブジェクトの [[m:Addrinfo#protocol]] は 0 を
+返すことに注意してください。
+
+  TCPSocket.open("www.ruby-lang.org", 80) {|s|
+    p s.remote_address #=> #<Addrinfo: 221.186.184.68:80 TCP>
+  }
+  
+  TCPServer.open("127.0.0.1", 1728) {|serv|
+    c = TCPSocket.new("127.0.0.1", 1728)
+    s = serv.accept
+    p s.remote_address #=> #<Addrinfo: 127.0.0.1:36504 TCP>
+  }
+
+@see [[m:BasicSocket#getpeername]]
+

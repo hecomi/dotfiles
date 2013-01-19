@@ -1,0 +1,21 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(str) -> Syck::YPath
+
+自身を初期化します。
+
+@param str YPath でパース可能なパスを文字列で指定します。
+
+例:
+
+  require 'syck'
+  require 'yaml'
+
+  str = "/ugo[:hoge]/0/name"
+
+  p YAML::YPath.new(str)
+  #=> #<YAML::YPath:0x3238cc @predicates=[":hoge", nil, nil], @segments=["ugo", "0", "name"], @flags=nil>
+
+

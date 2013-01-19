@@ -1,0 +1,7 @@
+names=class_from_name
+visibility=public
+kind=defined
+
+--- class_from_name(name, lenient = false)
+@todo
+

@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=tk.menu
+aliases=
+aliasof=TkMenubutton
+
+Alias of [[c:TkMenubutton]]

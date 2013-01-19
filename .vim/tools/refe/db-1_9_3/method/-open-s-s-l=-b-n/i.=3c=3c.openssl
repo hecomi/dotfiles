@@ -1,0 +1,10 @@
+names=<<
+visibility=public
+kind=defined
+
+--- <<(other) -> OpenSSL::BN
+自身を other ビット左シフトした値を返します。
+
+@param other シフトするビット数
+@raise OpenSSL::BNError 計算時エラー
+

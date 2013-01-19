@@ -1,0 +1,9 @@
+names=BinaryString
+visibility=public
+kind=added
+
+--- Tk.BinaryString(str)
+@todo
+
+[[m:Tk::BinaryString.new]] と同じ
+

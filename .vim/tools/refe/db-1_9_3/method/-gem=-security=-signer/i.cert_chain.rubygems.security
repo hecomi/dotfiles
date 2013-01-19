@@ -1,0 +1,8 @@
+names=cert_chain
+visibility=public 
+kind=defined
+
+--- cert_chain -> Array
+
+証明書チェーンを返します。
+

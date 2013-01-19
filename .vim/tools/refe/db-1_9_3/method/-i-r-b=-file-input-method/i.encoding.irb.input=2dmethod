@@ -1,0 +1,8 @@
+names=encoding
+visibility=public
+kind=defined
+
+--- encoding -> Encoding
+
+読み込んだファイルの文字エンコーディングを返します。
+

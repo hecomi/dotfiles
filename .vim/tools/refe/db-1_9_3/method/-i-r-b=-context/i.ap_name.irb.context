@@ -1,0 +1,12 @@
+names=ap_name
+visibility=public
+kind=defined
+
+--- ap_name -> String
+
+自身のアプリケーション名を返します。
+
+デフォルト値は "irb" です。
+
+@see [[m:IRB::Context#ap_name=]]
+

@@ -1,0 +1,7 @@
+names=itemconfigure
+visibility=public
+kind=defined
+
+--- itemconfigure(tagOrId, slot, value = None)
+@todo
+

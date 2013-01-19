@@ -1,0 +1,15 @@
+names=load
+visibility=public
+kind=defined
+
+--- load(yaml) -> object
+@todo
+
+Load +yaml+ in to a Ruby data structure.  If multiple documents are
+provided, the object contained in the first document will be returned.
+
+Example:
+
+  Psych.load("--- a")           # => 'a'
+  Psych.load("---\n - a\n - b") # => ['a', 'b']
+

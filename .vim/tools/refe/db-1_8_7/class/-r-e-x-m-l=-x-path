@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=REXML=Functions
+extended=
+library=rexml
+aliases=
+aliasof=
+
+

@@ -1,0 +1,8 @@
+names=SDC
+visibility=public
+kind=defined
+
+--- SDC -> Integer
+@todo ???
+Shift + Delete キーを表す定数です。
+

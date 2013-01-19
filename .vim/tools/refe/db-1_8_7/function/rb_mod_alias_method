@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=rb_mod_alias_method
+params=(VALUE mod, VALUE newname, VALUE oldname)
+
+

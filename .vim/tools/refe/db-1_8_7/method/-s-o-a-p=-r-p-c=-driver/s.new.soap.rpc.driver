@@ -1,0 +1,7 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(endpoint_url, namespace = nil, soapaction = nil)
+@todo
+

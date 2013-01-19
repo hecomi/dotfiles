@@ -1,0 +1,7 @@
+names=last_update
+visibility=public
+kind=defined
+
+--- last_update -> Time
+CRL が最後に更新された日時を Time オブジェクトで返します。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=CSV=Writer
+included=
+extended=
+library=csv
+aliases=
+aliasof=
+
+CSVデータ書き込み時に用いられるクラス

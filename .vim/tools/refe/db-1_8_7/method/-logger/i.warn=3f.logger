@@ -1,0 +1,9 @@
+names=warn?
+visibility=public
+kind=defined
+
+--- warn? -> bool
+
+現在の Logger オブジェクトが WARN 以上のログレベルのメッセージを記録するなら
+真を返します。
+

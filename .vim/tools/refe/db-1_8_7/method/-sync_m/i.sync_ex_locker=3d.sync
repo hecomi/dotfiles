@@ -1,0 +1,7 @@
+names=sync_ex_locker=
+visibility=public
+kind=defined
+
+--- sync_ex_locker=(thread)
+@todo
+

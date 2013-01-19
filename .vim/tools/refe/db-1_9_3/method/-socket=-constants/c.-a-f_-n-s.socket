@@ -1,0 +1,11 @@
+names=AF_NS,PF_NS
+visibility=public
+kind=defined
+
+--- AF_NS -> Integer
+--- PF_NS -> Integer
+@todo
+XEROX NS protocol。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

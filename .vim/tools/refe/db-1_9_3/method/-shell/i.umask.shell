@@ -1,0 +1,9 @@
+names=umask
+visibility=public
+kind=defined
+
+--- umask -> object
+@todo
+
+umaskを返します。
+

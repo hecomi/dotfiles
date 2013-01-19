@@ -1,0 +1,17 @@
+names=MSG_EOR
+visibility=public
+kind=defined
+
+--- MSG_EOR -> Integer
+Data completes record。
+
+[[m:BasicSocket#send]], [[m:BasicSocket#sendmsg]],
+[[m:BasicSocket#recv]], [[m:BasicSocket#recvmsg]] の
+flags 引数に用います。
+
+@see [[man:sys/socket.h(header)]],
+     [[man:send(2)]], [[man:sendto(2)]], [[man:sendmsg(2)]],
+     [[man:recv(2)]], [[man:recvfrom(2)]], [[man:recvmsg(2)]],
+     [[man:send(2linux)]], [[man:recv(2linux)]],
+     [[man:send(2freebsd)]], [[man:recv(2freebsd)]],
+

@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=tkextlib.tile.tradiobutton
+aliases=
+aliasof=Tk=Tile=TRadiobutton
+
+Alias of [[c:Tk::Tile::TRadiobutton]]

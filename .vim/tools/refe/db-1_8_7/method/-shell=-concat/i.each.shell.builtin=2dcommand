@@ -1,0 +1,8 @@
+names=each
+visibility=public
+kind=defined
+
+--- each(rs = nil){|job| ... }
+@todo
+
+

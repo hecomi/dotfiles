@@ -1,0 +1,8 @@
+names=F53
+visibility=public
+kind=defined
+
+--- F53 -> Integer
+
+F53 キーを表す定数です。
+

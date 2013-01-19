@@ -1,0 +1,9 @@
+names=binread
+visibility=public
+kind=defined
+
+--- binread(*args) -> String | nil
+IO.binread(self.to_s, *args)と同じです。
+
+@see [[m:IO.binread]]
+

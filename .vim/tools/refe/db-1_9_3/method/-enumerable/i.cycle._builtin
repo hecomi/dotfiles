@@ -1,0 +1,26 @@
+names=cycle
+visibility=public
+kind=defined
+
+--- cycle(n=nil)       -> Enumerator
+--- cycle(n=nil) {|obj| ... } -> object | nil
+Enumerable オブジェクトの各要素を n 回 or 無限回(n=nil)繰り返し
+ブロックを呼びだします。
+
+n に 0 もしくは負の値を渡した場合は何もしません。
+繰り返しが最後まで終了した場合(つまりbreakなどで中断しなかった場合)
+は nil を返します。
+このメソッドは内部の配列に各要素を保存しておくため、
+一度 Enumerable の終端に到達した後に自分自身を変更しても
+このメソッドの動作に影響を与えません。
+
+  a = ["a", "b", "c"]
+  a.cycle {|x| puts x }  # print, a, b, c, a, b, c,.. forever.
+  a.cycle(2) {|x| puts x }  # print, a, b, c, a, b, c.
+
+ブロックを省略した場合は、n 回 or 無限回 enum の各要素を
+繰り返す [[c:Enumerator]] を返します。
+
+@return ブロックを指定しなかった場合は、[[c:Enumerator]] を返します。
+        レシーバが空の場合は nil を返します。
+

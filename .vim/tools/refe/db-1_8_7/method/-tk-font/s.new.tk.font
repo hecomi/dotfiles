@@ -1,0 +1,7 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(ltn = nil, knj = nil, keys = nil)
+@todo
+

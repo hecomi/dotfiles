@@ -1,0 +1,9 @@
+names=italy
+visibility=public
+kind=defined
+
+--- italy -> Date
+このメソッドは、new_start(Date::ITALY) と等価です。
+
+[[m:Date#new_start]]、および [[m:Date::ITALY]] を参照してください。
+

@@ -1,0 +1,8 @@
+names=verbose
+visibility=public 
+kind=defined
+
+--- verbose -> bool
+
+この値が真である場合、テストの実行結果を詳細に表示します。
+

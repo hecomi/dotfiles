@@ -1,0 +1,8 @@
+names=full_gem_path
+visibility=public
+kind=defined
+
+--- full_gem_path -> String
+
+この Gem パッケージへのフルパスを返します。
+

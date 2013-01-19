@@ -1,0 +1,10 @@
+names=TYPES
+visibility=public
+kind=defined
+
+--- TYPES
+@todo
+
+インスタンス変数 @TYDEFS の初期値。
+
+

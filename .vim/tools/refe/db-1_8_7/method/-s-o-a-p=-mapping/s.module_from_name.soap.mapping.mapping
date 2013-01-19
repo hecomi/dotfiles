@@ -1,0 +1,7 @@
+names=module_from_name
+visibility=public
+kind=defined
+
+--- module_from_name(name, lenient = false)
+@todo
+

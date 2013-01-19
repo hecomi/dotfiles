@@ -1,0 +1,9 @@
+names=front
+visibility=public
+kind=defined
+
+--- front
+@todo
+The front object of the DRbServer.
+
+This object receives remote method calls made on the server’s URI alone, with an object id.

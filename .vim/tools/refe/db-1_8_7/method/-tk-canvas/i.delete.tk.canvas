@@ -1,0 +1,10 @@
+names=delete,remove
+visibility=public
+kind=defined
+
+--- delete(*args)
+--- remove(*args)
+@todo
+
+
+

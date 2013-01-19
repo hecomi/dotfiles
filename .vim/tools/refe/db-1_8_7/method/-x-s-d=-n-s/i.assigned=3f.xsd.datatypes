@@ -1,0 +1,7 @@
+names=assigned?
+visibility=public
+kind=defined
+
+--- assigned?(ns)
+@todo
+

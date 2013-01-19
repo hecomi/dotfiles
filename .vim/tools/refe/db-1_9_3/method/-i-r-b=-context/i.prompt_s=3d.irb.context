@@ -1,0 +1,16 @@
+names=prompt_s=
+visibility=public
+kind=defined
+
+--- prompt_s=(val)
+
+文字列中のプロンプトを表現するフォーマット文字列を val に設定します。
+
+@param val フォーマットを文字列で指定します。指定できる内容については、
+           [[ref:lib:irb#customize_prompt]] を参照してください。
+
+[[m:IRB::Context#prompt_mode]] の変更に影響を受ける事に注意してください。
+
+@see [[m:IRB::Context#prompt_mode]], [[m:IRB::Context#prompt_mode=]],
+     [[m:IRB::Context#prompt_s]], [[ref:lib:irb#customize_prompt]]
+

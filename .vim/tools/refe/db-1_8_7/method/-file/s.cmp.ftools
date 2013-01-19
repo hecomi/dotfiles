@@ -1,0 +1,15 @@
+names=cmp,compare
+visibility=public
+kind=added
+
+--- compare(from, to, verbose = false) -> bool
+--- cmp(from, to, verbose = false)     -> bool
+
+2つのファイルを比較します。
+
+@param from 一つのファイル。
+
+@param to もう一つのファイル。
+
+@return 同じなら true、異なるなら false を返します。
+

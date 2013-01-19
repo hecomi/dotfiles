@@ -1,0 +1,9 @@
+type=class
+superclass=OpenSSL=OpenSSLError
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+Engine([[c:OpenSSL::Engine]]) 関連のエラーが生じたときに発生する例外です。

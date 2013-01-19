@@ -1,0 +1,8 @@
+requires=soap.header.handler,soap.element,soap.baseData,soap.soap,soap.mapping.typeMap
+classes=SOAP=Header=SimpleHandler
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

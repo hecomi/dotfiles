@@ -1,0 +1,14 @@
+names=ipv6_to_ipv4
+visibility=public
+kind=defined
+
+--- ipv6_to_ipv4 -> Addrinfo|nil
+IPv6 の v4 マップド/互換アドレスを v4 のアドレスに変換します。
+
+それ以外のアドレスの場合 nil を返します。
+  Addrinfo.ip("::192.0.2.3").ipv6_to_ipv4      #=> #<Addrinfo: 192.0.2.3>
+  Addrinfo.ip("::ffff:192.0.2.3").ipv6_to_ipv4 #=> #<Addrinfo: 192.0.2.3>
+  Addrinfo.ip("::1").ipv6_to_ipv4              #=> nil
+  Addrinfo.ip("192.0.2.3").ipv6_to_ipv4        #=> nil
+  Addrinfo.unix("/tmp/sock").ipv6_to_ipv4      #=> nil
+

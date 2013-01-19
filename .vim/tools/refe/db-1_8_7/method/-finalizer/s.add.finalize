@@ -1,0 +1,7 @@
+names=add,add_dependency
+visibility=public
+kind=defined
+
+--- add(obj, dependant, method = :finalize, *options)
+--- add_dependency(obj, dependant, method = :finalize, *options)
+

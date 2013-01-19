@@ -1,0 +1,8 @@
+names=RequestField
+visibility=public
+kind=defined
+
+--- RequestField -> "Proxy-Authorization"
+
+リクエストフィールドのキーの名前です。
+

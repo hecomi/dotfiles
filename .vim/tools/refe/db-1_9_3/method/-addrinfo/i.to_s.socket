@@ -1,0 +1,12 @@
+names=to_s,to_sockaddr
+visibility=public
+kind=defined
+
+--- to_sockaddr -> String
+--- to_s -> String
+
+struct sockaddr をパックした形式の文字列に変換します。
+
+  Addrinfo.tcp("localhost", 80).to_sockaddr
+  #=> "\x02\x00\x00P\x7F\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00"
+

@@ -1,0 +1,8 @@
+names=OP_SINGLE_ECDH_USE
+visibility=public
+kind=defined
+
+--- OP_SINGLE_ECDH_USE -> Integer
+@todo
+[[m:OpenSSL::SSL::SSLContext#options=]] で利用します。
+

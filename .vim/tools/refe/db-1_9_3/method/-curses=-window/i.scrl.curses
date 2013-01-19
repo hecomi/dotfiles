@@ -1,0 +1,15 @@
+names=scrl
+visibility=public
+kind=defined
+
+--- scrl(num)
+@todo
+Scrolls the current window Fixnum +num+ lines.
+The current cursor position is not changed.
+
+For positive +num+, it scrolls up.
+
+For negative +num+, it scrolls down.
+
+@param num
+

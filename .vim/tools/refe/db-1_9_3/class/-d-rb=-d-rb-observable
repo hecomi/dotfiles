@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=Observable
+extended=
+library=drb.observer
+aliases=
+aliasof=
+
+

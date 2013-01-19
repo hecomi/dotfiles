@@ -1,0 +1,7 @@
+names=command
+visibility=public
+kind=defined
+
+--- command(cmd = nil, &block)
+@todo
+

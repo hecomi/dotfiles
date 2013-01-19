@@ -1,0 +1,8 @@
+names=ui
+visibility=public
+kind=defined
+
+--- ui -> Gem::ConsoleUI
+
+デフォルトの UI を返します。
+

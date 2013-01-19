@@ -1,0 +1,8 @@
+names=SO_NO_CHECK
+visibility=public
+kind=defined
+
+--- SO_NO_CHECK -> Integer
+@todo
+Disable checksums。
+

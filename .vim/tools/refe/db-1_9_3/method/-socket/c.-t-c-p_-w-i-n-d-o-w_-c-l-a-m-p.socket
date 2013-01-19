@@ -1,0 +1,11 @@
+names=TCP_WINDOW_CLAMP
+visibility=public
+kind=defined
+
+--- TCP_WINDOW_CLAMP -> Integer
+Clamp the size of the advertised window。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:tcp(7linux)]]
+

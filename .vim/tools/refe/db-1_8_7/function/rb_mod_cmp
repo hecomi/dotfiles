@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=rb_mod_cmp
+params=(VALUE mod, VALUE arg)
+
+

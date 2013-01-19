@@ -1,0 +1,8 @@
+requires=
+classes=RDoc=Constant
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:RDoc::Constant]] を定義するサブライブラリです。

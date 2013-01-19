@@ -1,0 +1,10 @@
+names=run
+visibility=public
+kind=defined
+
+--- run(result) { .... } -> ()
+
+テストを実行します。
+
+@param result [[c:RUNIT::TestResult]] のインスタンスを指定します。
+

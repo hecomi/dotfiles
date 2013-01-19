@@ -1,0 +1,10 @@
+names=version=
+visibility=public 
+kind=defined
+
+--- version=(str)
+
+作成するパッケージのバージョンをセットします。
+
+@param str バージョンを表す文字列を指定します。
+

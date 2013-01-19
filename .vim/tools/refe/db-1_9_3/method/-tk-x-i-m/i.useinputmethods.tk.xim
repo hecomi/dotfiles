@@ -1,0 +1,7 @@
+names=useinputmethods
+visibility=public
+kind=defined
+
+--- useinputmethods(value = Tk::None)
+@todo
+

@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=true
+type=int
+name=parse_string
+params=(NODE *quote)
+
+
+lex_strterm 形式のノード quote の指示に従い、
+文字列の終端または埋め込み式の始まりまで読みこみます。
+

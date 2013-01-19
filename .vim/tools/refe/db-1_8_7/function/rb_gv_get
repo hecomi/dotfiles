@@ -1,0 +1,15 @@
+filename=variable.c
+macro=false
+private=false
+type=VALUE
+name=rb_gv_get
+params=(const char *name)
+
+#@# [1.5 feature]
+
+Ruby のグローバル変数の値を取得します。
+
+使用例
+
+    VALUE v = rb_gv_get("$!")
+

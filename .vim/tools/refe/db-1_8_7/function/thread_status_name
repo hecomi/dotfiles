@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=const char *
+name=thread_status_name
+params=(enum thread_status status)
+
+

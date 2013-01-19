@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=
+extended=
+library=logger
+aliases=
+aliasof=
+
+[[lib:logger]] で使用するログレベルを定義したモジュール。

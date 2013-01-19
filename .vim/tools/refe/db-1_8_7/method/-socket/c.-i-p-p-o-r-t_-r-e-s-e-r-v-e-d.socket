@@ -1,0 +1,7 @@
+names=IPPORT_RESERVED
+visibility=public
+kind=defined
+
+--- IPPORT_RESERVED -> Integer
+利用法が予約されているポート番号の最大値。
+

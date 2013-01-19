@@ -1,0 +1,7 @@
+names=on_chardata
+visibility=public
+kind=defined
+
+--- on_chardata(str)
+@todo
+

@@ -1,0 +1,9 @@
+names=parse_element
+visibility=public
+kind=defined
+
+--- parse_element(attr, value)
+@todo
+
+--- parse_element(element)
+@todo

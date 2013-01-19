@@ -1,0 +1,21 @@
+names=lgamma
+visibility=public
+kind=defined
+
+--- lgamma(x) -> [Float, Integer]
+
+log(|gamma(x)|) と、gamma(x) の符号を返します。
+
+符号は +1 もしくは -1 で返されます。
+
+@param x 実数
+
+@raise TypeError 引数のどちらかに数値以外を指定した場合に発生します。
+
+@raise Math::DomainError x に -∞ を渡した場合に発生します。
+
+@raise RangeError 引数のどちらかに実数以外の数値を指定した場合に発生します。
+
+@see [[m:Math.#gamma]]
+
+

@@ -1,0 +1,9 @@
+names=deltag,dtag
+visibility=public
+kind=defined
+
+--- dtag(tag_to_del = Tk::None)
+--- deltag(tag_to_del = Tk::None)
+@todo
+
+

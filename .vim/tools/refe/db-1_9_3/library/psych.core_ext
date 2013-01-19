@@ -1,0 +1,13 @@
+requires=
+classes=
+methods=Object/s.yaml_tag.psych.core_ext,Object/s.psych_to_yaml.psych.core_ext,Module/i.psych_yaml_as.psych.core_ext,Kernel/i.psych_y.psych.core_ext
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:Class]]、[[c:Module]]、[[c:Kernel]] といった基本的なクラスを拡張す
+るためのサブライブラリです。
+
+[注意] [[m:Object.psych_to_yaml]] などのメソッドは [[lib:syck]] が先に
+読み込まれていた場合のために定義されています。[[lib:syck]] の廃止と共に
+使用できなくなる予定ですので、psych_ のない方を利用してください。

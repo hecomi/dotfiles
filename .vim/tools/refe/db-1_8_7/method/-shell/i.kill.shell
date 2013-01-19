@@ -1,0 +1,14 @@
+names=kill
+visibility=public
+kind=defined
+
+--- kill(signal, job) -> Integer
+@todo
+
+ジョブにシグナルを送ります。
+
+@param signal
+
+@param job
+
+

@@ -1,0 +1,7 @@
+names=assertion_count
+visibility=public
+kind=defined
+
+--- assertion_count    -> Integer
+今までに実行を記録した assert の数を返します。
+

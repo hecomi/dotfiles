@@ -1,0 +1,8 @@
+names=EXTERNAL_ALIAS_MES
+visibility=public
+kind=defined
+
+--- EXTERNAL_ALIAS_MES -> "The entity is"
+
+ライブラリの内部で使用します。
+

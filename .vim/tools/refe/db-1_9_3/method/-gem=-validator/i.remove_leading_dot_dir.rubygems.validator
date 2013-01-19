@@ -1,0 +1,8 @@
+names=remove_leading_dot_dir
+visibility=public 
+kind=defined
+
+--- remove_leading_dot_dir(path) -> String
+
+与えられたパスの先頭のドットを取り除いた文字列を返します。
+

@@ -1,0 +1,10 @@
+names=time=
+visibility=public
+kind=defined
+
+--- time=(time)
+失効した日時を Time オブジェクトで設定します。
+
+@param time 失効日時
+@see [[m:OpenSSL::X509::Revoked#time]]
+

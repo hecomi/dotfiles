@@ -1,0 +1,7 @@
+names=namespace
+visibility=public
+kind=defined
+
+--- namespace(arg = nil)
+@todo
+

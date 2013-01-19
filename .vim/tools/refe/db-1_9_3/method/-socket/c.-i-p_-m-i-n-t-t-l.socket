@@ -1,0 +1,11 @@
+names=IP_MINTTL
+visibility=public
+kind=defined
+
+--- IP_MINTTL -> Integer
+Minimum TTL allowed for received packets。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], [[man:ip(4freebsd)]]
+

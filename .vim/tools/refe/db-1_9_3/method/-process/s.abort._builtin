@@ -1,0 +1,11 @@
+names=abort
+visibility=public
+kind=defined
+
+--- abort(message = "")   -> ()
+
+関数 [[m:Kernel.#abort]] と同じです。
+
+@param message 終了時のメッセージを文字列で指定します。
+
+

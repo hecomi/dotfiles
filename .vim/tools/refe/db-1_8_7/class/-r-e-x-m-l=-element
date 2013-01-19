@@ -1,0 +1,9 @@
+type=class
+superclass=REXML=Parent
+included=REXML=Namespace
+extended=
+library=rexml
+aliases=
+aliasof=
+
+

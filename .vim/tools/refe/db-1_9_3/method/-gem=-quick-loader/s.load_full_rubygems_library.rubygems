@@ -1,0 +1,7 @@
+names=load_full_rubygems_library
+visibility=public
+kind=defined
+
+--- load_full_rubygems_library
+prelude.c で定義されている内部用のメソッドです。
+

@@ -1,0 +1,7 @@
+names=assign_ns
+visibility=public
+kind=defined
+
+--- assign_ns(attrs, ns, namespace, tag = nil)
+@todo
+

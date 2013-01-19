@@ -1,0 +1,15 @@
+names=shuffle
+visibility=public
+kind=defined
+
+--- shuffle -> Array
+
+配列の要素をランダムシャッフルして，その結果を配列として返します。
+
+
+例:
+
+   a = [ 1, 2, 3 ]           #=> [1, 2, 3]
+   a.shuffle                 #=> [2, 3, 1]
+
+@see [[m:Array#shuffle!]]

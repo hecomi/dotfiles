@@ -1,0 +1,12 @@
+names=TABSIZE=
+visibility=public
+kind=defined
+
+--- TABSIZE=(val)
+
+タブ幅を val に設定します。設定した値を返します。
+
+@param val タブ幅を指定します。
+
+@raise  NotImplementedError サポートしていない環境で発生します。
+

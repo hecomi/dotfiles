@@ -1,0 +1,10 @@
+filename=parse.y
+macro=false
+private=false
+type=int
+name=rb_is_local_id
+params=(ID id)
+
+
+ローカル変数名として有効な ID ならば真。
+

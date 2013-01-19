@@ -1,0 +1,8 @@
+requires=
+classes=
+methods=
+sublibraries=
+is_sublibrary=false
+category=Obsolete
+
+このライブラリは [[lib:date]] に置き換えられました

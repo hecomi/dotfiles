@@ -1,0 +1,8 @@
+requires=soap.soap,soap.baseData,soap.mapping.typeMap,soap.encodingstyle.handler,soap.element
+classes=SOAP=Parser,SOAP=Parser=ParseError,SOAP=Parser=FormatDecodeError,SOAP=Parser=UnexpectedElementError,SOAP=Parser=ParseFrame,SOAP=Parser=ParseFrame=NodeContainer
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

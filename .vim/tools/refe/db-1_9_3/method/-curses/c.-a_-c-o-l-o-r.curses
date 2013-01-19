@@ -1,0 +1,10 @@
+names=A_COLOR
+visibility=public
+kind=defined
+
+--- A_COLOR -> Integer
+
+色ペアのフィールド情報を抽出するための文字列の属性マスク用の定数です。
+
+@see [[m:Curses.inch]], [[m:Curses::Window.inch]]
+

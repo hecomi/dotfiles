@@ -1,0 +1,15 @@
+names=bkgd
+visibility=public
+kind=defined
+
+--- bkgd(ch) -> bool
+@todo
+
+Window background manipulation routines.
+
+Set the background property of the current
+and then apply the character Integer +ch+ setting
+to every character position in that window.
+
+@see [[man:curs_bkgd(3)]]
+

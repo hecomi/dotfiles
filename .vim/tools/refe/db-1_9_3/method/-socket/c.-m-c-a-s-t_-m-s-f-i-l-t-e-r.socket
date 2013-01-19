@@ -1,0 +1,14 @@
+names=MCAST_MSFILTER
+visibility=public
+kind=defined
+
+--- MCAST_MSFILTER -> Integer
+@todo
+Multicast source filtering
+
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[RFC:3678]]
+

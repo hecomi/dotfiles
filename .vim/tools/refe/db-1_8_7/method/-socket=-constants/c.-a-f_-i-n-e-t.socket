@@ -1,0 +1,12 @@
+names=AF_INET,PF_INET
+visibility=public
+kind=defined
+
+--- AF_INET -> Integer
+--- PF_INET -> Integer
+
+IPv4。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:sys/socket.h(header)]], [[man:socket(2freebsd)]], [[man:ip(7linux)]]
+

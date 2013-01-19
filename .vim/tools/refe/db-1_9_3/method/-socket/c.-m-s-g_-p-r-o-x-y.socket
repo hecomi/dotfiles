@@ -1,0 +1,8 @@
+names=MSG_PROXY
+visibility=public
+kind=defined
+
+--- MSG_PROXY -> Integer
+@todo
+Wait for full request
+

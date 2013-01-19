@@ -1,0 +1,10 @@
+names=disposition
+visibility=public
+kind=defined
+
+--- disposition
+@todo
+
+キーの disposition 値を返します。
+(REG_CREATED_NEW_KEY または REG_OPENED_EXISTING_KEY)
+

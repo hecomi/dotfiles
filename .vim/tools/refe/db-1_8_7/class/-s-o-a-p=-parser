@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=SOAP
+extended=
+library=soap.parser
+aliases=
+aliasof=
+
+

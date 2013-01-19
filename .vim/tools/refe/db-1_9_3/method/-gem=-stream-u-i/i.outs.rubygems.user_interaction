@@ -1,0 +1,8 @@
+names=outs
+visibility=public 
+kind=defined
+
+--- outs -> IO
+
+この UI にセットされてきる出力ストリームを返します。
+

@@ -1,0 +1,11 @@
+names=TCP_NOPUSH
+visibility=public
+kind=defined
+
+--- TCP_NOPUSH -> Integer
+Don't push the last block of write。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:tcp(4freebsd)]], [[man:tcp(7linux)]]
+

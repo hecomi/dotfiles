@@ -1,0 +1,13 @@
+names=MACUKRAINE,MacUkraine
+visibility=public
+kind=defined
+
+--- MacUkraine -> Encoding
+--- MACUKRAINE -> Encoding
+MacUkraine エンコーディング。
+
+Mac OS で使われる、ウクライナ語キリル文字を取り扱うエンコーディング。
+MacCyrillic の亜種です。
+
+@see [[url:http://en.wikipedia.org/wiki/Macintosh_Ukrainian_encoding]]
+

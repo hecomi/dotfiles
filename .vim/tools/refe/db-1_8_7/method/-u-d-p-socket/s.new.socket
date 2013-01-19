@@ -1,0 +1,10 @@
+names=new,open
+visibility=public
+kind=defined
+
+--- open(address_family=Socket::AF_INET) -> UDPSocket
+--- new(address_family=Socket::AF_INET) -> UDPSocket
+新しい UDP ソケットを返します。
+
+
+@param address_family ソケットのアドレスファミリー

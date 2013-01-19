@@ -1,0 +1,24 @@
+names=to_d
+visibility=public
+kind=added
+
+--- to_d -> BigDecimal
+--- to_d(prec) -> BigDecimal
+
+自身を [[c:BigDecimal]] に変換します。
+
+@param prec 計算結果の精度。省略した場合は [[m:Float::DIG]] + 1 です。
+
+@return [[c:BigDecimal]] に変換したオブジェクト
+
+自身を一度 [[m:Float#to_s]] で文字列に変換してから
+[[m:Kernel.#BigDecimal]] で生成するので、精度に注意してください。
+
+  1.0.to_d.to_s # => "0.1E1"
+  (1.0/0).to_d.to_s # => "Infinity"
+
+  ((1.0/3).to_d/(2.0/3).to_d).to_s # => "0.499999999999999250000000000000375E0"
+  ((1.0/3)/(2.0/3)).to_d.to_s # => "0.5E0"
+
+@raise ArgumentError prec に負の数を指定した場合に発生します。
+

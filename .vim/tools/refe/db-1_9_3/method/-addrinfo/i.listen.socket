@@ -1,0 +1,16 @@
+names=listen
+visibility=public
+kind=defined
+
+--- listen(backlog=5) -> Socket
+--- listen(backlog=5){|sock| ... } -> object
+自身のアドレスにバインドされたソケットを作成し、
+[[man:listen(2)]] を実行します。
+
+ブロックが渡されたときにはそのブロックに生成された [[c:Socket]]
+オブジェクトが渡されます。ブロックの返り値がメソッドの返り値となります。
+ブロックを省略した場合は、生成された [[c:Socket]]
+オブジェクトが返されます。
+
+@param backlog バックログの最大数
+

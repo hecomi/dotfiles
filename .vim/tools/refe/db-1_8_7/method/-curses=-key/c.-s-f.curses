@@ -1,0 +1,8 @@
+names=SF
+visibility=public
+kind=defined
+
+--- SF -> Integer
+
+前に一行スクロールすることを表す定数です。
+

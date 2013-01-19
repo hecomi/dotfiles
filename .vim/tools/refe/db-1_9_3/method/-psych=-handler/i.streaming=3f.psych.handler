@@ -1,0 +1,8 @@
+names=streaming?
+visibility=public
+kind=added
+
+--- streaming? -> false
+@todo
+
+Is this handler a streaming handler?

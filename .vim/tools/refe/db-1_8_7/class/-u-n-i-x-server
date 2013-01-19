@@ -1,0 +1,9 @@
+type=class
+superclass=UNIXSocket
+included=
+extended=
+library=socket
+aliases=
+aliasof=
+
+UNIXストリーム型接続のサーバ側のソケットのクラス。

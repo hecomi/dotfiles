@@ -1,0 +1,7 @@
+names=addFixedPointMentry
+visibility=public
+kind=defined
+
+--- addFixedPointMentry(count1, count2, comma = false, name = None)
+@todo
+

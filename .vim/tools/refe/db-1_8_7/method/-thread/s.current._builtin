@@ -1,0 +1,10 @@
+names=current
+visibility=public
+kind=defined
+
+--- current    -> Thread
+
+現在実行中のスレッド(カレントスレッド)を返します。
+
+  p Thread.current #=> #<Thread:0x4022e6fc run>
+

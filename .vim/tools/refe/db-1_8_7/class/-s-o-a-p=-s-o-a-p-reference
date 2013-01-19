@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=NSDBase
+included=SOAP=SOAPBasetype
+extended=
+library=soap.baseData
+aliases=
+aliasof=
+
+

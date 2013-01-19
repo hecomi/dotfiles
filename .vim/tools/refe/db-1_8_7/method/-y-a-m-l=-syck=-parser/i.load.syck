@@ -1,0 +1,6 @@
+names=load
+visibility=public
+kind=defined
+
+--- load(io)
+

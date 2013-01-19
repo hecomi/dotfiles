@@ -1,0 +1,7 @@
+names=to_s
+visibility=public
+kind=defined
+
+--- to_s -> String
+[[ISO:8601]] 書式の文字列を返します (拡大表記はつかいません)。
+

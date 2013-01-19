@@ -1,0 +1,8 @@
+names=requires
+visibility=public
+kind=defined
+
+--- requires -> [RDoc::Require]
+
+追加された [[c:RDoc::Require]] の配列を返します。
+

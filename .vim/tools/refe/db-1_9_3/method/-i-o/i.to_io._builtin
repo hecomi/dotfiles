@@ -1,0 +1,8 @@
+names=to_io
+visibility=public
+kind=defined
+
+--- to_io    -> self
+
+self を返します。
+

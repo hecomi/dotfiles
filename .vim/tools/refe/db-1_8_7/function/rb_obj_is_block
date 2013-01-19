@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=rb_obj_is_block
+params=(VALUE block)
+
+
+proc が Proc または Binding のインスタンスであれば真。
+

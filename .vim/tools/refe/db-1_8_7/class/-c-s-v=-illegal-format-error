@@ -1,0 +1,12 @@
+type=class
+superclass=RuntimeError
+included=
+extended=
+library=csv
+aliases=
+aliasof=
+
+CSV 形式のパースが失敗した場合に発生します。
+
+  * クオート対応不正
+  * 改行コード不正

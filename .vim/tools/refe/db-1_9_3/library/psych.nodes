@@ -1,0 +1,8 @@
+requires=psych.nodes.node,stringio,psych.nodes.stream,psych.nodes.document,psych.nodes.sequence,psych.nodes.scalar,psych.nodes.mapping,psych.nodes.alias
+classes=Psych=Nodes
+methods=
+sublibraries=psych.nodes.node,psych.nodes.stream,psych.nodes.document,psych.nodes.sequence,psych.nodes.scalar,psych.nodes.mapping,psych.nodes.alias
+is_sublibrary=true
+category=
+
+

@@ -1,0 +1,10 @@
+names=A_PROTECT
+visibility=public
+kind=defined
+
+--- A_PROTECT -> Integer
+@todo
+プロテクトモードを表す属性マスク用の定数です。
+
+@see [[m:Curses.attrset]]
+

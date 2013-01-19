@@ -1,0 +1,7 @@
+names=generate
+visibility=public
+kind=defined
+
+--- generate(win, modkeys = {})
+@todo
+

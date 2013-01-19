@@ -1,0 +1,8 @@
+#expand_tabs	RDoc::Text#expand_tabs
+#flush_left	RDoc::Text#flush_left
+#markup	RDoc::Text#markup
+#normalize_comment	RDoc::Text#normalize_comment
+#parse	RDoc::Text#parse
+#strip_hashes	RDoc::Text#strip_hashes
+#strip_newlines	RDoc::Text#strip_newlines
+#strip_stars	RDoc::Text#strip_stars

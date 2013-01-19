@@ -1,0 +1,7 @@
+names=on_attribute
+visibility=public
+kind=defined
+
+--- on_attribute(name)
+@todo
+

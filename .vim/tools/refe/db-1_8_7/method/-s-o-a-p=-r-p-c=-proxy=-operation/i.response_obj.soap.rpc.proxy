@@ -1,0 +1,7 @@
+names=response_obj
+visibility=public
+kind=defined
+
+--- response_obj(body, mapping_registry, literal_mapping_registry, opt)
+@todo
+

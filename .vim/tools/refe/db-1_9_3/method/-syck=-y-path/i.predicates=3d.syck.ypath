@@ -1,0 +1,10 @@
+names=predicates=
+visibility=public
+kind=defined
+
+--- predicates=(val)
+
+self.segments の同じ位置に対応する検索条件を文字列の配列で設定します。
+
+@param val 検索条件を文字列の配列で指定します。
+

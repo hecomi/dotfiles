@@ -1,0 +1,10 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(sec = 180)
+@todo
+
+Creates a new SimpleRenewer that keeps an object alive for another
++sec+ seconds.
+

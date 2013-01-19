@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=test.unit.assertions
+aliases=
+aliasof=
+
+アサーションに失敗した時に [[c:Test::Unit::Assertions]] から raise されます。

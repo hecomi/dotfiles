@@ -1,0 +1,8 @@
+names=dataconfig
+visibility=public
+kind=defined
+
+--- dataconfig(series, key, value = None)
+@todo
+
+

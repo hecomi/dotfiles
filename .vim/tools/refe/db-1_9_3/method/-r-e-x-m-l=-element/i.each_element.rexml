@@ -1,0 +1,7 @@
+names=each_element
+visibility=public
+kind=defined
+
+--- each_element(xpath = nil) {|element| ... }
+@todo
+

@@ -1,0 +1,11 @@
+names=SO_REUSEPORT
+visibility=public
+kind=defined
+
+--- SO_REUSEPORT -> Integer
+Allow local address and port reuse。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:getsockopt(2freebsd)]], [[m:Socket::Constants::SOL_SOCKET]]
+     

@@ -1,0 +1,10 @@
+names=remove,unset
+visibility=public
+kind=defined
+
+--- unset(elem=nil)
+--- remove(elem=nil)
+@todo
+
+値がTcl配列であるとき、elemの値を削除します。
+

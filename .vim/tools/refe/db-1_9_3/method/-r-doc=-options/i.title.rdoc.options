@@ -1,0 +1,9 @@
+names=title
+visibility=public
+kind=defined
+
+--- title -> String | nil
+
+ドキュメントのタイトルを返します。指定されていない場合は nil を返します。
+
+

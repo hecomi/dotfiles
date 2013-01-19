@@ -1,0 +1,7 @@
+names=comment
+visibility=public
+kind=defined
+
+--- comment(comment)
+@todo
+

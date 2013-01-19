@@ -1,0 +1,9 @@
+type=class
+superclass=Barchart
+included=
+extended=
+library=tkextlib.tcllib.plotchart
+aliases=
+aliasof=
+
+

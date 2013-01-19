@@ -1,0 +1,8 @@
+names=gid
+visibility=public 
+kind=defined
+
+--- gid -> Integer
+
+tar のヘッダに含まれる gid を返します。
+

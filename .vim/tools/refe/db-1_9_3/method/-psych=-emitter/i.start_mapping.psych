@@ -1,0 +1,14 @@
+names=start_mapping
+visibility=public
+kind=defined
+
+--- start_mapping(anchor, tag, implicit, style) -> Psych::Emitter
+@todo
+
+Start emitting a YAML map with +anchor+, +tag+, an +implicit+ start
+and end, and +style+.
+
+自身を返します。
+
+@see [[m:Psych::Handler#start_mapping]]
+

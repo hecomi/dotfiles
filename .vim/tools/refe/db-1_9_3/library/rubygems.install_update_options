@@ -1,0 +1,9 @@
+requires=rubygems,rubygems.defaults,rubygems.exceptions,rubygems.version,rubygems.requirement,rubygems.dependency,rubygems.gem_path_searcher,rubygems.source_index,rubygems.user_interaction,rubygems.specification,rubygems.platform,rubygems.spec_fetcher,rubygems.remote_fetcher,rubygems.digest.sha2,rubygems.source_info_cache,rubygems.source_info_cache_entry,rubygems.builder,rubygems.security,rubygems.gem_openssl
+classes=Gem=InstallUpdateOptions
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:Gem::Command]] で使用するインストールとアップデートに関するオプションを
+扱うためのモジュールを定義したライブラリです。

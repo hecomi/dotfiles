@@ -1,0 +1,7 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(version = REXML::XMLDecl::DEFAULT_VERSION, encoding = nil, standalone = nil)
+@todo
+

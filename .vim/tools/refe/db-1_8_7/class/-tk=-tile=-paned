@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=tkextlib.tile.tpaned
+aliases=Tk=Tile=TPaned
+aliasof=
+
+

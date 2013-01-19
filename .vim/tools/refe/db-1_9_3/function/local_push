@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=true
+type=void
+name=local_push
+params=(int top)
+
+
+ローカル変数テーブルをプッシュします。
+プログラムのトップレベルをパースしているときは top を真にします。
+

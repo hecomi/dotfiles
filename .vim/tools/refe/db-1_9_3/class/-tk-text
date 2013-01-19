@@ -1,0 +1,9 @@
+type=class
+superclass=TkTextWin
+included=TkTextTagConfig,Tk=Scrollable
+extended=
+library=tk.text
+aliases=
+aliasof=Text
+
+

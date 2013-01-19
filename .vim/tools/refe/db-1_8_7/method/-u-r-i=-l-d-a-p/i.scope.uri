@@ -1,0 +1,8 @@
+names=scope
+visibility=public
+kind=defined
+
+--- scope    -> String
+
+自身の Scope を文字列で返します。
+

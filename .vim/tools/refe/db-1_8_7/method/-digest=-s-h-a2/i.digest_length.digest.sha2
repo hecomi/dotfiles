@@ -1,0 +1,8 @@
+names=digest_length
+visibility=public
+kind=defined
+
+--- digest_length -> Integer
+
+ダイジェストのハッシュ値のバイト長を返します。
+

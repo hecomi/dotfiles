@@ -1,0 +1,13 @@
+names=ISO2022_JP2,ISO_2022_JP_2
+visibility=public
+kind=defined
+
+--- ISO_2022_JP_2 -> Encoding
+--- ISO2022_JP2 -> Encoding
+
+ISO-2022-JP-2 エンコーディングです。
+
+ISO-2022-JP の拡張版です。
+
+@see [[m:Encoding::ISO_2022_JP]]
+

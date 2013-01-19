@@ -1,0 +1,2 @@
+.def_extend_command	IRB::ContextExtender.def_extend_command
+.install_extend_commands	IRB::ContextExtender.install_extend_commands

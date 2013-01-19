@@ -1,0 +1,8 @@
+requires=
+classes=YAML=Syck,YAML=Syck=Resolver,YAML=Syck=Parser,YAML=Syck=Node,YAML=Syck=Scalar,YAML=Syck=Seq,YAML=Syck=Map,YAML=PrivateType,YAML=DomainType,YAML=Object,YAML=Syck=BadAlias,YAML=Syck=MergeKey,YAML=Syck=DefaultKey,YAML=Syck=Out,YAML=Syck=Emitter
+methods=
+sublibraries=
+is_sublibrary=false
+category=FileFormat
+
+[[lib:yaml]] のバックエンドライブラリです。YAML バージョン 1.0 を扱う事ができます。

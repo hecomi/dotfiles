@@ -1,0 +1,9 @@
+names=represent_seq
+visibility=public
+kind=defined
+
+--- represent_seq(tag, list)
+@todo
+
+Emit a sequence with +list+ and +tag+
+

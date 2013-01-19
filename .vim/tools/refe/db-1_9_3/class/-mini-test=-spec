@@ -1,0 +1,9 @@
+type=class
+superclass=MiniTest=Unit=TestCase
+included=
+extended=
+library=minitest.spec
+aliases=
+aliasof=
+
+BDD 風にテストを書くための [[c:MiniTest::Unit::TestCase]] に対するラッパークラスです。

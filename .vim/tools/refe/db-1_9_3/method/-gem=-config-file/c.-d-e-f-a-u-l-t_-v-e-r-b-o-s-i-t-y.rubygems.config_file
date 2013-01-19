@@ -1,0 +1,8 @@
+names=DEFAULT_VERBOSITY
+visibility=protected 
+kind=defined
+
+--- DEFAULT_VERBOSITY -> true
+
+ログレベルのデフォルト値です。
+

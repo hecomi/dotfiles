@@ -1,0 +1,14 @@
+names=CP852,IBM852
+visibility=public
+kind=defined
+
+--- IBM852 -> Encoding
+--- CP852 -> Encoding
+
+CP852 エンコーディング。
+
+ラテンアルファベットを用いる中欧の言語のための
+8bit single-byte エンコーディングです。
+
+@see [[url:http://en.wikipedia.org/wiki/Code_page_852]]
+

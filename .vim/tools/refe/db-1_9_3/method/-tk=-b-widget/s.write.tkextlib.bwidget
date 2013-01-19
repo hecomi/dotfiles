@@ -1,0 +1,9 @@
+names=write
+visibility=public
+kind=defined
+
+--- write(file, mode = None)
+@todo
+
+
+

@@ -1,0 +1,7 @@
+names=_addtag
+visibility=public
+kind=defined
+
+--- _addtag(name, obj)
+@todo
+

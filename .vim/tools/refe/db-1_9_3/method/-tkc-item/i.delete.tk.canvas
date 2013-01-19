@@ -1,0 +1,10 @@
+names=delete,destroy,remove
+visibility=public
+kind=defined
+
+--- delete
+--- remove
+--- destroy
+@todo
+
+

@@ -1,0 +1,9 @@
+names=set_numeric_element_type
+visibility=public
+kind=defined
+
+--- set_numeric_element_type(idxs, val)
+@todo
+
+
+

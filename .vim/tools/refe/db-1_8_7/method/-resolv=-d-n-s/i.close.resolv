@@ -1,0 +1,14 @@
+names=close
+visibility=public
+kind=defined
+
+--- close -> ()
+
+DNSリゾルバを閉じます。
+
+
+
+
+
+
+

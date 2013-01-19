@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=tkextlib.tile.tseparator
+aliases=Tk=Tile=TSeparator
+aliasof=
+
+

@@ -1,0 +1,11 @@
+names=AF_DATAKIT,PF_DATAKIT
+visibility=public
+kind=defined
+
+--- AF_DATAKIT -> Integer
+--- PF_DATAKIT -> Integer
+@todo
+datakit protocol。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

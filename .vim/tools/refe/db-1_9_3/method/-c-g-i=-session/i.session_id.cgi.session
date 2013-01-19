@@ -1,0 +1,8 @@
+names=session_id
+visibility=public
+kind=defined
+
+--- session_id -> String
+
+セッション ID を返します。
+

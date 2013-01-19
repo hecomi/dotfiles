@@ -1,0 +1,16 @@
+names=with_werror
+visibility=private 
+kind=added
+
+--- with_werror(opt, opts = nil){|opt| ... } -> object
+--- with_werror(opt, opts = nil){|opt, opts| ... } -> object
+@todo 内部用？
+
+???
+
+@param opt ????
+
+@param opts ????
+
+@return ブロックを評価した結果を返します。
+

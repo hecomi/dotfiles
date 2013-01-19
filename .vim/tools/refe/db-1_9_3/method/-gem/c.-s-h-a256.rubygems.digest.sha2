@@ -1,0 +1,7 @@
+names=SHA256
+visibility=public
+kind=added
+
+--- SHA256 -> Class
+
+[[c:Digest::SHA256]] です。

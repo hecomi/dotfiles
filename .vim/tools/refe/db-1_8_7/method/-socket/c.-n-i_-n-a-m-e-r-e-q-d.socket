@@ -1,0 +1,19 @@
+names=NI_NAMEREQD
+visibility=public
+kind=defined
+
+--- NI_NAMEREQD -> Integer
+
+A name is required。名前解決できなかった場合にエラーを返すことを意味します。
+
+[[m:Socket.getnameinfo]], [[m:Addrinfo#getnameinfo]] の引数 flags に渡す
+定数です。
+
+  # ここでは 192.0.2.18 は名前解決できないアドレス
+  Addrinfo.tcp("192.0.2.18", 514).getnameinfo()
+  # =>["192.0.2.18", "shell"] 
+  Addrinfo.tcp("192.0.2.18", 514).getnameinfo(Socket::NI_NAMEREQD)
+  # SocketError が発生する
+
+@see [[man:getnameinfo(3)]]
+

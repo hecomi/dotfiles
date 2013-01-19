@@ -1,0 +1,8 @@
+requires=date
+classes=
+methods=Psych/s.load_documents.psych.deprecated,Psych/s.detect_implicit.psych.deprecated,Psych/s.add_ruby_type.psych.deprecated,Psych/s.add_private_type.psych.deprecated,Psych/s.tagurize.psych.deprecated,Psych/s.read_type_class.psych.deprecated,Psych/s.object_maker.psych.deprecated
+sublibraries=
+is_sublibrary=true
+category=
+
+

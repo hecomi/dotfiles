@@ -1,0 +1,7 @@
+names=decode_text
+visibility=public
+kind=defined
+
+--- decode_text(ns, text)
+@todo
+

@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=true
+type=void
+name=mod_av_set
+params=(VALUE klass, ID id, VALUE val, int isconst)
+
+

@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=Tk
+extended=Tk
+library=tk.kinput
+aliases=
+aliasof=
+
+

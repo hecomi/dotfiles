@@ -1,0 +1,7 @@
+names=add
+visibility=public
+kind=defined
+
+--- add(obj_class, soap_class, factory, info)
+@todo
+

@@ -1,0 +1,10 @@
+names=tar_command=
+visibility=public 
+kind=defined
+
+--- tar_command=(command)
+
+tar コマンドとして使用するコマンドを設定します。
+
+@param command コマンドを文字列で指定します。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=TkCheckButton
+included=Tk=Tile=TileWidget
+extended=
+library=tkextlib.tile.tcheckbutton
+aliases=
+aliasof=Tk=Tile=TCheckbutton
+
+Alias of [[c:Tk::Tile::TCheckbutton]]

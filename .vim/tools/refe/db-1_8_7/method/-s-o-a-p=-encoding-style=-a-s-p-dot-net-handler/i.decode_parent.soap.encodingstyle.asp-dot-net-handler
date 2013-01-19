@@ -1,0 +1,7 @@
+names=decode_parent
+visibility=public
+kind=defined
+
+--- decode_parent(parent, node)
+@todo
+

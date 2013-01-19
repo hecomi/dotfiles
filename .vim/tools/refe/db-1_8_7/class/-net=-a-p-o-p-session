@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=net.pop
+aliases=
+aliasof=Net=APOP
+
+Alias of [[c:Net::APOP]]

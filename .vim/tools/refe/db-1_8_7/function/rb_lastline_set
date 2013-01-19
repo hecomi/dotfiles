@@ -1,0 +1,10 @@
+filename=parse.y
+macro=false
+private=false
+type=void
+name=rb_lastline_set
+params=(VALUE val)
+
+
+現在評価中の SCOPE の $_ に val を代入します。
+

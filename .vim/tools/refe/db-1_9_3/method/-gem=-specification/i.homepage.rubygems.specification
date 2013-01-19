@@ -1,0 +1,8 @@
+names=homepage
+visibility=public
+kind=defined
+
+--- homepage -> String
+
+この Gem パッケージを作成しているプロジェクトか作成者のウェブサイトの URI を返します。
+

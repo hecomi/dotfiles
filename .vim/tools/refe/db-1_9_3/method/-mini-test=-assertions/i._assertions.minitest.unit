@@ -1,0 +1,8 @@
+names=_assertions
+visibility=public 
+kind=defined
+
+--- _assertions -> Fixnum
+
+アサーション数を返します。
+

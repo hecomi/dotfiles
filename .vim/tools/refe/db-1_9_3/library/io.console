@@ -1,0 +1,14 @@
+requires=
+classes=
+methods=IO/i.noecho.io.console,IO/i.echo=3d.io.console,IO/i.echo=3f.io.console,IO/i.raw.io.console,IO/i.raw=21.io.console,IO/i.getch.io.console,IO/i.winsize.io.console,IO/i.winsize=3d.io.console,IO/i.iflush.io.console,IO/i.oflush.io.console,IO/i.ioflush.io.console,IO/s.console.io.console
+sublibraries=io.console.size
+is_sublibrary=false
+category=CUI
+
+端末上の入出力を制御するための機能を [[c:IO]] に追加するためのライブラ
+リです。
+
+例えば、[[m:IO#noecho]] を使ってパスワード入力を端末上に表示しないといっ
+た事ができます。同様の事が [[lib:curses]] ライブラリや[[lib:readline]]
+ライブラリでも実現できますが、そこまでは必要はないけど、[[m:IO#gets]]
+や [[m:IO#getc]] では機能不足といった場合に便利です。

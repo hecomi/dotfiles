@@ -1,0 +1,7 @@
+names=entryconfigure
+visibility=public
+kind=defined
+
+--- entryconfigure(index, key, val = Tk::None)
+@todo
+

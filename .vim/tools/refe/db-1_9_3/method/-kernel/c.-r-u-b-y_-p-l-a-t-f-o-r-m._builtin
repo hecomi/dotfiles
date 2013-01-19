@@ -1,0 +1,8 @@
+names=RUBY_PLATFORM
+visibility=public
+kind=defined
+
+--- RUBY_PLATFORM -> String
+
+プラットフォームを表す文字列。
+

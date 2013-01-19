@@ -1,0 +1,7 @@
+names=end_element
+visibility=public
+kind=defined
+
+--- end_element(uri, localname, qname)
+@todo
+

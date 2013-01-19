@@ -1,0 +1,10 @@
+names=new
+visibility=public
+kind=defined
+
+--- new    -> Test::Unit::TestResult
+
+このメソッドをユーザが直接呼ぶことはありません。
+
+空の TestResult オブジェクトを返します。
+

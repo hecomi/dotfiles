@@ -1,0 +1,7 @@
+names=process_controller
+visibility=public
+kind=defined
+
+--- process_controller -> Shell::ProcessController
+@todo
+

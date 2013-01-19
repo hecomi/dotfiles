@@ -1,0 +1,8 @@
+names=crc
+visibility=public
+kind=defined
+
+--- crc -> Integer
+
+圧縮されていないデータの CRC 値を返します。
+

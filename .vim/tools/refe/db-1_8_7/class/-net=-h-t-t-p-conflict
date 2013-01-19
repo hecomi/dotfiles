@@ -1,0 +1,11 @@
+type=class
+superclass=Net=HTTPClientError
+included=
+extended=
+library=net.http
+aliases=
+aliasof=
+
+HTTP レスポンス 409 (Conflict) を表現するクラスです。
+
+詳しくは [[RFC:2616]] を見てください。

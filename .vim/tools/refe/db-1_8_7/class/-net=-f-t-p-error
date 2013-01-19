@@ -1,0 +1,14 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=net.ftp
+aliases=
+aliasof=
+
+net/ftp ライブラリ関連のエラー全般を表す例外クラスです。
+
+サーバの応答コードがエラーを示している場合に発生します。
+
+例外発生の原因となったサーバ応答は [[m:Exception#message]]
+から得られます。

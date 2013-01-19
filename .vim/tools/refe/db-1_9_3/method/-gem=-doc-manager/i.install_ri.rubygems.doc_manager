@@ -1,0 +1,8 @@
+names=install_ri
+visibility=public 
+kind=defined
+
+--- install_ri
+
+RI のデータを生成してインストールします。
+

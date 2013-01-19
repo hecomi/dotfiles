@@ -1,0 +1,7 @@
+names=set_variable_element
+visibility=public
+kind=defined
+
+--- set_variable_element(*idxs)
+@todo
+

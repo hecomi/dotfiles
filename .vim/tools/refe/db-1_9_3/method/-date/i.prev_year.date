@@ -1,0 +1,9 @@
+names=prev_year
+visibility=public
+kind=defined
+
+--- prev_year(n = 1) -> Date
+n 年前を返します。
+
+@param n 年数
+

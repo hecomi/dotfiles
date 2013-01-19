@@ -1,0 +1,9 @@
+.CurrentContext	IRB.CurrentContext
+.conf	IRB.conf
+.irb_abort	IRB.irb_abort
+.irb_at_exit	IRB.irb_at_exit
+.irb_exit	IRB.irb_exit
+.print_usage	IRB.print_usage
+.start	IRB.start
+.version	IRB.version
+:STDIN_FILE_NAME	IRB::STDIN_FILE_NAME

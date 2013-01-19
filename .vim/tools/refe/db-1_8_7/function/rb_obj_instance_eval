@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=false
+type=VALUE
+name=rb_obj_instance_eval
+params=(int argc, VALUE *argv, VALUE self)
+
+

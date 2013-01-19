@@ -1,0 +1,11 @@
+names=color_pairs
+visibility=public
+kind=defined
+
+--- color_pairs -> Integer
+@todo
+
+Returns the COLOR_PAIRS available, if the curses library supports it.
+
+@raise NotImplementedError サポートしていない環境で発生します。
+

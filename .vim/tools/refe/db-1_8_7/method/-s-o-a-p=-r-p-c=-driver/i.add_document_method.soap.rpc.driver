@@ -1,0 +1,7 @@
+names=add_document_method
+visibility=public
+kind=defined
+
+--- add_document_method(name, soapaction, req_qname, res_qname)
+@todo
+

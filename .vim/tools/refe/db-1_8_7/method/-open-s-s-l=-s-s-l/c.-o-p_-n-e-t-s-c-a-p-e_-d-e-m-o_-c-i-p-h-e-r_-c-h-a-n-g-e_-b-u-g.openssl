@@ -1,0 +1,8 @@
+names=OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG
+visibility=public
+kind=defined
+
+--- OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG -> Integer
+@todo
+[[m:OpenSSL::SSL::SSLContext#options=]] で利用します。
+

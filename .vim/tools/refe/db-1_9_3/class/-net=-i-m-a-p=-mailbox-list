@@ -1,0 +1,10 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=net.imap
+aliases=
+aliasof=
+
+[[m:Net::IMAP#list]]、[[m:Net::IMAP#xlist]]、[[m:Net::IMAP#lsub]]
+で返されるメールボックスのデータを表します。

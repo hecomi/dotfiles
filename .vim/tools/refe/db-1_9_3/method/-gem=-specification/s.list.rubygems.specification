@@ -1,0 +1,8 @@
+names=list
+visibility=public
+kind=defined
+
+--- list -> Array
+
+実行中の Ruby のインスタンスで作成された [[c:Gem::Specification]] のインスタンスを返します。
+

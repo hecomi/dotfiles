@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=false
+type=void
+name=rb_thread_wait_for
+params=(struct timeval time)
+
+
+time の長さの時間が経過するまでカレントスレッドを停止します。
+

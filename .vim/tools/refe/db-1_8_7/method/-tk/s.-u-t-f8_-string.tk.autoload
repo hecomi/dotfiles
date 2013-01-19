@@ -1,0 +1,10 @@
+names=UTF8_String
+visibility=public
+kind=added
+
+--- Tk.UTF8_String(str)
+@todo
+
+[[m:Tk::UTF8_String.new]] と同じ
+
+

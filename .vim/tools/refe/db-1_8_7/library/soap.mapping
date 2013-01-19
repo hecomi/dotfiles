@@ -1,0 +1,8 @@
+requires=soap.mapping.mapping,soap.mapping.registry,soap.baseData,soap.soap,soap.mapping.typeMap,soap.mapping.factory,soap.mapping.rubytypeFactory
+classes=
+methods=
+sublibraries=soap.mapping.typeMap,soap.mapping.mapping,soap.mapping.registry,soap.mapping.factory,soap.mapping.rubytypeFactory,soap.mapping.wsdlencodedregistry,soap.mapping.wsdlliteralregistry
+is_sublibrary=true
+category=
+
+

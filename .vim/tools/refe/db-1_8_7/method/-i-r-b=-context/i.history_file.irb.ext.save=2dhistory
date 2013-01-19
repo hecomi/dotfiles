@@ -1,0 +1,13 @@
+names=history_file
+visibility=public
+kind=added
+
+--- history_file -> String | nil
+
+履歴ファイルのパスを返します。
+
+@return 履歴ファイルのパスを [[c:String]] か nil で返します。nil を返し
+        た場合は、~/.irb_history に履歴が保存されます。
+
+@see [[ref:lib:irb#history]]
+

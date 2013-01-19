@@ -1,0 +1,7 @@
+names=tag_configure
+visibility=public
+kind=defined
+
+--- tag_configure(tagOrId, slot, value = Tk::None)
+@todo
+

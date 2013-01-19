@@ -1,0 +1,11 @@
+type=class
+superclass=Object
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+X509 証明書クラス
+
+  * [[RFC:5280]]

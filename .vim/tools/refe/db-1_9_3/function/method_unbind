@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=method_unbind
+params=(VALUE obj)
+
+

@@ -1,0 +1,8 @@
+names=IPPORT_USERRESERVED
+visibility=public
+kind=defined
+
+--- IPPORT_USERRESERVED -> Integer
+ユーザが自由に利用して良いポート番号の最小値。
+
+

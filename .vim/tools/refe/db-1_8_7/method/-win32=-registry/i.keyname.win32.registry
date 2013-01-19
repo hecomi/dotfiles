@@ -1,0 +1,10 @@
+names=keyname
+visibility=public
+kind=defined
+
+--- keyname
+@todo
+
+[[m:Win32::Registry.open]] または [[m:Win32::Registry.create]] に指定された
+subkey の値を返します。
+

@@ -1,0 +1,8 @@
+names=ENCODING_SPEC_RE
+visibility=public
+kind=defined
+
+--- ENCODING_SPEC_RE -> %r"coding\s*[=:]\s*([[:alnum:]\-_]+)"
+
+マジックコメントにマッチする正規表現を返します。
+

@@ -1,0 +1,17 @@
+names=CP1254,WINDOWS_1254,Windows_1254
+visibility=public
+kind=defined
+
+--- Windows_1254 -> Encoding
+--- CP1254 -> Encoding
+--- WINDOWS_1254 -> Encoding
+
+Windows-1254 エンコーディング。
+
+ISO8859-9 の亜種です。
+
+@see [[m:Encoding::ISO_8859_9]],
+     [[url:http://www.iana.org/assignments/character-sets]],
+     [[url:http://www.microsoft.com/globaldev/reference/sbcs/1254.mspx]],
+     [[url:http://en.wikipedia.org/wiki/Windows-1254]]
+

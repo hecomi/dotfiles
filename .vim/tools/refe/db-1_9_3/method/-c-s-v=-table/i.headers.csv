@@ -1,0 +1,10 @@
+names=headers
+visibility=public
+kind=defined
+
+--- headers -> Array
+
+自身のヘッダ行を返します。
+
+テーブルが空である場合は空の配列を返します。
+

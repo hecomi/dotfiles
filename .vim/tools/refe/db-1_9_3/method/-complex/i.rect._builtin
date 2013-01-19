@@ -1,0 +1,15 @@
+names=rect,rectangular
+visibility=public
+kind=defined
+
+--- rect        -> [Numeric, Numeric]
+--- rectangular -> [Numeric, Numeric]
+
+実部と虚部を配列にして返します。
+
+例:
+
+  Complex(3).rect    # => [3, 0]
+  Complex(3.5).rect  # => [3.5, 0]
+  Complex(3, 2).rect # => [3, 2]
+

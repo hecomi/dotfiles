@@ -1,0 +1,11 @@
+names=session_new_cb
+visibility=public
+kind=defined
+
+--- session_new_cb -> Proc | nil
+セッションが生成されたときに呼び出されるコールバックを返します。
+
+設定されていないときは nil を返します。
+
+@see [[m:OpenSSL::SSL::SSLContext#session_new_cb=]]
+

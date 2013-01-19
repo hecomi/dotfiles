@@ -1,0 +1,10 @@
+names=AF_ISDN,PF_ISDN
+visibility=public
+kind=defined
+
+--- AF_ISDN -> Integer
+--- PF_ISDN -> Integer
+@todo
+Integrated Services Digital Network。
+[[m:Socket.open]] の第一引数 domain に使用します。
+

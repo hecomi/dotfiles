@@ -1,0 +1,13 @@
+filename=class.c
+macro=false
+private=false
+type=void
+name=rb_define_protected_method
+params=(VALUE klass, const char *name, VALUE (*func)(), int argc)
+
+
+クラス klass に protected インスタンスメソッド name を
+定義します。その実体は関数 func であり、その関数がとる
+引数のタイプを argc で指定します。argc のフォーマットに
+ついては rb_define_method の項を参照してください。
+

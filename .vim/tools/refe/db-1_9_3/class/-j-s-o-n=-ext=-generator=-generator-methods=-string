@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=
+extended=
+library=json
+aliases=
+aliasof=JSON=Generator=GeneratorMethods=String
+
+Alias of [[c:JSON::Generator::GeneratorMethods::String]]

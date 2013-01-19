@@ -1,0 +1,9 @@
+names=asciitagfont_configure
+visibility=public
+kind=defined
+
+--- asciitagfont_configure(tagOrId, ltn, keys = nil)
+@todo
+
+Alias for #latintagfont_configure
+

@@ -1,0 +1,29 @@
+names=connect_from
+visibility=public
+kind=defined
+
+--- connect_from(host, port) -> Socket
+--- connect_from(host, port){|sock| ... } -> object
+
+引数で指定されたアドレスから
+自身のアドレスへソケットを接続します。
+
+接続元のアドレスは [[m:Addrinfo#family_addrinfo]] により生成された
+ものが用いられます。
+
+ブロックが渡されたときにはそのブロックに接続済み [[c:Socket]]
+オブジェクトが渡されます。ブロックの返り値がメソッドの返り値となります。
+ブロックを省略した場合は、接続済み[[c:Socket]]
+オブジェクトが返されます。
+
+引数で指定したアドレスはソケット接続のローカル側のアドレスになります。
+
+  Addrinfo.tcp("www.ruby-lang.org", 80).connect_from("0.0.0.0", 4649) {|s|
+    s.print "GET / HTTP/1.0\r\nHost: www.ruby-lang.org\r\n\r\n"
+    puts s.read
+  }
+
+@param host ホスト(IP アドレスもしくはホスト名)
+@param port ポート番号(整数)もしくはサービス名(文字列)
+
+

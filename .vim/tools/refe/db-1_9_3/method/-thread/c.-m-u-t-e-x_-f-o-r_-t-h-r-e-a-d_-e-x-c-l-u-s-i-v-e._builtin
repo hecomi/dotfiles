@@ -1,0 +1,7 @@
+names=MUTEX_FOR_THREAD_EXCLUSIVE
+visibility=public
+kind=defined
+
+--- MUTEX_FOR_THREAD_EXCLUSIVE -> Mutex
+
+[[m:Thread.exclusive]]用の[[c:Mutex]]オブジェクトです。

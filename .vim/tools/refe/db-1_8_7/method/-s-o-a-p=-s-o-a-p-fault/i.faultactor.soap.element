@@ -1,0 +1,8 @@
+names=faultactor,faultactor=
+visibility=public
+kind=defined
+
+--- faultactor
+--- faultactor=(rhs)
+@todo
+

@@ -1,0 +1,13 @@
+names=MCAST_INCLUDE
+visibility=public
+kind=defined
+
+--- MCAST_INCLUDE -> Integer
+Inclusive multicast source filter
+
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[RFC:3678]]
+

@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=cvar_cbase
+params=(void)
+
+
+現在のコンテキストで、クラス変数の探索の起点となるモジュールを返します。
+

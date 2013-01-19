@@ -1,0 +1,11 @@
+names=cellcget,cellconfiginfo,cellconfigure,current_cell_configinfo,current_cellconfiginfo
+visibility=public
+kind=defined
+
+--- current_cell_configinfo(tagOrId, slot = nil)
+--- cellcget(tagOrId, slot = nil)
+--- cellconfigure(tagOrId, slot = nil)
+--- cellconfiginfo(tagOrId, slot = nil)
+--- current_cellconfiginfo(tagOrId, slot = nil)
+@todo
+

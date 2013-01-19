@@ -1,0 +1,12 @@
+names====
+visibility=public
+kind=defined
+
+--- ===(string) -> bool
+文字列 string との正規表現マッチを行います。
+マッチした場合は真を返します。
+
+string が文字列でもシンボルでもない場合には false を返します。
+
+@param string マッチ対象文字列
+

@@ -1,0 +1,11 @@
+names=AF_PPP,PF_PPP
+visibility=public
+kind=defined
+
+--- AF_PPP -> Integer
+--- PF_PPP -> Integer
+@todo
+Point-to-Point Protocol。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

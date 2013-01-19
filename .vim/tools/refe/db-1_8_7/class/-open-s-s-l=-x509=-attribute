@@ -1,0 +1,12 @@
+type=class
+superclass=Object
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+X.509 証明書署名要求の attribute を表すクラスです。
+
+[[m:OpenSSL::X509::Request#attributes]] で取り出すことや、
+[[m:OpenSSL::X509::Request#add_attribute]] で追加することができます。

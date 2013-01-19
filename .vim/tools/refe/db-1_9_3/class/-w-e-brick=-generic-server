@@ -1,0 +1,10 @@
+type=class
+superclass=Object
+included=
+extended=
+library=webrick.server
+aliases=
+aliasof=
+
+サーバの一般的な機能を提供するクラスです。
+[[c:WEBrick::HTTPServer]] のスーパークラスです。

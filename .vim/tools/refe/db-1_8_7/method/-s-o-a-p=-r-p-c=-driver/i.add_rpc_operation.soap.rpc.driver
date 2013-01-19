@@ -1,0 +1,7 @@
+names=add_rpc_operation
+visibility=public
+kind=defined
+
+--- add_rpc_operation(qname, soapaction, name, param_def, opt = {})
+@todo
+

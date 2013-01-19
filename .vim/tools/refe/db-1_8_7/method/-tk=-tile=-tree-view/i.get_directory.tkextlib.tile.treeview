@@ -1,0 +1,7 @@
+names=get_directory
+visibility=public
+kind=defined
+
+--- get_directory(item)
+@todo
+

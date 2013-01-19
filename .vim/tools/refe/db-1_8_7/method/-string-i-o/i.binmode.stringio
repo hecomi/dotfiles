@@ -1,0 +1,8 @@
+names=binmode
+visibility=public
+kind=defined
+
+--- binmode    -> self
+
+何もせずに self を返します。
+

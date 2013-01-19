@@ -1,0 +1,11 @@
+names=<=>
+visibility=public
+kind=defined
+
+--- <=>(other)
+@todo
+
+a == b なら 0、a > b なら 1、a < b なら -1 になります。
+
+    c = a <=> b 
+

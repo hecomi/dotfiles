@@ -1,0 +1,8 @@
+names=uname
+visibility=public 
+kind=defined
+
+--- uname -> String
+
+tar のヘッダに含まれるユーザ名を返します。
+

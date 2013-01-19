@@ -1,0 +1,7 @@
+names=TCL_LIBRARY_PATH
+visibility=public
+kind=defined
+
+--- TCL_LIBRARY_PATH
+@todo
+

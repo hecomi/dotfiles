@@ -1,0 +1,22 @@
+names=ungetbyte
+visibility=public
+kind=defined
+
+--- ungetbyte(c) -> nil
+
+指定したバイト列を書き戻します。
+
+2バイト以上の書き戻しは仕様として保証しません。
+
+このメソッドはバッファを経由しない読み出し([[m:IO#sysread]] など)
+には影響しません。
+
+@param c バイト列(文字列)、もしくは0から255までの整数
+
+例:
+
+   f = File.new("testfile")   #=> #<File:testfile>
+   b = f.getbyte              #=> 0x38
+   f.ungetbyte(b)             #=> nil
+   f.getbyte                  #=> 0x38
+

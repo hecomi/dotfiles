@@ -1,0 +1,11 @@
+names=AF_CCITT,PF_CCITT
+visibility=public
+kind=defined
+
+--- AF_CCITT -> Integer
+--- PF_CCITT -> Integer
+@todo
+CCITT プロトコル。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

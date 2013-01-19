@@ -1,0 +1,11 @@
+names=TCP_LINGER2
+visibility=public
+kind=defined
+
+--- TCP_LINGER2 -> Integer
+Lifetime of orphaned FIN_WAIT2 sockets。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:tcp(7linux)]]
+

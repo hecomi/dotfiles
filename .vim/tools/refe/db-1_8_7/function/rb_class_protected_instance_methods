@@ -1,0 +1,12 @@
+filename=class.c
+macro=false
+private=false
+type=VALUE
+name=rb_class_protected_instance_methods
+params=(int argc, VALUE *argv, VALUE mod)
+
+
+Module#protected_instance_methods の実体。
+モジュール mod に定義されている protected メソッド名の
+リストを文字列の配列で返します。
+

@@ -1,0 +1,8 @@
+names=uninstall_cmd
+visibility=public
+kind=defined
+
+--- uninstall_cmd(cmd_id)
+@todo
+
+

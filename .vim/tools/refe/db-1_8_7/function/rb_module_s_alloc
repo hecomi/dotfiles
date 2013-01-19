@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=rb_module_s_alloc
+params=(VALUE klass)
+
+

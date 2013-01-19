@@ -1,0 +1,18 @@
+requires=readline
+classes=IRB=HistorySavingAbility
+methods=IRB=Context/i.init_save_history.irb.ext.save=2dhistory,IRB=Context/i.save_history.irb.ext.save=2dhistory,IRB=Context/i.save_history=3d.irb.ext.save=2dhistory,IRB=Context/i.history_file.irb.ext.save=2dhistory,IRB=Context/i.history_file=3d.irb.ext.save=2dhistory
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:IRB::Context]] にヒストリの読み込み、保存の機能を提供するサブライブ
+ラリです。
+
+conf.save_history か IRB.conf[:SAVE_HISTORY] にヒストリの保存件数を設定
+する事で使用できます。
+
+ただし、[[lib:readline]] が利用できない環境ではヒストリの読み込み、保存
+は行えません。
+
+このライブラリで定義されているメソッドはユーザが直接使用するものではあ
+りません。

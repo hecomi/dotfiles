@@ -1,0 +1,15 @@
+names=CP878,KOI8_R
+visibility=public
+kind=defined
+
+--- KOI8_R -> Encoding
+--- CP878 -> Encoding
+
+KOI8-R エンコーディング。
+
+ロシア語のキリル文字で使われる8bit single-byteエンコーディングです。
+
+@see [[url:http://en.wikipedia.org/wiki/KOI8-R]]
+
+
+

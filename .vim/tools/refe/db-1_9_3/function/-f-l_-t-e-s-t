@@ -1,0 +1,10 @@
+filename=ruby.h
+macro=true
+private=false
+type=int
+name=FL_TEST
+params=(VALUE x, int f)
+
+
+x のフラグ f が立っていたら真。
+

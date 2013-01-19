@@ -1,0 +1,9 @@
+type=class
+superclass=SOAP=RPC=RPCError
+included=
+extended=
+library=soap.rpc.element
+aliases=
+aliasof=
+
+

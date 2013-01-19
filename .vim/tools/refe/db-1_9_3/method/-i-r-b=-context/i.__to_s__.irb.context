@@ -1,0 +1,8 @@
+names=__to_s__
+visibility=public
+kind=defined
+
+--- __to_s__ -> String
+
+自身を文字列表現にしたオブジェクトを返します。
+

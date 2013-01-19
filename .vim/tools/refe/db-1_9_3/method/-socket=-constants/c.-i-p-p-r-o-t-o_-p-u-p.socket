@@ -1,0 +1,12 @@
+names=IPPROTO_PUP
+visibility=public
+kind=defined
+
+--- IPPROTO_PUP -> Integer
+@todo
+PARC Universal Packet protocol。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+

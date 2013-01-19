@@ -1,0 +1,10 @@
+names=join
+visibility=public
+kind=defined
+
+--- join(*args) -> Pathname
+
+与えられたパス名を連結します。
+
+@param args 連結したいディレクトリ名やファイル名を文字列で与えます。
+

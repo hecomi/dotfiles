@@ -1,0 +1,8 @@
+names=KEY_CTRL_I
+visibility=public
+kind=defined
+
+--- KEY_CTRL_I -> Integer
+
+Ctrl + I を表す定数です。
+

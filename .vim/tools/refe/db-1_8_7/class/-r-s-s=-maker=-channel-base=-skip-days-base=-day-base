@@ -1,0 +1,13 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rss
+aliases=
+aliasof=
+
+dayは
+maker.channel.skipDays.new_dayで作成されたオ
+ブジェクトとします．
+
+contentを指定する必要があります．

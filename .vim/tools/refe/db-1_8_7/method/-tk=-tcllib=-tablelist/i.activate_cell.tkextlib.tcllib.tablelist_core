@@ -1,0 +1,8 @@
+names=activate_cell,activatecell
+visibility=public
+kind=defined
+
+--- activate_cell(index)
+--- activatecell(index)
+@todo
+

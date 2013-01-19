@@ -1,0 +1,9 @@
+type=class
+superclass=RSS=Element
+included=RSS=TaxonomyTopicsModel,RSS=SyndicationModel,RSS=ImageFaviconModel,RSS=ImageModelUtils,RSS=DublinCoreModel
+extended=
+library=rss
+aliases=
+aliasof=
+
+

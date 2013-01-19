@@ -1,0 +1,9 @@
+names=each_method
+visibility=public
+kind=defined
+
+--- each_method {|m| ... } -> [RDoc::AnyMethod]
+
+追加されたメソッド([[c:RDoc::AnyMethod]] かそのサブクラスのオブジェクト)
+に対してブロックを評価します。
+

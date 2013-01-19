@@ -1,0 +1,9 @@
+type=class
+superclass=TkMenubutton
+included=Tk=Tile=TileWidget
+extended=
+library=tkextlib.tile.tmenubutton
+aliases=
+aliasof=
+
+

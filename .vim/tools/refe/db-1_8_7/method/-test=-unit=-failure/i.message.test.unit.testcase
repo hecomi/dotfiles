@@ -1,0 +1,14 @@
+names=message
+visibility=public
+kind=defined
+
+--- message -> String
+
+自身に対応する assert メソッドに渡した message を指定します。
+
+[[m:Test::Unit::Failure#short_display]] や
+[[m:Test::Unit::Failure#long_display]] で使われます。
+
+@see [[m:Test::Unit::Failure#short_display]],
+     [[m:Test::Unit::Failure#long_display]]
+

@@ -1,0 +1,8 @@
+names=Default
+visibility=public
+kind=defined
+
+--- Default -> ThreadGroup
+
+デフォルトで定義されている [[c:ThreadGroup]] です。メインスレッド
+は最初このグループに属します。

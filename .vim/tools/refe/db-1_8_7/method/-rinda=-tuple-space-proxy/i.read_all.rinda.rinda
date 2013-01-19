@@ -1,0 +1,9 @@
+names=read_all
+visibility=public
+kind=defined
+
+--- read_all(tuple)
+@todo
+
+詳細は [[m:Rinda::TupleSpace#read_all]] 参照
+

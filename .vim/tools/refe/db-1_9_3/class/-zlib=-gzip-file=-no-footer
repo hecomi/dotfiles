@@ -1,0 +1,9 @@
+type=class
+superclass=Zlib=GzipFile=Error
+included=
+extended=
+library=zlib
+aliases=
+aliasof=
+
+gzip ファイルにフッターが無い時に発生します。

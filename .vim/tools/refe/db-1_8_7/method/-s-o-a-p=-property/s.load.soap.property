@@ -1,0 +1,8 @@
+names=load
+visibility=public
+kind=defined
+
+--- load(stream)
+@todo
+
+

@@ -1,0 +1,8 @@
+names=label
+visibility=public
+kind=defined
+
+--- label(text)
+@todo
+
+

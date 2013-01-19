@@ -1,0 +1,9 @@
+names=asciifont_copy
+visibility=public
+kind=defined
+
+--- asciifont_copy(win, wintag = nil)
+@todo
+
+Alias for #latinfont_copy
+

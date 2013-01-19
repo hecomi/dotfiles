@@ -1,0 +1,10 @@
+names=empty
+visibility=public
+kind=added
+
+--- empty
+@todo
+
+Called when an empty event happens. (Which, as far as I can tell, is
+never).
+

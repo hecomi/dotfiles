@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=false
+type=void
+name=rb_exit
+params=(int status)
+
+
+ステータス status でインタプリタを終了させます。
+

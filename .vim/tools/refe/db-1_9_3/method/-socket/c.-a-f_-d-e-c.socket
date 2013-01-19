@@ -1,0 +1,11 @@
+names=AF_DEC,PF_DEC
+visibility=public
+kind=defined
+
+--- AF_DEC -> Integer
+--- PF_DEC -> Integer
+@todo
+DECnet protocol。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

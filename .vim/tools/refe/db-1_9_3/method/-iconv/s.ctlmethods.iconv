@@ -1,0 +1,9 @@
+names=ctlmethods
+visibility=public
+kind=defined
+
+--- ctlmethods -> [Symbol]
+
+システム上のlibiconvのiconvctl()関数で使用可能なフラグのリストを [[c:Symbol]] の配列として返します。
+
+

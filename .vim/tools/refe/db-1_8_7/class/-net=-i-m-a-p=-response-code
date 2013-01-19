@@ -1,0 +1,11 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=net.imap
+aliases=
+aliasof=
+
+応答のレスポンスコードを表すクラスです。
+
+レスポンスコードについては [[RFC:2060]] の 7.1 を参照してください。

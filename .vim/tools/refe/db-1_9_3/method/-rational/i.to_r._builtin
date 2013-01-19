@@ -1,0 +1,10 @@
+names=to_r
+visibility=public 
+kind=defined
+
+--- to_r -> Rational
+
+自身を返します。
+
+@return 自身を返します。
+

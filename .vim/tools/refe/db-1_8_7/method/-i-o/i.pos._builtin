@@ -1,0 +1,11 @@
+names=pos,tell
+visibility=public
+kind=defined
+
+--- pos    -> Integer
+--- tell   -> Integer
+
+ファイルポインタの現在の位置を整数で返します。
+
+@raise IOError 既に close されている場合に発生します。
+

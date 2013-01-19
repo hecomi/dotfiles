@@ -1,0 +1,35 @@
+names=sendmsg
+visibility=public
+kind=defined
+
+--- sendmsg(mesg, flags=0, dest_sockaddr=nil, *controls) -> Integer
+[[man:sendmsg(2)]] を用いてメッセージを送ります。
+
+このメソッドはブロックします。ノンブロッキング方式で通信したい
+場合は [[m:BasicSocket#sendmsg_nonblock]] を用います。
+
+ソケットが connection-less の場合は dest_sockaddr で
+通信先のアドレスを指定しなければなりません。[[m:Socket.sockaddr_in]]
+の返り値や [[c:Addrinfo]] オブジェクトを引数として渡すことができます。
+
+controls には 補助データ(ancillary data)を渡します。
+[[c:Socket::AncillaryData]] のインスタンスや
+3要素(cmsg_level, cmsg_type, cmsg_data) の配列を用いることができます。
+
+送ったバイト数を返します。
+
+  # UnixSocket#send_io の実装例
+  # use Socket::AncillaryData.
+  ancdata = Socket::AncillaryData.int(:UNIX, :SOCKET, :RIGHTS, io.fileno)
+  sock.sendmsg("a", 0, nil, ancdata)
+  
+  # use 3-element array.
+  ancdata = [:SOCKET, :RIGHTS, [io.fileno].pack("i!")]
+  sock.sendmsg("\0", 0, nil, ancdata)
+
+
+@param mesg メッセージ文字列
+@param flags フラグ(Socket::MSG_* という定数の bitwise OR を取ったもの)
+@param dest_sockaddr 通信先のアドレス
+@param controls 補助データの配列
+@see [[m:BasicSocket#sendmsg_nonblock]]

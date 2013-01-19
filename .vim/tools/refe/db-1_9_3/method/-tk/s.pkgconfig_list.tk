@@ -1,0 +1,8 @@
+names=pkgconfig_list
+visibility=public
+kind=defined
+
+--- pkgconfig_list(mod)
+@todo
+
+

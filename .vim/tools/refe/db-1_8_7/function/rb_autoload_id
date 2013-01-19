@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=true
+type=void
+name=rb_autoload_id
+params=(ID id, const char *filename)
+
+

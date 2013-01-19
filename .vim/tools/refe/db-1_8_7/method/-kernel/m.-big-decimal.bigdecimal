@@ -1,0 +1,8 @@
+names=BigDecimal
+visibility=public
+kind=added
+
+--- BigDecimal(s [, n])
+@todo
+詳細は [[m:BigDecimal.new]] を参照
+

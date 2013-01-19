@@ -1,0 +1,10 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(str = nil) -> MD5
+
+MD5 ハッシュを生成します。
+
+@param str 文字列を指定します。
+

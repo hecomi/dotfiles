@@ -1,0 +1,13 @@
+names=rm_f,safe_unlink
+visibility=public
+kind=defined
+
+--- safe_unlink(*filenames) -> Array
+--- rm_f(*filenames) -> Array
+
+[[c:File]] クラスにある同名のクラスメソッドと同じです.
+
+@param filenames 削除するファイルを指定します。
+
+@see [[m:File.safe_unlink]]
+

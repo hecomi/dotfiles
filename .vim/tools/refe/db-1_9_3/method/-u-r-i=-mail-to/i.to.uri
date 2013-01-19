@@ -1,0 +1,11 @@
+names=to
+visibility=public
+kind=defined
+
+--- to         -> String
+
+自身の e-mail アドレスを文字列で返します。
+
+例:
+  p URI.parse("mailto:nospam@example.com").to     #=> "nospam@example.com"
+

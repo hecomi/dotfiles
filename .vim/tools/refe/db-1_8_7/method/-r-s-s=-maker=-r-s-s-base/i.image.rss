@@ -1,0 +1,8 @@
+names=image
+visibility=public
+kind=defined
+
+--- image
+@todo
+image要素を生成するオブジェクトを返します．
+

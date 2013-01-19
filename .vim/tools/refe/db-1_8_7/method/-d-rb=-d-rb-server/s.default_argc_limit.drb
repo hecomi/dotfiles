@@ -1,0 +1,10 @@
+names=default_argc_limit
+visibility=public
+kind=defined
+
+--- default_argc_limit(argc)
+@todo
+
+Set the default value for the :argc_limit option.
+See new(). The initial default value is 256.  
+

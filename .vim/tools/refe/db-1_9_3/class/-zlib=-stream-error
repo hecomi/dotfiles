@@ -1,0 +1,10 @@
+type=class
+superclass=Zlib=Error
+included=
+extended=
+library=zlib
+aliases=
+aliasof=
+
+ストリームの状態が異常である場合や、圧縮レベルの指定が無効なもので
+ある場合に発生します。

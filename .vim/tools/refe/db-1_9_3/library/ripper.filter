@@ -1,0 +1,8 @@
+requires=
+classes=Ripper=Filter
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+イベントドリブンスタイルで Ruby プログラムを加工するためのライブラリです。

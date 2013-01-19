@@ -1,0 +1,7 @@
+names=delete_if
+visibility=public
+kind=defined
+
+--- delete_if {|object| ... }
+@todo
+

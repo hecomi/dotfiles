@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=true
+type=VALUE
+name=define_final
+params=(int argc, VALUE *argv, VALUE os)
+
+

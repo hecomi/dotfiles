@@ -1,0 +1,9 @@
+type=class
+superclass=Gem=Package=Error
+included=
+extended=
+library=rubygems.package
+aliases=
+aliasof=
+
+ファイル名が長すぎる場合に発生する例外です。

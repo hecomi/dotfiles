@@ -1,0 +1,12 @@
+filename=eval.c
+macro=false
+private=false
+type=VALUE
+name=rb_ensure
+params=(VALUE (*body)(), VALUE data1, VALUE (*ensure)(), VALUE data2)
+
+
+ensure の C 版です。まず body(data1) を実行し、その途中で
+例外や exit が起きたとしても ensure(data2) が確実に
+実行されます ( body() が正常終了しても実行されます)。
+

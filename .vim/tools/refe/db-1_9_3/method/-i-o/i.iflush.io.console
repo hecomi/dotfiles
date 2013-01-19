@@ -1,0 +1,10 @@
+names=iflush
+visibility=public
+kind=added
+
+--- iflush -> self
+
+カーネルの入力バッファをフラッシュします。
+
+@return 自身を返します。
+

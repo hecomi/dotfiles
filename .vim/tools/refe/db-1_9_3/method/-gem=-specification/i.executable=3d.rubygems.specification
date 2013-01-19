@@ -1,0 +1,10 @@
+names=executable=
+visibility=public
+kind=defined
+
+--- executable=(executable)
+
+実行可能ファイル名をセットします。
+
+@param executable 実行可能ファイル名を指定します。
+

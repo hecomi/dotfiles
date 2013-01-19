@@ -1,0 +1,9 @@
+names=rewind
+visibility=public
+kind=added
+
+--- rewind -> self
+
+内部で保持しているジェネレータを最初まで巻き戻します。
+
+@see [[m:Generator#rewind]]

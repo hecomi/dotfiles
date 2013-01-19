@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=shell.error
+aliases=
+aliasof=
+
+コマンドを定義出来ないときに発生する例外です。

@@ -1,0 +1,7 @@
+names=encode_string
+visibility=public
+kind=defined
+
+--- encode_string(str)
+@todo
+

@@ -1,0 +1,9 @@
+names=close
+visibility=public
+kind=defined
+
+--- close -> nil
+接続を閉じます。
+
+[[m:OpenSSL::Buffering#flush]] を呼んでから閉じます。
+

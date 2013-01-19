@@ -1,0 +1,9 @@
+type=class
+superclass=TkKernel
+included=
+extended=
+library=tkutil
+aliases=
+aliasof=
+
+

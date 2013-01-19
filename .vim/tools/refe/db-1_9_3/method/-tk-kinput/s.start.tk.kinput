@@ -1,0 +1,7 @@
+names=start
+visibility=public
+kind=defined
+
+--- start(win, style = Tk::None)
+@todo
+

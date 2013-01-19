@@ -1,0 +1,21 @@
+names=atan2!
+visibility=public
+kind=defined
+
+--- atan2!(y, x) -> Float
+
+実数 y / x の逆正接関数の値を返します。[[m:Math.#atan2]] のエイリアスで
+す。
+
+@param y 実数。
+
+@param x 実数。
+
+@return 返される値の範囲は [-π, π] です。
+
+@raise TypeError 引数のどちらかに数値以外を指定した場合に発生します。
+
+@raise RangeError 引数のどちらかに数値以外を指定した場合に発生します。
+
+@see [[m:Math.#atan2]]
+

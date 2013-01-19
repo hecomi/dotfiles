@@ -1,0 +1,24 @@
+names=instance_exec
+visibility=public
+kind=defined
+
+--- instance_exec(*args) {|*vars| ... } -> object
+
+与えられたブロックをレシーバのコンテキストで実行します。
+
+ブロック実行中は、 self がレシーバのコンテキストになるので
+レシーバの持つインスタンス変数にアクセスすることができます。
+
+@param args ブロックパラメータに渡す値です。
+
+   class KlassWithSecret
+     def initialize
+       @secret = 99
+     end
+   end
+   k = KlassWithSecret.new
+   # 以下で x には 5 が渡される
+   k.instance_exec(5) {|x| @secret + x }   #=> 104
+
+@see [[m:Module#class_exec]], [[m:Module#module_exec]], [[m:BasicObject#instance_eval]]
+

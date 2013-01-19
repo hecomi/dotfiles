@@ -1,0 +1,10 @@
+names=flush
+visibility=public
+kind=defined
+
+--- flush(path = nil) -> ()
+
+ファイルに書き込みます。
+
+@param path ファイル名を指定します。
+

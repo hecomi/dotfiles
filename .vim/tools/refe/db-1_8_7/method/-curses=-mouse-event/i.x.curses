@@ -1,0 +1,10 @@
+names=x
+visibility=public
+kind=defined
+
+--- x -> Integer
+
+マウスのイベントが発生した文字の位置の X 座標を返します。
+
+@see [[m:Curses.#getmouse]]
+

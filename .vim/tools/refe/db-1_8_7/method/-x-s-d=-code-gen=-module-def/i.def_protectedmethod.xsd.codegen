@@ -1,0 +1,7 @@
+names=def_protectedmethod
+visibility=public
+kind=defined
+
+--- def_protectedmethod(name, *params) { ... }
+@todo
+

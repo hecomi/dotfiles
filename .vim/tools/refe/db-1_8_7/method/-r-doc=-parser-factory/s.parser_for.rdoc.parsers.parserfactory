@@ -1,0 +1,20 @@
+names=parser_for
+visibility=public
+kind=defined
+
+--- parser_for(top_level, file_name, body, options, stats) -> RDoc::C_Parser | RDoc::RubyParser | RDoc::Fortran95parser | RDoc::SimpleParser
+
+file_name を解析できるパーサのインスタンスを返します。
+見つからなかった場合は [[c:RDoc::SimpleParser]] のインスタンスを返します。
+
+@param top_level [[c:RDoc::TopLevel]] オブジェクトを指定します。
+
+@param file_name ファイル名を文字列で指定します。
+
+@param body ソースコードの内容を文字列で指定します。
+
+@param options [[c:Options]] オブジェクトを指定します。
+
+@param stats [[c:RDoc::Stats]] オブジェクトを指定します。
+
+

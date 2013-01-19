@@ -1,0 +1,15 @@
+names=ISO8859_13,ISO_8859_13
+visibility=public
+kind=defined
+
+--- ISO_8859_13 -> Encoding
+--- ISO8859_13 -> Encoding
+
+ISO8859-13 エンコーディング。
+
+バルト語派の言語を扱う8bit single-byteエンコーディングです。
+
+@see [[m:Encoding::Windows_1257]]
+
+
+

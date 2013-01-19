@@ -1,0 +1,10 @@
+names=version
+visibility=public
+kind=defined
+
+--- version       -> String
+
+プログラムのバージョンを文字列で返します。
+
+@return プログラムのバージョンを文字列で返します。
+

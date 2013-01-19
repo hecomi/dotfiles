@@ -1,0 +1,9 @@
+names=new
+visibility=public
+kind=defined
+
+--- new -> OpenSSL::OCSP::BasicResponse
+空の BasicResponse オブジェクトを生成します。
+
+@see [[m:OpenSSL::OCSP::Response.create]]
+

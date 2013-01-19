@@ -1,0 +1,7 @@
+names=get_owner
+visibility=public
+kind=defined
+
+--- get_owner(sel = nil)
+@todo
+

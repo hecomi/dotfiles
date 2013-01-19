@@ -1,0 +1,8 @@
+names=generate_explicit_type,generate_explicit_type=
+visibility=public
+kind=defined
+
+--- generate_explicit_type
+--- generate_explicit_type=(generate_explicit_type)
+@todo
+

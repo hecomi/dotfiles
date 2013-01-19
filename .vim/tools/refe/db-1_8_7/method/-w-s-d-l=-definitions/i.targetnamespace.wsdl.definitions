@@ -1,0 +1,10 @@
+names=targetnamespace,targetnamespace=
+visibility=public
+kind=defined
+
+--- targetnamespace
+--- targetnamespace=(targetnamespace)
+@todo
+
+属性
+

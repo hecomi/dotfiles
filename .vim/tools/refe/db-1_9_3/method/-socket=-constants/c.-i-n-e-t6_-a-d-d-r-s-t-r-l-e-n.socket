@@ -1,0 +1,9 @@
+names=INET6_ADDRSTRLEN
+visibility=public
+kind=defined
+
+--- INET6_ADDRSTRLEN -> Integer
+IPv6アドレス文字列の最大長。
+
+@see [[man:netinet/in.h(header)]]
+

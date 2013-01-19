@@ -1,0 +1,8 @@
+requires=
+classes=RDoc=ClassModule
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:RDoc::ClassModule]] を定義するサブライブラリです。

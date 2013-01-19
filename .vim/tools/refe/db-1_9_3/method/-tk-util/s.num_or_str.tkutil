@@ -1,0 +1,7 @@
+names=num_or_str
+visibility=public
+kind=defined
+
+--- num_or_str(value)
+@todo
+

@@ -1,0 +1,9 @@
+type=class
+superclass=TkImage
+included=
+extended=
+library=tkextlib.tcllib.ico
+aliases=
+aliasof=
+
+

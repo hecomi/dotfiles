@@ -1,0 +1,12 @@
+names=debug_level
+visibility=public
+kind=defined
+
+--- debug_level -> Integer
+
+irb のデバッグレベルを返します。
+
+デフォルト値は 1 です。
+
+@see [[m:IRB::Context#debug_level=]], [[m:IRB::Context#debug?]]
+

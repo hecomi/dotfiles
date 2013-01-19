@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=Tk
+extended=TkCore
+library=tk.font
+aliases=
+aliasof=
+
+

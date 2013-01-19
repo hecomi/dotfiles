@@ -1,0 +1,7 @@
+names=allow_content_encoding_gzip=
+visibility=public
+kind=defined
+
+--- allow_content_encoding_gzip=(allow)
+@todo
+

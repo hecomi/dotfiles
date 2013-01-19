@@ -1,0 +1,14 @@
+names=execute
+visibility=public
+kind=defined
+
+--- execute(*names) -> nil
+
+RI から Ruby のドキュメントを参照します。
+
+  irb(main):001:0> help String#match
+  ...
+
+@param names 参照したいクラス名やメソッド名などを文字列で指定します。
+
+

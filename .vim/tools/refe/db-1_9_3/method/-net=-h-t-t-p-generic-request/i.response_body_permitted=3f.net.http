@@ -1,0 +1,10 @@
+names=response_body_permitted?
+visibility=public
+kind=defined
+
+--- response_body_permitted? -> bool
+
+サーバからのレスポンスにエンティティボディを含むことが許されている
+HTTP メソッド (GET, POST など)の場合真を返します。
+
+

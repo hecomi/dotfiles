@@ -1,0 +1,8 @@
+names=main
+visibility=public 
+kind=defined
+
+--- main -> String
+
+メインとして使用されるファイル名を返します。
+

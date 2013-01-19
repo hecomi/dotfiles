@@ -1,0 +1,8 @@
+requires=
+classes=
+methods=
+sublibraries=xsd.namedelements,xsd.qname,xsd.ns,xsd.charset,xsd.datatypes,xsd.xmlparser,xsd.codegen.gensupport,xsd.codegen,xsd.datatypes1999
+is_sublibrary=false
+category=
+
+XSD を扱うライブラリです。

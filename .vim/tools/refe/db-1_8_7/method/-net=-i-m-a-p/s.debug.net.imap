@@ -1,0 +1,10 @@
+names=debug
+visibility=public
+kind=defined
+
+--- debug -> bool
+
+デバッグモードが on になっていれば真を返します。
+
+@see [[m:Net::IMAP#debug=]]
+

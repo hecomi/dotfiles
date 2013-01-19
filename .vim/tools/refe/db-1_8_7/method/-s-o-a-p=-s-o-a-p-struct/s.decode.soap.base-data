@@ -1,0 +1,7 @@
+names=decode
+visibility=public
+kind=defined
+
+--- decode(elename, type)
+@todo
+

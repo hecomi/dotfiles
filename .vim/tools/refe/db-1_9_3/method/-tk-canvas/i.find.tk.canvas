@@ -1,0 +1,9 @@
+names=find
+visibility=public
+kind=defined
+
+--- find(mode, *args)
+@todo
+
+
+

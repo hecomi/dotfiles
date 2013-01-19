@@ -1,0 +1,14 @@
+names=try_convert
+visibility=public
+kind=defined
+
+--- try_convert(obj) -> Regexp | nil
+
+obj を to_regexp メソッドで Regexp オブジェクトに変換しようと
+試みます。
+
+変換に成功した場合はそれを返し、失敗時には nil を返します。
+
+   Regexp.try_convert(/re/)      # => /re/
+   Regexp.try_convert("re")      # => nil
+

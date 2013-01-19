@@ -1,0 +1,13 @@
+names=codepoints,each_codepoint
+visibility=public
+kind=defined
+
+--- codepoints{|codepoint| ... } -> self
+--- codepoints -> Enumerator
+--- each_codepoint{|codepoint| ... } -> self
+--- each_codepoint -> Enumerator
+
+自身の各コードポイントに対して繰り返します。
+
+@see [[m:IO#each_codepoint]]
+

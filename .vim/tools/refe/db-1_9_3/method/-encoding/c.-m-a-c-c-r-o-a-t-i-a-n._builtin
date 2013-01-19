@@ -1,0 +1,14 @@
+names=MACCROATIAN,MacCroatian
+visibility=public
+kind=defined
+
+--- MacCroatian -> Encoding
+--- MACCROATIAN -> Encoding
+MacCroatian エンコーディング。
+
+Mac OS で使われる
+8bit single-byteエンコーディングで、
+クロアチア語、スベロニア語を取り扱うものです。
+
+@see [[url:http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CROATIAN.TXT]]
+

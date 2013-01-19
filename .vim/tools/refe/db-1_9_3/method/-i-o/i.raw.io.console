@@ -1,0 +1,17 @@
+names=raw
+visibility=public
+kind=added
+
+--- raw {|io| ... } -> object
+
+raw モード、行編集を無効にして指定されたブロックを評価します。
+
+ブロック引数には self が渡されます。ブロックを評価した結果を返します。
+
+@raise LocalJumpError ブロックを指定しなかった場合に発生します。
+
+以下の例では、標準入力からエコーバックなしで文字列を一行読み込みます。
+
+  require "io/console"
+  STDIN.raw(&:gets)
+

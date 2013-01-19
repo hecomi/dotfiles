@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rdoc.rdoc
+aliases=
+aliasof=
+
+RDoc のステータスを管理するクラスです。

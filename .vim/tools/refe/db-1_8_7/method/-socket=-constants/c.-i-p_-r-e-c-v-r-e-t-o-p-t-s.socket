@@ -1,0 +1,8 @@
+names=IP_RECVRETOPTS
+visibility=public
+kind=defined
+
+--- IP_RECVRETOPTS -> Integer
+@todo
+Receive all IP options for response
+

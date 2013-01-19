@@ -1,0 +1,7 @@
+.extended	IRB::HistorySavingAbility.extended
+#load_history	IRB::HistorySavingAbility#load_history
+#readline	Readline.#readline
+#save_history	IRB::HistorySavingAbility#save_history
+:FILENAME_COMPLETION_PROC	Readline::FILENAME_COMPLETION_PROC
+:USERNAME_COMPLETION_PROC	Readline::USERNAME_COMPLETION_PROC
+:VERSION	Readline::VERSION

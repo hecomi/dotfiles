@@ -1,0 +1,9 @@
+type=class
+superclass=ThreadError
+included=
+extended=
+library=rinda.rinda
+aliases=
+aliasof=
+
+Raised when trying to use a canceled tuple.

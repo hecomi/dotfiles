@@ -1,0 +1,7 @@
+names=cb_eval
+visibility=public
+kind=defined
+
+--- cb_eval(cmd, *args)
+@todo
+

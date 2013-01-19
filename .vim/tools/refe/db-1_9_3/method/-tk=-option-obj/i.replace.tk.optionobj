@@ -1,0 +1,7 @@
+names=replace
+visibility=public
+kind=defined
+
+--- replace(hash)
+@todo
+

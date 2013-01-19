@@ -1,0 +1,7 @@
+names=selection_add
+visibility=public
+kind=defined
+
+--- selection_add(*items)
+@todo
+

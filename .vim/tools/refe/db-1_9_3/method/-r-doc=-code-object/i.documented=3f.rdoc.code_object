@@ -1,0 +1,8 @@
+names=documented?
+visibility=public
+kind=defined
+
+--- documented? -> bool
+
+出力すべきドキュメントがあるかどうかを返します。
+

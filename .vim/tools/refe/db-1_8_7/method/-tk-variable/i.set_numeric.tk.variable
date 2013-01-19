@@ -1,0 +1,7 @@
+names=set_numeric
+visibility=public
+kind=defined
+
+--- set_numeric(val)
+@todo
+

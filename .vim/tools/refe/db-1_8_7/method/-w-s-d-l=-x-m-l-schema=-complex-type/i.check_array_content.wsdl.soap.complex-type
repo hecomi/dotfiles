@@ -1,0 +1,7 @@
+names=check_array_content
+visibility=private 
+kind=added
+
+--- check_array_content(content)
+@todo
+

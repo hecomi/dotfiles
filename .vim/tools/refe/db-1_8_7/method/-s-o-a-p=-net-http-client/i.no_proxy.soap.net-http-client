@@ -1,0 +1,8 @@
+names=no_proxy,no_proxy=
+visibility=public
+kind=defined
+
+--- no_proxy
+--- no_proxy=(value)
+@todo
+

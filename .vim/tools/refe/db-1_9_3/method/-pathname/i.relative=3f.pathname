@@ -1,0 +1,7 @@
+names=relative?
+visibility=public
+kind=defined
+
+--- relative? -> bool
+self が相対パス指定であれば真を返します。
+

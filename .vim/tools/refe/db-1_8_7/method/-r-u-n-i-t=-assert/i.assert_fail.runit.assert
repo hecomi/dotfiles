@@ -1,0 +1,10 @@
+names=assert_fail
+visibility=public
+kind=defined
+
+--- assert_fail(message) -> ()
+
+常に失敗します。
+
+@param message 検査に失敗したときのメッセージを指定します。
+

@@ -1,0 +1,8 @@
+requires=singleton,getoptlong
+classes=Options
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+rdoc コマンドのオプションを解析するためのサブライブラリです。

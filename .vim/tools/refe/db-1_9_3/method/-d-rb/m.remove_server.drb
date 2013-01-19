@@ -1,0 +1,9 @@
+names=remove_server
+visibility=public
+kind=defined
+
+--- remove_server(server)
+@todo
+
+
+

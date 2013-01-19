@@ -1,0 +1,8 @@
+requires=
+classes=RDoc=GhostMethod
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:RDoc::GhostMethod]] を定義するサブライブラリです。

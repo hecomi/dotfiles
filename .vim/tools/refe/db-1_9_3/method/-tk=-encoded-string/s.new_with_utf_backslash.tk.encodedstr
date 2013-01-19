@@ -1,0 +1,7 @@
+names=new_with_utf_backslash
+visibility=public
+kind=defined
+
+--- new_with_utf_backslash(str, enc = nil)
+@todo
+

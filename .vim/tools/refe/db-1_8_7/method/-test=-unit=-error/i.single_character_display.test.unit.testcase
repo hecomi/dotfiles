@@ -1,0 +1,8 @@
+names=single_character_display
+visibility=public
+kind=defined
+
+--- single_character_display -> String
+
+テストメソッド実行中に例外が発生した時に表示する 'E' を返します。
+

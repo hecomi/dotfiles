@@ -1,0 +1,18 @@
+names=[]=,store
+visibility=public
+kind=defined
+
+--- []=(key, value) -> object
+--- store(key, value) -> object
+
+key に対して value を格納します。
+
+val で指定したオブジェクトを返します。
+
+@param key キーを文字列で指定します。
+
+@param value 値を指定します。YAML 形式に変換できるオブジェクトが指定で
+             きます。
+
+@raise DBMError 要素の格納に失敗した場合に発生します。
+

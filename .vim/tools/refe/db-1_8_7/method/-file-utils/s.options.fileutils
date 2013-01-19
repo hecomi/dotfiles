@@ -1,0 +1,10 @@
+names=options
+visibility=public
+kind=defined
+
+--- options -> Array
+
+オプション名の配列を返します。
+
+  FileUtils.options  #=> ["noop", "force", "verbose", "preserve", "mode"]
+

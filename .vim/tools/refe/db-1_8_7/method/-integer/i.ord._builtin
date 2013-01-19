@@ -1,0 +1,11 @@
+names=ord
+visibility=public
+kind=defined
+
+--- ord    -> Integer
+自身を返します。
+
+   10.ord    #=> 10
+   ?a.ord    #=> 97
+
+

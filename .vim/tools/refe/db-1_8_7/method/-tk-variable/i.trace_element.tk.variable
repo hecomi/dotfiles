@@ -1,0 +1,7 @@
+names=trace_element
+visibility=public
+kind=defined
+
+--- trace_element(elem, opts, cmd)
+@todo
+

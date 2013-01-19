@@ -1,0 +1,9 @@
+filename=string.c
+macro=false
+private=false
+type=VALUE
+name=rb_str_concat
+params=(VALUE s1, VALUE s2)
+
+
+equivalent to "s1.concat s2"

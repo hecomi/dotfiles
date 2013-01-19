@@ -1,0 +1,7 @@
+names=NKF_RELEASE_DATE
+visibility=public
+kind=defined
+
+--- NKF_RELEASE_DATE -> String
+nkf のリリース日を表す文字列です。
+

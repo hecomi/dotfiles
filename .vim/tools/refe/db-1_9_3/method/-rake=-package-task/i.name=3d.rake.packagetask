@@ -1,0 +1,10 @@
+names=name=
+visibility=public 
+kind=defined
+
+--- name=(name)
+
+バージョン情報を含まないパッケージの名前をセットします。
+
+@param name パッケージの名前を指定します。
+

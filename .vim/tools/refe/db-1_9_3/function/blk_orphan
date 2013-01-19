@@ -1,0 +1,11 @@
+filename=eval.c
+macro=false
+private=true
+type=int
+name=blk_orphan
+params=(struct BLOCK *data)
+
+
+data が作成された SCOPE かまたはその子ではない
+SCOPE を評価しているとき真。
+

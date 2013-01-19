@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=true
+type=int
+name=sv_i
+params=(ID key, VALUE value, st_table *tbl)
+
+

@@ -1,0 +1,9 @@
+names=delete,delete_items,deleteitems
+visibility=public
+kind=defined
+
+--- delete_items(first, last = nil)
+--- delete(first, last = nil)
+--- deleteitems(first, last = nil)
+@todo
+

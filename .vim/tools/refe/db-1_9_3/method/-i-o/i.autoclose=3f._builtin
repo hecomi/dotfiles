@@ -1,0 +1,10 @@
+names=autoclose?
+visibility=public
+kind=defined
+
+--- autoclose? -> bool
+
+auto-close フラグを返します。
+
+@see [[m:IO#autoclose=]]
+

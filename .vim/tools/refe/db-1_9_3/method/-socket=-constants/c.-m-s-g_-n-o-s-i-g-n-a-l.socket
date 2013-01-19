@@ -1,0 +1,12 @@
+names=MSG_NOSIGNAL
+visibility=public
+kind=defined
+
+--- MSG_NOSIGNAL -> Integer
+Do not generate SIGPIPE
+
+[[m:BasicSocket#send]], [[m:BasicSocket#sendmsg]] の
+flags 引数に用います。
+
+@see [[man:send(2linux)]], [[man:send(2freebsd)]]
+

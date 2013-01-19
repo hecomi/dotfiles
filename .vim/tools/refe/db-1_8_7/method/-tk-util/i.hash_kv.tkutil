@@ -1,0 +1,7 @@
+names=hash_kv
+visibility=public
+kind=defined
+
+--- hash_kv(*args)
+@todo
+

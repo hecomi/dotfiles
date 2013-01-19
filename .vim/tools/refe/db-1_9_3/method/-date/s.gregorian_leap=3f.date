@@ -1,0 +1,10 @@
+names=gregorian_leap?,leap?
+visibility=public
+kind=defined
+
+--- gregorian_leap? (year) -> bool
+--- leap? (year) -> bool
+グレゴリオ暦の閏年なら真を返します。
+
+@param year 年
+

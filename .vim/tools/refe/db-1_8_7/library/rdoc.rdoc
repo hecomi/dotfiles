@@ -1,0 +1,8 @@
+requires=rdoc.parsers.parse_simple,rdoc.parsers.parse_rb,e2mmap,irb.slex,irb.notifier,irb.output=2dmethod,rdoc.code_objects,rdoc.tokenstream,rdoc.parsers.parserfactory,rdoc.parsers.parse_c,rdoc.options,singleton,getoptlong,rdoc.rdoc,rdoc.parsers.parse_f95,ftools,rdoc.diagram,rdoc.dot.dot,find,time
+classes=RDoc=RDoc,RDoc=Stats,RDoc
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+rdoc コマンドのためのライブラリです。

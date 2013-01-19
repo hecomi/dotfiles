@@ -1,0 +1,11 @@
+names=RLIMIT_AS
+visibility=public
+kind=defined
+
+--- RLIMIT_AS -> Fixnum
+
+リソースの種類がプロセスの仮想メモリサイズであることを示す定数です。
+
+[[m:Process.#getrlimit]]、[[m:Process.#setrlimit]] で使われます。
+システムによっては定義されていません。
+

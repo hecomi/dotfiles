@@ -1,0 +1,8 @@
+names=mode
+visibility=public
+kind=defined
+
+--- mode -> Symbol
+
+現在のアクセスモードを返します。
+

@@ -1,0 +1,10 @@
+names=family
+visibility=public
+kind=defined
+
+--- family -> Integer
+
+このオブジェクトのアドレスファミリを返します。
+
+@see [[c:Socket]]
+

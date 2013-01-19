@@ -1,0 +1,7 @@
+names=exe_to_ico
+visibility=public
+kind=defined
+
+--- exe_to_ico(exe_file, ico_file, keys = nil)
+@todo
+

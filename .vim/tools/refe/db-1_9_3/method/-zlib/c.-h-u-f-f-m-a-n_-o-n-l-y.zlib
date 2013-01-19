@@ -1,0 +1,9 @@
+names=HUFFMAN_ONLY
+visibility=public
+kind=defined
+
+--- HUFFMAN_ONLY -> Fixnum
+
+[[m:Zlib::Deflate.new]] や [[m:Zlib::Deflate#params]] に渡す、
+圧縮方法を表す整数です。
+

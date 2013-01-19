@@ -1,0 +1,9 @@
+names=IgnoreBacktracePat
+visibility=public
+kind=defined
+
+--- IgnoreBacktracePat -> Regexp
+
+バックトレースで無視するパターンを返します。
+
+

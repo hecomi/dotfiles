@@ -1,0 +1,8 @@
+requires=wsdl.info
+classes=WSDL=OperationBinding
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

@@ -1,0 +1,11 @@
+names=SO_ACCEPTFILTER
+visibility=public
+kind=defined
+
+--- SO_ACCEPTFILTER -> Integer
+set accept filter on listening socket。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:getsockopt(2freebsd)]], [[m:Socket::Constants::SOL_SOCKET]]
+

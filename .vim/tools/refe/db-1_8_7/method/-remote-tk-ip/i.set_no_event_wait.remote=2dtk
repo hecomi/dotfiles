@@ -1,0 +1,7 @@
+names=set_no_event_wait
+visibility=public
+kind=defined
+
+--- set_no_event_wait(*args)
+@todo
+

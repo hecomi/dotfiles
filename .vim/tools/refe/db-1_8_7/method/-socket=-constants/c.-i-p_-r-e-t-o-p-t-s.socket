@@ -1,0 +1,12 @@
+names=IP_RETOPTS
+visibility=public
+kind=defined
+
+--- IP_RETOPTS -> Integer
+IP options to be included in datagrams。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], 
+     [[man:ip(7linux)]]
+

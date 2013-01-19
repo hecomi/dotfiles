@@ -1,0 +1,7 @@
+names=get_attrib
+visibility=public
+kind=defined
+
+--- get_attrib(name = nil)
+@todo
+

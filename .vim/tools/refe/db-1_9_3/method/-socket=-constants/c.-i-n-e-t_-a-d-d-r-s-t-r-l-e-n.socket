@@ -1,0 +1,9 @@
+names=INET_ADDRSTRLEN
+visibility=public
+kind=defined
+
+--- INET_ADDRSTRLEN -> Integer
+IPv4アドレス文字列の最大長。
+
+@see [[man:netinet/in.h(header)]]
+

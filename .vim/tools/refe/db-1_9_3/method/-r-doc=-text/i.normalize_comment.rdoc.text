@@ -1,0 +1,15 @@
+names=normalize_comment
+visibility=public
+kind=defined
+
+--- normalize_comment(text) -> String
+
+引数から行頭のスペースや改行文字などを削除します。
+
+詳しくは [SEE ALSO] の各メソッドを参照してください。
+
+@param text 文字列を指定します。
+
+@see [[m:RDoc::Text#strip_hashes]], [[m:RDoc::Text#expand_tabs]],
+     [[m:RDoc::Text#flush_left]], [[m:RDoc::Text#strip_newlines]]
+

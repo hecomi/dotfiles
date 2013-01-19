@@ -1,0 +1,8 @@
+names=PREVIOUS
+visibility=public
+kind=defined
+
+--- PREVIOUS -> Integer
+
+Previous object キーを表す定数です。
+

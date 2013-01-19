@@ -1,0 +1,24 @@
+names=public_send
+visibility=public
+kind=defined
+
+--- public_send(name, *args) -> object
+
+オブジェクトの public メソッド name を args を引数にして呼び出し、メソッ
+ドの実行結果を返します。
+
+  1.public_send(:+, 2)  # => 3
+
+@param name 文字列か[[c:Symbol]] で指定するメソッド名です。
+
+@param args 呼び出すメソッドに渡す引数です。
+
+@raise ArgumentError name を指定しなかった場合に発生します。
+
+@raise NoMethodError protected メソッドや private メソッドに対して実行
+                     した場合に発生します。
+
+  1.public_send(:puts, "hello")  # => NoMethodError
+
+@see [[m:Object#send]]
+

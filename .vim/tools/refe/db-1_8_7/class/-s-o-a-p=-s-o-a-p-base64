@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=XSDBase64Binary
+included=SOAP=SOAPBasetype
+extended=
+library=soap.baseData
+aliases=
+aliasof=
+
+

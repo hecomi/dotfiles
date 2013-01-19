@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=char *
+name=arg_defined
+params=(VALUE self, NODE *node, char *buf, char *type)
+
+

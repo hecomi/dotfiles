@@ -1,0 +1,12 @@
+names=AF_IPX,PF_IPX
+visibility=public
+kind=defined
+
+--- AF_IPX -> Integer
+--- PF_IPX -> Integer
+
+IPX(Novell Internet Packet eXchange protocol)。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:socket(3linux)]]
+

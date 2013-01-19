@@ -1,0 +1,7 @@
+names=sashpos
+visibility=public
+kind=defined
+
+--- sashpos(idx, newpos = None)
+@todo
+

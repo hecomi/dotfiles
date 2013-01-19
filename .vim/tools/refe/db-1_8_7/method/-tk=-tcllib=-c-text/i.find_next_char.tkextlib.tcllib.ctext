@@ -1,0 +1,7 @@
+names=find_next_char
+visibility=public
+kind=defined
+
+--- find_next_char(idx, chr)
+@todo
+

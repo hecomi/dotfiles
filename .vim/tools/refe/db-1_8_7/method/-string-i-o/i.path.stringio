@@ -1,0 +1,8 @@
+names=path
+visibility=public
+kind=defined
+
+--- path    -> nil
+
+StringIO には対応するパスはないので nil を返します。
+

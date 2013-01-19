@@ -1,0 +1,10 @@
+names=SOMAXCONN
+visibility=public
+kind=defined
+
+--- SOMAXCONN -> Integer
+[[m:Socket#listen]] の backlog の最大長。
+
+@see [[man:sys/socket.h(header)]], [[man:listen(2)]]
+
+

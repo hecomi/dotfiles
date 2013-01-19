@@ -1,0 +1,8 @@
+requires=
+classes=Win32API
+methods=
+sublibraries=
+is_sublibrary=false
+category=Windows
+
+Win32 API を呼び出すためのライブラリです。

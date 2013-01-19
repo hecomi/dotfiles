@@ -1,0 +1,15 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=net.imap
+aliases=
+aliasof=
+
+IMAP のタグ付きレスポンスを表すクラスです。
+
+IMAP のレスポンスにはタグ付きのものとタグなしのものがあり、
+タグなしのものはクライアントからのコマンド完了応答ではない
+レスポンスです。
+
+@see [[c:Net::IMAP::TaggedResponse]]

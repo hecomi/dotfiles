@@ -1,0 +1,8 @@
+names=BEG
+visibility=public
+kind=defined
+
+--- BEG -> Integer
+@todo ???
+BEG キーを表す定数です。
+

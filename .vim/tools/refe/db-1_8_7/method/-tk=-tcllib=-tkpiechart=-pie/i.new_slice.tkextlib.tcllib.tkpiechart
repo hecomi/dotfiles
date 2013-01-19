@@ -1,0 +1,7 @@
+names=new_slice
+visibility=public
+kind=defined
+
+--- new_slice(text = None)
+@todo
+

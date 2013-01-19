@@ -1,0 +1,8 @@
+names=delete_columns,deletecolumns
+visibility=public
+kind=defined
+
+--- delete_columns(first, last = nil)
+--- deletecolumns(first, last = nil)
+@todo
+

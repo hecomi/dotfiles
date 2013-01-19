@@ -1,0 +1,7 @@
+names=create_doc_param_def
+visibility=public
+kind=defined
+
+--- create_doc_param_def(req_qnames, res_qnames)
+@todo
+

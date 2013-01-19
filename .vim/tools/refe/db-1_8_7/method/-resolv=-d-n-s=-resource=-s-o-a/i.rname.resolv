@@ -1,0 +1,7 @@
+names=rname
+visibility=public
+kind=defined
+
+--- rname -> Resolv::DNS::Name
+対象のドメイン名の管理者名を返します。
+

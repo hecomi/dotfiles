@@ -1,0 +1,7 @@
+names=add_ruby_type
+visibility=public
+kind=added
+
+--- add_ruby_type(type_tag, &block)
+@todo
+

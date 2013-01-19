@@ -1,0 +1,13 @@
+names=SOL_SOCKET
+visibility=public
+kind=defined
+
+--- SOL_SOCKET -> Integer
+Socket level options。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第一引数(level)に使用します。
+
+@see [[man:getsockopt(2)]], [[man:setsockopt(2)]], 
+     [[man:sys/socket.h(header)]], [[man:socket(7linux)]]
+     [[man:getsockopt(2freebsd)]]
+

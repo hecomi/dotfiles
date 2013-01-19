@@ -1,0 +1,7 @@
+names=soap2obj
+visibility=public
+kind=defined
+
+--- soap2obj(node, obj_class = nil)
+@todo
+

@@ -1,0 +1,9 @@
+type=class
+superclass=Hash
+included=
+extended=
+library=psych.omap
+aliases=
+aliasof=
+
+

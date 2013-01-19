@@ -1,0 +1,20 @@
+filename=array.c
+macro=false
+private=false
+type=VALUE
+name=rb_ary_new
+params=()
+
+
+空の Ruby の配列を作成し返します。
+
+対応するRubyコード
+
+  ary = Array.new または
+  ary = []
+
+使用例
+
+  VALUE ary;
+  ary = rb_ary_new();
+

@@ -1,0 +1,6 @@
+.autoscroll	Tk::Tcllib::Autoscroll.autoscroll
+.package_name	Tk::Tcllib::Autoscroll.package_name
+.package_version	Tk::Tcllib::Autoscroll.package_version
+.unautoscroll	Tk::Tcllib::Autoscroll.unautoscroll
+.unwrap	Tk::Tcllib::Autoscroll.unwrap
+.wrap	Tk::Tcllib::Autoscroll.wrap

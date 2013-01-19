@@ -1,0 +1,8 @@
+requires=
+classes=Syck=Error,Syck=ParseError,Syck=TypeError
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+YAML 関連のエラーを扱うためのサブライブラリです。

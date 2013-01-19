@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=true
+type=int
+name=mark_global_entry
+params=(ID key, struct global_entry *entry)
+
+

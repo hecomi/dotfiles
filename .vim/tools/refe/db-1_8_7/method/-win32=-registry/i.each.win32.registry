@@ -1,0 +1,10 @@
+names=each,each_value
+visibility=public
+kind=defined
+
+--- each {|name, type, value| ... }
+--- each_value {|name, type, value| ... }
+@todo
+
+キーが持つレジストリ値を列挙します。
+

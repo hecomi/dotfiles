@@ -1,0 +1,20 @@
+names=new,open
+visibility=public
+kind=defined
+
+--- open(path) -> UNIXServer
+--- new(path) -> UNIXServer
+--- open(path){|sock| ...} -> object
+--- new(path){|sock| ...} -> object
+
+path で指定したパス名を用いて接続を受け付けるソケット
+を作成します。
+
+ブロックを省略すると作成したサーバソケットを返します。
+
+ブロックを渡した場合は、作成したソケットを引数としてそのブロックを呼びだし、
+ブロック終了時にソケットを閉じます。この場合には
+ブロックの評価値を返り値として返します。
+
+@param path 接続を受け付けるパス名文字列
+

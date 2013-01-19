@@ -1,0 +1,9 @@
+names=SCM_UCRED
+visibility=public
+kind=defined
+
+--- SCM_UCRED -> Integer
+@todo
+User credentials。
+
+

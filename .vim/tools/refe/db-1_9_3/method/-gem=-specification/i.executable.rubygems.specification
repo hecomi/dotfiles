@@ -1,0 +1,8 @@
+names=executable
+visibility=public
+kind=defined
+
+--- executable -> String
+
+実行可能ファイル名を返します。
+

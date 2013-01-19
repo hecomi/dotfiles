@@ -1,0 +1,16 @@
+names=yaml_tag_class_name
+visibility=public
+kind=added
+
+--- yaml_tag_class_name -> String
+
+自身のクラス名から Struct:: をのぞいた文字列を返します。
+
+@return 自身のクラス名から Struct::をのぞいた文字列
+
+  require 'yaml'
+  
+  YStruct = Struct.new("YStruct", :name)
+  p YStruct::yaml_tag_class_name
+  #=> "YStruct"
+

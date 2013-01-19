@@ -1,0 +1,13 @@
+names=reverse!
+visibility=public
+kind=defined
+
+--- reverse! -> ()
+
+文字列を文字単位で左右逆転します。
+
+例:
+    str = "foobar"
+    str.reverse!
+    p str   # => "raboof"
+

@@ -1,0 +1,8 @@
+names=<<,add
+visibility=public
+kind=defined
+
+--- add(element = nil)
+--- <<(element = nil)
+@todo
+

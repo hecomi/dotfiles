@@ -1,0 +1,10 @@
+requires=test.unit.assertions,test.unit.testsuite
+classes=Test=Unit=TestCase,Test=Unit=Error,Test=Unit=Failure
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+テストケースを記述するときに使います。
+
+test/unit の require 時に同時にrequireされます。

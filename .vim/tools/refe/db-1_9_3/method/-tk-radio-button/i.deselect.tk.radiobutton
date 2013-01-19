@@ -1,0 +1,9 @@
+names=deselect
+visibility=public
+kind=defined
+
+--- deselect
+@todo
+
+ラジオボタンをチェックしない状態にします。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=TkWindow
+included=Tk=Tile=TileWidget,Scrollable,Tk=Tile=TreeviewConfig
+extended=
+library=tkextlib.tile.treeview
+aliases=
+aliasof=
+
+

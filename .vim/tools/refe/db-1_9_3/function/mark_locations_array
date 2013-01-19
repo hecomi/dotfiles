@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=true
+type=void
+name=mark_locations_array
+params=(register VALUE *x, register long n)
+
+

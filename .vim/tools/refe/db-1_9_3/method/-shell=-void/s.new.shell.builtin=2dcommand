@@ -1,0 +1,6 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(sh, *opts)
+

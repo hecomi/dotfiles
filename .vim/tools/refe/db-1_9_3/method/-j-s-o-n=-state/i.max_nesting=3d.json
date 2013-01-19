@@ -1,0 +1,10 @@
+names=max_nesting=
+visibility=public 
+kind=defined
+
+--- max_nesting=(depth)
+
+生成される JSON 形式の文字列のネストの深さの最大値をセットします。
+
+この値にゼロをセットすると、ネストの深さのチェックを行いません。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=RSS=Maker=ChannelBase=CategoriesBase=CategoryBase
+included=
+extended=
+library=rss
+aliases=
+aliasof=
+
+

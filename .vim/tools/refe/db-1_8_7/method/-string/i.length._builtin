@@ -1,0 +1,9 @@
+names=length,size
+visibility=public
+kind=defined
+
+--- length -> Integer
+--- size -> Integer
+
+文字列のバイト数を返します。
+

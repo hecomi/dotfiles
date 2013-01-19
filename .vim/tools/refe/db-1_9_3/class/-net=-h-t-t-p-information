@@ -1,0 +1,12 @@
+type=class
+superclass=Net=HTTPResponse
+included=
+extended=
+library=net.http
+aliases=
+aliasof=
+
+HTTP レスポンス 1xx (Informational) を表現するクラスです。
+
+リクエストが正常に受信し、処理を続けていることを表わして
+います。

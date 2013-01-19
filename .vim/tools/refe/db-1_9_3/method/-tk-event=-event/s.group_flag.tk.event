@@ -1,0 +1,7 @@
+names=group_flag
+visibility=public
+kind=defined
+
+--- group_flag(id)
+@todo
+

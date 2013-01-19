@@ -1,0 +1,9 @@
+type=class
+superclass=REXML=Validation=State
+included=
+extended=
+library=rexml
+aliases=
+aliasof=
+
+

@@ -1,0 +1,13 @@
+names=compile_error
+visibility=private 
+kind=defined
+
+--- compile_error(msg) -> nil
+
+解析した Ruby プログラムの中にコンパイルエラーがあった場合に実行されま
+す。
+
+@param msg エラーメッセージ。
+
+サブクラスでオーバライドして使用します。
+

@@ -1,0 +1,10 @@
+filename=ruby.h
+macro=true
+private=false
+type=int
+name=POSFIXABLE
+params=(long f)
+
+
+f が Fixnum の上限値以下ならば真。
+

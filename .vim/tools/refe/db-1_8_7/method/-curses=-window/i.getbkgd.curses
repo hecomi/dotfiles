@@ -1,0 +1,8 @@
+names=getbkgd
+visibility=public
+kind=defined
+
+--- getbkgd -> Integer | nil
+@todo
+Returns an Integer (+ch+) for the character property in the current window.
+

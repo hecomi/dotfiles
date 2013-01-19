@@ -1,0 +1,10 @@
+names=shift
+visibility=public
+kind=defined
+
+--- shift -> [String, object]
+
+データベース中のキー、値を一つ取り出し、データベースから削除します。
+
+[キー, 値]を返します。取得される要素の順番は保証されません。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=RuntimeError
+included=
+extended=
+library=rinda.rinda
+aliases=
+aliasof=
+
+Rinda error base class

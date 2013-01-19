@@ -1,0 +1,7 @@
+names=tag_nextrange
+visibility=public
+kind=defined
+
+--- tag_nextrange(tag, first, last = Tk::None)
+@todo
+

@@ -1,0 +1,9 @@
+names=new_item
+visibility=public
+kind=defined
+
+--- new_item
+@todo
+新しくitemを作成し，返します．作成された
+itemはitemリストの最後に追加されています．
+

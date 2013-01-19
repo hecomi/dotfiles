@@ -1,0 +1,8 @@
+names=row_size
+visibility=public
+kind=defined
+
+--- row_size -> Fixnum
+
+行の大きさを返します。
+

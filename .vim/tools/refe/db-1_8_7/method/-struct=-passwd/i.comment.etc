@@ -1,0 +1,8 @@
+names=comment
+visibility=public
+kind=defined
+
+--- comment -> String
+
+コメント(文字列)を返します。このメンバはシステム依存です。
+

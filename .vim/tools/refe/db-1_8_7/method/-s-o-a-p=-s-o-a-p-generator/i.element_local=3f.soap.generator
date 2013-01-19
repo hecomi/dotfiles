@@ -1,0 +1,7 @@
+names=element_local?
+visibility=public
+kind=defined
+
+--- element_local?(element)
+@todo
+

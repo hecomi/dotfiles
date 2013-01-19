@@ -1,0 +1,7 @@
+names=delete_highlight_class
+visibility=public
+kind=defined
+
+--- delete_highlight_class(klass)
+@todo
+

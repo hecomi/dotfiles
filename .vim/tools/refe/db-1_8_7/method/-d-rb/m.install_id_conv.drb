@@ -1,0 +1,10 @@
+names=install_id_conv
+visibility=public
+kind=defined
+
+--- install_id_conv(idconv)
+@todo
+
+Set the default id conv object.
+See [[m:DRb::DRbServer.default_id_conv]].
+

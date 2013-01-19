@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=json
+aliases=JSON=Ext=Parser
+aliasof=
+
+

@@ -1,0 +1,8 @@
+names=load_tclscript
+visibility=public
+kind=defined
+
+--- load_tclscript(file, enc = nil)
+@todo
+
+

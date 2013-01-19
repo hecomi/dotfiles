@@ -1,0 +1,14 @@
+names=assert_raises
+visibility=public
+kind=defined
+
+--- assert_raises(*args, &block)    -> object
+
+[[m:Test::Unit::Assertions#assert_raise]] のエイリアスです。
+
+@param args [[m:Test::Unit::Assertions#assert_raise]] にそのまま渡します。
+
+@raise Test::Unit::AssertionFailedError assert が失敗した時に発生します。
+
+@see [[m:Test::Unit::Assertions#assert_raise]]
+

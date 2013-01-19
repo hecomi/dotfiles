@@ -1,0 +1,23 @@
+names=shuffle
+visibility=public
+kind=defined
+
+--- shuffle -> Array
+--- shuffle(random: rng) -> Array
+
+配列の要素をランダムシャッフルして，その結果を配列として返します。
+
+引数に [[c:Random]] オブジェクトを渡すことでそのオブジェクトが
+生成する疑似乱数列を用いることができます。
+
+例:
+
+   a = [ 1, 2, 3 ]           #=> [1, 2, 3]
+   a.shuffle                 #=> [2, 3, 1]
+   rng = Random.new
+   rng2 = rng.dup # RNGを複製
+   # 以下の2つは同じ結果を返す
+   [1,2,3].shuffle(random: rng)
+   [1,2,3].shuffle(random: rng2)
+
+@see [[m:Array#shuffle!]]

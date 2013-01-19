@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rubygems.security
+aliases=
+aliasof=
+
+OpenSSL の署名者を扱うためのクラスです。

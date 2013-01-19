@@ -1,0 +1,9 @@
+type=class
+superclass=WEBrick=HTTPAuth=BasicAuth
+included=WEBrick=HTTPAuth=ProxyAuthenticator
+extended=
+library=webrick.httpauth.basicauth
+aliases=
+aliasof=
+
+プロクシの Basic 認証のためのクラスです。

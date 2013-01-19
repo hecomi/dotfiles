@@ -1,0 +1,14 @@
+names=delete!
+visibility=public
+kind=redefined
+
+--- delete!(str) -> self|nil
+
+[[m:String#delete!]] の日本語対応版です。
+指定したパターンの文字列を破壊的に取り除きます。
+
+ただしこのメソッドは置き換え前の物とは異なり
+複数の引数を取れません。
+
+@param str 取り除く文字のパターン。
+

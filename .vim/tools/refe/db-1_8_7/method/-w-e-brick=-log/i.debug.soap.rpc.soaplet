@@ -1,0 +1,8 @@
+names=debug
+visibility=public
+kind=redefined
+
+--- debug(msg = nil)
+--- debug(msg = nil) {|msg| ... }
+@todo
+

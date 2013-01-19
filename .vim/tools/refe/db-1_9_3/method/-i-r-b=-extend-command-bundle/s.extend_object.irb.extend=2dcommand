@@ -1,0 +1,11 @@
+names=extend_object
+visibility=public
+kind=defined
+
+--- extend_object(obj) -> IRB::ExtendCommandBundle
+
+[[c:IRB::ExtendCommandBundle]] で定義済みの拡張に指定されたエイリアスを
+obj に定義します。
+
+@param obj [[c:IRB::ExtendCommandBundle]] を extend したオブジェクト
+

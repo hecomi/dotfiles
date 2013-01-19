@@ -1,0 +1,7 @@
+names=transfer
+visibility=public
+kind=defined
+
+--- transfer(type, val)
+@todo
+

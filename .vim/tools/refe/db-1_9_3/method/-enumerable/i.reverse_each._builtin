@@ -1,0 +1,14 @@
+names=reverse_each
+visibility=public
+kind=defined
+
+--- reverse_each -> Enumerator
+--- reverse_each {|element| ... } -> self
+
+逆順に各要素に対してブロックを評価します。
+
+内部で各要素を保持した配列を作ります。
+
+ブロックを省略した場合は、各要素を逆順に辿る
+[[c:Enumerator]] を返します。
+

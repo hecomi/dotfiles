@@ -1,0 +1,10 @@
+names=sticky?
+visibility=public
+kind=defined
+
+--- sticky?(path)    -> bool
+
+[[m:FileTest.#sticky?]] と同じです。
+
+@param path パスを表す文字列か IO オブジェクトを指定します。
+

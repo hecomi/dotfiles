@@ -1,0 +1,9 @@
+names=exclusive
+visibility=public
+kind=added
+
+--- exclusive { ... } -> object
+
+ブロック実行中、Threadの切り替えを行いません。
+
+

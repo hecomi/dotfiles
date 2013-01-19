@@ -1,0 +1,10 @@
+names=socktype
+visibility=public
+kind=defined
+
+--- socktype -> Integer
+
+ソケットタイプを整数で返します。
+
+  Addrinfo.tcp("localhost", 80).socktype == Socket::SOCK_STREAM #=> true
+

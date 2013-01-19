@@ -1,0 +1,7 @@
+names=subst_arg
+visibility=public
+kind=defined
+
+--- subst_arg(*args)
+@todo
+

@@ -1,0 +1,8 @@
+names=RUBY_VERSION_STRING
+visibility=public
+kind=defined
+
+--- RUBY_VERSION_STRING
+@todo
+
+

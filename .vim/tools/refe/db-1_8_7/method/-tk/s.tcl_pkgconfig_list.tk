@@ -1,0 +1,8 @@
+names=tcl_pkgconfig_list
+visibility=public
+kind=defined
+
+--- tcl_pkgconfig_list(key)
+@todo
+
+

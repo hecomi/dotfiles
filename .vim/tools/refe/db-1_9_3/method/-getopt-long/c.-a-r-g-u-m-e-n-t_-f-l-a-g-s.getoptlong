@@ -1,0 +1,11 @@
+names=ARGUMENT_FLAGS
+visibility=protected 
+kind=defined
+
+--- ARGUMENT_FLAGS -> Array
+
+内部で使用する定数です。
+
+[[m:GetoptLong::NO_ARGUMENT]], [[m:GetoptLong::REQUIRE_ARGUMENT]],
+[[m:GetoptLong::OPTIONAL_ARGUMENT]] がセットされています。
+

@@ -1,0 +1,7 @@
+names=add_attributes
+visibility=public
+kind=defined
+
+--- add_attributes(hash)
+@todo
+

@@ -1,0 +1,10 @@
+type=class
+superclass=RuntimeError
+included=Iconv=Failure
+extended=
+library=iconv
+aliases=
+aliasof=
+
+iconv ライブラリのバグなどにより、[[man:errno(3)]] が設定されなかった場合に発生します。
+(Windows で iconv.dll の使用する MSVC runtime DLL のバージョンが、ruby 本体が使用するものと一致していない場合も含みます。)

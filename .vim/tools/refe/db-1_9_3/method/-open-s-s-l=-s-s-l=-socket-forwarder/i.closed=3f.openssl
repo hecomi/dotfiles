@@ -1,0 +1,8 @@
+names=closed?
+visibility=public
+kind=defined
+
+--- closed? -> bool
+ラップされているソケットが
+close していたら true を返します。
+

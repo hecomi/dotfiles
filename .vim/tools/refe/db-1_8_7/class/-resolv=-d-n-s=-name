@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=resolv
+aliases=
+aliasof=
+
+ドメイン名を表すクラスです。

@@ -1,0 +1,8 @@
+names=connect_timeout,connect_timeout=
+visibility=public
+kind=defined
+
+--- connect_timeout
+--- connect_timeout=(value)
+@todo
+

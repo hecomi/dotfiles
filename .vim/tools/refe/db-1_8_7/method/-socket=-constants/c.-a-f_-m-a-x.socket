@@ -1,0 +1,9 @@
+names=AF_MAX
+visibility=public
+kind=defined
+
+--- AF_MAX -> Integer
+対象のプラットフォーム上でのアドレスファミリーの最大の数値。
+
+@see [[m:Socket::Constants::PF_MAX]]
+

@@ -1,0 +1,11 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(si, size) -> Gem::SourceInfoCacheEntry
+
+キャッシュのエントリを作成します。
+
+@param si [[c:Gem::SourceIndex]] のインスタンスを指定します。
+
+@param size エントリのサイズを指定します。

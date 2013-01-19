@@ -1,0 +1,7 @@
+names=raw_header
+visibility=public
+kind=defined
+
+--- raw_header -> String
+生のヘッダを返します。
+

@@ -1,0 +1,11 @@
+names=AF_NDRV,PF_NDRV
+visibility=public
+kind=defined
+
+--- AF_NDRV -> Integer
+--- PF_NDRV -> Integer
+@todo
+Network driver raw access。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

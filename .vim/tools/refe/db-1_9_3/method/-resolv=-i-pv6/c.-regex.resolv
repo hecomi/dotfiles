@@ -1,0 +1,12 @@
+names=Regex
+visibility=public
+kind=defined
+
+--- Regex -> Regexp
+IPv6のアドレスの正規表現です。
+[[m:Resolv::IPv6::Regex_6Hex4Dec]],
+[[m:Resolv::IPv6::Regex_8Hex]],
+[[m:Resolv::IPv6::Regex_CompressedHex]],
+[[m:Resolv::IPv6::Regex_CompressedHex4Dec]],
+のいずれかとマッチする文字列とマッチします。
+

@@ -1,0 +1,10 @@
+type=class
+superclass=Resolv=DNS=Resource
+included=
+extended=
+library=resolv
+aliases=
+aliasof=
+
+DNS リソースのクラス IN、タイプ WKS に対応する
+クラスです。

@@ -1,0 +1,8 @@
+names=files
+visibility=public
+kind=defined
+
+--- files -> [String]
+
+この Gem パッケージに含まれるファイル名の配列を返します。
+

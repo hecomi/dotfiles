@@ -1,0 +1,13 @@
+names=SO_TIMESTAMP
+visibility=public
+kind=defined
+
+--- SO_TIMESTAMP -> Integer
+Receive timestamp with datagrams (timeval)。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:getsockopt(2freebsd)]],
+     [[man:socket(7linux)]], [[m:Socket::Constants::SOL_SOCKET]]
+     [[m:Socket::AncillaryData#timestamp]]
+

@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=rb_thread_start
+params=(VALUE klass, VALUE args)
+
+

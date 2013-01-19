@@ -1,0 +1,9 @@
+names=canceled?
+visibility=public
+kind=defined
+
+--- canceled?
+@todo
+
+Returns the canceled status.
+

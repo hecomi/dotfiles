@@ -1,0 +1,7 @@
+names=mark_marshalled_obj
+visibility=public
+kind=defined
+
+--- mark_marshalled_obj(obj, soap_obj)
+@todo
+

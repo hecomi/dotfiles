@@ -1,0 +1,18 @@
+names=CP1255,WINDOWS_1255,Windows_1255
+visibility=public
+kind=defined
+
+--- Windows_1255 -> Encoding
+--- CP1255 -> Encoding
+--- WINDOWS_1255 -> Encoding
+
+Windows-1255 エンコーディング。
+
+ISO8859-8 の亜種です。
+
+@see [[m:Encoding::ISO_8859_8]],
+     [[url:http://www.iana.org/assignments/character-sets]],
+     [[url:http://www.microsoft.com/globaldev/reference/sbcs/1255.mspx]],
+     [[url:http://en.wikipedia.org/wiki/Windows-1255]],
+ 
+

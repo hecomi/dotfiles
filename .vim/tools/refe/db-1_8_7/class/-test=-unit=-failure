@@ -1,0 +1,10 @@
+type=class
+superclass=Object
+included=
+extended=
+library=test.unit.testcase
+aliases=
+aliasof=
+
+テストの失敗を表現するクラスです。テスト中にアサーションが失敗した時に
+[[c:Test::Unit::TestCase]]から作られます。

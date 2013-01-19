@@ -1,0 +1,10 @@
+names=PRIO_PGRP
+visibility=public
+kind=defined
+
+--- PRIO_PGRP -> Fixnum
+
+対象とするプライオリティがプロセスグループプライオリティであることを表す定数です。
+
+[[m:Process.#getpriority]] または [[m:Process.#setpriority]] で使われます。
+

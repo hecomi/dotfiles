@@ -1,0 +1,11 @@
+names=typealias
+visibility=public
+kind=defined
+
+--- typealias(newtype, oldtype)    -> ()
+@todo
+
+newtype 型を oldtype 型のエイリアスとして定義します。
+newtype で与えた型は extern や callback メソッド
+のプロトタイプを与えるときに利用します。
+

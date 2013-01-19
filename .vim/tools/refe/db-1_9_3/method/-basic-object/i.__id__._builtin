@@ -1,0 +1,14 @@
+names=__id__
+visibility=public
+kind=defined
+
+--- __id__ -> Integer
+
+各オブジェクトに対して一意な整数を返します。あるオブジェクトに対し
+てどのような整数が割り当てられるかは不定です。
+
+[[m:Object#object_id]] と同じですが、#object_id は [[c:BasicObject]] に
+はない事に注意してください。
+
+@see [[m:Object#object_id]], [[ruby-dev:42840]]
+

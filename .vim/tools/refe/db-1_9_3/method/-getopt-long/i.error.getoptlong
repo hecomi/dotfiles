@@ -1,0 +1,10 @@
+names=error,error?
+visibility=public
+kind=defined
+
+--- error  -> Class | nil
+--- error? -> Class | nil
+
+現在のエラーの型を返します。エラーが発生していなければ、nil
+を返します。
+

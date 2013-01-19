@@ -1,0 +1,8 @@
+requires=soap.encodingstyle.handler,soap.soap,soap.baseData,soap.mapping.typeMap,soap.element
+classes=SOAP=EncodingStyle=LiteralHandler,SOAP=EncodingStyle=LiteralHandler=SOAPTemporalObject,SOAP=EncodingStyle=LiteralHandler=SOAPUnknown
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

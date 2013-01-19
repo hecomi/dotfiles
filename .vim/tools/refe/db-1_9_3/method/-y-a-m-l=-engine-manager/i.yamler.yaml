@@ -1,0 +1,14 @@
+names=yamler
+visibility=public
+kind=defined
+
+--- yamler -> String
+
+使用中のバックエンドを文字列で返します。
+
+例:
+
+  require "psych"
+  require "yaml"
+  p YAML::ENGINE.yamler # => "psych"
+

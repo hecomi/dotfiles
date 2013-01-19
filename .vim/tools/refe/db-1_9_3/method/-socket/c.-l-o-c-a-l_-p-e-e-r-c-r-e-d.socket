@@ -1,0 +1,12 @@
+names=LOCAL_PEERCRED
+visibility=public
+kind=defined
+
+--- LOCAL_PEERCRED -> Integer
+Pass credentials to receiver。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:ip(4freebsd)]]
+
+

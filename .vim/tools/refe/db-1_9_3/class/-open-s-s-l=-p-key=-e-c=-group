@@ -1,0 +1,11 @@
+type=class
+superclass=Object
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+楕円曲線から定義される群を表すクラスです。
+
+楕円曲線暗号のパラメータとしての役割をはたします。

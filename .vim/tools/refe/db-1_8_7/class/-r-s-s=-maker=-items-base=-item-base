@@ -1,0 +1,16 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rss
+aliases=
+aliasof=
+
+itemはmaker.items.new_itemで作成されたオブジェク
+トとします．
+
+RSS 1.0/0.91の場合はtitle，linkを設定する必要があ
+ります．
+
+RSS 2.0の場合はtitleまたはdescriptionを設定する
+必要があります．

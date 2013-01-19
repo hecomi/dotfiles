@@ -1,0 +1,7 @@
+names=min
+visibility=public
+kind=defined
+
+--- min -> Integer
+分を返します (0-59)。
+

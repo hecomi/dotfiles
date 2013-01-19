@@ -1,0 +1,8 @@
+names=KEY_SIC
+visibility=public
+kind=defined
+
+--- KEY_SIC -> Integer
+@todo ???
+Shift + ... キーを表す定数です。
+

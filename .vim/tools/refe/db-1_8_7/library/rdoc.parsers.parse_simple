@@ -1,0 +1,11 @@
+requires=
+classes=RDoc=SimpleParser
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+ソースコード以外のファイルを解析するためのサブライブラリです。
+
+ファイルの内容すべてを 1 つの大きなコメントとして処理します。ただし、ファ
+イルの先頭が # で始まっていた場合、先頭行は削除されます。

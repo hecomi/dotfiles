@@ -1,0 +1,11 @@
+names=colors
+visibility=public
+kind=defined
+
+--- colors -> Integer
+@todo ???
+
+色の数を返します。
+
+@raise NotImplementedError サポートしていない環境で発生します。
+

@@ -1,0 +1,7 @@
+names=optname
+visibility=public
+kind=defined
+
+--- optname -> Integer
+ソケットのオプション名を表す整数を返します。
+

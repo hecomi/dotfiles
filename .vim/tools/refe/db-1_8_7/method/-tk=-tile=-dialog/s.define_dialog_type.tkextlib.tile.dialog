@@ -1,0 +1,7 @@
+names=define_dialog_type
+visibility=public
+kind=defined
+
+--- define_dialog_type(name, keys)
+@todo
+

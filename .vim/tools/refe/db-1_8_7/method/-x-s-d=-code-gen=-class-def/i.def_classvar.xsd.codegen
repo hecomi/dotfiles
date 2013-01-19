@@ -1,0 +1,7 @@
+names=def_classvar
+visibility=public
+kind=defined
+
+--- def_classvar(var, value)
+@todo
+

@@ -1,0 +1,7 @@
+names=find_previous_space
+visibility=public
+kind=defined
+
+--- find_previous_space(idx)
+@todo
+

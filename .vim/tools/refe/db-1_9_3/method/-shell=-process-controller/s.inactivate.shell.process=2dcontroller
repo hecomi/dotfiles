@@ -1,0 +1,7 @@
+names=inactivate
+visibility=public
+kind=defined
+
+--- inactivate(pc) -> ()
+@todo
+

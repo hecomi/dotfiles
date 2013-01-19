@@ -1,0 +1,6 @@
+names=string_value
+visibility=public
+kind=defined
+
+--- string_value(o)
+@todo

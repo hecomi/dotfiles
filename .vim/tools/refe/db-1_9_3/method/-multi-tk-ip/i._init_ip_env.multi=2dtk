@@ -1,0 +1,7 @@
+names=_init_ip_env
+visibility=public
+kind=defined
+
+--- _init_ip_env(script)
+@todo
+

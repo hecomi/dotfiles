@@ -1,0 +1,10 @@
+type=class
+superclass=Object
+included=
+extended=
+library=json
+aliases=JSON=Ext=Generator=State
+aliasof=
+
+Ruby オブジェクトから JSON 形式の文字列を生成する間、
+JSON 形式の文字列を生成するための設定を保持しておくために使用するクラスです。

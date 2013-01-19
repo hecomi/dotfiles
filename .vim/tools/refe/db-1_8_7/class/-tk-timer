@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=TkCore
+extended=TkCore
+library=tk.timer
+aliases=
+aliasof=TkAfter
+
+Alias of [[c:TkAfter]]

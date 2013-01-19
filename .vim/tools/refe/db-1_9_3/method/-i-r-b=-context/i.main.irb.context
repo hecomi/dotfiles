@@ -1,0 +1,10 @@
+names=main
+visibility=public
+kind=defined
+
+--- main -> object
+
+self に設定されたオブジェクトを返します。
+
+@see cwws コマンド
+

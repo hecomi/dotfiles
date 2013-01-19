@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+Fiber に関するエラーが起きると発生します。

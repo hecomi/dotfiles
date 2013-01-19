@@ -1,0 +1,7 @@
+names=create_cgi_stub
+visibility=private 
+kind=defined
+
+--- create_cgi_stub(servicename)
+@todo
+

@@ -1,0 +1,8 @@
+requires=soap.soap,soap.baseData,soap.mapping.typeMap,soap.element
+classes=SOAP=EncodingStyle=Handler,SOAP=EncodingStyle=Handler=EncodingStyleError
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

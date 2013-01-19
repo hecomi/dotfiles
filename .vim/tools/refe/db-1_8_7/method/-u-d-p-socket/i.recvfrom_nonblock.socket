@@ -1,0 +1,24 @@
+names=recvfrom_nonblock
+visibility=public
+kind=defined
+
+--- recvfrom_nonblock(maxlen, flags=0) -> [String, Array]
+ソケットをノンブロッキングモードに設定した後、
+[[man:recvfrom(2)]] でソケットからデータを受け取ります。
+
+maxlen で受け取るデータの最大バイト数を指定します。
+
+flags はフラグで、Socket::MSG_* の bitwise OR を渡します。
+詳しくは [[man:recvfrom(2)]] を参照してください。
+
+返り値はデータの文字列と送り元のアドレス情報の
+2要素の配列となります。
+
+[[man:recvfrom(2)]] がエラーになった場合、
+Errno::EAGAIN, Errno::EINTR を含め例外 [[c:Errno::EXXX]] が発生します。
+
+
+@param maxlen 受け取るデータの最大バイト数
+@param flags フラグ
+@see [[m:IPSocket#recvfrom]]
+

@@ -1,0 +1,7 @@
+names=start_stream
+visibility=public
+kind=defined
+
+--- start_stream(encoding)
+@todo
+

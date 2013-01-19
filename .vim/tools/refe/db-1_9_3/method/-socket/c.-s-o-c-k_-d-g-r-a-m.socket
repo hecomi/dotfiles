@@ -1,0 +1,11 @@
+names=SOCK_DGRAM
+visibility=public
+kind=defined
+
+--- SOCK_DGRAM -> Integer
+
+データグラム通信。
+[[m:Socket.open]] の第二引数 type に使用します。
+
+@see [[man:socket(2)]], [[m:Socket.open]]
+

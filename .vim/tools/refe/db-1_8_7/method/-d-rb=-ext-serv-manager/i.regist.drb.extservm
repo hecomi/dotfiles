@@ -1,0 +1,7 @@
+names=regist
+visibility=public
+kind=defined
+
+--- regist(name, ro)
+@todo
+

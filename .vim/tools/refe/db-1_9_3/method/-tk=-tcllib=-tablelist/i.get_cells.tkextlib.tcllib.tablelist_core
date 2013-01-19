@@ -1,0 +1,8 @@
+names=get_cells,getcells
+visibility=public
+kind=defined
+
+--- get_cells(first, last = nil)
+--- getcells(first, last = nil)
+@todo
+

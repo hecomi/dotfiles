@@ -1,0 +1,20 @@
+names=shuffle!
+visibility=public
+kind=defined
+
+--- shuffle!        -> self
+--- shuffle!(random: rng) -> self
+
+配列を破壊的にランダムシャッフルします。
+
+引数に [[c:Random]] オブジェクトを渡すことでそのオブジェクトが
+生成する疑似乱数列を用いることができます。
+
+例:
+
+   a = [ 1, 2, 3 ]           #=> [1, 2, 3]
+   a.shuffle!                #=> [2, 3, 1]
+   a                         #=> [2, 3, 1]
+
+@see [[m:Array#shuffle]]
+

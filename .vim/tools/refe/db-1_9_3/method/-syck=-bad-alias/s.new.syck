@@ -1,0 +1,9 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(name) -> YAML::Syck::BadAlias
+@todo
+
+自身を初期化します。
+

@@ -1,0 +1,13 @@
+names=raw!
+visibility=public
+kind=added
+
+--- raw! -> self
+
+raw モードを有効にします。端末のモードを後で元に戻す必要がある場合は
+[[m:IO#raw]] を使用してください。
+
+@return 自身を返します。
+
+@see [[m:IO#raw]]
+

@@ -1,0 +1,10 @@
+names=converters
+visibility=public
+kind=defined
+
+--- converters -> Array
+
+現在の変換器のリストを返します。
+
+@see [[m:CSV::Converters]]
+

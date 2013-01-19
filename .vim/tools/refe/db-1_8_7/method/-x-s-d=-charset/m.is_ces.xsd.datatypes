@@ -1,0 +1,7 @@
+names=is_ces
+visibility=public
+kind=defined
+
+--- is_ces(str, code = $KCODE)
+@todo
+

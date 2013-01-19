@@ -1,0 +1,8 @@
+names=ATTR_MODIFIERS
+visibility=public
+kind=defined
+
+--- ATTR_MODIFIERS     -> [String]
+
+ライブラリの内部で使用します。
+

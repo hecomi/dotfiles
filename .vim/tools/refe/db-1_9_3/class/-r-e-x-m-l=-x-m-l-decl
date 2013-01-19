@@ -1,0 +1,9 @@
+type=class
+superclass=REXML=Child
+included=REXML=Encoding
+extended=
+library=rexml
+aliases=
+aliasof=
+
+

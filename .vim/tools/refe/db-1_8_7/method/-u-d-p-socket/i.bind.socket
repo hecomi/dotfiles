@@ -1,0 +1,12 @@
+names=bind
+visibility=public
+kind=defined
+
+--- bind(host, port) -> 0
+ソケットを host の port に [[man:bind(2)]] します。
+
+bind したポートから [[m:Socket#recv]] でデータを受け取ることができます。
+
+@param host bind するホスト名文字列
+@param port bind するポート番号
+

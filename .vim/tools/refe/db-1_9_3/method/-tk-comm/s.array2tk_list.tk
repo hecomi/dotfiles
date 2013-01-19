@@ -1,0 +1,9 @@
+names=array2tk_list
+visibility=public
+kind=defined
+
+--- array2tk_list(ary, enc = nil)
+@todo
+
+
+

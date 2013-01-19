@@ -1,0 +1,12 @@
+names=parse
+visibility=public
+kind=defined
+
+--- parse(yaml)
+@todo
+
+Parse the YAML document contained in yaml.  Events will be called on
+the handler set on the parser instance.
+
+@see [[c:Psych::Parser]], [[m:Psych::Parser#handler]]
+

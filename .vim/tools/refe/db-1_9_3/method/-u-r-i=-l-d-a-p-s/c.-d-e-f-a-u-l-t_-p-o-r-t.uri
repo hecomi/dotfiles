@@ -1,0 +1,7 @@
+names=DEFAULT_PORT
+visibility=public
+kind=defined
+
+--- DEFAULT_PORT -> Integer
+
+デフォルトのポート (636) です。

@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=net.http
+aliases=
+aliasof=
+
+HTTP ヘッダの内容が不正である場合に発生する例外です。

@@ -1,0 +1,9 @@
+type=class
+superclass=TkWindow
+included=
+extended=
+library=tkextlib.tile.dialog
+aliases=
+aliasof=
+
+

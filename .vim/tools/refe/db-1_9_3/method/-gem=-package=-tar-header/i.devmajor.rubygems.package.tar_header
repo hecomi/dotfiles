@@ -1,0 +1,8 @@
+names=devmajor
+visibility=public 
+kind=defined
+
+--- devmajor -> Integer
+
+tar のヘッダに含まれる devmajor を返します。
+

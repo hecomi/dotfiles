@@ -1,0 +1,7 @@
+names=parse_rhs
+visibility=public
+kind=defined
+
+--- parse_rhs(str)
+@todo
+

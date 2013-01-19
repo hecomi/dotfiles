@@ -1,0 +1,15 @@
+type=class
+superclass=Object
+included=Singleton
+extended=
+library=rdoc.options
+aliases=
+aliasof=
+
+rdoc コマンドのオプションを解析するためのクラスです。
+
+それぞれのオプションの詳細に関しては、[[ref:lib:rdoc#usage]] を参照してくだ
+さい。
+
+[注意] クラス名は RDoc::Option ではない事に注意してください。(1.9 系で
+は RDoc::Option クラスとして使用できます。)

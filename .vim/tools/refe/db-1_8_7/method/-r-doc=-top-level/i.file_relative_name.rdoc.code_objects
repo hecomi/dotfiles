@@ -1,0 +1,8 @@
+names=file_relative_name
+visibility=public
+kind=defined
+
+--- file_relative_name -> String
+
+自身が管理するファイルに関する相対パスを文字列で返します。
+

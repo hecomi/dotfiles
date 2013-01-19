@@ -1,0 +1,9 @@
+type=class
+superclass=TkTextNamedMark
+included=
+extended=
+library=tk.textmark
+aliases=
+aliasof=
+
+

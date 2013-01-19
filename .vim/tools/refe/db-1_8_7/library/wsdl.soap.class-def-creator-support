@@ -1,0 +1,8 @@
+requires=wsdl.info,soap.mapping,soap.mapping.mapping,soap.mapping.registry,soap.baseData,soap.soap,soap.mapping.typeMap,soap.mapping.factory,soap.mapping.rubytypeFactory,xsd.codegen.gensupport
+classes=WSDL=SOAP=ClassDefCreatorSupport
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

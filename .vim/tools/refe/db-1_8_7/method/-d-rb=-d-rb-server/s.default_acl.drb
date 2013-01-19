@@ -1,0 +1,10 @@
+names=default_acl
+visibility=public
+kind=defined
+
+--- default_acl(acl)
+@todo
+
+Set the default value for the :acl option.
+See new(). The initial default value is nil. 
+

@@ -1,0 +1,8 @@
+names=BINARY
+visibility=public
+kind=defined
+
+--- BINARY -> Encoding
+
+バイナリ列を表します。
+

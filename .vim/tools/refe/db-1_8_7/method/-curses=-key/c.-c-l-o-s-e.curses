@@ -1,0 +1,8 @@
+names=CLOSE
+visibility=public
+kind=defined
+
+--- CLOSE -> Integer
+
+Close キーを表す定数です。
+

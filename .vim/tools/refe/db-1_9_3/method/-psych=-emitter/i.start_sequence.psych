@@ -1,0 +1,14 @@
+names=start_sequence
+visibility=public
+kind=defined
+
+--- start_sequence(anchor, tag, implicit, style) -> Psych::Emitter
+@todo
+
+Start emitting a sequence with +anchor+, a +tag+, +implicit+ sequence
+start and end, along with +style+.
+
+自身を返します。
+
+@see [[m:Psych::Handler#start_sequence]]
+

@@ -1,0 +1,10 @@
+names=store
+visibility=public
+kind=defined
+
+--- store(key, val) -> [String]
+
+key に対して val を格納します。
+
+@see [[m:SDBM#[]=]]
+

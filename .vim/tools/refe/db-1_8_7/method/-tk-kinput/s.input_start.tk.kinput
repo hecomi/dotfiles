@@ -1,0 +1,7 @@
+names=input_start
+visibility=public
+kind=defined
+
+--- input_start(win, keys = nil)
+@todo
+

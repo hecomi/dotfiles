@@ -1,0 +1,25 @@
+names=each_entry
+visibility=public
+kind=defined
+
+--- each_entry -> Enumerator
+--- each_entry {|obj| block} -> self
+
+ブロックを各要素に一度ずつ適用します。
+
+一要素として複数の値が渡された場合はブロックには配列として渡されます。
+
+   class Foo
+     include Enumerable
+     def each
+       yield 1
+       yield 1,2
+     end
+   end
+   Foo.new.each_entry{|o| print o, " -- "}
+   # => 1 -- [1, 2] --
+
+ブロックを省略した場合は [[c:Enumerator]] が返されます。
+
+@see [[m:Enumerable#slice_before]]
+

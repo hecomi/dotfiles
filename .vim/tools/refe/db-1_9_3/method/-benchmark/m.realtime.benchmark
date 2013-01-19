@@ -1,0 +1,10 @@
+names=realtime
+visibility=public
+kind=defined
+
+--- realtime { ... } -> Float
+
+与えられたブロックを評価して実行時間を計測して返します。
+
+
+

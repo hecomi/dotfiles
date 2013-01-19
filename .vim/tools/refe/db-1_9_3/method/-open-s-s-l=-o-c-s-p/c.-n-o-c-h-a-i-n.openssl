@@ -1,0 +1,7 @@
+names=NOCHAIN
+visibility=public
+kind=defined
+
+--- NOCHAIN -> Integer
+証明書チェインを使わないことを意味します。
+

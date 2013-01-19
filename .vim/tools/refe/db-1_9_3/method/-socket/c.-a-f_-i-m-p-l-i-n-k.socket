@@ -1,0 +1,11 @@
+names=AF_IMPLINK,PF_IMPLINK
+visibility=public
+kind=defined
+
+--- AF_IMPLINK -> Integer
+--- PF_IMPLINK -> Integer
+@todo
+ARPANET IMP。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

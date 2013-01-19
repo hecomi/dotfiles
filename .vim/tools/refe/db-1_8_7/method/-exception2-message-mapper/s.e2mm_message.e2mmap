@@ -1,0 +1,12 @@
+names=e2mm_message,message
+visibility=public
+kind=defined
+
+--- e2mm_message(klass, exp) -> String | nil
+--- message(klass, exp) -> String | nil
+@todo
+
+@param klass
+
+@param exp
+

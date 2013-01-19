@@ -1,0 +1,7 @@
+names=child_type
+visibility=public
+kind=added
+
+--- child_type(name = nil)
+@todo
+

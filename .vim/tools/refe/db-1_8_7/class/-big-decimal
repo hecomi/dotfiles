@@ -1,0 +1,9 @@
+type=class
+superclass=Numeric
+included=
+extended=
+library=bigdecimal
+aliases=
+aliasof=
+
+

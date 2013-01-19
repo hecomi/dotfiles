@@ -1,0 +1,9 @@
+type=class
+superclass=Gem=Commands=QueryCommand
+included=
+extended=
+library=rubygems.commands.list_command
+aliases=
+aliasof=
+
+Gem パッケージの名前を前方一致で検索するためのクラスです。

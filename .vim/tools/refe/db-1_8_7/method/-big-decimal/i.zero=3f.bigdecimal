@@ -1,0 +1,11 @@
+names=zero?
+visibility=public
+kind=defined
+
+--- zero?
+@todo
+
+a が 0 なら true を返します。 
+
+    c = a.zero? 
+

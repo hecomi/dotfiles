@@ -1,0 +1,10 @@
+names=[]
+visibility=public
+kind=defined
+
+--- [](key) -> String
+
+key をキーとする値を返します。
+
+@param key キー。
+

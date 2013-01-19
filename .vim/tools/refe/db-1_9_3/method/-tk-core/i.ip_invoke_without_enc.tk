@@ -1,0 +1,7 @@
+names=ip_invoke_without_enc
+visibility=public
+kind=defined
+
+--- ip_invoke_without_enc(*args)
+@todo
+

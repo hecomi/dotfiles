@@ -1,0 +1,8 @@
+names=mode
+visibility=public 
+kind=defined
+
+--- mode -> Integer
+
+tar のヘッダに含まれる mode を返します。
+

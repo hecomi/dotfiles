@@ -1,0 +1,8 @@
+names=IP_RECVSLLA
+visibility=public
+kind=defined
+
+--- IP_RECVSLLA -> Integer
+@todo
+Receive link-layer address with datagrams
+

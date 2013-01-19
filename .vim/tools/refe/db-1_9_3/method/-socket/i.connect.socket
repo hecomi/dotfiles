@@ -1,0 +1,30 @@
+names=connect
+visibility=public
+kind=defined
+
+--- connect(server_sockaddr) -> 0
+
+[[man:connect(2)]] でソケットを接続します。
+
+server_sockaddr は、
+[[ref:lib:socket#pack_string]]
+もしくは [[c:Addrinfo]] オブジェクト
+です。
+
+0 を返します。
+
+@param server_sockaddr 接続先アドレス
+@raise Errno::EXXX [[man:connect(2)]] がエラーを報告した場合に発生します。詳しくは
+       man を参照してください。
+
+
+たとえば IPv4 の TCP ソケットを生成し、connect で www.ruby-lang.org:80 に接続するには以下のようにします。
+
+例:
+
+  s = Socket.new(Socket::AF_INET, Socket::SOCK_STREAM, 0)
+  sockaddr = Socket.sockaddr_in(80, "www.ruby-lang.org")
+  s.connect(sockaddr)
+  s.write "GET / HTTP/1.0\r\n\r\n"
+  print s.read
+

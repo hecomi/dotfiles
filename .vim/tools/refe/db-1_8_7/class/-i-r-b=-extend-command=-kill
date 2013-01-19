@@ -1,0 +1,9 @@
+type=class
+superclass=IRB=ExtendCommand=Nop
+included=
+extended=
+library=irb.cmd.subirb
+aliases=
+aliasof=
+
+irb 中の irb_kill コマンドのための拡張を定義したクラスです。

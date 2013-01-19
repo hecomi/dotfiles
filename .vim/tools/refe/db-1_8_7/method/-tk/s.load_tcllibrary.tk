@@ -1,0 +1,7 @@
+names=load_tcllibrary
+visibility=public
+kind=defined
+
+--- load_tcllibrary(file, pkg_name = Tk::None, interp = Tk::None)
+@todo
+

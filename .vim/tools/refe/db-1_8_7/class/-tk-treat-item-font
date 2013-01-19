@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=TkItemFontOptkeys
+extended=
+library=tk.itemfont
+aliases=
+aliasof=
+
+

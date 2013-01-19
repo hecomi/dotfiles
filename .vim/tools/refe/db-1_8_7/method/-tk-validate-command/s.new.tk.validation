@@ -1,0 +1,9 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(cmd = Proc.new, *args)
+@todo
+
+
+

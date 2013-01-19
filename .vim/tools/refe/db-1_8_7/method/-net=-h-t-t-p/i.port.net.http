@@ -1,0 +1,9 @@
+names=port
+visibility=public
+kind=defined
+
+--- port -> Integer
+
+接続するポート番号を返します。
+
+@see [[m:Net::HTTP.new]]

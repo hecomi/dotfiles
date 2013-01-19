@@ -1,0 +1,24 @@
+names=unix_server_loop
+visibility=public
+kind=defined
+
+--- unix_server_loop(path) {|socket, client_addrinfo| ... } -> ()
+Unix サーバソケットを生成し、
+新しい接続を受け入れるごとにブロックを呼び出します。
+
+ブロックには新しい接続を表すソケットオブジェクトと、
+クライアントアドレスを表す [[c:Addrinfo]] オブジェクトが渡されます。
+
+ブロックの実行が終わってもソケットは close されません。
+アプリケーション側が明示的に close する必要があります。
+
+path という名前のファイルが既に存在するときは、
+そのファイルのオーナである場合は先にそのファイルを削除してしまいます。
+これは path が悪意あるユーザによって変更されない場合に限りは安全です。
+つまり、 /tmp/malicious-users-directory/socket という名前のパスは
+使うべきではありません。
+/tmp にスティッキービットが立っている場合、/tmp/socket や
+/tmp/your-private-directory/socket というパス名は安全と考えて良いでしょう。
+
+@param path 接続を待ち受けるパス(文字列)
+

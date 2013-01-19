@@ -1,0 +1,7 @@
+names=response
+visibility=public
+kind=defined
+
+--- response -> Net::IMAP::TaggedResponse | Net::IMAP::UntaggedResponse
+エラーとなったレスポンスを表すオブジェクトを返します。
+

@@ -1,0 +1,17 @@
+names=math_mode=
+visibility=public
+kind=added
+
+--- math_mode=(opt)
+
+math_mode を有効にするかどうかを指定します。
+
+.irbrc ファイル中で IRB.conf[:MATH_MODE] を設定する事でも同様の事が行え
+ます。
+
+@param opt math_mode を有効にする場合に true を指定します。
+
+@raise IRB::CantReturnToNormalMode 既に math_mode の状態で opt に
+                                   false を指定した場合に発生します。
+
+

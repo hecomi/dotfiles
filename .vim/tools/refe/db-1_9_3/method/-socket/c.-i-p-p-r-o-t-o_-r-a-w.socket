@@ -1,0 +1,14 @@
+names=IPPROTO_RAW
+visibility=public
+kind=defined
+
+--- IPPROTO_RAW -> Integer
+Raw IP packets protocol。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+
+@see [[man:netinet/in.h(header)]]
+     [[man:ip(4freebsd)]], [[man:raw(7linux)]]
+

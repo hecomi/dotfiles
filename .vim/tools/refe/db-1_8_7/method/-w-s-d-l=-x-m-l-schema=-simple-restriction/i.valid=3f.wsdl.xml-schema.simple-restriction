@@ -1,0 +1,6 @@
+names=valid?
+visibility=public
+kind=defined
+
+--- valid?(value)
+@todo

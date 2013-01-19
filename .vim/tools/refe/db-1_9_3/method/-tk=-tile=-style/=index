@@ -1,0 +1,10 @@
+.configure	Tk::Tile::Style.configure
+.default	Tk::Tile::Style.configure
+.element_create	Tk::Tile::Style.element_create
+.element_names	Tk::Tile::Style.element_names
+.layout	Tk::Tile::Style.layout
+.map	Tk::Tile::Style.map
+.theme_create	Tk::Tile::Style.theme_create
+.theme_names	Tk::Tile::Style.theme_names
+.theme_settings	Tk::Tile::Style.theme_settings
+.theme_use	Tk::Tile::Style.theme_use

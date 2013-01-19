@@ -1,0 +1,32 @@
+names=accept_nonblock
+visibility=public
+kind=defined
+
+--- accept_nonblock -> UnixSocket
+ソケットをノンブロッキングモードに設定した後、
+[[man:accept(2)]] を呼び出します。
+
+接続した
+[[c:UNIXSocket]] のインスタンスを返します。
+
+[[man:accept(2)]] がエラーになった場合、[[m:Socket#accept]] と同じ例外が
+発生します。
+
+[[m:Errno::EWOULDBLOCK]], [[m:Errno::AGAIN]], 
+[[m:Errno::ECONNABORTED]], [[Errno::EPROTO]] のいずれかの例外が
+発生した場合は、その例外には [[c:IO::WaitReadable]] が extend
+されます。それを利用してリトライ可能な例外を掴まえることができます。
+
+  require 'socket'
+  serv = UNIXServer.new("/tmp/sock")
+  begin # emulate blocking accept
+    sock = serv.accept_nonblock
+  rescue IO::WaitReadable, Errno::EINTR
+    IO.select([serv])
+    retry
+  end
+  # sock is an accepted socket.
+
+@see [[m:UNIXServer#accept]]
+
+

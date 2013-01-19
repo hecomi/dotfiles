@@ -1,0 +1,7 @@
+names=activate
+visibility=public
+kind=defined
+
+--- activate(element = Tk::None)
+@todo
+

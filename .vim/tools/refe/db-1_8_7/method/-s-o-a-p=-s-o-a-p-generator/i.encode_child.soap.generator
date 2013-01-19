@@ -1,0 +1,7 @@
+names=encode_child
+visibility=public
+kind=defined
+
+--- encode_child(ns, child, parent)
+@todo
+

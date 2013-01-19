@@ -1,0 +1,9 @@
+names=active_jobs_exist?
+visibility=public
+kind=defined
+
+--- active_jobs_exist? -> bool
+
+実行中のジョブが存在する場合は真を返します。
+そうでない場合は偽を返します。
+

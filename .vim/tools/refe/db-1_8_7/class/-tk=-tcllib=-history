@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=
+extended=TkCore
+library=tkextlib.tcllib.history
+aliases=
+aliasof=
+
+

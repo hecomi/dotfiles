@@ -1,0 +1,12 @@
+names=AF_INET6,PF_INET6
+visibility=public
+kind=defined
+
+--- AF_INET6 -> Integer
+--- PF_INET6 -> Integer
+
+IPv6。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:sys/socket.h(header)]], [[man:socket(2freebsd)]], [[man:ipv6(7linux)]]
+

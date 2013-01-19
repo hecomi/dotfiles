@@ -1,0 +1,9 @@
+names=create_result
+visibility=private 
+kind=defined
+
+--- create_result -> Test::Unit::TestResult
+
+自身が結果オブジェクトを生成するためのファクトリメソッドです。
+
+異なる結果オブジェクトが必要な場合は再定義して使います。

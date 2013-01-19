@@ -1,0 +1,12 @@
+names=IPV6_RTHDR_TYPE_0
+visibility=public
+kind=defined
+
+--- IPV6_RTHDR_TYPE_0 -> Integer
+ Routing header type 0。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[RFC:3542]]
+

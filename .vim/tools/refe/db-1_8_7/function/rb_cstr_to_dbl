@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=false
+type=double
+name=rb_cstr_to_dbl
+params=(const char *p, int badcheck)
+
+

@@ -1,0 +1,16 @@
+names=verbose
+visibility=public
+kind=defined
+
+--- verbose -> bool | nil
+
+標準出力に詳細なメッセージを出力するように設定されているかどうかを返し
+ます。
+
+[[m:IRB::Context#verbose?]] とは別のメソッドである事に注意してください。
+
+@return 詳細なメッセージを出力するように設定されている場合は true を返
+        します。そうでない場合は false か nil を返します。
+
+@see [[m:IRB::Context#verbose?]], [[m:IRB::Context#verbose=]]
+

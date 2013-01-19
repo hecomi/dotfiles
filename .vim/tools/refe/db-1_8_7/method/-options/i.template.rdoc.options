@@ -1,0 +1,11 @@
+names=template
+visibility=public
+kind=defined
+
+--- template -> String
+
+コマンドライン引数の --template オプションで指定した名前を文字列の配列
+で返します。
+
+指定しなかった場合は 'html' を返します。
+

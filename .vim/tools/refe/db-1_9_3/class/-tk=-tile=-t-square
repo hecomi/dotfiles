@@ -1,0 +1,9 @@
+type=class
+superclass=TkWindow
+included=Tk=Tile=TileWidget
+extended=
+library=tkextlib.tile.tsquare
+aliases=
+aliasof=Tk=Tile=Square
+
+Alias of [[c:Tk::Tile::Square]]

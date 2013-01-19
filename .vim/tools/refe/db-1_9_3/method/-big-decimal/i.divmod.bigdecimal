@@ -1,0 +1,9 @@
+names=divmod
+visibility=public
+kind=defined
+
+--- divmod(n)
+@todo
+
+詳細は [[m:Float#divmod]] を参照して下さい。 
+

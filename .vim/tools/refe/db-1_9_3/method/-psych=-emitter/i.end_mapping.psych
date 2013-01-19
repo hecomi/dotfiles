@@ -1,0 +1,13 @@
+names=end_mapping
+visibility=public
+kind=defined
+
+--- end_mapping -> Psych::Emitter
+@todo
+
+Emit the end of a mapping.
+
+自身を返します。
+
+See Psych::Handler#end_mapping
+

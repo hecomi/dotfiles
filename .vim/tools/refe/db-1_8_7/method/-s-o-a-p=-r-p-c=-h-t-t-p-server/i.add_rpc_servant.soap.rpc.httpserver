@@ -1,0 +1,7 @@
+names=add_rpc_servant
+visibility=public
+kind=defined
+
+--- add_rpc_servant(obj, namespace = @default_namespace)
+@todo
+

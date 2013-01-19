@@ -1,0 +1,8 @@
+names=spec
+visibility=public 
+kind=defined
+
+--- spec -> Gem::Specification
+
+[[m:Gem::Uninstaller#uninstall_gem]] の実行中のみセットされます。
+

@@ -1,0 +1,12 @@
+filename=class.c
+macro=false
+private=false
+type=VALUE
+name=rb_define_module_id
+params=(ID id)
+
+
+名前が id である新しいモジュールを定義し、それを返します。
+モジュール→名前 (定数) のリンクは確立しますが
+名前→モジュールのリンクはまだ確立していません。
+

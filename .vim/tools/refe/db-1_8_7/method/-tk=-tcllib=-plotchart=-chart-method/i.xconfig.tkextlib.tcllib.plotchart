@@ -1,0 +1,7 @@
+names=xconfig
+visibility=public
+kind=defined
+
+--- xconfig(key, value = None)
+@todo
+

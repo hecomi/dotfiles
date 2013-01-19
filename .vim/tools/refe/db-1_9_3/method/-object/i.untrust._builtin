@@ -1,0 +1,11 @@
+names=untrust
+visibility=public
+kind=defined
+
+--- untrust -> self
+@todo
+
+オブジェクトの「untrustマーク」をセットします。
+
+@see [[m:Object#trust]],[[m:Object#untrusted?]]
+

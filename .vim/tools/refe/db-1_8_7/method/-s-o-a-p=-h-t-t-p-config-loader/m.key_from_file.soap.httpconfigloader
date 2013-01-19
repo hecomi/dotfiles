@@ -1,0 +1,7 @@
+names=key_from_file
+visibility=public
+kind=defined
+
+--- key_from_file(filename)
+@todo
+

@@ -1,0 +1,11 @@
+type=module
+superclass=
+included=
+extended=
+library=finalize
+aliases=
+aliasof=
+
+オブジェクトが GC される時にメッセージを送る機能を提供します。
+このモジュールは obsolete なので、
+[[m:ObjectSpace.#define_finalizer]] 等を使用してください。

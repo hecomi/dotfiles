@@ -1,0 +1,10 @@
+names=BUTTON_ALT
+visibility=public
+kind=defined
+
+--- BUTTON_ALT -> Integer
+
+マウス操作中に ALT キーを押下していることを表すマウスイベント用の定数です。
+
+@see [[m:Curses.getmouse]]
+

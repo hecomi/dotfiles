@@ -1,0 +1,10 @@
+type=class
+superclass=Prime=PseudoPrimeGenerator
+included=
+extended=
+library=prime
+aliases=
+aliasof=
+
+[[c:Prime::PseudoPrimeGenerator]] の具象クラスです。
+素数の生成に試行除算法を使用しています。

@@ -1,0 +1,9 @@
+type=class
+superclass=Psych=Visitors=YAMLTree
+included=
+extended=
+library=psych.visitors.json_tree
+aliases=
+aliasof=
+
+

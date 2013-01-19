@@ -1,0 +1,8 @@
+names=io=
+visibility=public
+kind=defined
+
+--- io=(val)
+
+ライブラリ内部で使用します。
+

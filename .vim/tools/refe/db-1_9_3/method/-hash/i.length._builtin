@@ -1,0 +1,11 @@
+names=length,size
+visibility=public
+kind=defined
+
+--- length -> Integer
+--- size -> Integer
+
+ハッシュの要素の数を返します。
+
+  puts({ant: 9 ,dog: 101 ,cat: 3}.length) #=> 3
+

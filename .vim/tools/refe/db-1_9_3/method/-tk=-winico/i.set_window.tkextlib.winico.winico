@@ -1,0 +1,7 @@
+names=set_window
+visibility=public
+kind=defined
+
+--- set_window(win_id, *opts)
+@todo
+

@@ -1,0 +1,12 @@
+names=current_row_configinfo,current_rowconfiginfo,rowcget,rowconfiginfo,rowconfigure
+visibility=public
+kind=defined
+
+--- current_row_configinfo(tagOrId, slot = nil)
+--- rowcget(tagOrId, slot = nil)
+--- rowconfigure(tagOrId, slot = nil)
+--- rowconfiginfo(tagOrId, slot = nil)
+--- current_rowconfiginfo(tagOrId, slot = nil)
+@todo
+
+

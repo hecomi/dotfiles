@@ -1,0 +1,12 @@
+names=AI_DEFAULT
+visibility=public
+kind=defined
+
+--- AI_DEFAULT -> Integer
+Default flags for getaddrinfo。
+
+[[m:Socket.getaddrinfo]], [[m:Addrinfo.getaddrinfo]] の引数 flags に渡す
+定数です。
+
+@see [[man:getipnodebyname(3freebsd)]]
+

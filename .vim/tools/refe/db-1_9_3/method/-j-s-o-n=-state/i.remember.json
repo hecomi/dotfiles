@@ -1,0 +1,12 @@
+names=remember
+visibility=public 
+kind=defined
+
+--- remember(object) -> true
+
+与えられたオブジェクトのオブジェクト ID を記録します。
+
+ここで記録したオブジェクトはデータ構造の循環をチェックするために使用します。
+
+@param object 任意のオブジェクトを指定します。
+

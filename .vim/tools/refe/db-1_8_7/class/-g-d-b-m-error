@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=gdbm
+aliases=
+aliasof=
+
+GDBM 内部で使用する例外クラスです。

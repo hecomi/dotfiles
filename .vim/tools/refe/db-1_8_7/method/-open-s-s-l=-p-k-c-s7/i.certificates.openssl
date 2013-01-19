@@ -1,0 +1,8 @@
+names=certificates
+visibility=public
+kind=defined
+
+--- certificates -> [OpenSSL::X509::Certificate] | nil
+署名に添付される証明書を配列で返します。
+
+

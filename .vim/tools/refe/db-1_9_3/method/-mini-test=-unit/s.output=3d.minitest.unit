@@ -1,0 +1,10 @@
+names=output=
+visibility=public
+kind=defined
+
+--- output=(stream)
+
+出力先をセットします。
+
+@param stream [[c:IO]] を指定します。
+

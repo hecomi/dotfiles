@@ -1,0 +1,9 @@
+names=new_with_uri
+visibility=public
+kind=defined
+
+--- new_with_uri(uri)
+@todo
+
+Create a new DRbObject from a URI alone.
+

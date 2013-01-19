@@ -1,0 +1,8 @@
+requires=wsdl.info,xsd.namedelements
+classes=WSDL=XMLSchema=SimpleContent
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

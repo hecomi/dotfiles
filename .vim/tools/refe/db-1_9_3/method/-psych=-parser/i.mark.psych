@@ -1,0 +1,10 @@
+names=mark
+visibility=public
+kind=defined
+
+--- mark -> Psych::Parser::Mark
+@todo
+
+Returns a Psych::Parser::Mark object that contains line, column, and index
+information.
+

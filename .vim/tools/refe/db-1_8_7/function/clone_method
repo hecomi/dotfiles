@@ -1,0 +1,11 @@
+filename=class.c
+macro=false
+private=true
+type=int
+name=clone_method
+params=(ID mid, NODE *body, st_table *tbl)
+
+
+m_tbl 格納形式のメソッド (構文木) をコピーして返します。
+ST_CONTINUE を返します。
+

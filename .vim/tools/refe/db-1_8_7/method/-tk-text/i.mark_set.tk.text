@@ -1,0 +1,8 @@
+names=mark_set,set_mark
+visibility=public
+kind=defined
+
+--- mark_set(mark, index)
+--- set_mark(mark, index)
+@todo
+

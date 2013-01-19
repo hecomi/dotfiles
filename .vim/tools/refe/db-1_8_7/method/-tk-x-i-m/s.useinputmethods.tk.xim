@@ -1,0 +1,7 @@
+names=useinputmethods
+visibility=public
+kind=defined
+
+--- useinputmethods(window = nil, value = nil)
+@todo
+

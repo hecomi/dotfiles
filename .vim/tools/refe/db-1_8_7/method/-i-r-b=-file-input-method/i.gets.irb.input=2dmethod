@@ -1,0 +1,9 @@
+names=gets
+visibility=public
+kind=defined
+
+--- gets -> String
+
+読み込んだファイルから文字列を 1 行読み込みます。
+
+

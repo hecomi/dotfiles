@@ -1,0 +1,7 @@
+names=add_highlight_class
+visibility=public
+kind=defined
+
+--- add_highlight_class(klass, col, *keywords)
+@todo
+

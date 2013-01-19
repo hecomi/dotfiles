@@ -1,0 +1,10 @@
+names=READER
+visibility=public
+kind=defined
+
+--- READER -> Fixnum
+
+読み込みモードでオープンします．
+
+@see [[m:DBM.open]]
+

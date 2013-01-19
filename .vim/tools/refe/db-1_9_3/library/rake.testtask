@@ -1,0 +1,8 @@
+requires=rake,rake.tasklib
+classes=Rake=TestTask
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+ユニットテストを実行するためのタスクを定義するライブラリです。

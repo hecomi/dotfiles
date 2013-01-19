@@ -1,0 +1,7 @@
+names=entryconfiginfo
+visibility=public
+kind=defined
+
+--- entryconfiginfo(index, key = nil)
+@todo
+

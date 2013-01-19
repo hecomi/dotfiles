@@ -1,0 +1,9 @@
+type=class
+superclass=WSDL=Error
+included=
+extended=
+library=wsdl.xmlSchema.parser
+aliases=
+aliasof=
+
+

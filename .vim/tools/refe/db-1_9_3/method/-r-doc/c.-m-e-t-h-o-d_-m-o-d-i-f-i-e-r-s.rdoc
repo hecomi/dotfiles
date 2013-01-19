@@ -1,0 +1,7 @@
+names=METHOD_MODIFIERS
+visibility=public
+kind=defined
+
+--- METHOD_MODIFIERS   -> [String]
+
+ライブラリの内部で使用します。

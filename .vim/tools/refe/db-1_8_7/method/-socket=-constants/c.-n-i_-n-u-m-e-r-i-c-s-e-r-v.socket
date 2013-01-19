@@ -1,0 +1,12 @@
+names=NI_NUMERICSERV
+visibility=public
+kind=defined
+
+--- NI_NUMERICSERV -> Integer
+Return the service name as a digit string
+
+[[m:Socket.getnameinfo]], [[m:Addrinfo#getnameinfo]] の引数 flags に渡す
+定数です。
+
+@see [[man:getnameinfo(3)]]
+

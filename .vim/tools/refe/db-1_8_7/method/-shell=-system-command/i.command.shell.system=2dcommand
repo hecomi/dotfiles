@@ -1,0 +1,10 @@
+names=command,name
+visibility=public
+kind=defined
+
+--- command -> String
+--- name    -> String
+@todo
+
+コマンド名を返します。
+

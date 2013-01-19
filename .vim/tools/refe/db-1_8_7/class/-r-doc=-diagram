@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rdoc.diagram
+aliases=
+aliasof=
+
+モジュールやクラスの関係を描く図を作成するためのクラスです。

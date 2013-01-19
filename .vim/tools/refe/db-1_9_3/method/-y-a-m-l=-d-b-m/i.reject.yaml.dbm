@@ -1,0 +1,10 @@
+names=reject
+visibility=public
+kind=defined
+
+--- reject {|key, val| ... } -> {String => object}
+
+ブロックを評価した値が真であれば該当する要素を削除します。
+
+新しく [[c:Hash]] オブジェクトを作成して返します。
+

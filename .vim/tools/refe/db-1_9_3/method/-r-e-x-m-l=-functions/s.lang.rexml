@@ -1,0 +1,7 @@
+names=lang
+visibility=public
+kind=defined
+
+--- lang(language)
+@todo
+

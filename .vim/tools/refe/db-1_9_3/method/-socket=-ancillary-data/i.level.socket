@@ -1,0 +1,12 @@
+names=level
+visibility=public
+kind=defined
+
+--- level -> Integer
+自身が保持している cmsg level (元プロトコル) を返します。
+
+  p Socket::AncillaryData.new(:INET6, :IPV6, :PKTINFO, "").level
+  #=> 41
+
+@see [[m:Socket::AncillaryData.new]]
+

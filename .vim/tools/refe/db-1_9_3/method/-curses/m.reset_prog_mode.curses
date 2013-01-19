@@ -1,0 +1,11 @@
+names=reset_prog_mode
+visibility=public
+kind=defined
+
+--- reset_prog_mode -> bool
+@todo
+Reset the current terminal modes to the saved state
+by the Curses.def_prog_mode
+
+This is done automatically by Curses.close_screen
+

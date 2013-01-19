@@ -1,0 +1,7 @@
+names=create_refid
+visibility=public
+kind=defined
+
+--- create_refid(obj)
+@todo
+

@@ -1,0 +1,10 @@
+names=normalize_uri
+visibility=public
+kind=defined
+
+--- normalize_uri(uri) -> String
+
+URI のスキーム部分が欠けている場合に "http://" を補って返します。
+
+@param uri URI 文字列を指定します。
+

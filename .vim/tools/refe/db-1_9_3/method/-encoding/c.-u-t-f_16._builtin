@@ -1,0 +1,9 @@
+names=UTF_16
+visibility=public
+kind=defined
+
+--- UTF_16 -> Encoding
+UTF-16 (BOMを含む) です。
+
+ダミーエンコーディングです。
+

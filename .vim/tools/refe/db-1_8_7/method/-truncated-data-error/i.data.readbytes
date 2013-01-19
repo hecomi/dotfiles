@@ -1,0 +1,7 @@
+names=data
+visibility=public
+kind=defined
+
+--- data -> String
+
+例外が発生するまでに読み込んだデータを文字列で返します。

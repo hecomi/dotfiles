@@ -1,0 +1,7 @@
+names=type2str
+visibility=private 
+kind=defined
+
+--- type2str(type)
+@todo
+

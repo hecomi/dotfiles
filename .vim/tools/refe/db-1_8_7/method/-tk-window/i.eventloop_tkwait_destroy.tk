@@ -1,0 +1,12 @@
+names=eventloop_tkwait_destroy,eventloop_tkwait_window,eventloop_wait_destroy,eventloop_wait_window
+visibility=public
+kind=defined
+
+--- eventloop_wait_destroy
+--- eventloop_tkwait_destroy
+--- eventloop_wait_window
+--- eventloop_tkwait_window
+@todo
+
+
+

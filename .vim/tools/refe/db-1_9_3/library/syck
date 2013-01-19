@@ -1,0 +1,10 @@
+requires=
+classes=Syck,Syck=Resolver,Syck=Parser,Syck=Node,Syck=Scalar,Syck=Seq,Syck=Map,Syck=PrivateType,Syck=DomainType,Syck=Object,Syck=BadAlias,Syck=MergeKey,Syck=DefaultKey,Syck=Out,Syck=Emitter
+methods=Kernel/i.y.syck
+sublibraries=syck.basenode,syck.ypath,syck.constants,syck.error,syck.rubytypes,syck.stream,syck.stringio,syck.tag,syck.yamlnode
+is_sublibrary=false
+category=FileFormat
+
+[[lib:yaml]] のバックエンドライブラリです。YAML バージョン 1.0 を扱う事ができます。
+
+このライブラリは obsolete です。[[lib:psych]] を使用してください。

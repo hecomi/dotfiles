@@ -1,0 +1,9 @@
+names=frac
+visibility=public
+kind=defined
+
+--- frac
+@todo
+
+self の整数部分の切り捨て。
+

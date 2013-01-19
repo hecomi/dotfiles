@@ -1,0 +1,10 @@
+names=_dump
+visibility=public
+kind=defined
+
+--- _dump -> String
+
+重要なインスタンス変数のみを [[m:Marshal.#dump]] します。
+
+@see [[m:Marshal.#dump]]
+

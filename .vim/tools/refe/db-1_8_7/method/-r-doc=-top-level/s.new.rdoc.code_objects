@@ -1,0 +1,10 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(file_name) -> RDoc::TopLevel
+
+自身を初期化します。
+
+@param file_name ファイル名を文字列で指定します。
+

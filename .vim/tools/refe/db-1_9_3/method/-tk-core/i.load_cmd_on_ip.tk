@@ -1,0 +1,7 @@
+names=load_cmd_on_ip
+visibility=public
+kind=defined
+
+--- load_cmd_on_ip(tk_cmd)
+@todo
+

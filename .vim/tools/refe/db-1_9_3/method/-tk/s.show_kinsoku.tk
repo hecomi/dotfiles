@@ -1,0 +1,7 @@
+names=show_kinsoku
+visibility=public
+kind=defined
+
+--- show_kinsoku(mode = 'both')
+@todo
+

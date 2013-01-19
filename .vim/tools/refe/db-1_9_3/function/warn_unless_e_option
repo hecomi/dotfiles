@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=true
+type=void
+name=warn_unless_e_option
+params=(const char *str)
+
+
+ruby -e で与えたプログラムの評価中ではないなら、
+警告メッセージ str を出力する。
+

@@ -1,0 +1,8 @@
+names=namespace,namespace=
+visibility=public
+kind=defined
+
+--- namespace
+--- namespace=(namespace)
+@todo
+

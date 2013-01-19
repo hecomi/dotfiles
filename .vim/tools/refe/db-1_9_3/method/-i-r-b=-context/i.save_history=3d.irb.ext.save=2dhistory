@@ -1,0 +1,18 @@
+names=save_history=
+visibility=public
+kind=added
+
+--- save_history=(val)
+
+履歴の最大保存件数を val に設定します。
+
+.irbrc ファイル中で IRB.conf[:SAVE_HISTORY] を設定する事でも同様の事が
+行えます。
+
+@param val 履歴の最大保存件数を [[c:Integer]] で指定します。0 以下や
+           nil を返した場合は追加の保存は行いません。現在の件数より小さ
+           い値を設定した場合は、最新の履歴から指定した件数分のみが保存
+           されます。
+
+@see [[ref:lib:irb#history]]
+

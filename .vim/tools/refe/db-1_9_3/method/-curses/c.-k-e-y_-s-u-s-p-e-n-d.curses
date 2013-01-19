@@ -1,0 +1,8 @@
+names=KEY_SUSPEND
+visibility=public
+kind=defined
+
+--- KEY_SUSPEND -> Integer
+
+Suspend キーを表す定数です。
+

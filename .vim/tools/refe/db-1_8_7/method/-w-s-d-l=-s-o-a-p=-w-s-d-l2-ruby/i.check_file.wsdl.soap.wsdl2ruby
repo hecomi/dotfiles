@@ -1,0 +1,7 @@
+names=check_file
+visibility=private 
+kind=defined
+
+--- check_file(filename)
+@todo
+

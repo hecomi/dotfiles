@@ -1,0 +1,8 @@
+requires=soap.soap,soap.baseData,soap.mapping.typeMap,soap.encodingstyle.handler,soap.element
+classes=SOAP=SOAPGenerator,SOAP=SOAPGenerator=FormatEncodeError
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

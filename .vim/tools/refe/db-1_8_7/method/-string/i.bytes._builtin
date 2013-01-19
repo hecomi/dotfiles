@@ -1,0 +1,22 @@
+names=bytes,each_byte
+visibility=public
+kind=defined
+
+--- each_byte {|byte| ... } -> self
+--- bytes {|byte| ... } -> self
+--- each_byte -> Enumerable::Enumerator
+--- bytes     -> Enumerable::Enumerator
+
+文字列の各バイトに対して繰り返します。
+
+
+例:
+    "str".each_byte do |byte|
+      p byte
+    end
+        # => 115
+        # => 116
+        # => 114
+
+@see [[m:String#unpack]]
+

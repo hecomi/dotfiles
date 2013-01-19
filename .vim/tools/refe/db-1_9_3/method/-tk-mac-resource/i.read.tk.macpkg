@@ -1,0 +1,7 @@
+names=read
+visibility=public
+kind=defined
+
+--- read(rsrcType, rsrcID, rsrcRef = nil)
+@todo
+

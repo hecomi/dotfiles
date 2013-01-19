@@ -1,0 +1,7 @@
+names=encode
+visibility=public
+kind=defined
+
+--- encode(generator, ns, attrs = {})
+@todo
+

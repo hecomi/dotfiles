@@ -1,0 +1,8 @@
+names=add_method,add_rpc_method
+visibility=public
+kind=defined
+
+--- add_rpc_method(name, *params)
+--- add_method(name, *params)
+@todo
+

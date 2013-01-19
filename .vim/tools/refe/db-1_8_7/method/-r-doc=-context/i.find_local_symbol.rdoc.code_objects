@@ -1,0 +1,9 @@
+names=find_local_symbol
+visibility=public
+kind=defined
+
+--- find_local_symbol(symbol)
+
+Finds a method, constant, attribute, module or files named +symbol+ in
+this context
+

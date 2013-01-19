@@ -1,0 +1,14 @@
+names=bind_append
+visibility=public
+kind=defined
+
+--- bind_append(seq, *args)
+@todo
+
+  def bind_append(seq, cmd=Proc.new, *args)
+  
+    @c.itembind_append(@id, seq, cmd, *args)
+    self
+  
+  end
+

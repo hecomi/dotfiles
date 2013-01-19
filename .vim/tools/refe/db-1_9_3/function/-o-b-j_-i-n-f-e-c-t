@@ -1,0 +1,10 @@
+filename=ruby.h
+macro=true
+private=false
+type=void
+name=OBJ_INFECT
+params=(VALUE dest, VALUE src)
+
+
+src に汚染マークが付いていたら dest も汚染する。
+

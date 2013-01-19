@@ -1,0 +1,7 @@
+names=cleanup
+visibility=public
+kind=defined
+
+--- cleanup -> self
+このメソッドは使わないでください。
+

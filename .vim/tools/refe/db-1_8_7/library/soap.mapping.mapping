@@ -1,0 +1,8 @@
+requires=
+classes=SOAP=Mapping,SOAP=Mapping=TraverseSupport
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

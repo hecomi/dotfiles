@@ -1,0 +1,9 @@
+type=class
+superclass=RSS=Maker=ChannelBase=SkipDaysBase
+included=
+extended=
+library=rss
+aliases=
+aliasof=
+
+

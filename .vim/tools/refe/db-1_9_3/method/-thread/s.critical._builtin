@@ -1,0 +1,9 @@
+names=critical,critical=
+visibility=public
+kind=defined
+
+--- critical             -> nil
+--- critical=(newstate)
+
+サポートされていません。警告を出力し、何もせずに nil を返します。
+

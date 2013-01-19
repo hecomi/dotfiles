@@ -1,0 +1,9 @@
+names=max_size
+visibility=public
+kind=defined
+
+--- max_size
+@todo
+現在のmax_sizeの値を取得します．デフォルトでは
+-1になっています．
+

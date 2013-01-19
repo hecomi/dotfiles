@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=false
+type=void
+name=rb_undef
+params=(VALUE klass, ID id)
+
+
+クラス klass のメソッド id を undef します。
+

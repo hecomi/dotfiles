@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=tkextlib.tcllib.superframe
+aliases=Tk=Tcllib=SuperFrame
+aliasof=
+
+

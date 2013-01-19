@@ -1,0 +1,8 @@
+names=__inspect__
+visibility=public
+kind=defined
+
+--- __inspect__ -> String
+
+自身を文字列表現にしたオブジェクトを返します。
+

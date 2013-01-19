@@ -1,0 +1,8 @@
+requires=digest,digest.md5,digest.rmd160,digest.sha1,digest.sha2
+classes=
+methods=Digest/m.bubblebabble.digest.bubblebabble
+sublibraries=
+is_sublibrary=true
+category=
+
+

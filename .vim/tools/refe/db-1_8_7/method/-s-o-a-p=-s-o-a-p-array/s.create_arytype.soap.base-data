@@ -1,0 +1,7 @@
+names=create_arytype
+visibility=public
+kind=defined
+
+--- create_arytype(typename, rank)
+@todo
+

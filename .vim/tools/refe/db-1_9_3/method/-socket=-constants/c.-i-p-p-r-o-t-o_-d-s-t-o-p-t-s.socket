@@ -1,0 +1,13 @@
+names=IPPROTO_DSTOPTS
+visibility=public
+kind=defined
+
+--- IPPROTO_DSTOPTS -> Integer
+IPv6 destination option。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+
+@see [[rfc:2292]]
+

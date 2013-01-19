@@ -1,0 +1,8 @@
+names=INTERNAL_ALIAS_MES
+visibility=public
+kind=defined
+
+--- INTERNAL_ALIAS_MES -> "Alias for"
+
+ライブラリの内部で使用します。
+

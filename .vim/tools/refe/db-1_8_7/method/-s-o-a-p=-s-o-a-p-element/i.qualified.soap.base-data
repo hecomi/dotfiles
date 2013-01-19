@@ -1,0 +1,8 @@
+names=qualified,qualified=
+visibility=public
+kind=defined
+
+--- qualified
+--- qualified=(value)
+@todo
+

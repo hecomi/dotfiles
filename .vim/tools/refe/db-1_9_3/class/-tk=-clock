@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=Tk
+extended=TkCore
+library=tk.clock
+aliases=
+aliasof=
+
+

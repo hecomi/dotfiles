@@ -1,0 +1,7 @@
+names=__attr_proxy
+visibility=public
+kind=defined
+
+--- __attr_proxy(symbol, assignable = false)
+@todo
+

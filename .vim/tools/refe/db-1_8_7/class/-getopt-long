@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=getoptlong
+aliases=
+aliasof=
+
+GNU getopt_long() を Ruby で模したクラスです。

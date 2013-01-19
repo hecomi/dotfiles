@@ -1,0 +1,8 @@
+requires=
+classes=Tk=Tcllib=Tablelist,Tk=Tcllib=TableList,Tk=Tcllib=TablelistItemConfig
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+

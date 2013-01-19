@@ -1,0 +1,8 @@
+names=size_fixed,size_fixed=
+visibility=public
+kind=defined
+
+--- size_fixed
+--- size_fixed=(value)
+@todo
+

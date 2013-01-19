@@ -1,0 +1,16 @@
+names=EAI_SYSTEM
+visibility=public
+kind=defined
+
+--- EAI_SYSTEM -> Integer
+System error returned in errno
+
+[[man:getaddrinfo(3)]], [[man:getnameinfo(3)]] などの
+エラーコードです。
+対応する [[m:Socket.getaddrinfo]], [[m:Addrinfo.getaddrinfo]] などは
+エラーを適当な例外に変換するため、この定数は直接は利用しません。
+
+@see [[man:getaddrinfo(3linux)]], [[man:gai_strerror(3freebsd)]]
+
+
+

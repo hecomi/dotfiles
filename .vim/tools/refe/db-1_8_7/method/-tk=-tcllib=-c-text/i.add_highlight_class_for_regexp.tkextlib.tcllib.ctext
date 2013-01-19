@@ -1,0 +1,7 @@
+names=add_highlight_class_for_regexp
+visibility=public
+kind=defined
+
+--- add_highlight_class_for_regexp(klass, col, tcl_regexp)
+@todo
+

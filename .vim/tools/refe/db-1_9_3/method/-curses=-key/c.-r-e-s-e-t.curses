@@ -1,0 +1,8 @@
+names=RESET
+visibility=public
+kind=defined
+
+--- RESET -> Integer
+
+Reset キーを表す定数です。
+

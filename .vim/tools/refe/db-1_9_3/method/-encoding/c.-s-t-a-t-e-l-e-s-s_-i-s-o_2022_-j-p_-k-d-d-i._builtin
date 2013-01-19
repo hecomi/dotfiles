@@ -1,0 +1,16 @@
+names=STATELESS_ISO_2022_JP_KDDI,Stateless_ISO_2022_JP_KDDI
+visibility=public
+kind=defined
+
+--- STATELESS_ISO_2022_JP_KDDI -> Encoding
+--- Stateless_ISO_2022_JP_KDDI -> Encoding
+stateless-ISO-2022-JP-KDDI エンコーディングです。
+
+stateless-ISO-2022-JP の亜種です。
+KDDI の携帯電話で使われる絵文字が含まれています。
+
+
+@see [[url:http://www.au.kddi.com/ezfactory/tec/spec/img/typeD.pdf]]
+
+
+

@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=false
+type=VALUE
+name=rb_require
+params=(const char *fname)
+
+
+require の C 版です。feature「fname」をロードします。
+

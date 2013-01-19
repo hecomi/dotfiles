@@ -1,0 +1,9 @@
+names=source_encoding_name
+visibility=public
+kind=defined
+
+--- source_encoding_name -> Encoding
+エラーを発生させた変換の変換元のエンコーディングを文字列で返します。
+
+@see [[m:Encoding::InvalidByteSequenceError#source_encoding]]
+

@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=REXML=Node,REXML=Namespace
+extended=
+library=rexml
+aliases=
+aliasof=
+
+

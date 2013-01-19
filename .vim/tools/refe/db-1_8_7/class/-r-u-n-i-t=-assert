@@ -1,0 +1,12 @@
+type=module
+superclass=
+included=Test=Unit=Assertions
+extended=
+library=runit.assert
+aliases=
+aliasof=
+
+RubyUnit のアサーションを集めたモジュールです。
+
+このモジュールは RubyUnit との互換性のためにのみ提供されています。
+これからユニットテストを書くときは [[lib:test/unit]] を使ってください。

@@ -1,0 +1,9 @@
+names=op_name
+visibility=public
+kind=defined
+
+--- op_name -> String
+
+コマンドライン引数の --opname オプションで指定した名前を文字列で返しま
+す。
+

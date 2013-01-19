@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=true
+type=VALUE
+name=os_each_obj
+params=(int argc, VALUE *argv)
+
+

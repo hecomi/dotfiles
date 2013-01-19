@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=tk.labelframe
+aliases=
+aliasof=TkLabelFrame
+
+Alias of [[c:TkLabelFrame]]

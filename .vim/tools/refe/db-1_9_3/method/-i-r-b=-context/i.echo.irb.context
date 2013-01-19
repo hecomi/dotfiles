@@ -1,0 +1,13 @@
+names=echo,echo?
+visibility=public
+kind=defined
+
+--- echo  -> bool
+--- echo? -> bool
+
+irb のプロンプトでの評価結果を表示するかどうかを返します。
+
+デフォルト値は false です。
+
+@see [[m:IRB::Context#echo=]]
+

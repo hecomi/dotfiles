@@ -1,0 +1,8 @@
+names=logout
+visibility=public
+kind=defined
+
+--- logout -> Net::IMAP::TaggedResponse
+LOGOUT コマンドを送り、コネクションを切断することを
+サーバに伝えます。
+

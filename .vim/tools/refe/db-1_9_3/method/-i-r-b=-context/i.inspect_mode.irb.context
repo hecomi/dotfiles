@@ -1,0 +1,10 @@
+names=inspect_mode
+visibility=public
+kind=defined
+
+--- inspect_mode -> object | nil
+
+実行結果の出力方式を返します。
+
+@see [[m:IRB::Context#inspect_mode=]]
+

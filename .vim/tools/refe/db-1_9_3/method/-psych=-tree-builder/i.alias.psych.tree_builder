@@ -1,0 +1,6 @@
+names=alias
+visibility=public
+kind=defined
+
+--- alias(anchor)
+@todo

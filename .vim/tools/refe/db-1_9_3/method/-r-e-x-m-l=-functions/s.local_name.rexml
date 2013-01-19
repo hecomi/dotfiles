@@ -1,0 +1,7 @@
+names=local_name
+visibility=public
+kind=defined
+
+--- local_name(node_set = nil)
+@todo
+

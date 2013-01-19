@@ -1,0 +1,11 @@
+names=major,major=
+visibility=public
+kind=defined
+
+--- major      -> Integer
+--- major=(n)
+
+HTTP バージョンのメジャーを整数で表すアクセサです。
+
+@param n HTTP バージョンのメジャーを整数で指定します。
+

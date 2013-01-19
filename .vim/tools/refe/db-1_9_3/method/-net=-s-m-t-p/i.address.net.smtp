@@ -1,0 +1,8 @@
+names=address
+visibility=public
+kind=defined
+
+--- address -> String
+
+接続先のアドレスを返します。
+

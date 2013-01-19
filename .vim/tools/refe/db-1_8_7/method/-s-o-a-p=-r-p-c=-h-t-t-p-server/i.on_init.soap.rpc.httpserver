@@ -1,0 +1,7 @@
+names=on_init
+visibility=public
+kind=defined
+
+--- on_init
+@todo
+

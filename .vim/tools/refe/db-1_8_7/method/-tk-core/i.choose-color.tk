@@ -1,0 +1,7 @@
+names=chooseColor
+visibility=public
+kind=defined
+
+--- chooseColor(keys = nil)
+@todo
+

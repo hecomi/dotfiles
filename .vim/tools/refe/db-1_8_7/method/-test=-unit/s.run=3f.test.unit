@@ -1,0 +1,11 @@
+names=run?
+visibility=public
+kind=defined
+
+--- run?        -> bool
+
+ユニットテストを実行したかどうかを返します。
+戻り値が false だった場合は、まだユニットテストを実行していない事になります。
+
+@return ユニットテストを実行したかどうか
+

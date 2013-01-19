@@ -1,0 +1,14 @@
+requires=rdoc.dot.dot,rdoc.options,singleton,getoptlong
+classes=RDoc=Diagram
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+モジュールやクラスの関係を描く図を作成するためのサブライブラリです。
+
+本サブライブラリを利用するためには dot コマンド
+([[url:http://www.research.att.com/sw/tools/graphviz/]] 参照)のバージョ
+ン 1.8.6 以降に PATH が通っている必要があります。
+
+[注意] rdoc/diagram ライブラリは 1.9.2 で廃止されました。

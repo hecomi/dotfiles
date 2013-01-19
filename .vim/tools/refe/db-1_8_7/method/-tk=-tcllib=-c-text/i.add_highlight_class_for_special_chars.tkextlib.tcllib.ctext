@@ -1,0 +1,7 @@
+names=add_highlight_class_for_special_chars
+visibility=public
+kind=defined
+
+--- add_highlight_class_for_special_chars(klass, col, *chrs)
+@todo
+

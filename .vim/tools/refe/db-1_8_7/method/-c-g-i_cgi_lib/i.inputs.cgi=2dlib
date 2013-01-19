@@ -1,0 +1,8 @@
+names=inputs
+visibility=public
+kind=defined
+
+--- inputs -> Hash
+
+クエリパラメータを表すハッシュ。
+

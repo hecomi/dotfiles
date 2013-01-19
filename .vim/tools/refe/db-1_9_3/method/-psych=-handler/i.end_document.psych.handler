@@ -1,0 +1,25 @@
+names=end_document
+visibility=public
+kind=added
+
+--- end_document(implicit)
+@todo
+
+Called with the document ends.  +implicit+ is a boolean value indicating
+whether or not the document has an implicit ending.
+
+=== Example
+
+Given the following YAML:
+
+  ---
+    hello world
+
++implicit+ will be true.  Given this YAML:
+
+  ---
+    hello world
+  ...
+
++implicit+ will be false.
+

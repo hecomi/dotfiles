@@ -1,0 +1,7 @@
+names=apop?
+visibility=public
+kind=defined
+
+--- apop? -> bool
+このインスタンスが APOP を使ってサーバに接続するなら true を返します。
+

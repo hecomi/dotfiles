@@ -1,0 +1,7 @@
+names=is_euc
+visibility=public
+kind=defined
+
+--- is_euc(str)
+@todo
+

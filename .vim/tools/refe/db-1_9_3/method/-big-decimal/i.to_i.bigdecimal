@@ -1,0 +1,14 @@
+names=to_i
+visibility=public
+kind=defined
+
+--- to_i
+@todo
+
+小数点以下を切り捨てて整数に変換します。
+
+  i = a.to_i
+
+i は値に応じて [[c:Fixnum]] か [[c:Bignum]] になります。
+a が Infinity や NaN のとき、i は nil になります。 
+

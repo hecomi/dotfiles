@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=double
+name=timeofday
+params=(void)
+
+

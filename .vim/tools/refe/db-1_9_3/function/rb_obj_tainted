@@ -1,0 +1,10 @@
+filename=object.c
+macro=false
+private=false
+type=VALUE
+name=rb_obj_tainted
+params=(VALUE obj)
+
+
+[[m:Object#tainted?]]
+

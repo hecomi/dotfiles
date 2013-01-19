@@ -1,0 +1,20 @@
+requires=cgi
+classes=SM=ToLaTeX
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+RDoc 形式のドキュメントを LaTeX に整形するためのサブライブラリです。
+
+[[m:SM::SimpleMarkup#convert]] の引数に [[c:SM::ToLaTeX]] のインスタンス
+を渡して使用します。
+
+  require 'rdoc/markup/simple_markup'
+  require 'rdoc/markup/simple_markup/to_latex'
+
+  m = SM::SimpleMarkup.new
+  h = SM::ToLaTeX.new
+  puts m.convert(input_string, h)
+
+変換した結果は文字列で取得できます。

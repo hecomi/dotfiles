@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=SOAP=Marshal
+extended=
+library=soap.mapping.registry
+aliases=
+aliasof=
+
+

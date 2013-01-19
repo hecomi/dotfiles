@@ -1,0 +1,8 @@
+names=CONFIG
+visibility=private 
+kind=added
+
+--- CONFIG -> Hash
+[[m:RbConfig::MAKEFILE_CONFIG]] と同じです。
+
+

@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=Test=Unit=Util=Observable
+extended=
+library=test.unit.ui.testrunnermediator
+aliases=
+aliasof=
+
+各種 TestRunner を実装するためのクラスです。

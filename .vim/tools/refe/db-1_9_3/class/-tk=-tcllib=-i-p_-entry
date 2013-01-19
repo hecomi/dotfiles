@@ -1,0 +1,9 @@
+type=class
+superclass=TkEntry
+included=
+extended=
+library=tkextlib.tcllib.ip_entry
+aliases=
+aliasof=Tk=Tcllib=IPEntry
+
+Alias of [[c:Tk::Tcllib::IPEntry]]

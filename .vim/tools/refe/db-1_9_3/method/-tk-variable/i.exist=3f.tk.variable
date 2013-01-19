@@ -1,0 +1,8 @@
+names=exist?
+visibility=public
+kind=defined
+
+--- exist?(*elems)
+@todo
+
+

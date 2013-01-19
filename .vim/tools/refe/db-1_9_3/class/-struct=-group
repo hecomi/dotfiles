@@ -1,0 +1,11 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=etc
+aliases=Etc=Group
+aliasof=
+
+[[m:Etc.#getgrent]] で得られる構造体。
+
+この構造体の値を変更してもシステムには反映されません。

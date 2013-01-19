@@ -1,0 +1,7 @@
+names=hidden_cmds
+visibility=public
+kind=defined
+
+--- hidden_cmds(slave = '')
+@todo
+

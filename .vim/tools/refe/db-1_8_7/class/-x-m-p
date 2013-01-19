@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=irb.xmp
+aliases=
+aliasof=
+
+Ruby のソースコードとその実行結果を、行ごとに交互に表示するためのクラスです。

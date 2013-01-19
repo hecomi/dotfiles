@@ -1,0 +1,8 @@
+names=default_console_size
+visibility=public
+kind=added
+
+--- default_console_size -> [Integer, Integer]
+
+デフォルトの端末のサイズを [rows, columns] で返します。
+

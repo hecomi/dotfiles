@@ -1,0 +1,8 @@
+names=stdout_mutex
+visibility=public
+kind=defined
+
+--- stdout_mutex -> Mutex
+@todo
+
+

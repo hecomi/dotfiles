@@ -1,0 +1,8 @@
+names=textinput
+visibility=public
+kind=defined
+
+--- textinput
+@todo
+textinput要素を生成するオブジェクトを返します．
+

@@ -1,0 +1,8 @@
+names=mark_next,next_mark
+visibility=public
+kind=defined
+
+--- mark_next(index)
+--- next_mark(index)
+@todo
+

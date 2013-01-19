@@ -1,0 +1,7 @@
+names=proxy_place
+visibility=public
+kind=defined
+
+--- proxy_place(x, y)
+@todo
+

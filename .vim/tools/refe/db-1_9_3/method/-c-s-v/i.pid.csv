@@ -1,0 +1,8 @@
+names=pid
+visibility=public
+kind=defined
+
+--- pid    -> Integer | nil
+
+[[m:IO#pid]] に委譲します。
+

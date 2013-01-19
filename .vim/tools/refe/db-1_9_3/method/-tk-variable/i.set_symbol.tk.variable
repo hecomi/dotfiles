@@ -1,0 +1,8 @@
+names=set_symbol,symbol=
+visibility=public
+kind=defined
+
+--- symbol=
+--- set_symbol(val)
+@todo
+

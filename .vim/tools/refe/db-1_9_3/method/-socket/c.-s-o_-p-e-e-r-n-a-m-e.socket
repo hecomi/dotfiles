@@ -1,0 +1,8 @@
+names=SO_PEERNAME
+visibility=public
+kind=defined
+
+--- SO_PEERNAME -> Integer
+@todo
+Name of the connecting user。
+

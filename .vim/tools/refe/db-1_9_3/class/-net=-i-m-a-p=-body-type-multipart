@@ -1,0 +1,11 @@
+type=class
+superclass=Struct
+included=
+extended=
+library=net.imap
+aliases=
+aliasof=
+
+マルチパートなメッセージを表すクラスです。
+
+詳しくは MIME のRFC([[RFC:2045]])を参照してください。

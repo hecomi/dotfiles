@@ -1,0 +1,7 @@
+names=maxsize
+visibility=public
+kind=defined
+
+--- maxsize(*args)
+@todo
+

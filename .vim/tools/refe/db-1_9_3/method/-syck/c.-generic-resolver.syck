@@ -1,0 +1,7 @@
+names=GenericResolver
+visibility=public
+kind=defined
+
+--- GenericResolver -> YAML::Syck::Resolver
+@todo
+

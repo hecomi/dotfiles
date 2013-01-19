@@ -1,0 +1,9 @@
+type=class
+superclass=IRB=OutputMethod
+included=
+extended=
+library=irb.output=2dmethod
+aliases=
+aliasof=
+
+標準出力を表すクラスです。ライブラリ内部で使用します。

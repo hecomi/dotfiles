@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=_builtin
+aliases=
+aliasof=
+
+全ての例外の祖先のクラスです。

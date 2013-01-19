@@ -1,0 +1,15 @@
+names=ldexp
+visibility=public
+kind=defined
+
+--- ldexp(x, exp) -> Float
+
+実数 x に 2 の exp 乗をかけた数を返します。
+
+@param x 実数
+@param exp 整数。小数点以下切捨て。
+
+@raise TypeError 引数のどちらかに数値以外を指定した場合に発生します。
+
+@raise RangeError 引数のどちらかに実数以外の数値を指定した場合に発生します。
+

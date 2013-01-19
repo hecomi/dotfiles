@@ -1,0 +1,16 @@
+names=ISO8859_9,ISO_8859_9
+visibility=public
+kind=defined
+
+--- ISO_8859_9 -> Encoding
+--- ISO8859_9 -> Encoding
+
+ISO8859-9 エンコーディング。
+
+ISO8859-1 に近い、
+トルコ語を扱うことができる8bit single-byteエンコーディングです。
+
+@see [[m:Encoding::Windows_1254]]
+
+
+

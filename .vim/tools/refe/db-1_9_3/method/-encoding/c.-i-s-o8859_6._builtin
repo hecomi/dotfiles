@@ -1,0 +1,15 @@
+names=ISO8859_6,ISO_8859_6
+visibility=public
+kind=defined
+
+--- ISO_8859_6 -> Encoding
+--- ISO8859_6 -> Encoding
+
+ISO8859-6 エンコーディング。
+
+アラビア文字を扱う 8bit single-byte エンコーディングです。
+
+@see [[m:Encoding::Windows_1256]]
+
+
+

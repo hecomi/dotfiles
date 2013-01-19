@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=false
+type=VALUE
+name=rb_obj_remove_instance_variable
+params=(VALUE obj, VALUE name)
+
+

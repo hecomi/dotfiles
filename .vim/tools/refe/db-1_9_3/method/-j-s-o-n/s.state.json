@@ -1,0 +1,10 @@
+names=state
+visibility=public
+kind=defined
+
+--- state -> JSON::Ext::Generator::State
+
+JSON ライブラリがジェネレータの状態を表すクラスとして使用するクラスを返します。
+
+
+

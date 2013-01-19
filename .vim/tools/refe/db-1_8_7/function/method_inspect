@@ -1,0 +1,8 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=method_inspect
+params=(VALUE method)
+
+

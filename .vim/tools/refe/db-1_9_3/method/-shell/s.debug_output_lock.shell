@@ -1,0 +1,9 @@
+names=debug_output_lock
+visibility=public
+kind=defined
+
+--- debug_output_lock -> Mutex
+@todo
+
+@see [[m:Mutex#lock]]
+

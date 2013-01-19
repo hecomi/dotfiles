@@ -1,0 +1,13 @@
+names=IPPROTO_FRAGMENT
+visibility=public
+kind=defined
+
+--- IPPROTO_FRAGMENT -> Integer
+IPv6 fragmentation header。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+
+@see [[rfc:2292]]
+

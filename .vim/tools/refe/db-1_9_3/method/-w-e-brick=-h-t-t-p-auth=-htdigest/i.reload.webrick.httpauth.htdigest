@@ -1,0 +1,7 @@
+names=reload
+visibility=public
+kind=defined
+
+--- reload
+ファイルから再度読み込みます。
+

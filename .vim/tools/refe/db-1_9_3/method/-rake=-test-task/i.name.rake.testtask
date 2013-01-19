@@ -1,0 +1,8 @@
+names=name
+visibility=public 
+kind=defined
+
+--- name -> String
+
+テストタスクの名前を返します。デフォルトは "test" です。
+

@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=true
+type=int
+name=mark_entry
+params=(ID key, VALUE value)
+
+

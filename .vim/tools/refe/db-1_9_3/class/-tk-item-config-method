@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=TkUtil,TkTreatItemFont,TkItemConfigOptkeys
+extended=
+library=tk.itemconfig
+aliases=
+aliasof=
+
+

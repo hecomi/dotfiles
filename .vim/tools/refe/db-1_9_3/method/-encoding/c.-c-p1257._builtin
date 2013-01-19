@@ -1,0 +1,17 @@
+names=CP1257,WINDOWS_1257,Windows_1257
+visibility=public
+kind=defined
+
+--- Windows_1257 -> Encoding
+--- CP1257 -> Encoding
+--- WINDOWS_1257 -> Encoding
+Windows-1257 エンコーディング。
+
+ISO8859-13 の亜種です。
+
+@see [[m:Encoding::ISO8859_13]],
+     [[url:http://www.iana.org/assignments/character-sets]],
+     [[url:http://www.microsoft.com/globaldev/reference/sbcs/1257.mspx]],
+     [[url:http://en.wikipedia.org/wiki/Windows-1257]],
+
+

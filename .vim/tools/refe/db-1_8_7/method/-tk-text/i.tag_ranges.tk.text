@@ -1,0 +1,7 @@
+names=tag_ranges
+visibility=public
+kind=defined
+
+--- tag_ranges(tag)
+@todo
+

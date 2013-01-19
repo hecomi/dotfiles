@@ -1,0 +1,7 @@
+names=collect
+visibility=public
+kind=defined
+
+--- collect(xpath = nil) {|element| .. }
+@todo
+

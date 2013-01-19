@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=psych.scalar_scanner
+aliases=
+aliasof=
+
+Scan scalars for built in types

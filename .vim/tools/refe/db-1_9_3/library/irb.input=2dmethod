@@ -1,0 +1,10 @@
+requires=irb.src_encoding,irb.magic=2dfile,readline
+classes=IRB=InputMethod,IRB=StdioInputMethod,IRB=FileInputMethod,IRB=ReadlineInputMethod
+methods=IRB/c.STDIN_FILE_NAME.irb.input=2dmethod
+sublibraries=
+is_sublibrary=true
+category=
+
+irb が入力を扱うためのサブライブラリです。
+
+ユーザが直接使用するものではありません。

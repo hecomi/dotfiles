@@ -1,0 +1,9 @@
+names=dc_types
+visibility=public
+kind=defined
+
+--- dc_types
+@todo
+
+ * [[url:http://purl.org/rss/1.0/modules/syndication/]]
+

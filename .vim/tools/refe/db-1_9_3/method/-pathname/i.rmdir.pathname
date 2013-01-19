@@ -1,0 +1,9 @@
+names=rmdir
+visibility=public
+kind=defined
+
+--- rmdir -> 0
+Dir.rmdir(self.to_s) と同じです。
+
+@see [[m:Dir.rmdir]]
+

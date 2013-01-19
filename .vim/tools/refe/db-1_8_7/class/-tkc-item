@@ -1,0 +1,9 @@
+type=class
+superclass=TkObject
+included=
+extended=Tk,TkItemFontOptkeys,TkItemConfigOptkeys
+library=tk.canvas
+aliases=
+aliasof=
+
+include TkcTagAccess

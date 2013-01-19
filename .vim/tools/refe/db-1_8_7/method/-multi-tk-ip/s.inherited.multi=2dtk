@@ -1,0 +1,7 @@
+names=inherited
+visibility=public
+kind=defined
+
+--- inherited(subclass)
+@todo
+

@@ -1,0 +1,8 @@
+names=winsize
+visibility=public
+kind=added
+
+--- winsize -> [Integer, Integer]
+
+端末のサイズを [rows, columns] で返します。
+

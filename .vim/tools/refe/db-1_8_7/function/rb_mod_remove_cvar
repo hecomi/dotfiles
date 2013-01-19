@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=false
+type=VALUE
+name=rb_mod_remove_cvar
+params=(VALUE mod, VALUE name)
+
+

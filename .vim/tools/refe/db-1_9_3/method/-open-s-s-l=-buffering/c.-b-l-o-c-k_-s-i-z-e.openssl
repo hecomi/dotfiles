@@ -1,0 +1,7 @@
+names=BLOCK_SIZE
+visibility=public
+kind=defined
+
+--- BLOCK_SIZE -> Integer
+内部のバッファのサイズを返します。
+

@@ -1,0 +1,13 @@
+names=UDP_CORK
+visibility=public
+kind=defined
+
+--- UDP_CORK -> Integer
+Don't send partial frames
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:udp(7linux)]]
+
+
+

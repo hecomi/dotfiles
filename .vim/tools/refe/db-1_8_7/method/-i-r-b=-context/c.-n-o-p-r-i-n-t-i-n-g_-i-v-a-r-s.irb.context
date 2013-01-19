@@ -1,0 +1,8 @@
+names=NOPRINTING_IVARS
+visibility=public
+kind=defined
+
+--- NOPRINTING_IVARS -> [String]
+
+ライブラリ内部で使用します。
+

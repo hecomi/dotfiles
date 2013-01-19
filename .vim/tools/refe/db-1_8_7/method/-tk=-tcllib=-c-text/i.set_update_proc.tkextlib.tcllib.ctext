@@ -1,0 +1,7 @@
+names=set_update_proc
+visibility=public
+kind=defined
+
+--- set_update_proc(cmd = Proc.new)
+@todo
+

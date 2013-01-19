@@ -1,0 +1,9 @@
+names=focus,set_focus
+visibility=public
+kind=defined
+
+--- focus(force = false)
+--- set_focus(force = false)
+@todo
+set_focusが本体
+

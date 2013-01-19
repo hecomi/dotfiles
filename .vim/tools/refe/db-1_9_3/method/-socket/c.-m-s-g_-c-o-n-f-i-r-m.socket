@@ -1,0 +1,12 @@
+names=MSG_CONFIRM
+visibility=public
+kind=defined
+
+--- MSG_CONFIRM -> Integer
+Confirm path validity
+
+[[m:BasicSocket#send]], [[m:BasicSocket#sendmsg]]
+の flags 引数に用います。
+
+@see [[man:send(2linux)]]
+

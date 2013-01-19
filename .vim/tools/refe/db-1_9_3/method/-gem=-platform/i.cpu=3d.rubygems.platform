@@ -1,0 +1,10 @@
+names=cpu=
+visibility=public 
+kind=defined
+
+--- cpu=(cpu)
+
+CPU のアーキテクチャをセットします。
+
+@param cpu CPU のアーキテクチャを指定します。
+

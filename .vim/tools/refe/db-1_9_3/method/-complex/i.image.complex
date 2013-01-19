@@ -1,0 +1,13 @@
+names=image
+visibility=public
+kind=added
+
+--- image -> Numeric
+
+自身の虚部を返します。[[m:Complex#imag]] のエイリアスです。
+
+例:
+
+  require 'complex'
+  Complex(3, 2).image # => 2
+

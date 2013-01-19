@@ -1,0 +1,7 @@
+names=add_request_headerhandler
+visibility=public
+kind=defined
+
+--- add_request_headerhandler(factory)
+@todo
+

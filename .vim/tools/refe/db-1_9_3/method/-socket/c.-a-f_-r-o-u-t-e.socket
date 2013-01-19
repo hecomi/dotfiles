@@ -1,0 +1,12 @@
+names=AF_ROUTE,PF_ROUTE
+visibility=public
+kind=defined
+
+--- AF_ROUTE -> Integer
+--- PF_ROUTE -> Integer
+@todo
+Internal Routing protocol。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@todo
+

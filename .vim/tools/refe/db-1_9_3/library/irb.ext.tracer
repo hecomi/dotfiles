@@ -1,0 +1,12 @@
+requires=tracer
+classes=
+methods=IRB=Context/i.use_tracer.irb.ext.tracer,IRB=Context/i.use_tracer=3d.irb.ext.tracer
+sublibraries=
+is_sublibrary=true
+category=
+
+irb への入力を評価する時に [[lib:tracer]] ライブラリを使用してトレース
+出力を行う機能を提供するサブライブラリです。
+
+conf.use_tracer か IRB.conf[:USE_TRACER] に true を設定する事で使用でき
+ます。ただし、[[m:Tracer.verbose?]] は常に false で実行されます。

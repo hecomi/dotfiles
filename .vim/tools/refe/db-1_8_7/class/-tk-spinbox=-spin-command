@@ -1,0 +1,9 @@
+type=class
+superclass=TkValidateCommand
+included=
+extended=
+library=tk.spinbox
+aliases=
+aliasof=
+
+

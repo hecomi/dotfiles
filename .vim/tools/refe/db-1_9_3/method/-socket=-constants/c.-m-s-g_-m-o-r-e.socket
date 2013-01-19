@@ -1,0 +1,12 @@
+names=MSG_MORE
+visibility=public
+kind=defined
+
+--- MSG_MORE -> Integer
+Sender will send more
+
+[[m:BasicSocket#send]], [[m:BasicSocket#sendmsg]] の
+flags 引数に用います。
+
+@see [[man:send(2linux)]]
+

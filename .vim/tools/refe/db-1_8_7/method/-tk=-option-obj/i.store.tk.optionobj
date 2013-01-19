@@ -1,0 +1,7 @@
+names=store
+visibility=public
+kind=defined
+
+--- store(key, value)
+@todo
+

@@ -1,0 +1,8 @@
+requires=
+classes=Gem=Package=TarHeader
+methods=
+sublibraries=
+is_sublibrary=true
+category=
+
+tar アーカイブの各エントリのヘッダを表すクラスを提供するライブラリです。

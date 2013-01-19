@@ -1,0 +1,8 @@
+names=DEFAULT_BULK_THRESHOLD
+visibility=protected 
+kind=defined
+
+--- DEFAULT_BULK_THRESHOLD -> 1000
+
+一括ダウンロードをするかどうかのデフォルト値です。
+

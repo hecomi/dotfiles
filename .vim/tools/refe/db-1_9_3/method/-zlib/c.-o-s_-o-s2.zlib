@@ -1,0 +1,8 @@
+names=OS_OS2
+visibility=public
+kind=defined
+
+--- OS_OS2 -> Fixnum
+
+OS の種類を表す定数です。
+

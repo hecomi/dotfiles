@@ -1,0 +1,8 @@
+names=modify_taskbar,taskbar_modify
+visibility=public
+kind=defined
+
+--- modify_taskbar(keys = {})
+--- taskbar_modify(keys = {})
+@todo
+

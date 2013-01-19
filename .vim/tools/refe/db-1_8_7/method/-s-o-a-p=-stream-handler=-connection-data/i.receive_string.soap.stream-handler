@@ -1,0 +1,8 @@
+names=receive_string,receive_string=
+visibility=public
+kind=defined
+
+--- receive_string
+--- receive_string=(value)
+@todo
+

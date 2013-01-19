@@ -1,0 +1,7 @@
+names=insert
+visibility=public
+kind=defined
+
+--- insert(idx, subwin, keys = nil)
+@todo
+

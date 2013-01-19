@@ -1,0 +1,9 @@
+type=class
+superclass=Zlib=Error
+included=
+extended=
+library=zlib
+aliases=
+aliasof=
+
+出力バッファのサイズが不足している場合に発生します。

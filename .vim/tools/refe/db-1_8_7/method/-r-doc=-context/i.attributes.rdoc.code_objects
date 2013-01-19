@@ -1,0 +1,8 @@
+names=attributes
+visibility=public
+kind=defined
+
+--- attributes -> [RDoc::Attr]
+
+追加された [[c:RDoc::Attr]] の配列を返します。
+

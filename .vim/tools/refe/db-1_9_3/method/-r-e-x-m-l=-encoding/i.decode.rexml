@@ -1,0 +1,7 @@
+names=decode
+visibility=public
+kind=redefined
+
+--- decode(str)
+@todo
+

@@ -1,0 +1,7 @@
+names=world_coordinates
+visibility=public
+kind=defined
+
+--- world_coordinates(w, *args)
+@todo
+

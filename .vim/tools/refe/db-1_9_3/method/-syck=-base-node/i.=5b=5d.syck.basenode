@@ -1,0 +1,12 @@
+names=[]
+visibility=public
+kind=defined
+
+--- [](*key) -> object | [object] | nil
+
+引数で指定したキーに対応する値(もしくは引数で指定したインデックスに対応
+する値の配列)を返します。対応する値がない場合は nil を返します。
+
+@param key [[c:Hash]] のキーか [[c:Array]] のインデックスを文字列で指定
+           します。後者の場合は複数個指定する事ができます。
+

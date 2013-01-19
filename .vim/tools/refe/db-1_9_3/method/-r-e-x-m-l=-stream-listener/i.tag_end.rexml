@@ -1,0 +1,7 @@
+names=tag_end
+visibility=public
+kind=defined
+
+--- tag_end(name)
+@todo
+

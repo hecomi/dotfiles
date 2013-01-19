@@ -1,0 +1,8 @@
+names=SOPRI_INTERACTIVE
+visibility=public
+kind=defined
+
+--- SOPRI_INTERACTIVE -> Integer
+@todo
+Interactive socket priority
+

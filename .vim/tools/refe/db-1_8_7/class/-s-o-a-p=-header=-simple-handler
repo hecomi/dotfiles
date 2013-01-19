@@ -1,0 +1,9 @@
+type=class
+superclass=SOAP=Header=Handler
+included=
+extended=
+library=soap.header.simplehandler
+aliases=
+aliasof=
+
+

@@ -1,0 +1,9 @@
+names=itemconfigure
+visibility=public
+kind=defined
+
+--- itemconfigure(tagOrId, slot, value = TkComm::None)
+@todo
+
+
+

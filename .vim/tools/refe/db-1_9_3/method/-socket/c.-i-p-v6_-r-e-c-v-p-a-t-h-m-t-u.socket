@@ -1,0 +1,12 @@
+names=IPV6_RECVPATHMTU
+visibility=public
+kind=defined
+
+--- IPV6_RECVPATHMTU -> Integer
+Receive current path MTU with datagram。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[RFC:3542]]
+

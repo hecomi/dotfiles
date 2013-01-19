@@ -1,0 +1,15 @@
+requires=
+classes=
+methods=IRB=Context/i.eval_history.irb.ext.history,IRB=Context/i.eval_history=3d.irb.ext.history
+sublibraries=
+is_sublibrary=true
+category=
+
+[[c:IRB::Context]] に実行結果の履歴を保持する機能を提供するサブライブラ
+リです。
+
+conf.eval_history か IRB.conf[:EVAL_HISTORY] に [[c:Integer]] を設定す
+る事で使用できます。
+
+このライブラリで定義されているメソッドはユーザが直接使用するものではあ
+りません。

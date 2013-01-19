@@ -1,0 +1,9 @@
+names=allow_socket?
+visibility=public
+kind=defined
+
+--- allow_socket?(soc)
+@todo
+
+
+

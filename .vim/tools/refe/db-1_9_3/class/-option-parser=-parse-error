@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=optparse
+aliases=
+aliasof=
+
+OptionParser の例外クラスの基底クラスです。

@@ -1,0 +1,7 @@
+names=closed?
+visibility=public
+kind=defined
+
+--- closed? -> bool
+接続が切れている時に真を返します。
+

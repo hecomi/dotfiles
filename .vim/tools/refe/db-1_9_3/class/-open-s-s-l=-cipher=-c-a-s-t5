@@ -1,0 +1,9 @@
+type=class
+superclass=OpenSSL=Cipher
+included=
+extended=
+library=openssl
+aliases=
+aliasof=
+
+CAST5 暗号を表すクラス

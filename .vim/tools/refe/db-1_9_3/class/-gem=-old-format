@@ -1,0 +1,11 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rubygems.old_format
+aliases=
+aliasof=
+
+RubyGems の Gem ファイルの内部構造を表すクラスです。
+
+@see [[c:Gem::Format]]

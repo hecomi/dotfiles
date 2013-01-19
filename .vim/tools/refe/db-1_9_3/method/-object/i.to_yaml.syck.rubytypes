@@ -1,0 +1,36 @@
+names=to_yaml
+visibility=public
+kind=added
+
+--- to_yaml(opts = {}) -> String
+
+自身を YAML ドキュメントに変換します。
+
+@param opts YAML ドキュメント出力の際のオプションを指定します。
+            オプションの詳細は [[m:Syck::Emitter#reset]] を参照し
+            てください。
+
+  require 'yaml'
+  
+  h = {
+    :ugo => 17,
+    :hoge => "fuga",
+  }
+  
+  print h.to_yaml
+  #=> ---
+  #=> :ugo: 17
+  #=> :hoge: fuga
+  
+  class MyDog
+    attr_accessor :name, :age
+  end
+  
+  c = MyDog.new
+  c.name = "Pochi"
+  c.age = 3
+  print c.to_yaml
+  #=> --- !ruby/object:MyDog
+  #=> age: 3
+  #=> name: Pochi
+

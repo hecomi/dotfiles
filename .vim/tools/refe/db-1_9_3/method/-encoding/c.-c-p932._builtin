@@ -1,0 +1,18 @@
+names=CP932,CSWINDOWS31J,CsWindows31J,PCK,WINDOWS_31J,Windows_31J
+visibility=public
+kind=defined
+
+--- Windows_31J -> Encoding
+--- CP932 -> Encoding
+--- CSWINDOWS31J -> Encoding
+--- CsWindows31J -> Encoding
+--- WINDOWS_31J -> Encoding
+--- PCK -> Encoding
+
+Windows-31J、Windows で用いられる、シフトJIS亜種で、CP932とも言います。
+
+7bit 部分が論理的には US-ASCIIであり、また Windows の機種依存文字を扱うことができます。
+
+@see [[url:http://www2d.biglobe.ne.jp/~msyk/charcode/cp932/index.html]],
+     [[url:http://legacy-encoding.sourceforge.jp/wiki/index.php?cp932]]
+

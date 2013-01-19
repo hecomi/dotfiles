@@ -1,0 +1,9 @@
+type=class
+superclass=ArgumentError
+included=Iconv=Failure
+extended=
+library=iconv
+aliases=
+aliasof=
+
+メソッドの引数等で指定された文字コード体系が見つからない (システム上で有効でない) 場合に発生します。

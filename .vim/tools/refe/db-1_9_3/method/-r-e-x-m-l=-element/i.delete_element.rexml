@@ -1,0 +1,7 @@
+names=delete_element
+visibility=public
+kind=defined
+
+--- delete_element(element)
+@todo
+

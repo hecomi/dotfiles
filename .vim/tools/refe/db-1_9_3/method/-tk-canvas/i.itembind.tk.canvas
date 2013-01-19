@@ -1,0 +1,14 @@
+names=itembind
+visibility=public
+kind=defined
+
+--- itembind(tag, context, *args)
+@todo
+
+def itembind(tag, context, cmd = Proc.new, *args)
+
+  _bind([path, "bind", tagid(tag)], context, cmd, *args)
+  self
+
+end
+

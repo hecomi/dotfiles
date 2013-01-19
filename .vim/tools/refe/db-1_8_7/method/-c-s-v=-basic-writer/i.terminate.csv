@@ -1,0 +1,6 @@
+names=terminate
+visibility=private 
+kind=defined
+
+--- terminate -> nil
+close_on_terminateメソッドが既に呼び出されていれば、出力先(newメソッドのstr_or_writableパラメータ)のIOクローズ処理を行います。

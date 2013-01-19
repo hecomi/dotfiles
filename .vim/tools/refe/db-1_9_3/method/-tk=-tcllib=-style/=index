@@ -1,0 +1,4 @@
+.names	Tk::Tcllib::Style.names
+.package_name	Tk::Tcllib::Style.package_name
+.package_version	Tk::Tcllib::Style.package_version
+.use	Tk::Tcllib::Style.use

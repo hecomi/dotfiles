@@ -1,0 +1,7 @@
+names=emit
+visibility=public
+kind=defined
+
+--- emit(object_id)
+@todo
+

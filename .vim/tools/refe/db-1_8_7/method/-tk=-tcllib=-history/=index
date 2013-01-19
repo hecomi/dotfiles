@@ -1,0 +1,10 @@
+.init	Tk::Tcllib::History.init
+.package_name	Tk::Tcllib::History.package_name
+.package_version	Tk::Tcllib::History.package_version
+.remove	Tk::Tcllib::History.remove
+#history_add	Tk::Tcllib::History#history_add
+#history_clear	Tk::Tcllib::History#history_clear
+#history_configinfo	Tk::Tcllib::History#history_configinfo
+#history_configure	Tk::Tcllib::History#history_configure
+#history_get	Tk::Tcllib::History#history_get
+#history_remove	Tk::Tcllib::History#history_remove

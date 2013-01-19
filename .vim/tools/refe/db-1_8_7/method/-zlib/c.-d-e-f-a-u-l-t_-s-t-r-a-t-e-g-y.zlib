@@ -1,0 +1,9 @@
+names=DEFAULT_STRATEGY
+visibility=public
+kind=defined
+
+--- DEFAULT_STRATEGY -> Fixnum
+
+[[m:Zlib::Deflate.new]] や [[m:Zlib::Deflate#params]] に渡す、
+圧縮方法を表す整数です。
+

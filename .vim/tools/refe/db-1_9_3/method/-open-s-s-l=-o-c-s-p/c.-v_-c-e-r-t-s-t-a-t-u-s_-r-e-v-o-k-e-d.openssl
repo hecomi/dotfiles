@@ -1,0 +1,8 @@
+names=V_CERTSTATUS_REVOKED
+visibility=public
+kind=defined
+
+--- V_CERTSTATUS_REVOKED -> Integer
+[[m:OpenSSL::OCSP::BasicResponse#status]] 
+のステータスコードで証明書が失効していることを意味します。
+

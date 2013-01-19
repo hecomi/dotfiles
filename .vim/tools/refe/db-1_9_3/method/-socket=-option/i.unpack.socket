@@ -1,0 +1,8 @@
+names=unpack
+visibility=public
+kind=defined
+
+--- unpack(template) -> Array
+data に対し [[m:String#unpack]] を呼び出し、その結果を返します。
+
+このメソッドは過去との互換性のために存在します。

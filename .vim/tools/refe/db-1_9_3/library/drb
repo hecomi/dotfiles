@@ -1,0 +1,13 @@
+requires=
+classes=DRb,DRb=DRbError,DRb=DRbServerNotFound,DRb=DRbRemoteError,DRb=DRbIdConv,DRbIdConv,DRb=DRbObject,DRbObject,DRb=DRbServer,DRb=DRbUnknown,DRb=DRbUnknownError,DRb=DRbUndumped,DRbUndumped,DRb=DRbProtocol,DRb=DRbConnError,DRb=DRbBadScheme,DRb=DRbBadURI
+methods=
+sublibraries=drb.acl,drb.extserv,drb.extservm,drb.gw,drb.observer,drb.ssl,drb.timeridconv,drb.unix
+is_sublibrary=false
+category=Network
+
+分散オブジェクトプログラミングのためのライブラリです。
+
+[[unknown:執筆者募集]]
+
+  * [[url:http://www2a.biglobe.ne.jp/~seki/ruby/druby.html]]
+  * [[url:http://www.ruby-doc.org/stdlib/libdoc/drb/rdoc/index.html]]

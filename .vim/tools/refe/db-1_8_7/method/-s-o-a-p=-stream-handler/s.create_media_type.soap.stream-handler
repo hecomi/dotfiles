@@ -1,0 +1,7 @@
+names=create_media_type
+visibility=public
+kind=defined
+
+--- create_media_type(charset)
+@todo
+

@@ -1,0 +1,8 @@
+names=default_value_type=,set_default_value_type
+visibility=public
+kind=defined
+
+--- default_value_type=
+--- set_default_value_type(type)
+@todo
+

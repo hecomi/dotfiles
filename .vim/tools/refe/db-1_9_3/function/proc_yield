@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=proc_yield
+params=(VALUE proc, VALUE args)
+
+
+Proc.yield の実体。
+

@@ -1,0 +1,14 @@
+names=ret_val
+visibility=public
+kind=defined
+
+--- ret_val(val)
+@todo
+
+def self._get_extra_args_tbl
+
+  # return an array of convert procs
+  []
+
+end
+

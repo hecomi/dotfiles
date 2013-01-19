@@ -1,0 +1,12 @@
+names=mu_pp
+visibility=public 
+kind=defined
+
+--- mu_pp(object) -> String
+
+[[m:Object#inspect]] した結果のエンコーディングを変更して返します。
+
+エンコーディングは [[m:Encoding.default_external]] に変更されます。
+
+@param object 任意のオブジェクトを指定します。
+

@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=XSDNonNegativeInteger
+included=
+extended=
+library=xsd.datatypes
+aliases=
+aliasof=
+
+

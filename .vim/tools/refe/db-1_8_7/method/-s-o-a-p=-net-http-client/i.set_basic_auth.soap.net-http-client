@@ -1,0 +1,7 @@
+names=set_basic_auth
+visibility=public
+kind=defined
+
+--- set_basic_auth(uri, user_id, passwd)
+@todo
+

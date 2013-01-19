@@ -1,0 +1,8 @@
+names=KEY_CATAB
+visibility=public
+kind=defined
+
+--- KEY_CATAB -> Integer
+@todo
+Clear all tabs
+

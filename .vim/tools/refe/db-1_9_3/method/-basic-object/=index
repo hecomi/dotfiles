@@ -1,0 +1,12 @@
+#!	BasicObject#!
+#!=	BasicObject#!=
+#==	BasicObject#==
+#__id__	BasicObject#__id__
+#__send__	BasicObject#__send__
+#equal?	BasicObject#equal?
+#instance_eval	BasicObject#instance_eval
+#instance_exec	BasicObject#instance_exec
+#method_missing	BasicObject#method_missing
+#singleton_method_added	BasicObject#singleton_method_added
+#singleton_method_removed	BasicObject#singleton_method_removed
+#singleton_method_undefined	BasicObject#singleton_method_undefined

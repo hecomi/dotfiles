@@ -1,0 +1,8 @@
+names=gem_path
+visibility=public 
+kind=defined
+
+--- gem_path -> String
+
+Gem のパスを返します。
+

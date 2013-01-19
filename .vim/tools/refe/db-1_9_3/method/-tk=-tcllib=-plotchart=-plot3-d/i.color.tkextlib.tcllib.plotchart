@@ -1,0 +1,11 @@
+names=color,colors,colour,colours
+visibility=public
+kind=defined
+
+--- colour(fill, border)
+--- colours(fill, border)
+--- colors(fill, border)
+--- color(fill, border)
+@todo
+
+

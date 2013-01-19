@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=
+extended=
+library=webrick
+aliases=
+aliasof=
+
+ライブラリ webrick の各クラスを提供するモジュールです。

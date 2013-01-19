@@ -1,0 +1,9 @@
+names=readagain_bytes
+visibility=public
+kind=defined
+
+--- readagain_bytes -> String
+エラー発生時に読み直さなければならないバイト列を返します。
+
+@see [[m:Encoding::InvalidByteSequenceError#error_bytes]]
+

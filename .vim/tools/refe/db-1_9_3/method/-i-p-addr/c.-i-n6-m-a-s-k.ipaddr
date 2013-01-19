@@ -1,0 +1,10 @@
+names=IN6MASK
+visibility=protected 
+kind=defined
+
+--- IN6MASK -> Integer
+
+IPv6 アドレスの場合に使用するマスク値。
+
+  0xffffffffffffffffffffffffffffffff
+

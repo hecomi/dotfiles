@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=Error
+included=
+extended=
+library=xsd.datatypes
+aliases=
+aliasof=
+
+

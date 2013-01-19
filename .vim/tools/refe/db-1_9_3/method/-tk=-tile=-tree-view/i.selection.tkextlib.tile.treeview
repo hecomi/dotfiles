@@ -1,0 +1,8 @@
+names=selection,selection_get
+visibility=public
+kind=defined
+
+--- selection
+--- selection_get
+@todo
+

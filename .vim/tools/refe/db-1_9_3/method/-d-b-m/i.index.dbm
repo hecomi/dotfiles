@@ -1,0 +1,12 @@
+names=index
+visibility=public
+kind=defined
+
+--- index(value) -> String | nil
+
+value を持つ要素のキーを返します。
+
+見つからなかった場合は nil を返します。
+
+@param value 検索したい値。
+

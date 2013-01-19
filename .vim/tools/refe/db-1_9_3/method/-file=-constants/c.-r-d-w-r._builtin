@@ -1,0 +1,8 @@
+names=RDWR
+visibility=public
+kind=defined
+
+--- RDWR -> Integer
+読み書き両方のモードでファイルを開くときに指定します。
+[[m:File.open]]で使用します。
+

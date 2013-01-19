@@ -1,0 +1,7 @@
+names=add_hook
+visibility=public
+kind=defined
+
+--- add_hook(name = nil, cascade = false, &hook)
+@todo
+

@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=REXML=XMLTokens
+extended=
+library=rexml
+aliases=
+aliasof=
+
+

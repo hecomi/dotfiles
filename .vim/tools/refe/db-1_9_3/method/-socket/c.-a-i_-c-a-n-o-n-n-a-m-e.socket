@@ -1,0 +1,12 @@
+names=AI_CANONNAME
+visibility=public
+kind=defined
+
+--- AI_CANONNAME -> Integer
+Fill in the canonical name。
+
+[[m:Socket.getaddrinfo]], [[m:Addrinfo.getaddrinfo]] の引数 flags に渡す
+定数です。
+
+@see [[man:getaddrinfo(3)]]
+

@@ -1,0 +1,7 @@
+names=addIncrDateTimeWidget
+visibility=public
+kind=defined
+
+--- addIncrDateTimeWidget(type, seconds = false, name = None)
+@todo
+

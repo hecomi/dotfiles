@@ -1,0 +1,12 @@
+names=at
+visibility=public
+kind=defined
+
+--- at(segment) -> object | nil
+
+指定したキー(もしくはインデックス)に対応する値を返します。対応する値が
+ない場合は nil を返します。
+
+@param segment [[c:Hash]] のキーか [[c:Array]] のインデックスを文字列で
+               指定します。
+

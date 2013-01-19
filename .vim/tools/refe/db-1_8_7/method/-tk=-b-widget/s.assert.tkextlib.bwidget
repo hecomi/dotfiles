@@ -1,0 +1,9 @@
+names=assert
+visibility=public
+kind=defined
+
+--- assert(exp, msg = None)
+@todo
+
+
+

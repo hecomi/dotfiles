@@ -1,0 +1,8 @@
+filename=gc.c
+macro=false
+private=true
+type=void
+name=gc_mark_rest
+params=(void)
+
+

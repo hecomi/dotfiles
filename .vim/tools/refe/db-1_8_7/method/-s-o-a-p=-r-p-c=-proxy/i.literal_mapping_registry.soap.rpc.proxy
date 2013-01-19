@@ -1,0 +1,8 @@
+names=literal_mapping_registry,literal_mapping_registry=
+visibility=public
+kind=defined
+
+--- literal_mapping_registry
+--- literal_mapping_registry=(value)
+@todo
+

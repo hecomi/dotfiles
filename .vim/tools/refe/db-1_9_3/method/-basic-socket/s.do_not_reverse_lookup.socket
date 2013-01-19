@@ -1,0 +1,14 @@
+names=do_not_reverse_lookup
+visibility=public
+kind=defined
+
+--- do_not_reverse_lookup -> bool
+
+[[m:Socket#do_not_reverse_lookup]] の Socket オブジェクト生成時の
+デフォルト値を返します。
+
+この設定は大域的に作用します。
+
+デフォルトは true です。
+
+

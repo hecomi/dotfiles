@@ -1,0 +1,11 @@
+names=IP_FREEBIND
+visibility=public
+kind=defined
+
+--- IP_FREEBIND -> Integer
+Allow binding to nonexistent IP addresses。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], [[man:ip(7linux)]]
+

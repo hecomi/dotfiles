@@ -1,0 +1,13 @@
+names=try_convert
+visibility=public
+kind=defined
+
+--- try_convert(obj) -> IO | nil
+
+obj を to_io メソッドによって [[c:IO]] オブジェクトに変換します。
+変換できなかった場合は nil を返します。
+
+   IO.try_convert(STDOUT)     # => STDOUT
+   IO.try_convert("STDOUT")   # => nil
+
+

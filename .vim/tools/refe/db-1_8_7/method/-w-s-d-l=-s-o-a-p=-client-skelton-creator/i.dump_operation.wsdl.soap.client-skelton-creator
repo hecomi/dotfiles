@@ -1,0 +1,7 @@
+names=dump_operation
+visibility=private 
+kind=defined
+
+--- dump_operation(operation)
+@todo
+

@@ -1,0 +1,9 @@
+type=class
+superclass=Gem=Package=Error
+included=
+extended=
+library=rubygems.package
+aliases=
+aliasof=
+
+フォーマットに関する例外です。

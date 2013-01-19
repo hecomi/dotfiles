@@ -1,0 +1,12 @@
+names=acosh
+visibility=public
+kind=defined
+
+--- acosh(z) -> Float | Complex
+
+z の逆双曲線余弦関数の値を返します。
+
+@param z 数値
+
+@raise TypeError z に数値以外を指定した場合に発生します。
+

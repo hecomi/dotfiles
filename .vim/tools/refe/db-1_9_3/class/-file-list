@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=rake
+aliases=
+aliasof=Rake=FileList
+
+Alias of [[c:Rake::FileList]]

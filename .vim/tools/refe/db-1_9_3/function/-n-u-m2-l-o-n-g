@@ -1,0 +1,8 @@
+filename=ruby.h
+macro=true
+private=false
+type=long
+name=NUM2LONG
+params=(VALUE x)
+
+

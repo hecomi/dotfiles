@@ -1,0 +1,11 @@
+names=math?,math_mode
+visibility=public
+kind=added
+
+--- math_mode -> bool
+--- math?     -> bool
+
+math_mode が有効かどうかを返します。
+
+@see [[m:IRB::Context#inspect?]]
+

@@ -1,0 +1,11 @@
+names=PF_KEY
+visibility=public
+kind=defined
+
+--- PF_KEY -> Integer
+Internal key-management function。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+@see [[man:socket(2freebsd)]]
+
+

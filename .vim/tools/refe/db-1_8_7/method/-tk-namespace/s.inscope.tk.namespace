@@ -1,0 +1,7 @@
+names=inscope
+visibility=public
+kind=defined
+
+--- inscope(namespace, script, *args)
+@todo
+

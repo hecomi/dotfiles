@@ -1,0 +1,17 @@
+names=nonl
+visibility=public
+kind=defined
+
+--- nonl -> nil
+@todo
+
+cooked モードのとき、return キーの入力に対して
+CR (Ctrl-m) を返すようにします。
+
+詳しくは、 man ページの curs_outopts(3X) の nonl 関数を参照ください。
+
+ Disable the underlying display device to translate
+ the return key into newline on input
+
+@see [[m:Curses.#nl]]
+

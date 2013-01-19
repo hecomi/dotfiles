@@ -1,0 +1,17 @@
+names=noecho
+visibility=public
+kind=added
+
+--- noecho {|io| ... } -> object
+
+文字入力時のエコーバックを無効に設定してブロックを評価します。
+
+ブロック引数には self が渡されます。ブロックを評価した結果を返します。
+
+以下の例では、標準入力からエコーバックなしで文字列を一行読み込みます。
+
+  require "io/console"
+  STDIN.noecho(&:gets)
+
+@raise LocalJumpError ブロックを指定しなかった場合に発生します。
+

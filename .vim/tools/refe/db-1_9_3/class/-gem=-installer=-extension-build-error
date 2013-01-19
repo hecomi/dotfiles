@@ -1,0 +1,9 @@
+type=class
+superclass=Gem=InstallError
+included=
+extended=
+library=rubygems.installer
+aliases=
+aliasof=
+
+拡張ライブラリをビルド中にエラーが発生した場合に発生します。

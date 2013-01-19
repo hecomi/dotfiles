@@ -1,0 +1,8 @@
+names=day,day=
+visibility=public
+kind=defined
+
+--- day
+--- day=(day)
+@todo
+

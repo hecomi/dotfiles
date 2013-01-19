@@ -1,0 +1,12 @@
+names=IP_DONTFRAG
+visibility=public
+kind=defined
+
+--- IP_DONTFRAG -> Integer
+Don't fragment packets。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]], 
+     [[man:ip(4freebsd)]]
+

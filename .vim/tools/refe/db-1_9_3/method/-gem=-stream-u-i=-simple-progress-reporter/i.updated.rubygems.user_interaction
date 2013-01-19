@@ -1,0 +1,10 @@
+names=updated
+visibility=public 
+kind=defined
+
+--- updated(message) -> nil
+
+ドットを表示します。
+
+@param message 指定しても意味がありません。
+

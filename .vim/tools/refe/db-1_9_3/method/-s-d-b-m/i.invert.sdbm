@@ -1,0 +1,18 @@
+names=invert
+visibility=public
+kind=defined
+
+--- invert -> Hash
+
+値からキーへのハッシュを返します。
+
+  require 'sdbm'
+  
+  db1 = SDBM.open('aaa.gdbm', 0666)
+  db1.clear
+  db1['a'] = 'aaa'
+  db1['b'] = 'bbb'
+  db1['c'] = 'ccc'
+  
+  p db1.invert #=> {"aaa"=>"a", "bbb"=>"b", "ccc"=>"c"}
+

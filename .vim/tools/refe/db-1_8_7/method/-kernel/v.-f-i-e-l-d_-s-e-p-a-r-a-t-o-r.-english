@@ -1,0 +1,16 @@
+names=FIELD_SEPARATOR,FS
+visibility=public
+kind=added
+
+--- $FS              -> String | nil
+--- $FIELD_SEPARATOR -> String | nil
+
+[[m:$;]] の別名
+
+  require "English"
+
+  str = "hoge,fuga,ugo,bar,foo"
+  p str.split #=> ["hoge,fuga,ugo,bar,foo"]
+  $FIELD_SEPARATOR = ","
+  p str.split #=> ["hoge", "fuga", "ugo", "bar", "foo"]
+

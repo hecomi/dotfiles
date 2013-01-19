@@ -1,0 +1,13 @@
+names=IPV6_UNICAST_HOPS
+visibility=public
+kind=defined
+
+--- IPV6_UNICAST_HOPS -> Integer
+IPv6 unicast hop limit。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IPV6]],
+     [[man:netinet/in.h(header)]], [[man:ip6(4freebsd)]], [[man:ipv6(7linux)]],
+     [[RFC:3493]]
+

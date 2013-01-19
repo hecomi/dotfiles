@@ -1,0 +1,9 @@
+type=class
+superclass=WEBrick=HTTPStatus=Info
+included=
+extended=
+library=webrick.httpstatus
+aliases=
+aliasof=
+
+HTTP のステータスコード 100 Continue を表すクラスです。

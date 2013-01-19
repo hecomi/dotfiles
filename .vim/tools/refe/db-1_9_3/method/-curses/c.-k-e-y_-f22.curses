@@ -1,0 +1,8 @@
+names=KEY_F22
+visibility=public
+kind=defined
+
+--- KEY_F22 -> Integer
+
+F22 キーを表す定数です。
+

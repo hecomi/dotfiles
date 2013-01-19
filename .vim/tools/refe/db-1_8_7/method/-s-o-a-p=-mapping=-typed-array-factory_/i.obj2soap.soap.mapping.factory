@@ -1,0 +1,7 @@
+names=obj2soap
+visibility=public
+kind=defined
+
+--- obj2soap(soap_class, obj, info, map)
+@todo
+

@@ -1,0 +1,10 @@
+names=specification
+visibility=public
+kind=defined
+
+--- specification(full_name) -> Gem::Specification | nil
+
+指定された名前の [[c:Gem::Specification]] オブジェクトを返します。
+
+@param full_name Gem のフルネームを指定します。
+

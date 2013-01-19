@@ -1,0 +1,11 @@
+names=ptr,ptr=
+visibility=public
+kind=defined
+
+--- ptr         -> Integer
+--- ptr=(addr)
+
+自身が表すライブラリ関数のアドレスを表すアクセサです。
+
+@param addr ライブラリ関数のアドレスを整数で指定します。
+

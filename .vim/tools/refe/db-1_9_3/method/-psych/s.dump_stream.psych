@@ -1,0 +1,13 @@
+names=dump_stream
+visibility=public
+kind=defined
+
+--- dump_stream(*objects)
+@todo
+
+Dump a list of objects as separate documents to a document stream.
+
+Example:
+
+  Psych.dump_stream("foo\n  ", {}) # => "--- ! \"foo\\n  \"\n--- {}\n"
+

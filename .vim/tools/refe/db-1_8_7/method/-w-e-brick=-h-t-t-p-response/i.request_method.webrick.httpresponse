@@ -1,0 +1,7 @@
+names=request_method
+visibility=public
+kind=defined
+
+--- request_method          -> String | nil
+リクエストの HTTP メソッドを返します。
+

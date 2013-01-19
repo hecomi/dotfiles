@@ -1,0 +1,11 @@
+names=debug=
+visibility=public
+kind=defined
+
+--- debug=(bool)
+
+真を指定するとデバッグモードが有効になります。
+偽を指定するとデバッグモードが無効になります。
+
+@param bool 真偽値を指定します。
+

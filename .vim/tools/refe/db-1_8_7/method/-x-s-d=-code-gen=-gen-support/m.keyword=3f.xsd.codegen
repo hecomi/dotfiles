@@ -1,0 +1,7 @@
+names=keyword?
+visibility=public
+kind=defined
+
+--- keyword?(word)
+@todo
+

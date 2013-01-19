@@ -1,0 +1,9 @@
+names=UNIVERSALSTRING
+visibility=public
+kind=defined
+
+--- UNIVERSALSTRING -> Integer
+
+ASN.1 UNIVERSAL タグの、
+UNIVERSALSTRING のタグ番号 28 を表す定数です。
+

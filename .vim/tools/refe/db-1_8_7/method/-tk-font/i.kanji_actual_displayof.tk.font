@@ -1,0 +1,7 @@
+names=kanji_actual_displayof
+visibility=public
+kind=defined
+
+--- kanji_actual_displayof(win, option = nil)
+@todo
+

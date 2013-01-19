@@ -1,0 +1,10 @@
+names=members
+visibility=public
+kind=defined
+
+--- members(group) -> [String]
+
+[[m:WEBrick::HTTPAuth::Htgroup#reload]] を呼んでから与えられたグループに所属するメンバのリストを返します。
+
+@param group グループ名を指定します。
+

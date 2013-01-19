@@ -1,0 +1,8 @@
+names=segments
+visibility=public
+kind=defined
+
+--- segments -> [String]
+
+検索するパスを / で区切った文字列の配列を返します。
+

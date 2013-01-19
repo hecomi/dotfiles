@@ -1,0 +1,9 @@
+type=class
+superclass=StandardError
+included=
+extended=
+library=uri
+aliases=
+aliasof=
+
+すべての URI 例外クラスの基底クラスです。

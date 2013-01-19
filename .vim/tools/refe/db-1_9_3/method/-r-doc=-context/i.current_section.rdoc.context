@@ -1,0 +1,8 @@
+names=current_section
+visibility=public
+kind=defined
+
+--- current_section -> RDoc::Context::Section
+
+現在の section を返します。
+

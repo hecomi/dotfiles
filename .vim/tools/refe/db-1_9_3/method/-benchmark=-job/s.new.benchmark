@@ -1,0 +1,12 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(width) -> Benchmark::Job
+
+[[c:Benchmark::Job]] のインスタンスを初期化して返します。
+
+通常このメソッドがユーザーによって直接呼び出されることはありません。
+
+@param width [[m:Benchmark::Job#list]] のサイズ。
+

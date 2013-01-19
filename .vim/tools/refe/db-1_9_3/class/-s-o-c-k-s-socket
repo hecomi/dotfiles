@@ -1,0 +1,9 @@
+type=class
+superclass=TCPSocket
+included=
+extended=
+library=socket
+aliases=
+aliasof=
+
+[[c:TCPSocket]] を SOCKS([[url:http://www.sw.nec.co.jp/middle/socks/]]) 対応したクラスです。

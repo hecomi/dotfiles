@@ -1,0 +1,8 @@
+names=_args_
+visibility=public
+kind=defined
+
+--- _args_ -> [object]
+
+直前に呼んだダイナミックライブラリの関数の引数の配列を返します。
+

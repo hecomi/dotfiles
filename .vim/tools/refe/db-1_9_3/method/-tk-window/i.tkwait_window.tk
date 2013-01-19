@@ -1,0 +1,9 @@
+names=tkwait_window,wait_window
+visibility=public
+kind=defined
+
+--- wait_window(on_thread = true)
+--- tkwait_window(on_thread = true)
+@todo
+
+

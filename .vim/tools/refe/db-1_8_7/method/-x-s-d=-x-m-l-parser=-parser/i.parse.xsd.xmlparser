@@ -1,0 +1,7 @@
+names=parse
+visibility=public
+kind=defined
+
+--- parse(string_or_readable)
+@todo
+

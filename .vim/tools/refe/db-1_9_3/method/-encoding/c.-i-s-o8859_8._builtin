@@ -1,0 +1,14 @@
+names=ISO8859_8,ISO_8859_8
+visibility=public
+kind=defined
+
+--- ISO_8859_8 -> Encoding
+--- ISO8859_8 -> Encoding
+ISO8859-8 エンコーディング。
+
+ヘブライ語を扱う 8bit single-byte エンコーディングです。
+
+@see [[m:Encoding::Windows_1255]]
+
+
+

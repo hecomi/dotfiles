@@ -1,0 +1,13 @@
+names=keys_with_inspector
+visibility=public
+kind=defined
+
+--- keys_with_inspector(inspector) -> Array
+
+引数で指定した [[c:IRB::Inspector]] に対応する key の配列を返します。
+
+@param inspector [[c:IRB::Inspector]] オブジェクトを指定します。
+
+  IRB::INSPECTORS.keys_with_inspector(IRB::INSPECTORS[true])
+  # => [true, :p, "p", :inspect, "inspect"]
+

@@ -1,0 +1,10 @@
+type=class
+superclass=Zlib=ZStream
+included=
+extended=
+library=zlib
+aliases=
+aliasof=
+
+入力データを展開するストリームのクラス。[[c:Zlib::Deflate]] と違い、
+このクラスのインスタンスを複製 (clone, dup) することはできません。

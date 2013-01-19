@@ -1,0 +1,7 @@
+names=dump
+visibility=public
+kind=defined
+
+--- dump(type = nil)
+@todo
+

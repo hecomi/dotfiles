@@ -1,0 +1,19 @@
+names=install_alias_method
+visibility=public
+kind=defined
+
+--- install_alias_method(to, from, override = NO_OVERRIDE)
+
+メソッドのエイリアスを定義します。ライブラリ内部で使用します。
+
+@param to 新しいメソッド名を [[c:Symbol]] か文字列で指定します。
+
+@param from 元のメソッド名を [[c:Symbol]] か文字列で指定します。
+
+@param override 新しいメソッド名が定義済みであった場合にそのメソッドを
+                上書きするかどうかを
+                [[m:IRB::ExtendCommandBundle::NO_OVERRIDE]]、
+                [[m:IRB::ExtendCommandBundle::OVERRIDE_PRIVATE_ONLY]]、
+                [[m:IRB::ExtendCommandBundle::OVERRIDE_ALL]] のいずれか
+                で指定します。
+

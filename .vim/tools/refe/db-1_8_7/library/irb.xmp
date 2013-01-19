@@ -1,0 +1,77 @@
+requires=irb,e2mmap,irb.init,irb.context,irb.workspace,irb.ws=2dfor=2dcase=2d2,irb.extend=2dcommand,irb.cmd.chws,irb.cmd.nop,irb.ext.change=2dws,irb.cmd.help,irb.cmd.load,irb.ext.loader,irb.cmd.pushws,irb.ext.workspaces,irb.cmd.subirb,irb.ext.multi=2dirb,thread,irb.ext.history,irb.ext.tracer,tracer,irb.ext.math=2dmode,mathn,complex,rational,matrix,irb.ext.use=2dloader,irb.ext.save=2dhistory,readline,irb.ruby=2dlex,irb.slex,irb.notifier,irb.output=2dmethod,irb.ruby=2dtoken,irb.input=2dmethod,irb.locale,irb.version,irb.frame
+classes=XMP
+methods=Kernel/i.xmp.irb.xmp
+sublibraries=
+is_sublibrary=true
+category=
+
+Ruby のソースコードとその実行結果を、行ごとに交互に表示するためのライブ
+ラリです。irb を実行しなくても、使用することが出来ます。
+
+
+実行結果を得るためには、[[m:Kernel#xmp]] と、[[m:XMP#puts]] を使った方
+法があります。どちらの場合も [[c:XMP]] がコンテキスト情報を保持するため、
+実行結果に差分はありません。([[c:Binding]] を指定できるタイミングは違い
+ます)
+
+==== 関数(Kernel#xmp)を使って実行結果を得る
+
+[[m:Kernel#xmp]] では、以下のように Ruby のソースコードを文字列として渡
+す事で実行結果を標準出力に表示します。
+
+  $ cat t.rb
+  require "irb/xmp"
+  xmp <<END
+  foo = 1
+  foo
+  END
+  $ ruby t.rb
+  foo = 1
+      ==>1
+  foo
+      ==>1
+
+==== XMP インスタンス(XMP#puts)を使って実行結果を得る
+
+[[m:XMP#puts]] では、以下のように Ruby のソースコードを文字列として渡す
+事で実行結果を標準出力に表示します。
+
+  $ cat t.rb
+  require "irb/xmp"
+  xmp = XMP.new
+  xmp.puts <<END
+  foo = 1
+  foo
+  END
+  xmp.puts <<END
+  foo
+  END
+  $ ruby t.rb
+  foo = 1
+      ==>1
+  foo
+      ==>1
+  foo
+      ==>1
+
+[[c:XMP]] がコンテキスト情報を管理しているため、変数 foo を 2 度目の呼
+び出しでも保持しています。[[m:Kernel#xmp]] でも同様の操作を行えます。
+
+==== コンテキスト
+
+[[c:XMP]] メソッド群のコンテキストは、呼び出す前のコンテキストで評価さ
+れます。明示的にコンテキストを指定するとそのコンテキストで評価します。
+
+例:
+
+  xmp "foo", an_binding
+
+[注意] マルチスレッドには対応していません。
+
+==== 注意
+
+[[lib:irb/xmp]] は内部で irb を使用する事で実行結果を表示しています
+([[m:IRB::Context#prompt_mode]] で選択できる :XMP モードはそのために用
+意されています)。そのため、irb プロンプト中で使用可能なコマンドを実行し
+た時に実行結果を得る事ができる点に注意してください。(例. nil が返る事を
+期待して conf を実行する)

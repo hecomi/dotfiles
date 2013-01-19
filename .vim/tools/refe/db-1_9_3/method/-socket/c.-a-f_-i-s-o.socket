@@ -1,0 +1,13 @@
+names=AF_ISO,AF_OSI,PF_ISO,PF_OSI
+visibility=public
+kind=defined
+
+--- AF_ISO -> Integer
+--- AF_OSI -> Integer
+--- PF_ISO -> Integer
+--- PF_OSI -> Integer
+@todo
+ISO Open Systems Interconnection protocols。
+[[m:Socket.open]] の第一引数 domain に使用します。
+
+

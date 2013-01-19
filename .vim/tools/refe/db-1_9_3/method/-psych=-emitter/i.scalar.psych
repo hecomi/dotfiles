@@ -1,0 +1,14 @@
+names=scalar
+visibility=public
+kind=defined
+
+--- scalar(value, anchor, tag, plain, quoted, style) -> Psych::Emitter
+@todo
+
+Emit a scalar with +value+, +anchor+, +tag+, and a +plain+ or +quoted+
+string type with +style+.
+
+自身を返します。
+
+@see [[m:Psych::Handler#scalar]]
+

@@ -1,0 +1,7 @@
+names=scalar
+visibility=public
+kind=defined
+
+--- scalar(type_id, str, style = nil)
+@todo
+

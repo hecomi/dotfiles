@@ -1,0 +1,8 @@
+names=bool_type=,set_bool_type
+visibility=public
+kind=defined
+
+--- bool_type=
+--- set_bool_type(val)
+@todo
+

@@ -1,0 +1,8 @@
+names=seq=
+visibility=public
+kind=defined
+
+--- seq=(list)
+@todo
+
+Emit a sequence of +list+

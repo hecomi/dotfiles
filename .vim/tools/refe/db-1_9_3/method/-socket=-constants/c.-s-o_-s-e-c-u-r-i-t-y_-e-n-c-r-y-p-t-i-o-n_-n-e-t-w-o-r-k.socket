@@ -1,0 +1,7 @@
+names=SO_SECURITY_ENCRYPTION_NETWORK
+visibility=public
+kind=defined
+
+--- SO_SECURITY_ENCRYPTION_NETWORK -> Integer
+@todo
+

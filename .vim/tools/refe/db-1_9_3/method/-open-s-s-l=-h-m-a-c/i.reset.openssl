@@ -1,0 +1,7 @@
+names=reset
+visibility=public
+kind=defined
+
+--- reset -> self
+内部状態をリセットします。
+

@@ -1,0 +1,7 @@
+names=add_local_remote_options
+visibility=public 
+kind=defined
+
+--- add_local_remote_options
+オプション --local, --remote, --both を追加します。
+

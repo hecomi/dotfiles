@@ -1,0 +1,12 @@
+names=SO_BROADCAST
+visibility=public
+kind=defined
+
+--- SO_BROADCAST -> Integer
+Permit sending of broadcast messages。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:sys/socket.h(header)]], [[man:getsockopt(2freebsd)]],
+     [[man:socket(7linux)]], [[m:Socket::Constants::SOL_SOCKET]]
+

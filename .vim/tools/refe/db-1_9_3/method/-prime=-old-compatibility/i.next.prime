@@ -1,0 +1,11 @@
+names=next,succ
+visibility=public
+kind=defined
+
+--- next -> Integer
+--- succ -> Integer
+
+[[m:Prime#next]] を再定義します。
+
+次の素数を返します。
+

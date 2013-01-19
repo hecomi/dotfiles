@@ -1,0 +1,9 @@
+type=class
+superclass=Hash
+included=
+extended=
+library=rexml
+aliases=
+aliasof=
+
+

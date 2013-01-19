@@ -1,0 +1,11 @@
+requires=
+classes=
+methods=Syck/s.make_stream.syck.stringio
+sublibraries=
+is_sublibrary=true
+category=
+
+[[lib:stringio]] ライブラリが使用できない環境を補助するためのサブライブ
+ラリです。
+
+ライブラリ内部で使用する [[c:StringIO]] と同名のクラスを定義します。

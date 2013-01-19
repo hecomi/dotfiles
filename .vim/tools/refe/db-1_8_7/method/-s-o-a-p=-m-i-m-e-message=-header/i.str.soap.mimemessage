@@ -1,0 +1,8 @@
+names=str,str=
+visibility=public
+kind=defined
+
+--- str
+--- str=(value)
+@todo
+

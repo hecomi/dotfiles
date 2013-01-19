@@ -1,0 +1,10 @@
+names=add_alias
+visibility=public
+kind=defined
+
+--- add_alias(an_alias) -> RDoc::Alias
+
+引数で指定した [[c:RDoc::Alias]] オブジェクトを追加します。
+
+@param an_alias [[c:RDoc::Alias]] オブジェクトを指定します。
+

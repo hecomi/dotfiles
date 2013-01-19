@@ -1,0 +1,7 @@
+names=binary_request
+visibility=public
+kind=defined
+
+--- binary_request(service, topic, item)
+@todo
+

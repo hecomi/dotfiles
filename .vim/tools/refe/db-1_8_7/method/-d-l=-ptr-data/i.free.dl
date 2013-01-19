@@ -1,0 +1,10 @@
+names=free
+visibility=public
+kind=defined
+
+--- free    -> DL::Symbol
+@todo
+
+GC がメモリを解放するのに使用するシンボルオブジェクト sym を返します。
+sym は普通 PtrData#free= や PtrData.new によって設定されます。
+

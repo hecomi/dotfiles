@@ -1,0 +1,11 @@
+names=TCP_DEFER_ACCEPT
+visibility=public
+kind=defined
+
+--- TCP_DEFER_ACCEPT -> Integer
+Don't notify a listening socket until data is ready。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:tcp(7linux)]]
+

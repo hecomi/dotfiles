@@ -1,0 +1,7 @@
+names=entrycget
+visibility=public
+kind=defined
+
+--- entrycget(index, key)
+@todo
+

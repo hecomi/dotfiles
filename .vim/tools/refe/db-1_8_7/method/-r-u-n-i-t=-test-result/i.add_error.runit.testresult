@@ -1,0 +1,10 @@
+names=add_error
+visibility=public
+kind=defined
+
+--- add_error(error) -> ()
+
+エラーが発生したテストを追加します。
+
+@param error エラーが発生したテストを指定します。
+

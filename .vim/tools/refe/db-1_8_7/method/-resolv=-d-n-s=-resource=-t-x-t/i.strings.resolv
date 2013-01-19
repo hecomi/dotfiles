@@ -1,0 +1,8 @@
+names=strings
+visibility=public
+kind=defined
+
+--- strings -> [String]
+TXT レコードの文字列を配列で返します。
+
+

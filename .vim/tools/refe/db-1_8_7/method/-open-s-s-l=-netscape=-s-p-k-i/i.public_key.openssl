@@ -1,0 +1,10 @@
+names=public_key
+visibility=public
+kind=defined
+
+--- public_key -> OpenSSL::PKey::PKey
+SPKI オブジェクトに設定された公開鍵を返します。
+
+@raise OpenSSL::Netscape::SPKIError 公開鍵が設定されていない場合に発生します
+@see [[m:OpenSSL::Netscape::SPKI#public_key=]]
+

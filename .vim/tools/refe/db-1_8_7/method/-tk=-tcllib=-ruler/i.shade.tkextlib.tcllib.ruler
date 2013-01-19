@@ -1,0 +1,7 @@
+names=shade
+visibility=public
+kind=defined
+
+--- shade(org, dest, frac)
+@todo
+

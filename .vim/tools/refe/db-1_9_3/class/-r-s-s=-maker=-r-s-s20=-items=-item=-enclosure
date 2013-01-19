@@ -1,0 +1,11 @@
+type=class
+superclass=RSS=Maker=RSS09=Items=Item=Enclosure
+included=
+extended=
+library=rss
+aliases=
+aliasof=
+
+RSS 2.0を生成するときだけ利用されます．
+
+url，length，typeを設定する必要があります．

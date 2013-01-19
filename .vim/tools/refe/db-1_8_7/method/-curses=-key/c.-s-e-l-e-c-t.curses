@@ -1,0 +1,8 @@
+names=SELECT
+visibility=public
+kind=defined
+
+--- SELECT -> Integer
+
+Select キーを表す定数です。
+

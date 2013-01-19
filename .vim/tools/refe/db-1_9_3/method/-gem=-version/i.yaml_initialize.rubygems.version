@@ -1,0 +1,12 @@
+names=yaml_initialize
+visibility=public 
+kind=defined
+
+--- yaml_initialize(tag, values) -> String
+@todo
+
+
+
+@todo Gem::Requirement に書く
+
+

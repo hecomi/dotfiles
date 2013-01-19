@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=XMLParser=FormatDecodeError
+included=
+extended=
+library=xsd.xmlparser
+aliases=
+aliasof=
+
+

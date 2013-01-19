@@ -1,0 +1,10 @@
+names=do_not_reverse_lookup=
+visibility=public
+kind=defined
+
+--- do_not_reverse_lookup=(bool)
+アドレスからホスト名への逆引きの設定をソケットごとに設定します。
+
+@param bool この値が真ならアドレスからホスト名への逆引きを行わなくなります。
+@see [[m:BasicSocket#do_not_reverse_lookup]]
+

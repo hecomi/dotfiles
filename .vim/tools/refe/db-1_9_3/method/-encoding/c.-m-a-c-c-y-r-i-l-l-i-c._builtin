@@ -1,0 +1,14 @@
+names=MACCYRILLIC,MacCyrillic
+visibility=public
+kind=defined
+
+--- MacCyrillic -> Encoding
+--- MACCYRILLIC -> Encoding
+
+MacCyrillic エンコーディング。
+
+Mac OS で使われる 8bit single-byte エンコーディングで、
+キリル文字を取り扱うものです。
+
+@see [[url:http://en.wikipedia.org/wiki/Macintosh_Cyrillic_encoding]]
+

@@ -1,0 +1,8 @@
+names=place_configinfo
+visibility=public
+kind=defined
+
+--- place_configinfo(slot = nil)
+@todo
+
+

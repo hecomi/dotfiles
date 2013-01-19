@@ -1,0 +1,10 @@
+names=error_string=
+visibility=public
+kind=defined
+
+--- error_string=(str)
+検証エラーの理由を表す文字列を設定します。
+
+@param str 設定するエラー文字列
+@see [[m:OpenSSL::PKCS7#error_string]]
+

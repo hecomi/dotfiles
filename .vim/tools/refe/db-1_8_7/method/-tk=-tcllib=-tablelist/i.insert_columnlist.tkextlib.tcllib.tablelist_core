@@ -1,0 +1,8 @@
+names=insert_columnlist,insertcolumnlist
+visibility=public
+kind=defined
+
+--- insert_columnlist(idx, columnlist)
+--- insertcolumnlist(idx, columnlist)
+@todo
+

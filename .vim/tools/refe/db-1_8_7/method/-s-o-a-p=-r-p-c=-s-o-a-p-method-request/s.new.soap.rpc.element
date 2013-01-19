@@ -1,0 +1,7 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(qname, param_def = nil, soapaction = nil)
+@todo
+

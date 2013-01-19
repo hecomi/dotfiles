@@ -1,0 +1,13 @@
+names=EAI_BADHINTS
+visibility=public
+kind=defined
+
+--- EAI_BADHINTS -> Integer
+Invalid value for hints
+
+[[man:getaddrinfo(3)]], [[man:getnameinfo(3)]] などの
+エラーコードです。
+対応する [[m:Socket.getaddrinfo]], [[m:Addrinfo.getaddrinfo]] などは
+エラーを [[c:SocketError]] に変換するため、この定数は直接は利用しません。
+
+

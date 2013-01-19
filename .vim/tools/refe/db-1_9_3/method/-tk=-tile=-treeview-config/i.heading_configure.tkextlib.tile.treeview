@@ -1,0 +1,8 @@
+names=heading_configure,headingconfigure
+visibility=public
+kind=defined
+
+--- headingconfigure(tagOrId, slot, value = None)
+--- heading_configure(tagOrId, slot, value = None)
+@todo
+

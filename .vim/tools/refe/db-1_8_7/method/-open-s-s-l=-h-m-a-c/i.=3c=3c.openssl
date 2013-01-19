@@ -1,0 +1,10 @@
+names=<<,update
+visibility=public
+kind=defined
+
+--- <<(data) -> self
+--- update(data) -> self
+入力文字列を追加し、内部状態を更新します。
+
+@param data 入力文字列
+

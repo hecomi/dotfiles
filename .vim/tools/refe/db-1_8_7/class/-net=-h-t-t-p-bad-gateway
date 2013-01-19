@@ -1,0 +1,11 @@
+type=class
+superclass=Net=HTTPServerError
+included=
+extended=
+library=net.http
+aliases=
+aliasof=
+
+HTTP レスポンス 502 (Bad Gateway) を表現するクラスです。
+
+詳しくは [[RFC:2616]] を見てください。

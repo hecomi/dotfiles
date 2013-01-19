@@ -1,0 +1,10 @@
+names=ftype
+visibility=public
+kind=defined
+
+--- ftype -> String
+File.ftype(self.to_s) と同じです。
+
+@see [[m:File.ftype]]
+
+

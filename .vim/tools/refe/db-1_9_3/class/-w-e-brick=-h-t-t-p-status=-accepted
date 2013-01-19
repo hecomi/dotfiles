@@ -1,0 +1,9 @@
+type=class
+superclass=WEBrick=HTTPStatus=Success
+included=
+extended=
+library=webrick.httpstatus
+aliases=
+aliasof=
+
+HTTP のステータスコード 202 Accepted を表すクラスです。

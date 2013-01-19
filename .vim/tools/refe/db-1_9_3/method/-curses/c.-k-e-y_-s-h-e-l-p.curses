@@ -1,0 +1,8 @@
+names=KEY_SHELP
+visibility=public
+kind=defined
+
+--- KEY_SHELP -> Integer
+
+Shift + Help キーを表す定数です。
+

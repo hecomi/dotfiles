@@ -1,0 +1,7 @@
+names=O_RDWR
+visibility=public
+kind=defined
+
+--- O_RDWR -> Integer
+ファイルを読み書きできるように開きます。
+

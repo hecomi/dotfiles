@@ -1,0 +1,7 @@
+names=get_bgerror_handler
+visibility=public
+kind=defined
+
+--- get_bgerror_handler(slave = '')
+@todo
+

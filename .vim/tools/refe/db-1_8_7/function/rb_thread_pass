@@ -1,0 +1,10 @@
+filename=eval.c
+macro=false
+private=true
+type=VALUE
+name=rb_thread_pass
+params=(void)
+
+
+Thread#pass の実体。
+

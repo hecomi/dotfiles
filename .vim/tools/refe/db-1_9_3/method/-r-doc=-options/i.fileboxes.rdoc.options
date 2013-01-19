@@ -1,0 +1,9 @@
+names=fileboxes
+visibility=public
+kind=defined
+
+--- fileboxes -> bool
+
+コマンドライン引数の --diagram オプション、--fileboxes オプションを指定
+していた場合、true を返します。そうでない場合は false を返します。
+

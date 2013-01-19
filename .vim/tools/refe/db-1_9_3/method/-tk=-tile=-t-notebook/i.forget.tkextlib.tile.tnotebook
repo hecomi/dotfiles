@@ -1,0 +1,7 @@
+names=forget
+visibility=public
+kind=defined
+
+--- forget(idx)
+@todo
+

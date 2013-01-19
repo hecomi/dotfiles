@@ -1,0 +1,12 @@
+names=IPPROTO_TP
+visibility=public
+kind=defined
+
+--- IPPROTO_TP -> Integer
+@todo
+ISO transport protocol class 4。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+

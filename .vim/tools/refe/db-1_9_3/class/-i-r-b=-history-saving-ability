@@ -1,0 +1,10 @@
+type=module
+superclass=
+included=Readline
+extended=
+library=irb.ext.save=2dhistory
+aliases=
+aliasof=
+
+[[c:IRB::HistorySavingAbility]] を extend したオブジェクトに irb のヒス
+トリの読み込み、保存の機能を提供するモジュールです。

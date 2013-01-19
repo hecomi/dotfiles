@@ -1,0 +1,8 @@
+names=verify_chain
+visibility=public 
+kind=defined
+
+--- verify_chain -> bool
+
+この値が真である場合は、証明書チェーンを検証します。
+

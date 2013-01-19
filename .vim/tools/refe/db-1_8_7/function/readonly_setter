@@ -1,0 +1,8 @@
+filename=variable.c
+macro=false
+private=true
+type=void
+name=readonly_setter
+params=(VALUE val, ID id, void *var)
+
+

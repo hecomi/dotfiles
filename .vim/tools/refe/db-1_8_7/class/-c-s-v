@@ -1,0 +1,25 @@
+type=class
+superclass=Object
+included=
+extended=
+library=csv
+aliases=
+aliasof=
+
+CSV (Comma Separated Values) を扱うクラスです。
+
+各メソッドの共通パラメタ
+
+  mode
+     'r', 'w', 'rb', 'wb' から指定可能です。
+
+     - 'r' 読み込み
+     - 'w' 書き込み
+     - 'b' バイナリモード
+  fs
+     フィールドの区切り文字(あるいは文字列)。
+     数値(Integer#chr で変換可能な値のみ)を指定した場合は対応する文字が区切り文字になります。
+     デフォルトは ','。
+  rs
+     行区切り文字。nil (デフォルト) で CrLf / Lf。
+     Cr で区切りたい場合は ?\r を渡します。

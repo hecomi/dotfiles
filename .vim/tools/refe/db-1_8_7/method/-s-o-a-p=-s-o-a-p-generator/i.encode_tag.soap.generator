@@ -1,0 +1,7 @@
+names=encode_tag
+visibility=public
+kind=defined
+
+--- encode_tag(elename, attrs = nil)
+@todo
+

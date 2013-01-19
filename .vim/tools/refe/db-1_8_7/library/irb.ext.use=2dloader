@@ -1,0 +1,11 @@
+requires=irb.cmd.load,irb.cmd.nop,irb.ext.loader
+classes=
+methods=IRB=ExtendCommandBundle/i.irb_load.irb.ext.use=2dloader,IRB=ExtendCommandBundle/i.irb_require.irb.ext.use=2dloader,IRB=Context/i.use_loader.irb.ext.use=2dloader,IRB=Context/i.use_loader=3d.irb.ext.use=2dloader
+sublibraries=
+is_sublibrary=true
+category=
+
+load または require 時に irb のファイル読み込み機能(irb_load、
+irb_require)を使うように設定する機能を提供するサブライブラリです。
+
+このライブラリで定義されているメソッドはユーザが直接使用するものではありません。

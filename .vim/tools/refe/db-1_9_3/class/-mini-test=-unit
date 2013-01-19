@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=minitest.unit
+aliases=
+aliasof=
+
+ユニットテストで使用する様々なメソッドを定義しているクラスです。

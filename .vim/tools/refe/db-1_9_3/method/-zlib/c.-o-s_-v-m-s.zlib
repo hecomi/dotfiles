@@ -1,0 +1,8 @@
+names=OS_VMS
+visibility=public
+kind=defined
+
+--- OS_VMS -> Fixnum
+
+OS の種類を表す定数です。
+

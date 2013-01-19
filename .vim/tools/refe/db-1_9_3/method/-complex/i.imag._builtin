@@ -1,0 +1,13 @@
+names=imag,imaginary
+visibility=public
+kind=defined
+
+--- imag      -> Numeric
+--- imaginary -> Numeric
+
+自身の虚部を返します。
+
+例:
+
+  Complex(3, 2).imag # => 2
+

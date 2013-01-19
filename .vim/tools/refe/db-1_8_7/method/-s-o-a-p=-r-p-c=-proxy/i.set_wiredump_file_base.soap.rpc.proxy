@@ -1,0 +1,7 @@
+names=set_wiredump_file_base
+visibility=public
+kind=defined
+
+--- set_wiredump_file_base(wiredump_file_base)
+@todo
+

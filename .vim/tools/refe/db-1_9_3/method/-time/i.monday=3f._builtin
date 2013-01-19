@@ -1,0 +1,9 @@
+names=monday?
+visibility=public
+kind=defined
+
+--- monday? -> bool
+
+自身の表す時刻が月曜日である場合に true を返します。
+そうでない場合に false を返します。
+

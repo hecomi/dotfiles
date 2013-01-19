@@ -1,0 +1,10 @@
+names=package_files=
+visibility=public 
+kind=defined
+
+--- package_files=(file_list)
+
+パッケージに含むファイルリストを設定します。
+
+@param file_list ファイルリストを指定します。
+

@@ -1,0 +1,7 @@
+names=local_address
+visibility=public
+kind=defined
+
+--- local_address -> Addrinfo
+ローカル側のアドレス情報を [[c:Addrinfo]] オブジェクトで返します。
+

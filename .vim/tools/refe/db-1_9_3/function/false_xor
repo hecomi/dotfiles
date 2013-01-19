@@ -1,0 +1,8 @@
+filename=object.c
+macro=false
+private=true
+type=VALUE
+name=false_xor
+params=(VALUE obj, VALUE obj2)
+
+

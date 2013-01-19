@@ -1,0 +1,17 @@
+names=CP1256,WINDOWS_1256,Windows_1256
+visibility=public
+kind=defined
+
+--- Windows_1256 -> Encoding
+--- CP1256 -> Encoding
+--- WINDOWS_1256 -> Encoding
+Windows-1256 エンコーディング。
+
+Windowsで用いられる、アラビア文字を扱う 8bit single-byte エンコーディングです。
+
+@see [[m:Encoding::ISO_8859_6]],
+     [[url:http://www.iana.org/assignments/character-sets]],
+     [[url:http://www.microsoft.com/globaldev/reference/sbcs/1256.mspx]],
+     [[url:http://en.wikipedia.org/wiki/Windows-1256]]
+
+

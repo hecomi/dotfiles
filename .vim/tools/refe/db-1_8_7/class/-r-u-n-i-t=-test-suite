@@ -1,0 +1,9 @@
+type=class
+superclass=Test=Unit=TestSuite
+included=
+extended=
+library=runit.testsuite
+aliases=
+aliasof=
+
+テストスイートを構成するクラスです。

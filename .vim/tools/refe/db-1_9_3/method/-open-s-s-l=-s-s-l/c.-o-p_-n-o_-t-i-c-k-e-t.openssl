@@ -1,0 +1,10 @@
+names=OP_NO_TICKET
+visibility=public
+kind=defined
+
+--- OP_NO_TICKET -> Integer
+RFC4507bis チケットによる stateless session resumption を
+無効化します。
+
+[[m:OpenSSL::SSL::SSLContext#options=]] で利用します。
+

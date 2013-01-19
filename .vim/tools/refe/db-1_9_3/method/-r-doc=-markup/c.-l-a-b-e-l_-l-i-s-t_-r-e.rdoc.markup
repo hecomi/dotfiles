@@ -1,0 +1,8 @@
+names=LABEL_LIST_RE
+visibility=public
+kind=defined
+
+--- LABEL_LIST_RE -> Regexp
+
+ラベル付きリストにマッチする正規表現です。ライブラリの内部で使用します。
+

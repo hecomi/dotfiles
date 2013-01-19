@@ -1,0 +1,10 @@
+names=puts
+visibility=public
+kind=defined
+
+--- puts(*objs) -> object
+
+各 obj を self に出力し、それぞれの後に改行を出力します。
+
+@param objs 任意のオブジェクトを指定します。
+

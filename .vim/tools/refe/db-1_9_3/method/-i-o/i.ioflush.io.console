@@ -1,0 +1,10 @@
+names=ioflush
+visibility=public
+kind=added
+
+--- ioflush -> self
+
+カーネルの入出力バッファをフラッシュします。
+
+@return 自身を返します。
+

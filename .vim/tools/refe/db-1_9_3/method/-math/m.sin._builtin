@@ -1,0 +1,16 @@
+names=sin
+visibility=public
+kind=defined
+
+--- sin(x) -> Float
+
+x の正弦関数の値をラジアンで返します。
+
+@param x 実数
+
+@return [-1, 1] の実数
+
+@raise TypeError x に数値以外を指定した場合に発生します。
+
+@raise RangeError x に実数以外の数値を指定した場合に発生します。
+

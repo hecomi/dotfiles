@@ -1,0 +1,11 @@
+names=RLIMIT_STACK
+visibility=public
+kind=defined
+
+--- RLIMIT_STACK -> Fixnum
+
+リソースの種類がプロセスのスタック領域のサイズであることを示す定数です。
+
+[[m:Process.#getrlimit]]、[[m:Process.#setrlimit]] で使われます。
+システムによっては定義されていません。
+

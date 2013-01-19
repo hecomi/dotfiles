@@ -1,0 +1,9 @@
+type=module
+superclass=
+included=SOAP=SOAPType,SOAP
+extended=
+library=soap.baseData
+aliases=
+aliasof=
+
+

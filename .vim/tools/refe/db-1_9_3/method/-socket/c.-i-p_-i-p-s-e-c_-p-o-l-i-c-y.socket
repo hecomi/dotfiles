@@ -1,0 +1,12 @@
+names=IP_IPSEC_POLICY
+visibility=public
+kind=defined
+
+--- IP_IPSEC_POLICY -> Integer
+IPsec security policy。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[m:Socket::Constants::IPPROTO_IP]],
+     [[url:http://netbsd.gw.com/cgi-bin/man-cgi?ip++NetBSD-current]]
+

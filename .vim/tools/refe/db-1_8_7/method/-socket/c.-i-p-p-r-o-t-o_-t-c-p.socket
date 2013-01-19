@@ -1,0 +1,15 @@
+names=IPPROTO_TCP
+visibility=public
+kind=defined
+
+--- IPPROTO_TCP -> Integer
+Transmission control protocol。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]] の 
+level 引数に使用します。
+
+また、[[m:Socket.open]] の protocol 引数に渡す利用法もあります。
+
+@see [[man:netinet/in.h(header)]]
+     [[man:tcp(4freebsd)]], [[man:tcp(7linux)]]
+
+

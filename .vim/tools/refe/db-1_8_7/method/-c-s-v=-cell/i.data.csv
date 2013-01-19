@@ -1,0 +1,10 @@
+names=data
+visibility=public
+kind=defined
+
+--- data -> String
+自分自身のCellデータを[[c:String]]クラスオブジェクトとして返します。
+
+
+
+

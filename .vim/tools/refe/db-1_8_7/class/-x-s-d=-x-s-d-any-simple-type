@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=NSDBase
+included=XSD
+extended=
+library=xsd.datatypes
+aliases=
+aliasof=
+
+

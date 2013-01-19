@@ -1,0 +1,27 @@
+names=setsockopt
+visibility=public
+kind=defined
+
+--- setsockopt(level, optname, optval) -> 0
+
+ソケットのオプションを設定します。[[man:setsockopt(2)]]
+を参照してください。
+
+level, optname には Socket::SOL_SOCKET や Socket::SO_REUSEADDR 
+といった整数値を用います。
+
+optval には文字列、整数、真偽値(true or false)を渡すことができます。
+文字列の場合には [[man:setsockopt(2)]] にはその文字列と
+長さが渡されます。整数の場合はintへのポインタが渡されます。
+true/falseの場合は0/1という整数と解釈され、そのメモリ領域の
+intポインタを渡します。
+
+
+@param level    [[man:setsockopt(2)]] の level を参照してください。
+@param optname  [[man:setsockopt(2)]] の option_name を参照してください。
+@param optval   設定値
+
+@raise Errno::EXXX  オプションの設定に失敗した場合発生します。
+@see [[m:BasicSocket#getsockopt]]
+
+

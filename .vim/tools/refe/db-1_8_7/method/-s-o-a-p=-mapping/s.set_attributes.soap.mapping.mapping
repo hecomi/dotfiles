@@ -1,0 +1,7 @@
+names=set_attributes
+visibility=public
+kind=defined
+
+--- set_attributes(obj, values)
+@todo
+

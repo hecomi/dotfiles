@@ -1,0 +1,7 @@
+names=_setup_subst_table
+visibility=public
+kind=defined
+
+--- _setup_subst_table(key_inf, proc_inf)
+@todo
+

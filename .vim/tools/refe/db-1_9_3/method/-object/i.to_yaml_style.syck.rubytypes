@@ -1,0 +1,20 @@
+names=to_yaml_style
+visibility=public
+kind=added
+
+--- to_yaml_style -> nil
+
+nilを返します。
+
+@return nilを返します。
+
+例:
+
+  require 'yaml'
+  
+  p to_yaml_style
+  #=> nil
+  a = []
+  p a.to_yaml_style
+  #=> nil
+

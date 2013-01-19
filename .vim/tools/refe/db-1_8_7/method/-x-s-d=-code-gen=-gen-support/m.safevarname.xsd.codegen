@@ -1,0 +1,7 @@
+names=safevarname
+visibility=public
+kind=defined
+
+--- safevarname(name)
+@todo
+

@@ -1,0 +1,8 @@
+names=match_path
+visibility=public
+kind=defined
+
+--- match_path(ypath_str) -> Array
+
+ライブラリの内部で使用します。
+

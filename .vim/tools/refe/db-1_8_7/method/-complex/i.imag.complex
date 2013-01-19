@@ -1,0 +1,10 @@
+names=imag,image
+visibility=public
+kind=defined
+
+--- imag -> Fixnum
+--- imag -> Float
+--- image -> Fixnum
+--- image -> Float
+虚部を返します。
+

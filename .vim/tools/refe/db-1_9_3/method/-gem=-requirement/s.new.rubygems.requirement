@@ -1,0 +1,12 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(requirements) -> Gem::Requirement
+
+[[c:Gem::Requirement]] のインスタンスを作成します。
+
+@param requirements 文字列か配列か [[c:Gem::Version]] のインスタンスを指定します。
+
+@see [[m:Gem::Requirement#parse]], [[m:Gem::Requirement.create]]
+

@@ -1,0 +1,10 @@
+names=+
+visibility=public
+kind=defined
+
+--- +(other) -> OpenSSL::BN
+自身と other の和を返します。
+
+@param other 足す整数
+@raise OpenSSL::BNError 計算時エラー
+

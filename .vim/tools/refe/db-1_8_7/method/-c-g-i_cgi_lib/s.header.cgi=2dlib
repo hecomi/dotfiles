@@ -1,0 +1,9 @@
+names=header
+visibility=public
+kind=defined
+
+--- header(*options) -> String
+HTTP ヘッダ文字列を作成します。
+
+@param options オプションを指定します。
+

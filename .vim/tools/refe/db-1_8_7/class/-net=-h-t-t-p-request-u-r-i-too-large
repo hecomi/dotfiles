@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=net.http
+aliases=
+aliasof=Net=HTTPRequestURITooLong
+
+Alias of [[c:Net::HTTPRequestURITooLong]]

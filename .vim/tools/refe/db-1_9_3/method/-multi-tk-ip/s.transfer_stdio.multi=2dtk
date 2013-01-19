@@ -1,0 +1,7 @@
+names=transfer_stdio
+visibility=public
+kind=defined
+
+--- transfer_stdio(dist, src = '')
+@todo
+

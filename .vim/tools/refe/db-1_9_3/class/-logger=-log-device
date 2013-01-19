@@ -1,0 +1,9 @@
+type=class
+superclass=Object
+included=
+extended=
+library=logger
+aliases=
+aliasof=
+
+[[c:Logger]] の内部で使用するログの出力先を表すクラスです。

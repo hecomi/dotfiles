@@ -1,0 +1,11 @@
+names=to_obj
+visibility=public
+kind=defined
+
+--- to_obj(ref)
+@todo
+
+Convert an object reference id to an object.
+This implementation looks up the reference id in the local object
+space and returns the object it refers to.
+

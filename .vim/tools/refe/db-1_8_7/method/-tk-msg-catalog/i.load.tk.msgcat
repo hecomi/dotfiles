@@ -1,0 +1,8 @@
+names=load,load_rb
+visibility=public
+kind=defined
+
+--- load_rb(dir)
+--- load(dir)
+@todo
+

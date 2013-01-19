@@ -1,0 +1,12 @@
+names=SO_PEERCRED
+visibility=public
+kind=defined
+
+--- SO_PEERCRED -> Integer
+The credentials of the foreign process connected to this socket。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:socket(7linux)]], [[man:unix(7linux)]], [[man:socketpair(2linux)]],
+     [[m:Socket::Constants::SOL_SOCKET]]
+

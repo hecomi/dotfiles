@@ -1,0 +1,40 @@
+names=getaddrinfo
+visibility=public
+kind=defined
+
+--- getaddrinfo(nodename, service, family=nil, socktype=nil, protocol=nil, flags=0) -> [Addrinfo]
+パラメータから複数の Addrinfo オブジェクトを生成し、その配列を返します。
+
+nodename (ホスト名) と service (ポート番号) を Addrinfo に変換します。
+変換先は一意ではないため、複数のオブジェクトを返します。
+
+nodename と service のどちらか一方は nil を渡すことができます
+(その部分は変換されません)。
+
+family, socktype, protocol には希望する方式のヒントを与えます。
+例えば、SOCK_STREAM なソケットが必要な場合には socktype に指定します。
+nil を指定した場合には制限しないことを意味します。
+IPv6 に制限したい場合には family に PF_INET6 を指定します。
+
+flags には Socket::AI_??? という定数のビット OR を取ります。
+
+アドレスの使い方がわかっている場合には socktype を明示すべきです。
+socktype を省略して service を整数で指定した場合にエラーが
+生じるプラットフォームが存在します。512 のようなポート番号は
+socktype なしでは曖昧な指定となるためです。
+
+例:
+  Addrinfo.getaddrinfo("www.kame.net", 80, nil, :STREAM)
+  #=> [#<Addrinfo: 203.178.141.194:80 TCP (www.kame.net:80)>,
+  #    #<Addrinfo: [2001:200:0:8002:203:47ff:fea5:3085]:80 TCP (www.kame.net:80)>]
+
+@param nodename ノード名文字列(ホスト名もしくは IP アドレス)
+@param service サービス名(文字列もしくはポート番号の整数)
+@param family プロトコルファミリー(整数、文字列、シンボル、もしくは nil)
+@param socktype ソケットタイプ(整数、文字列、シンボル、もしくは nil)
+@param protocol プロトコル(整数、もしくは nil)
+@param flags フラグ(整数)
+
+@raise SocketError [[man:getaddrinfo(3)]]がエラーを返したときに発生する例外です
+@see [[m:Addrinfo.foreach]], [[m:Socket.getaddrinfo]]
+

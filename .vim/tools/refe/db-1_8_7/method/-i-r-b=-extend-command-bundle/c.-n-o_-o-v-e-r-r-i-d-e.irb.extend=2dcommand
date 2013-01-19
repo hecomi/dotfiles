@@ -1,0 +1,12 @@
+names=NO_OVERRIDE
+visibility=public
+kind=defined
+
+--- NO_OVERRIDE -> 0
+
+irb でコマンドのエイリアスを定義する際に、既にこれからエイリアス先に指
+定したメソッド名と同名のメソッドが定義済みであった場合、エイリアスを定
+義しない事を指定するフラグです。
+
+@see [[m:IRB::ExtendCommandBundle.def_extend_command]]
+

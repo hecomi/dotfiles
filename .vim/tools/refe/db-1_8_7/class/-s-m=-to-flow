@@ -1,0 +1,15 @@
+type=class
+superclass=Object
+included=
+extended=
+library=rdoc.markup.simple_markup.to_flow
+aliases=
+aliasof=
+
+RDoc 形式のドキュメントを表示する一段階前の構造化された状態にするための
+クラスです。
+
+[注意] 1.9 系では、require 先やクラス名が以下のように変更になりました。
+
+ * require 先: rdoc/markup/to_flow
+ * クラス名: RDoc::Markup::ToFlow

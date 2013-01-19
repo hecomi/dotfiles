@@ -1,0 +1,11 @@
+names=delete_observers
+visibility=public
+kind=defined
+
+--- delete_observers -> Array
+
+オブザーバをすべて削除します。
+
+登録されているオブザーバのリストから全てのオブジェクトを取り除き、
+空となったオブザーバのリストを返します。
+

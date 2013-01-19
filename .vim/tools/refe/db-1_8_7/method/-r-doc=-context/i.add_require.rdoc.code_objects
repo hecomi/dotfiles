@@ -1,0 +1,11 @@
+names=add_require
+visibility=public
+kind=defined
+
+--- add_require(a_require) -> ()
+
+自身が所属する [[c:RDoc::TopLevel]] オブジェクトに引数で指定した
+[[c:RDoc::Require]] を追加します。
+
+@param a_require [[c:RDoc::Require]] オブジェクトを指定します。
+

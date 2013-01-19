@@ -1,0 +1,8 @@
+names=next,succ
+visibility=public
+kind=defined
+
+--- succ -> Date
+--- next -> Date
+翌日の日付オブジェクトを返します。
+

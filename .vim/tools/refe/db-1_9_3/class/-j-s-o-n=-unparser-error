@@ -1,0 +1,9 @@
+type=class
+superclass=
+included=
+extended=
+library=json
+aliases=
+aliasof=JSON=GeneratorError
+
+Alias of [[c:JSON::GeneratorError]]

@@ -1,0 +1,9 @@
+names=bgerror,show,tkerror
+visibility=public
+kind=defined
+
+--- bgerror(message)
+--- show
+--- tkerror
+@todo
+

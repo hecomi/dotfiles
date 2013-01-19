@@ -1,0 +1,11 @@
+names=irb_load
+visibility=public
+kind=added
+
+--- irb_load(*opts, &b) -> nil
+
+現在の irb に関する [[c:IRB::Context]] に対して irb_load コマンドを実行
+します。
+
+@see [[m:IRB::ExtendCommand::Load#execute]]
+

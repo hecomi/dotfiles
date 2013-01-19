@@ -1,0 +1,7 @@
+names=share_stdio
+visibility=public
+kind=defined
+
+--- share_stdio(dist, src = '')
+@todo
+

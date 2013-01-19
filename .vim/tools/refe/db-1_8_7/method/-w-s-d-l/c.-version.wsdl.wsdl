@@ -1,0 +1,10 @@
+names=Version
+visibility=public
+kind=defined
+
+--- Version
+@todo
+
+このライブラリのバージョンを表す定数。
+
+

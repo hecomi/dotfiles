@@ -1,0 +1,10 @@
+names=RSYNC
+visibility=public
+kind=defined
+
+--- RSYNC -> Integer
+ファイルを読み込み時同期モードで開きます。
+open(2) で O_RSYNC が指定できる場合に使えます。
+[[m:File.open]]で使用します。
+
+

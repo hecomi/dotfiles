@@ -1,0 +1,19 @@
+names=cycle
+visibility=public
+kind=defined
+
+--- cycle(n=nil) {|obj| block } -> nil
+--- cycle(n=nil) -> Enumerable::Enumerator
+
+配列の全要素を n 回(nilの場合は無限に)繰り返しブロックを呼びだします。
+
+ブロックを省略した場合は、以上のような繰り返しを行う
+[[c:Enumerable::Enumerator]]
+を返します。
+
+
+例:
+
+   a = ["a", "b", "c"]
+   a.cycle {|x| puts x }  # print, a, b, c, a, b, c,.. forever.
+

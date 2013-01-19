@@ -1,0 +1,8 @@
+names=KEY_SEND
+visibility=public
+kind=defined
+
+--- KEY_SEND -> Integer
+
+Shift + End キーを表す定数です。
+

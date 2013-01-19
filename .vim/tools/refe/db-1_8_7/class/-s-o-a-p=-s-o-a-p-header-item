@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=NSDBase
+included=SOAP=SOAPEnvelopeElement,SOAP=SOAPCompoundtype
+extended=
+library=soap.element
+aliases=
+aliasof=
+
+

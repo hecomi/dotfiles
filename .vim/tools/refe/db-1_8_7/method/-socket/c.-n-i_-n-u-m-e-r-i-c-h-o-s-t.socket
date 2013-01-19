@@ -1,0 +1,13 @@
+names=NI_NUMERICHOST
+visibility=public
+kind=defined
+
+--- NI_NUMERICHOST -> Integer
+
+Return a numeric address.
+
+[[m:Socket.getnameinfo]], [[m:Addrinfo#getnameinfo]] の引数 flags に渡す
+定数です。
+
+@see [[man:getnameinfo(3)]]
+

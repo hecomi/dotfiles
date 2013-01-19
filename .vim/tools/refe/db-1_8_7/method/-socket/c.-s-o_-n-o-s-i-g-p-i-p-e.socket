@@ -1,0 +1,11 @@
+names=SO_NOSIGPIPE
+visibility=public
+kind=defined
+
+--- SO_NOSIGPIPE -> Integer
+Don't SIGPIPE on EPIPE。
+[[m:BasicSocket#getsockopt]], [[m:BasicSocket#setsockopt]]
+の第2引数(optname)に使用します。
+
+@see [[man:getsockopt(2freebsd)]], [[m:Socket::Constants::SOL_SOCKET]]
+

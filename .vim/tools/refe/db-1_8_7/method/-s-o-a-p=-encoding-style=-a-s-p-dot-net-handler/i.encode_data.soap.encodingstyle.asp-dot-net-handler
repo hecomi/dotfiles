@@ -1,0 +1,7 @@
+names=encode_data
+visibility=public
+kind=defined
+
+--- encode_data(generator, ns, data, parent)
+@todo
+

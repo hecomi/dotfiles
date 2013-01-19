@@ -1,0 +1,16 @@
+names=multicall
+visibility=public
+kind=defined
+
+--- multicall( *methods )
+
+You can use this method to execute several methods on a XMLRPC server which supports
+the multi-call extension.
+Example:
+
+  s.multicall(
+    ['michael.add', 3, 4],
+    ['michael.sub', 4, 5]
+  )
+  # => [7, -1]
+

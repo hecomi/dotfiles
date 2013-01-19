@@ -1,0 +1,13 @@
+names=external_encoding=
+visibility=public
+kind=defined
+
+--- external_encoding=(encoding)
+@todo
+
+自身のエンコーディングを encoding で指定したものに設定します。
+
+@param encoding
+
+@raise Psych::Exception 2 回以上エンコーディングを指定した場合に発生します。
+

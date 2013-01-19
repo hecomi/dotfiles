@@ -1,0 +1,21 @@
+BitClust README
+===============
+
+About
+-----
+
+  BitClust is the Next-Generation Ruby reference manual interface.
+  For more details, see https://bugs.ruby-lang.org/projects/rurema/wiki/BitClust .
+
+
+License
+-------
+
+  Ruby License.
+
+
+Maintainer
+----------
+
+  Minero Aoki <aamine@loveruby.net>
+

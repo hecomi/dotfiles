@@ -1,0 +1,9 @@
+names=count
+visibility=public
+kind=defined
+
+--- count -> Integer
+
+プロセス開始からガーベージコレクトを実行した回数を [[c:Integer]] で返し
+ます。
+

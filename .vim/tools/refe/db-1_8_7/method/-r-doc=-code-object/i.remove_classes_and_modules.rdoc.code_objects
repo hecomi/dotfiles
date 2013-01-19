@@ -1,0 +1,9 @@
+names=remove_classes_and_modules
+visibility=public
+kind=defined
+
+--- remove_classes_and_modules -> ()
+
+何もしません。[[m:RDoc::CodeObject#document_children=]] に false を指定
+した時のコールバックとして呼び出されます。オーバーライドして使用します。
+

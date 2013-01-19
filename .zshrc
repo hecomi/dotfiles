@@ -136,6 +136,7 @@ setopt PROMPT_SUBST
 # Path
 # ---------------------------------------------------------------------------------------------------
 local RUBY_PATH="$HOME/.rvm/bin/"
+local REFE_PATH="$HOME/.vim/tools/refe/"
 local CLANG_PATH="/usr/local/clang-3.1/bin"
 local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
 local GIT_PATH="$HOME/.git/git-tasukete"
@@ -144,11 +145,14 @@ local LOCAL_SBIN_PATH="/usr/local/sbin"
 local ANDROID_SDK_TOOLS_PATH="/Users/hecomi/android-sdks/platform-tools"
 local ANDROID_NDK_TOOLS_PATH="/Users/hecomi/android-ndk/"
 local NODEBREW_PATH="$HOME/.nodebrew/current/bin"
-export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$ANDROID_NDK_TOOLS_PATH:$PATH"
+export PATH="$GIT_PATH:$GCC_PATH:$RUBY_PATH:$REFE_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$ANDROID_NDK_TOOLS_PATH:$PATH"
 
-# RVM
+# RUBY
 # ---------------------------------------------------------------------------------------------------
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+export RSENSE_HOME="$HOME/.vim/tools/rsense-0.3"
+alias rtags='ctags -f ~/.vim/tags/ruby/ruby-1.9.1 -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1'
+alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/gems/ruby-1.9.3-head/gems'
 
 # .NET C#
 # ---------------------------------------------------------------------------------------------------

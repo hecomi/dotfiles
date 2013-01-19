@@ -1,0 +1,9 @@
+type=class
+superclass=XSD=XMLParser=ParserError
+included=
+extended=
+library=xsd.xmlparser
+aliases=
+aliasof=
+
+

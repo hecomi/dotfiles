@@ -1,0 +1,9 @@
+names=new
+visibility=public
+kind=defined
+
+--- new(dllname, func, import, export = "0")
+@todo
+
+指定された関数を [[c:DL::Symbol]] オブジェクトとして生成します。
+

@@ -1,0 +1,23 @@
+names=chop
+visibility=public
+kind=redefined
+
+--- chop -> String
+
+[[m:String#chop]] の日本語対応版です。
+
+例：
+
+  #!/usr/bin/env ruby
+
+  $KCODE = 'e'
+  zstr = 'ＡＢＣＤＥＦ'
+  hoge = 'hogehoge'
+
+  p zstr.chop       # => "ＡＢＣＤＥ\243"
+  p hoge.chop       # => "hogehog"
+
+  require 'jcode'
+  p zstr.chop       # => "ＡＢＣＤＥ"
+  p hoge.chop       # => "hogehog"
+

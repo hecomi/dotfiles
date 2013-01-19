@@ -1,0 +1,10 @@
+requires=
+classes=JSON,JSON=JSONError,JSON=ParserError,JSON=GeneratorError,JSON=UnparserError,JSON=CircularDatastructure,JSON=MissingUnicodeSupport,JSON=NestingError,JSON=Generator=GeneratorMethods=Array,JSON=Ext=Generator=GeneratorMethods=Array,JSON=Generator=GeneratorMethods=FalseClass,JSON=Ext=Generator=GeneratorMethods=FalseClass,JSON=Generator=GeneratorMethods=Float,JSON=Ext=Generator=GeneratorMethods=Float,JSON=Generator=GeneratorMethods=Hash,JSON=Ext=Generator=GeneratorMethods=Hash,JSON=Generator=GeneratorMethods=Integer,JSON=Ext=Generator=GeneratorMethods=Integer,JSON=Generator=GeneratorMethods=NilClass,JSON=Ext=Generator=GeneratorMethods=NilClass,JSON=Generator=GeneratorMethods=Object,JSON=Ext=Generator=GeneratorMethods=Object,JSON=Generator=GeneratorMethods=String,JSON=Ext=Generator=GeneratorMethods=String,JSON=Generator=GeneratorMethods=String=Extend,JSON=Ext=Generator=GeneratorMethods=String=Extend,JSON=Generator=GeneratorMethods=TrueClass,JSON=Ext=Generator=GeneratorMethods=TrueClass,JSON=Parser,JSON=Ext=Parser,JSON=State,JSON=Ext=Generator=State
+methods=Kernel/i.j.json,Kernel/i.jj.json,Kernel/i.JSON.json,Class/i.json_creatable=3f.json
+sublibraries=json.add.core,json.editor
+is_sublibrary=false
+category=FileFormat
+
+JSON (JavaScript Object Notation)を扱うライブラリです。
+
+JSON の仕様は [[rfc:4627]] を参照してください。

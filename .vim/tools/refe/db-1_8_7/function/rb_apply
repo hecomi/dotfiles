@@ -1,0 +1,11 @@
+filename=eval.c
+macro=false
+private=false
+type=VALUE
+name=rb_apply
+params=(VALUE recv, ID mid, VALUE args)
+
+
+オブジェクト recv のメソッド mid を
+引数 args とともに呼び出します。
+

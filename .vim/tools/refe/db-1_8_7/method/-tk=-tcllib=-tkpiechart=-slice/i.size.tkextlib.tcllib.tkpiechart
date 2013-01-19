@@ -1,0 +1,7 @@
+names=size
+visibility=public
+kind=defined
+
+--- size(share, disp = None)
+@todo
+

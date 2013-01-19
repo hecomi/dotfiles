@@ -1,0 +1,7 @@
+names=eval
+visibility=public
+kind=defined
+
+--- eval(cmd = Proc.new, *args)
+@todo
+

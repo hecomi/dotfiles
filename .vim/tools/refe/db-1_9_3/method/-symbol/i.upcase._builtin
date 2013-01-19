@@ -1,0 +1,14 @@
+names=upcase
+visibility=public
+kind=defined
+
+--- upcase -> Symbol
+
+小文字を大文字に変換したシンボルを返します。
+
+(self.to_s.upcase.intern と同じです。)
+
+  :foo.upcase #=> :FOO
+
+@see [[m:String#upcase]]
+

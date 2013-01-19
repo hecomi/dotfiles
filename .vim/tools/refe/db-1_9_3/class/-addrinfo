@@ -1,0 +1,14 @@
+type=class
+superclass=Object
+included=
+extended=
+library=socket
+aliases=
+aliasof=
+
+ソケットのアドレス情報を保持するクラスです。
+
+ホスト/ポート番号/プロトコルなどを同定するために用いられます。
+IPv4/IPv6/Unix domain socketなどのアドレス情報を保持することができます。
+
+struct addrinfo に対応します。

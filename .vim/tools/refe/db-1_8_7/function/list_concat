@@ -1,0 +1,11 @@
+filename=parse.y
+macro=false
+private=true
+type=NODE *
+name=list_concat
+params=(NODE *head, NODE *tail)
+
+
+NODE_LISTのリストheadにNODE_LISTのノードtailを連結し、
+先頭ノードを返す。head、tailともにNULLであってはならない。
+

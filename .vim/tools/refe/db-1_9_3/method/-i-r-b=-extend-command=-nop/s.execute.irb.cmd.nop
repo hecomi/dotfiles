@@ -1,0 +1,12 @@
+names=execute
+visibility=public
+kind=defined
+
+--- execute(conf, *opts) -> ()
+
+コマンドを実行します。ユーザが直接使用するものではありません。
+
+@param conf [[c:IRB::Context]] オブジェクトを指定します。
+
+@param opts irb 中でコマンドに渡す引数を指定します。
+

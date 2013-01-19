@@ -1,0 +1,11 @@
+filename=class.c
+macro=false
+private=false
+type=VALUE
+name=rb_class_inherited
+params=(VALUE super, VALUE klass)
+
+
+クラス super の下位クラス klass が作成されたことを
+受けて、super に対し inherited メソッドを呼び出します。
+

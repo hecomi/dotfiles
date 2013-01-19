@@ -1,0 +1,10 @@
+names=test_count=
+visibility=public 
+kind=defined
+
+--- test_count=(count)
+
+テストケース数をセットします。
+
+@param count 件数を指定します。
+

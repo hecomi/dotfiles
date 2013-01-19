@@ -1,0 +1,7 @@
+names=unescape_filename?
+visibility=public
+kind=defined
+
+--- unescape_filename? -> bool
+
+
