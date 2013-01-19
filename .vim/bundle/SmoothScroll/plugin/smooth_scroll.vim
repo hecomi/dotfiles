@@ -57,7 +57,3 @@ function! SmoothScroll(dir, windiv, factor)
       endif
    endwhile
 endfunction
-map <C-D> :call SmoothScroll("d",2, 2)<CR>
-map <C-U> :call SmoothScroll("u",2, 2)<CR>
-map <C-F> :call SmoothScroll("d",1, 1)<CR>
-map <C-B> :call SmoothScroll("u",1, 1)<CR>

@@ -52,7 +52,11 @@ NeoBundleLazy 'Shougo/vinarise', {
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'osyo-manga/vim-reanimate'
-NeoBundleLazy 'sjl/gundo.vim'
+NeoBundleLazy 'sjl/gundo.vim', {
+\	'autoload' : {
+\		'commands' : ['GundoShow', 'GundoRenderGraph'],
+\	},
+\ }
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-surround'
@@ -72,6 +76,8 @@ NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundleLazy 'kana/vim-textobj-function', {
 \	'autoload' : {
@@ -160,6 +166,8 @@ NeoBundleLazy 'javacomplete', {
 \	},
 \ }
 
+"waRa"
+
 " C#
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'yuratomo/dotnet-complete', {
@@ -183,10 +191,24 @@ NeoBundleLazy 'mattn/zencoding-vim', {
 
 " Web service
 " ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'basyura/bitly.vim'
+NeoBundleLazy '/basyura/twibill.vim'
 NeoBundleLazy 'basyura/TweetVim', {
-\	'depends'  : ['basyura/twibill.vim', 'tyru/open-browser.vim'],
+\	'depends'  : [
+\		'mattn/webapi-vim',
+\		'basyura/twibill.vim',
+\		'basyura/bitly.vim',
+\		'tyru/open-browser.vim'
+\	],
 \	'autoload' : {
-\		'commands' : 'TweetVimHomeTimeline'
+\		'commands' : [
+\			'TweetVimHomeTimeline',
+\			'TweetVimMentions',
+\			'TweetVimListStatuses',
+\			'TweetVimUserTimeline',
+\			'TweetVimSay',
+\			'TweetVimSearch',
+\		],
 \	},
 \ }
 NeoBundleLazy 'mattn/excitetranslate-vim', {
@@ -213,11 +235,6 @@ NeoBundleLazy 'tsukkee/lingr-vim', {
 \		'commands' : 'LingrLaunch',
 \	},
 \ }
-NeoBundleLazy 'TwitVim', {
-\	'autoload' : {
-\		'commands' : 'PostToTwitter',
-\	},
-\ }
 
 " Others
 " ---------------------------------------------------------------------------------------------------
@@ -227,10 +244,6 @@ NeoBundleLazy 'glidenote/memolist.vim', {
 \	},
 \ }
 NeoBundle 'eregex255',    {
-\	'type': 'nosync',
-\	'base': '~/.vim/bundle'
-\ }
-NeoBundle 'SmoothScroll', {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
 \ }
@@ -264,6 +277,10 @@ NeoBundleCheck
 " Key binds
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]nbs :NeoBundleSource<CR>
+nnoremap [unite]ni :Unite neobundle/install<CR>
+nnoremap [unite]nl :Unite neobundle/log<CR>
+nnoremap [unite]ns :Unite neobundle/search<CR>
+nnoremap [unite]nu :Unite neobundle/update<CR>
 
 "}}}
 
@@ -336,7 +353,12 @@ set t_Co=256
 " ---------------------------------------------------------------------------------------------------
 set foldenable
 set foldmethod=marker
-set foldcolumn=2
+set foldcolumn=1
+
+" Cursorline
+" ---------------------------------------------------------------------------------------------------
+set cursorline
+set nocursorcolumn
 
 " StatusLine
 " ---------------------------------------------------------------------------------------------------
@@ -364,12 +386,38 @@ endif
 nnoremap ; :
 vnoremap ; :
 
+" Command mode
+" ---------------------------------------------------------------------------------------------------
+cmap <C-a> <Home>
+cmap <C-e> <End>
+cmap <C-b> <Left>
+cmap <C-f> <Right>
+
 " Prefix
 " ---------------------------------------------------------------------------------------------------
 nnoremap [unite] <nop>
 nmap <Space> [unite]
 nnoremap [prefix] <nop>
 nmap , [prefix]
+
+" Move
+" ---------------------------------------------------------------------------------------------------
+nnoremap J <C-d>
+nnoremap K <C-u>
+vnoremap J <C-d>
+vnoremap K <C-u>
+
+" Ref: https://github.com/cohama/.vim/blob/master/.vimrc
+function! NotMoveWhenLeavingFromInsertMode()
+  let cursorPos = col(".")
+  let maxColumn = col("$")
+  if cursorPos < maxColumn && cursorPos != 1
+    return "\<Esc>l"
+  else
+    return "\<Esc>"
+  endif
+endfunction
+imap <silent><expr> <Esc> NotMoveWhenLeavingFromInsertMode()
 
 " Emacs-like
 " Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
@@ -393,6 +441,10 @@ nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
 
+" Replace
+" ---------------------------------------------------------------------------------------------------
+vnoremap s :S/
+
 " Disable macro
 " ---------------------------------------------------------------------------------------------------
 nnoremap q <Nop>
@@ -411,12 +463,10 @@ augroup SetNoPaste
 augroup END
 nnoremap p :set paste<CR>p:set nopaste<CR>
 
-" Scroll
+" Wrap
 " ---------------------------------------------------------------------------------------------------
-nnoremap J <C-d>
-nnoremap K <C-u>
-vnoremap J <C-d>
-vnoremap K <C-u>
+nnoremap [prefix]sw  :set wrap<CR>
+nnoremap [prefix]snw :set nowrap<CR>
 
 " Help
 " ---------------------------------------------------------------------------------------------------
@@ -440,15 +490,11 @@ augroup MyIME
 	autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
-" Sort
-" ---------------------------------------------------------------------------------------------------
-vnoremap <silent> s :sort<CR>
-
 " Continuous Number
 " ---------------------------------------------------------------------------------------------------
+command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 nnoremap <silent> co :ContinuousNumber <C-a><CR>
 vnoremap <silent> co :ContinuousNumber <C-a><CR>
-	command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -478,9 +524,11 @@ endif
 " }}}
 
 "====================================================================================================
-" Color Scheme
+" Apperance
 "====================================================================================================
 " {{{
+" ColorScheme
+" ---------------------------------------------------------------------------------------------------
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
@@ -495,6 +543,11 @@ hi PmenuSel   ctermbg=gray     ctermfg=black
 hi PmenuSbar  ctermbg=darkblue
 hi PmenuThumb ctermbg=white
 hi CursorLine ctermbg=gray     ctermfg=white
+
+" highlight
+" ---------------------------------------------------------------------------------------------------
+highlight CursorLine ctermbg=black ctermfg=none
+
 " }}}
 
 "====================================================================================================
@@ -514,6 +567,10 @@ nnoremap <silent> [unite]t :Unite tab<CR>
 nnoremap <silent> [unite]u :Unite source<CR>
 nnoremap <silent> [unite]w :Unite window<CR>
 nnoremap <silent> [unite]y :Unite history/yank<CR>
+
+" unite-n3337
+" ---------------------------------------------------------------------------------------------------
+let g:unite_n3337_pdf = $HOME.'/.vim/tools/n3337/n3337.txt'
 " }}}
 
 "====================================================================================================
@@ -521,28 +578,29 @@ nnoremap <silent> [unite]y :Unite history/yank<CR>
 "====================================================================================================
 "' {{{
 " Basic settings
-" thx to itchyny-san m(_ _)m
 " ---------------------------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer  = 1
 let g:vimfiler_safe_mode_by_default = 0
-let g:vimfiler_sort_type = 'TIME'
+let g:vimfiler_sort_type            = 'TIME'
+
+let g:vimfiler_file_icon            = '-'
 
 if s:is_win
-	let g:vimfiler_tree_leaf_icon = '|'
+	let g:vimfiler_tree_leaf_icon   = '|'
 	let g:vimfiler_tree_opened_icon = '-'
 	let g:vimfiler_tree_closed_icon = '+'
 else
-	let g:vimfiler_tree_leaf_icon = ' '
+	let g:vimfiler_tree_leaf_icon   = ' '
 	let g:vimfiler_tree_opened_icon = '▾'
 	let g:vimfiler_tree_closed_icon = '▸'
 endif
-let g:vimfiler_file_icon = '-'
+
 if s:is_mac
 	let g:vimfiler_readonly_file_icon = '✗'
-	let g:vimfiler_marked_file_icon = '✓'
+	let g:vimfiler_marked_file_icon   = '✓'
 else
 	let g:vimfiler_readonly_file_icon = 'x'
-	let g:vimfiler_marked_file_icon = 'v'
+	let g:vimfiler_marked_file_icon   = 'v'
 endif
 
 " Key binds
@@ -627,7 +685,12 @@ vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" 
 " vim-ref
 "====================================================================================================
 " {{{
-nnoremap ,refe :Unite ref/refe<CR>
+nnoremap [unite]refe   :Unite ref/refe<CR>
+nnoremap [unite]ri     :Unite ref/ri<CR>
+nnoremap [unite]erlang :Unite ref/erlang<CR>
+nnoremap [unite]py     :Unite ref/py<CR>
+nnoremap [unite]perl   :Unite ref/perl<CR>
+nnoremap [unite]web    :Unite ref/web<CR>
 " }}}
 
 "====================================================================================================
@@ -860,19 +923,20 @@ noremap <silent> g<C-]> :<C-u>execute "PopupTags ".expand('<cword>')<CR>
 noremap <silent> G<C-]> :<C-u>execute "PopupTags "
     \.substitute(<SID>get_func_name(expand('<cWORD>')), '\:', '\\\:', "g")<CR>
 
+" Unite source: set_tags
+" ---------------------------------------------------------------------------------------------------
 let s:source = {
 \    'name'        : 'set_tags',
 \    'description' : 'include tag files',
 \}
 
-" Unite source: set_tags
-" ---------------------------------------------------------------------------------------------------
 call unite#define_source(s:source)
 function! s:source.gather_candidates(args, context)
     let l:set_tag_command = "setlocal tags+=%s"
-    let l:tag_file_lists = split(glob($HOME.'/.vim/tags/*/*'))
+	let l:search_dir = $HOME.'/.vim/tags/'.&filetype.'/*'
+    let l:tag_files = split(glob(l:search_dir).' '.glob('./*tags'))
     return map(
-        \ l:tag_file_lists,
+        \ l:tag_files,
         \ '{
         \     "word"            : v:val,
         \     "source"          : "set_tags",
@@ -883,7 +947,8 @@ endfunction
 call unite#define_source(s:source)
 unlet s:source
 
-nnoremap [unite]st :Unite set_tags<CR>
+nnoremap [unite]st  :Unite set_tags<CR>
+nnoremap [unite]tag :Unite tag<CR>
 " }}}
 
 "====================================================================================================
@@ -1014,6 +1079,35 @@ let g:gist_open_browser_after_post = 1
 " }}}
 
 "====================================================================================================
+" TweetVim
+"====================================================================================================
+" {{{
+let g:tweetvim_config_dir         = expand('~/.vim/.tweetvim')
+let g:tweetvim_tweet_per_page     = 30
+let g:tweetvim_cache_size         = 30
+let g:tweetvim_include_rts        = 1
+let g:tweetvim_display_icon       = 0
+let g:tweetvim_say_insert_account = 0
+
+nnoremap [unite]tv   :Unite tweetvim<CR>
+nnoremap [prefix]tw  :TweetVimSay<CR>
+nnoremap [prefix]twh :TweetVimHomeTimeline<CR>
+nnoremap [prefix]twm :TweetVimMentions<CR>
+nnoremap [prefix]tws :TweetVimSearch
+
+augroup tweetvim
+	autocmd!
+	autocmd FileType tweetvim setlocal wrap
+augroup END
+
+if !exists('g:neocomplcache_dictionary_filetype_lists')
+  let g:neocomplcache_dictionary_filetype_lists = {}
+endif
+let neco_dic = g:neocomplcache_dictionary_filetype_lists
+let neco_dic.tweetvim_say = $HOME . '/.tweetvim/screen_name'
+" }}}
+
+"====================================================================================================
 " Alignta
 "====================================================================================================
 " {{{
@@ -1021,6 +1115,7 @@ vnoremap a  :Alignta
 vnoremap a= :Alignta =<CR>
 vnoremap a+ :Alignta +<CR>
 vnoremap a: :Alignta :<CR>
+vnoremap a, :Alignta ,<CR>
 " }}}
 
 "====================================================================================================
@@ -1047,6 +1142,13 @@ nmap F 'b
 " }}}
 
 "====================================================================================================
+" Operator
+"====================================================================================================
+"{{{
+map _ <Plug>(operator-replace)
+" }}}
+
+"====================================================================================================
 " echodoc
 "====================================================================================================
 "{{{
@@ -1059,6 +1161,13 @@ let g:echodoc_enable_at_startup = 1
 " {{{
 nnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
 vnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
+" }}}
+
+"====================================================================================================
+" Linger-vim
+"====================================================================================================
+" {{{
+nnoremap <silent> [prefix]ll :LingrLaunch<CR>
 " }}}
 
 "====================================================================================================

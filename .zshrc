@@ -135,7 +135,7 @@ setopt PROMPT_SUBST
 
 # Path
 # ---------------------------------------------------------------------------------------------------
-local RUBY_PATH="$HOME/.rvm/bin/"
+local RUBY_PATH="$HOME/.rvm/bin/,$HOME/.rvm/gems/ruby-1.9.3-head/bin"
 local REFE_PATH="$HOME/.vim/tools/refe/"
 local CLANG_PATH="/usr/local/clang-3.1/bin"
 local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
