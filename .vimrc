@@ -51,6 +51,7 @@ NeoBundleLazy 'Shougo/vinarise', {
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundleLazy 'sjl/gundo.vim', {
 \	'autoload' : {
@@ -61,7 +62,6 @@ NeoBundle 'spolu/dwm.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
-NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'YankRing.vim'
 NeoBundle 'sudo.vim'
 
@@ -71,19 +71,40 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kien/rainbow_parentheses.vim'
 
-" Programming (Common)
+" Text-object
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'jceb/vim-hier'
-NeoBundle 'dannyob/quickfixstatus'
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-entire'
+NeoBundle 'kana/vim-textobj-fold'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-syntax'
+NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundleLazy 'kana/vim-textobj-function', {
 \	'autoload' : {
 \		'filetypes' : ['c', 'vim'],
 \	},
 \ }
+NeoBundleLazy 'thinca/vim-textobj-plugins', {
+\	'depends'  : ['kana/vim-textobj-function'],
+\	'autoload' : {
+\		'filetypes' : ['javascript', 'perl'],
+\	},
+\ }
+
+" Operator
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'kana/vim-operator-replace'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'emonkak/vim-operator-comment'
+NeoBundle 'emonkak/vim-operator-sort'
+" NeoBundle 'tyru/operator-camelize.vim'
+" NeoBundle 'tyru/operator-reverse.vim'
+
+" Programming (Common)
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'jceb/vim-hier'
+NeoBundle 'dannyob/quickfixstatus'
+NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/vim-watchdogs'
@@ -109,33 +130,22 @@ augroup END
 
 " JavaScript / TypeScript
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'myhere/vim-nodejs-complete', {
-\	'autoload' : {
-\		'filetypes' : ['javascript', 'typescript'],
-\	},
-\ }
-NeoBundle 'teramako/jscomplete-vim', {
-\	'autoload' : {
-\		'filetypes' : ['javascript', 'typescript'],
-\	},
-\ }
-NeoBundleLazy 'leafgarland/typescript-vim', {
-\	'autoload' : {
-\		'filetypes' : ['typescript'],
-\	},
-\ }
-NeoBundleLazy 'thinca/vim-textobj-plugins', {
-\	'depends'  : ['kana/vim-textobj-function'],
-\	'autoload' : {
-\		'filetypes' : ['javascript', 'perl'],
-\	},
-\ }
+NeoBundleLazy 'myhere/vim-nodejs-complete'
+NeoBundleLazy 'teramako/jscomplete-vim'
+NeoBundleLazy 'leafgarland/typescript-vim'
+augroup NeoBundleLazyLoadJavaScript
+	autocmd!
+	autocmd FileType javascript,typescript NeoBundleSource
+		\ vim-nodejs-complete
+		\ jscomplete-vim
+		\ typescript-vim
+augroup END
 
 " Ruby
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'Shougo/neocomplcache-rsense'
-NeoBundleLazy 'rhysd/unite-ruby-require.vim'
 NeoBundleLazy 'rhysd/neco-ruby-keyword-args'
+NeoBundleLazy 'rhysd/unite-ruby-require.vim'
 NeoBundleLazy 'rhysd/vim-textobj-ruby'
 NeoBundleLazy 'skwp/vim-rspec'
 NeoBundleLazy 'taka84u9/vim-ref-ri'
@@ -166,8 +176,6 @@ NeoBundleLazy 'javacomplete', {
 \	},
 \ }
 
-"waRa"
-
 " C#
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'yuratomo/dotnet-complete', {
@@ -178,16 +186,16 @@ NeoBundleLazy 'yuratomo/dotnet-complete', {
 
 " HTML
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'mjbrownie/html-textobjects', {
-\	'autoload' : {
-\		'filetypes' : ['html', 'xml'],
-\	},
-\ }
-NeoBundleLazy 'mattn/zencoding-vim', {
-\	'autoload' : {
-\		'filetypes' : ['html', 'xml'],
-\	},
-\ }
+NeoBundleLazy 'mattn/zencoding-vim'
+NeoBundleLazy 'mjbrownie/html-textobjects'
+NeoBundleLazy 'tyru/operator-html-escape.vim'
+augroup NeoBundleLazyLoadHtml
+	autocmd!
+	autocmd FileType html,xml NeoBundleSource
+		\ html-textobjects
+		\ zencoding-vim
+		\ operator-html-escape
+augroup END
 
 " Web service
 " ---------------------------------------------------------------------------------------------------
@@ -233,6 +241,11 @@ NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'tsukkee/lingr-vim', {
 \	'autoload' : {
 \		'commands' : 'LingrLaunch',
+\	},
+\ }
+NeoBundleLazy 'tyru/open-browser.vim', {
+\	'autoload' : {
+\		'commands' : 'OpenBrowser'
 \	},
 \ }
 
@@ -395,8 +408,6 @@ cmap <C-f> <Right>
 
 " Prefix
 " ---------------------------------------------------------------------------------------------------
-nnoremap [unite] <nop>
-nmap <Space> [unite]
 nnoremap [prefix] <nop>
 nmap , [prefix]
 
@@ -558,6 +569,8 @@ let g:unite_source_history_yank_enable = 1
 
 " Key mappings
 " ---------------------------------------------------------------------------------------------------
+nnoremap [unite] <nop>
+nmap <Space> [unite]
 nnoremap <silent> [unite]b :Unite buffer<CR>
 nnoremap <silent> [unite]g :Unite grep<CR>
 nnoremap <silent> [unite]o :Unite outline<CR>
@@ -1142,10 +1155,21 @@ nmap F 'b
 " }}}
 
 "====================================================================================================
+" Arpeggio
+"====================================================================================================
+"{{{
+call arpeggio#load()
+let g:arpeggio_timeoutlen = 50
+" }}}
+
+"====================================================================================================
 " Operator
 "====================================================================================================
 "{{{
-map _ <Plug>(operator-replace)
+Arpeggio nmap or <Plug>(operator-replace)
+Arpeggio nmap ou <Plug>(operator-uncomment)
+Arpeggio nmap oc <Plug>(operator-comment)
+Arpeggio nmap os <Plug>(operator-sort)
 " }}}
 
 "====================================================================================================
@@ -1202,7 +1226,6 @@ autocmd Syntax   *   RainbowParenthesesLoadBraces
 
 "====================================================================================================
 " Vim-powerline
-" Ref: http://d.hatena.ne.jp/itchyny/20120609/1339249777
 "====================================================================================================
 " {{{
 let g:Powerline_symbols = 'fancy'
@@ -1214,7 +1237,7 @@ call Pl#Hi#Allocate({
 	\ 'darkestgreen'   : 22,
 	\ 'darkgreen'      : 28,
 	\
-	\ 'darkestcyan'    : 23,
+	\ 'darkestcyan'    : 21,
 	\ 'mediumcyan'     : 117,
 	\
 	\ 'darkestblue'    : 24,
@@ -1249,12 +1272,6 @@ call Pl#Hi#Allocate({
 	\ 'gray10'         : 252,
 	\ })
 
-" 'n': normal mode
-" 'i': insert mode
-" 'v': visual mode
-" 'r': replace mode
-" 'N': not active
-
 let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 	\ Pl#Hi#Segments(['SPLIT'], {
 		\ 'n': ['white', 'gray2'],
@@ -1262,19 +1279,19 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 		\ }),
 	\
 	\ Pl#Hi#Segments(['mode_indicator'], {
-		\ 'i': ['darkestgreen', 'white', ['bold']],
-		\ 'n': ['darkestcyan', 'white', ['bold']],
+		\ 'i': ['darkestgreen',  'white', ['bold']],
+		\ 'n': ['darkestblue',   'white', ['bold']],
 		\ 'v': ['darkestpurple', 'white', ['bold']],
-		\ 'r': ['mediumred', 'white', ['bold']],
-		\ 's': ['white', 'gray5', ['bold']],
+		\ 'r': ['darkred',       'white', ['bold']],
+		\ 's': ['white',         'gray5', ['bold']],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['fileinfo', 'filename'], {
-		\ 'i': ['white', 'darkestgreen', ['bold']],
-		\ 'n': ['white', 'darkestblue', ['bold']],
+		\ 'i': ['white', 'darkestgreen',  ['bold']],
+		\ 'n': ['white', 'darkestblue',   ['bold']],
 		\ 'v': ['white', 'darkestpurple', ['bold']],
-		\ 'r': ['white', 'mediumred', ['bold']],
-		\ 'N': ['gray0', 'gray2', ['bold']],
+		\ 'r': ['white', 'darkred',       ['bold']],
+		\ 'N': ['gray0', 'gray2',         ['bold']],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['branch', 'scrollpercent', 'raw', 'filesize'], {
@@ -1320,18 +1337,26 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 		\ }),
 	\
 	\ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
-		\ 'n': ['white', 'mediumred', ['bold']],
+		\ 'n': ['white',     'mediumred',  ['bold']],
 		\ 'N': ['brightred', 'darkestred', ['bold']],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['gundo:static_str.buffer', 'command_t:raw.line'], {
-		\ 'n': ['white', 'darkred'],
+		\ 'n': ['white',     'darkred'],
 		\ 'N': ['brightred', 'darkestred'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
 		\ 'n': ['white', 'darkred'],
 		\ 'N': ['white', 'darkestred'],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['branch'], {
+		\ 'i': ['white', 'darkgreen',    ['bold']] ,
+		\ 'n': ['white', 'darkblue',     ['bold']] ,
+		\ 'v': ['white', 'mediumpurple', ['bold']] ,
+		\ 'r': ['white', 'mediumred',    ['bold']] ,
+		\ 'N': ['gray0', 'gray2',        ['bold']] ,
 		\ }),
 	\ ])
 
@@ -1353,6 +1378,7 @@ endif
 "====================================================================================================
 " load .vimrc.*
 "====================================================================================================
+" {{{
 if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local
 endif
@@ -1360,4 +1386,5 @@ endif
 if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
+" }}}
 
