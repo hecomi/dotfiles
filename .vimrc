@@ -37,10 +37,12 @@ NeoBundle 'Shougo/vimproc', {
 \	},
 \ }
 NeoBundleLazy 'Shougo/vimshell', {
+\	'depends'  : ['ujihisa/vimshell-ssh'],
 \	'autoload' : {
 \		'commands' : ['VimShell', 'VimShellPop', 'VimShellInteractive', 'VimShellCreate'],
 \	},
 \ }
+NeoBundleLazy 'ujihisa/vimshell-ssh'
 NeoBundleLazy 'Shougo/vinarise', {
 \	'autoload' : {
 \		'commands' : 'Vinarise',
@@ -51,6 +53,7 @@ NeoBundleLazy 'Shougo/vinarise', {
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundleLazy 'sjl/gundo.vim', {
@@ -59,9 +62,20 @@ NeoBundleLazy 'sjl/gundo.vim', {
 \	},
 \ }
 NeoBundle 'spolu/dwm.vim'
+NeoBundle 't9md/vim-textmanip'
+NeoBundleLazy 'taku-o/vim-batch-source', {
+\	'autoload' : {
+\		'filetypes' : ['vim'],
+\	},
+\ }
+NeoBundle 'taku-o/vim-toggle'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-visualstar'
+NeoBundle 'tsaleh/vim-matchit'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
+NeoBundle 'ujihisa/netrw.vim'
 NeoBundle 'YankRing.vim'
 NeoBundle 'sudo.vim'
 
@@ -87,7 +101,7 @@ NeoBundleLazy 'kana/vim-textobj-function', {
 NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \	'depends'  : ['kana/vim-textobj-function'],
 \	'autoload' : {
-\		'filetypes' : ['javascript', 'perl'],
+\		'filetypes' : ['html', 'javascript', 'perl'],
 \	},
 \ }
 
@@ -97,6 +111,7 @@ NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'emonkak/vim-operator-comment'
 NeoBundle 'emonkak/vim-operator-sort'
+NeoBundle 'tyru/operator-star.vim'
 " NeoBundle 'tyru/operator-camelize.vim'
 " NeoBundle 'tyru/operator-reverse.vim'
 
@@ -110,6 +125,12 @@ NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'matchparenpp'
+NeoBundleLazy 'pthrasher/conqueterm-vim', {
+\	'autoload' : {
+\		'commands' : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermVSplit'],
+\	},
+\ }
 
 " C / C++
 " ---------------------------------------------------------------------------------------------------
@@ -135,7 +156,7 @@ NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 augroup NeoBundleLazyLoadJavaScript
 	autocmd!
-	autocmd FileType javascript,typescript NeoBundleSource
+	autocmd FileType html,javascript,typescript NeoBundleSource
 		\ vim-nodejs-complete
 		\ jscomplete-vim
 		\ typescript-vim
@@ -184,6 +205,20 @@ NeoBundleLazy 'yuratomo/dotnet-complete', {
 \	},
 \ }
 
+" Action Script
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'actionscript.vim'
+NeoBundleLazy 'ActionScript-3-Omnicomplete'
+augroup NeoBundleLazyLoadActionScript
+	autocmd!
+	autocmd FileType actionscript NeoBundleSource
+		\ actionscript.vim
+		\ ActionScript-3-Omnicomplete
+augroup END
+augroup ActionScriptSetFileType
+	autocmd BufNewFile,BufRead *.as set filetype=actionscript
+augroup END
+
 " HTML
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'mattn/zencoding-vim'
@@ -194,7 +229,7 @@ augroup NeoBundleLazyLoadHtml
 	autocmd FileType html,xml NeoBundleSource
 		\ html-textobjects
 		\ zencoding-vim
-		\ operator-html-escape
+		\ operator-html-escape.vim
 augroup END
 
 " Web service
@@ -260,6 +295,34 @@ NeoBundle 'eregex255',    {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
 \ }
+NeoBundleLazy 'migemo',    {
+\	'autoload' : {
+\		'commands' : ['Migemo'],
+\	},
+\	'type': 'nosync',
+\	'base': '~/.vim/bundle'
+\ }
+NeoBundleLazy 'gregsexton/VimCalc',    {
+\	'autoload' : {
+\		'commands' : ['Calc'],
+\	},
+\ }
+NeoBundleLazy 'DrawIt', {
+\	'autoload' : {
+\		'commands' : ['DrawIt'],
+\	},
+\ }
+NeoBundleLazy 'mattn/calendar-vim', {
+\	'autoload' : {
+\		'commands' : ['Calendar'],
+\	},
+\ }
+
+" for GVim
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'thinca/vim-fontzoom'
+NeoBundleLazy 'tyru/restart.vim'
+NeoBundleLazy 'ujihisa/unite-font'
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
@@ -290,10 +353,11 @@ NeoBundleCheck
 " Key binds
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]nbs :NeoBundleSource<CR>
-nnoremap [unite]ni :Unite neobundle/install<CR>
-nnoremap [unite]nl :Unite neobundle/log<CR>
-nnoremap [unite]ns :Unite neobundle/search<CR>
-nnoremap [unite]nu :Unite neobundle/update<CR>
+nnoremap [unite]ni   :Unite neobundle/install<CR>
+nnoremap [unite]nl   :Unite neobundle/log<CR>
+nnoremap [unite]ns   :Unite neobundle/search<CR>
+nnoremap [unite]nu   :Unite neobundle/update<CR>
+nnoremap [prefix]bni :Batch<CR>:NeoBundleInstall<CR>
 
 "}}}
 
@@ -399,17 +463,17 @@ endif
 nnoremap ; :
 vnoremap ; :
 
-" Command mode
-" ---------------------------------------------------------------------------------------------------
-cmap <C-a> <Home>
-cmap <C-e> <End>
-cmap <C-b> <Left>
-cmap <C-f> <Right>
-
 " Prefix
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix] <nop>
 nmap , [prefix]
+xnoremap [prefix] <nop>
+xmap , [prefix]
+
+" Command
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix]: <Esc>q:
+nnoremap [prefix]; <Esc>q:
 
 " Move
 " ---------------------------------------------------------------------------------------------------
@@ -449,8 +513,9 @@ inoremap <C-l> <C-o>zz
 nnoremap <Esc><Esc> :nohlsearch<CR>
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
+nnoremap * *N
+nnoremap # #N
+nnoremap [prefix]/ <Esc>q/
 
 " Replace
 " ---------------------------------------------------------------------------------------------------
@@ -473,6 +538,7 @@ augroup SetNoPaste
 	autocmd InsertLeave * if &paste | set nopaste | endif
 augroup END
 nnoremap p :set paste<CR>p:set nopaste<CR>
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`'
 
 " Wrap
 " ---------------------------------------------------------------------------------------------------
@@ -504,8 +570,8 @@ augroup END
 " Continuous Number
 " ---------------------------------------------------------------------------------------------------
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
-nnoremap <silent> co :ContinuousNumber <C-a><CR>
-vnoremap <silent> co :ContinuousNumber <C-a><CR>
+nnoremap <silent> [prefix]co :ContinuousNumber <C-a><CR>
+vnoremap <silent> [prefix]co :ContinuousNumber <C-a><CR>
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -532,6 +598,13 @@ else
 	nnoremap [prefix]program :e ~/Program<CR>
 endif
 
+" }}}
+
+"====================================================================================================
+" Common Settings
+"====================================================================================================
+" {{{
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 " }}}
 
 "====================================================================================================
@@ -569,8 +642,16 @@ let g:unite_source_history_yank_enable = 1
 
 " Key mappings
 " ---------------------------------------------------------------------------------------------------
+augroup UniteKeyMapping
+	autocmd!
+	autocmd FileType unite nnoremap <buffer>J <C-d>
+	autocmd FileType unite nnoremap <buffer>K <C-u>
+augroup END
 nnoremap [unite] <nop>
+xnoremap [unite] <nop>
 nmap <Space> [unite]
+xmap <Space> [unite]
+nnoremap <silent> [unite]  :Unite
 nnoremap <silent> [unite]b :Unite buffer<CR>
 nnoremap <silent> [unite]g :Unite grep<CR>
 nnoremap <silent> [unite]o :Unite outline<CR>
@@ -652,6 +733,19 @@ let g:neocomplcache_enable_underbar_completion   = 1
 let g:neocomplcache_skip_auto_completion_time    = '0.3'
 let g:neocomplcache_max_list                     = 1000
 
+" Omni patterns
+" ---------------------------------------------------------------------------------------------------
+if !exists('g:neocomplcache_omni_patterns')
+	let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+" Omni functions
+" ---------------------------------------------------------------------------------------------------
+
 " <TAB> completion.
 " ---------------------------------------------------------------------------------------------------
 inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
@@ -698,6 +792,10 @@ vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" 
 " vim-ref
 "====================================================================================================
 " {{{
+if s:is_mac
+	let g:ref_ruby_cmd = $HOME.'/.vim/tools/refe/refe-1_9_3'
+endif
+
 nnoremap [unite]refe   :Unite ref/refe<CR>
 nnoremap [unite]ri     :Unite ref/ri<CR>
 nnoremap [unite]erlang :Unite ref/erlang<CR>
@@ -849,6 +947,14 @@ let g:quickrun_config['cs']  = {
 	\ 'exec'                 : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
 	\ 'cmdopt'               : '-warn:4 -pkg:dotnet',
 	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+\ }
+
+" ActionScript
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['actionscript']  = {
+	\ 'command'              : 'mxmlc',
+	\ 'exec'                 : ['%c %o %s:p > null'],
+	\ 'cmdopt'               : '-static-link-runtime-shared-libraries',
 \ }
 
 " Watchdogs
@@ -1044,6 +1150,15 @@ nnoremap <silent> [prefix]gC :Gcommit<CR>
 " }}}
 
 "====================================================================================================
+" Conque
+"====================================================================================================
+" {{{
+nnoremap [prefix]zsh  :ConqueTerm       zsh<CR>
+nnoremap [prefix]zshs :ConqueTermSplit  zsh<CR>
+nnoremap [prefix]zshv :ConqueTermVSplit zsh<CR>
+" }}}
+
+"====================================================================================================
 " reanimate.vim
 "====================================================================================================
 " {{{
@@ -1124,11 +1239,29 @@ let neco_dic.tweetvim_say = $HOME . '/.tweetvim/screen_name'
 " Alignta
 "====================================================================================================
 " {{{
+nnoremap [unite]a :<C-u>Unite alignta:options<CR>
+xnoremap [unite]a :<C-u>Unite alignta:arguments<CR>
+
+let g:unite_source_alignta_preset_arguments = [
+	\ ["Align at '='", '=>\='],
+	\ ["Align at ':'", '01 :'],
+	\ ["Align at '|'", '|'   ],
+	\ ["Align at ')'", '0 )' ],
+	\ ["Align at ']'", '0 ]' ],
+	\ ["Align at '}'", '}'   ],
+\]
+
 vnoremap a  :Alignta
 vnoremap a= :Alignta =<CR>
 vnoremap a+ :Alignta +<CR>
-vnoremap a: :Alignta :<CR>
-vnoremap a, :Alignta ,<CR>
+vnoremap a: :Alignta 01 :<CR>
+vnoremap a; :Alignta 01 :<CR>
+vnoremap a, :Alignta 01 ,<CR>
+vnoremap ae :Alignta -e
+vnoremap ar :Alignta -r
+vnoremap ap :Alignta -p
+vnoremap ag :Alignta g/^\s*
+vnoremap av :Alignta v/^\s*
 " }}}
 
 "====================================================================================================
@@ -1155,6 +1288,24 @@ nmap F 'b
 " }}}
 
 "====================================================================================================
+" visualstar.vim
+"====================================================================================================
+" {{{
+map * <Plug>(visualstar-*)N
+map # <Plug>(visualstar-#)N
+" }}}
+
+"====================================================================================================
+" Textmanip
+"====================================================================================================
+" {{{
+vmap <C-j> <Plug>(textmanip-move-down)
+vmap <C-k> <Plug>(textmanip-move-up)
+vmap <C-h> <Plug>(textmanip-move-left)
+vmap <C-l> <Plug>(textmanip-move-right)
+" }}}
+
+"====================================================================================================
 " Arpeggio
 "====================================================================================================
 "{{{
@@ -1170,6 +1321,7 @@ Arpeggio nmap or <Plug>(operator-replace)
 Arpeggio nmap ou <Plug>(operator-uncomment)
 Arpeggio nmap oc <Plug>(operator-comment)
 Arpeggio nmap os <Plug>(operator-sort)
+Arpeggio nmap oe <Plug>(operator-html-escape)
 " }}}
 
 "====================================================================================================
@@ -1373,6 +1525,13 @@ if exists('&asm')
 	set asm=0
 	set gdbprg=gdb
 endif
+" }}}
+
+"====================================================================================================
+" toggle.vim
+"====================================================================================================
+" {{{
+nmap T <Plug>ToggleN
 " }}}
 
 "====================================================================================================
