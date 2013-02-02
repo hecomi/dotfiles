@@ -1,13 +1,14 @@
 # ====================================================================================================
-# * Basic settings
+# Local
 # ====================================================================================================
+# {{{
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+# }}}
 
-# Experimental
-# ---------------------------------------------------------------------------------------------------
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
-# Common
-# ---------------------------------------------------------------------------------------------------
+# ====================================================================================================
+# Basic
+# ====================================================================================================
+# {{{
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -35,12 +36,18 @@ setopt rm_star_silent
 
 # module
 zmodload -i zsh/mathfunc
+# }}}
 
-# Key Bind / Alias
+# ====================================================================================================
+# Key Binds & Aliases
+# ====================================================================================================
+# {{{
+# Common
 # ---------------------------------------------------------------------------------------------------
 bindkey -e
 
 # ls
+# ---------------------------------------------------------------------------------------------------
 case ${OSTYPE} in
 linux-gnu)
 	alias ls="ls -G -C --color"
@@ -54,11 +61,17 @@ alias lf="ls -F"
 alias ll="ls -al"
 
 # grep
+# ---------------------------------------------------------------------------------------------------
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# cmdline-fu
+# ---------------------------------------------------------------------------------------------------
+alias cmdf='cmdline-fu matching'
+
 # C++
+# ---------------------------------------------------------------------------------------------------
 case ${OSTYPE} in
 linux*)
 	alias clang++='clang++ -std=c++0x'
@@ -72,6 +85,7 @@ darwin*)
 esac
 
 # Node.js
+# ---------------------------------------------------------------------------------------------------
 alias nave='~/.nave/nave/nave.sh'
 case ${OSTYPE} in
 linux*)
@@ -80,21 +94,30 @@ linux*)
 esac
 
 # ctags
+# ---------------------------------------------------------------------------------------------------
 case ${OSTYPE} in
 darwin12.0)
 	alias ctags="/usr/local/bin/ctags"
 	;;
 esac
+# }}}
 
+# ====================================================================================================
 # Compilation
-# ---------------------------------------------------------------------------------------------------
+# ====================================================================================================
+# {{{
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle :compinstall filename '/home/hecomi/.zshrc'
 autoload -Uz compinit
 
 # autoload predict-on
 # predict-on
+# }}}
 
+# ====================================================================================================
+# Appearance
+# ====================================================================================================
+# {{{
 # Color
 # ---------------------------------------------------------------------------------------------------
 local gray=$'%{\e[0;30m%}'
@@ -132,7 +155,12 @@ PROMPT2=$blue'%_> '$DEFAULT
 RPROMPT=$GREEN'[%~]'$DEFAULT
 SPROMPT=$BLUE'correct: '$WHITE'%R'$BLUE' -> '$YELLOW'%r'$BLUE' [nyae]? '$DEFAULT
 setopt PROMPT_SUBST
+# }}}
 
+# ====================================================================================================
+# Path
+# ====================================================================================================
+# {{{
 # Path
 # ---------------------------------------------------------------------------------------------------
 local RUBY_PATH="$HOME/.rvm/bin/,$HOME/.rvm/gems/ruby-1.9.3-head/bin"
@@ -145,7 +173,12 @@ local LOCAL_SBIN_PATH="/usr/local/sbin"
 local ANDROID_SDK_TOOLS_PATH="/Users/hecomi/android-sdks/platform-tools"
 local ANDROID_NDK_TOOLS_PATH="/Users/hecomi/android-ndk/"
 local NODEBREW_PATH="$HOME/.nodebrew/current/bin"
-export PATH="$GIT_PATH:$GCC_PATH:$REFE_PATH:$RUBY_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$ANDROID_NDK_TOOLS_PATH:$PATH"
+local DEPOT_TOOLS_PATH="$HOME/Tools/depot_tools"
+export PATH="$GIT_PATH:$GCC_PATH:$REFE_PATH:$RUBY_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$ANDROID_NDK_TOOLS_PATH:$DEPOT_TOOLS_PATH:$PATH"
+
+# C++
+# ---------------------------------------------------------------------------------------------------
+export NACL_SDK_ROOT="$HOME/Tools/nacl_sdk/pepper_current"
 
 # RUBY
 # ---------------------------------------------------------------------------------------------------
@@ -157,4 +190,4 @@ alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb 
 # .NET C#
 # ---------------------------------------------------------------------------------------------------
 export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
-
+# }}}

@@ -12,6 +12,7 @@ let s:is_linux = !s:is_mac && has('unix')
 "====================================================================================================
 " {{{
 filetype off
+let g:neobundle_default_git_protocol = 'https'
 
 " Path
 " ---------------------------------------------------------------------------------------------------
@@ -138,6 +139,7 @@ NeoBundleLazy 'mattn/quickrunex-vim'
 NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
+NeoBundleLazy 'beyondmarc/opengl.vim'
 NeoBundleLazy 'vim-jp/cpp-vim'
 augroup NeoBundleLazyLoadCpp
 	autocmd!
@@ -146,6 +148,7 @@ augroup NeoBundleLazyLoadCpp
 		\ unite-boost-online-doc
 		\ clang_complete
 		\ unite-n3337
+		\ opengl.vim
 		\ cpp-vim
 augroup END
 
@@ -154,9 +157,11 @@ augroup END
 NeoBundleLazy 'myhere/vim-nodejs-complete'
 NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
+NeoBundleLazy 'hecomi/vim-javascript-syntax'
 augroup NeoBundleLazyLoadJavaScript
 	autocmd!
 	autocmd FileType html,javascript,typescript NeoBundleSource
+		\ vim-javascript-syntax
 		\ vim-nodejs-complete
 		\ jscomplete-vim
 		\ typescript-vim
@@ -341,6 +346,7 @@ NeoBundleLazy 'osyo-manga/unite-rofi'
 NeoBundleLazy 'osyo-manga/unite-shimapan'
 NeoBundleLazy 'osyo-manga/unite-sl'
 NeoBundleLazy 'osyo-manga/unite-u-nya-'
+NeoBundleLazy 'sgur/unite-everything'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundleLazy 'ujihisa/unite-colorscheme'
@@ -563,8 +569,8 @@ augroup END
 inoremap <Nul> <C-^>
 augroup MyIME
 	autocmd!
-	autocmd InsertEnter,CmdwinEnter * set noimdisable
-	autocmd InsertLeave,CmdwinLeave * set imdisable
+	autocmd InsertEnter * set noimdisable
+	autocmd InsertLeave * set imdisable
 augroup END
 
 " Continuous Number
@@ -752,12 +758,20 @@ inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : '<CR>'
 
-" Dict files
+" File-type Dict files
 " ---------------------------------------------------------------------------------------------------
 let g:neocomplcache_dictionary_filetype_lists = {}
 for s:dict in split(glob($HOME.'/.vim/dict/*.dict'))
 	let s:ft = matchstr(s:dict, '\w\+\ze\.dict$')
 	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
+endfor
+
+" OpenGL Dict
+" ---------------------------------------------------------------------------------------------------
+for s:ft in ['c', 'cpp']
+	let s:dict = g:neocomplcache_dictionary_filetype_lists[s:ft]
+	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
+		\ .','.$HOME.'/.vim/dict/gl.dict'
 endfor
 
 " for clang_complete
@@ -815,10 +829,11 @@ let s:library_path = ''
 
 " for MacBook Air
 if s:is_mac
-	let s:include_path  = '/usr/local/include,'
-	                  " \ . $HOME.'/.nodebrew/current/include/node,'
-	                  " \ . $HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include,'
-	                  " \ . $HOME.'/android-ndk/sources/android/native_app_glue'
+	let s:include_path  = '/usr/local/include'
+	                  \ .','.$HOME.'/.nodebrew/current/include/node'
+	                  \ .','.$HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include'
+	                  \ .','.$HOME.'/android-ndk/sources/android/native_app_glue'
+					  \ .','.$HOME.'/Tools/android-ndks/android-ndk-r8d/platforms/android-14/arch-x86/usr/include'
 	let s:library_path  = '/usr/local/lib'
 " for Windows
 elseif s:is_win
@@ -864,11 +879,21 @@ let g:quickrun_config['_'] = {
 
 " C
 " ---------------------------------------------------------------------------------------------------
+let s:quickrun_gcc_c_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
+
 let g:quickrun_config['c/ndk-build'] = {
 	\ 'exec'      : '%c',
 	\ 'command'   : 'ndk-build',
 	\ 'runner'    : 'vimproc',
 \ }
+
+let g:quickrun_config['c/clang_-lglut'] = {
+	\ 'exec'      : s:quickrun_gcc_c_exec,
+	\ 'command'   : 'clang',
+	\ 'cmdopt'    : '-lglut',
+	\ 'runner'    : 'vimproc',
+\ }
+
 
 " C++
 " ---------------------------------------------------------------------------------------------------
@@ -916,6 +941,12 @@ let g:quickrun_config['cpp/g++-4.8'] = {
 let g:quickrun_config['cpp/ndk-build'] = {
 	\ 'exec'      : '%c',
 	\ 'command'   : 'ndk-build',
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['cpp/clang++_-lglut'] = {
+	\ 'command'   : 'clang++',
+	\ 'cmdopt'    : s:quickrun_clang_options . ' -lglut',
 	\ 'runner'    : 'vimproc',
 \ }
 
@@ -1196,6 +1227,10 @@ let g:memolist_prompt_categories = 1
 let g:memolist_qfixgrep          = 1
 let g:memolist_vimfiler          = 1
 let g:memolist_template_dir_path = '~/.vim/template/memolist'
+
+augroup MemoSetFileType
+	autocmd BufNewFile,BufRead *.txt set filetype=memo
+augroup END
 " }}}
 
 "====================================================================================================
@@ -1546,4 +1581,3 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
-

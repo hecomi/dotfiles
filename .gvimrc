@@ -1,4 +1,13 @@
 "====================================================================================================
+" OS
+"====================================================================================================
+" {{{
+let s:is_win   = has('win32') || has('win64')
+let s:is_mac   = has('mac') || system('uname') =~? '^darwin'
+let s:is_linux = !s:is_mac && has('unix')
+" }}}
+
+"====================================================================================================
 " Common settings
 "====================================================================================================
 " {{{
@@ -9,24 +18,31 @@ runtime macros/editexisting.vim
 " NeoBundle
 "====================================================================================================
 " {{{
-NeoBundleSource unite-colorscheme
+" Common
+" ---------------------------------------------------------------------------------------------------
+NeoBundleSource
+	\ unite-colorscheme
 	\ vim-fontzoom
 	\ restart.vim
+
+" OS-dependent
+" ---------------------------------------------------------------------------------------------------
+if s:is_win
+	NeoBundleSource unite-everything
+elseif s:is_mac
+elseif s:is_linux
+endif
+
 " }}}
 
-""====================================================================================================
+"====================================================================================================
 " Style settings
 "====================================================================================================
 " {{{
 " Font Setting
 " ---------------------------------------------------------------------------------------------------
-if has('gui_macvim')
-	set guifont=Ricty_for_Powerline:h18
-	set guifontwide=Ricty:h18
-else
-	set guifont=Ricty:h14
-	set guifontwide=Ricty:h14
-endif
+set guifont=Ricty_for_Powerline:h14
+set guifontwide=Ricty:h14
 set ambiwidth=double
 
 " Color Scheme
@@ -54,8 +70,8 @@ endif
 " IME
 " ---------------------------------------------------------------------------------------------------
 if has('multi_byte_ime')
-	highlight Cursor   guifg=NONE guibg=Green
-	highlight CursorIM guifg=NONE guibg=Purple
+	highlight Cursor   guifg=black guibg=gray
+	highlight CursorIM guifg=white guibg=darkgreen
 endif
 
 " }}}
