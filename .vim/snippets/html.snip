@@ -1,0 +1,48 @@
+snippet     html5
+alias       html
+abbr        HTML5 template
+options     head
+	<!DOCTYPE HTML>
+	<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>${1}</title>
+	</head>
+	<body>
+		${2}
+	</body>
+	</html>
+
+snippet     html:5-js
+alias       html-js
+abbr        HTML5 template with JS code
+options     head
+	<!DOCTYPE HTML>
+	<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>${1}</title>
+		<script>
+			${2}
+		</script>
+	</head>
+	<body>
+		${3}
+	</body>
+	</html>
+
+snippet     html:5-jsfile
+alias       html-jsfile
+abbr        HTML5 template with JS file
+options     head
+	<!DOCTYPE HTML>
+	<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>${1}</title>
+		<script src="${2}"></script>
+	</head>
+	<body>
+		${3}
+	</body>
+	</html>

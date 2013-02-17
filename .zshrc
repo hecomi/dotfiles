@@ -100,6 +100,13 @@ darwin12.0)
 	alias ctags="/usr/local/bin/ctags"
 	;;
 esac
+
+# Android
+# ---------------------------------------------------------------------------------------------------
+android_create_project() {
+	android create project --target 3 --name $1 --path $PWD --activity $1 --package $2
+}
+
 # }}}
 
 # ====================================================================================================
@@ -163,15 +170,16 @@ setopt PROMPT_SUBST
 # {{{
 # Path
 # ---------------------------------------------------------------------------------------------------
-local RUBY_PATH="$HOME/.rvm/bin/,$HOME/.rvm/gems/ruby-1.9.3-head/bin"
+local RUBY_PATH="$HOME/.rvm/bin/:$HOME/.rvm/gems/ruby-1.9.3-head/bin"
 local REFE_PATH="$HOME/.vim/tools/refe/"
 local CLANG_PATH="/usr/local/clang-3.1/bin"
 local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
 local GIT_PATH="$HOME/.git/git-tasukete"
 local VIM_PATH="/usr/local/bin/vim"
 local LOCAL_SBIN_PATH="/usr/local/sbin"
-local ANDROID_SDK_TOOLS_PATH="/Users/hecomi/android-sdks/platform-tools"
-local ANDROID_NDK_TOOLS_PATH="/Users/hecomi/android-ndk/"
+local ANDROID_SDK_TOOLS_PATH="$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"
+local ANDROID_NDK_TOOLS_PATH="$HOME/android-ndk"
+local ANDROID_NDK_HOME=$ANDROID_NDK_TOOLS_PATH
 local NODEBREW_PATH="$HOME/.nodebrew/current/bin"
 local DEPOT_TOOLS_PATH="$HOME/Tools/depot_tools"
 export PATH="$GIT_PATH:$GCC_PATH:$REFE_PATH:$RUBY_PATH:$CLANG_PATH:$NODEBREW_PATH:$LOCAL_SBIN_PATH:$ANDROID_SDK_TOOLS_PATH:$ANDROID_NDK_TOOLS_PATH:$DEPOT_TOOLS_PATH:$PATH"

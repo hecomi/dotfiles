@@ -157,12 +157,14 @@ augroup END
 NeoBundleLazy 'myhere/vim-nodejs-complete'
 NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
+NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
 NeoBundleLazy 'hecomi/vim-javascript-syntax'
 augroup NeoBundleLazyLoadJavaScript
 	autocmd!
 	autocmd FileType html,javascript,typescript NeoBundleSource
 		\ vim-javascript-syntax
 		\ vim-nodejs-complete
+		\ simple-javascript-indenter
 		\ jscomplete-vim
 		\ typescript-vim
 augroup END
@@ -236,6 +238,10 @@ augroup NeoBundleLazyLoadHtml
 		\ zencoding-vim
 		\ operator-html-escape.vim
 augroup END
+
+" Android
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'thinca/vim-logcat'
 
 " Web service
 " ---------------------------------------------------------------------------------------------------
@@ -736,8 +742,10 @@ nnoremap [prefix]vsp :VimShellPop<CR>
 let g:neocomplcache_enable_at_startup            = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion   = 1
+let g:neocomplcache_enable_ignore_case           = 1
+let g:neocomplcache_enable_smart_case            = 1
 let g:neocomplcache_skip_auto_completion_time    = '0.3'
-let g:neocomplcache_max_list                     = 1000
+let g:neocomplcache_max_list                     = 100
 
 " Omni patterns
 " ---------------------------------------------------------------------------------------------------
@@ -748,9 +756,6 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-" Omni functions
-" ---------------------------------------------------------------------------------------------------
 
 " <TAB> completion.
 " ---------------------------------------------------------------------------------------------------
@@ -771,7 +776,7 @@ endfor
 for s:ft in ['c', 'cpp']
 	let s:dict = g:neocomplcache_dictionary_filetype_lists[s:ft]
 	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
-		\ .','.$HOME.'/.vim/dict/gl.dict'
+		\ .','.$HOME.'/.vim/dict/opengl.dict'
 endfor
 
 " for clang_complete
@@ -830,10 +835,10 @@ let s:library_path = ''
 " for MacBook Air
 if s:is_mac
 	let s:include_path  = '/usr/local/include'
-	                  \ .','.$HOME.'/.nodebrew/current/include/node'
-	                  \ .','.$HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include'
-	                  \ .','.$HOME.'/android-ndk/sources/android/native_app_glue'
-					  \ .','.$HOME.'/Tools/android-ndks/android-ndk-r8d/platforms/android-14/arch-x86/usr/include'
+	      "             \ .','.$HOME.'/.nodebrew/current/include/node'
+	      "             \ .','.$HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include'
+	      "             \ .','.$HOME.'/android-ndk/sources/android/native_app_glue'
+					  " \ .','.$HOME.'/Tools/android-ndks/android-ndk-r8d/platforms/android-14/arch-x86/usr/include'
 	let s:library_path  = '/usr/local/lib'
 " for Windows
 elseif s:is_win
@@ -887,13 +892,14 @@ let g:quickrun_config['c/ndk-build'] = {
 	\ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['c/clang_-lglut'] = {
-	\ 'exec'      : s:quickrun_gcc_c_exec,
-	\ 'command'   : 'clang',
-	\ 'cmdopt'    : '-lglut',
-	\ 'runner'    : 'vimproc',
-\ }
-
+if s:is_mac
+	let g:quickrun_config['c/gcc_opengl'] = {
+		\ 'exec'      : s:quickrun_gcc_c_exec,
+		\ 'command'   : 'gcc',
+		\ 'cmdopt'    : '-framework OpenGL -framework GLUT -framework Foundation',
+		\ 'runner'    : 'vimproc',
+	\ }
+endif
 
 " C++
 " ---------------------------------------------------------------------------------------------------
@@ -902,7 +908,10 @@ if s:is_win
 	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
 endif
 let s:quickrun_gcc_options   = s:quickrun_cpp_options
-let s:quickrun_clang_options = s:quickrun_cpp_options.' -I/usr/local/include/libcxx -stdlib=libc++'
+let s:quickrun_clang_options = s:quickrun_cpp_options
+if s:is_mac
+	let s:quickrun_clang_options .= ' -I/usr/local/include/libcxx -stdlib=libc++'
+endif
 let s:quickrun_gcc_cpp_exec      = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
 
 let g:quickrun_config['cpp'] = {
@@ -944,11 +953,14 @@ let g:quickrun_config['cpp/ndk-build'] = {
 	\ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['cpp/clang++_-lglut'] = {
-	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : s:quickrun_clang_options . ' -lglut',
-	\ 'runner'    : 'vimproc',
-\ }
+if s:is_mac
+	let g:quickrun_config['cpp/g++_opengl'] = {
+		\ 'exec'      : s:quickrun_gcc_cpp_exec,
+		\ 'command'   : 'clang++',
+		\ 'cmdopt'    : s:quickrun_gcc_options . ' -framework OpenGL -framework GLUT -framework Foundation -lGLEW -lglut',
+		\ 'runner'    : 'vimproc',
+	\ }
+endif
 
 " JavaScript
 " ---------------------------------------------------------------------------------------------------
