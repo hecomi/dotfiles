@@ -77,14 +77,25 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'ujihisa/netrw.vim'
-NeoBundle 'YankRing.vim'
+NeoBundle "YankRing.vim"
 NeoBundle 'sudo.vim'
 
 " Apperance
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kien/rainbow_parentheses.vim'
+
+" ColorScheme
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'vim-scripts/Wombat'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-scripts/rdark'
 
 " Text-object
 " ---------------------------------------------------------------------------------------------------
@@ -198,11 +209,12 @@ NeoBundleLazy 'msanders/cocoa.vim', {
 
 " Java
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'javacomplete', {
-\	'autoload' : {
-\		'filetypes' : ['java'],
-\	},
-\ }
+NeoBundleLazy 'javacomplete'
+augroup NeoBundleLazyLoadJava
+	autocmd!
+	autocmd FileType java NeoBundleSource
+		\ javacomplete
+augroup END
 
 " C#
 " ---------------------------------------------------------------------------------------------------
@@ -616,7 +628,15 @@ endif
 " Common Settings
 "====================================================================================================
 " {{{
+" Common
+" ---------------------------------------------------------------------------------------------------
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" HTML
+" ---------------------------------------------------------------------------------------------------
+augroup EachFileTypeSettings
+	autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+augroup END
 " }}}
 
 "====================================================================================================
@@ -629,20 +649,18 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
+" highlight
+" ---------------------------------------------------------------------------------------------------
 hi Normal     ctermbg=none     ctermfg=lightgray
 hi Comment    ctermfg=darkgray
 hi LineNr     ctermbg=none     ctermfg=darkgray
 hi SpecialKey ctermbg=none     ctermfg=black
 hi FoldColumn ctermbg=none     ctermfg=darkgreen
-hi Pmenu      ctermbg=darkgray ctermfg=white
-hi PmenuSel   ctermbg=gray     ctermfg=black
-hi PmenuSbar  ctermbg=darkblue
-hi PmenuThumb ctermbg=white
-hi CursorLine ctermbg=gray     ctermfg=white
-
-" highlight
-" ---------------------------------------------------------------------------------------------------
-highlight CursorLine ctermbg=black ctermfg=none
+hi Pmenu      ctermbg=white    ctermfg=gray
+hi PmenuSel   ctermbg=white    ctermfg=darkgray
+hi PmenuSbar  ctermbg=gray     ctermfg=white
+hi PmenuThumb ctermbg=white    ctermfg=black
+hi CursorLine ctermbg=black    ctermfg=none
 
 " }}}
 
@@ -665,10 +683,12 @@ nmap <Space> [unite]
 xmap <Space> [unite]
 nnoremap <silent> [unite]  :Unite
 nnoremap <silent> [unite]b :Unite buffer<CR>
-nnoremap <silent> [unite]g :Unite grep<CR>
-nnoremap <silent> [unite]o :Unite outline<CR>
 nnoremap <silent> [unite]f :Unite find<CR>
+nnoremap <silent> [unite]g :Unite grep<CR>
+nnoremap <silent> [unite]m :Unite menu<CR>
+nnoremap <silent> [unite]o :Unite outline<CR>
 nnoremap <silent> [unite]s :Unite snippet<CR>
+nnoremap <silent> [unite]S :Unite source<CR>
 nnoremap <silent> [unite]t :Unite tab<CR>
 nnoremap <silent> [unite]u :Unite source<CR>
 nnoremap <silent> [unite]w :Unite window<CR>
@@ -677,6 +697,57 @@ nnoremap <silent> [unite]y :Unite history/yank<CR>
 " unite-n3337
 " ---------------------------------------------------------------------------------------------------
 let g:unite_n3337_pdf = $HOME.'/.vim/tools/n3337/n3337.txt'
+
+" Unite-menu Directory shortcut
+" ---------------------------------------------------------------------------------------------------
+if !exists("g:unite_source_menu_menus")
+	let g:unite_source_menu_menus = {}
+endif
+
+let s:commands = {
+\	'description' : 'Directory/File shortcuts',
+\ }
+let s:commands.candidates = {
+\	'Program'     : 'VimFiler ~/Program',
+\	'ProgramLocal': 'VimFiler ~/ProgramLocal',
+\	'Memo'        : 'VimFiler ~/Memo',
+\	'~/.vimrc'    : 'e ~/.vimrc',
+\	'~/.gvimrc'   : 'e ~/.gvimrc',
+\	'~/.zshrc'    : 'e ~/.zshrc',
+\ }
+function s:commands.map(key, value)
+	return {
+\		'word' : a:key,
+\		'kind' : 'command',
+\		'action__command' : a:value,
+\	}
+endfunction
+
+let g:unite_source_menu_menus["Shortcut"] = deepcopy(s:commands)
+unlet s:commands
+
+" Unite-menu Interpreters
+" ---------------------------------------------------------------------------------------------------
+let s:commands = {
+\	'description' : 'Interactive Shell',
+\ }
+let s:commands.candidates = {
+\	'node'     : 'VimShellInteractive node',
+\	'irb'      : 'VimShellInteractive irb',
+\	'ghci'     : 'VimShellInteractive ghci',
+\	'python'   : 'VimShellInteractive python',
+\ }
+function s:commands.map(key, value)
+	return {
+\		'word' : a:key,
+\		'kind' : 'command',
+\		'action__command' : a:value,
+\	}
+endfunction
+
+let g:unite_source_menu_menus["Shell"] = deepcopy(s:commands)
+unlet s:commands
+
 " }}}
 
 "====================================================================================================
@@ -714,6 +785,7 @@ endif
 nnoremap [prefix]vf     :VimFiler<CR>
 nnoremap [prefix]vf<CR> :VimFiler<CR>
 nnoremap [prefix]vfe    :VimFilerExplorer<CR>
+autocmd FileType vimfiler nnoremap <buffer> K <C-u>
 " }}}
 
 "====================================================================================================
@@ -982,6 +1054,18 @@ let g:quickrun_config['javascript/gjslint'] = {
 	\ 'runner'    : 'vimproc',
 \ }
 
+" Java
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['java/javac'] = {
+\	'exec'                       : ['javac %o %s', '%c %s:t:r %a'],
+\	'hook/output_encode/encoding': '&termencoding',
+\	'hook/sweep/files'           : '%S:p:r.class',
+\ }
+
+let g:quickrun_config['java/android']  = {
+	\ 'exec' : ['android update project --path ./ > /dev/null', 'ant clean > /dev/null', 'ant debug > /dev/null', 'adb install bin/*.apk'],
+\ }
+
 " C#
 " ---------------------------------------------------------------------------------------------------
 " TODO: add win config
@@ -1035,10 +1119,13 @@ let g:quickrun_config['watchdogs_checker/mcs'] = {
 	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
 \ }
 
+" Java
+
 " Common
 call watchdogs#setup(g:quickrun_config)
 let g:watchdogs_check_BufWritePost_enables = {
 	\ "cpp"        : 0,
+	\ "java"       : 0,
 	\ "javascript" : 1,
 	\ "cs"         : 1,
 \ }
@@ -1150,8 +1237,8 @@ let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 " javacomplete
 "====================================================================================================
 " {{{
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" autocmd FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
 " }}}
 
 "====================================================================================================
@@ -1190,6 +1277,17 @@ nnoremap <silent> [prefix]gl :Glog<CR>
 nnoremap <silent> [prefix]ga :Gwrite<CR>
 nnoremap <silent> [prefix]gc :Gread<CR>
 nnoremap <silent> [prefix]gC :Gcommit<CR>
+" }}}
+
+"====================================================================================================
+" Java.vim
+"====================================================================================================
+" {{{
+let g:java_highlight_all       = 1
+let g:java_highlight_debug     = 1
+let g:java_allow_cpp_keywords  = 1
+let g:java_space_errors        = 1
+let g:java_highlight_functions = 1
 " }}}
 
 "====================================================================================================
@@ -1234,8 +1332,8 @@ nnoremap [prefix]mg :MemoGrep<CR>
 let g:memolist_path              = '~/Memo'
 let g:memolist_memo_suffix       = 'txt'
 let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
-let g:memolist_prompt_tags       = 1
-let g:memolist_prompt_categories = 1
+let g:memolist_prompt_tags       = 0
+let g:memolist_prompt_categories = 0
 let g:memolist_qfixgrep          = 1
 let g:memolist_vimfiler          = 1
 let g:memolist_template_dir_path = '~/.vim/template/memolist'
@@ -1304,11 +1402,13 @@ vnoremap a+ :Alignta +<CR>
 vnoremap a: :Alignta 01 :<CR>
 vnoremap a; :Alignta 01 :<CR>
 vnoremap a, :Alignta 01 ,<CR>
+vnoremap as :Alignta <<0 \s\s*<CR>
 vnoremap ae :Alignta -e
 vnoremap ar :Alignta -r
 vnoremap ap :Alignta -p
 vnoremap ag :Alignta g/^\s*
 vnoremap av :Alignta v/^\s*
+
 " }}}
 
 "====================================================================================================
