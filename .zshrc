@@ -113,12 +113,22 @@ android_create_project() {
 # Compilation
 # ====================================================================================================
 # {{{
+autoload -U compinit && compinit
+
+zstyle ':compinstall filename' $HOME/.zshrc
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle :compinstall filename '/home/hecomi/.zshrc'
-autoload -Uz compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+
+# for kill command
+zstyle ':completion:*:processes' menu yes select=2
+
+# zsh-completions
+fpath=($HOME/.zsh-completions/src $fpath)
+
 
 # autoload predict-on
 # predict-on
+
 # }}}
 
 # ====================================================================================================
@@ -198,4 +208,5 @@ alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb 
 # .NET C#
 # ---------------------------------------------------------------------------------------------------
 export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
+
 # }}}
