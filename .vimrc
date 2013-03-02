@@ -27,6 +27,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundleLazy 'Shougo/junkfile.vim', {
+\	'autoload' : {
+\		'commands'     : 'JunkfileOpen',
+\		'unite_sources': ['junkfile', 'junkfile/new'],
+\	}
+\ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc', {
@@ -53,10 +59,14 @@ NeoBundleLazy 'Shougo/vinarise', {
 " Common
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'daisuzu/rainbowcyclone.vim'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'kana/vim-arpeggio'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'kana/vim-submode'
 NeoBundle 'osyo-manga/vim-reanimate'
+NeoBundle 'rking/ag.vim'
 NeoBundleLazy 'sjl/gundo.vim', {
 \	'autoload' : {
 \		'commands' : ['GundoShow', 'GundoRenderGraph'],
@@ -70,6 +80,7 @@ NeoBundleLazy 'taku-o/vim-batch-source', {
 \	},
 \ }
 NeoBundle 'taku-o/vim-toggle'
+NeoBundle 'thinca/vim-ambicmd'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'tsaleh/vim-matchit'
@@ -77,7 +88,11 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'ujihisa/netrw.vim'
-NeoBundle "YankRing.vim"
+NeoBundle 'YankRing.vim'
+NeoBundle 'sudo.vim'
+if !s:is_win
+	NeoBundle 'ujihisa/neco-look'
+endif
 NeoBundle 'sudo.vim'
 
 " Apperance
@@ -87,15 +102,15 @@ NeoBundle 'kien/rainbow_parentheses.vim'
 
 " ColorScheme
 " ---------------------------------------------------------------------------------------------------
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundleLazy 'nanotech/jellybeans.vim'
+NeoBundleLazy 'w0ng/vim-hybrid'
+NeoBundleLazy 'vim-scripts/twilight'
+NeoBundleLazy 'jonathanfilip/vim-lucius'
+NeoBundleLazy 'jpo/vim-railscasts-theme'
+NeoBundleLazy 'vim-scripts/Wombat'
+NeoBundleLazy 'tomasr/molokai'
+NeoBundleLazy 'vim-scripts/rdark'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-scripts/Wombat'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/rdark'
 
 " Text-object
 " ---------------------------------------------------------------------------------------------------
@@ -151,7 +166,7 @@ NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
 NeoBundleLazy 'beyondmarc/opengl.vim'
-NeoBundleLazy 'vim-jp/cpp-vim'
+NeoBundleLazy 'cpp-vim'
 augroup NeoBundleLazyLoadCpp
 	autocmd!
 	autocmd FileType c,cpp NeoBundleSource
@@ -303,7 +318,8 @@ NeoBundleLazy 'tsukkee/lingr-vim', {
 \ }
 NeoBundleLazy 'tyru/open-browser.vim', {
 \	'autoload' : {
-\		'commands' : 'OpenBrowser'
+\		'commands' : 'OpenBrowser',
+\		'mappings' : '<Plug>(openbrowser-smart-search)',
 \	},
 \ }
 
@@ -314,18 +330,18 @@ NeoBundleLazy 'glidenote/memolist.vim', {
 \		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
 \	},
 \ }
-NeoBundle 'eregex255',    {
+NeoBundle 'eregex255', {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
 \ }
-NeoBundleLazy 'migemo',    {
+NeoBundleLazy 'migemo', {
 \	'autoload' : {
 \		'commands' : ['Migemo'],
 \	},
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
 \ }
-NeoBundleLazy 'gregsexton/VimCalc',    {
+NeoBundleLazy 'gregsexton/VimCalc', {
 \	'autoload' : {
 \		'commands' : ['Calc'],
 \	},
@@ -339,6 +355,11 @@ NeoBundleLazy 'mattn/calendar-vim', {
 \	'autoload' : {
 \		'commands' : ['Calendar'],
 \	},
+\ }
+NeoBundleLazy 'thinca/vim-scouter', {
+\	'autoload' : {
+\		'commands' : 'Scouter'
+\	}
 \ }
 
 " for GVim
@@ -534,11 +555,11 @@ inoremap <C-l> <C-o>zz
 
 " Search
 " ---------------------------------------------------------------------------------------------------
-nnoremap <Esc><Esc> :nohlsearch<CR>
+nnoremap <Esc><Esc> :nohlsearch<CR>:RCReset<CR>
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap * *N
-nnoremap # #N
+" nnoremap * *N  --> RainbowCyclone
+" nnoremap # #N  --> RainbowCyclone
 nnoremap [prefix]/ <Esc>q/
 
 " Replace
@@ -604,6 +625,10 @@ nnoremap < <<
 vnoremap > >gv
 vnoremap < <gv
 
+" Command
+" ---------------------------------------------------------------------------------------------------
+vnoremap B :Batch<CR>
+
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
@@ -628,9 +653,13 @@ endif
 " Common Settings
 "====================================================================================================
 " {{{
-" Common
+" File
 " ---------------------------------------------------------------------------------------------------
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" Style
+" ---------------------------------------------------------------------------------------------------
+let g:vim_indent_cont=0
 
 " HTML
 " ---------------------------------------------------------------------------------------------------
@@ -748,12 +777,19 @@ endfunction
 let g:unite_source_menu_menus["Shell"] = deepcopy(s:commands)
 unlet s:commands
 
+" Unite grep
+" ---------------------------------------------------------------------------------------------------
+let g:unite_source_grep_command        = 'ag'
+let g:unite_source_grep_default_opts   = '--nocolor --nogroup'
+let g:unite_source_grep_recursive_opt  = ''
+let g:unite_source_grep_max_candidates = 200
+
 " }}}
 
 "====================================================================================================
 " VimFiler
 "====================================================================================================
-"' {{{
+" {{{
 " Basic settings
 " ---------------------------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer  = 1
@@ -816,6 +852,7 @@ let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion   = 1
 let g:neocomplcache_enable_ignore_case           = 1
 let g:neocomplcache_enable_smart_case            = 1
+let g:neocomplcache_auto_completion_start_length = 3
 let g:neocomplcache_skip_auto_completion_time    = '0.3'
 let g:neocomplcache_max_list                     = 100
 
@@ -858,6 +895,16 @@ if !exists('g:neocomplcache_force_omni_patterns')
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 
+" neco-look
+" ---------------------------------------------------------------------------------------------------
+let g:neocomplcache_text_mode_filetypes = {
+\  'text'    : 1,
+\  'markdown': 1,
+\  'memo'    : 1,
+\  'tex'     : 1,
+\  'plaintex': 1,
+\ }
+
 " Key binds
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]nct :NeoComplCacheCachingTags<CR>
@@ -877,6 +924,103 @@ if g:neocomplcache_enable_at_startup
 	imap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
 vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
+" }}}
+
+"====================================================================================================
+" ambicmd
+"====================================================================================================
+" {{{
+cnoremap <expr> <Space> ambicmd#expand("\<Space>")
+cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
+" }}}
+
+"====================================================================================================
+" submode
+"====================================================================================================
+" {{{
+" Ref: https://github.com/boolfool/dotfiles/blob/master/.vimrc
+" ---------------------------------------------------------------------------------------------------
+command! -nargs=1 SubmodeDefine call s:submode_define(<q-args>)
+function! s:submode_define(submode)
+	let s:submode = a:submode
+	if a:submode ==# 'END'
+		unlet s:submode
+	endif
+endfunction
+
+command! -nargs=* Submode call s:submode(<f-args>)
+function! s:submode(map, ...)
+	let args = a:000
+
+	if a:map =~# 'map$'
+		let mode = a:map[0]
+	else
+		let mode = a:map
+	endif
+
+	if a:1 =~# '^<\%(enter\|leave\|unmap\)>$'
+		let type = a:1
+		let rest = args[1 : ]
+	else
+		let type = '<map>'
+		let rest = args
+	endif
+
+	let options = ''
+	for option in rest
+		if option =~# '^<\%(buffer\|expr\|unique\|silent\|r\|x\)>$'
+			let options .= option[1]
+			call remove(rest, 0)
+		endif
+	endfor
+
+	let mappings = rest
+	if len(mappings) == 2
+		let [lhs, rhs] = mappings
+	else
+		let lhs = mappings[0]
+		let rhs = lhs
+	endif
+
+	if type ==# '<enter>'
+		call submode#enter_with(s:submode, mode, options, lhs, rhs)
+	elseif type ==# '<leave>'
+		call submode#leave_with(s:submode, mode, options, lhs)
+	elseif type ==# '<map>'
+		call submode#map(s:submode, mode, options, lhs, rhs)
+	elseif type ==# '<unmap>'
+		call submode#unmap(s:submode, mode, options, lhs)
+	endif
+endfunction
+
+SubmodeDefine changetab
+Submode nnoremap <enter> gT gT
+Submode nnoremap <enter> gt gt
+Submode nnoremap T gT
+Submode nnoremap t gt
+Submode nnoremap <leave> <silent> <ESC>
+SubmodeDefine END
+
+SubmodeDefine winsize
+Submode nnoremap <enter> <C-w>+ <C-w>+
+Submode nnoremap <enter> <C-w>- <C-w>-
+Submode nnoremap <enter> <C-w>> <C-w>>
+Submode nnoremap <enter> <C-w>< <C-w><
+Submode nnoremap + <C-w>+
+Submode nnoremap - <C-w>-
+Submode nnoremap > <C-w>>
+Submode nnoremap < <C-w><
+Submode nnoremap <leave> <silent> <ESC>
+SubmodeDefine END
+
+SubmodeDefine scroll
+Submode nnoremap <enter> zh zh
+Submode nnoremap <enter> zl zl
+Submode nnoremap h zh
+Submode nnoremap l zl
+Submode nnoremap <leave> <silent> <ESC>
+SubmodeDefine END
+
 " }}}
 
 "====================================================================================================
@@ -907,10 +1051,10 @@ let s:library_path = ''
 " for MacBook Air
 if s:is_mac
 	let s:include_path  = '/usr/local/include'
-	      "             \ .','.$HOME.'/.nodebrew/current/include/node'
-	      "             \ .','.$HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include'
-	      "             \ .','.$HOME.'/android-ndk/sources/android/native_app_glue'
-					  " \ .','.$HOME.'/Tools/android-ndks/android-ndk-r8d/platforms/android-14/arch-x86/usr/include'
+	"\ .','.$HOME.'/.nodebrew/current/include/node'
+	"\ .','.$HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include'
+	"\ .','.$HOME.'/android-ndk/sources/android/native_app_glue'
+	"\ .','.$HOME.'/Tools/android-ndks/android-ndk-r8d/platforms/android-14/arch-x86/usr/include'
 	let s:library_path  = '/usr/local/lib'
 " for Windows
 elseif s:is_win
@@ -959,9 +1103,9 @@ let g:quickrun_config['_'] = {
 let s:quickrun_gcc_c_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
 
 let g:quickrun_config['c/ndk-build'] = {
-	\ 'exec'      : '%c',
-	\ 'command'   : 'ndk-build',
-	\ 'runner'    : 'vimproc',
+	\ 'exec'   : '%c',
+	\ 'command': 'ndk-build',
+	\ 'runner' : 'vimproc',
 \ }
 
 if s:is_mac
@@ -1079,9 +1223,9 @@ let g:quickrun_config['cs']  = {
 " ActionScript
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['actionscript']  = {
-	\ 'command'              : 'mxmlc',
-	\ 'exec'                 : ['%c %o %s:p > null'],
-	\ 'cmdopt'               : '-static-link-runtime-shared-libraries',
+	\ 'command': 'mxmlc',
+	\ 'exec'   : ['%c %o %s                              : p > null'],
+	\ 'cmdopt' : '-static-link-runtime-shared-libraries',
 \ }
 
 " Watchdogs
@@ -1482,8 +1626,8 @@ let g:echodoc_enable_at_startup = 1
 " Open-Browser
 "====================================================================================================
 " {{{
-nnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
-vnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
+nmap [prefix]bo <Plug>(openbrowser-smart-search)
+vmap [prefix]bo <Plug>(openbrowser-smart-search)
 " }}}
 
 "====================================================================================================
@@ -1491,6 +1635,16 @@ vnoremap <silent> [prefix]bo <Plug>(openbrowser-open)
 "====================================================================================================
 " {{{
 nnoremap <silent> [prefix]ll :LingrLaunch<CR>
+" }}}
+
+"====================================================================================================
+" RainbowCyclone
+"====================================================================================================
+" {{{
+nmap / <Plug>(rc_search_forward)
+nmap ? <Plug>(rc_search_backward)
+nmap * <Plug>(rc_search_forward_with_cursor)N
+nmap # <Plug>(rc_search_backward_with_cursor)N
 " }}}
 
 "====================================================================================================
@@ -1507,7 +1661,6 @@ let g:rbpt_colorpairs = [
 	\ ['darkmagenta', 'DarkOrchid3'],
 	\ ['brown',       'firebrick3'],
 	\ ['gray',        'RoyalBlue3'],
-	\ ['black',       'SeaGreen3'],
 	\ ['darkmagenta', 'DarkOrchid3'],
 	\ ['Darkblue',    'firebrick3'],
 	\ ['darkgreen',   'RoyalBlue3'],
