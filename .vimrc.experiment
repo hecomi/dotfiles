@@ -5,7 +5,7 @@
 let s:source = {
 \    'name'        : 'kill_process',
 \    'description' : 'kill processes immediately',
-\}
+\ }
 
 call unite#define_source(s:source)
 
@@ -28,6 +28,24 @@ endfunction
 call unite#define_source(s:source)
 unlet s:source
 
-nnoremap [unite]kp :Unite kill_process<CR>
+nnoremap [unite]p :Unite kill_process<CR>
 " }}}
+
+"====================================================================================================
+" NeoBundleLazy
+"====================================================================================================
+" command! -nargs=* NeoBundleLazyUnite call s:neobundle_unite(<f-args>)
+" function! s:neobundle_unite(src)
+" 	let l:src = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
+" 	echo l:src
+" 	call eval("NeoBundleLazy 'unite-fhc'")
+" 	" NeoBundleLazy a:src
+" 	" \	'NeoBundleLazy '.a:src.', {'.
+" 	" \	'	"autoload" : {'
+" 	" \	'		"unite_sources" : '.l:src.','.
+" 	" \	'	},'.
+" 	" \	' }'
+" endfunction
+" NeoBundleLazyUnite 'unite-hoge'
+"
 

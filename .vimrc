@@ -11,19 +11,26 @@ let s:is_linux = !s:is_mac && has('unix')
 " NeoBundle
 "====================================================================================================
 " {{{
+" filetype off
+" ---------------------------------------------------------------------------------------------------
+" {{{
 filetype off
 let g:neobundle_default_git_protocol = 'https'
+" }}}
 
 " Path
 " ---------------------------------------------------------------------------------------------------
+" {{{
 if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle
+	set runtimepath+=~/.vim/plugins/neobundle.vim
 endif
 call neobundle#rc(expand('~/.vim/plugins'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+" }}}
 
 " Shougo-san's plugin
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
@@ -55,9 +62,11 @@ NeoBundleLazy 'Shougo/vinarise', {
 \		'commands' : 'Vinarise',
 \	},
 \ }
+" }}}
 
 " Common
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'daisuzu/rainbowcyclone.vim'
 NeoBundle 'h1mesuke/vim-alignta'
@@ -94,14 +103,23 @@ if !s:is_win
 	NeoBundle 'ujihisa/neco-look'
 endif
 NeoBundle 'sudo.vim'
+NeoBundleLazy 'osyo-manga/vim-hideout', {
+\	'autoload' : {
+\		'commands' : ['HideoutOn', 'HideoutClear'],
+\	},
+\ }
+" }}}
 
 " Apperance
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'kien/rainbow_parentheses.vim'
+" }}}
 
 " ColorScheme
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'nanotech/jellybeans.vim'
 NeoBundleLazy 'w0ng/vim-hybrid'
 NeoBundleLazy 'vim-scripts/twilight'
@@ -111,9 +129,11 @@ NeoBundleLazy 'vim-scripts/Wombat'
 NeoBundleLazy 'tomasr/molokai'
 NeoBundleLazy 'vim-scripts/rdark'
 NeoBundle 'altercation/vim-colors-solarized'
+" }}}
 
 " Text-object
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-fold'
@@ -131,9 +151,11 @@ NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \		'filetypes' : ['html', 'javascript', 'perl'],
 \	},
 \ }
+" }}}
 
 " Operator
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'emonkak/vim-operator-comment'
@@ -141,9 +163,11 @@ NeoBundle 'emonkak/vim-operator-sort'
 NeoBundle 'tyru/operator-star.vim'
 " NeoBundle 'tyru/operator-camelize.vim'
 " NeoBundle 'tyru/operator-reverse.vim'
+" }}}
 
 " Programming (Common)
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
@@ -158,9 +182,11 @@ NeoBundleLazy 'pthrasher/conqueterm-vim', {
 \		'commands' : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermVSplit'],
 \	},
 \ }
+" }}}
 
 " C / C++
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'mattn/quickrunex-vim'
 NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
 NeoBundleLazy 'Rip-Rip/clang_complete'
@@ -177,9 +203,11 @@ augroup NeoBundleLazyLoadCpp
 		\ opengl.vim
 		\ cpp-vim
 augroup END
+" }}}
 
 " JavaScript / TypeScript
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'myhere/vim-nodejs-complete'
 NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
@@ -194,9 +222,11 @@ augroup NeoBundleLazyLoadJavaScript
 		\ jscomplete-vim
 		\ typescript-vim
 augroup END
+" }}}
 
 " Ruby
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'Shougo/neocomplcache-rsense'
 NeoBundleLazy 'rhysd/neco-ruby-keyword-args'
 NeoBundleLazy 'rhysd/unite-ruby-require.vim'
@@ -213,34 +243,42 @@ augroup NeoBundleLazyLoadRuby
 		\ vim-rspec
 		\ vim-ref-ri
 augroup END
+" }}}
 
 " Obj-C
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'msanders/cocoa.vim', {
 \	'autoload' : {
 \		'filetypes' : ['objc', 'objcpp'],
 \	},
 \ }
+" }}}
 
 " Java
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'javacomplete'
 augroup NeoBundleLazyLoadJava
 	autocmd!
 	autocmd FileType java NeoBundleSource
 		\ javacomplete
 augroup END
+" }}}
 
 " C#
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'yuratomo/dotnet-complete', {
 \	'autoload' : {
 \		'filetypes' : ['cs'],
 \	},
 \ }
+" }}}
 
 " Action Script
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'actionscript.vim'
 NeoBundleLazy 'ActionScript-3-Omnicomplete'
 augroup NeoBundleLazyLoadActionScript
@@ -252,9 +290,11 @@ augroup END
 augroup ActionScriptSetFileType
 	autocmd BufNewFile,BufRead *.as set filetype=actionscript
 augroup END
+" }}}
 
 " HTML
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'mattn/zencoding-vim'
 NeoBundleLazy 'mjbrownie/html-textobjects'
 NeoBundleLazy 'tyru/operator-html-escape.vim'
@@ -265,13 +305,17 @@ augroup NeoBundleLazyLoadHtml
 		\ zencoding-vim
 		\ operator-html-escape.vim
 augroup END
+" }}}
 
 " Android
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundle 'thinca/vim-logcat'
+" }}}
 
 " Web service
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'basyura/bitly.vim'
 NeoBundleLazy '/basyura/twibill.vim'
 NeoBundleLazy 'basyura/TweetVim', {
@@ -289,6 +333,15 @@ NeoBundleLazy 'basyura/TweetVim', {
 \			'TweetVimUserTimeline',
 \			'TweetVimSay',
 \			'TweetVimSearch',
+\		],
+\	},
+\ }
+NeoBundle 'kakkyz81/evervim', {
+\	'autoload' : {
+\		'commands' : [
+\			'EvervimNotebookList',  'EvervimListTags',      'EvervimCreateNote',
+\			'EvervimOpenBrowser',   'EvervimOpenClient',    'EvervimSearchByQuery',
+\			'EvervimSearchByQuery', 'EvervimSearchByQuery',
 \		],
 \	},
 \ }
@@ -322,9 +375,11 @@ NeoBundleLazy 'tyru/open-browser.vim', {
 \		'mappings' : '<Plug>(openbrowser-smart-search)',
 \	},
 \ }
+" }}}
 
 " Others
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'glidenote/memolist.vim', {
 \	'autoload' : {
 \		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
@@ -361,15 +416,19 @@ NeoBundleLazy 'thinca/vim-scouter', {
 \		'commands' : 'Scouter'
 \	}
 \ }
+" }}}
 
 " for GVim
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'thinca/vim-fontzoom'
 NeoBundleLazy 'tyru/restart.vim'
 NeoBundleLazy 'ujihisa/unite-font'
+" }}}
 
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'Shougo/unite-ssh'
 NeoBundleLazy 'h1mesuke/unite-outline'
 NeoBundleLazy 'osyo-manga/unite-banban'
@@ -390,19 +449,31 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundleLazy 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-locate'
+NeoBundleLazy 'hecomi/unite-fhc', {
+\	'depends'  : ['mattn/webapi-vim'],
+\	'autoload' : {
+\		'unite_sources' : 'fhc',
+\	},
+\ }
+" }}}
 
+" filetype on
+" ---------------------------------------------------------------------------------------------------
+" {{{
 filetype plugin indent on
-
 NeoBundleCheck
+" }}}
 
 " Key binds
 " ---------------------------------------------------------------------------------------------------
+" {{{
 nnoremap [prefix]nbs :NeoBundleSource<CR>
 nnoremap [unite]ni   :Unite neobundle/install<CR>
 nnoremap [unite]nl   :Unite neobundle/log<CR>
 nnoremap [unite]ns   :Unite neobundle/search<CR>
 nnoremap [unite]nu   :Unite neobundle/update<CR>
 nnoremap [prefix]bni :Batch<CR>:NeoBundleInstall<CR>
+" }}}
 
 "}}}
 
@@ -653,18 +724,22 @@ endif
 " Common Settings
 "====================================================================================================
 " {{{
-" File
+" Move cursor to last point
 " ---------------------------------------------------------------------------------------------------
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Style
 " ---------------------------------------------------------------------------------------------------
 let g:vim_indent_cont=0
+" }}}
 
-" HTML
-" ---------------------------------------------------------------------------------------------------
+"====================================================================================================
+" Each Filetype Settings
+"====================================================================================================
+" {{{
 augroup EachFileTypeSettings
 	autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+	autocmd Filetype vim inoremap <buffer> <expr> <C-CR> <SID>linefeed('\')
 augroup END
 " }}}
 
@@ -722,6 +797,7 @@ nnoremap <silent> [unite]t :Unite tab<CR>
 nnoremap <silent> [unite]u :Unite source<CR>
 nnoremap <silent> [unite]w :Unite window<CR>
 nnoremap <silent> [unite]y :Unite history/yank<CR>
+nnoremap <silent> [unite]k :Unite fhc<CR>
 
 " unite-n3337
 " ---------------------------------------------------------------------------------------------------
@@ -1092,6 +1168,7 @@ let g:quickrun_config['_'] = {
 	\ 'hook/echo/output_failure'                     : '(´・ω・｀) ｼｮﾎﾞｰﾝ',
 	\ 'hook/inu/enable'                              : 1,
 	\ 'hook/inu/wait'                                : 5,
+	\ 'hook/time/enable'                             : 1,
 	\ 'outputter'                                    : 'multi:buffer:quickfix',
 	\ 'outputter/buffer/split'                       : ':botright 8sp',
 	\ 'runner'                                       : 'vimproc',
@@ -1223,9 +1300,18 @@ let g:quickrun_config['cs']  = {
 " ActionScript
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['actionscript']  = {
-	\ 'command': 'mxmlc',
-	\ 'exec'   : ['%c %o %s                              : p > null'],
-	\ 'cmdopt' : '-static-link-runtime-shared-libraries',
+	\ 'command' : 'mxmlc',
+	\ 'exec'    : ['%c %o %s:p > null'],
+	\ 'cmdopt'  : '-static-link-runtime-shared-libraries',
+	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+\ }
+
+" VimScript
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['vim/async']  = {
+\	'command' : 'vim',
+\	'exec'    : '%C -N -u NONE -i NONE -V1 -e -s --cmd "source %s" --cmd qall!',
+\	'runner'  : 'vimproc',
 \ }
 
 " Watchdogs
@@ -1835,6 +1921,24 @@ nmap T <Plug>ToggleN
 " }}}
 
 "====================================================================================================
+" evervim
+"====================================================================================================
+" {{{
+let g:evervim_usemarkdown = 1
+let g:evervim_asyncupdate = 1
+let g:evervim_splitoption = ''
+
+nnoremap [prefix]el  :<C-u>EvervimNotebookList<CR>
+nnoremap [prefix]eT  :<C-u>EvervimListTags<CR>
+nnoremap [prefix]en  :<C-u>EvervimCreateNote<CR>
+nnoremap [prefix]eb  :<C-u>EvervimOpenBrowser<CR>
+nnoremap [prefix]ec  :<C-u>EvervimOpenClient<CR>
+nnoremap [prefix]es  :<C-u>EvervimSearchByQuery<SPACE>
+nnoremap [prefix]et  :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done -tag:someday<CR>
+nnoremap [prefix]eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
+" }}}
+
+"====================================================================================================
 " load .vimrc.*
 "====================================================================================================
 " {{{
@@ -1846,3 +1950,4 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
+"
