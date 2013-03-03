@@ -123,8 +123,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 zstyle ':completion:*:processes' menu yes select=2
 
 # zsh-completions
-fpath=($HOME/.zsh-completions/src $fpath)
-
+fpath=($HOME/.zsh/zsh-completions/src $fpath)
 
 # autoload predict-on
 # predict-on
@@ -135,6 +134,13 @@ fpath=($HOME/.zsh-completions/src $fpath)
 # Appearance
 # ====================================================================================================
 # {{{
+
+# zsh-syntax-highlighting
+# ---------------------------------------------------------------------------------------------------
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 # Color
 # ---------------------------------------------------------------------------------------------------
 local gray=$'%{\e[0;30m%}'
