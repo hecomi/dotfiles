@@ -429,32 +429,47 @@ NeoBundleLazy 'ujihisa/unite-font'
 " Unite Sources
 " ---------------------------------------------------------------------------------------------------
 " {{{
-NeoBundleLazy 'Shougo/unite-ssh'
-NeoBundleLazy 'h1mesuke/unite-outline'
-NeoBundleLazy 'osyo-manga/unite-banban'
-NeoBundleLazy 'osyo-manga/unite-banban2'
-NeoBundle 'osyo-manga/unite-filetype'
-NeoBundleLazy 'osyo-manga/unite-homo'
-NeoBundleLazy 'osyo-manga/unite-jojo'
-NeoBundleLazy 'osyo-manga/unite-life-game'
-NeoBundleLazy 'osyo-manga/unite-nyancat_anim'
-NeoBundle 'osyo-manga/unite-quickfix'
-NeoBundle 'osyo-manga/unite-quickrun_config'
-NeoBundleLazy 'osyo-manga/unite-rofi'
-NeoBundleLazy 'osyo-manga/unite-shimapan'
-NeoBundleLazy 'osyo-manga/unite-sl'
-NeoBundleLazy 'osyo-manga/unite-u-nya-'
-NeoBundleLazy 'sgur/unite-everything'
-NeoBundle 'tsukkee/unite-help'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundleLazy 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-locate'
+command! -nargs=+ NeoBundleLazyUnite
+      \ call s:neobundle_unite_bundle(
+      \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
+function! s:neobundle_unite_bundle(src)
+	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
+	call neobundle#config#bundle(a:src)
+	call neobundle#config(a:src, {
+	\	'lazy' : 1,
+	\	'autoload' : {
+	\		'unite_source' : l:src_name,
+	\	},
+	\ })
+endfunction
+
+NeoBundleLazyUnite 'Shougo/unite-ssh'
+NeoBundleLazyUnite 'h1mesuke/unite-outline'
+NeoBundleLazyUnite 'osyo-manga/unite-banban'
+NeoBundleLazyUnite 'osyo-manga/unite-banban2'
+NeoBundleLazyUnite 'osyo-manga/unite-filetype'
+NeoBundleLazyUnite 'osyo-manga/unite-homo'
+NeoBundleLazyUnite 'osyo-manga/unite-jojo'
+NeoBundleLazyUnite 'osyo-manga/unite-life-game'
+NeoBundleLazyUnite 'osyo-manga/unite-nyancat_anim'
+NeoBundleLazyUnite 'osyo-manga/unite-quickfix'
+NeoBundleLazyUnite 'osyo-manga/unite-quickrun_config'
+NeoBundleLazyUnite 'osyo-manga/unite-rofi'
+NeoBundleLazyUnite 'osyo-manga/unite-shimapan'
+NeoBundleLazyUnite 'osyo-manga/unite-sl'
+NeoBundleLazyUnite 'osyo-manga/unite-u-nya-'
+NeoBundleLazyUnite 'sgur/unite-everything'
+NeoBundleLazyUnite 'tsukkee/unite-help'
+NeoBundleLazyUnite 'tsukkee/unite-tag'
+NeoBundleLazyUnite 'ujihisa/unite-colorscheme'
+NeoBundleLazyUnite 'ujihisa/unite-locate'
 NeoBundleLazy 'hecomi/unite-fhc', {
 \	'depends'  : ['mattn/webapi-vim'],
 \	'autoload' : {
 \		'unite_sources' : 'fhc',
 \	},
 \ }
+
 " }}}
 
 " filetype on
@@ -1950,4 +1965,4 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
-"
+

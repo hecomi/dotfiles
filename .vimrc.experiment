@@ -31,21 +31,3 @@ unlet s:source
 nnoremap [unite]p :Unite kill_process<CR>
 " }}}
 
-"====================================================================================================
-" NeoBundleLazy
-"====================================================================================================
-" command! -nargs=* NeoBundleLazyUnite call s:neobundle_unite(<f-args>)
-" function! s:neobundle_unite(src)
-" 	let l:src = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
-" 	echo l:src
-" 	call eval("NeoBundleLazy 'unite-fhc'")
-" 	" NeoBundleLazy a:src
-" 	" \	'NeoBundleLazy '.a:src.', {'.
-" 	" \	'	"autoload" : {'
-" 	" \	'		"unite_sources" : '.l:src.','.
-" 	" \	'	},'.
-" 	" \	' }'
-" endfunction
-" NeoBundleLazyUnite 'unite-hoge'
-"
-
