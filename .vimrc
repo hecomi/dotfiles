@@ -770,17 +770,18 @@ colorscheme solarized
 
 " highlight
 " ---------------------------------------------------------------------------------------------------
-hi Normal     ctermbg=none     ctermfg=lightgray
-hi Comment    ctermfg=darkgray
-hi LineNr     ctermbg=none     ctermfg=darkgray
-hi SpecialKey ctermbg=none     ctermfg=black
-hi FoldColumn ctermbg=none     ctermfg=darkgreen
-hi Pmenu      ctermbg=white    ctermfg=gray
-hi PmenuSel   ctermbg=white    ctermfg=darkgray
-hi PmenuSbar  ctermbg=gray     ctermfg=white
-hi PmenuThumb ctermbg=white    ctermfg=black
-hi CursorLine ctermbg=black    ctermfg=none
-
+hi Normal     ctermbg=none ctermfg=245
+hi Comment    ctermfg=237
+hi LineNr     ctermbg=none ctermfg=232
+hi Line       ctermbg=232  ctermfg=232
+hi SpecialKey ctermbg=none ctermfg=232
+hi FoldColumn ctermbg=234  ctermfg=232
+hi Folded     ctermbg=234  ctermfg=237
+hi Pmenu      ctermbg=255  ctermfg=235
+hi PmenuSel   ctermbg=255  ctermfg=24
+hi PmenuSbar  ctermbg=245  ctermfg=240
+hi PmenuThumb ctermbg=255  ctermfg=245
+hi CursorLine ctermbg=233  ctermfg=none
 " }}}
 
 "====================================================================================================
@@ -1742,6 +1743,21 @@ nnoremap <silent> [prefix]ll :LingrLaunch<CR>
 " RainbowCyclone
 "====================================================================================================
 " {{{
+let g:rainwbow_cyclone_colors = [
+\	'term=reverse ctermfg=white ctermbg=1  gui=bold guifg=white guibg=1',
+\	'term=reverse ctermfg=white ctermbg=2  gui=bold guifg=white guibg=2',
+\	'term=reverse ctermfg=white ctermbg=3  gui=bold guifg=white guibg=3',
+\	'term=reverse ctermfg=white ctermbg=4  gui=bold guifg=white guibg=4',
+\	'term=reverse ctermfg=white ctermbg=5  gui=bold guifg=white guibg=5',
+\	'term=reverse ctermfg=white ctermbg=6  gui=bold guifg=white guibg=6',
+\	'term=reverse ctermfg=black ctermbg=11 gui=bold guifg=black guibg=11',
+\	'term=reverse ctermfg=black ctermbg=10 gui=bold guifg=black guibg=10',
+\	'term=reverse ctermfg=black ctermbg=14 gui=bold guifg=black guibg=14',
+\	'term=reverse ctermfg=black ctermbg=12 gui=bold guifg=black guibg=12',
+\	'term=reverse ctermfg=black ctermbg=13 gui=bold guifg=black guibg=13',
+\	'term=reverse ctermfg=black ctermbg=9  gui=bold guifg=black guibg=9',
+\ ]
+
 nmap / <Plug>(rc_search_forward)
 nmap ? <Plug>(rc_search_backward)
 nmap * <Plug>(rc_search_forward_with_cursor)N
@@ -1932,7 +1948,7 @@ endif
 " toggle.vim
 "====================================================================================================
 " {{{
-nmap T <Plug>ToggleN
+nmap [prefix]t <Plug>ToggleN
 " }}}
 
 "====================================================================================================
