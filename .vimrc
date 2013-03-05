@@ -1744,18 +1744,18 @@ nnoremap <silent> [prefix]ll :LingrLaunch<CR>
 "====================================================================================================
 " {{{
 let g:rainwbow_cyclone_colors = [
-\	'term=reverse ctermfg=white ctermbg=1  gui=bold guifg=white guibg=1',
-\	'term=reverse ctermfg=white ctermbg=2  gui=bold guifg=white guibg=2',
-\	'term=reverse ctermfg=white ctermbg=3  gui=bold guifg=white guibg=3',
-\	'term=reverse ctermfg=white ctermbg=4  gui=bold guifg=white guibg=4',
-\	'term=reverse ctermfg=white ctermbg=5  gui=bold guifg=white guibg=5',
-\	'term=reverse ctermfg=white ctermbg=6  gui=bold guifg=white guibg=6',
-\	'term=reverse ctermfg=black ctermbg=11 gui=bold guifg=black guibg=11',
-\	'term=reverse ctermfg=black ctermbg=10 gui=bold guifg=black guibg=10',
-\	'term=reverse ctermfg=black ctermbg=14 gui=bold guifg=black guibg=14',
-\	'term=reverse ctermfg=black ctermbg=12 gui=bold guifg=black guibg=12',
-\	'term=reverse ctermfg=black ctermbg=13 gui=bold guifg=black guibg=13',
-\	'term=reverse ctermfg=black ctermbg=9  gui=bold guifg=black guibg=9',
+\	'term=reverse ctermfg=white ctermbg=1  gui=bold guifg=white guibg=darkyellow',
+\	'term=reverse ctermfg=white ctermbg=2  gui=bold guifg=white guibg=darkgreen',
+\	'term=reverse ctermfg=white ctermbg=3  gui=bold guifg=white guibg=blue',
+\	'term=reverse ctermfg=white ctermbg=4  gui=bold guifg=white guibg=purple',
+\	'term=reverse ctermfg=white ctermbg=5  gui=bold guifg=white guibg=darkred',
+\	'term=reverse ctermfg=white ctermbg=6  gui=bold guifg=white guibg=darkorange',
+\	'term=reverse ctermfg=black ctermbg=11 gui=bold guifg=black guibg=yellow',
+\	'term=reverse ctermfg=black ctermbg=10 gui=bold guifg=black guibg=green',
+\	'term=reverse ctermfg=black ctermbg=14 gui=bold guifg=black guibg=cyan',
+\	'term=reverse ctermfg=black ctermbg=12 gui=bold guifg=black guibg=purple',
+\	'term=reverse ctermfg=black ctermbg=13 gui=bold guifg=black guibg=red',
+\	'term=reverse ctermfg=black ctermbg=9  gui=bold guifg=black guibg=orange',
 \ ]
 
 nmap / <Plug>(rc_search_forward)
@@ -1981,4 +1981,4 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
-
+"

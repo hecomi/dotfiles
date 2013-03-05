@@ -12,6 +12,7 @@ let s:is_linux = !s:is_mac && has('unix')
 "====================================================================================================
 " {{{
 runtime macros/editexisting.vim
+nnoremap [prefix]reload :so ~/_vimrc<CR>:so ~/_gvimrc<CR>
 " }}}
 
 "====================================================================================================
@@ -48,13 +49,23 @@ set ambiwidth=double
 " Color Scheme
 " ---------------------------------------------------------------------------------------------------
 colorscheme solarized
+" colorscheme hybrid
 set background=dark
 let g:solarized_contrast="high"
 let g:solarized_italic=0
-hi  Normal       guibg=black     guifg=#cccccc
-hi  CursorLine   guibg=#222222
-hi  LineNr       guibg=black     guifg=#444444
-hi  SpecialKey   guibg=black     guifg=black
+
+hi Normal     guibg=#000000 guifg=#cccccc
+hi Comment    guibg=#000000 guifg=#444444
+hi LineNr     guibg=#010101 guifg=#333333
+hi Line       guibg=#222222
+hi SpecialKey guibg=#000000 guifg=#222222
+hi FoldColumn guibg=#222222 guifg=#444444
+hi Folded     guibg=#222222 guifg=#444444
+hi Pmenu      guibg=#aaaaaa guifg=#333333
+hi PmenuSel   guibg=#333333 guifg=#cccccc
+hi PmenuSbar  guibg=#000000 guifg=#222222
+hi PmenuThumb guibg=#000000 guifg=#555555
+hi CursorLine guibg=#1a1512
 
 " Style
 " ---------------------------------------------------------------------------------------------------
@@ -64,7 +75,7 @@ gui
 if has('gui_macvim')
 	set transparency=10
 else
-	set transparency=240
+	set transparency=248
 endif
 
 " IME
