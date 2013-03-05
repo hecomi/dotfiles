@@ -964,26 +964,12 @@ inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 inoremap <expr><CR>    pumvisible() ? neocomplcache#close_popup() : '<CR>'
 
-" File-type Dict files
+" automatically add dict files by filetype
 " ---------------------------------------------------------------------------------------------------
 let g:neocomplcache_dictionary_filetype_lists = {}
 for s:dict in split(glob($HOME.'/.vim/dict/*.dict'))
 	let s:ft = matchstr(s:dict, '\w\+\ze\.dict$')
 	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
-endfor
-
-" OpenGL Dict
-" ---------------------------------------------------------------------------------------------------
-for s:ft in ['c', 'cpp']
-	let s:dict = g:neocomplcache_dictionary_filetype_lists[s:ft]
-	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
-		\ .','.$HOME.'/.vim/dict/opengl.dict'
-endfor
-
-for s:ft in ['javascript']
-	let s:dict = g:neocomplcache_dictionary_filetype_lists[s:ft]
-	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
-		\ .','.$HOME.'/.vim/dict/webgl.dict'
 endfor
 
 " for clang_complete
@@ -1398,7 +1384,7 @@ nnoremap <silent> [prefix]r :QuickRun<CR>
 " }}}
 
 "====================================================================================================
-" ctags
+" tags / dict
 "====================================================================================================
 " {{{
 " Ref: http://d.hatena.ne.jp/osyo-manga/20120205/1328368314
@@ -1450,6 +1436,41 @@ unlet s:source
 
 nnoremap [unite]st  :Unite set_tags<CR>
 nnoremap [unite]tag :Unite tag<CR>
+
+" Unite source: dict
+" ---------------------------------------------------------------------------------------------------
+let s:source = {
+\    'name'        : 'dict',
+\    'description' : 'add ~/.vim/dict/*.dict to neco',
+\ }
+
+call unite#define_source(s:source)
+
+function! s:add_dict(dict)
+
+endfunction
+
+function! s:source.gather_candidates(args, context)
+	let l:dict_list = []
+	for l:dict in split(glob($HOME.'/.vim/dict/*.dict'))
+		let l:dict_name = matchstr(l:dict, '\w\+\ze\.dict$')
+		call add(l:dict_list, l:dict_name)
+	endfor
+	let l:command = "let g:neocomplcache_dictionary_filetype_lists['%s']"
+		\         . " .= ',".$HOME."/.vim/dict/%s.dict'\n"
+		\         . "NeoComplCacheCachingDictionary"
+	return map(
+		\ l:dict_list,
+		\ '{
+		\     "word"            : v:val,
+		\     "source"          : "dict",
+		\     "kind"            : "command",
+		\     "action__command" : printf(l:command, &filetype, v:val)
+		\ }')
+endfunction
+
+call unite#define_source(s:source)
+unlet s:source
 " }}}
 
 "====================================================================================================
