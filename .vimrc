@@ -980,6 +980,12 @@ for s:ft in ['c', 'cpp']
 		\ .','.$HOME.'/.vim/dict/opengl.dict'
 endfor
 
+for s:ft in ['javascript']
+	let s:dict = g:neocomplcache_dictionary_filetype_lists[s:ft]
+	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
+		\ .','.$HOME.'/.vim/dict/webgl.dict'
+endfor
+
 " for clang_complete
 " ---------------------------------------------------------------------------------------------------
 if !exists('g:neocomplcache_force_omni_patterns')
