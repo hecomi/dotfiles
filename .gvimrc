@@ -81,8 +81,8 @@ endif
 " IME
 " ---------------------------------------------------------------------------------------------------
 if has('multi_byte_ime')
-	highlight Cursor   guifg=black guibg=gray
-	highlight CursorIM guifg=white guibg=darkgreen
+	hi Cursor   guifg=black guibg=gray
+	hi CursorIM guifg=white guibg=darkgreen
 endif
 
 " }}}

@@ -168,6 +168,11 @@ NeoBundle 'tyru/operator-star.vim'
 " Programming (Common)
 " ---------------------------------------------------------------------------------------------------
 " {{{
+NeoBundleLazy 'airblade/vim-gitgutter', {
+\	'autoload' : {
+\		'commands' : ['GitGutterToggle'],
+\	},
+\ }
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
@@ -701,8 +706,8 @@ augroup END
 " Continuous Number
 " ---------------------------------------------------------------------------------------------------
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
-nnoremap <silent> [prefix]co :ContinuousNumber <C-a><CR>
-vnoremap <silent> [prefix]co :ContinuousNumber <C-a><CR>
+nnoremap [prefix]co :ContinuousNumber <C-a><CR>
+vnoremap [prefix]co :ContinuousNumber <C-a><CR>
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -781,7 +786,8 @@ hi Pmenu      ctermbg=255  ctermfg=235
 hi PmenuSel   ctermbg=255  ctermfg=24
 hi PmenuSbar  ctermbg=245  ctermfg=240
 hi PmenuThumb ctermbg=255  ctermfg=245
-hi CursorLine ctermbg=233  ctermfg=none
+hi CursorLine ctermbg=233
+
 " }}}
 
 "====================================================================================================
@@ -801,19 +807,19 @@ nnoremap [unite] <nop>
 xnoremap [unite] <nop>
 nmap <Space> [unite]
 xmap <Space> [unite]
-nnoremap <silent> [unite]  :Unite
-nnoremap <silent> [unite]b :Unite buffer<CR>
-nnoremap <silent> [unite]f :Unite find<CR>
-nnoremap <silent> [unite]g :Unite grep<CR>
-nnoremap <silent> [unite]m :Unite menu<CR>
-nnoremap <silent> [unite]o :Unite outline<CR>
-nnoremap <silent> [unite]s :Unite snippet<CR>
-nnoremap <silent> [unite]S :Unite source<CR>
-nnoremap <silent> [unite]t :Unite tab<CR>
-nnoremap <silent> [unite]u :Unite source<CR>
-nnoremap <silent> [unite]w :Unite window<CR>
-nnoremap <silent> [unite]y :Unite history/yank<CR>
-nnoremap <silent> [unite]k :Unite fhc<CR>
+nnoremap [unite]  :Unite
+nnoremap [unite]b :Unite buffer<CR>
+nnoremap [unite]f :Unite find<CR>
+nnoremap [unite]g :Unite grep<CR>
+nnoremap [unite]m :Unite menu<CR>
+nnoremap [unite]o :Unite outline<CR>
+nnoremap [unite]s :Unite snippet<CR>
+nnoremap [unite]S :Unite source<CR>
+nnoremap [unite]t :Unite tab<CR>
+nnoremap [unite]u :Unite source<CR>
+nnoremap [unite]w :Unite window<CR>
+nnoremap [unite]y :Unite history/yank<CR>
+nnoremap [unite]k :Unite fhc<CR>
 
 " unite-n3337
 " ---------------------------------------------------------------------------------------------------
@@ -1037,43 +1043,43 @@ function! s:submode(map, ...)
 	let args = a:000
 
 	if a:map =~# 'map$'
-		let mode = a:map[0]
+		let l:mode = a:map[0]
 	else
-		let mode = a:map
+		let l:mode = a:map
 	endif
 
 	if a:1 =~# '^<\%(enter\|leave\|unmap\)>$'
-		let type = a:1
-		let rest = args[1 : ]
+		let l:type = a:1
+		let l:rest = args[1 : ]
 	else
-		let type = '<map>'
-		let rest = args
+		let l:type = '<map>'
+		let l:rest = args
 	endif
 
-	let options = ''
-	for option in rest
+	let l:options = ''
+	for option in l:rest
 		if option =~# '^<\%(buffer\|expr\|unique\|silent\|r\|x\)>$'
-			let options .= option[1]
+			let l:options .= option[1]
 			call remove(rest, 0)
 		endif
 	endfor
 
-	let mappings = rest
+	let l:mappings = l:rest
 	if len(mappings) == 2
-		let [lhs, rhs] = mappings
+		let [l:lhs, l:rhs] = l:mappings
 	else
-		let lhs = mappings[0]
-		let rhs = lhs
+		let l:lhs = l:mappings[0]
+		let l:rhs = l:lhs
 	endif
 
-	if type ==# '<enter>'
-		call submode#enter_with(s:submode, mode, options, lhs, rhs)
-	elseif type ==# '<leave>'
-		call submode#leave_with(s:submode, mode, options, lhs)
-	elseif type ==# '<map>'
-		call submode#map(s:submode, mode, options, lhs, rhs)
-	elseif type ==# '<unmap>'
-		call submode#unmap(s:submode, mode, options, lhs)
+	if l:type ==# '<enter>'
+		call submode#enter_with(s:submode, l:mode, l:options, l:lhs, l:rhs)
+	elseif l:type ==# '<leave>'
+		call submode#leave_with(s:submode, l:mode, l:options, l:lhs)
+	elseif l:type ==# '<map>'
+		call submode#map(s:submode, l:mode, l:options, l:lhs, l:rhs)
+	elseif l:type ==# '<unmap>'
+		call submode#unmap(s:submode, l:mode, l:options, l:lhs)
 	endif
 endfunction
 
@@ -1090,10 +1096,18 @@ Submode nnoremap <enter> <C-w>+ <C-w>+
 Submode nnoremap <enter> <C-w>- <C-w>-
 Submode nnoremap <enter> <C-w>> <C-w>>
 Submode nnoremap <enter> <C-w>< <C-w><
+Submode nnoremap <enter> <C-w>h <C-w>h
+Submode nnoremap <enter> <C-w>j <C-w>j
+Submode nnoremap <enter> <C-w>k <C-w>k
+Submode nnoremap <enter> <C-w>l <C-w>l
 Submode nnoremap + <C-w>+
 Submode nnoremap - <C-w>-
 Submode nnoremap > <C-w>>
 Submode nnoremap < <C-w><
+Submode nnoremap h <C-w>h
+Submode nnoremap j <C-w>j
+Submode nnoremap k <C-w>k
+Submode nnoremap l <C-w>l
 Submode nnoremap <leave> <silent> <ESC>
 SubmodeDefine END
 
@@ -1379,7 +1393,7 @@ let g:hier_highlight_group_qfw = 'qf_warning_ucurl'
 
 " Unite: quickrun-select
 " -------------------------------------------------------
-nnoremap <silent> [unite]qc :Unite quickrun_config<CR>
+nnoremap [unite]qc :Unite quickrun_config<CR>
 nnoremap <silent> [prefix]r :QuickRun<CR>
 " }}}
 
@@ -1406,8 +1420,8 @@ function! s:get_func_name(word)
 	return end == -1 ? a:word : a:word[ : end-1 ]
 endfunction
 
-noremap <silent> g<C-]> :<C-u>execute "PopupTags ".expand('<cword>')<CR>
-noremap <silent> G<C-]> :<C-u>execute "PopupTags "
+noremap g<C-]> :<C-u>execute "PopupTags ".expand('<cword>')<CR>
+noremap G<C-]> :<C-u>execute "PopupTags "
     \.substitute(<SID>get_func_name(expand('<cWORD>')), '\:', '\\\:', "g")<CR>
 
 " Unite source: set_tags
@@ -1540,16 +1554,28 @@ autocmd QuickFixCmdPost    l* nested lwindow
 " }}}
 
 "====================================================================================================
+" vim-gitgutter
+"====================================================================================================
+" {{{
+let g:gitgutter_enabled         = 0
+let g:gitgutter_highlight_lines = 0
+
+nnoremap [prefix]gg :GitGutterToggle<CR>
+nnoremap [prefix]gn :GitGutterNextHunk<CR>
+nnoremap [prefix]gN :GitGutterPrevHunk<CR>
+" }}}
+
+"====================================================================================================
 " vim-fugitive
 "====================================================================================================
 " {{{
-nnoremap <silent> [prefix]gb :Gblame<CR>
-nnoremap <silent> [prefix]gd :Gdiff<CR>
-nnoremap <silent> [prefix]gs :Gstatus<CR>
-nnoremap <silent> [prefix]gl :Glog<CR>
-nnoremap <silent> [prefix]ga :Gwrite<CR>
-nnoremap <silent> [prefix]gc :Gread<CR>
-nnoremap <silent> [prefix]gC :Gcommit<CR>
+nnoremap [prefix]gb :Gblame<CR>
+nnoremap [prefix]gd :Gdiff<CR>
+nnoremap [prefix]gs :Gstatus<CR>
+nnoremap [prefix]gl :Glog<CR>
+nnoremap [prefix]ga :Gwrite<CR>
+nnoremap [prefix]gc :Gread<CR>
+nnoremap [prefix]gC :Gcommit<CR>
 " }}}
 
 "====================================================================================================
@@ -1585,8 +1611,8 @@ augroup SavePoint
 	autocmd VimLeavePre * ReanimateSave
 augroup end
 
-nnoremap <silent> [unite]ral :Unite reanimate -default-action=reanimate_load<CR>
-nnoremap <silent> [unite]ras :Unite reanimate -default-action=reanimate_save<CR>
+nnoremap [unite]ral :Unite reanimate -default-action=reanimate_load<CR>
+nnoremap [unite]ras :Unite reanimate -default-action=reanimate_save<CR>
 nnoremap [prefix]latest :ReanimateLoadLatest<CR>
 
 let $REANIMATE = g:reanimate_save_dir
@@ -1763,7 +1789,7 @@ vmap [prefix]bo <Plug>(openbrowser-smart-search)
 " Linger-vim
 "====================================================================================================
 " {{{
-nnoremap <silent> [prefix]ll :LingrLaunch<CR>
+nnoremap [prefix]ll :LingrLaunch<CR>
 " }}}
 
 "====================================================================================================
@@ -1786,7 +1812,7 @@ let g:rainwbow_cyclone_colors = [
 \ ]
 
 nmap / <Plug>(rc_search_forward)
-nmap ? <Plug>(rc_search_backward)
+" nmap ? <Plug>(rc_search_backward)
 nmap * <Plug>(rc_search_forward_with_cursor)N
 nmap # <Plug>(rc_search_backward_with_cursor)N
 " }}}
@@ -2008,4 +2034,4 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
-"
+

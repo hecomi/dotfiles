@@ -107,6 +107,10 @@ android_create_project() {
 	android create project --target 3 --name $1 --path $PWD --activity $1 --package $2
 }
 
+# earthquake
+# ---------------------------------------------------------------------------------------------------
+alias earthquake="$HOME/.earthquake/bin/earthquake"
+
 # }}}
 
 # ====================================================================================================
