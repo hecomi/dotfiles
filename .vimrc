@@ -67,13 +67,6 @@ NeoBundleLazy 'Shougo/vinarise', {
 " Common
 " ---------------------------------------------------------------------------------------------------
 " {{{
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'daisuzu/rainbowcyclone.vim'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'houtsnip/vim-emacscommandline'
-NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'kana/vim-submode'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'rking/ag.vim'
 NeoBundleLazy 'sjl/gundo.vim', {
@@ -82,32 +75,57 @@ NeoBundleLazy 'sjl/gundo.vim', {
 \	},
 \ }
 NeoBundle 'spolu/dwm.vim'
-NeoBundle 't9md/vim-textmanip'
 NeoBundleLazy 'taku-o/vim-batch-source', {
 \	'autoload' : {
 \		'filetypes' : ['vim'],
 \	},
 \ }
-NeoBundle 'taku-o/vim-toggle'
-NeoBundle 'thinca/vim-ambicmd'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'ujihisa/neco-look'
+NeoBundle 'ujihisa/netrw.vim'
+NeoBundle 'YankRing.vim'
+NeoBundle 'sudo.vim'
+" }}}
+
+" Search
+" ---------------------------------------------------------------------------------------------------
+" {{{
+NeoBundle 'eregex255', {
+\	'type': 'nosync',
+\	'base': '~/.vim/bundle'
+\ }
+NeoBundleLazy 'migemo', {
+\	'autoload' : {
+\		'commands' : ['Migemo'],
+\	},
+\	'type': 'nosync',
+\	'base': '~/.vim/bundle'
+\ }
+NeoBundle 'daisuzu/rainbowcyclone.vim'
 NeoBundle 'thinca/vim-visualstar'
+" }}}
+
+" Key operation enhancer
+" ---------------------------------------------------------------------------------------------------
+" {{{
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'kana/vim-arpeggio'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'kana/vim-submode'
+NeoBundle 't9md/vim-textmanip'
+NeoBundle 'taku-o/vim-toggle'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
-NeoBundle 'ujihisa/netrw.vim'
-NeoBundle 'YankRing.vim'
-NeoBundle 'sudo.vim'
-if !s:is_win
-	NeoBundle 'ujihisa/neco-look'
-endif
-NeoBundle 'sudo.vim'
-NeoBundleLazy 'osyo-manga/vim-hideout', {
-\	'autoload' : {
-\		'commands' : ['HideoutOn', 'HideoutClear'],
-\	},
-\ }
+" }}}
+
+" Command line
+" ---------------------------------------------------------------------------------------------------
+" {{{
+NeoBundle 'houtsnip/vim-emacscommandline'
+NeoBundle 'thinca/vim-ambicmd'
 " }}}
 
 " Apperance
@@ -194,6 +212,7 @@ NeoBundleLazy 'pthrasher/conqueterm-vim', {
 " {{{
 NeoBundleLazy 'mattn/quickrunex-vim'
 NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
+NeoBundleLazy 'osyo-manga/vim-cpp11-syntax'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
 NeoBundleLazy 'beyondmarc/opengl.vim'
@@ -203,6 +222,7 @@ augroup NeoBundleLazyLoadCpp
 	autocmd FileType c,cpp NeoBundleSource
 		\ quickrunex-vim
 		\ unite-boost-online-doc
+		\ vim-cpp11-syntax
 		\ clang_complete
 		\ unite-n3337
 		\ opengl.vim
@@ -339,6 +359,7 @@ NeoBundleLazy 'basyura/TweetVim', {
 \			'TweetVimSay',
 \			'TweetVimSearch',
 \		],
+\		'unite_sources' : 'tweetvim',
 \	},
 \ }
 NeoBundle 'kakkyz81/evervim', {
@@ -389,17 +410,6 @@ NeoBundleLazy 'glidenote/memolist.vim', {
 \	'autoload' : {
 \		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
 \	},
-\ }
-NeoBundle 'eregex255', {
-\	'type': 'nosync',
-\	'base': '~/.vim/bundle'
-\ }
-NeoBundleLazy 'migemo', {
-\	'autoload' : {
-\		'commands' : ['Migemo'],
-\	},
-\	'type': 'nosync',
-\	'base': '~/.vim/bundle'
 \ }
 NeoBundleLazy 'gregsexton/VimCalc', {
 \	'autoload' : {
@@ -474,7 +484,16 @@ NeoBundleLazy 'hecomi/unite-fhc', {
 \		'unite_sources' : 'fhc',
 \	},
 \ }
+" }}}
 
+" Experimental
+" ---------------------------------------------------------------------------------------------------
+" {{{
+NeoBundleLazy 'osyo-manga/vim-hideout', {
+\	'autoload' : {
+\		'commands' : ['HideoutOn', 'HideoutClear'],
+\	},
+\ }
 " }}}
 
 " filetype on
@@ -488,11 +507,11 @@ NeoBundleCheck
 " ---------------------------------------------------------------------------------------------------
 " {{{
 nnoremap [prefix]nbs :NeoBundleSource<CR>
+nnoremap [prefix]bni :Batch<CR>:NeoBundleInstall<CR>
 nnoremap [unite]ni   :Unite neobundle/install<CR>
 nnoremap [unite]nl   :Unite neobundle/log<CR>
 nnoremap [unite]ns   :Unite neobundle/search<CR>
 nnoremap [unite]nu   :Unite neobundle/update<CR>
-nnoremap [prefix]bni :Batch<CR>:NeoBundleInstall<CR>
 " }}}
 
 "}}}
@@ -509,13 +528,22 @@ set nocompatible
 " File
 " ---------------------------------------------------------------------------------------------------
 set autoread
+augroup vimrc-checktime
+	autocmd!
+	autocmd WinEnter * checktime
+augroup END
 set noautochdir
 set hidden
 set noswapfile
 set backupdir=>/tmp
 augroup DeleteSpace
+	autocmd!
 	autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
+
+" History
+" ---------------------------------------------------------------------------------------------------
+set history=1000
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -532,7 +560,7 @@ set clipboard=autoselect,unnamed
 " Wild darou?
 " ---------------------------------------------------------------------------------------------------
 set wildmenu
-set wildmode=list:full
+set wildmode=longest:full,full
 
 " Search
 " ---------------------------------------------------------------------------------------------------
@@ -657,7 +685,7 @@ nnoremap [prefix]/ <Esc>q/
 " ---------------------------------------------------------------------------------------------------
 vnoremap s :S/
 
-" Disable macro
+" Macro
 " ---------------------------------------------------------------------------------------------------
 nnoremap q <Nop>
 nnoremap Q q
@@ -671,6 +699,7 @@ nnoremap <C-a> ggVG
 nnoremap [prefix]sp  :set paste<CR>
 nnoremap [prefix]snp :set nopaste<CR>
 augroup SetNoPaste
+	autocmd!
 	autocmd InsertLeave * if &paste | set nopaste | endif
 augroup END
 nnoremap p :set paste<CR>p:set nopaste<CR>
@@ -758,6 +787,7 @@ let g:vim_indent_cont=0
 "====================================================================================================
 " {{{
 augroup EachFileTypeSettings
+	autocmd!
 	autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
 	autocmd Filetype vim inoremap <buffer> <expr> <C-CR> <SID>linefeed('\')
 augroup END
@@ -786,7 +816,12 @@ hi Pmenu      ctermbg=255  ctermfg=235
 hi PmenuSel   ctermbg=255  ctermfg=24
 hi PmenuSbar  ctermbg=245  ctermfg=240
 hi PmenuThumb ctermbg=255  ctermfg=245
-hi CursorLine ctermbg=233
+hi CursorLine ctermbg=233  ctermfg=none
+hi Visual     ctermbg=255  ctermfg=none
+
+" plugin
+" ---------------------------------------------------------------------------------------------------
+let g:c_no_curly_error = 1
 
 " }}}
 
@@ -808,18 +843,20 @@ xnoremap [unite] <nop>
 nmap <Space> [unite]
 xmap <Space> [unite]
 nnoremap [unite]  :Unite
+nnoremap [unite]S :Unite source<CR>
 nnoremap [unite]b :Unite buffer<CR>
 nnoremap [unite]f :Unite find<CR>
 nnoremap [unite]g :Unite grep<CR>
+nnoremap [unite]h :Unite file_mru<CR>
+nnoremap [unite]k :Unite fhc<CR>
+nnoremap [unite]l :Unite line<CR>
 nnoremap [unite]m :Unite menu<CR>
 nnoremap [unite]o :Unite outline<CR>
 nnoremap [unite]s :Unite snippet<CR>
-nnoremap [unite]S :Unite source<CR>
 nnoremap [unite]t :Unite tab<CR>
 nnoremap [unite]u :Unite source<CR>
 nnoremap [unite]w :Unite window<CR>
 nnoremap [unite]y :Unite history/yank<CR>
-nnoremap [unite]k :Unite fhc<CR>
 
 " unite-n3337
 " ---------------------------------------------------------------------------------------------------
@@ -1638,6 +1675,7 @@ let g:memolist_vimfiler          = 1
 let g:memolist_template_dir_path = '~/.vim/template/memolist'
 
 augroup MemoSetFileType
+	autocmd!
 	autocmd BufNewFile,BufRead *.txt set filetype=memo
 augroup END
 " }}}
@@ -1839,11 +1877,15 @@ let g:rbpt_colorpairs = [
 	\ ['red',         'firebrick3'],
 \ ]
 let g:rbpt_max = 16
-autocmd VimEnter *   RainbowParenthesesToggle
-autocmd Syntax   *   RainbowParenthesesLoadRound
-autocmd Syntax   *   RainbowParenthesesLoadSquare
-autocmd Syntax   *   RainbowParenthesesLoadBraces
-" autocmd FileType cpp RainbowParenthesesLoadChevrons
+
+augroup RainbowParenthesisSettings
+	autocmd!
+	autocmd VimEnter *   RainbowParenthesesToggle
+	autocmd Syntax   *   RainbowParenthesesLoadRound
+	autocmd Syntax   *   RainbowParenthesesLoadSquare
+	autocmd Syntax   *   RainbowParenthesesLoadBraces
+	" autocmd FileType cpp RainbowParenthesesLoadChevrons
+augroup END
 " }}}
 
 "====================================================================================================
@@ -2020,6 +2062,15 @@ nnoremap [prefix]ec  :<C-u>EvervimOpenClient<CR>
 nnoremap [prefix]es  :<C-u>EvervimSearchByQuery<SPACE>
 nnoremap [prefix]et  :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done -tag:someday<CR>
 nnoremap [prefix]eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
+" }}}
+
+"====================================================================================================
+" Junkfile
+"====================================================================================================
+" {{{
+nnoremap [prefix]junk  :JunkfileOpen<CR>
+nnoremap [unite]jl     :Unite junkfile<CR>
+nnoremap [unite]jn     :Unite junkfile/new<CR>
 " }}}
 
 "====================================================================================================
