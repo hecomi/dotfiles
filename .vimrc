@@ -67,8 +67,10 @@ NeoBundleLazy 'Shougo/vinarise', {
 " Common
 " ---------------------------------------------------------------------------------------------------
 " {{{
+NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'rking/ag.vim'
+" NeoBundle 'rhysd/clever-f.vim'
 NeoBundleLazy 'sjl/gundo.vim', {
 \	'autoload' : {
 \		'commands' : ['GundoShow', 'GundoRenderGraph'],
@@ -217,7 +219,7 @@ NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
 NeoBundleLazy 'beyondmarc/opengl.vim'
 NeoBundleLazy 'cpp-vim'
-augroup NeoBundleLazyLoadCpp
+augroup NeoBundleLazyForCpp
 	autocmd!
 	autocmd FileType c,cpp NeoBundleSource
 		\ quickrunex-vim
@@ -238,7 +240,7 @@ NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
 NeoBundleLazy 'hecomi/vim-javascript-syntax'
-augroup NeoBundleLazyLoadJavaScript
+augroup NeoBundleLazyForJavaScript
 	autocmd!
 	autocmd FileType html,javascript,typescript NeoBundleSource
 		\ vim-javascript-syntax
@@ -258,7 +260,7 @@ NeoBundleLazy 'rhysd/unite-ruby-require.vim'
 NeoBundleLazy 'rhysd/vim-textobj-ruby'
 NeoBundleLazy 'skwp/vim-rspec'
 NeoBundleLazy 'taka84u9/vim-ref-ri'
-augroup NeoBundleLazyLoadRuby
+augroup NeoBundleLazyForRuby
 	autocmd!
 	autocmd FileType ruby NeoBundleSource
 		\ neocomplcache-rsense
@@ -284,7 +286,7 @@ NeoBundleLazy 'msanders/cocoa.vim', {
 " ---------------------------------------------------------------------------------------------------
 " {{{
 NeoBundleLazy 'javacomplete'
-augroup NeoBundleLazyLoadJava
+augroup NeoBundleLazyForJava
 	autocmd!
 	autocmd FileType java NeoBundleSource
 		\ javacomplete
@@ -306,7 +308,7 @@ NeoBundleLazy 'yuratomo/dotnet-complete', {
 " {{{
 NeoBundleLazy 'actionscript.vim'
 NeoBundleLazy 'ActionScript-3-Omnicomplete'
-augroup NeoBundleLazyLoadActionScript
+augroup NeoBundleLazyForActionScript
 	autocmd!
 	autocmd FileType actionscript NeoBundleSource
 		\ actionscript.vim
@@ -323,7 +325,7 @@ augroup END
 NeoBundleLazy 'mattn/zencoding-vim'
 NeoBundleLazy 'mjbrownie/html-textobjects'
 NeoBundleLazy 'tyru/operator-html-escape.vim'
-augroup NeoBundleLazyLoadHtml
+augroup NeoBundleLazyForHtml
 	autocmd!
 	autocmd FileType html,xml NeoBundleSource
 		\ html-textobjects
@@ -337,6 +339,31 @@ augroup END
 " {{{
 NeoBundle 'thinca/vim-logcat'
 " }}}
+
+" Sahder
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'glsl.vim'
+augroup NeoBundleLazyForShader
+	autocmd!
+	autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl
+		\ set filetype=glsl
+	autocmd FileType glsl NeoBundleSource
+		\ glsl.vim
+augroup END
+
+" Qt
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'qml.vim', {
+\	'type': 'nosync',
+\	'base': '~/.vim/bundle'
+\ }
+augroup NeoBundleLazyForQt
+	autocmd!
+	autocmd BufNewFile,BufRead *.qml
+		\ set filetype=qml
+	autocmd FileType qml NeoBundleSource
+		\ qml.vim
+augroup END
 
 " Web service
 " ---------------------------------------------------------------------------------------------------
@@ -683,7 +710,7 @@ nnoremap [prefix]/ <Esc>q/
 
 " Replace
 " ---------------------------------------------------------------------------------------------------
-vnoremap s :S/
+vmap s <Plug>VSurround
 
 " Macro
 " ---------------------------------------------------------------------------------------------------
@@ -783,13 +810,12 @@ let g:vim_indent_cont=0
 " }}}
 
 "====================================================================================================
-" Each Filetype Settings
+" Filetype-related Settings
 "====================================================================================================
 " {{{
 augroup EachFileTypeSettings
 	autocmd!
 	autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-	autocmd Filetype vim inoremap <buffer> <expr> <C-CR> <SID>linefeed('\')
 augroup END
 " }}}
 
@@ -1342,7 +1368,7 @@ let g:quickrun_config['java/javac'] = {
 \	'hook/sweep/files'           : '%S:p:r.class',
 \ }
 
-let g:quickrun_config['java/android']  = {
+let g:quickrun_config['java/android'] = {
 	\ 'exec' : ['android update project --path ./ > /dev/null', 'ant clean > /dev/null', 'ant debug > /dev/null', 'adb install bin/*.apk'],
 \ }
 
@@ -1358,7 +1384,7 @@ let g:quickrun_config['cs']  = {
 
 " ActionScript
 " ---------------------------------------------------------------------------------------------------
-let g:quickrun_config['actionscript']  = {
+let g:quickrun_config['actionscript'] = {
 	\ 'command' : 'mxmlc',
 	\ 'exec'    : ['%c %o %s:p > null'],
 	\ 'cmdopt'  : '-static-link-runtime-shared-libraries',
@@ -1367,11 +1393,21 @@ let g:quickrun_config['actionscript']  = {
 
 " VimScript
 " ---------------------------------------------------------------------------------------------------
-let g:quickrun_config['vim/async']  = {
+let g:quickrun_config['vim/async'] = {
 \	'command' : 'vim',
 \	'exec'    : '%C -N -u NONE -i NONE -V1 -e -s --cmd "source %s" --cmd qall!',
 \	'runner'  : 'vimproc',
 \ }
+
+" Qt
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['qml/qmlscene'] = {
+\	'command' : 'qmlscene',
+\	'exec'    : '%c %s:p',
+\	'runner'  : 'vimproc',
+\ }
+
+let g:quickrun_config['qml'] = g:quickrun_config['qml/qmlscene']
 
 " Watchdogs
 " ---------------------------------------------------------------------------------------------------
@@ -1768,7 +1804,7 @@ hi EasyMotionTarget ctermbg=none ctermfg=darkred
 hi EasyMotionShade  ctermbg=none ctermfg=black
 
 nmap f 'w
-nmap F 'b
+nmap H 'b
 " }}}
 
 "====================================================================================================

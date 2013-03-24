@@ -42,8 +42,14 @@ endif
 " {{{
 " Font Setting
 " ---------------------------------------------------------------------------------------------------
-set guifont=Ricty_for_Powerline:h14
-set guifontwide=Ricty:h14
+if s:is_win
+	set guifont=Ricty_for_Powerline:h14
+	set guifontwide=Ricty:h14
+elseif s:is_mac
+	set guifont=Ricty_for_Powerline:h20
+	set guifontwide=Ricty:h20
+endif
+
 set ambiwidth=double
 
 " Color Scheme
@@ -69,13 +75,23 @@ hi CursorLine guibg=#1a1512
 
 " Style
 " ---------------------------------------------------------------------------------------------------
-set guioptions-=T
+set antialias
 set guioptions-=m
+set guioptions-=t
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 gui
 if has('gui_macvim')
-	set transparency=10
+	set transparency=5
 else
 	set transparency=248
+	set fuoptions=maxvert,maxhorz
+	augroup fullscreen
+		autocmd!
+		autocmd guienter * set fullscreen
+	augroup end
 endif
 
 " IME
