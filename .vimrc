@@ -70,7 +70,6 @@ NeoBundleLazy 'Shougo/vinarise', {
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'rking/ag.vim'
-" NeoBundle 'rhysd/clever-f.vim'
 NeoBundleLazy 'sjl/gundo.vim', {
 \	'autoload' : {
 \		'commands' : ['GundoShow', 'GundoRenderGraph'],
@@ -113,7 +112,6 @@ NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-submode'
 NeoBundle 't9md/vim-textmanip'
 NeoBundle 'taku-o/vim-toggle'
@@ -160,6 +158,7 @@ NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'michaeljsmith/vim-indent-object'
+NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundleLazy 'kana/vim-textobj-function', {
 \	'autoload' : {
 \		'filetypes' : ['c', 'vim'],
@@ -296,11 +295,14 @@ augroup END
 " C#
 " ---------------------------------------------------------------------------------------------------
 " {{{
-NeoBundleLazy 'yuratomo/dotnet-complete', {
-\	'autoload' : {
-\		'filetypes' : ['cs'],
-\	},
-\ }
+NeoBundleLazy 'csharp.vim'
+NeoBundleLazy 'yuratomo/dotnet-complete'
+augroup NeoBundleLazyForCSharp
+	autocmd!
+	autocmd FileType cs NeoBundleSource
+		\ csharp.vim
+		\ dotnet-complete
+augroup END
 " }}}
 
 " Action Script
@@ -520,6 +522,11 @@ NeoBundleLazy 'osyo-manga/vim-hideout', {
 \	'autoload' : {
 \		'commands' : ['HideoutOn', 'HideoutClear'],
 \	},
+\ }
+" NeoBundle 'rhysd/clever-f.vim'
+" NeoBundle 'kana/vim-smartinput'
+NeoBundle 'supermomonga/shiraseru.vim', {
+\	'depends' : 'Shougo/vimproc',
 \ }
 " }}}
 
@@ -775,6 +782,10 @@ vnoremap < <gv
 " Command
 " ---------------------------------------------------------------------------------------------------
 vnoremap B :Batch<CR>
+
+" chdir to current file
+" ---------------------------------------------------------------------------------------------------
+nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
@@ -1603,9 +1614,20 @@ let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 
 "====================================================================================================
 " dotnet-complete
+"   --> don't work... T_T
 "====================================================================================================
 " {{{
-autocmd FileType cs setlocal omnifunc=cs#complete
+augroup DotnetCompleteSettings
+	autocmd!
+	autocmd BufNewFile,BufRead *.cs setl omnifunc=cs#complete
+augroup END
+if has('gui')
+	augroup DotnetCompleteGUISettings
+		autocmd!
+		autocmd BufNewFile,BufRead *.cs setl bexpr=cs#balloon()
+		autocmd BufNewFile,BufRead *.cs setl ballooneval
+	augroup END
+endif
 " }}}
 
 "====================================================================================================
@@ -1696,7 +1718,7 @@ let $REANIMATE = g:reanimate_save_dir
 "====================================================================================================
 " {{{
 " map
-nnoremap [prefix]mn :MemoNew<CR>
+nnoremap [prefix]mn :set noimdisable<CR>:MemoNew<CR>
 nnoremap [prefix]ml :MemoList<CR>
 nnoremap [prefix]mg :MemoGrep<CR>
 
@@ -1845,6 +1867,16 @@ Arpeggio nmap oe <Plug>(operator-html-escape)
 " }}}
 
 "====================================================================================================
+" TextObj
+"====================================================================================================
+"{{{
+omap ab <Plug>(textobj-multiblock-a)
+omap ib <Plug>(textobj-multiblock-i)
+vmap ab <Plug>(textobj-multiblock-a)
+vmap ib <Plug>(textobj-multiblock-i)
+" }}}
+
+"====================================================================================================
 " echodoc
 "====================================================================================================
 "{{{
@@ -1885,7 +1917,7 @@ let g:rainwbow_cyclone_colors = [
 \	'term=reverse ctermfg=black ctermbg=9  gui=bold guifg=black guibg=orange',
 \ ]
 
-nmap / <Plug>(rc_search_forward)
+nmap / :set noimdisable<CR><Plug>(rc_search_forward)
 " nmap ? <Plug>(rc_search_backward)
 nmap * <Plug>(rc_search_forward_with_cursor)N
 nmap # <Plug>(rc_search_backward_with_cursor)N
