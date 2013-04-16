@@ -250,6 +250,19 @@ augroup NeoBundleLazyForJavaScript
 augroup END
 " }}}
 
+" CoffeeScript
+" ---------------------------------------------------------------------------------------------------
+" {{{
+NeoBundleLazy 'kchmck/vim-coffee-script.git'
+augroup NeoBundleLazyForCoffeeScript
+	autocmd!
+	autocmd BufNewFile,BufRead *.coffee
+		\ set filetype=coffee
+	autocmd FileType coffee NeoBundleSource
+		\ vim-coffee-script
+augroup END
+" }}}
+
 " Ruby
 " ---------------------------------------------------------------------------------------------------
 " {{{
@@ -344,6 +357,7 @@ NeoBundle 'thinca/vim-logcat'
 
 " Sahder
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'glsl.vim'
 augroup NeoBundleLazyForShader
 	autocmd!
@@ -352,9 +366,11 @@ augroup NeoBundleLazyForShader
 	autocmd FileType glsl NeoBundleSource
 		\ glsl.vim
 augroup END
+" }}}
 
 " Qt
 " ---------------------------------------------------------------------------------------------------
+" {{{
 NeoBundleLazy 'qml.vim', {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
@@ -366,6 +382,7 @@ augroup NeoBundleLazyForQt
 	autocmd FileType qml NeoBundleSource
 		\ qml.vim
 augroup END
+" }}}
 
 " Web service
 " ---------------------------------------------------------------------------------------------------
@@ -1368,6 +1385,20 @@ let g:quickrun_config['javascript/jslint'] = {
 let g:quickrun_config['javascript/gjslint'] = {
 	\ 'exec'      : '%c %s:p ',
 	\ 'command'   : 'gjslint',
+	\ 'runner'    : 'vimproc',
+\ }
+
+" CoffeeScript
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['coffee/coffee'] = {
+	\ 'exec'      : '%c %s:p',
+	\ 'command'   : 'coffee',
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['coffee/convert'] = {
+	\ 'exec'      : '%c -cbp %s:p ',
+	\ 'command'   : 'coffee',
 	\ 'runner'    : 'vimproc',
 \ }
 
