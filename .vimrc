@@ -82,6 +82,7 @@ NeoBundleLazy 'taku-o/vim-batch-source', {
 \	},
 \ }
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-splash'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'ujihisa/netrw.vim'
 NeoBundle 'YankRing.vim'

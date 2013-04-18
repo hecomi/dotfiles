@@ -227,8 +227,12 @@ local DEPOT_TOOLS_PATH="$HOME/Tools/depot_tools"
 export PATH="$DEPOT_TOOLS_PATH:$PATH"
 
 # Qt
-local QT_TOOLS_PATH="/Users/hecomi/Applications/Qt5.0.1/5.0.1/clang_64/bin"
+local QT_TOOLS_PATH="$HOME/Applications/Qt5.0.1/5.0.1/clang_64/bin"
 export PATH="$QT_TOOLS_PATH:$PATH"
+
+# Emscripten
+local EMSCRIPTEN_PATH="$HOME/Tools/emscripten"
+export PATH="$EMSCRIPTEN_PATH:$PATH"
 
 # Environment Variables
 # ---------------------------------------------------------------------------------------------------
