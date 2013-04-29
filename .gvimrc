@@ -52,6 +52,26 @@ endif
 
 set ambiwidth=double
 
+" Color Scheme (light, for Batch)
+" ---------------------------------------------------------------------------------------------------
+command! SetBackgroundLight :call s:setBgLight()
+function! s:setBgLight()
+	colorscheme solarized
+	" colorscheme hybrid
+	set background=light
+	let g:solarized_contrast="high"
+	let g:solarized_italic=0
+
+	hi Normal     guibg=#ffffff guifg=#444444
+	hi Comment    guibg=#ffffff guifg=#cccccc
+	hi LineNr     guibg=#ffffff guifg=#cccccc
+	hi Line       guibg=#222222
+	hi SpecialKey guibg=#ffffff guifg=#eeeeee
+	hi FoldColumn guibg=#cccccc guifg=#eeeeee
+	hi Folded     guibg=#cccccc guifg=#eeeeee
+	hi CursorLine guibg=#eeeeee
+endfunction
+
 " Color Scheme
 " ---------------------------------------------------------------------------------------------------
 colorscheme solarized

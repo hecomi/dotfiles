@@ -11,6 +11,7 @@ let s:is_linux = !s:is_mac && has('unix')
 " NeoBundle
 "====================================================================================================
 " {{{
+
 " filetype off
 " ---------------------------------------------------------------------------------------------------
 " {{{
@@ -81,6 +82,7 @@ NeoBundleLazy 'taku-o/vim-batch-source', {
 \		'filetypes' : ['vim'],
 \	},
 \ }
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-splash'
 NeoBundle 'ujihisa/neco-look'
@@ -372,16 +374,14 @@ augroup END
 " Qt
 " ---------------------------------------------------------------------------------------------------
 " {{{
-NeoBundleLazy 'qml.vim', {
-\	'type': 'nosync',
-\	'base': '~/.vim/bundle'
-\ }
-augroup NeoBundleLazyForQt
+" NeoBundleLazy 'hecomi/qml.vim'
+NeoBundleLazy 'peterhoeg/vim-qml'
+augroup NeoBundleLazyForQML
 	autocmd!
-	autocmd BufNewFile,BufRead *.qml
-		\ set filetype=qml
+	" autocmd BufNewFile,BufRead *.qml
+	" 	\ set filetype=qml
 	autocmd FileType qml NeoBundleSource
-		\ qml.vim
+		\ vim-qml
 augroup END
 " }}}
 
@@ -796,6 +796,10 @@ nnoremap > >>
 nnoremap < <<
 vnoremap > >gv
 vnoremap < <gv
+
+" Paren
+" ---------------------------------------------------------------------------------------------------
+inoremap {<CR> {<CR>}<Esc>O
 
 " Command
 " ---------------------------------------------------------------------------------------------------
@@ -1406,9 +1410,9 @@ let g:quickrun_config['coffee/convert'] = {
 " Java
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['java/javac'] = {
-\	'exec'                       : ['javac %o %s', '%c %s:t:r %a'],
-\	'hook/output_encode/encoding': '&termencoding',
-\	'hook/sweep/files'           : '%S:p:r.class',
+	\ 'exec'                       : ['javac %o %s', '%c %s:t:r %a'],
+	\ 'hook/output_encode/encoding': '&termencoding',
+	\ 'hook/sweep/files'           : '%S:p:r.class',
 \ }
 
 let g:quickrun_config['java/android'] = {
@@ -1437,17 +1441,18 @@ let g:quickrun_config['actionscript'] = {
 " VimScript
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['vim/async'] = {
-\	'command' : 'vim',
-\	'exec'    : '%C -N -u NONE -i NONE -V1 -e -s --cmd "source %s" --cmd qall!',
-\	'runner'  : 'vimproc',
+	\ 'command' : 'vim',
+	\ 'exec'    : '%C -N -u NONE -i NONE -V1 -e -s --cmd "source %s" --cmd qall!',
+	\ 'runner'  : 'vimproc',
 \ }
 
 " Qt
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['qml/qmlscene'] = {
-\	'command' : 'qmlscene',
-\	'exec'    : '%c %s:p',
-\	'runner'  : 'vimproc',
+	\ 'command' : 'qmlscene',
+	\ 'exec'    : '%c %s:p',
+	\ 'runner'  : 'vimproc',
+	\ 'quickfix/errorformat' : 'file:\/\/%f:%l %m',
 \ }
 
 let g:quickrun_config['qml'] = g:quickrun_config['qml/qmlscene']
@@ -1487,7 +1492,17 @@ let g:quickrun_config['watchdogs_checker/mcs'] = {
 	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
 \ }
 
-" Java
+" Qt
+let g:quickrun_config['qml/watchdogs_checker'] = {
+	\ 'type' : 'watchdogs_checker/qmlscene',
+\ }
+
+let g:quickrun_config['watchdogs_checker/qmlscene'] = {
+	\ 'command'              : 'qmlscene',
+	\ 'exec'                 : '%c %o %s:p',
+	\ 'cmdopt'               : '--quit',
+	\ 'quickfix/errorformat' : 'file:\/\/%f:%l %m',
+\ }
 
 " Common
 call watchdogs#setup(g:quickrun_config)
@@ -1496,6 +1511,7 @@ let g:watchdogs_check_BufWritePost_enables = {
 	\ "java"       : 0,
 	\ "javascript" : 1,
 	\ "cs"         : 1,
+	\ "qml"        : 0,
 \ }
 nnoremap <Leader>R :WatchdogsRun<CR>
 
@@ -1653,7 +1669,7 @@ augroup DotnetCompleteSettings
 	autocmd!
 	autocmd BufNewFile,BufRead *.cs setl omnifunc=cs#complete
 augroup END
-if has('gui')
+if s:is_win && has('gui')
 	augroup DotnetCompleteGUISettings
 		autocmd!
 		autocmd BufNewFile,BufRead *.cs setl bexpr=cs#balloon()
@@ -1859,6 +1875,21 @@ hi EasyMotionShade  ctermbg=none ctermfg=black
 
 nmap f 'w
 nmap H 'b
+" }}}
+
+"====================================================================================================
+" vim-multiple-cursors
+"====================================================================================================
+" {{{
+let g:multi_cursor_use_default_mapping = 0
+
+let g:multi_cursor_next_key = '<C-n>'
+let g:multi_cursor_prev_key = '<C-p>'
+let g:multi_cursor_skip_key = '<C-x>'
+let g:multi_cursor_quit_key = '<Esc>'
+
+highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+highlight link multiple_cursors_visual Visual
 " }}}
 
 "====================================================================================================
