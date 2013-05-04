@@ -1,11 +1,4 @@
 # ====================================================================================================
-# Local
-# ====================================================================================================
-# {{{
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-# }}}
-
-# ====================================================================================================
 # Basic
 # ====================================================================================================
 # {{{
@@ -29,7 +22,7 @@ export LS_COLORS='di=1;34:ln=1;36:so=32:pi=33:ex=1;31:bd=46;34:cd=43;34:su=41;30
 export LANG=ja_JP.UTF-8
 setopt auto_cd
 setopt auto_pushd
-#setopt correct
+setopt correct
 setopt list_packed
 setopt nolistbeep
 setopt multios
@@ -181,9 +174,9 @@ hecom)
 		HOSTC=$YELLOW
 	;;
 esac
-PROMPT=$HOSTC'${USER}@${HOST}%(!.#.$) '$DEFAULT
+PROMPT=$HOSTC'${USER}'$RED'@'$HOSTC'${HOST}'$RED'%(!.#.$) '$DEFAULT
 PROMPT2=$blue'%_> '$DEFAULT
-RPROMPT=$GREEN'[%~]'$DEFAULT
+RPROMPT=$WHITE'[%~]'$DEFAULT
 SPROMPT=$BLUE'correct: '$WHITE'%R'$BLUE' -> '$YELLOW'%r'$BLUE' [nyae]? '$DEFAULT
 setopt PROMPT_SUBST
 
@@ -269,3 +262,11 @@ function _Z_precmd {
 precmd_functions=($precmd_functions _Z_precmd)
 
 # }}}
+
+# ====================================================================================================
+# Local
+# ====================================================================================================
+# {{{
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+# }}}
+

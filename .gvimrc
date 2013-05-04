@@ -84,7 +84,7 @@ hi Normal     guibg=#000000 guifg=#cccccc
 hi Comment    guibg=#000000 guifg=#444444
 hi LineNr     guibg=#010101 guifg=#333333
 hi Line       guibg=#222222
-hi SpecialKey guibg=#000000 guifg=#222222
+hi SpecialKey guibg=#000000 guifg=#0a0a0a
 hi FoldColumn guibg=#222222 guifg=#444444
 hi Folded     guibg=#222222 guifg=#444444
 hi Pmenu      guibg=#aaaaaa guifg=#333333
@@ -92,6 +92,8 @@ hi PmenuSel   guibg=#333333 guifg=#cccccc
 hi PmenuSbar  guibg=#000000 guifg=#222222
 hi PmenuThumb guibg=#000000 guifg=#555555
 hi CursorLine guibg=#1a1512
+hi clear Visual
+hi Visual     guibg=#555555
 
 " Style
 " ---------------------------------------------------------------------------------------------------

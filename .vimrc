@@ -70,6 +70,7 @@ NeoBundleLazy 'Shougo/vinarise', {
 " {{{
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'osyo-manga/vim-reanimate'
+NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'rking/ag.vim'
 NeoBundleLazy 'sjl/gundo.vim', {
 \	'autoload' : {
@@ -105,7 +106,6 @@ NeoBundleLazy 'migemo', {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
 \ }
-NeoBundle 'daisuzu/rainbowcyclone.vim'
 NeoBundle 'thinca/vim-visualstar'
 " }}}
 
@@ -135,6 +135,7 @@ NeoBundle 'thinca/vim-ambicmd'
 " ---------------------------------------------------------------------------------------------------
 " {{{
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'osyo-manga/vim-powerline-unite-theme'
 NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
 
@@ -631,9 +632,9 @@ set number
 set nowrap
 set list
 if s:is_win
-	set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+	set listchars=tab:>･,trail:･,extends:>,precedes:<,nbsp:%
 else
-	set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%
+	set listchars=tab:▸･,trail:･,extends:»,precedes:«,nbsp:%
 endif
 set notitle
 set scrolloff=5
@@ -697,22 +698,25 @@ nnoremap J <C-d>
 nnoremap K <C-u>
 vnoremap J <C-d>
 vnoremap K <C-u>
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
 
 " Ref: https://github.com/cohama/.vim/blob/master/.vimrc
 function! NotMoveWhenLeavingFromInsertMode()
-  let cursorPos = col(".")
-  let maxColumn = col("$")
-  if cursorPos < maxColumn && cursorPos != 1
-    return "\<Esc>l"
-  else
-    return "\<Esc>"
-  endif
+	let cursorPos = col(".")
+	let maxColumn = col("$")
+	if cursorPos < maxColumn && cursorPos != 1
+		return "\<Esc>l"
+	else
+		return "\<Esc>"
+	endif
 endfunction
 imap <silent><expr> <Esc> NotMoveWhenLeavingFromInsertMode()
 
 " Emacs-like
 " Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
-" ---------------------------------------------------------------------------------------------------
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-b> <Left>
@@ -724,16 +728,31 @@ inoremap <C-d> <Del>
 inoremap <expr> <C-k> col('.')==col('$')?'':'<C-o>D'
 inoremap <C-l> <C-o>zz
 
-" Search
+" Search / Replace
 " ---------------------------------------------------------------------------------------------------
-nnoremap <Esc><Esc> :nohlsearch<CR>:RCReset<CR>
-nnoremap n nzz
-nnoremap N Nzz
-" nnoremap * *N  --> RainbowCyclone
-" nnoremap # #N  --> RainbowCyclone
-nnoremap [prefix]/ <Esc>q/
+nnoremap <Esc><Esc> :nohlsearch<CR>
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)N
+nmap # <Plug>(anzu-sharp-with-echo)N
 
-" Replace
+" Ref: http://d.hatena.ne.jp/osyo-manga/20130424/1366800441
+function! s:move_cursor_pos_mapping(str, ...)
+	let left = get(a:, 1, '<Left>')
+	let lefts = join(map(split(matchstr(a:str, '.*<Cursor>\zs.*\ze'), '.\zs'), 'left'), '')
+	return substitute(a:str, '<Cursor>', '', '') . lefts
+endfunction
+
+function! _(str)
+	return s:move_cursor_pos_mapping(a:str, "\<Left>")
+endfunction
+
+nnoremap <expr> [prefix]s _(":%s/<Cursor>//g")
+vnoremap <expr> [prefix]s _(":S/<Cursor>//g")
+nnoremap <expr> [prefix]S _(":%S/<Cursor>//g")
+vnoremap <expr> [prefix]S _(":S/<Cursor>//g")
+
+" TextObj / Operators
 " ---------------------------------------------------------------------------------------------------
 vmap s <Plug>VSurround
 
@@ -745,6 +764,9 @@ nnoremap Q q
 " Select
 " ---------------------------------------------------------------------------------------------------
 nnoremap <C-a> ggVG
+nnoremap [prefix]C `[v`]
+onoremap [prefix]C <Esc>gc<CR>
+vnoremap [prefix]C <Esc>gc<CR>
 
 " Copy
 " ---------------------------------------------------------------------------------------------------
@@ -755,7 +777,6 @@ augroup SetNoPaste
 	autocmd InsertLeave * if &paste | set nopaste | endif
 augroup END
 nnoremap p :set paste<CR>p:set nopaste<CR>
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`'
 
 " Wrap
 " ---------------------------------------------------------------------------------------------------
@@ -877,6 +898,12 @@ hi PmenuSbar  ctermbg=245  ctermfg=240
 hi PmenuThumb ctermbg=255  ctermfg=245
 hi CursorLine ctermbg=233  ctermfg=none
 hi Visual     ctermbg=255  ctermfg=none
+
+augroup MyHighlight
+	autocmd!
+	autocmd Syntax * syntax match Operators display '[-&|+<>=*/!~:;]'
+	autocmd Syntax * hi Operators ctermfg=237
+augroup END
 
 " plugin
 " ---------------------------------------------------------------------------------------------------
@@ -1874,7 +1901,7 @@ hi EasyMotionTarget ctermbg=none ctermfg=darkred
 hi EasyMotionShade  ctermbg=none ctermfg=black
 
 nmap f 'w
-nmap H 'b
+nmap F 'b
 " }}}
 
 "====================================================================================================
@@ -1962,31 +1989,6 @@ nnoremap [prefix]ll :LingrLaunch<CR>
 " }}}
 
 "====================================================================================================
-" RainbowCyclone
-"====================================================================================================
-" {{{
-let g:rainwbow_cyclone_colors = [
-\	'term=reverse ctermfg=white ctermbg=1  gui=bold guifg=white guibg=darkyellow',
-\	'term=reverse ctermfg=white ctermbg=2  gui=bold guifg=white guibg=darkgreen',
-\	'term=reverse ctermfg=white ctermbg=3  gui=bold guifg=white guibg=blue',
-\	'term=reverse ctermfg=white ctermbg=4  gui=bold guifg=white guibg=purple',
-\	'term=reverse ctermfg=white ctermbg=5  gui=bold guifg=white guibg=darkred',
-\	'term=reverse ctermfg=white ctermbg=6  gui=bold guifg=white guibg=darkorange',
-\	'term=reverse ctermfg=black ctermbg=11 gui=bold guifg=black guibg=yellow',
-\	'term=reverse ctermfg=black ctermbg=10 gui=bold guifg=black guibg=green',
-\	'term=reverse ctermfg=black ctermbg=14 gui=bold guifg=black guibg=cyan',
-\	'term=reverse ctermfg=black ctermbg=12 gui=bold guifg=black guibg=purple',
-\	'term=reverse ctermfg=black ctermbg=13 gui=bold guifg=black guibg=red',
-\	'term=reverse ctermfg=black ctermbg=9  gui=bold guifg=black guibg=orange',
-\ ]
-
-nmap / :set noimdisable<CR><Plug>(rc_search_forward)
-" nmap ? <Plug>(rc_search_backward)
-nmap * <Plug>(rc_search_forward_with_cursor)N
-nmap # <Plug>(rc_search_backward_with_cursor)N
-" }}}
-
-"====================================================================================================
 " Rainbow Parenthesis
 "====================================================================================================
 " {{{
@@ -2023,6 +2025,7 @@ augroup END
 " Vim-powerline
 "====================================================================================================
 " {{{
+
 let g:Powerline_symbols = 'fancy'
 
 call Pl#Hi#Allocate({
@@ -2067,7 +2070,7 @@ call Pl#Hi#Allocate({
 	\ 'gray10'         : 252,
 	\ })
 
-let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
+let g:Powerline#Colorschemes#hecomi#colorscheme = Pl#Colorscheme#Init([
 	\ Pl#Hi#Segments(['SPLIT'], {
 		\ 'n': ['white', 'gray2'],
 		\ 'N': ['gray0', 'gray0'],
@@ -2147,15 +2150,23 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
 		\ }),
 	\
 	\ Pl#Hi#Segments(['branch'], {
+		\ 'i': ['white', 'darkgreen',    ['bold']],
+		\ 'n': ['white', 'darkblue',     ['bold']],
+		\ 'v': ['white', 'mediumpurple', ['bold']],
+		\ 'r': ['white', 'mediumred',    ['bold']],
+		\ 'N': ['gray0', 'gray2',        ['bold']],
+		\ }),
+	\
+	\ Pl#Hi#Segments(['unite:status'], {
 		\ 'i': ['white', 'darkgreen',    ['bold']] ,
 		\ 'n': ['white', 'darkblue',     ['bold']] ,
-		\ 'v': ['white', 'mediumpurple', ['bold']] ,
-		\ 'r': ['white', 'mediumred',    ['bold']] ,
 		\ 'N': ['gray0', 'gray2',        ['bold']] ,
 		\ }),
 	\ ])
 
-let g:Powerline_colorscheme='my'
+let g:Powerline_theme       = 'unite_status'
+let g:Powerline_colorscheme = 'hecomi'
+
 " }}}
 
 "====================================================================================================

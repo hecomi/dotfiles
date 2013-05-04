@@ -4,7 +4,7 @@
 "
 " Language:	memo
 " Maintainer:	MURAOKA Taro <koron.kaoriya@gmail.com>
-" Last Change:	28-Apr-2013.
+" Last Change:	04-Apr-2013.
 
 scriptencoding cp932
 
