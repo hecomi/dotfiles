@@ -243,6 +243,7 @@ NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
 NeoBundleLazy 'hecomi/vim-javascript-syntax'
+" NeoBundleLazy 'marijnh/tern_for_vim'
 augroup NeoBundleLazyForJavaScript
 	autocmd!
 	autocmd FileType html,javascript,typescript NeoBundleSource
@@ -313,12 +314,19 @@ augroup END
 " ---------------------------------------------------------------------------------------------------
 " {{{
 NeoBundleLazy 'csharp.vim'
-NeoBundleLazy 'yuratomo/dotnet-complete'
+" NeoBundleLazy 'yuratomo/dotnet-complete'
+NeoBundleLazy 'nosami/Omnisharp', {
+\	'build': {
+\		'windows' : 'MSBuild.exe server/OmniSharp.sln /p: Platform="Any CPU"',
+\		'mac'     : 'xbuild server/OmniSharp.sln',
+\		'unix'    : 'xbuild server/OmniSharp.sln',
+\	}
+\ }
 augroup NeoBundleLazyForCSharp
 	autocmd!
 	autocmd FileType cs NeoBundleSource
 		\ csharp.vim
-		\ dotnet-complete
+		\ Omnisharp
 augroup END
 " }}}
 
@@ -764,9 +772,9 @@ nnoremap Q q
 " Select
 " ---------------------------------------------------------------------------------------------------
 nnoremap <C-a> ggVG
-nnoremap [prefix]C `[v`]
-onoremap [prefix]C <Esc>gc<CR>
-vnoremap [prefix]C <Esc>gc<CR>
+nnoremap [prefix]vl `[v`]
+onoremap [prefix]vl <Esc>gc<CR>
+vnoremap [prefix]vl <Esc>gc<CR>
 
 " Copy
 " ---------------------------------------------------------------------------------------------------
@@ -901,7 +909,7 @@ hi Visual     ctermbg=255  ctermfg=none
 
 augroup MyHighlight
 	autocmd!
-	autocmd Syntax * syntax match Operators display '[-&|+<>=*/!~:;]'
+	autocmd Syntax * syntax match Operators display '[&|<>=!~:;]'
 	autocmd Syntax * hi Operators ctermfg=237
 augroup END
 
@@ -1689,20 +1697,30 @@ let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 
 "====================================================================================================
 " dotnet-complete
-"   --> don't work... T_T
+"   --> doesn't work... T_T
 "====================================================================================================
 " {{{
-augroup DotnetCompleteSettings
-	autocmd!
-	autocmd BufNewFile,BufRead *.cs setl omnifunc=cs#complete
-augroup END
-if s:is_win && has('gui')
-	augroup DotnetCompleteGUISettings
-		autocmd!
-		autocmd BufNewFile,BufRead *.cs setl bexpr=cs#balloon()
-		autocmd BufNewFile,BufRead *.cs setl ballooneval
-	augroup END
+" augroup DotnetCompleteSettings
+" 	autocmd!
+" 	autocmd BufNewFile,BufRead *.cs setl omnifunc=cs#complete
+" augroup END
+" if s:is_win && has('gui')
+" 	augroup DotnetCompleteGUISettings
+" 		autocmd!
+" 		autocmd BufNewFile,BufRead *.cs setl bexpr=cs#balloon()
+" 		autocmd BufNewFile,BufRead *.cs setl ballooneval
+" 	augroup END
+" endif
+" }}}
+
+"====================================================================================================
+" OmniSharp
+"====================================================================================================
+" {{{
+if !exists('g:neocomplcache_force_omni_patterns')
+	let g:neocomplcache_force_omni_patterns = {}
 endif
+let g:neocomplcache_force_omni_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 " }}}
 
 "====================================================================================================

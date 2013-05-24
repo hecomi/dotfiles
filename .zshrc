@@ -215,6 +215,10 @@ export PATH="$ANDROID_NDK_TOOLS_PATH:$ANDROID_SDK_TOOLS_PATH:$PATH"
 local NODEBREW_PATH="$HOME/.nodebrew/current/bin"
 export PATH="$NODEBREW_PATH:$PATH"
 
+# tern
+local TERN_PATH="$HOME/Tools/tern/bin"
+export PATH="$TERN_PATH:$PATH"
+
 # NaCl
 local DEPOT_TOOLS_PATH="$HOME/Tools/depot_tools"
 export PATH="$DEPOT_TOOLS_PATH:$PATH"
