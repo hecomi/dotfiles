@@ -398,7 +398,7 @@ augroup END
 " ---------------------------------------------------------------------------------------------------
 " {{{
 NeoBundleLazy 'basyura/bitly.vim'
-NeoBundleLazy '/basyura/twibill.vim'
+NeoBundleLazy 'basyura/twibill.vim'
 NeoBundleLazy 'basyura/TweetVim', {
 \	'depends'  : [
 \		'mattn/webapi-vim',
@@ -662,10 +662,16 @@ set foldcolumn=1
 set cursorline
 set nocursorcolumn
 
-" StatusLine
+" Status Line
 " ---------------------------------------------------------------------------------------------------
 set cmdheight=2
 set laststatus=2
+
+" Title
+" --------------------------------------------------------------------------------------------------- Title
+set title
+set titlestring=Vim:\ %f\ %h%r%m
+set ttimeoutlen=50
 
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
@@ -677,6 +683,14 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
 	set ambiwidth=double
 endif
+
+" Appearance
+" ---------------------------------------------------------------------------------------------------
+if exists('+guicursor')
+  set guicursor&
+  set guicursor=a:blinkwait2000-blinkon1000-blinkoff500
+endif
+
 " }}}
 
 "====================================================================================================
@@ -743,6 +757,8 @@ nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)N
 nmap # <Plug>(anzu-sharp-with-echo)N
+nnoremap <C-w>* <C-w>s<Plug>(anzu-star-with-echo)N
+nnoremap <C-w># <C-w>s<Plug>(anzu-sharp-with-echo)N
 
 " Ref: http://d.hatena.ne.jp/osyo-manga/20130424/1366800441
 function! s:move_cursor_pos_mapping(str, ...)
@@ -818,6 +834,8 @@ augroup END
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 nnoremap [prefix]co :ContinuousNumber <C-a><CR>
 vnoremap [prefix]co :ContinuousNumber <C-a><CR>
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 " Indent
 " ---------------------------------------------------------------------------------------------------

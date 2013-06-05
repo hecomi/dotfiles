@@ -231,6 +231,12 @@ export PATH="$QT_TOOLS_PATH:$PATH"
 local EMSCRIPTEN_PATH="$HOME/Tools/emscripten"
 export PATH="$EMSCRIPTEN_PATH:$PATH"
 
+# Go
+export GOROOT="$HOME/go"
+export GOOS="linux"
+export GOARCH="386"
+export GOBIN="$HOME/bin"
+
 # Environment Variables
 # ---------------------------------------------------------------------------------------------------
 # C++
@@ -259,11 +265,15 @@ export OPENNI2_REDIST=/Users/hecomi/Tools/OpenNI-2.1.0/Redist
 # Commands
 # ---------------------------------------------------------------------------------------------------
 # z
-source /usr/local/etc/profile.d/z.sh
-function _Z_precmd {
-	z --add "$(pwd -P)" 61
-}
-precmd_functions=($precmd_functions _Z_precmd)
+case ${OSTYPE} in
+darwin12.0)
+	source /usr/local/etc/profile.d/z.sh
+	function _Z_precmd {
+		z --add "$(pwd -P)" 61
+	}
+	precmd_functions=($precmd_functions _Z_precmd)
+	;;
+esac
 
 # }}}
 
