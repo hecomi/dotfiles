@@ -12,10 +12,9 @@ let s:is_linux = !s:is_mac && has('unix')
 "====================================================================================================
 " {{{
 
-" filetype off
+" config
 " ---------------------------------------------------------------------------------------------------
 " {{{
-filetype off
 let g:neobundle_default_git_protocol = 'https'
 " }}}
 
@@ -135,6 +134,7 @@ NeoBundle 'thinca/vim-ambicmd'
 " ---------------------------------------------------------------------------------------------------
 " {{{
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'hecomi/alpaca_powertabline'
 NeoBundle 'osyo-manga/vim-powerline-unite-theme'
 NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
@@ -412,6 +412,7 @@ NeoBundleLazy 'basyura/TweetVim', {
 \			'TweetVimMentions',
 \			'TweetVimListStatuses',
 \			'TweetVimUserTimeline',
+\			'TweetVimUserStream',
 \			'TweetVimSay',
 \			'TweetVimSearch',
 \		],
@@ -557,10 +558,9 @@ NeoBundle 'supermomonga/shiraseru.vim', {
 \ }
 " }}}
 
-" filetype on
+" check
 " ---------------------------------------------------------------------------------------------------
 " {{{
-filetype plugin indent on
 NeoBundleCheck
 " }}}
 
@@ -593,14 +593,17 @@ augroup vimrc-checktime
 	autocmd!
 	autocmd WinEnter * checktime
 augroup END
+
 set noautochdir
 set hidden
 set noswapfile
 set backupdir=>/tmp
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc  " ワイルドカードで表示するときに優先度を低くする拡張子
+
 augroup DeleteSpace
 	autocmd!
-	autocmd BufWritePre * :%s/\s\+$//ge
-augroup END
+	autocmd bufwritepre * :%s/(\s|　)\+$//ge
+augroup end
 
 " History
 " ---------------------------------------------------------------------------------------------------
@@ -610,6 +613,11 @@ set history=1000
 " ---------------------------------------------------------------------------------------------------
 set tabstop=4 shiftwidth=4 softtabstop=0
 set autoindent smartindent
+
+augroup DeleteSpace
+	autocmd!
+	autocmd FileType html,javascript setlocal ts=2 sw=2
+augroup end
 
 " Input Assist
 " ---------------------------------------------------------------------------------------------------
@@ -691,6 +699,10 @@ if exists('+guicursor')
   set guicursor=a:blinkwait2000-blinkon1000-blinkoff500
 endif
 
+" Others
+" ---------------------------------------------------------------------------------------------------
+set ttyfast
+
 " }}}
 
 "====================================================================================================
@@ -749,6 +761,11 @@ inoremap <C-h> <Backspace>
 inoremap <C-d> <Del>
 inoremap <expr> <C-k> col('.')==col('$')?'':'<C-o>D'
 inoremap <C-l> <C-o>zz
+
+" Tab
+" ---------------------------------------------------------------------------------------------------
+nnoremap <TAB>   :tabn<CR>
+nnoremap <S-TAB> :tabp<CR>
 
 " Search / Replace
 " ---------------------------------------------------------------------------------------------------
@@ -911,19 +928,19 @@ colorscheme solarized
 
 " highlight
 " ---------------------------------------------------------------------------------------------------
-hi Normal     ctermbg=none ctermfg=245
-hi Comment    ctermfg=237
-hi LineNr     ctermbg=none ctermfg=232
-hi Line       ctermbg=232  ctermfg=232
-hi SpecialKey ctermbg=none ctermfg=232
-hi FoldColumn ctermbg=234  ctermfg=232
-hi Folded     ctermbg=234  ctermfg=237
-hi Pmenu      ctermbg=255  ctermfg=235
-hi PmenuSel   ctermbg=255  ctermfg=24
-hi PmenuSbar  ctermbg=245  ctermfg=240
-hi PmenuThumb ctermbg=255  ctermfg=245
-hi CursorLine ctermbg=233  ctermfg=none
-hi Visual     ctermbg=255  ctermfg=none
+hi Normal      ctermbg=none ctermfg=245
+hi Comment     ctermfg=237
+hi LineNr      ctermbg=none ctermfg=232
+hi Line        ctermbg=232  ctermfg=232
+hi SpecialKey  ctermbg=none ctermfg=232
+hi FoldColumn  ctermbg=234  ctermfg=232
+hi Folded      ctermbg=234  ctermfg=237
+hi Pmenu       ctermbg=255  ctermfg=235
+hi PmenuSel    ctermbg=255  ctermfg=24
+hi PmenuSbar   ctermbg=245  ctermfg=240
+hi PmenuThumb  ctermbg=255  ctermfg=245
+hi CursorLine  ctermbg=233  ctermfg=none
+hi Visual      ctermbg=255  ctermfg=none
 
 augroup MyHighlight
 	autocmd!
@@ -1112,6 +1129,13 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+if !exists('g:neocomplcache_force_omni_patterns')
+	let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
+let g:neocomplcache_force_omni_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
 " <TAB> completion.
 " ---------------------------------------------------------------------------------------------------
@@ -1126,13 +1150,6 @@ for s:dict in split(glob($HOME.'/.vim/dict/*.dict'))
 	let s:ft = matchstr(s:dict, '\w\+\ze\.dict$')
 	let g:neocomplcache_dictionary_filetype_lists[s:ft] = s:dict
 endfor
-
-" for clang_complete
-" ---------------------------------------------------------------------------------------------------
-if !exists('g:neocomplcache_force_omni_patterns')
-	let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 
 " neco-look
 " ---------------------------------------------------------------------------------------------------
@@ -1579,7 +1596,7 @@ let g:hier_highlight_group_qfw = 'qf_warning_ucurl'
 " Unite: quickrun-select
 " -------------------------------------------------------
 nnoremap [unite]qc :Unite quickrun_config<CR>
-nnoremap <silent> [prefix]r :QuickRun<CR>
+nnoremap [prefix]r :QuickRun<CR>
 " }}}
 
 "====================================================================================================
@@ -1706,6 +1723,10 @@ let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 " }}}
 
 "====================================================================================================
+" neosnippet
+"====================================================================================================
+
+"====================================================================================================
 " javacomplete
 "====================================================================================================
 " {{{
@@ -1735,10 +1756,17 @@ let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 " OmniSharp
 "====================================================================================================
 " {{{
-if !exists('g:neocomplcache_force_omni_patterns')
-	let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
+nnoremap [prefix]csa :OmniSharpAddToProject<CR>
+nnoremap [prefix]csb :OmniSharpBuild<CR>
+nnoremap [prefix]csc :OmniSharpFindSyntaxErrors<CR>
+nnoremap [prefix]csf :OmniSharpCodeFormat<CR>
+nnoremap [prefix]csj :OmniSharpGotoDefinition<CR>
+nnoremap [prefix]csd :OmniSharpGotoDefinition<CR>
+nnoremap [prefix]csi :OmniSharpFindImplementations<CR>
+nnoremap [prefix]csr :OmniSharpRename<CR>
+nnoremap [prefix]cst :OmniSharpTypeLookup<CR>
+nnoremap [prefix]csu :OmniSharpFindUsages<CR>
+nnoremap [prefix]csx :OmniSharpGetCodeActions<CR>
 " }}}
 
 "====================================================================================================
@@ -1872,7 +1900,7 @@ nnoremap [unite]tv   :Unite tweetvim<CR>
 nnoremap [prefix]tw  :TweetVimSay<CR>
 nnoremap [prefix]twh :TweetVimHomeTimeline<CR>
 nnoremap [prefix]twm :TweetVimMentions<CR>
-nnoremap [prefix]tws :TweetVimSearch
+nnoremap [prefix]tws :TweetVimUserStream
 
 augroup tweetvim
 	autocmd!
@@ -1905,8 +1933,8 @@ let g:unite_source_alignta_preset_arguments = [
 vnoremap a  :Alignta
 vnoremap a= :Alignta =<CR>
 vnoremap a+ :Alignta +<CR>
-vnoremap a: :Alignta 01 :<CR>
-vnoremap a; :Alignta 01 :<CR>
+vnoremap a: :Alignta 11 :<CR>
+vnoremap a; :Alignta 11 :<CR>
 vnoremap a, :Alignta 01 ,<CR>
 vnoremap as :Alignta <<0 \s\s*<CR>
 vnoremap ae :Alignta -e
@@ -1914,7 +1942,6 @@ vnoremap ar :Alignta -r
 vnoremap ap :Alignta -p
 vnoremap ag :Alignta g/^\s*
 vnoremap av :Alignta v/^\s*
-
 " }}}
 
 "====================================================================================================

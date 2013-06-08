@@ -268,10 +268,10 @@ export OPENNI2_REDIST=/Users/hecomi/Tools/OpenNI-2.1.0/Redist
 case ${OSTYPE} in
 darwin12.0)
 	source /usr/local/etc/profile.d/z.sh
-	function _Z_precmd {
-		z --add "$(pwd -P)" 61
-	}
-	precmd_functions=($precmd_functions _Z_precmd)
+	# function _Z_precmd {
+	# 	z --add "$(pwd -P)" 61
+	# }
+	# precmd_functions=($precmd_functions _Z_precmd)
 	;;
 esac
 

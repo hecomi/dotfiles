@@ -95,6 +95,10 @@ hi CursorLine guibg=#1a1512
 hi clear Visual
 hi Visual     guibg=#555555
 
+hi TabLine     guibg=#222222 guifg=#444444
+hi TabLineFill guibg=#000000
+hi TabLineSel  gui=bold guibg=#045b84 guifg=#ffffff
+
 " Style
 " ---------------------------------------------------------------------------------------------------
 set antialias
@@ -104,6 +108,7 @@ set guioptions-=r
 set guioptions-=R
 set guioptions-=l
 set guioptions-=L
+set guioptions-=e
 gui
 if has('gui_macvim')
 	set transparency=5
