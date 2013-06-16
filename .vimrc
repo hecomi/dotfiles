@@ -598,7 +598,7 @@ set noautochdir
 set hidden
 set noswapfile
 set backupdir=>/tmp
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc  " ワイルドカードで表示するときに優先度を低くする拡張子
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
 augroup DeleteSpace
 	autocmd!
@@ -766,6 +766,7 @@ inoremap <C-l> <C-o>zz
 " ---------------------------------------------------------------------------------------------------
 nnoremap <TAB>   :tabn<CR>
 nnoremap <S-TAB> :tabp<CR>
+nnoremap <C-TAB> :tabnew<CR>
 
 " Search / Replace
 " ---------------------------------------------------------------------------------------------------
@@ -865,7 +866,12 @@ vnoremap < <gv
 " ---------------------------------------------------------------------------------------------------
 inoremap {<CR> {<CR>}<Esc>O
 
-" Command
+" Save
+" Ref: https://github.com/Valloric/dotfiles/blob/master/vim/vimrc.vim
+" ---------------------------------------------------------------------------------------------------
+cnoremap w!! w !sudo tee % >/dev/null
+
+" Run command
 " ---------------------------------------------------------------------------------------------------
 vnoremap B :Batch<CR>
 
@@ -904,16 +910,14 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Style
 " ---------------------------------------------------------------------------------------------------
 let g:vim_indent_cont=0
-" }}}
 
-"====================================================================================================
-" Filetype-related Settings
-"====================================================================================================
-" {{{
+" Filetype-related settings
+" ---------------------------------------------------------------------------------------------------
 augroup EachFileTypeSettings
 	autocmd!
 	autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
 augroup END
+
 " }}}
 
 "====================================================================================================
@@ -1900,7 +1904,7 @@ nnoremap [unite]tv   :Unite tweetvim<CR>
 nnoremap [prefix]tw  :TweetVimSay<CR>
 nnoremap [prefix]twh :TweetVimHomeTimeline<CR>
 nnoremap [prefix]twm :TweetVimMentions<CR>
-nnoremap [prefix]tws :TweetVimUserStream
+nnoremap [prefix]tws :TweetVimUserStream<CR>
 
 augroup tweetvim
 	autocmd!
