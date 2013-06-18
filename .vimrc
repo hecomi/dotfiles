@@ -531,6 +531,7 @@ NeoBundleLazyUnite 'osyo-manga/unite-shimapan'
 NeoBundleLazyUnite 'osyo-manga/unite-sl'
 NeoBundleLazyUnite 'osyo-manga/unite-u-nya-'
 NeoBundleLazyUnite 'sgur/unite-everything'
+NeoBundleLazyUnite 'thinca/vim-editvar'
 NeoBundleLazyUnite 'tsukkee/unite-help'
 NeoBundleLazyUnite 'tsukkee/unite-tag'
 NeoBundleLazyUnite 'ujihisa/unite-colorscheme'
@@ -846,6 +847,7 @@ augroup MyIME
 	autocmd InsertEnter * set noimdisable
 	autocmd InsertLeave * set imdisable
 augroup END
+nnoremap [prefix]sni :set noimdisable<CR>
 
 " Continuous Number
 " ---------------------------------------------------------------------------------------------------
