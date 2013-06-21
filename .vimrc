@@ -33,6 +33,42 @@ call neobundle#rc(expand('~/.vim/plugins'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
+" Shougo-san's plugin {{{
+" ---------------------------------------------------------------------------------------------------
+NeoBundle 'Shougo/context_filetype.vim'
+NeoBundle 'Shougo/echodoc'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundleLazy 'Shougo/junkfile.vim', {
+\	'autoload' : {
+\		'commands'     : 'JunkfileOpen',
+\		'unite_sources': ['junkfile', 'junkfile/new'],
+\	}
+\ }
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimproc', {
+\	'build' : {
+\		'windows' : 'make -f make_mingw64.mak',
+\		'cygwin'  : 'make -f make_cygwin.mak',
+\		'mac'     : 'make -f make_mac.mak',
+\		'unix'    : 'make -f make_unix.mak',
+\	},
+\ }
+NeoBundleLazy 'Shougo/vimshell', {
+\	'depends'  : ['ujihisa/vimshell-ssh'],
+\	'autoload' : {
+\		'commands' : ['VimShell', 'VimShellPop', 'VimShellInteractive', 'VimShellCreate'],
+\	},
+\ }
+NeoBundleLazy 'ujihisa/vimshell-ssh'
+NeoBundleLazy 'Shougo/vinarise', {
+\	'autoload' : {
+\		'commands' : 'Vinarise',
+\	},
+\ }
+" }}}
+
 " Common {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'itchyny/thumbnail.vim'
@@ -1575,23 +1611,23 @@ noremap G<C-]> :<C-u>execute "PopupTags "
 " Unite source: set_tags
 " ---------------------------------------------------------------------------------------------------
 let s:source = {
-\    'name'        : 'set_tags',
-\    'description' : 'include tag files',
+\	'name'        : 'set_tags',
+\	'description' : 'include tag files',
 \}
 
 call unite#define_source(s:source)
 function! s:source.gather_candidates(args, context)
-    let l:set_tag_command = "setlocal tags+=%s"
+	let l:set_tag_command = "setlocal tags+=%s"
 	let l:search_dir = $HOME.'/.vim/tags/'.&filetype.'/*'
-    let l:tag_files = split(glob(l:search_dir).' '.glob('./*tags'))
-    return map(
-        \ l:tag_files,
-        \ '{
-        \     "word"            : v:val,
-        \     "source"          : "set_tags",
-        \     "kind"            : "command",
-        \     "action__command" : printf(l:set_tag_command, v:val)
-        \ }')
+	let l:tag_files = split(glob(l:search_dir).' '.glob('./*tags'))
+	return map(
+		\ l:tag_files,
+		\ '{
+		\     "word"            : v:val,
+		\     "source"          : "set_tags",
+		\     "kind"            : "command",
+		\     "action__command" : printf(l:set_tag_command, v:val)
+		\ }')
 endfunction
 call unite#define_source(s:source)
 unlet s:source
@@ -1602,8 +1638,8 @@ nnoremap [unite]tag :Unite tag<CR>
 " Unite source: dict
 " ---------------------------------------------------------------------------------------------------
 let s:source = {
-\    'name'        : 'dict',
-\    'description' : 'add ~/.vim/dict/*.dict to neco',
+\	'name'        : 'dict',
+\	'description' : 'add ~/.vim/dict/*.dict to neco',
 \ }
 
 call unite#define_source(s:source)
