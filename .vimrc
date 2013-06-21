@@ -1,13 +1,13 @@
 " ---------------------------------------------------------------------------------------------------
-"  ____       ____
-" |    |     |    |
-" |    |_____|    |   
-" |               |     _                                    _            _
-" |  ・       ・  |    | |__    ___   ___   ___   _ __ ___  (_)   __   __(_) _ __ ___   _ __   ___ 
-" |   _________   |    | '_ \  / _ \ / __| / _ \ | '_ ` _ \ | |   \ \ / /| || '_ ` _ \ | '__| / __|
-" |  |_________|  |    | | | ||  __/| (__ | (_) || | | | | || | _  \ V / | || | | | | || |   | (__ 
-" |_______________|    |_| |_| \___| \___| \___/ |_| |_| |_||_|(_)  \_/  |_||_| |_| |_||_|    \___|
-"
+"   ____       ____
+"  |    |     |    |
+"  |    |_____|    |   
+"  |               |     _                                    _            _
+"  |  ・       ・  |    | |__    ___   ___   ___   _ __ ___  (_)   __   __(_) _ __ ___   _ __   ___ 
+"  |   _________   |    | '_ \  / _ \ / __| / _ \ | '_ ` _ \ | |   \ \ / /| || '_ ` _ \ | '__| / __|
+"  |  |_________|  |    | | | ||  __/| (__ | (_) || | | | | || | _  \ V / | || | | | | || |   | (__ 
+"  |_______________|    |_| |_| \___| \___| \___/ |_| |_| |_||_|(_)  \_/  |_||_| |_| |_||_|    \___|
+" 
 " ---------------------------------------------------------------------------------------------------
 
 "====================================================================================================
@@ -209,6 +209,7 @@ NeoBundleLazy 'airblade/vim-gitgutter', {
 \		'commands' : ['GitGutterToggle'],
 \	},
 \ }
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
@@ -666,9 +667,9 @@ set number
 set nowrap
 set list
 if s:is_win
-	set listchars=tab:>･,trail:･,extends:>,precedes:<,nbsp:%
+	set listchars=tab:>\ ,trail:･,extends:>,precedes:<,nbsp:%
 else
-	set listchars=tab:▸･,trail:･,extends:»,precedes:«,nbsp:%
+	set listchars=tab:▸\ ,trail:･,extends:»,precedes:«,nbsp:%
 endif
 set notitle
 set scrolloff=5
@@ -713,8 +714,8 @@ endif
 " Appearance
 " ---------------------------------------------------------------------------------------------------
 if exists('+guicursor')
-  set guicursor&
-  set guicursor=a:blinkwait2000-blinkon1000-blinkoff500
+	set guicursor&
+	set guicursor=a:blinkwait2000-blinkon1000-blinkoff500
 endif
 
 " Others
@@ -957,7 +958,7 @@ hi LineNr      ctermbg=none ctermfg=232
 hi Line        ctermbg=232  ctermfg=232
 hi SpecialKey  ctermbg=none ctermfg=232
 hi FoldColumn  ctermbg=234  ctermfg=232
-hi Folded      ctermbg=234  ctermfg=237
+hi Folded      ctermbg=234  ctermfg=237 cterm=bold
 hi Pmenu       ctermbg=255  ctermfg=235
 hi PmenuSel    ctermbg=255  ctermfg=24
 hi PmenuSbar   ctermbg=245  ctermfg=240
@@ -971,7 +972,7 @@ augroup MyHighlight
 	autocmd Syntax * hi Operators ctermfg=237
 augroup END
 
-" plugin
+" for C++11
 " ---------------------------------------------------------------------------------------------------
 let g:c_no_curly_error = 1
 
@@ -1773,6 +1774,18 @@ let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 "====================================================================================================
 " neosnippet
 "====================================================================================================
+" {{{
+" directory
+" ---------------------------------------------------------------------------------------------------
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+
+" expand key
+" ---------------------------------------------------------------------------------------------------
+if g:neocomplcache_enable_at_startup
+	imap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+endif
+vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
+" }}}
 
 "====================================================================================================
 " javacomplete
