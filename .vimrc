@@ -19,15 +19,13 @@ let s:is_linux = !s:is_mac && has('unix')
 
 " NeoBundle {{{
 "====================================================================================================
-" config
+" config {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 let g:neobundle_default_git_protocol = 'https'
 " }}}
 
-" Path
+" Path {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 if has('vim_starting')
 	set runtimepath+=~/.vim/plugins/neobundle.vim
 endif
@@ -35,46 +33,8 @@ call neobundle#rc(expand('~/.vim/plugins'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
-" Shougo-san's plugin
+" Common {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
-NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'Shougo/echodoc'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundleLazy 'Shougo/junkfile.vim', {
-\	'autoload' : {
-\		'commands'     : 'JunkfileOpen',
-\		'unite_sources': ['junkfile', 'junkfile/new'],
-\	}
-\ }
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc', {
-\	'build' : {
-\		'windows' : 'make -f make_mingw64.mak',
-\		'cygwin'  : 'make -f make_cygwin.mak',
-\		'mac'     : 'make -f make_mac.mak',
-\		'unix'    : 'make -f make_unix.mak',
-\	},
-\ }
-NeoBundleLazy 'Shougo/vimshell', {
-\	'depends'  : ['ujihisa/vimshell-ssh'],
-\	'autoload' : {
-\		'commands' : ['VimShell', 'VimShellPop', 'VimShellInteractive', 'VimShellCreate'],
-\	},
-\ }
-NeoBundleLazy 'ujihisa/vimshell-ssh'
-NeoBundleLazy 'Shougo/vinarise', {
-\	'autoload' : {
-\		'commands' : 'Vinarise',
-\	},
-\ }
-" }}}
-
-" Common
-" ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-anzu'
@@ -99,9 +59,8 @@ NeoBundle 'YankRing.vim'
 NeoBundle 'sudo.vim'
 " }}}
 
-" Search
+" Search {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'eregex255', {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
@@ -116,9 +75,8 @@ NeoBundleLazy 'migemo', {
 NeoBundle 'thinca/vim-visualstar'
 " }}}
 
-" Key operation enhancer
+" Key operation enhancer {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kana/vim-arpeggio'
@@ -131,25 +89,22 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
 " }}}
 
-" Command line
+" Command line {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'thinca/vim-ambicmd'
 " }}}
 
-" Apperance
+" Apperance {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'hecomi/alpaca_powertabline'
 NeoBundle 'osyo-manga/vim-powerline-unite-theme'
 NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
 
-" ColorScheme
+" ColorScheme {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'nanotech/jellybeans.vim'
 NeoBundleLazy 'w0ng/vim-hybrid'
 NeoBundleLazy 'vim-scripts/twilight'
@@ -161,9 +116,8 @@ NeoBundleLazy 'vim-scripts/rdark'
 NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
-" Text-object
+" Text-object {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-fold'
@@ -184,9 +138,8 @@ NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \ }
 " }}}
 
-" Operator
+" Operator {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'emonkak/vim-operator-comment'
@@ -196,9 +149,8 @@ NeoBundle 'tyru/operator-star.vim'
 " NeoBundle 'tyru/operator-reverse.vim'
 " }}}
 
-" Programming (Common)
+" Programming (Common) {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'airblade/vim-gitgutter', {
 \	'autoload' : {
 \		'commands' : ['GitGutterToggle'],
@@ -222,9 +174,8 @@ NeoBundleLazy 'pthrasher/conqueterm-vim', {
 \ }
 " }}}
 
-" C / C++
+" C / C++ {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'mattn/quickrunex-vim'
 NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
 NeoBundleLazy 'osyo-manga/vim-cpp11-syntax'
@@ -245,9 +196,8 @@ augroup NeoBundleLazyForCpp
 augroup END
 " }}}
 
-" JavaScript / TypeScript
+" JavaScript / TypeScript {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'myhere/vim-nodejs-complete'
 NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
@@ -265,9 +215,8 @@ augroup NeoBundleLazyForJavaScript
 augroup END
 " }}}
 
-" CoffeeScript
+" CoffeeScript {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'kchmck/vim-coffee-script.git'
 augroup NeoBundleLazyForCoffeeScript
 	autocmd!
@@ -278,9 +227,8 @@ augroup NeoBundleLazyForCoffeeScript
 augroup END
 " }}}
 
-" Ruby
+" Ruby {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'Shougo/neocomplcache-rsense'
 NeoBundleLazy 'rhysd/neco-ruby-keyword-args'
 NeoBundleLazy 'rhysd/unite-ruby-require.vim'
@@ -299,9 +247,8 @@ augroup NeoBundleLazyForRuby
 augroup END
 " }}}
 
-" Obj-C
+" Obj-C {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'msanders/cocoa.vim', {
 \	'autoload' : {
 \		'filetypes' : ['objc', 'objcpp'],
@@ -309,9 +256,8 @@ NeoBundleLazy 'msanders/cocoa.vim', {
 \ }
 " }}}
 
-" Java
+" Java {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'javacomplete'
 augroup NeoBundleLazyForJava
 	autocmd!
@@ -320,9 +266,8 @@ augroup NeoBundleLazyForJava
 augroup END
 " }}}
 
-" C#
+" C# {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'csharp.vim'
 " NeoBundleLazy 'yuratomo/dotnet-complete'
 NeoBundleLazy 'nosami/Omnisharp', {
@@ -340,9 +285,8 @@ augroup NeoBundleLazyForCSharp
 augroup END
 " }}}
 
-" Action Script
+" Action Script {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'actionscript.vim'
 NeoBundleLazy 'ActionScript-3-Omnicomplete'
 augroup NeoBundleLazyForActionScript
@@ -356,9 +300,8 @@ augroup ActionScriptSetFileType
 augroup END
 " }}}
 
-" HTML
+" HTML {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'mattn/zencoding-vim'
 NeoBundleLazy 'mjbrownie/html-textobjects'
 NeoBundleLazy 'tyru/operator-html-escape.vim'
@@ -371,15 +314,13 @@ augroup NeoBundleLazyForHtml
 augroup END
 " }}}
 
-" Android
+" Android {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundle 'thinca/vim-logcat'
 " }}}
 
-" Sahder
+" Sahder {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'glsl.vim'
 augroup NeoBundleLazyForShader
 	autocmd!
@@ -390,9 +331,8 @@ augroup NeoBundleLazyForShader
 augroup END
 " }}}
 
-" Qt
+" Qt {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 " NeoBundleLazy 'hecomi/qml.vim'
 NeoBundleLazy 'peterhoeg/vim-qml'
 augroup NeoBundleLazyForQML
@@ -404,9 +344,8 @@ augroup NeoBundleLazyForQML
 augroup END
 " }}}
 
-" Web service
+" Web service {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'basyura/bitly.vim'
 NeoBundleLazy 'basyura/twibill.vim'
 NeoBundleLazy 'basyura/TweetVim', {
@@ -470,9 +409,8 @@ NeoBundleLazy 'tyru/open-browser.vim', {
 \ }
 " }}}
 
-" Others
+" Others {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'glidenote/memolist.vim', {
 \	'autoload' : {
 \		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
@@ -500,17 +438,15 @@ NeoBundleLazy 'thinca/vim-scouter', {
 \ }
 " }}}
 
-" for GVim
+" for GVim {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'thinca/vim-fontzoom'
 NeoBundleLazy 'tyru/restart.vim'
 NeoBundleLazy 'ujihisa/unite-font'
 " }}}
 
-" Unite Sources
+" Unite Sources {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 command! -nargs=+ NeoBundleLazyUnite
       \ call s:neobundle_unite_bundle(
       \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
@@ -554,9 +490,8 @@ NeoBundleLazy 'hecomi/unite-fhc', {
 \ }
 " }}}
 
-" Experimental
+" Experimental {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleLazy 'osyo-manga/vim-hideout', {
 \	'autoload' : {
 \		'commands' : ['HideoutOn', 'HideoutClear'],
@@ -569,15 +504,13 @@ NeoBundle 'supermomonga/shiraseru.vim', {
 \ }
 " }}}
 
-" check
+" check {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 NeoBundleCheck
 " }}}
 
-" Key binds
+" Key binds {{{
 " ---------------------------------------------------------------------------------------------------
-" {{{
 nnoremap [prefix]nbs :NeoBundleSource<CR>
 nnoremap [prefix]bni :Batch<CR>:NeoBundleInstall<CR>
 nnoremap [unite]ni   :Unite neobundle/install<CR>
@@ -626,9 +559,8 @@ set autoindent smartindent
 
 augroup FileDependentIndentSettings
 	autocmd!
-	autocmd FileType html,javascript setlocal ts=2 sw=2
-	autocmd FileType qml setlocal ts=4 sw=4
-	autocmd FileType qml setlocal expandtab
+	autocmd FileType html       setlocal ts=2 sw=2
+	autocmd FileType qml        setlocal expandtab
 augroup end
 
 " Input Assist
@@ -1112,7 +1044,7 @@ nnoremap [prefix]vsc :VimShellCreate<CR>
 nnoremap [prefix]vsp :VimShellPop<CR>
 " }}}
 
-" neocomplcache {{{
+" NeoComplcache {{{
 "====================================================================================================
 " Basic setting
 " ---------------------------------------------------------------------------------------------------
@@ -1171,7 +1103,7 @@ let g:neocomplcache_text_mode_filetypes = {
 nnoremap [prefix]nct :NeoComplCacheCachingTags<CR>
 " }}}
 
-" neosnippet {{{
+" NeoSnippet {{{
 "====================================================================================================
 " directory
 " ---------------------------------------------------------------------------------------------------
@@ -1902,6 +1834,9 @@ xnoremap [unite]a :<C-u>Unite alignta:arguments<CR>
 let g:unite_source_alignta_preset_arguments = [
 	\ ["Align at '='", '=>\='],
 	\ ["Align at ':'", '01 :'],
+	\ ["Align at ':'", '11 :'],
+	\ ["Align at ':'", '01 :/1'],
+	\ ["Align at ':'", '11 :/1'],
 	\ ["Align at '|'", '|'   ],
 	\ ["Align at ')'", '0 )' ],
 	\ ["Align at ']'", '0 ]' ],
@@ -1911,8 +1846,8 @@ let g:unite_source_alignta_preset_arguments = [
 vnoremap a  :Alignta
 vnoremap a= :Alignta =<CR>
 vnoremap a+ :Alignta +<CR>
-vnoremap a: :Alignta 11 :<CR>
-vnoremap a; :Alignta 11 :<CR>
+vnoremap a: :Alignta 11 :/1<CR>
+vnoremap a; :Alignta 11 :/1<CR>
 vnoremap a, :Alignta 01 ,<CR>
 vnoremap as :Alignta <<0 \s\s*<CR>
 vnoremap ae :Alignta -e
@@ -2198,7 +2133,7 @@ endif
 nmap [prefix]t <Plug>ToggleN
 " }}}
 
-" evervim {{{
+" Evervim {{{
 "====================================================================================================
 let g:evervim_usemarkdown = 1
 let g:evervim_asyncupdate = 1
