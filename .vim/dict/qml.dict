@@ -1,3 +1,13 @@
+" --------------------------------------------------------------------------------
+"   ___    __  __   _               _   _          _
+"  / _ \  |  \/  | | |           __| | (_)   ___  | |_
+" | | | | | |\/| | | |          / _` | | |  / __| | __|
+" | |_| | | |  | | | |___   _  | (_| | | | | (__  | |_
+"  \__\_\ |_|  |_| |_____| (_)  \__,_| |_|  \___|  \__|
+"                                                               created by @hecomi
+" --------------------------------------------------------------------------------
+
+" Types
 Animation
 AnchorAnimation
 AnchorChanges
@@ -201,6 +211,8 @@ VisualDataGroup
 VisualDataModel
 VisualItemModel
 Wander
+
+" Key Words
 id
 int
 bool
@@ -223,5 +235,84 @@ time
 point
 size
 rect
+
+" Item
+activeFocus 
+anchors
+anchors.baseline 
+anchors.baselineOffset 
+anchors.bottom 
+anchors.bottomMargin 
+anchors.centerIn 
+anchors.fill 
+anchors.horizontalCenter 
+anchors.horizontalCenterOffset 
+anchors.left 
+anchors.leftMargin 
+anchors.margins 
+anchors.right 
+anchors.rightMargin 
+anchors.top 
+anchors.topMargin 
+anchors.verticalCenter 
+anchors.verticalCenterOffset 
+children 
+childrenRect.height 
+childrenRect.width 
+childrenRect.x 
+childrenRect.y 
+clip 
+data 
+focus 
+height 
+opacity 
+parent 
+resources 
+rotation 
+scale 
+state 
+states 
+transform 
+transformOrigin 
+transitions 
+visible 
+width 
+x 
+y 
+z 
+childAt
+forceActiveFocus
+mapFromItem
+mapToItem
+
+" Component
+progress 
+status 
+url 
+onCompleted
+onDestruction
+createObject
+errorString
+
+" Rectangle
+border.color 
+border.width 
+color 
+gradient 
+radius 
+smooth 
+
+" Image
+asynchronous 
+cache 
+fillMode 
+mirror 
+paintedHeight 
+paintedWidth 
+progress 
+smooth 
+source 
+sourceSize 
+status 
 
 

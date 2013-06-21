@@ -31,6 +31,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Shougo-san's plugin
 " ---------------------------------------------------------------------------------------------------
 " {{{
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Shougo/echodoc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
@@ -201,6 +202,7 @@ NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-precious'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
@@ -612,12 +614,15 @@ set history=1000
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
+set noexpandtab
 set tabstop=4 shiftwidth=4 softtabstop=0
 set autoindent smartindent
 
-augroup DeleteSpace
+augroup FileDependentIndentSettings
 	autocmd!
 	autocmd FileType html,javascript setlocal ts=2 sw=2
+	autocmd FileType qml setlocal ts=4 sw=4
+	autocmd FileType qml setlocal expandtab
 augroup end
 
 " Input Assist
@@ -1291,6 +1296,31 @@ Submode nnoremap l zl
 Submode nnoremap <leave> <silent> <ESC>
 SubmodeDefine END
 
+" }}}
+
+"====================================================================================================
+" context_filetype.vim
+"====================================================================================================
+" {{{
+if !exists('g:context_filetype#filetypes')
+	let g:context_filetype#filetypes = {}
+endif
+let g:context_filetype#filetypes = {
+\	'qml' : [
+\		{
+\			'filetype' : 'javascript',
+\			'start'    : '^\(\s*\)\h\w*:\s*{$',
+\			'end'      : '^\1}'
+\		},
+\		{
+\			'filetype' : 'glsl',
+\			'start'    : ':\s*"',
+\			'end'      : '"'
+\		}
+\	]
+\ }
+
+let g:context_filetypefiletypes = {'qml': [ {'filetype': 'javascript', 'start': '^\(\s*\)\h\w*:\s*{', 'end': '^\1}'} ] }
 " }}}
 
 "====================================================================================================
