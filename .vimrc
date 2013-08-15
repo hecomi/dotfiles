@@ -253,6 +253,7 @@ augroup END
 " JavaScript / TypeScript {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'myhere/vim-nodejs-complete'
+NeoBundleLazy 'moll/vim-node'
 NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
@@ -261,11 +262,12 @@ NeoBundleLazy 'hecomi/vim-javascript-syntax'
 augroup NeoBundleLazyForJavaScript
 	autocmd!
 	autocmd FileType html,javascript,typescript NeoBundleSource
-		\ vim-javascript-syntax
 		\ vim-nodejs-complete
-		\ simple-javascript-indenter
+		\ vim-node
 		\ jscomplete-vim
 		\ typescript-vim
+		\ simple-javascript-indenter
+		\ vim-javascript-syntax
 augroup END
 " }}}
 
@@ -903,6 +905,9 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 if s:is_win
 	nnoremap [prefix]vimrc  :e ~/_vimrc<CR>
 	nnoremap [prefix]gvimrc :e ~/_gvimrc<CR>
+elseif s:is_mac
+	nnoremap [prefix]vimrc  :e ~/dotfiles/.vimrc<CR>:cd ~/dotfiles<CR>
+	nnoremap [prefix]gvimrc :e ~/dotfiles/.gvimrc<CR>:cd ~/dotfiles<CR>
 else
 	nnoremap [prefix]vimrc  :e ~/.vimrc<CR>
 	nnoremap [prefix]gvimrc :e ~/.gvimrc<CR>
