@@ -968,6 +968,25 @@ augroup EachFileTypeSettings
 	autocmd FileType cs   setlocal cmdheight=3
 augroup END
 
+" Check file change more frequently
+" ---------------------------------------------------------------------------------------------------
+augroup CheckFileChangeMoreFrequently
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
+
+" Shiraseru
+" ---------------------------------------------------------------------------------------------------
+if s:is_mac
+	augroup ShiraseruSettings
+		autocmd!
+		autocmd VimEnter * :call
+			\ shiraseru#notify('Vim', 'Hello!',   {'appIcon' : '/Applications/MacVim.app'})
+		autocmd VimLeave * :call
+			\ shiraseru#notify('Vim', 'GoodBye!', {'appIcon' : '/Applications/MacVim.app'})
+	augroup END
+endif
+
 " }}}
 
 " Apperance {{{
