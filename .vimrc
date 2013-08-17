@@ -1100,8 +1100,8 @@ let g:unite_source_grep_max_candidates = 200
 let g:vimfiler_as_default_explorer  = 1
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_sort_type            = 'TIME'
-
 let g:vimfiler_file_icon            = '-'
+let g:vimfiler_marked_file_icon     = '*'
 
 if s:is_win
 	let g:vimfiler_tree_leaf_icon   = '|'
@@ -1129,8 +1129,8 @@ nnoremap [prefix]vfe    :VimFilerExplorer<CR>
 augroup VimFilerCustomKeyBinding
 autocmd!
 	autocmd FileType vimfiler nnoremap <buffer> K <C-u>
-	autocmd FileType vimfiler nnoremap <C-j> :bn<CR>
-	autocmd FileType vimfiler nnoremap <C-k> :bp<CR>
+	autocmd FileType vimfiler nnoremap <buffer> <C-j> :bn<CR>
+	autocmd FileType vimfiler nnoremap <buffer> <C-k> :bp<CR>
 augroup END
 " }}}
 
