@@ -85,6 +85,7 @@ NeoBundleLazy 'Shougo/vinarise', {
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'osyo-manga/vim-milfeulle'
 NeoBundle 'rking/ag.vim'
 NeoBundleLazy 'sjl/gundo.vim', {
@@ -268,6 +269,16 @@ augroup NeoBundleLazyForJavaScript
 		\ typescript-vim
 		\ simple-javascript-indenter
 		\ vim-javascript-syntax
+augroup END
+" }}}
+
+" json {{{
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'elzr/vim-json'
+augroup NeoBundleLazyForJson
+	autocmd!
+	autocmd FileType json NeoBundleSource
+		\ vim-json
 augroup END
 " }}}
 
@@ -519,6 +530,7 @@ endfunction
 
 NeoBundleLazyUnite 'Shougo/unite-ssh'
 NeoBundleLazyUnite 'h1mesuke/unite-outline'
+NeoBundleLazyUnite 'moznion/unite-git-conflict.vim'
 NeoBundleLazyUnite 'osyo-manga/unite-banban'
 NeoBundleLazyUnite 'osyo-manga/unite-banban2'
 NeoBundleLazyUnite 'osyo-manga/unite-filetype'
@@ -952,24 +964,31 @@ colorscheme solarized
 
 " highlight
 " ---------------------------------------------------------------------------------------------------
-hi Normal      ctermbg=none ctermfg=245
-hi Comment     ctermfg=237
-hi LineNr      ctermbg=none ctermfg=232
-hi Line        ctermbg=232  ctermfg=232
-hi SpecialKey  ctermbg=none ctermfg=232
-hi FoldColumn  ctermbg=234  ctermfg=232
-hi Folded      ctermbg=234  ctermfg=237 cterm=bold
-hi Pmenu       ctermbg=255  ctermfg=235
-hi PmenuSel    ctermbg=255  ctermfg=24
-hi PmenuSbar   ctermbg=245  ctermfg=240
-hi PmenuThumb  ctermbg=255  ctermfg=245
-hi CursorLine  ctermbg=233  ctermfg=none
-hi Visual      ctermbg=255  ctermfg=none
+hi Normal       ctermbg=none ctermfg=245
+hi Comment      ctermfg=237
+hi LineNr       ctermbg=none ctermfg=232
+hi CursorLineNr ctermbg=none ctermfg=255
+hi Line         ctermbg=232  ctermfg=232
+hi SpecialKey   ctermbg=none ctermfg=232
+hi FoldColumn   ctermbg=234  ctermfg=232
+hi Folded       ctermbg=234  ctermfg=237 cterm=bold
+hi Pmenu        ctermbg=255  ctermfg=235
+hi PmenuSel     ctermbg=255  ctermfg=24
+hi PmenuSbar    ctermbg=245  ctermfg=240
+hi PmenuThumb   ctermbg=255  ctermfg=245
+hi CursorLine   ctermbg=233  ctermfg=none
+hi Visual       ctermbg=255  ctermfg=none
 
 augroup MyHighlight
 	autocmd!
 	autocmd Syntax * syntax match Operators display '[&|<>=!~:;]'
 	autocmd Syntax * hi Operators ctermfg=237
+augroup END
+
+augroup ChangeLineNumber
+	autocmd!
+	autocmd InsertEnter * hi CursorLineNr ctermbg=none ctermfg=120
+	autocmd InsertLeave * hi CursorLineNr ctermbg=none ctermfg=255
 augroup END
 
 " for C++11
@@ -1107,7 +1126,12 @@ endif
 nnoremap [prefix]vf     :VimFiler<CR>
 nnoremap [prefix]vf<CR> :VimFiler<CR>
 nnoremap [prefix]vfe    :VimFilerExplorer<CR>
-autocmd FileType vimfiler nnoremap <buffer> K <C-u>
+augroup VimFilerCustomKeyBinding
+autocmd!
+	autocmd FileType vimfiler nnoremap <buffer> K <C-u>
+	autocmd FileType vimfiler nnoremap <C-j> :bn<CR>
+	autocmd FileType vimfiler nnoremap <C-k> :bp<CR>
+augroup END
 " }}}
 
 " VimShell {{{
@@ -1134,7 +1158,7 @@ let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion   = 1
 let g:neocomplcache_enable_ignore_case           = 1
 let g:neocomplcache_enable_smart_case            = 1
-let g:neocomplcache_auto_completion_start_length = 3
+let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_skip_auto_completion_time    = '0.3'
 let g:neocomplcache_max_list                     = 100
 
@@ -1144,10 +1168,10 @@ if !exists('g:neocomplcache_omni_patterns')
 	let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.php  = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c    = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cs   = '.*'
+let g:neocomplcache_omni_patterns.cpp  = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 if !exists('g:neocomplcache_force_omni_patterns')
 	let g:neocomplcache_force_omni_patterns = {}
@@ -1172,11 +1196,11 @@ endfor
 " neco-look
 " ---------------------------------------------------------------------------------------------------
 let g:neocomplcache_text_mode_filetypes = {
-\  'text'    : 1,
-\  'markdown': 1,
-\  'memo'    : 1,
-\  'tex'     : 1,
-\  'plaintex': 1,
+	\ 'text'    : 1,
+	\ 'markdown': 1,
+	\ 'memo'    : 1,
+	\ 'tex'     : 1,
+	\ 'plaintex': 1,
 \ }
 
 " Key binds
@@ -1196,6 +1220,22 @@ if g:neocomplcache_enable_at_startup
 	imap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
 vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
+" }}}
+
+" vim-automatic {{{
+"====================================================================================================
+let g:automatic_config = [
+	\ {
+		\ 'match' : {
+			\ 'filetype' : 'unite',
+			\ 'any_unite_sources' : ['quickfix'],
+		\ },
+		\ 'set' : {
+			\ 'height' : '30%',
+			\ 'move'   : 'bottom'
+		\ }
+	\ },
+\ ]
 " }}}
 
 " ambicmd {{{
