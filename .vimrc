@@ -83,6 +83,7 @@ NeoBundleLazy 'Shougo/vinarise', {
 " Common {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-automatic'
@@ -99,6 +100,7 @@ NeoBundleLazy 'taku-o/vim-batch-source', {
 \		'filetypes' : ['vim'],
 \	},
 \ }
+NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-splash'
@@ -178,6 +180,7 @@ NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-syntax'
+NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundleLazy 'kana/vim-textobj-function', {
@@ -185,6 +188,7 @@ NeoBundleLazy 'kana/vim-textobj-function', {
 \		'filetypes' : ['c', 'vim'],
 \	},
 \ }
+NeoBundle 'thinca/vim-textobj-between'
 NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \	'depends'  : ['kana/vim-textobj-function'],
 \	'autoload' : {
@@ -259,6 +263,7 @@ NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
 NeoBundleLazy 'hecomi/vim-javascript-syntax'
+NeoBundleLazy 'thinca/vim-textobj-function-javascript'
 " NeoBundleLazy 'marijnh/tern_for_vim'
 augroup NeoBundleLazyForJavaScript
 	autocmd!
@@ -269,6 +274,7 @@ augroup NeoBundleLazyForJavaScript
 		\ typescript-vim
 		\ simple-javascript-indenter
 		\ vim-javascript-syntax
+		\ vim-textobj-function-javascript
 augroup END
 " }}}
 
@@ -369,14 +375,16 @@ augroup END
 
 " HTML {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'mattn/zencoding-vim'
+NeoBundleLazy 'mattn/emmet-vim'
 NeoBundleLazy 'mjbrownie/html-textobjects'
+NeoBundleLazy 'othree/html5.vim'
 NeoBundleLazy 'tyru/operator-html-escape.vim'
 augroup NeoBundleLazyForHtml
 	autocmd!
 	autocmd FileType html,xml NeoBundleSource
 		\ html-textobjects
 		\ zencoding-vim
+		\ html5.vim
 		\ operator-html-escape.vim
 augroup END
 " }}}
@@ -409,6 +417,13 @@ augroup NeoBundleLazyForQML
 	autocmd FileType qml NeoBundleSource
 		\ vim-qml
 augroup END
+" }}}
+
+" Others {{{
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'evanmiller/nginx-vim-syntax', {
+\	'autoload': { 'filetypes': ['nginx'] }
+\ }
 " }}}
 
 " Web service {{{
@@ -950,6 +965,7 @@ let g:vim_indent_cont=0
 augroup EachFileTypeSettings
 	autocmd!
 	autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+	autocmd FileType cs   setlocal cmdheight=3
 augroup END
 
 " }}}
@@ -981,7 +997,7 @@ hi Visual       ctermbg=255  ctermfg=none
 
 augroup MyHighlight
 	autocmd!
-	autocmd Syntax * syntax match Operators display '[&|<>=!~:;]'
+	autocmd Syntax * syntax match Operators display '[&|=!~:;]'
 	autocmd Syntax * hi Operators ctermfg=237
 augroup END
 
@@ -1172,6 +1188,7 @@ let g:neocomplcache_omni_patterns.php  = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c    = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cs   = '.*'
 let g:neocomplcache_omni_patterns.cpp  = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 if !exists('g:neocomplcache_force_omni_patterns')
 	let g:neocomplcache_force_omni_patterns = {}
