@@ -19,13 +19,8 @@ let s:is_linux = !s:is_mac && has('unix')
 
 " SETTING FLAGS {{{
 "====================================================================================================
-if has('gui')
-	let s:USE_POWERLINE = 0
-	let s:USE_AIRLINE   = 1
-else
-	let s:USE_POWERLINE = 1
-	let s:USE_AIRLINE   = 0
-endif
+let s:USE_POWERLINE = 0
+let s:USE_AIRLINE   = 1
 " }}}
 
 " NeoBundle {{{
@@ -170,14 +165,15 @@ NeoBundleLazy 'jpo/vim-railscasts-theme'
 NeoBundleLazy 'vim-scripts/Wombat'
 NeoBundleLazy 'tomasr/molokai'
 NeoBundleLazy 'vim-scripts/rdark'
+NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
 " Text-object {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-fold'
+" NeoBundle 'kana/vim-textobj-entire'
+" NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'mattn/vim-textobj-url'
@@ -2139,9 +2135,10 @@ augroup END
 " }}}
 
 " vim-airline {{{
+" Ref: http://d.hatena.ne.jp/itchyny/20130820/1376978742
 "====================================================================================================
 if (s:USE_AIRLINE)
-	let g:airline_theme                = 'solarized'
+	let g:airline_theme                = 'landscape'
 	let g:airline_left_sep             = '⮀'
 	let g:airline_left_alt_sep         = '⮁'
 	let g:airline_right_sep            = '⮂'
@@ -2152,6 +2149,35 @@ if (s:USE_AIRLINE)
 	let g:airline_powerline_fonts      = 1
 	let g:airline_enable_syntastic     = 0
 	let g:airline_detect_whitespace    = 0
+
+	let g:airline#extensions#hunks#non_zero_only = 1
+	let g:airline#extensions#whitespace#enabled  = 0
+	let g:airline#extensions#branch#enabled      = 0
+	let g:airline#extensions#readonly#enabled    = 0
+
+	let g:airline_section_b =
+		\ '%{airline#extensions#branch#get_head()}' .
+		\ '%{""!=airline#extensions#branch#get_head()?("  " . g:airline_left_alt_sep . " "):""}' .
+		\ '%{airline#extensions#readonly#get_mark()}' .
+		\ '%t%( %M%)'
+	let g:airline_section_c = ''
+	let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
+	let g:airline_section_x =
+		\ '%{strlen(&fileformat)?&fileformat:""}'.s:sep.
+		\ '%{strlen(&fenc)?&fenc:&enc}'.s:sep.
+		\ '%{strlen(&filetype)?&filetype:"no ft"}'
+	let g:airline_section_y = '%3p%%'
+	let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
+	let g:airline_inactive_collapse = 0
+	function! AirLineForce()
+		let g:airline_mode_map.__ = ''
+		let w:airline_render_left = 1
+		let w:airline_render_right = 1
+	endfunction
+	augroup AirLineForce
+		autocmd!
+		autocmd VimEnter * call add(g:airline_statusline_funcrefs, function('AirLineForce'))
+	augroup END
 endif
 " }}}
 
