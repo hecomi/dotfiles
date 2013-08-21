@@ -241,7 +241,7 @@ NeoBundleLazy 'osyo-manga/vim-cpp11-syntax'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
 NeoBundleLazy 'beyondmarc/opengl.vim'
-NeoBundleLazy 'cpp-vim'
+NeoBundleLazy 'vim-jp/cpp-vim'
 augroup NeoBundleLazyForCpp
 	autocmd!
 	autocmd FileType c,cpp NeoBundleSource
@@ -534,7 +534,7 @@ command! -nargs=+ NeoBundleLazyUnite
       \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
 function! s:neobundle_unite_bundle(src)
 	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
-	call neobundle#config#bundle(a:src)
+	call neobundle#parser#bundle(a:src)
 	call neobundle#config(a:src, {
 	\	'lazy' : 1,
 	\	'autoload' : {
@@ -575,11 +575,6 @@ NeoBundleLazy 'hecomi/unite-fhc', {
 
 " Experimental {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'osyo-manga/vim-hideout', {
-\	'autoload' : {
-\		'commands' : ['HideoutOn', 'HideoutClear'],
-\	},
-\ }
 " NeoBundle 'rhysd/clever-f.vim'
 " NeoBundle 'kana/vim-smartinput'
 NeoBundle 'supermomonga/shiraseru.vim', {
@@ -2355,4 +2350,3 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
-
