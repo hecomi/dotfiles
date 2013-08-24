@@ -834,6 +834,7 @@ vnoremap <expr> [prefix]S _(":S/<Cursor>//g")
 " TextObj / Operators
 " ---------------------------------------------------------------------------------------------------
 vmap s <Plug>VSurround
+map R <Plug>(operator-replace)
 
 " Macro
 " ---------------------------------------------------------------------------------------------------
@@ -2019,7 +2020,7 @@ nnoremap [prefix]grender :GundoRenderGraph<CR>
 
 " Easy Motion {{{
 "====================================================================================================
-let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:rasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 let g:EasyMotion_leader_key="'"
 let g:EasyMotion_grouping=1
 
