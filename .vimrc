@@ -413,15 +413,9 @@ augroup END
 
 " Qt {{{
 " ---------------------------------------------------------------------------------------------------
-" NeoBundleLazy 'hecomi/qml.vim'
-NeoBundleLazy 'peterhoeg/vim-qml'
-augroup NeoBundleLazyForQML
-	autocmd!
-	" autocmd BufNewFile,BufRead *.qml
-	" 	\ set filetype=qml
-	autocmd FileType qml NeoBundleSource
-		\ vim-qml
-augroup END
+NeoBundleLazy 'peterhoeg/vim-qml', {
+\	'autoload': { 'filetypes': ['qml'] }
+\ }
 " }}}
 
 " Others {{{
@@ -1312,28 +1306,44 @@ vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" 
 
 " vim-automatic {{{
 "====================================================================================================
-" nnoremap <silent> <Plug>(quit) :<C-u>q<CR>
-" function! g:my_temporary_window_init(config, context)
-" 	nmap <buffer> <Esc> <Plug>(quit)
-" endfunction
-"
-" let g:automatic_default_match_config = {
-" 	\ 'is_open_other_window' : 1,
-" \ }
-" let g:automatic_default_set_config = {
-" 	\ 'move'   : 'bottom',
-" 	\ 'apply'  : function('g:my_temporary_window_init')
-" \ }
-" let g:automatic_config = [
-" 	\ {
-" 		\ 'match' : {
-" 			\ 'filetype' : 'unite',
-" 		\ },
-" 		\ 'set' : {
-" 			\ 'height' : '5',
-" 		\ }
-" 	\ },
-" \ ]
+" Ref: http://blog.supermomonga.com/articles/vim/automatic.html
+
+nnoremap <silent> <Plug>(quit) :<C-u>q<CR>
+function! g:my_temporary_window_init(config, context)
+	nmap <buffer> <Esc> <Plug>(quit)
+endfunction
+
+let g:automatic_default_match_config = {
+	\ 'is_open_other_window' : 1,
+\ }
+
+let g:automatic_default_set_config = {
+	\ 'height' : '30%',
+	\ 'move'   : 'bottom',
+	\ 'apply'  : function('g:my_temporary_window_init')
+\ }
+
+let g:automatic_config = [
+	\ {
+		\ 'match' : {
+			\ 'bufname' : '^.unite',
+		\ },
+	\ },
+	\ {
+		\ 'match' : {
+			\ 'bufname' : '^.vimshell',
+		\ },
+	\ },
+	\ {
+		\ 'match' : {
+			\ 'buftype' : 'help',
+		\ },
+		\ 'set' : {
+			\ 'move'    : 'top',
+			\ 'height'  : '50%',
+		\ },
+	\ },
+\ ]
 " }}}
 
 " ambicmd {{{
@@ -1525,8 +1535,8 @@ let g:quickrun_config['_'] = {
 	\ 'hook/close_buffer/enable_failure'             : 1,
 	\ 'hook/close_buffer/enable_empty_data'          : 1,
 	\ 'hook/echo/enable'                             : 1,
-	\ 'hook/echo/output_success'                     : '(／・ω・)／ ﾆｬｰ',
-	\ 'hook/echo/output_failure'                     : '(´・ω・｀) ｼｮﾎﾞｰﾝ',
+	\ 'hook/echo/output_success'                     : '凸 < ｷﾀｺﾚ!!',
+	\ 'hook/echo/output_failure'                     : '凹 < ﾍｺﾑﾜ...',
 	\ 'hook/inu/enable'                              : 1,
 	\ 'hook/inu/echo'                                : 0,
 	\ 'hook/inu/wait'                                : 5,
