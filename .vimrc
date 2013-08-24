@@ -21,10 +21,14 @@ let s:is_linux = !s:is_mac && has('unix')
 "====================================================================================================
 let s:USE_POWERLINE = 0
 let s:USE_AIRLINE   = 1
+let s:USE_LIGHTLINE = 0
 " }}}
 
 " NeoBundle {{{
 "====================================================================================================
+if !exists('g:neobundle_loaded')
+	let g:neobundle_loaded = 1
+
 " config {{{
 " ---------------------------------------------------------------------------------------------------
 let g:neobundle_default_git_protocol = 'https'
@@ -152,6 +156,9 @@ endif
 if (s:USE_AIRLINE)
 	NeoBundle 'bling/vim-airline'
 	NeoBundle 'osyo-manga/unite-airline_themes'
+endif
+if (s:USE_LIGHTLINE)
+	NeoBundle 'itchyny/lightline.vim'
 endif
 NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
@@ -527,8 +534,8 @@ NeoBundleLazy 'ujihisa/unite-font'
 " Unite Sources {{{
 " ---------------------------------------------------------------------------------------------------
 command! -nargs=+ NeoBundleLazyUnite
-      \ call s:neobundle_unite_bundle(
-      \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
+	  \ call s:neobundle_unite_bundle(
+	  \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
 function! s:neobundle_unite_bundle(src)
 	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
 	call neobundle#parser#bundle(a:src)
@@ -593,6 +600,8 @@ nnoremap [unite]nl   :Unite neobundle/log<CR>
 nnoremap [unite]ns   :Unite neobundle/search<CR>
 nnoremap [unite]nu   :Unite neobundle/update<CR>
 " }}}
+
+endif " if !exists('neobundle_loaded')
 
 "}}}
 
@@ -727,24 +736,27 @@ set ttyfast
 
 " Arpeggio Key Mappings {{{
 "====================================================================================================
-call arpeggio#load()
-let g:arpeggio_timeoutlen = 50
+if !exists('g:arpeggio_loaded')
+	call arpeggio#load()
+	let g:arpeggio_timeoutlen = 50
+	let g:arpeggio_loaded = 1
 
-" Window
-" ---------------------------------------------------------------------------------------------------
-Arpeggio nnoremap wh <C-w>h
-Arpeggio nnoremap wj <C-w>j
-Arpeggio nnoremap wk <C-w>k
-Arpeggio nnoremap wl <C-w>l
-Arpeggio nnoremap wo <C-w>o
+	" Window
+	" ---------------------------------------------------------------------------------------------------
+	Arpeggio nnoremap wh <C-w>h
+	Arpeggio nnoremap wj <C-w>j
+	Arpeggio nnoremap wk <C-w>k
+	Arpeggio nnoremap wl <C-w>l
+	Arpeggio nnoremap wo <C-w>o
 
-" Operators
-" ---------------------------------------------------------------------------------------------------
-Arpeggio nmap or <Plug>(operator-replace)
-Arpeggio nmap ou <Plug>(operator-uncomment)
-Arpeggio nmap oc <Plug>(operator-comment)
-Arpeggio nmap os <Plug>(operator-sort)
-Arpeggio nmap oe <Plug>(operator-html-escape)
+	" Operators
+	" ---------------------------------------------------------------------------------------------------
+	Arpeggio nmap or <Plug>(operator-replace)
+	Arpeggio nmap ou <Plug>(operator-uncomment)
+	Arpeggio nmap oc <Plug>(operator-comment)
+	Arpeggio nmap os <Plug>(operator-sort)
+	Arpeggio nmap oe <Plug>(operator-html-escape)
+endif
 " }}}
 
 " Common Key Mappings {{{
@@ -2054,12 +2066,14 @@ nnoremap [prefix]grender :GundoRenderGraph<CR>
 
 " Easy Motion {{{
 "====================================================================================================
-let g:rasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-let g:EasyMotion_leader_key="'"
-let g:EasyMotion_grouping=1
+let g:rasyMotion_keys       = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_leader_key = "'"
+let g:EasyMotion_grouping   = 1
 
+hi clear EasyMotionTarget
+hi clear EasyMotionShade
 hi EasyMotionTarget ctermbg=none ctermfg=darkred
-hi EasyMotionShade  ctermbg=none ctermfg=black
+hi EasyMotionShade  ctermbg=none ctermfg=darkgray
 
 nmap f 'w
 nmap F 'b
@@ -2080,8 +2094,8 @@ highlight link multiple_cursors_visual Visual
 
 " visualstar.vim {{{
 "====================================================================================================
-map * <Plug>(visualstar-*)N
-map # <Plug>(visualstar-#)N
+vmap * <Plug>(visualstar-*)N
+vmap # <Plug>(visualstar-#)N
 " }}}
 
 " milfeulle {{{
@@ -2144,6 +2158,60 @@ augroup RainbowParenthesisSettings
 	autocmd Syntax   *   RainbowParenthesesLoadBraces
 	" autocmd FileType cpp RainbowParenthesesLoadChevrons
 augroup END
+" }}}
+
+" lightline {{{
+"====================================================================================================
+if s:USE_LIGHTLINE
+	let g:lightline = {
+		\ 'colorscheme': 'landscape',
+		\ 'mode_map': { 'c': 'NORMAL' },
+		\ 'active': {
+			\ 'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+		\ },
+		\ 'component_function': {
+			\ 'modified': 'MyModified',
+			\ 'readonly': 'MyReadonly',
+			\ 'fugitive': 'MyFugitive',
+			\ 'filename': 'MyFilename',
+			\ 'fileformat': 'MyFileformat',
+			\ 'filetype': 'MyFiletype',
+			\ 'fileencoding': 'MyFileencoding',
+			\ 'mode': 'MyMode',
+		\ },
+		\ 'separator': { 'left': '⮀', 'right': '⮂' },
+		\ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+	\ }
+	function! MyModified()
+		return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+	endfunction
+	function! MyReadonly()
+		return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+	endfunction
+	function! MyFilename()
+		return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+		\ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+		\  &ft == 'unite' ? unite#get_status_string() :
+		\  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
+		\ '' != expand('%t') ? expand('%t') : '[No Name]') .
+		\ ('' != MyModified() ? ' ' . MyModified() : '')
+	endfunction
+	function! MyFugitive()
+		return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? '⭠ '.fugitive#head() : ''
+	endfunction
+	function! MyFileformat()
+		return winwidth('.') > 70 ? &fileformat : ''
+	endfunction
+	function! MyFiletype()
+		return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+	endfunction
+	function! MyFileencoding()
+		return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+	endfunction
+	function! MyMode()
+		return winwidth('.') > 60 ? lightline#mode() : ''
+	endfunction
+endif
 " }}}
 
 " vim-airline {{{
