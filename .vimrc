@@ -85,6 +85,7 @@ NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'osyo-manga/vim-reanimate'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'osyo-manga/vim-gift'
 NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'osyo-manga/vim-milfeulle'
 NeoBundle 'rking/ag.vim'
@@ -737,26 +738,41 @@ set ttyfast
 " Arpeggio Key Mappings {{{
 "====================================================================================================
 if !exists('g:arpeggio_loaded')
-	call arpeggio#load()
-	let g:arpeggio_timeoutlen = 50
 	let g:arpeggio_loaded = 1
 
-	" Window
-	" ---------------------------------------------------------------------------------------------------
-	Arpeggio nnoremap wh <C-w>h
-	Arpeggio nnoremap wj <C-w>j
-	Arpeggio nnoremap wk <C-w>k
-	Arpeggio nnoremap wl <C-w>l
-	Arpeggio nnoremap wo <C-w>o
+" Settings
+" ---------------------------------------------------------------------------------------------------
+call arpeggio#load()
+let g:arpeggio_timeoutlen = 50
 
-	" Operators
-	" ---------------------------------------------------------------------------------------------------
-	Arpeggio nmap or <Plug>(operator-replace)
-	Arpeggio nmap ou <Plug>(operator-uncomment)
-	Arpeggio nmap oc <Plug>(operator-comment)
-	Arpeggio nmap os <Plug>(operator-sort)
-	Arpeggio nmap oe <Plug>(operator-html-escape)
-endif
+" Window
+" ---------------------------------------------------------------------------------------------------
+Arpeggio nnoremap wh <C-w>h
+Arpeggio nnoremap wj <C-w>j
+Arpeggio nnoremap wk <C-w>k
+Arpeggio nnoremap wl <C-w>l
+Arpeggio nnoremap wo <C-w>o
+Arpeggio nnoremap wc <C-w>c
+Arpeggio nnoremap wq <C-w>c
+Arpeggio nnoremap w8 <C-w>s<Plug>(anzu-star)N
+Arpeggio nnoremap w3 <C-w>s<Plug>(anzu-sharp)N
+
+" Split
+" ---------------------------------------------------------------------------------------------------
+Arpeggio nnoremap sh :vsp<CR>
+Arpeggio nnoremap sj :sp<CR><C-w>j
+Arpeggio nnoremap sk :sp<CR>
+Arpeggio nnoremap sl :vsp<CR><C-w>l
+
+" Operators
+" ---------------------------------------------------------------------------------------------------
+Arpeggio nmap or <Plug>(operator-replace)
+Arpeggio nmap ou <Plug>(operator-uncomment)
+Arpeggio nmap oc <Plug>(operator-comment)
+Arpeggio nmap os <Plug>(operator-sort)
+Arpeggio nmap oe <Plug>(operator-html-escape)
+
+endif " if !exists('g:arpeggio_loaded')
 " }}}
 
 " Common Key Mappings {{{
@@ -1112,22 +1128,22 @@ if !exists("g:unite_source_menu_menus")
 endif
 
 let s:commands = {
-\	'description' : 'Directory/File shortcuts',
+	\ 'description' : 'Directory/File shortcuts',
 \ }
 let s:commands.candidates = {
-\	'Program'     : 'VimFiler ~/Program',
-\	'ProgramLocal': 'VimFiler ~/ProgramLocal',
-\	'Memo'        : 'VimFiler ~/Memo',
-\	'~/.vimrc'    : 'e ~/.vimrc',
-\	'~/.gvimrc'   : 'e ~/.gvimrc',
-\	'~/.zshrc'    : 'e ~/.zshrc',
+	\ 'Program'      : 'e ~/Program',
+	\ 'ProgramLocal' : 'e ~/ProgramLocal',
+	\ 'Memo'         : 'e ~/Memo',
+	\ '.vimrc'       : 'e ~/.vimrc',
+	\ '.gvimrc'      : 'e ~/.gvimrc',
+	\ '.zshrc'       : 'e ~/.zshrc',
 \ }
 function s:commands.map(key, value)
 	return {
-\		'word' : a:key,
-\		'kind' : 'command',
-\		'action__command' : a:value,
-\	}
+		\ 'word' : a:key,
+		\ 'kind' : 'command',
+		\ 'action__command' : a:value,
+	\ }
 endfunction
 
 let g:unite_source_menu_menus["Shortcut"] = deepcopy(s:commands)
@@ -1136,20 +1152,20 @@ unlet s:commands
 " Unite-menu Interpreters
 " ---------------------------------------------------------------------------------------------------
 let s:commands = {
-\	'description' : 'Interactive Shell',
+	\ 'description' : 'Interactive Shell',
 \ }
 let s:commands.candidates = {
-\	'node'     : 'VimShellInteractive node',
-\	'irb'      : 'VimShellInteractive irb',
-\	'ghci'     : 'VimShellInteractive ghci',
-\	'python'   : 'VimShellInteractive python',
+	\ 'node'     : 'VimShellInteractive node',
+	\ 'irb'      : 'VimShellInteractive irb',
+	\ 'ghci'     : 'VimShellInteractive ghci',
+	\ 'python'   : 'VimShellInteractive python',
 \ }
 function s:commands.map(key, value)
 	return {
-\		'word' : a:key,
-\		'kind' : 'command',
-\		'action__command' : a:value,
-\	}
+		\ 'word' : a:key,
+		\ 'kind' : 'command',
+		\ 'action__command' : a:value,
+	\ }
 endfunction
 
 let g:unite_source_menu_menus["Shell"] = deepcopy(s:commands)
@@ -1296,18 +1312,28 @@ vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" 
 
 " vim-automatic {{{
 "====================================================================================================
-let g:automatic_config = [
-	\ {
-		\ 'match' : {
-			\ 'filetype' : 'unite',
-			\ 'any_unite_sources' : ['quickfix'],
-		\ },
-		\ 'set' : {
-			\ 'height' : '30%',
-			\ 'move'   : 'bottom'
-		\ }
-	\ },
-\ ]
+" nnoremap <silent> <Plug>(quit) :<C-u>q<CR>
+" function! g:my_temporary_window_init(config, context)
+" 	nmap <buffer> <Esc> <Plug>(quit)
+" endfunction
+"
+" let g:automatic_default_match_config = {
+" 	\ 'is_open_other_window' : 1,
+" \ }
+" let g:automatic_default_set_config = {
+" 	\ 'move'   : 'bottom',
+" 	\ 'apply'  : function('g:my_temporary_window_init')
+" \ }
+" let g:automatic_config = [
+" 	\ {
+" 		\ 'match' : {
+" 			\ 'filetype' : 'unite',
+" 		\ },
+" 		\ 'set' : {
+" 			\ 'height' : '5',
+" 		\ }
+" 	\ },
+" \ ]
 " }}}
 
 " ambicmd {{{
