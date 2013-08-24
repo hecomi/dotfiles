@@ -107,6 +107,7 @@ NeoBundle 'sudo.vim'
 
 " Search {{{
 " ---------------------------------------------------------------------------------------------------
+" NeoBundle 'othree/eregex.vim'
 NeoBundle 'eregex255', {
 \	'type': 'nosync',
 \	'base': '~/.vim/bundle'
@@ -149,8 +150,8 @@ if (s:USE_POWERLINE)
 	NeoBundle 'osyo-manga/vim-powerline-unite-theme'
 endif
 if (s:USE_AIRLINE)
-	NeoBundle "bling/vim-airline"
-	NeoBundle "osyo-manga/unite-airline_themes"
+	NeoBundle 'bling/vim-airline'
+	NeoBundle 'osyo-manga/unite-airline_themes'
 endif
 NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
@@ -664,6 +665,7 @@ set showcmd
 set showmode
 set number
 set nowrap
+set showbreak=>>
 set list
 if s:is_win
 	set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
@@ -697,7 +699,7 @@ set laststatus=2
 " --------------------------------------------------------------------------------------------------- Title
 set title
 set titlestring=Vim:\ %f\ %h%r%m
-set ttimeoutlen=50
+set ttimeoutlen=10
 
 " Charset, Line ending
 " ---------------------------------------------------------------------------------------------------
@@ -721,6 +723,28 @@ endif
 " ---------------------------------------------------------------------------------------------------
 set ttyfast
 
+" }}}
+
+" Arpeggio Key Mappings {{{
+"====================================================================================================
+call arpeggio#load()
+let g:arpeggio_timeoutlen = 50
+
+" Window
+" ---------------------------------------------------------------------------------------------------
+Arpeggio nnoremap wh <C-w>h
+Arpeggio nnoremap wj <C-w>j
+Arpeggio nnoremap wk <C-w>k
+Arpeggio nnoremap wl <C-w>l
+Arpeggio nnoremap wo <C-w>o
+
+" Operators
+" ---------------------------------------------------------------------------------------------------
+Arpeggio nmap or <Plug>(operator-replace)
+Arpeggio nmap ou <Plug>(operator-uncomment)
+Arpeggio nmap oc <Plug>(operator-comment)
+Arpeggio nmap os <Plug>(operator-sort)
+Arpeggio nmap oe <Plug>(operator-html-escape)
 " }}}
 
 " Common Key Mappings {{{
@@ -772,16 +796,16 @@ imap <silent><expr> <Esc> NotMoveWhenLeavingFromInsertMode()
 
 " Emacs-like
 " Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
-inoremap <C-p> <Up>
-inoremap <C-n> <Down>
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
-inoremap <C-e> <End>
-inoremap <C-a> <Home>
-inoremap <C-h> <Backspace>
-inoremap <C-d> <Del>
+inoremap <C-p>  <Up>
+inoremap <C-n>  <Down>
+inoremap <C-b>  <Left>
+inoremap <C-f>  <Right>
+inoremap <C-e>  <End>
+inoremap <C-a>  <Home>
+inoremap <C-h>  <Backspace>
+inoremap <C-d>  <Del>
 inoremap <expr> <C-k> col('.')==col('$')?'':'<C-o>D'
-inoremap <C-l> <C-o>zz
+inoremap <C-l>  <C-o>zz
 
 " Buffer
 " ---------------------------------------------------------------------------------------------------
@@ -793,7 +817,7 @@ nnoremap <C-k> :bp<CR>
 nnoremap <TAB>   :tabn<CR>
 nnoremap <S-TAB> :tabp<CR>
 nnoremap <C-TAB> :tabnew<CR>
-" experimental
+" alternative
 nnoremap <C-t>   :tabnew<CR>
 nnoremap <C-l>   :tabn<CR>
 nnoremap <C-h>   :tabp<CR>
@@ -808,12 +832,12 @@ nnoremap <Down>  <C-w>+
 " Search / Replace
 " ---------------------------------------------------------------------------------------------------
 nnoremap <Esc><Esc> :nohlsearch<CR>
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)N
-nmap # <Plug>(anzu-sharp-with-echo)N
-nnoremap <C-w>* <C-w>s<Plug>(anzu-star-with-echo)N
-nnoremap <C-w># <C-w>s<Plug>(anzu-sharp-with-echo)N
+nmap n <Plug>(anzu-n)
+nmap N <Plug>(anzu-N)
+nmap * <Plug>(anzu-star)N
+nmap # <Plug>(anzu-sharp)N
+nnoremap <C-w>* <C-w>s<Plug>(anzu-star)N
+nnoremap <C-w># <C-w>s<Plug>(anzu-sharp)N
 
 " Ref: http://d.hatena.ne.jp/osyo-manga/20130424/1366800441
 function! s:move_cursor_pos_mapping(str, ...)
@@ -831,10 +855,13 @@ vnoremap <expr> [prefix]s _(":S/<Cursor>//g")
 nnoremap <expr> [prefix]S _(":%S/<Cursor>//g")
 vnoremap <expr> [prefix]S _(":S/<Cursor>//g")
 
-" TextObj / Operators
+" TextObj
 " ---------------------------------------------------------------------------------------------------
-vmap s <Plug>VSurround
-map R <Plug>(operator-replace)
+vmap s  <Plug>VSurround
+omap ab <Plug>(textobj-multiblock-a)
+omap ib <Plug>(textobj-multiblock-i)
+vmap ab <Plug>(textobj-multiblock-a)
+vmap ib <Plug>(textobj-multiblock-i)
 
 " Macro
 " ---------------------------------------------------------------------------------------------------
@@ -867,6 +894,11 @@ nnoremap p :set paste<CR>p:set nopaste<CR>
 " ---------------------------------------------------------------------------------------------------
 nnoremap [prefix]sw  :set wrap<CR>
 nnoremap [prefix]snw :set nowrap<CR>
+
+" Sort
+" ---------------------------------------------------------------------------------------------------
+nnoremap <leader>s vip:!sort<cr>
+vnoremap <leader>s :!sort<cr>
 
 " Help
 " ---------------------------------------------------------------------------------------------------
@@ -1458,10 +1490,12 @@ let g:quickrun_config['_'] = {
 	\ 'hook/echo/output_success'                     : '(／・ω・)／ ﾆｬｰ',
 	\ 'hook/echo/output_failure'                     : '(´・ω・｀) ｼｮﾎﾞｰﾝ',
 	\ 'hook/inu/enable'                              : 1,
+	\ 'hook/inu/echo'                                : 0,
 	\ 'hook/inu/wait'                                : 5,
 	\ 'hook/time/enable'                             : 1,
 	\ 'outputter'                                    : 'multi:buffer:quickfix',
 	\ 'outputter/buffer/split'                       : ':botright 8sp',
+	\ 'outputter/buffer/close_on_empty'              : 1,
 	\ 'runner'                                       : 'vimproc',
 	\ 'runner/vimproc/updatetime'                    : 40,
 \ }
@@ -2065,29 +2099,6 @@ vmap <C-h> <Plug>(textmanip-move-left)
 vmap <C-l> <Plug>(textmanip-move-right)
 " }}}
 
-" Arpeggio {{{
-"====================================================================================================
-call arpeggio#load()
-let g:arpeggio_timeoutlen = 50
-" }}}
-
-" Operator {{{
-"====================================================================================================
-Arpeggio nmap or <Plug>(operator-replace)
-Arpeggio nmap ou <Plug>(operator-uncomment)
-Arpeggio nmap oc <Plug>(operator-comment)
-Arpeggio nmap os <Plug>(operator-sort)
-Arpeggio nmap oe <Plug>(operator-html-escape)
-" }}}
-
-" TextObj {{{
-"====================================================================================================
-omap ab <Plug>(textobj-multiblock-a)
-omap ib <Plug>(textobj-multiblock-i)
-vmap ab <Plug>(textobj-multiblock-a)
-vmap ib <Plug>(textobj-multiblock-i)
-" }}}
-
 " echodoc {{{
 "====================================================================================================
 let g:echodoc_enable_at_startup = 1
@@ -2160,7 +2171,8 @@ if (s:USE_AIRLINE)
 		\ '%{airline#extensions#branch#get_head()}' .
 		\ '%{""!=airline#extensions#branch#get_head()?("  " . g:airline_left_alt_sep . " "):""}' .
 		\ '%{airline#extensions#readonly#get_mark()}' .
-		\ '%t%( %M%)'
+		\ '%t%( %M%)' .
+		\ '%{shabadou#get_anim_output("inu")}'
 	let g:airline_section_c = ''
 	let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
 	let g:airline_section_x =
@@ -2168,7 +2180,7 @@ if (s:USE_AIRLINE)
 		\ '%{strlen(&fenc)?&fenc:&enc}'.s:sep.
 		\ '%{strlen(&filetype)?&filetype:"no ft"}'
 	let g:airline_section_y = '%3p%%'
-	let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
+	let g:airline_section_z = ' %{anzu#search_status()} ' . get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
 	let g:airline_inactive_collapse = 0
 	function! AirLineForce()
 		let g:airline_mode_map.__ = ''
