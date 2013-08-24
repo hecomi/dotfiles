@@ -1198,7 +1198,7 @@ nnoremap [prefix]vf     :VimFiler<CR>
 nnoremap [prefix]vf<CR> :VimFiler<CR>
 nnoremap [prefix]vfe    :VimFilerExplorer<CR>
 augroup VimFilerCustomKeyBinding
-autocmd!
+	autocmd!
 	autocmd FileType vimfiler nnoremap <buffer> K <C-u>
 	autocmd FileType vimfiler nnoremap <buffer> <C-j> :bn<CR>
 	autocmd FileType vimfiler nnoremap <buffer> <C-k> :bp<CR>
@@ -1432,7 +1432,7 @@ let g:context_filetype#filetypes = {
 \ }
 
 augroup PreciousMySettings
-autocmd!
+	autocmd!
 	autocmd User PreciousFileType :echo precious#context_filetype()
 	autocmd User PreciousFiletype_javascript
 	\	:let g:watchdogs_check_BufWritePost_enables['javascript'] = 0
@@ -1860,7 +1860,10 @@ endif
 
 " nodejs-complete & jscomplete {{{
 "====================================================================================================
-autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+augroup NodejsCompeteSettings
+	autocmd!
+	autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+augroup end
 let g:node_usejscomplete = 1
 let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 " }}}
@@ -1910,10 +1913,9 @@ augroup vim-auto-typescript
 	autocmd!
 	autocmd CursorHold,CursorMoved *.ts :checktime
 	autocmd BufWritePost *.ts :call {s:system}('tsc ' . expand('%'))
+	autocmd QuickFixCmdPost [^l]* nested cwindow
+	autocmd QuickFixCmdPost    l* nested lwindow
 augroup END
-
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
 " }}}
 
 " vim-gitgutter {{{
