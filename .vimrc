@@ -346,7 +346,8 @@ augroup END
 
 " C# {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'csharp.vim'
+" NeoBundleLazy 'csharp.vim'
+NeoBundleLazy 'OrangeT/vim-csharp'
 " NeoBundleLazy 'yuratomo/dotnet-complete'
 NeoBundleLazy 'nosami/Omnisharp', {
 \	'build': {
@@ -358,7 +359,7 @@ NeoBundleLazy 'nosami/Omnisharp', {
 augroup NeoBundleLazyForCSharp
 	autocmd!
 	autocmd FileType cs NeoBundleSource
-		\ csharp.vim
+		\ vim-csharp
 		\ Omnisharp
 augroup END
 " }}}
@@ -1492,7 +1493,7 @@ nnoremap [unite]web    :Unite ref/web<CR>
 
 " C++ Include/Linkage {{{
 "====================================================================================================
-" Include Path
+" gcc/clang Include Path {{{
 " ---------------------------------------------------------------------------------------------------
 let s:include_path = ''
 let s:library_path = ''
@@ -1520,11 +1521,35 @@ let s:library_options = ' -L' . join( split(s:library_path, ','), ' -L' )
 let &path .= ',' . s:include_path
 " }}}
 
+" MSVC Path {{{
+" Ref: http://d.hatena.ne.jp/osyo-manga/20120520/1337500216
+" ---------------------------------------------------------------------------------------------------
+let $VSINSTALLDIR = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0'
+let $VCINSTALLDIR = $VSINSTALLDIR . '/VC'
+
+let $DevEnvDir = $VSINSTALLDIR . '/Common7/IDE;'
+let $PATH      = $VSINSTALLDIR . '/Common7/Tools;' . $PATH
+let $PATH      = $VCINSTALLDIR . '/bin;'           . $PATH
+let $PATH      = $DevEnvDir    . ';'               . $PATH
+
+let $INCLUDE = $VCINSTALLDIR . '/include;' . $INCLUDE
+let $LIB     = $VCINSTALLDIR . '/lib;'     . $LIB
+let $LIBPATH = $VCINSTALLDIR . '/lib;'     . $LIBPATH
+
+let $WindowsKits = 'C:/Program Files (x86)/Windows Kits/8.0'
+let $INCLUDE     = $WindowsKits . '/include/um;'      . $INCLUDE
+let $INCLUDE     = $WindowsKits . '/include/shared;'  . $INCLUDE
+let $INCLUDE     = $WindowsKits . '/include/winrt;'   . $INCLUDE
+let $LIB         = $WindowsKits . '/lib/win8/um/x86;' . $LIB
+" }}}
+
+" }}}
+
 " quickrun {{{
 "====================================================================================================
 let g:quickrun_config = {}
 
-" Shabadou
+" Shabadou {{{
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['_'] = {
 	\ 'hook/echo/priority_exit'                      : 100,
@@ -1547,8 +1572,9 @@ let g:quickrun_config['_'] = {
 	\ 'runner'                                       : 'vimproc',
 	\ 'runner/vimproc/updatetime'                    : 40,
 \ }
+" }}}
 
-" C
+" C {{{
 " ---------------------------------------------------------------------------------------------------
 let s:quickrun_gcc_c_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
 
@@ -1566,9 +1592,11 @@ if s:is_mac
 		\ 'runner'    : 'vimproc',
 	\ }
 endif
+" }}}
 
-" C++
+" C++ {{{
 " ---------------------------------------------------------------------------------------------------
+" quickrun option {{{
 let s:quickrun_cpp_options = '-std=gnu++0x ' . s:include_options . ' ' . s:library_options
 if s:is_win
 	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
@@ -1578,17 +1606,20 @@ let s:quickrun_clang_options = s:quickrun_cpp_options
 if s:is_mac
 	let s:quickrun_clang_options .= ' -I/usr/local/include/libcxx -stdlib=libc++'
 endif
-let s:quickrun_gcc_cpp_exec      = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
+let s:quickrun_gcc_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
+" }}}
 
-let g:quickrun_config['cpp'] = {
+" configs
+let g:quickrun_config['cpp/clang++'] = {
 	\ 'command'   : 'clang++',
 	\ 'cmdopt'    : s:quickrun_clang_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['cpp/clang++'] = {
-	\ 'command'   : 'clang++',
-	\ 'cmdopt'    : s:quickrun_clang_options,
+let g:quickrun_config['cpp/g++'] = {
+	\ 'exec'      : s:quickrun_gcc_cpp_exec,
+	\ 'command'   : 'g++',
+	\ 'cmdopt'    : s:quickrun_gcc_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
@@ -1619,6 +1650,21 @@ let g:quickrun_config['cpp/ndk-build'] = {
 	\ 'runner'    : 'vimproc',
 \ }
 
+if s:is_win
+	let g:quickrun_config['cpp/msvc-2012'] = {
+		\ 'exec'      : [
+			\ '%c %o %s:p /Fo%s:p:r__.obj /Fe%s:p:r__.exe 2> NUL',
+			\ '%s:p:r__.exe',
+			\ 'rm %s:p:r__.exe',
+			\ 'rm %s:p:r__.obj'
+		\ ],
+		\ 'command'   : 'cl',
+		\ 'cmdopt'    : '/O2 /EHsc /nologo /MD /MP4 /openmp',
+		\ 'runner'    : 'vimproc',
+		\ 'hook/output_encode/encoding' : 'cp932',
+	\ }
+endif
+
 if s:is_mac
 	let g:quickrun_config['cpp/g++_opengl'] = {
 		\ 'exec'      : s:quickrun_gcc_cpp_exec,
@@ -1628,7 +1674,21 @@ if s:is_mac
 	\ }
 endif
 
-" JavaScript
+let g:quickrun_config['cpp'] = g:quickrun_config['cpp/clang++']
+
+" Watchdogs
+let g:quickrun_config['cpp/watchdogs_checker'] = {
+	\ 'type' : 'watchdogs_checker/clang++',
+\ }
+
+let g:quickrun_config['watchdogs_checker/clang++'] = {
+	\ 'command' : 'clang++',
+	\ 'exec'    : '%c %o -fsyntax-only %s:p ',
+	\ 'cmdopt'  : s:quickrun_cpp_options,
+\ }
+" }}}
+
+" JavaScript {{{
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['javascript/jshint'] = {
 	\ 'exec'      : '%c %s:p ',
@@ -1648,7 +1708,18 @@ let g:quickrun_config['javascript/gjslint'] = {
 	\ 'runner'    : 'vimproc',
 \ }
 
-" CoffeeScript
+" Watchdogs
+let g:quickrun_config['javascript/watchdogs_checker'] = {
+	\ 'type' : 'watchdogs_checker/jshint',
+\ }
+
+let g:quickrun_config['watchdogs_checker/jshint'] = {
+	\ 'command' : 'jshint',
+	\ 'exec'    : '%c %s:p ',
+\ }
+" }}}
+
+" CoffeeScript {{{
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['coffee/coffee'] = {
 	\ 'exec'      : '%c %s:p',
@@ -1661,8 +1732,9 @@ let g:quickrun_config['coffee/convert'] = {
 	\ 'command'   : 'coffee',
 	\ 'runner'    : 'vimproc',
 \ }
+" }}}
 
-" Java
+" Java {{{
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['java/javac'] = {
 	\ 'exec'                       : ['javac %o %s', '%c %s:t:r %a'],
@@ -1673,18 +1745,55 @@ let g:quickrun_config['java/javac'] = {
 let g:quickrun_config['java/android'] = {
 	\ 'exec' : ['android update project --path ./ > /dev/null', 'ant clean > /dev/null', 'ant debug > /dev/null', 'adb install bin/*.apk'],
 \ }
+" }}}
 
-" C#
+" C# {{{
 " ---------------------------------------------------------------------------------------------------
-" TODO: add win config
-let g:quickrun_config['cs']  = {
-	\ 'command'              : 'mcs',
-	\ 'exec'                 : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
-	\ 'cmdopt'               : '-warn:4 -pkg:dotnet',
-	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
-\ }
+if s:is_win
+	let g:quickrun_config['cs/dmcs']  = {
+		\ 'command'                     : 'dmcs',
+		\ 'exec'                        : ['%c %o %s:p -out:%s:p:r__.exe', '%s:p:r__.exe', 'rm %s:p:r__.exe'],
+		\ 'hook/output_encode/encoding' : 'cp932',
+		\ 'quickfix/errorformat'        : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+	\ }
 
-" ActionScript
+	let g:quickrun_config['cs'] = g:quickrun_config['cs/dmcs']
+else
+	let g:quickrun_config['cs/mcs']  = {
+		\ 'command'              : 'mcs',
+		\ 'exec'                 : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
+		\ 'cmdopt'               : '-warn:4 -pkg:dotnet',
+		\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+	\ }
+
+	let g:quickrun_config['cs'] = g:quickrun_config['cs/mcs']
+endif
+
+" Watchdogs
+if s:is_win
+	let g:quickrun_config['cs/watchdogs_checker'] = {
+		\ 'type' : 'watchdogs_checker/dmcs',
+	\ }
+	let g:quickrun_config['watchdogs_checker/dmcs'] = {
+		\ 'command'              : 'dmcs',
+		\ 'exec'                 : '%c %o %s:p',
+		\ 'cmdopt'               : '--parse',
+		\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+	\ }
+else
+	let g:quickrun_config['cs/watchdogs_checker'] = {
+		\ 'type' : 'watchdogs_checker/mcs',
+	\ }
+	let g:quickrun_config['watchdogs_checker/mcs'] = {
+		\ 'command'              : 'mcs',
+		\ 'exec'                 : '%c %o %s:p',
+		\ 'cmdopt'               : '--parse',
+		\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+	\ }
+endif
+" }}}
+
+" ActionScript {{{
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['actionscript'] = {
 	\ 'command' : 'mxmlc',
@@ -1692,16 +1801,18 @@ let g:quickrun_config['actionscript'] = {
 	\ 'cmdopt'  : '-static-link-runtime-shared-libraries',
 	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
 \ }
+" }}}
 
-" VimScript
+" VimScript {{{
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['vim/async'] = {
 	\ 'command' : 'vim',
 	\ 'exec'    : '%C -N -u NONE -i NONE -V1 -e -s --cmd "source %s" --cmd qall!',
 	\ 'runner'  : 'vimproc',
 \ }
+" }}}
 
-" Qt
+" Qt {{{
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['qml/qmlscene'] = {
 	\ 'command' : 'qmlscene',
@@ -1713,41 +1824,6 @@ let g:quickrun_config['qml/qmlscene'] = {
 let g:quickrun_config['qml'] = g:quickrun_config['qml/qmlscene']
 
 " Watchdogs
-" ---------------------------------------------------------------------------------------------------
-" C++
-let g:quickrun_config['cpp/watchdogs_checker'] = {
-	\ 'type' : 'watchdogs_checker/clang++',
-\ }
-
-let g:quickrun_config['watchdogs_checker/clang++'] = {
-	\ 'command' : 'clang++',
-	\ 'exec'    : '%c %o -fsyntax-only %s:p ',
-	\ 'cmdopt'  : s:quickrun_cpp_options,
-\ }
-
-" JavaScript
-let g:quickrun_config['javascript/watchdogs_checker'] = {
-	\ 'type' : 'watchdogs_checker/jshint',
-\ }
-
-let g:quickrun_config['watchdogs_checker/jshint'] = {
-	\ 'command' : 'jshint',
-	\ 'exec'    : '%c %s:p ',
-\ }
-
-" C#
-let g:quickrun_config['cs/watchdogs_checker'] = {
-	\ 'type' : 'watchdogs_checker/mcs',
-\ }
-
-let g:quickrun_config['watchdogs_checker/mcs'] = {
-	\ 'command'              : 'mcs',
-	\ 'exec'                 : '%c %o %s:p',
-	\ 'cmdopt'               : '--parse',
-	\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
-\ }
-
-" Qt
 let g:quickrun_config['qml/watchdogs_checker'] = {
 	\ 'type' : 'watchdogs_checker/qmlscene',
 \ }
@@ -1758,30 +1834,36 @@ let g:quickrun_config['watchdogs_checker/qmlscene'] = {
 	\ 'cmdopt'               : '--quit',
 	\ 'quickfix/errorformat' : 'file:\/\/%f:%l %m',
 \ }
+" }}}
 
-" Common
-call watchdogs#setup(g:quickrun_config)
-let g:watchdogs_check_BufWritePost_enables = {
-	\ "cpp"        : 0,
-	\ "java"       : 0,
-	\ "javascript" : 1,
-	\ "cs"         : 1,
-	\ "qml"        : 0,
-\ }
-nnoremap <Leader>R :WatchdogsRun<CR>
-
-" Error highlight
+" Error highlight {{{
 " ---------------------------------------------------------------------------------------------------
 hi qf_error_ucurl ctermfg=white ctermbg=red cterm=bold
 let g:hier_highlight_group_qf = 'qf_error_ucurl'
 
 hi qf_warning_ucurl ctermfg=white ctermbg=blue cterm=bold
 let g:hier_highlight_group_qfw = 'qf_warning_ucurl'
+" }}}
 
-" Unite: quickrun-select
+" Unite: quickrun-select {{{
 " -------------------------------------------------------
 nnoremap [unite]qc :Unite quickrun_config<CR>
 nnoremap [prefix]r :QuickRun<CR>
+" }}}
+
+" }}}
+
+" Watchdogs {{{
+"====================================================================================================
+call watchdogs#setup(g:quickrun_config)
+let g:watchdogs_check_BufWritePost_enables = {
+	\ "cpp"        : 0,
+	\ "java"       : 0,
+	\ "javascript" : 1,
+	\ "cs"         : 0,
+	\ "qml"        : 0,
+\ }
+nnoremap <Leader>R :WatchdogsRun<CR>
 " }}}
 
 " tags / dict {{{
