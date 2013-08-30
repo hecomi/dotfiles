@@ -406,7 +406,7 @@ NeoBundleLazy 'glsl.vim'
 augroup NeoBundleLazyForShader
 	autocmd!
 	autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl
-		\ set filetype=glsl
+		\ setlocal filetype=glsl
 	autocmd FileType glsl NeoBundleSource
 		\ glsl.vim
 augroup END
@@ -417,6 +417,16 @@ augroup END
 NeoBundleLazy 'peterhoeg/vim-qml', {
 \	'autoload': { 'filetypes': ['qml'] }
 \ }
+" }}}
+
+" Visual Studio {{{
+" ---------------------------------------------------------------------------------------------------
+if s:is_win
+	NeoBundleLazy 'taku25/VisualStudioController'
+	NeoBundleLazy 'taku25/vim-visualstudio', {
+	\	'autoload': { 'filetypes': ['c', 'cs', 'cpp'] }
+	\ }
+endif
 " }}}
 
 " Others {{{
@@ -2565,6 +2575,13 @@ nnoremap [prefix]eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
 nnoremap [prefix]junk  :JunkfileOpen<CR>
 nnoremap [unite]jl     :Unite junkfile<CR>
 nnoremap [unite]jn     :Unite junkfile/new<CR>
+" }}}
+
+" quickrun {{{
+"====================================================================================================
+if s:is_win
+	let g:visualstudio_controllerpath = $HOME . '/.vim/plugins/VisualStudioController/bin/VisualStudioController.exe'
+endif
 " }}}
 
 " load .vimrc.* {{{
