@@ -17,7 +17,7 @@ let s:is_mac   = has('mac') || system('uname') =~? '^darwin'
 let s:is_linux = !s:is_mac && has('unix')
 " }}}
 
-" SETTING FLAGS {{{
+" Setting flags {{{
 "====================================================================================================
 let s:USE_POWERLINE = 0
 let s:USE_AIRLINE   = 1
@@ -230,7 +230,12 @@ NeoBundle 'osyo-manga/vim-precious'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'matchparenpp'
+NeoBundle 'vim-scripts/matchparenpp'
+NeoBundleLazy 'https://bitbucket.org/abudden/taghighlight', {
+\	'autoload' : {
+\		'commands' : ['UpdateTypesFile', 'UpdateTypesFileOnly']
+\	},
+\ }
 NeoBundleLazy 'pthrasher/conqueterm-vim', {
 \	'autoload' : {
 \		'commands' : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermVSplit'],
@@ -541,7 +546,7 @@ NeoBundleLazy 'ujihisa/unite-font'
 
 " Unite Sources {{{
 " ---------------------------------------------------------------------------------------------------
-command! -nargs=+ NeoBundleLazyUnite
+command! -nargs=+ NeoBundleLazyForUnite
 	  \ call s:neobundle_unite_bundle(
 	  \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
 function! s:neobundle_unite_bundle(src)
@@ -555,28 +560,29 @@ function! s:neobundle_unite_bundle(src)
 	\ })
 endfunction
 
-NeoBundleLazyUnite 'Shougo/unite-ssh'
-NeoBundleLazyUnite 'h1mesuke/unite-outline'
-NeoBundleLazyUnite 'moznion/unite-git-conflict.vim'
-NeoBundleLazyUnite 'osyo-manga/unite-banban'
-NeoBundleLazyUnite 'osyo-manga/unite-banban2'
-NeoBundleLazyUnite 'osyo-manga/unite-filetype'
-NeoBundleLazyUnite 'osyo-manga/unite-homo'
-NeoBundleLazyUnite 'osyo-manga/unite-jojo'
-NeoBundleLazyUnite 'osyo-manga/unite-life-game'
-NeoBundleLazyUnite 'osyo-manga/unite-nyancat_anim'
-NeoBundleLazyUnite 'osyo-manga/unite-quickfix'
-NeoBundleLazyUnite 'osyo-manga/unite-quickrun_config'
-NeoBundleLazyUnite 'osyo-manga/unite-rofi'
-NeoBundleLazyUnite 'osyo-manga/unite-shimapan'
-NeoBundleLazyUnite 'osyo-manga/unite-sl'
-NeoBundleLazyUnite 'osyo-manga/unite-u-nya-'
-NeoBundleLazyUnite 'sgur/unite-everything'
-NeoBundleLazyUnite 'thinca/vim-editvar'
-NeoBundleLazyUnite 'tsukkee/unite-help'
-NeoBundleLazyUnite 'tsukkee/unite-tag'
-NeoBundleLazyUnite 'ujihisa/unite-colorscheme'
-NeoBundleLazyUnite 'ujihisa/unite-locate'
+NeoBundleLazyForUnite 'Shougo/unite-ssh'
+NeoBundleLazyForUnite 'h1mesuke/unite-outline'
+NeoBundleLazyForUnite 'moznion/unite-git-conflict.vim'
+NeoBundleLazyForUnite 'osyo-manga/unite-banban'
+NeoBundleLazyForUnite 'osyo-manga/unite-banban2'
+NeoBundleLazyForUnite 'osyo-manga/unite-filetype'
+NeoBundleLazyForUnite 'osyo-manga/unite-highlight'
+NeoBundleLazyForUnite 'osyo-manga/unite-homo'
+NeoBundleLazyForUnite 'osyo-manga/unite-jojo'
+NeoBundleLazyForUnite 'osyo-manga/unite-life-game'
+NeoBundleLazyForUnite 'osyo-manga/unite-nyancat_anim'
+NeoBundleLazyForUnite 'osyo-manga/unite-quickfix'
+NeoBundleLazyForUnite 'osyo-manga/unite-quickrun_config'
+NeoBundleLazyForUnite 'osyo-manga/unite-rofi'
+NeoBundleLazyForUnite 'osyo-manga/unite-shimapan'
+NeoBundleLazyForUnite 'osyo-manga/unite-sl'
+NeoBundleLazyForUnite 'osyo-manga/unite-u-nya-'
+NeoBundleLazyForUnite 'sgur/unite-everything'
+NeoBundleLazyForUnite 'thinca/vim-editvar'
+NeoBundleLazyForUnite 'tsukkee/unite-help'
+NeoBundleLazyForUnite 'tsukkee/unite-tag'
+NeoBundleLazyForUnite 'ujihisa/unite-colorscheme'
+NeoBundleLazyForUnite 'ujihisa/unite-locate'
 NeoBundleLazy 'hecomi/unite-fhc', {
 \	'depends'  : ['mattn/webapi-vim'],
 \	'autoload' : {
@@ -1698,6 +1704,18 @@ if s:is_mac
 		\ 'cmdopt'    : s:quickrun_gcc_options . ' -framework OpenGL -framework GLUT -framework Foundation -lGLEW -lglut',
 		\ 'runner'    : 'vimproc',
 	\ }
+
+	let g:quickrun_config['cpp/g++_opencv'] = {
+		\ 'exec'      : s:quickrun_gcc_cpp_exec,
+		\ 'command'   : 'clang++',
+		\ 'cmdopt'    : s:quickrun_gcc_options .
+			\ ' -lopencv_core' .
+			\ ' -lopencv_highgui' .
+			\ ' -lopencv_features2d' .
+			\ ' -lopencv_imgproc' .
+			\ ' -lopencv_nonfree',
+		\ 'runner'    : 'vimproc',
+	\ }
 endif
 
 let g:quickrun_config['cpp'] = g:quickrun_config['cpp/clang++']
@@ -1930,7 +1948,7 @@ let s:source = {
 
 call unite#define_source(s:source)
 function! s:source.gather_candidates(args, context)
-	let l:set_tag_command = "setlocal tags+=%s"
+	let l:set_tag_command = "setlocal tags+=%s\nNeoComplCacheCachingTags"
 	let l:search_dir = $HOME.'/.vim/tags/'.&filetype.'/*'
 	let l:tag_files = split(glob(l:search_dir).' '.glob('./*tags'))
 	return map(
@@ -2059,7 +2077,6 @@ nnoremap [prefix]csx :OmniSharpGetCodeActions<CR>
 " TypeScript {{{
 "====================================================================================================
 " Ref: http://d.hatena.ne.jp/osyo-manga/20121006/1349450529
-set updatetime=50
 let s:system = neobundle#is_installed('vimproc') ? 'vimproc#system_bg' : 'system'
 
 augroup vim-auto-typescript
@@ -2068,6 +2085,7 @@ augroup vim-auto-typescript
 	autocmd BufWritePost *.ts :call {s:system}('tsc ' . expand('%'))
 	autocmd QuickFixCmdPost [^l]* nested cwindow
 	autocmd QuickFixCmdPost    l* nested lwindow
+	autocmd FileType typescript setlocal updatetime=50
 augroup END
 " }}}
 
