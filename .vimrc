@@ -245,6 +245,7 @@ NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
 NeoBundleLazy 'osyo-manga/vim-cpp11-syntax'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
+NeoBundleLazy 'rhysd/vim-operator-clang-format'
 NeoBundleLazy 'beyondmarc/opengl.vim'
 NeoBundleLazy 'vim-jp/cpp-vim'
 augroup NeoBundleLazyForCpp
@@ -255,6 +256,7 @@ augroup NeoBundleLazyForCpp
 		\ vim-cpp11-syntax
 		\ clang_complete
 		\ unite-n3337
+		\ vim-operator-clang-format
 		\ opengl.vim
 		\ cpp-vim
 augroup END
@@ -351,7 +353,7 @@ NeoBundleLazy 'OrangeT/vim-csharp'
 " NeoBundleLazy 'yuratomo/dotnet-complete'
 NeoBundleLazy 'nosami/Omnisharp', {
 \	'build': {
-\		'windows' : 'MSBuild.exe server/OmniSharp.sln /p: Platform="Any CPU"',
+\		'windows' : 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
 \		'mac'     : 'xbuild server/OmniSharp.sln',
 \		'unix'    : 'xbuild server/OmniSharp.sln',
 \	}
@@ -1531,26 +1533,40 @@ let s:library_options = ' -L' . join( split(s:library_path, ','), ' -L' )
 let &path .= ',' . s:include_path
 " }}}
 
-" MSVC Path {{{
+" }}}
+
+" MSVC environment {{{
+"====================================================================================================
+" C++ {{{
 " Ref: http://d.hatena.ne.jp/osyo-manga/20120520/1337500216
 " ---------------------------------------------------------------------------------------------------
-let $VSINSTALLDIR = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0'
-let $VCINSTALLDIR = $VSINSTALLDIR . '/VC'
+if !exists('g:restarted')
+	let $VSINSTALLDIR = 'C:/Program Files (x86)/Microsoft Visual Studio 11.0'
+	let $VCINSTALLDIR = $VSINSTALLDIR . '/VC'
 
-let $DevEnvDir = $VSINSTALLDIR . '/Common7/IDE;'
-let $PATH      = $VSINSTALLDIR . '/Common7/Tools;' . $PATH
-let $PATH      = $VCINSTALLDIR . '/bin;'           . $PATH
-let $PATH      = $DevEnvDir    . ';'               . $PATH
+	let $DevEnvDir = $VSINSTALLDIR . '/Common7/IDE;'
+	let $PATH      = $VSINSTALLDIR . '/Common7/Tools;' . $PATH
+	let $PATH      = $VCINSTALLDIR . '/bin;'           . $PATH
+	let $PATH      = $DevEnvDir    . ';'               . $PATH
 
-let $INCLUDE = $VCINSTALLDIR . '/include;' . $INCLUDE
-let $LIB     = $VCINSTALLDIR . '/lib;'     . $LIB
-let $LIBPATH = $VCINSTALLDIR . '/lib;'     . $LIBPATH
+	let $INCLUDE = $VCINSTALLDIR . '/include;' . $INCLUDE
+	let $LIB     = $VCINSTALLDIR . '/lib;'     . $LIB
+	let $LIBPATH = $VCINSTALLDIR . '/lib;'     . $LIBPATH
 
-let $WindowsKits = 'C:/Program Files (x86)/Windows Kits/8.0'
-let $INCLUDE     = $WindowsKits . '/include/um;'      . $INCLUDE
-let $INCLUDE     = $WindowsKits . '/include/shared;'  . $INCLUDE
-let $INCLUDE     = $WindowsKits . '/include/winrt;'   . $INCLUDE
-let $LIB         = $WindowsKits . '/lib/win8/um/x86;' . $LIB
+	let $WindowsKits = 'C:/Program Files (x86)/Windows Kits/8.0'
+	let $INCLUDE     = $WindowsKits . '/include/um;'      . $INCLUDE
+	let $INCLUDE     = $WindowsKits . '/include/shared;'  . $INCLUDE
+	let $INCLUDE     = $WindowsKits . '/include/winrt;'   . $INCLUDE
+	let $LIB         = $WindowsKits . '/lib/win8/um/x86;' . $LIB
+endif
+" }}}
+
+" C# {{{
+" ---------------------------------------------------------------------------------------------------
+if !exists('g:restarted')
+	let s:dotnet_framework_dir = 'C:/Windows/Microsoft.NET/Framework64/v4.0.30319'
+	let $PATH = $PATH . ';' . s:dotnet_framework_dir
+endif
 " }}}
 
 " }}}
@@ -1760,14 +1776,19 @@ let g:quickrun_config['java/android'] = {
 " C# {{{
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
+	let g:quickrun_config['cs/csc']  = {
+		\ 'command'              : 'csc',
+		\ 'exec'                 : ['%c %o /out:%s:p:r__.exe %s:p', '%s:p:r__.exe', 'rm %s:p:r__.exe'],
+		\ 'cmdopt'               : '/nologo /utf8output',
+	\ }
+
 	let g:quickrun_config['cs/dmcs']  = {
 		\ 'command'                     : 'dmcs',
 		\ 'exec'                        : ['%c %o %s:p -out:%s:p:r__.exe', '%s:p:r__.exe', 'rm %s:p:r__.exe'],
 		\ 'hook/output_encode/encoding' : 'cp932',
-		\ 'quickfix/errorformat'        : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
 	\ }
 
-	let g:quickrun_config['cs'] = g:quickrun_config['cs/dmcs']
+	let g:quickrun_config['cs'] = g:quickrun_config['cs/csc']
 else
 	let g:quickrun_config['cs/mcs']  = {
 		\ 'command'              : 'mcs',
@@ -1788,7 +1809,6 @@ if s:is_win
 		\ 'command'              : 'dmcs',
 		\ 'exec'                 : '%c %o %s:p',
 		\ 'cmdopt'               : '--parse',
-		\ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
 	\ }
 else
 	let g:quickrun_config['cs/watchdogs_checker'] = {
@@ -1984,6 +2004,11 @@ else
 	let g:clang_library_path  = '/usr/share/clang'
 	let g:clang_user_options  = '2>/dev/null || exit 0'
 endif
+" }}}
+
+" clang-format {{{
+"====================================================================================================
+map ,x <Plug>(operator-clang-format)
 " }}}
 
 " nodejs-complete & jscomplete {{{
