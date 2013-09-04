@@ -1948,6 +1948,7 @@ let s:source = {
 
 call unite#define_source(s:source)
 function! s:source.gather_candidates(args, context)
+	call neocomplcache#init#_variables()
 	let l:set_tag_command = "setlocal tags+=%s\nNeoComplCacheCachingTags"
 	let l:search_dir = $HOME.'/.vim/tags/'.&filetype.'/*'
 	let l:tag_files = split(glob(l:search_dir).' '.glob('./*tags'))
