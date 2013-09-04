@@ -116,7 +116,12 @@ android_create_project() {
 alias earthquake="$HOME/.earthquake/bin/earthquake"
 
 # git
+# ---------------------------------------------------------------------------------------------------
 alias git-rm-auto="git status | grep deleted: | cut -c 15- | sed -e 's/ /\\ /g' | xargs git rm"
+
+# kill vim
+# ---------------------------------------------------------------------------------------------------
+alias kill-vim="ps | grep vim | egrep -v grep | awk '{print \$1}' | xargs kill -9"
 
 # }}}
 
