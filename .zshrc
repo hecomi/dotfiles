@@ -83,7 +83,8 @@ linux*)
 	export CXX=g++-4.7
 	;;
 darwin*)
-	alias clang++='clang++ -std=c++11 -stdlib=libc++ -I/usr/local/include/libcxx'
+	alias clang='/usr/local/bin/clang -std=c++1y -stdlib=libc++'
+	alias clang++='/usr/local/bin/clang++ -std=c++1y -stdlib=libc++'
 	alias vim='/usr/local/bin/vim'
 	;;
 esac
@@ -212,9 +213,9 @@ export PATH="$GIT_PATH:$VIM_PATH:$PATH"
 # Ruby
 
 # C++
-local CLANG_PATH="/usr/local/clang-3.1/bin"
-local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
-export PATH="$CLANG_PATH:$GCC_PATH:$PATH"
+# local CLANG_PATH="/usr/local/clang-3.1/bin"
+# local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
+# export PATH="$CLANG_PATH:$GCC_PATH:$PATH"
 
 # Android
 local ANDROID_SDK_TOOLS_PATH="$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"
@@ -260,7 +261,7 @@ alias rtags='ctags -f ~/.vim/tags/ruby/ruby-1.9.1 -R -a --sort=yes --langmap=RUB
 alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/gems/ruby-1.9.3-head/gems'
 
 # .NET
-export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
+export PKG_CONFIG_PATH='/usr/local/lib/pkgconfig/:/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig'
 
 # OpenNI
 export OPENNI2_INCLUDE=/Users/hecomi/Tools/OpenNI-2.1.0/Include

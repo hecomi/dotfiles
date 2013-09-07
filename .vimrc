@@ -133,6 +133,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'kana/vim-submode'
+NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 't9md/vim-textmanip'
 NeoBundle 'taku-o/vim-toggle'
 NeoBundle 'tsaleh/vim-matchit'
@@ -247,7 +248,6 @@ NeoBundleLazy 'pthrasher/conqueterm-vim', {
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'mattn/quickrunex-vim'
 NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
-NeoBundleLazy 'osyo-manga/vim-cpp11-syntax'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
 NeoBundleLazy 'rhysd/vim-operator-clang-format'
@@ -258,7 +258,6 @@ augroup NeoBundleLazyForCpp
 	autocmd FileType c,cpp NeoBundleSource
 		\ quickrunex-vim
 		\ unite-boost-online-doc
-		\ vim-cpp11-syntax
 		\ clang_complete
 		\ unite-n3337
 		\ vim-operator-clang-format
@@ -593,7 +592,6 @@ NeoBundleLazy 'hecomi/unite-fhc', {
 
 " Experimental {{{
 " ---------------------------------------------------------------------------------------------------
-" NeoBundle 'rhysd/clever-f.vim'
 " NeoBundle 'kana/vim-smartinput'
 NeoBundle 'supermomonga/shiraseru.vim', {
 \	'depends' : 'Shougo/vimproc',
@@ -1530,8 +1528,8 @@ elseif s:is_win
 	let s:library_path = 'C:/include/boost/stage/lib'
 " for Ubuntu
 else
-	let s:include_path = '/usr/include,/usr/local/include'
-	let s:library_path = '/usr/lib,/usr/local/lib'
+	let s:include_path = '/usr/local/include,/usr/include'
+	let s:library_path = '/usr/local/lib,/usr/lib'
 endif
 
 let s:include_options = ' -I' . join( split(s:include_path, ','), ' -I' )
@@ -1629,28 +1627,59 @@ endif
 " C++ {{{
 " ---------------------------------------------------------------------------------------------------
 " quickrun option {{{
-let s:quickrun_cpp_options = '-std=gnu++0x ' . s:include_options . ' ' . s:library_options
+" common
+let s:quickrun_cpp_options = s:include_options . ' ' . s:library_options
 if s:is_win
 	let s:quickrun_cpp_options .= ' -D_WIN32_WINNT=0x0601'
 endif
-let s:quickrun_gcc_options   = s:quickrun_cpp_options
-let s:quickrun_clang_options = s:quickrun_cpp_options
-if s:is_mac
-	let s:quickrun_clang_options .= ' -I/usr/local/include/libcxx -stdlib=libc++'
-endif
+
+" gcc
+let s:quickrun_gcc_options = s:quickrun_cpp_options . ' -std=gnu++0x'
 let s:quickrun_gcc_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
+
+" clang
+let s:quickrun_clang_command  = 'clang++'
+let s:quickrun_clang_options  = s:quickrun_cpp_options . ' -std=c++1y'
+let s:quickrun_clang_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
+if (s:is_mac)
+	let s:quickrun_clang_command = '/usr/local/bin/clang++'
+	let s:quickrun_clang_options = s:quickrun_clang_options . ' -stdlib=libc++'
+endif
 " }}}
 
 " configs
 let g:quickrun_config['cpp/clang++'] = {
-	\ 'command'   : 'clang++',
+	\ 'exec'      : s:quickrun_clang_cpp_exec,
+	\ 'command'   : s:quickrun_clang_command,
 	\ 'cmdopt'    : s:quickrun_clang_options,
 	\ 'runner'    : 'vimproc',
 \ }
 
+if (s:is_mac)
+	let g:quickrun_config['cpp/apple_clang++'] = {
+		\ 'command'   : '/usr/bin/clang++',
+		\ 'cmdopt'    : s:quickrun_cpp_options . ' -std=c++11',
+		\ 'runner'    : 'vimproc',
+	\ }
+endif
+
 let g:quickrun_config['cpp/g++'] = {
 	\ 'exec'      : s:quickrun_gcc_cpp_exec,
 	\ 'command'   : 'g++',
+	\ 'cmdopt'    : s:quickrun_gcc_options,
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['cpp/g++-4.4'] = {
+	\ 'exec'      : s:quickrun_gcc_cpp_exec,
+	\ 'command'   : 'g++-4.4',
+	\ 'cmdopt'    : s:quickrun_gcc_options,
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['cpp/g++-4.5'] = {
+	\ 'exec'      : s:quickrun_gcc_cpp_exec,
+	\ 'command'   : 'g++-4.5',
 	\ 'cmdopt'    : s:quickrun_gcc_options,
 	\ 'runner'    : 'vimproc',
 \ }
@@ -1698,22 +1727,21 @@ if s:is_win
 endif
 
 if s:is_mac
-	let g:quickrun_config['cpp/g++_opengl'] = {
-		\ 'exec'      : s:quickrun_gcc_cpp_exec,
-		\ 'command'   : 'clang++',
-		\ 'cmdopt'    : s:quickrun_gcc_options . ' -framework OpenGL -framework GLUT -framework Foundation -lGLEW -lglut',
+	let g:quickrun_config['cpp/clang++_opengl'] = {
+		\ 'exec'      : s:quickrun_clang_cpp_exec,
+		\ 'command'   : s:quickrun_clang_command,
+		\ 'cmdopt'    : s:quickrun_clang_options .
+			\ ' -lGLEW -lglut' .
+			\ ' -framework OpenGL' .
+			\ ' -framework GLUT' .
+			\ ' -framework Foundation',
 		\ 'runner'    : 'vimproc',
 	\ }
 
-	let g:quickrun_config['cpp/g++_opencv'] = {
-		\ 'exec'      : s:quickrun_gcc_cpp_exec,
-		\ 'command'   : 'clang++',
-		\ 'cmdopt'    : s:quickrun_gcc_options .
-			\ ' -lopencv_core' .
-			\ ' -lopencv_highgui' .
-			\ ' -lopencv_features2d' .
-			\ ' -lopencv_imgproc' .
-			\ ' -lopencv_nonfree',
+	let g:quickrun_config['cpp/clang++_opencv'] = {
+		\ 'exec'      : s:quickrun_clang_cpp_exec,
+		\ 'command'   : s:quickrun_clang_command,
+		\ 'cmdopt'    : s:quickrun_cpp_options . ' -std=c++1y `pkg-config opencv --libs --includes`',
 		\ 'runner'    : 'vimproc',
 	\ }
 endif
@@ -1726,9 +1754,9 @@ let g:quickrun_config['cpp/watchdogs_checker'] = {
 \ }
 
 let g:quickrun_config['watchdogs_checker/clang++'] = {
-	\ 'command' : 'clang++',
+	\ 'command' : s:quickrun_clang_command,
 	\ 'exec'    : '%c %o -fsyntax-only %s:p ',
-	\ 'cmdopt'  : s:quickrun_cpp_options,
+	\ 'cmdopt'  : s:quickrun_cpp_options
 \ }
 " }}}
 
@@ -2238,19 +2266,33 @@ nnoremap [prefix]gundo   :GundoShow<CR>
 nnoremap [prefix]grender :GundoRenderGraph<CR>
 " }}}
 
+" clever-f {{{
+"====================================================================================================
+let g:clever_f_across_no_line    = 0
+let g:clever_f_ignore_case       = 1
+let g:clever_f_use_migemo        = 1
+let g:clever_f_fix_key_direction = 0
+let g:clever_f_show_prompt       = 1
+" }}}
+
 " Easy Motion {{{
 "====================================================================================================
-let g:EasyMotion_keys       = 'hjklasdgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVBf'
-let g:EasyMotion_leader_key = "'"
-let g:EasyMotion_grouping   = 1
+let g:EasyMotion_alphabet_keys = 'hjklasdfgyuiopqwertnmzxcvb'
+let g:EasyMotion_leader_key    = '_'
+let g:EasyMotion_grouping      = 1
 
 hi clear EasyMotionTarget
 hi clear EasyMotionShade
 hi EasyMotionTarget ctermbg=none ctermfg=darkred
 hi EasyMotionShade  ctermbg=none ctermfg=darkgray
 
-nmap f 'w
-nmap F 'b
+if s:is_mac
+	nmap ' :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys."'"<CR>_w
+	nmap " :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys.'"'<CR>_b
+else
+	nmap @ :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys.'@'<CR>_w
+	nmap ` :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys.'`'<CR>_b
+endif
 " }}}
 
 " vim-multiple-cursors {{{
