@@ -873,12 +873,12 @@ nnoremap <Down>  <C-w>+
 " Search / Replace
 " ---------------------------------------------------------------------------------------------------
 nnoremap <Esc><Esc> :nohlsearch<CR>
-nmap n <Plug>(anzu-n)
-nmap N <Plug>(anzu-N)
-nmap * <Plug>(anzu-star)N
-nmap # <Plug>(anzu-sharp)N
-nnoremap <C-w>* <C-w>s<Plug>(anzu-star)N
-nnoremap <C-w># <C-w>s<Plug>(anzu-sharp)N
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)N
+nmap # <Plug>(anzu-sharp-with-echo)N
+nnoremap <C-w>* <C-w>s<Plug>(anzu-star-with-echo)N
+nnoremap <C-w># <C-w>s<Plug>(anzu-sharp-with-echo)N
 
 " Ref: http://d.hatena.ne.jp/osyo-manga/20130424/1366800441
 function! s:move_cursor_pos_mapping(str, ...)
@@ -2240,7 +2240,7 @@ nnoremap [prefix]grender :GundoRenderGraph<CR>
 
 " Easy Motion {{{
 "====================================================================================================
-let g:rasyMotion_keys       = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_keys       = 'hjklasdgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVBf'
 let g:EasyMotion_leader_key = "'"
 let g:EasyMotion_grouping   = 1
 
@@ -2334,6 +2334,12 @@ augroup RainbowParenthesisSettings
 augroup END
 " }}}
 
+" anzu.vim {{{
+"====================================================================================================
+set statusline=%{anzu#search_status()}
+let g:anzu_status_format = 'search : %#WarningMsg#%p %#Keyword#(%i/%l)%#None# : status'
+" }}}
+
 " lightline {{{
 "====================================================================================================
 if s:USE_LIGHTLINE
@@ -2422,7 +2428,7 @@ if (s:USE_AIRLINE)
 		\ '%{strlen(&fenc)?&fenc:&enc}'.s:sep.
 		\ '%{strlen(&filetype)?&filetype:"no ft"}'
 	let g:airline_section_y = '%3p%%'
-	let g:airline_section_z = ' %{anzu#search_status()} ' . get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
+	let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
 	let g:airline_inactive_collapse = 0
 	function! AirLineForce()
 		let g:airline_mode_map.__ = ''
