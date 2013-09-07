@@ -2015,8 +2015,8 @@ if s:is_mac
 	let g:clang_library_path  = '/usr/local/lib'
 	let g:clang_user_options  = '-std=c++11 -libstd=libc++'
 elseif s:is_win
-	let g:clang_use_library   = 0
-	let g:clang_exec          = 'C:/clang/bin/clang.exe'
+	let g:clang_use_library   = 1
+	let g:clang_exec          = 'C:/clang/bin'
 	let g:clang_user_options  = '-std=c++0x 2>NUL || exit 0'
 else
 	let g:clang_use_library   = 1
