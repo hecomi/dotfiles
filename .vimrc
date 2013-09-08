@@ -1544,7 +1544,7 @@ endif
 
 let s:include_options = ' -I' . join( split(s:include_path, ','), ' -I' )
 let s:library_options = ' -L' . join( split(s:library_path, ','), ' -L' )
-let &path .= ',' . s:include_path
+let &path = s:include_path . ',' . &path
 " }}}
 
 " }}}
@@ -1652,6 +1652,7 @@ let s:quickrun_clang_command  = 'clang++'
 let s:quickrun_clang_options  = s:quickrun_cpp_options . ' -std=c++1y'
 let s:quickrun_clang_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
 if (s:is_mac)
+	let s:quickrun_apple_clang_command = '/usr/bin/clang++'
 	let s:quickrun_clang_command = '/usr/local/bin/clang++'
 	let s:quickrun_clang_options = s:quickrun_clang_options . ' -stdlib=libc++'
 endif
@@ -1748,6 +1749,22 @@ if s:is_mac
 		\ 'runner'    : 'vimproc',
 	\ }
 
+	let g:quickrun_config['cpp/apple_clang++_opencv'] = {
+		\ 'exec'      : s:quickrun_gcc_cpp_exec,
+		\ 'command'   : s:quickrun_apple_clang_command,
+		\ 'cmdopt'    : s:quickrun_gcc_options .
+			\ ' -lopencv_core -lopencv_highgui -lopencv_imgproc',
+		\ 'runner'    : 'vimproc',
+	\ }
+
+	let g:quickrun_config['cpp/g++_opencv'] = {
+		\ 'exec'      : s:quickrun_gcc_cpp_exec,
+		\ 'command'   : 'g++-4.8',
+		\ 'cmdopt'    : s:quickrun_gcc_options .
+			\ ' -lopencv_core -lopencv_highgui -lopencv_imgproc',
+		\ 'runner'    : 'vimproc',
+	\ }
+
 	let g:quickrun_config['cpp/clang++_opencv'] = {
 		\ 'exec'      : s:quickrun_clang_cpp_exec,
 		\ 'command'   : s:quickrun_clang_command,
@@ -1767,7 +1784,7 @@ let g:quickrun_config['cpp/watchdogs_checker'] = {
 let g:quickrun_config['watchdogs_checker/clang++'] = {
 	\ 'command' : s:quickrun_clang_command,
 	\ 'exec'    : '%c %o -fsyntax-only %s:p ',
-	\ 'cmdopt'  : s:quickrun_cpp_options
+	\ 'cmdopt'  : s:quickrun_clang_options
 \ }
 " }}}
 
