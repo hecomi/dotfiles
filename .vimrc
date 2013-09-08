@@ -1012,6 +1012,10 @@ else
 	nnoremap [prefix]program :e ~/Program<CR>
 endif
 
+" Others
+" ---------------------------------------------------------------------------------------------------
+nmap [prefix]dox :Dox<CR><Esc>F/vf/=lffla
+
 " }}}
 
 " Common Settings {{{
@@ -1090,16 +1094,14 @@ augroup ChangeLineNumber
 	autocmd InsertLeave * hi CursorLineNr ctermbg=none ctermfg=255
 augroup END
 
-augroup DoxygenSyntax
-	autocmd!
-	autocmd FileType cpp  setlocal syntax=cpp.doxygen
-	autocmd FileType c    setlocal syntax=c.doxygen
-	autocmd FileType java setlocal syntax=java.doxygen
-augroup END
-
 " for C++11
 " ---------------------------------------------------------------------------------------------------
 let g:c_no_curly_error = 1
+
+" Doxygen
+" ---------------------------------------------------------------------------------------------------
+let g:load_doxygen_syntax    = 1
+let g:doxygen_enhanced_color = 0
 
 " }}}
 
