@@ -625,6 +625,12 @@ endif " if !exists('neobundle_loaded')
 syntax on
 set nocompatible
 
+" Language
+" ---------------------------------------------------------------------------------------------------
+if s:is_win
+	language message en
+else
+
 " File
 " ---------------------------------------------------------------------------------------------------
 set autoread
