@@ -231,6 +231,7 @@ NeoBundle 'osyo-manga/vim-precious'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'vim-scripts/matchparenpp'
 NeoBundleLazy 'https://bitbucket.org/abudden/taghighlight', {
 \	'autoload' : {
@@ -1089,6 +1090,13 @@ augroup ChangeLineNumber
 	autocmd InsertLeave * hi CursorLineNr ctermbg=none ctermfg=255
 augroup END
 
+augroup DoxygenSyntax
+	autocmd!
+	autocmd FileType cpp  setlocal syntax=cpp.doxygen
+	autocmd FileType c    setlocal syntax=c.doxygen
+	autocmd FileType java setlocal syntax=java.doxygen
+augroup END
+
 " for C++11
 " ---------------------------------------------------------------------------------------------------
 let g:c_no_curly_error = 1
@@ -1741,7 +1749,8 @@ if s:is_mac
 	let g:quickrun_config['cpp/clang++_opencv'] = {
 		\ 'exec'      : s:quickrun_clang_cpp_exec,
 		\ 'command'   : s:quickrun_clang_command,
-		\ 'cmdopt'    : s:quickrun_cpp_options . ' -std=c++1y `pkg-config opencv --libs --includes`',
+		\ 'cmdopt'    : s:quickrun_cpp_options . ' -std=c++1y ' .
+			\ ' -lopencv_core -lopencv_highgui -lopencv_imgproc',
 		\ 'runner'    : 'vimproc',
 	\ }
 endif
@@ -2277,7 +2286,7 @@ let g:clever_f_show_prompt       = 1
 
 " Easy Motion {{{
 "====================================================================================================
-let g:EasyMotion_alphabet_keys = 'hjklasdfgyuiopqwertnmzxcvb'
+let g:EasyMotion_alphabet_keys = 'hjklasdfgqwertyuiopzxcvbnm'
 let g:EasyMotion_leader_key    = '_'
 let g:EasyMotion_grouping      = 1
 
