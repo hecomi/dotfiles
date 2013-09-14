@@ -1068,31 +1068,39 @@ augroup END
 
 " Apperance {{{
 "====================================================================================================
-" highlight
+" my color scheme
 " ---------------------------------------------------------------------------------------------------
 command! MyColorScheme :call s:MyColorScheme()
 function! s:MyColorScheme()
+	" base theme
 	let g:solarized_termcolors=256
 	set background=dark
 	colorscheme solarized
 
+	" highlight
+	hi clear Cursor
+	hi Cursor       gui=inverse,bold
+	hi clear lCursor
+	hi lCursor      gui=inverse,bold
+	hi CursorIM     guifg=#ff0000
+
 	hi Normal       ctermbg=none ctermfg=245  guibg=#000000 guifg=#cccccc
 	hi Comment      ctermbg=none ctermfg=237  guibg=#000000 guifg=#444444
 	hi LineNr       ctermbg=none ctermfg=232  guibg=#010101 guifg=#333333
-	hi Line         ctermbg=232  ctermfg=232  guibg=#222222
+	hi Line         ctermbg=232  ctermfg=none guibg=#222222 guifg=NONE
 	hi CursorLineNr ctermbg=235  ctermfg=33   guibg=#1a1512 guifg=#268bd2 cterm=bold gui=bold
-	hi SpecialKey   ctermbg=none ctermfg=232  guibg=#000000 guifg=#0a0a0a
+	hi SpecialKey   ctermbg=none ctermfg=232  guibg=NONE    guifg=#0a0a0a
 	hi FoldColumn   ctermbg=234  ctermfg=232  guibg=#222222 guifg=#444444
 	hi Folded       ctermbg=234  ctermfg=237  guibg=#222222 guifg=#444444 cterm=bold gui=bold
 	hi Pmenu        ctermbg=255  ctermfg=235  guibg=#aaaaaa guifg=#333333
 	hi PmenuSel     ctermbg=255  ctermfg=24   guibg=#333333 guifg=#cccccc
 	hi PmenuSbar    ctermbg=245  ctermfg=240  guibg=#000000 guifg=#222222
 	hi PmenuThumb   ctermbg=255  ctermfg=245  guibg=#000000 guifg=#555555
-	hi CursorLine   ctermbg=235  ctermfg=none guibg=#1a1512
+	hi CursorLine   ctermbg=235  ctermfg=none guibg=#1a1512 guifg=NONE
 	hi clear Visual
-	hi Visual       ctermbg=255  ctermfg=none guibg=#ffffff guifg=none    cterm=inverse gui=inverse
-	hi TabLine      ctermbg=232  ctermfg=245  guibg=#222222 guifg=#444444
-	hi TabLineFill  ctermbg=232  ctermfg=none guibg=#000000
+	hi Visual       ctermbg=0    ctermfg=none guibg=#000000 guifg=NONE    cterm=inverse,bold gui=inverse,bold
+	hi TabLine      ctermbg=235  ctermfg=237  guibg=#222222 guifg=#444444 cterm=none gui=none
+	hi TabLineFill  ctermbg=235  ctermfg=none guibg=#000000 guifg=NONE    cterm=none gui=none
 	hi TabLineSel   ctermbg=24   ctermfg=255  guibg=#045b84 guifg=#ffffff cterm=bold gui=bold
 endfunction
 MyColorScheme
@@ -1102,31 +1110,36 @@ MyColorScheme
 function! s:CursorLineNrColorDefault()
 	set updatetime=4000
 	hi CursorLineNr ctermfg=33 guifg=#268bd2
-	hi CursorLine   cterm=none
+	hi CursorLine   cterm=none gui=none
 endfunction
 
 function! s:CursorLineNrColorInsert(mode)
 	if a:mode == 'i'
 		hi CursorLineNr ctermfg=64 guifg=#859900
-		hi CursorLine   cterm=underline
+		hi CursorLine   cterm=underline gui=underline
 	elseif a:mode == 'r'
 		hi CursorLineNr ctermfg=124 guifg=#859900
-		hi CursorLine   cterm=underline
+		hi CursorLine   cterm=underline gui=underline
+	elseif a:mode == 'replace-one-character'
+		set updatetime=0
+		hi CursorLineNr ctermfg=124 guifg=#ff0000
+		hi CursorLine   cterm=underline gui=underline
 	endif
 endfunction
 
-function! CursorLineNrColorVisual()
+function! s:CursorLineNrColorVisual()
 	set updatetime=0
 	hi CursorLineNr ctermfg=61 guifg=#6c71c4
-	hi CursorLine   cterm=none
+	hi CursorLine   cterm=none gui=none
 	return ''
 endfunction
 
-" MEMO: need 'lh' to fire CursorMoved event..., not cool.
-vnoremap <silent> <expr> <SID>CursorLineNrColorVisual CursorLineNrColorVisual()
-nnoremap <silent> <script> v v<SID>CursorLineNrColorVisuallh
-nnoremap <silent> <script> V V<SID>CursorLineNrColorVisuallh
-nnoremap <silent> <script> <C-v> <C-v><SID>CursorLineNrColorVisuallh
+vnoremap <silent> <expr> <SID>(CursorLineNrColorVisual)  <SID>CursorLineNrColorVisual()
+" MEMO: need 'lh' to fire CursorMoved event to update highlight..., not cool.
+nnoremap <silent> <script> v v<SID>(CursorLineNrColorVisual)lh
+nnoremap <silent> <script> V V<SID>(CursorLineNrColorVisual)lh
+nnoremap <silent> <script> <C-v> <C-v><SID>(CursorLineNrColorVisual)lh
+nnoremap r :call <SID>CursorLineNrColorInsert('replace-one-character')<CR>r
 
 augroup ChangeLineNumber
 	autocmd!
@@ -1136,14 +1149,9 @@ augroup ChangeLineNumber
 	autocmd CursorHold  * call s:CursorLineNrColorDefault()
 augroup END
 
-" Others
+" My Syntax
 " ---------------------------------------------------------------------------------------------------
-if has('multi_byte_ime')
-	hi Cursor   ctermbg=none ctermfg=237 guibg=#000000 guifg=#555555
-	hi CursorIM ctermbg=none ctermfg=24  guibg=#1a1512 guifg=#ffffff
-endif
-
-augroup MyHighlight
+augroup MySyntaxHighlight
 	autocmd!
 	autocmd Syntax *   syntax match Operators display '[&|=!~:;,.*?]'
 	autocmd Syntax cpp syntax match Operators display '[&|=!~:;,.*?+-/%]'
@@ -2361,25 +2369,25 @@ let g:clever_f_show_prompt       = 1
 
 " Easy Motion {{{
 "====================================================================================================
-if !exists('g:easymotion_loaded')
-	let g:easymotion_loaded = 1
+let s:EasyMotion_alphabet_keys = 'hjklasdfgqwertyuiopzxcvbnm'
+let g:EasyMotion_leader_key    = '_'
+let g:EasyMotion_grouping      = 1
 
-	let g:EasyMotion_alphabet_keys = 'hjklasdfgqwertyuiopzxcvbnm'
-	let g:EasyMotion_leader_key    = '_'
-	let g:EasyMotion_grouping      = 1
+hi clear EasyMotionTarget
+hi clear EasyMotionShade
+hi EasyMotionTarget ctermbg=none ctermfg=12  guibg=NONE guifg=#aa0000
+hi EasyMotionShade  ctermbg=none ctermfg=232 guibg=NONE guifg=#222222
 
-	hi clear EasyMotionTarget
-	hi clear EasyMotionShade
-	hi EasyMotionTarget ctermbg=none ctermfg=darkred
-	hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+function! s:EasyMotion_change_last_key(key)
+	let g:EasyMotion_keys = s:EasyMotion_alphabet_keys . a:key
+endfunction
 
-	if s:is_mac
-		nmap ' :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys."'"<CR>_w
-		nmap " :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys.'"'<CR>_b
-	else
-		nmap @ :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys.'@'<CR>_w
-		nmap ` :let g:EasyMotion_keys = g:EasyMotion_alphabet_keys.'`'<CR>_b
-	endif
+if s:is_mac
+	nmap ' :call <SID>EasyMotion_change_last_key("'")<CR>_w
+	nmap " :call <SID>EasyMotion_change_last_key('"')<CR>_b
+else
+	nmap @ :call <SID>EasyMotion_change_last_key('@')<CR>_w
+	nmap ` :call <SID>EasyMotion_change_last_key('`')<CR>_b
 endif
 " }}}
 
