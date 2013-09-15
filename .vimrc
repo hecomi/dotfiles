@@ -141,8 +141,9 @@ NeoBundle 'houtsnip/vim-emacscommandline'
 NeoBundle 'thinca/vim-ambicmd'
 " }}}
 
-" Apperance {{{
+" Appearance {{{
 " ---------------------------------------------------------------------------------------------------
+NeoBundle 'hecomi/tsubakumi.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
@@ -1049,7 +1050,7 @@ augroup END
 
 " }}}
 
-" Apperance {{{
+" Appearance {{{
 "====================================================================================================
 " my color scheme
 " ---------------------------------------------------------------------------------------------------
@@ -1136,11 +1137,11 @@ augroup END
 
 " My Syntax
 " ---------------------------------------------------------------------------------------------------
-augroup MySyntaxHighlight
-	autocmd!
-	autocmd Syntax *   syntax match Operators display '[&|=!~:;,.*?]'
-	autocmd Syntax * hi Operators ctermbg=none ctermfg=232 guibg=#000000 guifg=#555555
-augroup END
+" augroup MySyntaxHighlight
+" 	autocmd!
+" 	autocmd Syntax *   syntax match Operators display '[&|=!~:;,.*?]'
+" 	autocmd Syntax * hi Operators ctermbg=none ctermfg=232 guibg=#000000 guifg=#555555
+" augroup END
 
 " for C++11
 " ---------------------------------------------------------------------------------------------------
@@ -2477,43 +2478,48 @@ let g:anzu_status_format = 'search : %#WarningMsg#%p %#Keyword#(%i/%l)%#None# : 
 let g:unite_force_overwrite_statusline    = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+let g:tagbar_status_func                  = 'TagbarStatusFunc'
 
-let g:lightline = {
-	\ 'colorscheme': 'landscape',
-	\ 'active' : {
-		\ 'left' : [
-			\ [ 'mode' ],
-			\ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
-		\ ],
-		\ 'right' : [
-			\ [ 'percent' ],
-			\ [ 'lineinfo' ],
-			\ [ 'fileformat', 'fileencoding', 'filetype' ]
-		\ ]
-	\ },
-	\ 'separator' : {
-		\ 'left'  : '⮀',
-		\ 'right' : '⮂'
-	\ },
-	\ 'subseparator' : {
-		\ 'left'  : '⮁',
-		\ 'right' : '⮃'
-	\ },
-	\ 'component' : {
-		\ 'lineinfo' : '⭡ %3l:%-1v',
-		\ 'percent'  : '%2p%%',
-	\ },
-	\ 'component_function' : {
-		\ 'fugitive'     : 'MyFugitive',
-		\ 'filename'     : 'MyFilename',
-		\ 'fileformat'   : 'MyFileformat',
-		\ 'filetype'     : 'MyFiletype',
-		\ 'fileencoding' : 'MyFileencoding',
-		\ 'gitgutter'    : 'MyGitGutter',
-		\ 'quickrun'     : 'MyQuickrun',
-		\ 'mode'         : 'MyMode',
+if !exists('g:lightline')
+	let g:lightline = {
+		\ 'colorscheme': 'tsubakumi',
+		\ 'active' : {
+			\ 'left' : [
+				\ [ 'mode' ],
+				\ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
+			\ ],
+			\ 'right' : [
+				\ [ 'percent' ],
+				\ [ 'lineinfo' ],
+				\ [ 'fileformat', 'fileencoding', 'filetype' ]
+			\ ]
+		\ },
+		\ 'separator' : {
+			\ 'left'  : '⮀',
+			\ 'right' : '⮂'
+		\ },
+		\ 'subseparator' : {
+			\ 'left'  : '⮁',
+			\ 'right' : '⮃'
+		\ },
+		\ 'component' : {
+			\ 'lineinfo' : '⭡ %3l:%-1v',
+			\ 'percent'  : '%2p%%',
+		\ },
+		\ 'component_function' : {
+			\ 'fugitive'     : 'MyFugitive',
+			\ 'filename'     : 'MyFilename',
+			\ 'fileformat'   : 'MyFileformat',
+			\ 'filetype'     : 'MyFiletype',
+			\ 'fileencoding' : 'MyFileencoding',
+			\ 'gitgutter'    : 'MyGitGutter',
+			\ 'quickrun'     : 'MyQuickrun',
+			\ 'mode'         : 'MyMode',
+		\ }
 	\ }
-\ }
+else
+	call lightline#update()
+endif
 
 function! MyModified()
 	return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -2586,6 +2592,11 @@ function! MyQuickrun()
 	return shabadou#get_anim_output('inu')
 endfunction
 
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+	let g:lightline.fname = a:fname
+	return lightline#statusline(0)
+endfunction
+
 function! MyMode()
 	let fname = expand('%:t')
 	return
@@ -2596,13 +2607,6 @@ function! MyMode()
 		\ &ft == 'vimfiler' ? 'VimFiler' :
 		\ &ft == 'vimshell' ? 'VimShell' :
 		\ winwidth('.') > 60 ? lightline#mode() : ''
-endfunction
-
-let g:tagbar_status_func = 'TagbarStatusFunc'
-
-function! TagbarStatusFunc(current, sort, fname, ...) abort
-	let g:lightline.fname = a:fname
-	return lightline#statusline(0)
 endfunction
 " }}}
 
