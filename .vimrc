@@ -17,13 +17,6 @@ let s:is_mac   = has('mac') || system('uname') =~? '^darwin'
 let s:is_linux = !s:is_mac && has('unix')
 " }}}
 
-" Setting flags {{{
-"====================================================================================================
-let s:USE_POWERLINE = 0
-let s:USE_AIRLINE   = 1
-let s:USE_LIGHTLINE = 0
-" }}}
-
 " NeoBundle {{{
 "====================================================================================================
 if !exists('g:neobundle_loaded')
@@ -150,18 +143,7 @@ NeoBundle 'thinca/vim-ambicmd'
 
 " Apperance {{{
 " ---------------------------------------------------------------------------------------------------
-if (s:USE_POWERLINE)
-	NeoBundle 'Lokaltog/vim-powerline'
-	NeoBundle 'hecomi/alpaca_powertabline'
-	NeoBundle 'osyo-manga/vim-powerline-unite-theme'
-endif
-if (s:USE_AIRLINE)
-	NeoBundle 'bling/vim-airline'
-	NeoBundle 'osyo-manga/unite-airline_themes'
-endif
-if (s:USE_LIGHTLINE)
-	NeoBundle 'itchyny/lightline.vim'
-endif
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
 
@@ -1088,6 +1070,7 @@ function! s:MyColorScheme()
 	hi Comment      ctermbg=none ctermfg=237  guibg=#000000 guifg=#444444
 	hi LineNr       ctermbg=none ctermfg=232  guibg=#010101 guifg=#333333
 	hi Line         ctermbg=232  ctermfg=none guibg=#222222 guifg=NONE
+	hi CursorLine   ctermbg=235  ctermfg=none guibg=#1a1512 guifg=NONE
 	hi CursorLineNr ctermbg=235  ctermfg=33   guibg=#1a1512 guifg=#268bd2 cterm=bold gui=bold
 	hi SpecialKey   ctermbg=none ctermfg=232  guibg=NONE    guifg=#0a0a0a
 	hi FoldColumn   ctermbg=234  ctermfg=232  guibg=#222222 guifg=#444444
@@ -1096,7 +1079,6 @@ function! s:MyColorScheme()
 	hi PmenuSel     ctermbg=255  ctermfg=24   guibg=#333333 guifg=#cccccc
 	hi PmenuSbar    ctermbg=245  ctermfg=240  guibg=#000000 guifg=#222222
 	hi PmenuThumb   ctermbg=255  ctermfg=245  guibg=#000000 guifg=#555555
-	hi CursorLine   ctermbg=235  ctermfg=none guibg=#1a1512 guifg=NONE
 	hi clear Visual
 	hi Visual       ctermbg=0    ctermfg=none guibg=#000000 guifg=NONE    cterm=inverse,bold gui=inverse,bold
 	hi TabLine      ctermbg=235  ctermfg=237  guibg=#222222 guifg=#444444 cterm=none gui=none
@@ -1111,6 +1093,7 @@ function! s:CursorLineNrColorDefault()
 	set updatetime=4000
 	hi CursorLineNr ctermfg=33 guifg=#268bd2
 	hi CursorLine   cterm=none gui=none
+	hi Cursor       gui=inverse,bold
 endfunction
 
 function! s:CursorLineNrColorInsert(mode)
@@ -1118,12 +1101,13 @@ function! s:CursorLineNrColorInsert(mode)
 		hi CursorLineNr ctermfg=64 guifg=#859900
 		hi CursorLine   cterm=underline gui=underline
 	elseif a:mode == 'r'
-		hi CursorLineNr ctermfg=124 guifg=#859900
-		hi CursorLine   cterm=underline gui=underline
+		hi CursorLineNr ctermfg=124 guifg=#ff0000
+		hi CursorLine  cterm=underline gui=undercurl
 	elseif a:mode == 'replace-one-character'
 		set updatetime=0
 		hi CursorLineNr ctermfg=124 guifg=#ff0000
-		hi CursorLine   cterm=underline gui=underline
+		hi CursorLine   cterm=underline gui=none
+		hi Cursor       guifg=#ff0000 gui=inverse
 	endif
 endfunction
 
@@ -1402,6 +1386,7 @@ vmap <expr><C-e> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" 
 nnoremap <silent> <Plug>(quit) :<C-u>q<CR>
 function! g:my_temporary_window_init(config, context)
 	nmap <buffer> <Esc> <Plug>(quit)
+	nmap <buffer> q     <Plug>(quit)
 endfunction
 
 let g:automatic_default_match_config = {
@@ -1655,6 +1640,7 @@ let g:quickrun_config = {}
 
 " Shabadou {{{
 " ---------------------------------------------------------------------------------------------------
+" inu does not animate now...
 let g:quickrun_config['_'] = {
 	\ 'hook/echo/priority_exit'                      : 100,
 	\ 'hook/echo/enable_output_exit'                 : 1,
@@ -1667,8 +1653,8 @@ let g:quickrun_config['_'] = {
 	\ 'hook/echo/output_success'                     : '凸 < ｷﾀｺﾚ!!',
 	\ 'hook/echo/output_failure'                     : '凹 < ﾍｺﾑﾜ...',
 	\ 'hook/inu/enable'                              : 1,
-	\ 'hook/inu/echo'                                : 0,
-	\ 'hook/inu/wait'                                : 5,
+	\ 'hook/inu/echo'                                : 1,
+	\ 'hook/inu/wait'                                : 1,
 	\ 'hook/time/enable'                             : 1,
 	\ 'outputter'                                    : 'multi:buffer:quickfix',
 	\ 'outputter/buffer/split'                       : ':botright 8sp',
@@ -2214,6 +2200,9 @@ augroup END
 "====================================================================================================
 let g:gitgutter_enabled         = 0
 let g:gitgutter_highlight_lines = 0
+let g:gitgutter_sign_added      = '+'
+let g:gitgutter_sign_modified   = '~'
+let g:gitgutter_sign_removed    = '-'
 
 nnoremap [prefix]gg :GitGutterToggle<CR>
 nnoremap [prefix]gn :GitGutterNextHunk<CR>
@@ -2480,251 +2469,137 @@ let g:anzu_status_format = 'search : %#WarningMsg#%p %#Keyword#(%i/%l)%#None# : 
 
 " lightline {{{
 "====================================================================================================
-if s:USE_LIGHTLINE
-	let g:lightline = {
-		\ 'colorscheme': 'landscape',
-		\ 'mode_map': { 'c': 'NORMAL' },
-		\ 'active': {
-			\ 'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-		\ },
-		\ 'component_function': {
-			\ 'modified': 'MyModified',
-			\ 'readonly': 'MyReadonly',
-			\ 'fugitive': 'MyFugitive',
-			\ 'filename': 'MyFilename',
-			\ 'fileformat': 'MyFileformat',
-			\ 'filetype': 'MyFiletype',
-			\ 'fileencoding': 'MyFileencoding',
-			\ 'mode': 'MyMode',
-		\ },
-		\ 'separator': { 'left': '⮀', 'right': '⮂' },
-		\ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+let g:unite_force_overwrite_statusline    = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+
+let g:lightline = {
+	\ 'colorscheme': 'landscape',
+	\ 'active' : {
+		\ 'left' : [
+			\ [ 'mode' ],
+			\ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
+		\ ],
+		\ 'right' : [
+			\ [ 'percent' ],
+			\ [ 'lineinfo' ],
+			\ [ 'fileformat', 'fileencoding', 'filetype' ]
+		\ ]
+	\ },
+	\ 'separator' : {
+		\ 'left'  : '⮀',
+		\ 'right' : '⮂'
+	\ },
+	\ 'subseparator' : {
+		\ 'left'  : '⮁',
+		\ 'right' : '⮃'
+	\ },
+	\ 'component' : {
+		\ 'lineinfo' : '⭡ %3l:%-1v',
+		\ 'percent'  : '%2p%%',
+	\ },
+	\ 'component_function' : {
+		\ 'fugitive'     : 'MyFugitive',
+		\ 'filename'     : 'MyFilename',
+		\ 'fileformat'   : 'MyFileformat',
+		\ 'filetype'     : 'MyFiletype',
+		\ 'fileencoding' : 'MyFileencoding',
+		\ 'gitgutter'    : 'MyGitGutter',
+		\ 'quickrun'     : 'MyQuickrun',
+		\ 'mode'         : 'MyMode',
 	\ }
-	function! MyModified()
-		return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-	endfunction
-	function! MyReadonly()
-		return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
-	endfunction
-	function! MyFilename()
-		return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-		\ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-		\  &ft == 'unite' ? unite#get_status_string() :
-		\  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-		\ '' != expand('%t') ? expand('%t') : '[No Name]') .
-		\ ('' != MyModified() ? ' ' . MyModified() : '')
-	endfunction
-	function! MyFugitive()
-		return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? '⭠ '.fugitive#head() : ''
-	endfunction
-	function! MyFileformat()
-		return winwidth('.') > 70 ? &fileformat : ''
-	endfunction
-	function! MyFiletype()
-		return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-	endfunction
-	function! MyFileencoding()
-		return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-	endfunction
-	function! MyMode()
-		return winwidth('.') > 60 ? lightline#mode() : ''
-	endfunction
-endif
-" }}}
+\ }
 
-" vim-airline {{{
-" Ref: http://d.hatena.ne.jp/itchyny/20130820/1376978742
-"====================================================================================================
-if (s:USE_AIRLINE)
-	let g:airline_theme                = 'landscape'
-	let g:airline_left_sep             = '⮀'
-	let g:airline_left_alt_sep         = '⮁'
-	let g:airline_right_sep            = '⮂'
-	let g:airline_right_alt_sep        = '⮃'
-	let g:airline_branch_prefix        = '⭠ '
-	let g:airline_readonly_symbol      = '⭤ '
-	let g:airline_linecolumn_prefix    = '⭡ '
-	let g:airline_powerline_fonts      = 1
-	let g:airline_enable_syntastic     = 0
-	let g:airline_detect_whitespace    = 0
+function! MyModified()
+	return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
 
-	let g:airline#extensions#hunks#non_zero_only = 1
-	let g:airline#extensions#whitespace#enabled  = 0
-	let g:airline#extensions#branch#enabled      = 0
-	let g:airline#extensions#readonly#enabled    = 0
+function! MyReadonly()
+	return &ft !~? 'help' && &readonly ? '⭤' : ''
+endfunction
 
-	let g:airline_section_b =
-		\ '%{airline#extensions#branch#get_head()}' .
-		\ '%{""!=airline#extensions#branch#get_head()?("  " . g:airline_left_alt_sep . " "):""}' .
-		\ '%{airline#extensions#readonly#get_mark()}' .
-		\ '%t%( %M%)' .
-		\ '%{shabadou#get_anim_output("inu")}'
-	let g:airline_section_c = ''
-	let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
-	let g:airline_section_x =
-		\ '%{strlen(&fileformat)?&fileformat:""}'.s:sep.
-		\ '%{strlen(&fenc)?&fenc:&enc}'.s:sep.
-		\ '%{strlen(&filetype)?&filetype:"no ft"}'
-	let g:airline_section_y = '%3p%%'
-	let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
-	let g:airline_inactive_collapse = 0
-	function! AirLineForce()
-		let g:airline_mode_map.__ = ''
-		let w:airline_render_left = 1
-		let w:airline_render_right = 1
-	endfunction
-	augroup AirLineForce
-		autocmd!
-		autocmd VimEnter * call add(g:airline_statusline_funcrefs, function('AirLineForce'))
-	augroup END
-endif
-" }}}
+function! MyFilename()
+	let fname = expand('%:t')
+	return
+		\ fname == '__Tagbar__' ? g:lightline.fname :
+		\ fname =~ '__Gundo'    ? '' :
+		\ &ft   == 'vimfiler'   ? vimfiler#get_status_string() :
+		\ &ft   == 'unite'      ? unite#get_status_string() :
+		\ &ft   == 'vimshell'   ? vimshell#get_status_string() :
+		\ (MyReadonly() != '' ? MyReadonly() . ' ' : '') .
+		\ (fname != '' ? fname : '[No Name]') .
+		\ (MyModified() != '' ? ' ' . MyModified() : '')
+endfunction
 
-" Vim-powerline {{{
-"====================================================================================================
-if (s:USE_POWERLINE)
-	let g:Powerline_symbols = 'fancy'
+function! MyFugitive()
+	try
+		if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+			let mark = '⭠ '
+			let _ = fugitive#head()
+			return strlen(_) ? mark._ : ''
+		endif
+	catch
+	endtry
+	return ''
+endfunction
 
-	call Pl#Hi#Allocate({
-		\ 'black'          : 16,
-		\ 'white'          : 231,
-		\
-		\ 'darkestgreen'   : 22,
-		\ 'darkgreen'      : 28,
-		\
-		\ 'darkestcyan'    : 21,
-		\ 'mediumcyan'     : 117,
-		\
-		\ 'darkestblue'    : 24,
-		\ 'darkblue'       : 31,
-		\
-		\ 'darkestred'     : 52,
-		\ 'darkred'        : 88,
-		\ 'mediumred'      : 124,
-		\ 'brightred'      : 160,
-		\ 'brightestred'   : 196,
-		\
-		\
-		\ 'darkestyellow'  : 59,
-		\ 'darkyellow'     : 100,
-		\ 'darkestpurple'  : 55,
-		\ 'mediumpurple'   : 98,
-		\ 'brightpurple'   : 189,
-		\
-		\ 'brightorange'   : 208,
-		\ 'brightestorange': 214,
-		\
-		\ 'gray0'          : 233,
-		\ 'gray1'          : 235,
-		\ 'gray2'          : 236,
-		\ 'gray3'          : 239,
-		\ 'gray4'          : 240,
-		\ 'gray5'          : 241,
-		\ 'gray6'          : 244,
-		\ 'gray7'          : 245,
-		\ 'gray8'          : 247,
-		\ 'gray9'          : 250,
-		\ 'gray10'         : 252,
-		\ })
+function! MyFileformat()
+	return winwidth('.') > 70 ? &fileformat : ''
+endfunction
 
-	let g:Powerline#Colorschemes#hecomi#colorscheme = Pl#Colorscheme#Init([
-		\ Pl#Hi#Segments(['SPLIT'], {
-			\ 'n': ['white', 'gray2'],
-			\ 'N': ['gray0', 'gray0'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['mode_indicator'], {
-			\ 'i': ['darkestgreen',  'white', ['bold']],
-			\ 'n': ['darkestblue',   'white', ['bold']],
-			\ 'v': ['darkestpurple', 'white', ['bold']],
-			\ 'r': ['darkred',       'white', ['bold']],
-			\ 's': ['white',         'gray5', ['bold']],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['fileinfo', 'filename'], {
-			\ 'i': ['white', 'darkestgreen',  ['bold']],
-			\ 'n': ['white', 'darkestblue',   ['bold']],
-			\ 'v': ['white', 'darkestpurple', ['bold']],
-			\ 'r': ['white', 'darkred',       ['bold']],
-			\ 'N': ['gray0', 'gray2',         ['bold']],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['branch', 'scrollpercent', 'raw', 'filesize'], {
-			\ 'n': ['gray2', 'gray7'],
-			\ 'N': ['gray0', 'gray2'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['fileinfo.filepath', 'status'], {
-			\ 'n': ['gray10'],
-			\ 'N': ['gray5'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['static_str'], {
-			\ 'n': ['white', 'gray4'],
-			\ 'N': ['gray1', 'gray1'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['fileinfo.flags'], {
-			\ 'n': ['white'],
-			\ 'N': ['gray4'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup'], {
-			\ 'n': ['gray9', 'gray4'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['lineinfo'], {
-			\ 'n': ['gray2', 'gray10'],
-			\ 'N': ['gray2', 'gray4'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['errors'], {
-			\ 'n': ['white', 'gray2'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['lineinfo.line.tot'], {
-			\ 'n': ['gray2'],
-			\ 'N': ['gray2'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['paste_indicator', 'ws_marker'], {
-			\ 'n': ['white', 'brightred', ['bold']],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
-			\ 'n': ['white',     'mediumred',  ['bold']],
-			\ 'N': ['brightred', 'darkestred', ['bold']],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['gundo:static_str.buffer', 'command_t:raw.line'], {
-			\ 'n': ['white',     'darkred'],
-			\ 'N': ['brightred', 'darkestred'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['gundo:SPLIT', 'command_t:SPLIT'], {
-			\ 'n': ['white', 'darkred'],
-			\ 'N': ['white', 'darkestred'],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['branch'], {
-			\ 'i': ['white', 'darkgreen',    ['bold']],
-			\ 'n': ['white', 'darkblue',     ['bold']],
-			\ 'v': ['white', 'mediumpurple', ['bold']],
-			\ 'r': ['white', 'mediumred',    ['bold']],
-			\ 'N': ['gray0', 'gray2',        ['bold']],
-			\ }),
-		\
-		\ Pl#Hi#Segments(['unite:status'], {
-			\ 'i': ['white', 'darkgreen',    ['bold']] ,
-			\ 'n': ['white', 'darkblue',     ['bold']] ,
-			\ 'N': ['gray0', 'gray2',        ['bold']] ,
-			\ }),
-		\ ])
+function! MyFiletype()
+	return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
 
-	let g:Powerline_theme       = 'unite_status'
-	let g:Powerline_colorscheme = 'hecomi'
-endif
+function! MyFileencoding()
+	return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
 
+" Ref: http://qiita.com/yuyuchu3333/items/20a0acfe7e0d0e167ccc
+function! MyGitGutter()
+	if ! exists('*GitGutterGetHunkSummary')
+		\ || ! get(g:, 'gitgutter_enabled', 0)
+		\ || winwidth('.') <= 90
+		return ''
+	endif
+	let symbols = [
+		\ g:gitgutter_sign_added    . ' ',
+		\ g:gitgutter_sign_modified . ' ',
+		\ g:gitgutter_sign_removed  . ' '
+	\ ]
+	let hunks = GitGutterGetHunkSummary()
+	let ret = []
+	for i in [0, 1, 2]
+		if hunks[i] > 0
+			call add(ret, symbols[i] . hunks[i])
+		endif
+	endfor
+	return join(ret, ' ')
+endfunction
+
+function! MyQuickrun()
+	return ''
+	" return shabadou#get_anim_output('inu')
+endfunction
+
+function! MyMode()
+	let fname = expand('%:t')
+	return
+		\ fname == '__Tagbar__' ? 'Tagbar' :
+		\ fname == '__Gundo__' ? 'Gundo' :
+		\ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+		\ &ft == 'unite' ? 'Unite' :
+		\ &ft == 'vimfiler' ? 'VimFiler' :
+		\ &ft == 'vimshell' ? 'VimShell' :
+		\ winwidth('.') > 60 ? lightline#mode() : ''
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+	let g:lightline.fname = a:fname
+	return lightline#statusline(0)
+endfunction
 " }}}
 
 " vimgdb {{{
