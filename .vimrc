@@ -207,6 +207,7 @@ NeoBundle 'gregsexton/gitv'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/vim-precious'
@@ -1090,7 +1091,7 @@ MyColorScheme
 " Line number
 " ---------------------------------------------------------------------------------------------------
 function! s:CursorLineNrColorDefault()
-	set updatetime=4000
+	setlocal updatetime=40
 	hi CursorLineNr ctermfg=33 guifg=#268bd2
 	hi CursorLine   cterm=none gui=none
 	hi Cursor       gui=inverse,bold
@@ -1104,7 +1105,7 @@ function! s:CursorLineNrColorInsert(mode)
 		hi CursorLineNr ctermfg=124 guifg=#ff0000
 		hi CursorLine  cterm=underline gui=undercurl
 	elseif a:mode == 'replace-one-character'
-		set updatetime=0
+		setlocal updatetime=0
 		hi CursorLineNr ctermfg=124 guifg=#ff0000
 		hi CursorLine   cterm=underline gui=none
 		hi Cursor       guifg=#ff0000 gui=inverse
@@ -1112,7 +1113,7 @@ function! s:CursorLineNrColorInsert(mode)
 endfunction
 
 function! s:CursorLineNrColorVisual()
-	set updatetime=0
+	setlocal updatetime=0
 	hi CursorLineNr ctermfg=61 guifg=#6c71c4
 	hi CursorLine   cterm=none gui=none
 	return ''
@@ -1138,7 +1139,6 @@ augroup END
 augroup MySyntaxHighlight
 	autocmd!
 	autocmd Syntax *   syntax match Operators display '[&|=!~:;,.*?]'
-	autocmd Syntax cpp syntax match Operators display '[&|=!~:;,.*?+-/%]'
 	autocmd Syntax * hi Operators ctermbg=none ctermfg=232 guibg=#000000 guifg=#555555
 augroup END
 
@@ -1653,8 +1653,8 @@ let g:quickrun_config['_'] = {
 	\ 'hook/echo/output_success'                     : '凸 < ｷﾀｺﾚ!!',
 	\ 'hook/echo/output_failure'                     : '凹 < ﾍｺﾑﾜ...',
 	\ 'hook/inu/enable'                              : 1,
-	\ 'hook/inu/echo'                                : 1,
-	\ 'hook/inu/wait'                                : 1,
+	\ 'hook/inu/echo'                                : 0,
+	\ 'hook/inu/wait'                                : 5,
 	\ 'hook/time/enable'                             : 1,
 	\ 'outputter'                                    : 'multi:buffer:quickfix',
 	\ 'outputter/buffer/split'                       : ':botright 8sp',
@@ -2107,6 +2107,11 @@ endfunction
 
 call unite#define_source(s:source)
 unlet s:source
+" }}}
+
+" tagbar {{{
+"====================================================================================================
+nnoremap [prefix]tt :TagbarToggle<CR>
 " }}}
 
 " clang_complete {{{
@@ -2578,8 +2583,7 @@ function! MyGitGutter()
 endfunction
 
 function! MyQuickrun()
-	return ''
-	" return shabadou#get_anim_output('inu')
+	return shabadou#get_anim_output('inu')
 endfunction
 
 function! MyMode()
