@@ -259,7 +259,6 @@ NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
 NeoBundleLazy 'hecomi/vim-javascript-syntax'
-NeoBundleLazy 'thinca/vim-textobj-function-javascript'
 " NeoBundleLazy 'marijnh/tern_for_vim'
 augroup NeoBundleLazyForJavaScript
 	autocmd!
@@ -270,7 +269,6 @@ augroup NeoBundleLazyForJavaScript
 		\ typescript-vim
 		\ simple-javascript-indenter
 		\ vim-javascript-syntax
-		\ vim-textobj-function-javascript
 augroup END
 " }}}
 
@@ -583,9 +581,12 @@ NeoBundle 'supermomonga/shiraseru.vim', {
 \ }
 " }}}
 
-" check {{{
+" After work {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleCheck
+
+filetype plugin on
+filetype indent on
 " }}}
 
 " Key binds {{{
@@ -646,8 +647,8 @@ set autoindent smartindent
 
 augroup FileDependentIndentSettings
 	autocmd!
-	autocmd FileType html       setlocal ts=2 sw=2
-	autocmd FileType qml        setlocal expandtab
+	autocmd FileType html setlocal ts=2 sw=2
+	autocmd FileType qml  setlocal expandtab
 augroup end
 
 " Input Assist
@@ -940,7 +941,7 @@ vnoremap ? :Unite output:map\|map!\|lmap<CR>
 " ---------------------------------------------------------------------------------------------------
 augroup MyXML
 	autocmd!
-	autocmd Filetype xml,html,eruby   inoremap <buffer> </ </<C-x><C-o>
+	autocmd Filetype xml,html,eruby inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 " IME
@@ -1135,14 +1136,6 @@ augroup ChangeLineNumber
 	autocmd CursorHold  * call s:CursorLineNrColorDefault()
 augroup END
 
-" My Syntax
-" ---------------------------------------------------------------------------------------------------
-" augroup MySyntaxHighlight
-" 	autocmd!
-" 	autocmd Syntax *   syntax match Operators display '[&|=!~:;,.*?]'
-" 	autocmd Syntax * hi Operators ctermbg=none ctermfg=232 guibg=#000000 guifg=#555555
-" augroup END
-
 " for C++11
 " ---------------------------------------------------------------------------------------------------
 let g:c_no_curly_error = 1
@@ -1152,6 +1145,139 @@ let g:c_no_curly_error = 1
 let g:load_doxygen_syntax    = 1
 let g:doxygen_enhanced_color = 0
 
+" }}}
+
+" lightline {{{
+"====================================================================================================
+let g:unite_force_overwrite_statusline    = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+let g:tagbar_status_func                  = 'TagbarStatusFunc'
+
+let g:lightline = {
+	\ 'colorscheme': 'tsubakumi',
+	\ 'active' : {
+		\ 'left' : [
+			\ [ 'mode' ],
+			\ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
+		\ ],
+		\ 'right' : [
+			\ [ 'percent' ],
+			\ [ 'lineinfo' ],
+			\ [ 'fileformat', 'fileencoding', 'filetype' ]
+		\ ]
+	\ },
+	\ 'separator' : {
+		\ 'left'  : '⮀',
+		\ 'right' : '⮂'
+	\ },
+	\ 'subseparator' : {
+		\ 'left'  : '⮁',
+		\ 'right' : '⮃'
+	\ },
+	\ 'component' : {
+		\ 'lineinfo' : '⭡ %3l:%-1v',
+		\ 'percent'  : '%2p%%',
+	\ },
+	\ 'component_function' : {
+		\ 'fugitive'     : 'MyFugitive',
+		\ 'filename'     : 'MyFilename',
+		\ 'fileformat'   : 'MyFileformat',
+		\ 'filetype'     : 'MyFiletype',
+		\ 'fileencoding' : 'MyFileencoding',
+		\ 'gitgutter'    : 'MyGitGutter',
+		\ 'quickrun'     : 'MyQuickrun',
+		\ 'mode'         : 'MyMode',
+	\ }
+\ }
+
+function! MyModified()
+	return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+	return &ft !~? 'help' && &readonly ? '⭤' : ''
+endfunction
+
+function! MyFilename()
+	let fname = expand('%:t')
+	return
+		\ fname == '__Tagbar__' ? g:lightline.fname :
+		\ fname =~ '__Gundo'    ? '' :
+		\ &ft   == 'vimfiler'   ? vimfiler#get_status_string() :
+		\ &ft   == 'unite'      ? unite#get_status_string() :
+		\ &ft   == 'vimshell'   ? vimshell#get_status_string() :
+		\ (MyReadonly() != '' ? MyReadonly() . ' ' : '') .
+		\ (fname != '' ? fname : '[No Name]') .
+		\ (MyModified() != '' ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+	try
+		if expand('%:t') !~? 'Tagbar\|Gundo' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+			let mark = '⭠ '
+			let _ = fugitive#head()
+			return strlen(_) ? mark._ : ''
+		endif
+	catch
+	endtry
+	return ''
+endfunction
+
+function! MyFileformat()
+	return winwidth('.') > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+	return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+	return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+" Ref: http://qiita.com/yuyuchu3333/items/20a0acfe7e0d0e167ccc
+function! MyGitGutter()
+	if ! exists('*GitGutterGetHunkSummary')
+		\ || ! get(g:, 'gitgutter_enabled', 0)
+		\ || winwidth('.') <= 90
+		return ''
+	endif
+	let symbols = [
+		\ g:gitgutter_sign_added    . ' ',
+		\ g:gitgutter_sign_modified . ' ',
+		\ g:gitgutter_sign_removed  . ' '
+	\ ]
+	let hunks = GitGutterGetHunkSummary()
+	let ret = []
+	for i in [0, 1, 2]
+		if hunks[i] > 0
+			call add(ret, symbols[i] . hunks[i])
+		endif
+	endfor
+	return join(ret, ' ')
+endfunction
+
+function! MyQuickrun()
+	return shabadou#get_anim_output('inu')
+endfunction
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+	let g:lightline.fname = a:fname
+	return lightline#statusline(0)
+endfunction
+
+function! MyMode()
+	let fname = expand('%:t')
+	return
+		\ fname == '__Tagbar__' ? 'Tagbar' :
+		\ fname == '__Gundo__' ? 'Gundo' :
+		\ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+		\ &ft == 'unite' ? 'Unite' :
+		\ &ft == 'vimfiler' ? 'VimFiler' :
+		\ &ft == 'vimshell' ? 'VimShell' :
+		\ winwidth('.') > 60 ? lightline#mode() : ''
+endfunction
 " }}}
 
 " Unite.vim {{{
@@ -1176,7 +1302,6 @@ nnoremap [unite]S :Unite source<CR>
 nnoremap [unite]b :Unite buffer<CR>
 nnoremap [unite]f :Unite find<CR>
 nnoremap [unite]g :Unite grep<CR>
-nnoremap [unite]h :Unite file_mru<CR>
 nnoremap [unite]k :Unite fhc<CR>
 nnoremap [unite]l :Unite line<CR>
 nnoremap [unite]m :Unite menu<CR>
@@ -1186,6 +1311,13 @@ nnoremap [unite]t :Unite tab<CR>
 nnoremap [unite]u :Unite source<CR>
 nnoremap [unite]w :Unite window<CR>
 nnoremap [unite]y :Unite history/yank<CR>
+nnoremap [unite]h :<C-u>execute
+	\ 'Unite'
+	\ '-start-insert'
+	\ 'buffer file_mru'
+	\ 'file:'.fnameescape(expand('%:p:h'))
+	\ 'file_rec:!:'.fnameescape(expand('%:p:h'))
+	\ <CR>
 
 " unite-n3337
 " ---------------------------------------------------------------------------------------------------
@@ -2469,145 +2601,7 @@ augroup END
 
 " anzu.vim {{{
 "====================================================================================================
-set statusline=%{anzu#search_status()}
 let g:anzu_status_format = 'search : %#WarningMsg#%p %#Keyword#(%i/%l)%#None# : status'
-" }}}
-
-" lightline {{{
-"====================================================================================================
-let g:unite_force_overwrite_statusline    = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
-let g:tagbar_status_func                  = 'TagbarStatusFunc'
-
-if !exists('g:lightline')
-	let g:lightline = {
-		\ 'colorscheme': 'tsubakumi',
-		\ 'active' : {
-			\ 'left' : [
-				\ [ 'mode' ],
-				\ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
-			\ ],
-			\ 'right' : [
-				\ [ 'percent' ],
-				\ [ 'lineinfo' ],
-				\ [ 'fileformat', 'fileencoding', 'filetype' ]
-			\ ]
-		\ },
-		\ 'separator' : {
-			\ 'left'  : '⮀',
-			\ 'right' : '⮂'
-		\ },
-		\ 'subseparator' : {
-			\ 'left'  : '⮁',
-			\ 'right' : '⮃'
-		\ },
-		\ 'component' : {
-			\ 'lineinfo' : '⭡ %3l:%-1v',
-			\ 'percent'  : '%2p%%',
-		\ },
-		\ 'component_function' : {
-			\ 'fugitive'     : 'MyFugitive',
-			\ 'filename'     : 'MyFilename',
-			\ 'fileformat'   : 'MyFileformat',
-			\ 'filetype'     : 'MyFiletype',
-			\ 'fileencoding' : 'MyFileencoding',
-			\ 'gitgutter'    : 'MyGitGutter',
-			\ 'quickrun'     : 'MyQuickrun',
-			\ 'mode'         : 'MyMode',
-		\ }
-	\ }
-else
-	call lightline#update()
-endif
-
-function! MyModified()
-	return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-	return &ft !~? 'help' && &readonly ? '⭤' : ''
-endfunction
-
-function! MyFilename()
-	let fname = expand('%:t')
-	return
-		\ fname == '__Tagbar__' ? g:lightline.fname :
-		\ fname =~ '__Gundo'    ? '' :
-		\ &ft   == 'vimfiler'   ? vimfiler#get_status_string() :
-		\ &ft   == 'unite'      ? unite#get_status_string() :
-		\ &ft   == 'vimshell'   ? vimshell#get_status_string() :
-		\ (MyReadonly() != '' ? MyReadonly() . ' ' : '') .
-		\ (fname != '' ? fname : '[No Name]') .
-		\ (MyModified() != '' ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-	try
-		if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-			let mark = '⭠ '
-			let _ = fugitive#head()
-			return strlen(_) ? mark._ : ''
-		endif
-	catch
-	endtry
-	return ''
-endfunction
-
-function! MyFileformat()
-	return winwidth('.') > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-	return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-	return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-" Ref: http://qiita.com/yuyuchu3333/items/20a0acfe7e0d0e167ccc
-function! MyGitGutter()
-	if ! exists('*GitGutterGetHunkSummary')
-		\ || ! get(g:, 'gitgutter_enabled', 0)
-		\ || winwidth('.') <= 90
-		return ''
-	endif
-	let symbols = [
-		\ g:gitgutter_sign_added    . ' ',
-		\ g:gitgutter_sign_modified . ' ',
-		\ g:gitgutter_sign_removed  . ' '
-	\ ]
-	let hunks = GitGutterGetHunkSummary()
-	let ret = []
-	for i in [0, 1, 2]
-		if hunks[i] > 0
-			call add(ret, symbols[i] . hunks[i])
-		endif
-	endfor
-	return join(ret, ' ')
-endfunction
-
-function! MyQuickrun()
-	return shabadou#get_anim_output('inu')
-endfunction
-
-function! TagbarStatusFunc(current, sort, fname, ...) abort
-	let g:lightline.fname = a:fname
-	return lightline#statusline(0)
-endfunction
-
-function! MyMode()
-	let fname = expand('%:t')
-	return
-		\ fname == '__Tagbar__' ? 'Tagbar' :
-		\ fname == '__Gundo__' ? 'Gundo' :
-		\ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-		\ &ft == 'unite' ? 'Unite' :
-		\ &ft == 'vimfiler' ? 'VimFiler' :
-		\ &ft == 'vimshell' ? 'VimShell' :
-		\ winwidth('.') > 60 ? lightline#mode() : ''
-endfunction
 " }}}
 
 " vimgdb {{{
@@ -2664,4 +2658,4 @@ endif
 if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
-" }}}
+" }}}d
