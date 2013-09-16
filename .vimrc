@@ -1073,8 +1073,8 @@ function! s:MyColorScheme()
 	hi Comment      ctermbg=none ctermfg=237  guibg=#000000 guifg=#444444
 	hi LineNr       ctermbg=none ctermfg=232  guibg=#010101 guifg=#333333
 	hi Line         ctermbg=232  ctermfg=none guibg=#222222 guifg=NONE
-	hi CursorLine   ctermbg=235  ctermfg=none guibg=#1a1512 guifg=NONE
-	hi CursorLineNr ctermbg=235  ctermfg=33   guibg=#1a1512 guifg=#268bd2 cterm=bold gui=bold
+	hi CursorLine   ctermbg=234  ctermfg=none guibg=#1a1512 guifg=NONE
+	hi CursorLineNr ctermbg=234  ctermfg=33   guibg=#1a1512 guifg=#268bd2 cterm=bold gui=bold
 	hi SpecialKey   ctermbg=none ctermfg=232  guibg=NONE    guifg=#0a0a0a
 	hi FoldColumn   ctermbg=234  ctermfg=232  guibg=#222222 guifg=#444444
 	hi Folded       ctermbg=234  ctermfg=237  guibg=#222222 guifg=#444444 cterm=bold gui=bold
@@ -1156,6 +1156,23 @@ let g:tagbar_status_func                  = 'TagbarStatusFunc'
 
 let g:lightline = {
 	\ 'colorscheme': 'tsubakumi',
+	\ 'enable' : {
+		\ 'statusline' : 1,
+		\ 'tabline'    : 0
+	\ },
+	\ 'mode_map' : {
+		\ 'n'      : 'N',
+		\ 'i'      : 'I',
+		\ 'R'      : 'R',
+		\ 'v'      : 'V',
+		\ 'V'      : 'VL',
+		\ 'c'      : 'C',
+		\ "\<C-v>" : 'VB',
+		\ 's'      : 'S',
+		\ 'S'      : 'SL',
+		\ "\<C-s>" : 'SB',
+		\ '?'      : '  '
+	\ },
 	\ 'active' : {
 		\ 'left' : [
 			\ [ 'mode' ],
@@ -1188,7 +1205,11 @@ let g:lightline = {
 		\ 'gitgutter'    : 'MyGitGutter',
 		\ 'quickrun'     : 'MyQuickrun',
 		\ 'mode'         : 'MyMode',
-	\ }
+	\ },
+	\ 'tab' : {
+		\ 'active'   : [ 'tabnum', 'filename', 'modified' ],
+		\ 'inactive' : ['tabnum', 'filename', 'modified' ],
+	\ },
 \ }
 
 function! MyModified()
@@ -1313,7 +1334,6 @@ nnoremap [unite]w :Unite window<CR>
 nnoremap [unite]y :Unite history/yank<CR>
 nnoremap [unite]h :<C-u>execute
 	\ 'Unite'
-	\ '-start-insert'
 	\ 'buffer file_mru'
 	\ 'file:'.fnameescape(expand('%:p:h'))
 	\ 'file_rec:!:'.fnameescape(expand('%:p:h'))
@@ -1468,6 +1488,12 @@ if !exists('g:neocomplcache_force_omni_patterns')
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 let g:neocomplcache_force_omni_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
+
+" include path
+" ---------------------------------------------------------------------------------------------------
+if !exists('g:neocomplcache_include_paths')
+	let g:neocomplcache_include_paths = {}
+endif
 
 " <TAB> completion.
 " ---------------------------------------------------------------------------------------------------
@@ -1708,7 +1734,9 @@ let s:library_path = ''
 
 " for MacBook Air
 if s:is_mac
-	let s:include_path  = '/usr/local/include'
+	let s:include_path  = '/usr/local/include' .
+		\ ',/usr/local/include/QtCore' .
+		\ ',/usr/local/include/QtQml'
 	"\ .','.$HOME.'/.nodebrew/current/include/node'
 	"\ .','.$HOME.'/android-ndk/platforms/android-14/arch-arm/usr/include'
 	"\ .','.$HOME.'/android-ndk/sources/android/native_app_glue'
