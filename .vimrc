@@ -254,6 +254,7 @@ augroup END
 " JavaScript / TypeScript {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'myhere/vim-nodejs-complete'
+" NeoBundleLazy 'ahayman/vim-nodejs-complete'
 NeoBundleLazy 'moll/vim-node'
 NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
@@ -650,6 +651,8 @@ augroup FileDependentIndentSettings
 	autocmd FileType html setlocal ts=2 sw=2
 	autocmd FileType qml  setlocal expandtab
 augroup end
+
+let g:SimpleJsIndenter_BriefMode = 1
 
 " Input Assist
 " ---------------------------------------------------------------------------------------------------
@@ -1087,13 +1090,20 @@ function! s:MyColorScheme()
 	hi TabLine      ctermbg=235  ctermfg=237  guibg=#222222 guifg=#444444 cterm=none gui=none
 	hi TabLineFill  ctermbg=235  ctermfg=none guibg=#000000 guifg=NONE    cterm=none gui=none
 	hi TabLineSel   ctermbg=24   ctermfg=255  guibg=#045b84 guifg=#ffffff cterm=bold gui=bold
+
+	hi clear SignColumn
 endfunction
 MyColorScheme
 
 " Line number
 " ---------------------------------------------------------------------------------------------------
+let s:default_updatetime   = &updatetime
+let s:immediate_updatetime = 10
+
 function! s:CursorLineNrColorDefault()
-	setlocal updatetime=40
+	if &updatetime == s:immediate_updatetime
+		let &updatetime = s:default_updatetime
+	endif
 	hi CursorLineNr ctermfg=33 guifg=#268bd2
 	hi CursorLine   cterm=none gui=none
 	hi Cursor       gui=inverse,bold
@@ -1107,7 +1117,7 @@ function! s:CursorLineNrColorInsert(mode)
 		hi CursorLineNr ctermfg=124 guifg=#ff0000
 		hi CursorLine  cterm=underline gui=undercurl
 	elseif a:mode == 'replace-one-character'
-		setlocal updatetime=0
+		let &updatetime = s:immediate_updatetime
 		hi CursorLineNr ctermfg=124 guifg=#ff0000
 		hi CursorLine   cterm=underline gui=none
 		hi Cursor       guifg=#ff0000 gui=inverse
@@ -1115,7 +1125,7 @@ function! s:CursorLineNrColorInsert(mode)
 endfunction
 
 function! s:CursorLineNrColorVisual()
-	setlocal updatetime=0
+	let &updatetime = s:immediate_updatetime
 	hi CursorLineNr ctermfg=61 guifg=#6c71c4
 	hi CursorLine   cterm=none gui=none
 	return ''
@@ -2308,7 +2318,12 @@ augroup NodejsCompeteSettings
 	autocmd!
 	autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
 augroup end
+
+let g:nodejs_complete_config = {
+	\ 'max_node_compl_len' : 15
+\ }
 let g:node_usejscomplete = 1
+
 let g:jscomplete_use = ['dom', 'moz', 'ex6th']
 " }}}
 
@@ -2541,8 +2556,8 @@ if s:is_mac
 	nmap ' :call <SID>EasyMotion_change_last_key("'")<CR>_w
 	nmap " :call <SID>EasyMotion_change_last_key('"')<CR>_b
 else
-	nmap @ :call <SID>EasyMotion_change_last_key('@')<CR>_w
-	nmap ` :call <SID>EasyMotion_change_last_key('`')<CR>_b
+	nmap ` :call <SID>EasyMotion_change_last_key("`")<CR>_w
+	nmap @ :call <SID>EasyMotion_change_last_key('@')<CR>_b
 endif
 " }}}
 
@@ -2555,8 +2570,8 @@ let g:multi_cursor_prev_key = '<C-p>'
 let g:multi_cursor_skip_key = '<C-x>'
 let g:multi_cursor_quit_key = '<Esc>'
 
-highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
-highlight link multiple_cursors_visual Visual
+hi multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+hi link multiple_cursors_visual Visual
 " }}}
 
 " visualstar.vim {{{
@@ -2686,4 +2701,4 @@ endif
 if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
-" }}}d
+" }}}
