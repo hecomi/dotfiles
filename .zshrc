@@ -202,8 +202,9 @@ setopt PROMPT_SUBST
 # Path
 # ---------------------------------------------------------------------------------------------------
 # Common
+local LOCAL_BIN_PATH="/usr/local/bin"
 local LOCAL_SBIN_PATH="/usr/local/sbin"
-export PATH="$LOCAL_SBIN_PATH:$PATH"
+export PATH="$LOCAL_BIN_PATH:$LOCAL_SBIN_PATH:$PATH"
 
 # Tools
 local GIT_PATH="$HOME/.git/git-tasukete"
@@ -276,7 +277,7 @@ export OPENNI2_REDIST=/Users/hecomi/Tools/OpenNI-2.1.0/Redist
 # ---------------------------------------------------------------------------------------------------
 # z
 case ${OSTYPE} in
-darwin12.0)
+darwin13.0)
 	source /usr/local/etc/profile.d/z.sh
 	# function _Z_precmd {
 	# 	z --add "$(pwd -P)" 61

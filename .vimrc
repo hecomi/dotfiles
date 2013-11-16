@@ -99,7 +99,8 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-splash'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'ujihisa/netrw.vim'
-NeoBundle 'YankRing.vim'
+" NeoBundle 'YankRing.vim'
+NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'sudo.vim'
 " }}}
 
@@ -204,7 +205,7 @@ NeoBundleLazy 'airblade/vim-gitgutter', {
 \		'commands' : ['GitGutterToggle'],
 \	},
 \ }
-NeoBundle 'gregsexton/gitv'
+" NeoBundle 'gregsexton/gitv'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'fuenor/qfixgrep'
@@ -379,7 +380,7 @@ augroup NeoBundleLazyForHtml
 	autocmd!
 	autocmd FileType html,xml NeoBundleSource
 		\ html-textobjects
-		\ zencoding-vim
+		\ emmet-vim
 		\ html5.vim
 		\ operator-html-escape.vim
 augroup END
@@ -512,6 +513,11 @@ NeoBundleLazy 'mattn/calendar-vim', {
 \	'autoload' : {
 \		'commands' : ['Calendar'],
 \	},
+\ }
+NeoBundleLazy 'rbtnn/puyo.vim', {
+\	'autoload' : {
+\		'commands' : 'Puyo'
+\	}
 \ }
 NeoBundleLazy 'thinca/vim-scouter', {
 \	'autoload' : {
@@ -778,6 +784,11 @@ Arpeggio nmap oc <Plug>(operator-comment)
 Arpeggio nmap os <Plug>(operator-sort)
 Arpeggio nmap oe <Plug>(operator-html-escape)
 
+" Easy Motion
+" ---------------------------------------------------------------------------------------------------
+Arpeggio nmap em _w
+Arpeggio nmap EM _b
+
 endif " if !exists('g:arpeggio_loaded')
 " }}}
 
@@ -834,12 +845,12 @@ inoremap <C-p>  <Up>
 inoremap <C-n>  <Down>
 inoremap <C-b>  <Left>
 inoremap <C-f>  <Right>
-inoremap <C-e>  <End>
-inoremap <C-a>  <Home>
+" inoremap <C-e>  <End>
+" inoremap <C-a>  <Home>
 inoremap <C-h>  <Backspace>
 inoremap <C-d>  <Del>
 inoremap <expr> <C-k> col('.')==col('$')?'':'<C-o>D'
-inoremap <C-l>  <C-o>zz
+" inoremap <C-l>  <C-o>zz
 
 " Buffer
 " ---------------------------------------------------------------------------------------------------
@@ -1596,6 +1607,15 @@ let g:automatic_config = [
 cnoremap <expr> <Space> ambicmd#expand("\<Space>")
 cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
 " }}}
+
+" yankround {{{
+"====================================================================================================
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+" }}}
+"
 
 " submode {{{
 "====================================================================================================
@@ -2539,26 +2559,14 @@ let g:clever_f_show_prompt       = 1
 
 " Easy Motion {{{
 "====================================================================================================
-let s:EasyMotion_alphabet_keys = 'hjklasdfgqwertyuiopzxcvbnm'
-let g:EasyMotion_leader_key    = '_'
-let g:EasyMotion_grouping      = 1
+let s:EasyMotion_keys       = 'hjklasdgqwertyuiopzxcvbnm'
+let g:EasyMotion_leader_key = '_'
+let g:EasyMotion_grouping   = 1
 
 hi clear EasyMotionTarget
 hi clear EasyMotionShade
 hi EasyMotionTarget ctermbg=none ctermfg=12  guibg=NONE guifg=#aa0000
 hi EasyMotionShade  ctermbg=none ctermfg=232 guibg=NONE guifg=#222222
-
-function! s:EasyMotion_change_last_key(key)
-	let g:EasyMotion_keys = s:EasyMotion_alphabet_keys . a:key
-endfunction
-
-if s:is_mac
-	nmap ' :call <SID>EasyMotion_change_last_key("'")<CR>_w
-	nmap " :call <SID>EasyMotion_change_last_key('"')<CR>_b
-else
-	nmap ` :call <SID>EasyMotion_change_last_key("`")<CR>_w
-	nmap @ :call <SID>EasyMotion_change_last_key('@')<CR>_b
-endif
 " }}}
 
 " vim-multiple-cursors {{{
