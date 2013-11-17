@@ -81,6 +81,7 @@ NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-gift'
 NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'osyo-manga/vim-milfeulle'
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'rking/ag.vim'
 NeoBundleLazy 'sjl/gundo.vim', {
 \	'autoload' : {
