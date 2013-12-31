@@ -250,6 +250,10 @@ export GOOS="linux"
 export GOARCH="386"
 export GOBIN="$HOME/bin"
 
+# Pebble SDK
+local PEBBLE_PATH="$HOME/Tools/PebbleSDK-2.0-BETA4/bin"
+export PATH="$PEBBLE_PATH:$PATH"
+
 # Environmental Variables
 # ---------------------------------------------------------------------------------------------------
 # C++
