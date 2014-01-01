@@ -278,6 +278,7 @@ NeoBundleLazyForCommands 'pthrasher/conqueterm-vim',
 " C / C++ {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'mattn/quickrunex-vim'
+NeoBundleLazy 'osyo-manga/vim-stargate'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
 NeoBundleLazy 'rhysd/vim-clang-format'
@@ -288,6 +289,7 @@ augroup NeoBundleLazyForCpp
 	autocmd!
 	autocmd FileType c,cpp NeoBundleSource
 		\ quickrunex-vim
+		\ vim-stargate
 		\ clang_complete
 		\ unite-n3337
 		\ vim-clang-format
@@ -398,6 +400,7 @@ augroup NeoBundleLazyForActionScript
 		\ ActionScript-3-Omnicomplete
 augroup END
 augroup ActionScriptSetFileType
+	autocmd!
 	autocmd BufNewFile,BufRead *.as set filetype=actionscript
 augroup END
 " }}}
@@ -2427,6 +2430,7 @@ let g:clang_format#style_options = {
 \ }
 
 augroup ClangFormatSettings
+	autocmd!
 	autocmd FileType c,cpp,objc nnoremap <buffer> [prefix]cf :<C-u>ClangFormat<CR>
 	autocmd FileType c,cpp,objc vnoremap <buffer> [prefix]cf :ClangFormat<CR>
 	autocmd FileType c,cpp,objc map      <buffer> [prefix]cf <Plug>(operator-clang-format)
@@ -2527,12 +2531,13 @@ nnoremap [prefix]zshv :ConqueTermVSplit zsh<CR>
 " reanimate.vim {{{
 "====================================================================================================
 let g:reanimate_save_dir          = $HOME.'/.vim/save_point'
+let g:reanimate_default_category  = '_'
 let g:reanimate_default_save_name = 'latest'
 let g:reanimate_sessionoptions    = 'buffers,curdir,folds,help,localoptions,slash,tabpages,winsize'
 
 augroup SavePoint
 	autocmd!
-	autocmd VimLeavePre * ReanimateSave
+	autocmd CursorHold * ReanimateSaveCursorHold
 augroup end
 
 nnoremap [unite]ral :Unite reanimate -default-action=reanimate_load<CR>
