@@ -36,6 +36,53 @@ call neobundle#rc(expand('~/.vim/plugins'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
+" Utility {{{
+" ---------------------------------------------------------------------------------------------------
+command! -nargs=+ NeoBundleLazyForCommands
+	\ call s:neobundle_lazy_for_commands(<f-args>)
+function! s:neobundle_lazy_for_commands(bundle, ...)
+	sandbox let l:commands = eval(join(a:000))
+	let l:bundle = split( substitute(a:bundle, "['\", ]", '', 'g'), '/' )
+	let l:name = l:bundle[len(l:bundle) - 1]
+	call neobundle#parser#bundle(a:bundle)
+	call neobundle#config(l:name, {
+	\	'lazy' : 1,
+	\	'autoload' : {
+	\		'commands' : l:commands,
+	\	},
+	\ })
+endfunction
+
+command! -nargs=+ NeoBundleLazyByFileTypes
+	\ call s:neobundle_lazy_by_filetypes(<f-args>)
+function! s:neobundle_lazy_by_filetypes(bundle, ...)
+	sandbox let l:filetypes = eval(join(a:000))
+	let l:bundle = split( substitute(a:bundle, "['\", ]", '', 'g'), '/' )
+	let l:name = l:bundle[len(l:bundle) - 1]
+	call neobundle#parser#bundle(a:bundle)
+	call neobundle#config(l:name, {
+	\	'lazy' : 1,
+	\	'autoload' : {
+	\		'filetypes' : l:filetypes,
+	\	},
+	\ })
+endfunction
+
+command! -nargs=+ NeoBundleLazyForUnite
+	  \ call s:neobundle_lazy_for_unite(
+	  \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
+function! s:neobundle_lazy_for_unite(src)
+	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
+	call neobundle#parser#bundle(a:src)
+	call neobundle#config(a:src, {
+	\	'lazy' : 1,
+	\	'autoload' : {
+	\		'unite_source' : l:src_name,
+	\	},
+	\ })
+endfunction
+" }}}
+
 " Shougo-san's plugin {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Shougo/context_filetype.vim'
@@ -65,11 +112,8 @@ NeoBundleLazy 'Shougo/vimshell', {
 \	},
 \ }
 NeoBundleLazy 'ujihisa/vimshell-ssh'
-NeoBundleLazy 'Shougo/vinarise', {
-\	'autoload' : {
-\		'commands' : 'Vinarise',
-\	},
-\ }
+NeoBundleLazyForCommands 'Shougo/vinarise',
+\ 	['Vinarise']
 " }}}
 
 " Common {{{
@@ -83,26 +127,22 @@ NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'osyo-manga/vim-milfeulle'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'rking/ag.vim'
-NeoBundleLazy 'sjl/gundo.vim', {
-\	'autoload' : {
-\		'commands' : ['GundoShow', 'GundoRenderGraph'],
-\	},
-\ }
 " NeoBundle 'spolu/dwm.vim'
-NeoBundleLazy 'taku-o/vim-batch-source', {
-\	'autoload' : {
-\		'filetypes' : ['vim'],
-\	},
-\ }
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'terryma/vim-multiple-cursors'
+" NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'thinca/vim-splash'
+" NeoBundle 'thinca/vim-splash'
 NeoBundle 'ujihisa/neco-look'
 NeoBundle 'ujihisa/netrw.vim'
 " NeoBundle 'YankRing.vim'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'sudo.vim'
+NeoBundleLazyByFileTypes 'taku-o/vim-batch-source',
+\ 	['vim']
+NeoBundleLazyForCommands 'sjl/gundo.vim',
+\ 	['GundoShow', 'GundoRenderGraph']
+NeoBundleLazyForCommands 'tyru/capture.vim',
+\ 	['Capture']
 " }}}
 
 " Search {{{
@@ -130,7 +170,7 @@ NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 't9md/vim-textmanip'
-NeoBundle 'taku-o/vim-toggle'
+" NeoBundle 'taku-o/vim-toggle'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
@@ -160,25 +200,23 @@ NeoBundleLazy 'jpo/vim-railscasts-theme'
 NeoBundleLazy 'vim-scripts/Wombat'
 NeoBundleLazy 'tomasr/molokai'
 NeoBundleLazy 'vim-scripts/rdark'
-NeoBundle 'itchyny/landscape.vim'
+NeoBundleLazy 'itchyny/landscape.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
 " Text-object {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'kana/vim-textobj-user'
-" NeoBundle 'kana/vim-textobj-entire'
+NeoBundle 'kana/vim-textobj-entire'
 " NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
-NeoBundleLazy 'kana/vim-textobj-function', {
-\	'autoload' : {
-\		'filetypes' : ['c', 'vim'],
-\	},
-\ }
+NeoBundle 'osyo-manga/vim-textobj-multitextobj'
+NeoBundleLazyByFileTypes 'kana/vim-textobj-function'
+\ 	['c', 'vim']
 NeoBundle 'thinca/vim-textobj-between'
 NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \	'depends'  : ['kana/vim-textobj-function'],
@@ -201,11 +239,6 @@ NeoBundle 'tyru/operator-star.vim'
 
 " Programming (Common) {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'airblade/vim-gitgutter', {
-\	'autoload' : {
-\		'commands' : ['GitGutterToggle'],
-\	},
-\ }
 " NeoBundle 'gregsexton/gitv'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'dannyob/quickfixstatus'
@@ -219,38 +252,35 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'vim-scripts/matchparenpp'
-NeoBundleLazy 'https://bitbucket.org/abudden/taghighlight', {
-\	'autoload' : {
-\		'commands' : ['UpdateTypesFile', 'UpdateTypesFileOnly']
-\	},
-\ }
-NeoBundleLazy 'pthrasher/conqueterm-vim', {
-\	'autoload' : {
-\		'commands' : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermVSplit'],
-\	},
-\ }
+NeoBundleLazyForCommands 'airblade/vim-gitgutter',
+\ 	['GitGutterToggle']
+NeoBundleLazyForCommands 'https://bitbucket.org/abudden/taghighlight',
+\ 	['UpdateTypesFile', 'UpdateTypesFileOnly']
+NeoBundleLazyForCommands 'pthrasher/conqueterm-vim',
+\ 	['ConqueTerm', 'ConqueTermSplit', 'ConqueTermVSplit']
 " }}}
 
 " C / C++ {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'mattn/quickrunex-vim'
-NeoBundleLazy 'osyo-manga/unite-boost-online-doc'
 NeoBundleLazy 'Rip-Rip/clang_complete'
 NeoBundleLazy 'rhysd/unite-n3337'
-NeoBundleLazy 'rhysd/vim-operator-clang-format'
+NeoBundleLazy 'rhysd/vim-clang-format'
+NeoBundleLazy 'rhysd/wandbox-vim'
 NeoBundleLazy 'beyondmarc/opengl.vim'
 NeoBundleLazy 'vim-jp/cpp-vim'
 augroup NeoBundleLazyForCpp
 	autocmd!
 	autocmd FileType c,cpp NeoBundleSource
 		\ quickrunex-vim
-		\ unite-boost-online-doc
 		\ clang_complete
 		\ unite-n3337
-		\ vim-operator-clang-format
+		\ vim-clang-format
+		\ wandbox-vim
 		\ opengl.vim
 		\ cpp-vim
 augroup END
+NeoBundleLazyForUnite 'osyo-manga/unite-boost-online-doc'
 " }}}
 
 " JavaScript / TypeScript {{{
@@ -277,12 +307,7 @@ augroup END
 
 " json {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'elzr/vim-json'
-augroup NeoBundleLazyForJson
-	autocmd!
-	autocmd FileType json NeoBundleSource
-		\ vim-json
-augroup END
+NeoBundleLazyByFileTypes 'elzr/vim-json', ['json']
 " }}}
 
 " CoffeeScript {{{
@@ -319,21 +344,12 @@ augroup END
 
 " Obj-C {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'msanders/cocoa.vim', {
-\	'autoload' : {
-\		'filetypes' : ['objc', 'objcpp'],
-\	},
-\ }
+NeoBundleLazyByFileTypes 'msanders/cocoa.vim', ['objc', 'objcpp']
 " }}}
 
 " Java {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'javacomplete'
-augroup NeoBundleLazyForJava
-	autocmd!
-	autocmd FileType java NeoBundleSource
-		\ javacomplete
-augroup END
+NeoBundleLazyByFileTypes 'javacomplete', ['java']
 " }}}
 
 " C# {{{
@@ -406,26 +422,21 @@ augroup END
 
 " Qt {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'peterhoeg/vim-qml', {
-\	'autoload': { 'filetypes': ['qml'] }
-\ }
+NeoBundleLazyByFileTypes 'peterhoeg/vim-qml', ['qml']
 " }}}
 
 " Visual Studio {{{
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
 	NeoBundleLazy 'taku25/VisualStudioController'
-	NeoBundleLazy 'taku25/vim-visualstudio', {
-	\	'autoload': { 'filetypes': ['c', 'cs', 'cpp'] }
-	\ }
+	NeoBundleLazyByFileTypes 'taku25/vim-visualstudio',
+	\ 	['c', 'cs', 'cpp']
 endif
 " }}}
 
 " Others {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'evanmiller/nginx-vim-syntax', {
-\	'autoload': { 'filetypes': ['nginx'] }
-\ }
+NeoBundleLazyByFileTypes 'evanmiller/nginx-vim-syntax', ['nginx']
 " }}}
 
 " Web service {{{
@@ -452,15 +463,11 @@ NeoBundleLazy 'basyura/TweetVim', {
 \		'unite_sources' : 'tweetvim',
 \	},
 \ }
-NeoBundle 'kakkyz81/evervim', {
-\	'autoload' : {
-\		'commands' : [
-\			'EvervimNotebookList',  'EvervimListTags',      'EvervimCreateNote',
-\			'EvervimOpenBrowser',   'EvervimOpenClient',    'EvervimSearchByQuery',
-\			'EvervimSearchByQuery', 'EvervimSearchByQuery',
-\		],
-\	},
-\ }
+NeoBundleLazyForCommands 'kakkyz81/evervim', [
+\ 	'EvervimNotebookList',  'EvervimListTags',      'EvervimCreateNote',
+\ 	'EvervimOpenBrowser',   'EvervimOpenClient',    'EvervimSearchByQuery',
+\ 	'EvervimSearchByQuery', 'EvervimSearchByQuery',
+\ ]
 NeoBundleLazy 'mattn/excitetranslate-vim', {
 \	'depends'  : ['mattn/webapi-vim'],
 \	'autoload' : {
@@ -480,76 +487,40 @@ NeoBundleLazy 'mattn/vimplenote-vim', {
 \	},
 \ }
 NeoBundleLazy 'mattn/webapi-vim'
-NeoBundleLazy 'tsukkee/lingr-vim', {
-\	'autoload' : {
-\		'commands' : 'LingrLaunch',
-\	},
-\ }
 NeoBundleLazy 'tyru/open-browser.vim', {
 \	'autoload' : {
 \		'commands' : 'OpenBrowser',
 \		'mappings' : '<Plug>(openbrowser-smart-search)',
 \	},
 \ }
+NeoBundleLazyForCommands 'tsukkee/lingr-vim',
+\ 	['LingrLaunch']
 " }}}
 
 " Others {{{
 " ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'glidenote/memolist.vim', {
-\	'autoload' : {
-\		'commands' : ['MemoList', 'MemoNew', 'MemoGrep'],
-\	},
-\ }
-NeoBundleLazy 'gregsexton/VimCalc', {
-\	'autoload' : {
-\		'commands' : ['Calc'],
-\	},
-\ }
-NeoBundleLazy 'DrawIt', {
-\	'autoload' : {
-\		'commands' : ['DrawIt'],
-\	},
-\ }
-NeoBundleLazy 'mattn/calendar-vim', {
-\	'autoload' : {
-\		'commands' : ['Calendar'],
-\	},
-\ }
-NeoBundleLazy 'rbtnn/puyo.vim', {
-\	'autoload' : {
-\		'commands' : 'Puyo'
-\	}
-\ }
-NeoBundleLazy 'thinca/vim-scouter', {
-\	'autoload' : {
-\		'commands' : 'Scouter'
-\	}
-\ }
+NeoBundleLazyForCommands 'glidenote/memolist.vim',
+\ 	['MemoList', 'MemoNew', 'MemoGrep']
+NeoBundleLazyForCommands 'gregsexton/VimCalc',
+\ 	['Calc']
+NeoBundleLazyForCommands 'DrawIt',
+\ 	['DrawIt']
+NeoBundleLazyForCommands 'mattn/calendar-vim',
+\ 	['Calendar']
+NeoBundleLazyForCommands 'rbtnn/puyo.vim',
+\ 	['Puyo']
+NeoBundleLazyForCommands 'thinca/vim-scouter',
+\ 	['Scouter']
 " }}}
 
 " for GVim {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'thinca/vim-fontzoom'
 NeoBundleLazy 'tyru/restart.vim'
-NeoBundleLazy 'ujihisa/unite-font'
 " }}}
 
 " Unite Sources {{{
 " ---------------------------------------------------------------------------------------------------
-command! -nargs=+ NeoBundleLazyForUnite
-	  \ call s:neobundle_unite_bundle(
-	  \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
-function! s:neobundle_unite_bundle(src)
-	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
-	call neobundle#parser#bundle(a:src)
-	call neobundle#config(a:src, {
-	\	'lazy' : 1,
-	\	'autoload' : {
-	\		'unite_source' : l:src_name,
-	\	},
-	\ })
-endfunction
-
 NeoBundleLazyForUnite 'Shougo/unite-ssh'
 NeoBundleLazyForUnite 'h1mesuke/unite-outline'
 NeoBundleLazyForUnite 'moznion/unite-git-conflict.vim'
@@ -572,6 +543,7 @@ NeoBundleLazyForUnite 'thinca/vim-editvar'
 NeoBundleLazyForUnite 'tsukkee/unite-help'
 NeoBundleLazyForUnite 'tsukkee/unite-tag'
 NeoBundleLazyForUnite 'ujihisa/unite-colorscheme'
+NeoBundleLazyForUnite 'ujihisa/unite-font'
 NeoBundleLazyForUnite 'ujihisa/unite-locate'
 NeoBundleLazy 'hecomi/unite-fhc', {
 \	'depends'  : ['mattn/webapi-vim'],
@@ -2330,7 +2302,19 @@ endif
 
 " clang-format {{{
 "====================================================================================================
-map ,x <Plug>(operator-clang-format)
+let g:clang_format#style_options = {
+	\ 'AccessModifierOffset'                : -4,
+	\ 'AllowShortIfStatementsOnASingleLine' : 'true',
+	\ 'AlwaysBreakTemplateDeclarations'     : 'true',
+	\ 'Standard'                            : 'C++11',
+	\ 'BreakBeforeBraces'                   : 'Stroustrup'
+\ }
+
+augroup ClangFormatSettings
+	autocmd FileType c,cpp,objc nnoremap <buffer> [prefix]cf :<C-u>ClangFormat<CR>
+	autocmd FileType c,cpp,objc vnoremap <buffer> [prefix]cf :ClangFormat<CR>
+	autocmd FileType c,cpp,objc map      <buffer> [prefix]cf <Plug>(operator-clang-format)
+augroup end
 " }}}
 
 " nodejs-complete & jscomplete {{{
