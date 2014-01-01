@@ -223,15 +223,13 @@ NeoBundle 'altercation/vim-colors-solarized'
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-entire'
-" NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundle 'osyo-manga/vim-textobj-multitextobj'
-NeoBundleLazyByFileTypes 'kana/vim-textobj-function'
-\ 	['c', 'vim']
+NeoBundle 'rhysd/vim-textobj-word-column'
 NeoBundle 'thinca/vim-textobj-between'
 NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \	'depends'  : ['kana/vim-textobj-function'],
@@ -239,6 +237,8 @@ NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \		'filetypes' : ['html', 'javascript', 'perl'],
 \	},
 \ }
+NeoBundleLazyByFileTypes 'kana/vim-textobj-function'
+\ 	['c', 'vim']
 " }}}
 
 " Operator {{{
