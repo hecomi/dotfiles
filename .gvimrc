@@ -45,8 +45,8 @@ if s:is_win
 	set guifont=Ricty_for_Powerline:h14
 	set guifontwide=Ricty:h14
 elseif s:is_mac
-	set guifont=Ricty_for_Powerline:h20
-	set guifontwide=Ricty:h20
+	set guifont=Ricty_for_Powerline:h18
+	set guifontwide=Ricty:h18
 endif
 
 set ambiwidth=double

@@ -280,6 +280,14 @@ NeoBundleLazyForCommands 'pthrasher/conqueterm-vim',
 NeoBundleLazy 'mattn/quickrunex-vim'
 NeoBundleLazy 'osyo-manga/vim-stargate'
 NeoBundleLazy 'Rip-Rip/clang_complete'
+NeoBundleLazy 'rhysd/libclang-vim', {
+\	'build' : {
+\		'windows' : 'echo "Please build manually"',
+\		'mac'  : 'make',
+\		'unix' : 'make',
+\	}
+\ }
+NeoBundleLazy 'rhysd/clang-type-inspector.vim'
 NeoBundleLazy 'rhysd/unite-n3337'
 NeoBundleLazy 'rhysd/vim-clang-format'
 NeoBundleLazy 'rhysd/wandbox-vim'
@@ -291,6 +299,8 @@ augroup NeoBundleLazyForCpp
 		\ quickrunex-vim
 		\ vim-stargate
 		\ clang_complete
+		\ clang-type-inspector
+		\ libclang-vim
 		\ unite-n3337
 		\ vim-clang-format
 		\ wandbox-vim
@@ -320,11 +330,17 @@ augroup NeoBundleLazyForJavaScript
 		\ simple-javascript-indenter
 		\ vim-javascript-syntax
 augroup END
+" NeoBundleLazyByFileTypes 'othree/javascript-libraries-syntax.vim', ['javascript', 'html']
 " }}}
 
 " json {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazyByFileTypes 'elzr/vim-json', ['json']
+" }}}
+
+" less {{{
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazyByFileTypes 'groenewege/vim-less', ['less']
 " }}}
 
 " CoffeeScript {{{
@@ -1690,7 +1706,6 @@ nmap P <Plug>(yankround-P)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 " }}}
-"
 
 " submode {{{
 "====================================================================================================
@@ -2450,6 +2465,12 @@ let g:nodejs_complete_config = {
 let g:node_usejscomplete = 1
 
 let g:jscomplete_use = ['dom', 'moz', 'ex6th']
+" }}}
+
+" nodejs-complete & jscomplete {{{
+"====================================================================================================
+let g:used_javascript_libs =
+	\ 'jquery,underscore,backbone,angularjs'
 " }}}
 
 " javacomplete {{{
