@@ -198,20 +198,27 @@ setopt PROMPT_SUBST
 
 # Path / Environmental Variables {{{
 # ====================================================================================================
-
-# Path
-# ---------------------------------------------------------------------------------------------------
 # Common
 local LOCAL_BIN_PATH="/usr/local/bin"
 local LOCAL_SBIN_PATH="/usr/local/sbin"
-export PATH="$LOCAL_BIN_PATH:$LOCAL_SBIN_PATH:$PATH"
+local USER_BIN_PATH="$HOME/bin"
+export PATH="$USER_BIN_PATH:$LOCAL_BIN_PATH:$LOCAL_SBIN_PATH:$PATH"
 
-# Tools
+# Git
 local GIT_PATH="$HOME/.git/git-tasukete"
+export PATH="$GIT_PATH:$PATH"
+
+# Vim
 local VIM_PATH="/usr/local/bin/vim"
-export PATH="$GIT_PATH:$VIM_PATH:$PATH"
+export PATH="$VIM_PATH:$PATH"
 
 # Ruby
+local RVM_PATH="$HOME/.rvm/bin"
+export PATH="$RVM_PATH:$PATH"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+export RSENSE_HOME="$HOME/.vim/tools/rsense-0.3"
+alias rtags='ctags -f ~/.vim/tags/ruby/ruby-1.9.1 -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1'
+alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/gems/ruby-1.9.3-head/gems'
 
 # C++
 # local CLANG_PATH="/usr/local/clang-3.1/bin"
@@ -254,16 +261,8 @@ export GOBIN="$HOME/bin"
 local PEBBLE_PATH="$HOME/Tools/PebbleSDK-2.0-BETA4/bin"
 export PATH="$PEBBLE_PATH:$PATH"
 
-# Environmental Variables
-# ---------------------------------------------------------------------------------------------------
-# C++
+# NaCl
 export NACL_SDK_ROOT="$HOME/Tools/nacl_sdk/pepper_current"
-
-# RUBY
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-export RSENSE_HOME="$HOME/.vim/tools/rsense-0.3"
-alias rtags='ctags -f ~/.vim/tags/ruby/ruby-1.9.1 -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1'
-alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/gems/ruby-1.9.3-head/gems'
 
 # .NET
 export PKG_CONFIG_PATH='/usr/local/lib/pkgconfig/:/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig'
@@ -296,4 +295,3 @@ esac
 # ====================================================================================================
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 # }}}
-
