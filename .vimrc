@@ -2121,6 +2121,12 @@ let g:quickrun_config['watchdogs_checker/clang++'] = {
 
 " JavaScript {{{
 " ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['javascript'] = {
+	\ 'exec'      : '%c %s:p',
+	\ 'command'   : 'node',
+	\ 'runner'    : 'vimproc',
+\ }
+
 let g:quickrun_config['javascript/jshint'] = {
 	\ 'exec'      : '%c %s:p ',
 	\ 'command'   : 'jshint',
@@ -2147,6 +2153,23 @@ let g:quickrun_config['javascript/watchdogs_checker'] = {
 let g:quickrun_config['watchdogs_checker/jshint'] = {
 	\ 'command' : 'jshint',
 	\ 'exec'    : '%c %s:p ',
+\ }
+" }}}
+
+" JSON {{{
+" ---------------------------------------------------------------------------------------------------
+" jq
+let g:quickrun_config['json/jq'] = {
+	\ 'command' : 'jq',
+	\ 'exec'    : '%c . %s:p',
+\ }
+
+" default
+let g:quickrun_config['json'] = g:quickrun_config['json/jq']
+
+" Watchdogs
+let g:quickrun_config['json/watchdogs_checker'] = {
+	\ 'type' : 'json/jq',
 \ }
 " }}}
 
@@ -2297,6 +2320,7 @@ let g:watchdogs_check_BufWritePost_enables = {
 	\ "javascript" : 1,
 	\ "cs"         : 0,
 	\ "qml"        : 0,
+	\ "json"       : 0,
 \ }
 nnoremap <Leader>R :WatchdogsRun<CR>
 " }}}
