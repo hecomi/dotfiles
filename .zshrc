@@ -118,7 +118,7 @@ alias earthquake="$HOME/.earthquake/bin/earthquake"
 
 # git
 # ---------------------------------------------------------------------------------------------------
-alias git-rm-auto="git status | grep deleted: | cut -c 15- | sed -e 's/ /\\ /g' | xargs git rm"
+alias git-rm-auto="git status | grep deleted: | cut -c 14- | sed -e 's/ /\\ /g' | xargs git rm"
 
 # kill vim
 # ---------------------------------------------------------------------------------------------------
@@ -268,8 +268,8 @@ export NACL_SDK_ROOT="$HOME/Tools/nacl_sdk/pepper_current"
 export PKG_CONFIG_PATH='/usr/local/lib/pkgconfig/:/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig'
 
 # OpenNI
-export OPENNI2_INCLUDE=/Users/hecomi/Tools/OpenNI-2.1.0/Include
-export OPENNI2_REDIST=/Users/hecomi/Tools/OpenNI-2.1.0/Redist
+export OPENNI2_INCLUDE=/usr/local/include/ni2
+export OPENNI2_REDIST=/usr/local/lib/ni2
 
 # }}}
 

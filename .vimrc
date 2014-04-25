@@ -75,9 +75,9 @@ command! -nargs=+ NeoBundleLazyForUnite
 	  \ call s:neobundle_lazy_for_unite(
 	  \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
 function! s:neobundle_lazy_for_unite(src)
-	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
 	call neobundle#parser#bundle(a:src)
-	call neobundle#config(a:src, {
+	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
+	call neobundle#config('unite-'.l:src_name, {
 	\	'lazy' : 1,
 	\	'autoload' : {
 	\		'unite_source' : l:src_name,
@@ -445,7 +445,7 @@ NeoBundle 'thinca/vim-logcat'
 " Sahder {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'glsl.vim'
-augroup NeoBundleLazyForShader
+augroup NeoBundleLazyForGLSL
 	autocmd!
 	autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl
 		\ setlocal filetype=glsl
@@ -573,7 +573,6 @@ NeoBundleLazyForUnite 'osyo-manga/unite-shimapan'
 NeoBundleLazyForUnite 'osyo-manga/unite-sl'
 NeoBundleLazyForUnite 'osyo-manga/unite-u-nya-'
 NeoBundleLazyForUnite 'sgur/unite-everything'
-NeoBundleLazyForUnite 'thinca/vim-editvar'
 NeoBundleLazyForUnite 'tsukkee/unite-help'
 NeoBundleLazyForUnite 'tsukkee/unite-tag'
 NeoBundleLazyForUnite 'ujihisa/unite-colorscheme'
@@ -1490,8 +1489,8 @@ nnoremap [prefix]vsp :VimShellPop<CR>
 "====================================================================================================
 if s:meet_neocomplete_requirements()
 	" NeoComplete Settings {{{
-
 	" ---------------------------------------------------------------------------------------------------
+
 	" Basic setting
 	" ---------------------------------------------------------------------------------------------------
 	let g:neocomplete#enable_at_startup            = 1
@@ -2142,6 +2141,13 @@ let g:quickrun_config['javascript/jslint'] = {
 let g:quickrun_config['javascript/gjslint'] = {
 	\ 'exec'      : '%c %s:p ',
 	\ 'command'   : 'gjslint',
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['javascript/mocha'] = {
+	\ 'exec'      : '%c %o %s:p',
+	\ 'command'   : 'mocha',
+	\ 'cmdopt'    : '--no-colors -R spec',
 	\ 'runner'    : 'vimproc',
 \ }
 
