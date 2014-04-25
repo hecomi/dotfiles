@@ -2844,11 +2844,18 @@ nnoremap [unite]jl     :Unite junkfile<CR>
 nnoremap [unite]jn     :Unite junkfile/new<CR>
 " }}}
 
-" quickrun {{{
+" VisualStudioController {{{
 "====================================================================================================
 if s:is_win
 	let g:visualstudio_controllerpath = $HOME . '/.vim/plugins/VisualStudioController/bin/VisualStudioController.exe'
 endif
+" }}}
+
+" vim-over {{{
+"====================================================================================================
+nnoremap [prefix]o  :OverCommandLine<CR>
+nnoremap [prefix]ow :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+nnoremap [prefix]oy :OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 " }}}
 
 " load .vimrc.* {{{
