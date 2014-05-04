@@ -268,6 +268,7 @@ export NACL_SDK_ROOT="$HOME/Tools/nacl_sdk/pepper_current"
 export PKG_CONFIG_PATH='/usr/local/lib/pkgconfig/:/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig'
 
 # OpenNI
+export OPENNI_INCLUDE_DIR=/usr/local/include/ni
 export OPENNI2_INCLUDE=/usr/local/include/ni2
 export OPENNI2_REDIST=/usr/local/lib/ni2
 

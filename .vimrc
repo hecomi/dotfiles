@@ -103,7 +103,9 @@ else
 	NeoBundleFetch 'Shougo/neocomplete.vim'
 	NeoBundle 'Shougo/neocomplcache.vim'
 endif
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleLazy 'Shougo/junkfile.vim', {
 \	'autoload' : {
 \		'commands'     : 'JunkfileOpen',
@@ -228,9 +230,9 @@ NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'osyo-manga/vim-textobj-multiblock'
-NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'rhysd/vim-textobj-word-column'
 NeoBundle 'thinca/vim-textobj-between'
+NeoBundle 'thinca/vim-textobj-comment'
 NeoBundleLazy 'thinca/vim-textobj-plugins', {
 \	'depends'  : ['kana/vim-textobj-function'],
 \	'autoload' : {
@@ -319,6 +321,8 @@ NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
 NeoBundleLazy 'hecomi/vim-javascript-syntax'
+NeoBundleLazy 'pangloss/vim-javascript'
+NeoBundleLazy 'thinca/vim-textobj-function-javascript'
 " NeoBundleLazy 'marijnh/tern_for_vim'
 augroup NeoBundleLazyForJavaScript
 	autocmd!
@@ -329,6 +333,8 @@ augroup NeoBundleLazyForJavaScript
 		\ typescript-vim
 		\ simple-javascript-indenter
 		\ vim-javascript-syntax
+		\ vim-javascript
+		\ vim-textobj-function-javascript
 augroup END
 " NeoBundleLazyByFileTypes 'othree/javascript-libraries-syntax.vim', ['javascript', 'html']
 " }}}
@@ -521,6 +527,8 @@ NeoBundleLazy 'mattn/vimplenote-vim', {
 \	},
 \ }
 NeoBundleLazy 'mattn/webapi-vim'
+NeoBundleLazyForCommands 'motemen/hatena-vim'
+\ 	['HatenaUser', 'HatenaEdit', 'HatenaUpdate']
 NeoBundleLazy 'tyru/open-browser.vim', {
 \	'autoload' : {
 \		'commands' : 'OpenBrowser',
@@ -1426,6 +1434,10 @@ let g:unite_source_grep_command        = 'ag'
 let g:unite_source_grep_default_opts   = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt  = ''
 let g:unite_source_grep_max_candidates = 200
+
+" neomru
+" ---------------------------------------------------------------------------------------------------
+let g:neomru#time_format = "(%Y/%m/%d %H:%M:%S) "
 
 " }}}
 
@@ -2854,6 +2866,7 @@ endif
 " vim-over {{{
 "====================================================================================================
 nnoremap [prefix]o  :OverCommandLine<CR>
+nnoremap [prefix]os :OverCommandLine<CR>%s/
 nnoremap [prefix]ow :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 nnoremap [prefix]oy :OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 " }}}
