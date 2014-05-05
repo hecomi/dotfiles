@@ -154,6 +154,8 @@ NeoBundle 'ujihisa/netrw.vim'
 " NeoBundle 'YankRing.vim'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'sudo.vim'
+NeoBundleLazyForCommands 'syui/airsave.vim',
+\	['AutoWriteStart', 'AutoWriteStop']
 NeoBundleLazyByFileTypes 'taku-o/vim-batch-source',
 \ 	['vim']
 NeoBundleLazyForCommands 'sjl/gundo.vim',
@@ -1189,6 +1191,8 @@ let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 let g:tagbar_status_func                  = 'TagbarStatusFunc'
 
+" Style {{{
+" ---------------------------------------------------------------------------------------------------
 let g:lightline = {
 	\ 'colorscheme': 'tsubakumi',
 	\ 'enable' : {
@@ -1247,6 +1251,10 @@ let g:lightline = {
 	\ },
 \ }
 
+" }}}
+
+" Component Functions {{{
+" ---------------------------------------------------------------------------------------------------
 function! MyModified()
 	return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
@@ -1256,7 +1264,8 @@ function! MyReadonly()
 endfunction
 
 function! MyFilename()
-	let fname = expand('%:t')
+	let l:auto_save = (g:auto_write == 1) ? '⟳ ' : ''
+	let l:fname = l:auto_save . expand('%:t')
 	return
 		\ fname == '__Tagbar__' ? g:lightline.fname :
 		\ fname =~ '__Gundo'    ? '' :
@@ -1285,7 +1294,7 @@ function! MyFileformat()
 endfunction
 
 function! MyFiletype()
-	return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+	return winwidth('.') > 70 && strlen(&filetype) ? &filetype : ''
 endfunction
 
 function! MyFileencoding()
@@ -1334,6 +1343,9 @@ function! MyMode()
 		\ &ft == 'vimshell' ? 'VimShell' :
 		\ winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
+
+" }}}
+
 " }}}
 
 " Unite.vim {{{
@@ -2869,6 +2881,13 @@ nnoremap [prefix]o  :OverCommandLine<CR>
 nnoremap [prefix]os :OverCommandLine<CR>%s/
 nnoremap [prefix]ow :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 nnoremap [prefix]oy :OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
+" }}}
+
+" airsave {{{
+"====================================================================================================
+let g:auto_write = 0
+nnoremap <silent> [prefix]as  :let g:auto_write = 1<CR>:AutoWriteStart<CR>
+nnoremap <silent> [prefix]ass :let g:auto_write = 0<CR>:AutoWriteStop<CR>
 " }}}
 
 " load .vimrc.* {{{
