@@ -221,9 +221,9 @@ alias rtags='ctags -f ~/.vim/tags/ruby/ruby-1.9.1 -R -a --sort=yes --langmap=RUB
 alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/gems/ruby-1.9.3-head/gems'
 
 # C++
-# local CLANG_PATH="/usr/local/clang-3.1/bin"
-# local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
-# export PATH="$CLANG_PATH:$GCC_PATH:$PATH"
+local CLANG_PATH="/usr/local/clang-3.1/bin"
+local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
+export PATH="$CLANG_PATH:$GCC_PATH:$PATH"
 
 # Android
 local ANDROID_SDK_TOOLS_PATH="$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"
@@ -258,7 +258,8 @@ export GOARCH="386"
 export GOBIN="$HOME/bin"
 
 # Pebble SDK
-local PEBBLE_PATH="$HOME/Tools/PebbleSDK-2.0-BETA4/bin"
+# local PEBBLE_PATH="$HOME/Tools/PebbleSDK-2.0-BETA4/bin"
+local PEBBLE_PATH="$HOME/pebble-dev/PebbleSDK-current/bin"
 export PATH="$PEBBLE_PATH:$PATH"
 
 # NaCl

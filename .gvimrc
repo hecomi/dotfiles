@@ -11,7 +11,7 @@ let s:is_linux = !s:is_mac && has('unix')
 " Common settings
 "====================================================================================================
 " {{{
-runtime macros/editexisting.vim
+" runtime macros/editexisting.vim
 " }}}
 
 "====================================================================================================
@@ -78,7 +78,7 @@ endfunction
 " ---------------------------------------------------------------------------------------------------
 set antialias
 set guioptions-=m
-set guioptions-=t
+set guioptions-=T
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
@@ -89,11 +89,11 @@ if has('gui_macvim')
 	set transparency=5
 else
 	set transparency=248
-	set fuoptions=maxvert,maxhorz
-	augroup fullscreen
-		autocmd!
-		autocmd guienter * set fullscreen
-	augroup end
+	" set fuoptions=maxvert,maxhorz
+	" augroup fullscreen
+	" 	autocmd!
+	" 	autocmd guienter * set fullscreen
+	" augroup end
 endif
 
 " }}}
