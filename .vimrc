@@ -698,11 +698,6 @@ set formatoptions=lmoq
 set whichwrap=b,s,h,l,<,>,[,]
 set clipboard=autoselect,unnamed
 
-" Wild darou?
-" ---------------------------------------------------------------------------------------------------
-set wildmenu
-set wildmode=longest:full,full
-
 " Search
 " ---------------------------------------------------------------------------------------------------
 set wrapscan
@@ -738,7 +733,7 @@ set foldenable
 set foldmethod=marker
 set foldcolumn=1
 
-" Cursorline
+" Cursor Line
 " ---------------------------------------------------------------------------------------------------
 set cursorline
 set nocursorcolumn
@@ -747,6 +742,8 @@ set nocursorcolumn
 " ---------------------------------------------------------------------------------------------------
 set cmdheight=2
 set laststatus=2
+set wildmenu
+set wildmode=longest:full,full
 
 " Title
 " --------------------------------------------------------------------------------------------------- Title
@@ -771,6 +768,11 @@ if exists('+guicursor')
 	set guicursor&
 	set guicursor=a:blinkwait2000-blinkon1000-blinkoff500
 endif
+
+" Bell
+" ---------------------------------------------------------------------------------------------------
+set visualbell t_vb=
+set noerrorbells
 
 " Others
 " ---------------------------------------------------------------------------------------------------
