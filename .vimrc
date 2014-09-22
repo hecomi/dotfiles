@@ -447,11 +447,13 @@ augroup END
 
 " Markdown {{{
 " ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'godlygeek/tabular'
 NeoBundleLazy 'plasticboy/vim-markdown'
 NeoBundleLazy 'kannokanno/previm'
 augroup NeoBundleLazyForMarkdown
 	autocmd!
 	autocmd FileType markdown NeoBundleSource
+		\ tabular
 		\ vim-markdown
 		\ previm
 augroup END
@@ -2620,6 +2622,12 @@ let g:java_highlight_debug     = 1
 let g:java_allow_cpp_keywords  = 1
 let g:java_space_errors        = 1
 let g:java_highlight_functions = 1
+" }}}
+
+" markdown {{{
+"====================================================================================================
+let g:vim_markdown_folding_disabled  = 1
+let g:vim_markdown_initial_foldlevel = 1
 " }}}
 
 " Conque {{{
