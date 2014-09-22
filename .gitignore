@@ -2,4 +2,6 @@
 .vim/plugins
 .vim/.tweetvim
 .zsh/zsh-completions
+_viminfo
+.cache
 

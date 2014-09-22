@@ -445,6 +445,18 @@ augroup NeoBundleLazyForHtml
 augroup END
 " }}}
 
+" Markdown {{{
+" ---------------------------------------------------------------------------------------------------
+NeoBundleLazy 'plasticboy/vim-markdown'
+NeoBundleLazy 'kannokanno/previm'
+augroup NeoBundleLazyForMarkdown
+	autocmd!
+	autocmd FileType markdown NeoBundleSource
+		\ vim-markdown
+		\ previm
+augroup END
+" }}}
+
 " Android {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'thinca/vim-logcat'
@@ -664,7 +676,8 @@ set history=1000
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
-set noexpandtab
+" set noexpandtab
+set expandtab
 set tabstop=4 shiftwidth=4 softtabstop=0
 set autoindent smartindent
 
@@ -1015,9 +1028,9 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
-	nnoremap [prefix]reload :source ~/_vimrc<CR>
-	nnoremap [prefix]vimrc  :e ~/_vimrc<CR>
-	nnoremap [prefix]gvimrc :e ~/_gvimrc<CR>
+	nnoremap [prefix]reload :source ~/.vimrc<CR>
+	nnoremap [prefix]vimrc  :e ~/.vimrc<CR>
+	nnoremap [prefix]gvimrc :e ~/.gvimrc<CR>
 elseif s:is_mac
 	nnoremap [prefix]reload :source ~/dotfiles/.vimrc<CR>
 	nnoremap [prefix]vimrc  :e ~/dotfiles/.vimrc<CR>:cd ~/dotfiles<CR>
@@ -1678,10 +1691,10 @@ endif
 " Ref: http://blog.supermomonga.com/articles/vim/automatic.html
 
 nnoremap <silent> <Plug>(quit) :<C-u>q<CR>
-function! g:my_temporary_window_init(config, context)
-	nmap <buffer> <Esc> <Plug>(quit)
-	nmap <buffer> q     <Plug>(quit)
-endfunction
+" function! g:my_temporary_window_init(config, context)
+" 	nmap <buffer> <Esc> <Plug>(quit)
+" 	nmap <buffer> q     <Plug>(quit)
+" endfunction
 
 let g:automatic_default_match_config = {
 	\ 'is_open_other_window' : 1,
@@ -1690,8 +1703,8 @@ let g:automatic_default_match_config = {
 let g:automatic_default_set_config = {
 	\ 'height' : '30%',
 	\ 'move'   : 'bottom',
-	\ 'apply'  : function('g:my_temporary_window_init')
 \ }
+    " 'apply'  : function('g:my_temporary_window_init')
 
 let g:automatic_config = [
 	\ {
@@ -2144,6 +2157,19 @@ let g:quickrun_config['watchdogs_checker/clang++'] = {
 
 " JavaScript {{{
 " ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['javascript/node-dev'] = {
+	\ 'exec'      : '%c %s:p',
+	\ 'command'   : 'node-dev',
+	\ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['javascript/tessel'] = {
+	\ 'exec'      : '%c %o %s:p',
+	\ 'command'   : 'tessel',
+	\ 'cmdopt'    : 'run --upload-dir .',
+	\ 'runner'    : 'vimproc',
+\ }
+
 let g:quickrun_config['javascript'] = {
 	\ 'exec'      : '%c %s:p',
 	\ 'command'   : 'node',
@@ -2350,7 +2376,7 @@ let g:watchdogs_check_BufWritePost_enables = {
 	\ "javascript" : 1,
 	\ "cs"         : 0,
 	\ "qml"        : 0,
-	\ "json"       : 0,
+	\ "json"       : 1,
 \ }
 nnoremap <Leader>R :WatchdogsRun<CR>
 " }}}
