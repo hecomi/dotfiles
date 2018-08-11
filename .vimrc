@@ -32,7 +32,7 @@ let g:neobundle_default_git_protocol = 'https'
 if has('vim_starting')
 	set runtimepath+=~/.vim/plugins/neobundle.vim
 endif
-call neobundle#rc(expand('~/.vim/plugins'))
+call neobundle#begin(expand('~/.vim/plugins'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
@@ -45,9 +45,8 @@ function! s:neobundle_lazy_for_commands(bundle, ...)
 	sandbox let l:commands = eval(join(a:000))
 	let l:bundle = split( substitute(a:bundle, "['\", ]", '', 'g'), '/' )
 	let l:name = l:bundle[len(l:bundle) - 1]
-	call neobundle#parser#bundle(a:bundle)
+	call neobundle#parser#lazy(a:bundle)
 	call neobundle#config(l:name, {
-	\	'lazy' : 1,
 	\	'autoload' : {
 	\		'commands' : l:commands,
 	\	},
@@ -61,9 +60,8 @@ function! s:neobundle_lazy_by_filetypes(bundle, ...)
 	sandbox let l:filetypes = eval(join(a:000))
 	let l:bundle = split( substitute(a:bundle, "['\", ]", '', 'g'), '/' )
 	let l:name = l:bundle[len(l:bundle) - 1]
-	call neobundle#parser#bundle(a:bundle)
+	call neobundle#parser#lazy(a:bundle)
 	call neobundle#config(l:name, {
-	\	'lazy' : 1,
 	\	'autoload' : {
 	\		'filetypes' : l:filetypes,
 	\	},
@@ -75,10 +73,9 @@ command! -nargs=+ NeoBundleLazyForUnite
 	  \ call s:neobundle_lazy_for_unite(
 	  \   substitute(<q-args>, '\s"[^"]\+$', '', ''))
 function! s:neobundle_lazy_for_unite(src)
-	call neobundle#parser#bundle(a:src)
+	call neobundle#parser#lazy(a:src)
 	let l:src_name = matchstr(a:src[1:-2], 'unite-\zs.\+\ze')
 	call neobundle#config('unite-'.l:src_name, {
-	\	'lazy' : 1,
 	\	'autoload' : {
 	\		'unite_source' : l:src_name,
 	\	},
@@ -114,14 +111,16 @@ NeoBundleLazy 'Shougo/junkfile.vim', {
 \ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc', {
-\	'build' : {
-\		'windows' : 'make -f make_mingw64.mak',
-\		'cygwin'  : 'make -f make_cygwin.mak',
-\		'mac'     : 'make -f make_mac.mak',
-\		'unix'    : 'make -f make_unix.mak',
-\	},
-\ }
+if !s:is_win
+	NeoBundle 'Shougo/vimproc', {
+	\	'build' : {
+	\		'windows' : 'make -f make_mingw64.mak',
+	\		'cygwin'  : 'make -f make_cygwin.mak',
+	\		'mac'     : 'make -f make_mac.mak',
+	\		'unix'    : 'make -f make_unix.mak',
+	\	},
+	\ }
+endif
 NeoBundleLazy 'Shougo/vimshell', {
 \	'depends'  : ['ujihisa/vimshell-ssh'],
 \	'autoload' : {
@@ -150,7 +149,7 @@ NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-splash'
 NeoBundle 'ujihisa/neco-look'
-NeoBundle 'ujihisa/netrw.vim'
+" NeoBundle 'ujihisa/netrw.vim'
 " NeoBundle 'YankRing.vim'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'sudo.vim'
@@ -185,12 +184,12 @@ NeoBundle 'thinca/vim-visualstar'
 " ---------------------------------------------------------------------------------------------------
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 't9md/vim-textmanip'
 " NeoBundle 'taku-o/vim-toggle'
-NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
@@ -235,14 +234,6 @@ NeoBundle 'osyo-manga/vim-textobj-multiblock'
 NeoBundle 'rhysd/vim-textobj-word-column'
 NeoBundle 'thinca/vim-textobj-between'
 NeoBundle 'thinca/vim-textobj-comment'
-NeoBundleLazy 'thinca/vim-textobj-plugins', {
-\	'depends'  : ['kana/vim-textobj-function'],
-\	'autoload' : {
-\		'filetypes' : ['html', 'javascript', 'perl'],
-\	},
-\ }
-NeoBundleLazyByFileTypes 'kana/vim-textobj-function'
-\ 	['c', 'vim']
 " }}}
 
 " Operator {{{
@@ -272,7 +263,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'vim-scripts/matchparenpp'
 NeoBundleLazyForCommands 'airblade/vim-gitgutter',
-\ 	['GitGutterToggle']
+\   ['GitGutterToggle']
 NeoBundleLazyForCommands 'https://bitbucket.org/abudden/taghighlight',
 \ 	['UpdateTypesFile', 'UpdateTypesFileOnly']
 NeoBundleLazyForCommands 'pthrasher/conqueterm-vim',
@@ -317,26 +308,30 @@ NeoBundleLazyForUnite 'osyo-manga/unite-boost-online-doc'
 " JavaScript / TypeScript {{{
 " ---------------------------------------------------------------------------------------------------
 NeoBundleLazy 'myhere/vim-nodejs-complete'
-" NeoBundleLazy 'ahayman/vim-nodejs-complete'
 NeoBundleLazy 'moll/vim-node'
-NeoBundleLazy 'teramako/jscomplete-vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter'
 NeoBundleLazy 'hecomi/vim-javascript-syntax'
+" NeoBundleLazy 'marijnh/tern_for_vim', {
+" \	'build' : {
+" \		'others' : 'npm install'
+" \	}
+" \ }
 NeoBundleLazy 'pangloss/vim-javascript'
-NeoBundleLazy 'thinca/vim-textobj-function-javascript'
-" NeoBundleLazy 'marijnh/tern_for_vim'
+NeoBundleLazy 'teramako/jscomplete-vim'
+" NeoBundleLazy 'thinca/vim-textobj-function-javascript'
 augroup NeoBundleLazyForJavaScript
 	autocmd!
 	autocmd FileType html,javascript,typescript NeoBundleSource
 		\ vim-nodejs-complete
 		\ vim-node
-		\ jscomplete-vim
 		\ typescript-vim
 		\ simple-javascript-indenter
 		\ vim-javascript-syntax
 		\ vim-javascript
-		\ vim-textobj-function-javascript
+		\ jscomplete-vim
+		" \ vim-textobj-function-javascript
+		" \ tern_for_vim
 augroup END
 " NeoBundleLazyByFileTypes 'othree/javascript-libraries-syntax.vim', ['javascript', 'html']
 " }}}
@@ -398,8 +393,9 @@ NeoBundleLazyByFileTypes 'javacomplete', ['java']
 " NeoBundleLazy 'csharp.vim'
 NeoBundleLazy 'OrangeT/vim-csharp'
 " NeoBundleLazy 'yuratomo/dotnet-complete'
-NeoBundleLazy 'nosami/Omnisharp', {
+NeoBundleLazy 'OmniSharp/omnisharp-vim', {
 \	'build': {
+\	'depends': ['tpope/vim-dispatch'],
 \		'windows' : 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
 \		'mac'     : 'xbuild server/OmniSharp.sln',
 \		'unix'    : 'xbuild server/OmniSharp.sln',
@@ -409,7 +405,7 @@ augroup NeoBundleLazyForCSharp
 	autocmd!
 	autocmd FileType cs NeoBundleSource
 		\ vim-csharp
-		\ Omnisharp
+		\ omnisharp-vim
 augroup END
 " }}}
 
@@ -442,20 +438,6 @@ augroup NeoBundleLazyForHtml
 		\ emmet-vim
 		\ html5.vim
 		\ operator-html-escape.vim
-augroup END
-" }}}
-
-" Markdown {{{
-" ---------------------------------------------------------------------------------------------------
-NeoBundleLazy 'godlygeek/tabular'
-NeoBundleLazy 'plasticboy/vim-markdown'
-NeoBundleLazy 'kannokanno/previm'
-augroup NeoBundleLazyForMarkdown
-	autocmd!
-	autocmd FileType markdown NeoBundleSource
-		\ tabular
-		\ vim-markdown
-		\ previm
 augroup END
 " }}}
 
@@ -613,17 +595,15 @@ NeoBundleLazy 'hecomi/unite-fhc', {
 " Experimental {{{
 " ---------------------------------------------------------------------------------------------------
 " NeoBundle 'kana/vim-smartinput'
-NeoBundle 'supermomonga/shiraseru.vim', {
-\	'depends' : 'Shougo/vimproc',
-\ }
+NeoBundle 'supermomonga/shiraseru.vim'
 " }}}
 
 " After work {{{
 " ---------------------------------------------------------------------------------------------------
+call neobundle#end()
 NeoBundleCheck
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 " }}}
 
 " Key binds {{{
@@ -666,6 +646,7 @@ set hidden
 set noswapfile
 set backupdir=>/tmp
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set noundofile
 
 augroup DeleteSpace
 	autocmd!
@@ -697,6 +678,11 @@ set backspace=indent,eol,start
 set formatoptions=lmoq
 set whichwrap=b,s,h,l,<,>,[,]
 set clipboard=autoselect,unnamed
+
+" Wild darou?
+" ---------------------------------------------------------------------------------------------------
+set wildmenu
+set wildmode=longest:full,full
 
 " Search
 " ---------------------------------------------------------------------------------------------------
@@ -733,7 +719,7 @@ set foldenable
 set foldmethod=marker
 set foldcolumn=1
 
-" Cursor Line
+" Cursorline
 " ---------------------------------------------------------------------------------------------------
 set cursorline
 set nocursorcolumn
@@ -742,8 +728,6 @@ set nocursorcolumn
 " ---------------------------------------------------------------------------------------------------
 set cmdheight=2
 set laststatus=2
-set wildmenu
-set wildmode=longest:full,full
 
 " Title
 " --------------------------------------------------------------------------------------------------- Title
@@ -768,11 +752,6 @@ if exists('+guicursor')
 	set guicursor&
 	set guicursor=a:blinkwait2000-blinkon1000-blinkoff500
 endif
-
-" Bell
-" ---------------------------------------------------------------------------------------------------
-set visualbell t_vb=
-set noerrorbells
 
 " Others
 " ---------------------------------------------------------------------------------------------------
@@ -909,6 +888,9 @@ nnoremap <Down>  <C-w>+
 
 " Search / Replace
 " ---------------------------------------------------------------------------------------------------
+" map /  <Plug>(incsearch-forward)
+" map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 nnoremap <Esc><Esc> :nohlsearch<CR>
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
@@ -980,8 +962,7 @@ vnoremap <leader>s :!sort<cr>
 
 " Help
 " ---------------------------------------------------------------------------------------------------
-nnoremap ? :Unite output:map\|map!\|lmap<CR>
-vnoremap ? :Unite output:map\|map!\|lmap<CR>
+nnoremap [prefix]? :Unite output:map\|map!\|lmap<CR>
 
 " Close braquet/tag automatically
 " Ref: http://d.hatena.ne.jp/babie/20110130/1296347719
@@ -1032,9 +1013,9 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
-	nnoremap [prefix]reload :source ~/.vimrc<CR>
-	nnoremap [prefix]vimrc  :e ~/.vimrc<CR>
-	nnoremap [prefix]gvimrc :e ~/.gvimrc<CR>
+	nnoremap [prefix]reload :source ~/_vimrc<CR>
+	nnoremap [prefix]vimrc  :e ~/_vimrc<CR>
+	nnoremap [prefix]gvimrc :e ~/_gvimrc<CR>
 elseif s:is_mac
 	nnoremap [prefix]reload :source ~/dotfiles/.vimrc<CR>
 	nnoremap [prefix]vimrc  :e ~/dotfiles/.vimrc<CR>:cd ~/dotfiles<CR>
@@ -1117,10 +1098,10 @@ function! s:MyColorScheme()
 	hi CursorIM     guifg=#ff0000
 
 	hi Normal       ctermbg=none ctermfg=245  guibg=#000000 guifg=#cccccc
-	hi Comment      ctermbg=none ctermfg=237  guibg=#000000 guifg=#444444
+	hi Comment      ctermbg=none ctermfg=239  guibg=#000000 guifg=#444444
 	hi LineNr       ctermbg=none ctermfg=232  guibg=#010101 guifg=#333333
 	hi Line         ctermbg=232  ctermfg=none guibg=#222222 guifg=NONE
-	hi CursorLine   ctermbg=234  ctermfg=none guibg=#1a1512 guifg=NONE
+	hi CursorLine   ctermbg=233  ctermfg=none guibg=#1a1512 guifg=NONE
 	hi CursorLineNr ctermbg=234  ctermfg=33   guibg=#1a1512 guifg=#268bd2 cterm=bold gui=bold
 	hi SpecialKey   ctermbg=none ctermfg=232  guibg=NONE    guifg=#0a0a0a
 	hi FoldColumn   ctermbg=234  ctermfg=232  guibg=#222222 guifg=#444444
@@ -1695,10 +1676,10 @@ endif
 " Ref: http://blog.supermomonga.com/articles/vim/automatic.html
 
 nnoremap <silent> <Plug>(quit) :<C-u>q<CR>
-" function! g:my_temporary_window_init(config, context)
-" 	nmap <buffer> <Esc> <Plug>(quit)
-" 	nmap <buffer> q     <Plug>(quit)
-" endfunction
+function! s:my_temporary_window_init(config, context)
+	nmap <buffer> <Esc> <Plug>(quit)
+	nmap <buffer> q     <Plug>(quit)
+endfunction
 
 let g:automatic_default_match_config = {
 	\ 'is_open_other_window' : 1,
@@ -1707,18 +1688,13 @@ let g:automatic_default_match_config = {
 let g:automatic_default_set_config = {
 	\ 'height' : '30%',
 	\ 'move'   : 'bottom',
+	\ 'apply'  : function('s:my_temporary_window_init')
 \ }
-    " 'apply'  : function('g:my_temporary_window_init')
 
 let g:automatic_config = [
 	\ {
 		\ 'match' : {
 			\ 'bufname' : '^.unite',
-		\ },
-	\ },
-	\ {
-		\ 'match' : {
-			\ 'bufname' : '^.vimshell',
 		\ },
 	\ },
 	\ {
@@ -2161,22 +2137,10 @@ let g:quickrun_config['watchdogs_checker/clang++'] = {
 
 " JavaScript {{{
 " ---------------------------------------------------------------------------------------------------
-let g:quickrun_config['javascript/node-dev'] = {
-	\ 'exec'      : '%c %s:p',
-	\ 'command'   : 'node-dev',
-	\ 'runner'    : 'vimproc',
-\ }
-
-let g:quickrun_config['javascript/tessel'] = {
-	\ 'exec'      : '%c %o %s:p',
-	\ 'command'   : 'tessel',
-	\ 'cmdopt'    : 'run --upload-dir .',
-	\ 'runner'    : 'vimproc',
-\ }
-
 let g:quickrun_config['javascript'] = {
-	\ 'exec'      : '%c %s:p',
+	\ 'exec'      : '%c %o %s:p',
 	\ 'command'   : 'node',
+	\ 'cmdopt'    : '--harmony',
 	\ 'runner'    : 'vimproc',
 \ }
 
@@ -2354,6 +2318,21 @@ let g:quickrun_config['watchdogs_checker/qmlscene'] = {
 \ }
 " }}}
 
+" Python {{{
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['python/default'] = {
+	\ 'command' : '/usr/bin/python',
+	\ 'exec'    : '%c %s:p',
+	\ 'runner'  : 'vimproc',
+\ }
+
+let g:quickrun_config['python/anaconda'] = {
+	\ 'command' : '/Users/hecomi/anaconda/bin/python',
+	\ 'exec'    : '%c %s:p',
+	\ 'runner'  : 'vimproc',
+\ }
+" }}}
+
 " Error highlight {{{
 " ---------------------------------------------------------------------------------------------------
 hi qf_error_ucurl ctermfg=white ctermbg=red cterm=bold
@@ -2380,7 +2359,7 @@ let g:watchdogs_check_BufWritePost_enables = {
 	\ "javascript" : 1,
 	\ "cs"         : 0,
 	\ "qml"        : 0,
-	\ "json"       : 1,
+	\ "json"       : 0,
 \ }
 nnoremap <Leader>R :WatchdogsRun<CR>
 " }}}
@@ -2505,7 +2484,7 @@ let g:clang_complete_auto = 0
 
 if s:is_mac
 	let g:clang_use_library   = 1
-	let g:clang_library_path  = '/usr/local/lib'
+	let g:clang_library_path  = '/Library/Developer/CommandLineTools/usr/lib'
 	let g:clang_user_options  = '-std=c++1y -stdlib=libc++'
 elseif s:is_win
 	let g:clang_use_library   = 1
@@ -2536,11 +2515,12 @@ augroup ClangFormatSettings
 augroup end
 " }}}
 
-" nodejs-complete & jscomplete {{{
+" nodejs-complete & jscomplete OR tern {{{
 "====================================================================================================
 augroup NodejsCompeteSettings
 	autocmd!
 	autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+	" autocmd FileType javascript setlocal omnifunc=tern#Complete
 augroup end
 
 let g:nodejs_complete_config = {
@@ -2549,7 +2529,7 @@ let g:nodejs_complete_config = {
 let g:node_usejscomplete = 1
 
 let g:jscomplete_use = ['dom', 'moz', 'ex6th']
-" }}}
+"}}}
 
 " nodejs-complete & jscomplete {{{
 "====================================================================================================
@@ -2565,17 +2545,21 @@ let g:used_javascript_libs =
 
 " OmniSharp  {{{
 "====================================================================================================
-nnoremap [prefix]csa :OmniSharpAddToProject<CR>
-nnoremap [prefix]csb :OmniSharpBuild<CR>
-nnoremap [prefix]csc :OmniSharpFindSyntaxErrors<CR>
-nnoremap [prefix]csf :OmniSharpCodeFormat<CR>
-nnoremap [prefix]csj :OmniSharpGotoDefinition<CR>
-nnoremap [prefix]csd :OmniSharpGotoDefinition<CR>
-nnoremap [prefix]csi :OmniSharpFindImplementations<CR>
-nnoremap [prefix]csr :OmniSharpRename<CR>
-nnoremap [prefix]cst :OmniSharpTypeLookup<CR>
-nnoremap [prefix]csu :OmniSharpFindUsages<CR>
-nnoremap [prefix]csx :OmniSharpGetCodeActions<CR>
+augroup omnisharp-commands
+	autocmd!
+	autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+	nnoremap [prefix]csa :OmniSharpAddToProject<CR>
+	nnoremap [prefix]csb :OmniSharpBuild<CR>
+	nnoremap [prefix]csc :OmniSharpFindSyntaxErrors<CR>
+	nnoremap [prefix]csf :OmniSharpCodeFormat<CR>
+	nnoremap [prefix]csj :OmniSharpGotoDefinition<CR>
+	nnoremap [prefix]csd :OmniSharpGotoDefinition<CR>
+	nnoremap [prefix]csi :OmniSharpFindImplementations<CR>
+	nnoremap [prefix]csr :OmniSharpRename<CR>
+	nnoremap [prefix]cst :OmniSharpTypeLookup<CR>
+	nnoremap [prefix]csu :OmniSharpFindUsages<CR>
+	nnoremap [prefix]csx :OmniSharpGetCodeActions<CR>
+augroup END
 " }}}
 
 " TypeScript {{{
@@ -2624,12 +2608,6 @@ let g:java_highlight_debug     = 1
 let g:java_allow_cpp_keywords  = 1
 let g:java_space_errors        = 1
 let g:java_highlight_functions = 1
-" }}}
-
-" markdown {{{
-"====================================================================================================
-let g:vim_markdown_folding_disabled  = 1
-let g:vim_markdown_initial_foldlevel = 1
 " }}}
 
 " Conque {{{
@@ -2936,3 +2914,5 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
+"
+

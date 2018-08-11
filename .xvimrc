@@ -19,24 +19,88 @@ inoremap <C-a> <Home>
 inoremap <C-h> <Backspace>
 inoremap <C-d> <Del>
 
-" whichwrap
-" CAUTION!: move 2 chars when using 'h'
+" ;
 " ---------------------------------------------------------------------------------------------------
-nmap h i<Left><Esc>
-nmap l a<Right><Esc>
-vmap h <Left>
-vmap l <Right>
+nnoremap ; :
+vnoremap ; :
 
-" Other key mappings
+" Prefix
 " ---------------------------------------------------------------------------------------------------
-nnoremap J 10j
-nnoremap K 10k
-vnoremap J 10j
-vnoremap K 10k
+nnoremap [prefix] <nop>
+nmap ,   [prefix]
+xnoremap [prefix] <nop>
+xmap ,   [prefix]
 
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
+" Command
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix]: <Esc>q:
+nnoremap [prefix]; <Esc>q:
 
+" Move
+" ---------------------------------------------------------------------------------------------------
+nnoremap J <C-d>
+nnoremap K <C-u>
+vnoremap J <C-d>
+vnoremap K <C-u>
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+" Emacs-like
+" Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
+inoremap <C-p>  <Up>
+inoremap <C-n>  <Down>
+inoremap <C-b>  <Left>
+inoremap <C-f>  <Right>
+" inoremap <C-e>  <End>
+" inoremap <C-a>  <Home>
+inoremap <C-h>  <Backspace>
+inoremap <C-d>  <Del>
+" inoremap <C-l>  <C-o>zz
+
+" Buffer
+" ---------------------------------------------------------------------------------------------------
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
+
+" Tab
+" ---------------------------------------------------------------------------------------------------
+nnoremap <TAB>   :tabn<CR>
+nnoremap <S-TAB> :tabp<CR>
+nnoremap <C-TAB> :tabnew<CR>
+" alternative
+nnoremap <C-t>   :tabnew<CR>
+nnoremap <C-l>   :tabn<CR>
+nnoremap <C-h>   :tabp<CR>
+
+" Window
+" ---------------------------------------------------------------------------------------------------
+nnoremap <Right> <C-w>>
+nnoremap <Left>  <C-w><
+nnoremap <Up>    <C-w>-
+nnoremap <Down>  <C-w>+
+
+" Macro
+" ---------------------------------------------------------------------------------------------------
+nnoremap q <Nop>
+nnoremap Q q
+
+" Select
+" ---------------------------------------------------------------------------------------------------
 nnoremap <C-a> ggVG
+nnoremap [prefix]vl `[v`]
+onoremap [prefix]vl <Esc>gc<CR>
+vnoremap [prefix]vl <Esc>gc<CR>
+
+onoremap ) f)
+onoremap ( t(
+vnoremap ) f)
+vnoremap ( t(
+
+" Indent
+" ---------------------------------------------------------------------------------------------------
+nnoremap > >>
+nnoremap < <<
+vnoremap > >gv
+vnoremap < <gv

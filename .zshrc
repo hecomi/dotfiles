@@ -83,8 +83,8 @@ linux*)
 	export CXX=g++-4.7
 	;;
 darwin*)
-	alias clang='/usr/local/bin/clang -std=c++1y -stdlib=libc++'
-	alias clang++='/usr/local/bin/clang++ -std=c++1y -stdlib=libc++'
+	# alias clang='/usr/local/bin/clang -std=c++1y -stdlib=libc++'
+	# alias clang++='/usr/local/bin/clang++ -std=c++1y -stdlib=libc++'
 	alias vim='/usr/local/bin/vim'
 	;;
 esac
@@ -96,12 +96,15 @@ case ${OSTYPE} in
 linux*)
 	export SHELL=/bin/bash
 	;;
+darwin*)
+	alias node='node --harmony'
+	;;
 esac
 
 # ctags
 # ---------------------------------------------------------------------------------------------------
 case ${OSTYPE} in
-darwin12.0)
+darwin*)
 	alias ctags='/usr/local/bin/ctags'
 	;;
 esac
@@ -212,22 +215,9 @@ export PATH="$GIT_PATH:$PATH"
 local VIM_PATH="/usr/local/bin/vim"
 export PATH="$VIM_PATH:$PATH"
 
-# Ruby
-local RVM_PATH="$HOME/.rvm/bin"
-export PATH="$RVM_PATH:$PATH"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-export RSENSE_HOME="$HOME/.vim/tools/rsense-0.3"
-alias rtags='ctags -f ~/.vim/tags/ruby/ruby-1.9.1 -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1'
-alias gtags='ctags -f ~/.vim/tags/ruby/gems -R -a --sort=yes --langmap=RUBY:.rb ~/.rvm/gems/ruby-1.9.3-head/gems'
-
-# C++
-local CLANG_PATH="/usr/local/clang-3.1/bin"
-local GCC_PATH="/usr/gcc-4.8/bin:/usr/gcc-4.7/bin"
-export PATH="$CLANG_PATH:$GCC_PATH:$PATH"
-
 # Android
 local ANDROID_SDK_TOOLS_PATH="$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"
-local ANDROID_NDK_TOOLS_PATH="$HOME/android-ndk"
+local ANDROID_NDK_TOOLS_PATH="$HOME/android-sdks/ndk-bundle"
 local ANDROID_NDK_HOME=$ANDROID_NDK_TOOLS_PATH
 export PATH="$ANDROID_NDK_TOOLS_PATH:$ANDROID_SDK_TOOLS_PATH:$PATH"
 
@@ -235,43 +225,13 @@ export PATH="$ANDROID_NDK_TOOLS_PATH:$ANDROID_SDK_TOOLS_PATH:$PATH"
 local NODEBREW_PATH="$HOME/.nodebrew/current/bin"
 export PATH="$NODEBREW_PATH:$PATH"
 
-# tern
-local TERN_PATH="$HOME/Tools/tern/bin"
-export PATH="$TERN_PATH:$PATH"
+# Python
+export ANACONDA_BIN_PATH="$HOME/anaconda/bin"
+export PATH="$ANACONDA_BIN_PATH:$PATH"
+alias python="python3"
 
-# NaCl
-local DEPOT_TOOLS_PATH="$HOME/Tools/depot_tools"
-export PATH="$DEPOT_TOOLS_PATH:$PATH"
-
-# Qt
-local QT_TOOLS_PATH="$HOME/Applications/Qt/5.1.1/clang_64/bin"
-export PATH="$QT_TOOLS_PATH:$PATH"
-
-# Emscripten
-local EMSCRIPTEN_PATH="$HOME/Tools/emscripten"
-export PATH="$EMSCRIPTEN_PATH:$PATH"
-
-# Go
-export GOROOT="$HOME/go"
-export GOOS="linux"
-export GOARCH="386"
-export GOBIN="$HOME/bin"
-
-# Pebble SDK
-# local PEBBLE_PATH="$HOME/Tools/PebbleSDK-2.0-BETA4/bin"
-local PEBBLE_PATH="$HOME/pebble-dev/PebbleSDK-current/bin"
-export PATH="$PEBBLE_PATH:$PATH"
-
-# NaCl
-export NACL_SDK_ROOT="$HOME/Tools/nacl_sdk/pepper_current"
-
-# .NET
-export PKG_CONFIG_PATH='/usr/local/lib/pkgconfig/:/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig'
-
-# OpenNI
-export OPENNI_INCLUDE_DIR=/usr/local/include/ni
-export OPENNI2_INCLUDE=/usr/local/include/ni2
-export OPENNI2_REDIST=/usr/local/lib/ni2
+# Dotnet
+export PATH=/usr/local/share/dotnet:$PATH
 
 # }}}
 
@@ -282,12 +242,12 @@ export OPENNI2_REDIST=/usr/local/lib/ni2
 # ---------------------------------------------------------------------------------------------------
 # z
 case ${OSTYPE} in
-darwin13.0)
-	source /usr/local/etc/profile.d/z.sh
-	# function _Z_precmd {
-	# 	z --add "$(pwd -P)" 61
-	# }
-	# precmd_functions=($precmd_functions _Z_precmd)
+darwin*)
+	. /usr/local/etc/profile.d/z.sh
+	function _Z_precmd {
+		_z --add "$(pwd -P)"
+	}
+	precmd_functions=($precmd_functions _Z_precmd)
 	;;
 esac
 
