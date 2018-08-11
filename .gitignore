@@ -7,3 +7,6 @@
 # Files
 _viminfo
 .DS_Store
+
+# Rule
+*.local
