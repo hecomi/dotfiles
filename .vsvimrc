@@ -1,0 +1,246 @@
+" ---------------------------------------------------------------------------------------------------
+"   ____       ____
+"  |    |     |    |
+"  |    |_____|    |
+"  |               |     _                                    _            _
+"  |  ・       ・  |    | |__    ___   ___   ___   _ __ ___  (_)   __   __(_) _ __ ___   _ __   ___
+"  |   _________   |    | '_ \  / _ \ / __| / _ \ | '_ ` _ \ | |   \ \ / /| || '_ ` _ \ | '__| / __|
+"  |  |_________|  |    | | | ||  __/| (__ | (_) || | | | | || | _  \ V / | || | | | | || |   | (__
+"  |_______________|    |_| |_| \___| \___| \___/ |_| |_| |_||_|(_)  \_/  |_||_| |_| |_||_|    \___|
+"
+" ---------------------------------------------------------------------------------------------------
+
+" Flags {{{
+"====================================================================================================
+" Common
+" ---------------------------------------------------------------------------------------------------
+syntax on
+set nocompatible
+
+" Language
+" ---------------------------------------------------------------------------------------------------
+if s:is_win
+	language message en
+endif
+
+" File
+" ---------------------------------------------------------------------------------------------------
+set autoread
+augroup vimrc-checktime
+	autocmd!
+	autocmd WinEnter * checktime
+augroup END
+
+set noautochdir
+set hidden
+set noswapfile
+set backupdir=>/tmp
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+augroup DeleteSpace
+	autocmd!
+	autocmd bufwritepre * :%s/\s\+$//ge
+augroup end
+
+" History
+" ---------------------------------------------------------------------------------------------------
+set history=1000
+
+" Indent
+" ---------------------------------------------------------------------------------------------------
+set noexpandtab
+set tabstop=4 shiftwidth=4 softtabstop=0
+set autoindent smartindent
+
+augroup FileDependentIndentSettings
+	autocmd!
+	autocmd FileType html setlocal ts=2 sw=2
+	autocmd FileType qml  setlocal expandtab
+augroup end
+
+let g:SimpleJsIndenter_BriefMode = 1
+
+" Input Assist
+" ---------------------------------------------------------------------------------------------------
+set backspace=indent,eol,start
+set formatoptions=lmoq
+set whichwrap=b,s,h,l,<,>,[,]
+set clipboard=autoselect,unnamed
+
+" Wild darou?
+" ---------------------------------------------------------------------------------------------------
+set wildmenu
+set wildmode=longest:full,full
+
+" Search
+" ---------------------------------------------------------------------------------------------------
+set wrapscan
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" View
+" ---------------------------------------------------------------------------------------------------
+set showmatch
+set showcmd
+set showmode
+set number
+set nowrap
+set showbreak=>>
+set list
+if s:is_win
+	set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+else
+	set listchars=tab:▸\ ,trail:･,extends:»,precedes:«,nbsp:%
+endif
+set notitle
+set scrolloff=5
+set pumheight=10
+set display=uhex
+set completeopt=menuone
+set t_Co=256
+
+" Folding
+" ---------------------------------------------------------------------------------------------------
+set foldenable
+set foldmethod=marker
+set foldcolumn=1
+
+" Cursorline
+" ---------------------------------------------------------------------------------------------------
+set cursorline
+set nocursorcolumn
+
+" Status Line
+" ---------------------------------------------------------------------------------------------------
+set cmdheight=2
+set laststatus=2
+
+" Title
+" --------------------------------------------------------------------------------------------------- Title
+set title
+set titlestring=Vim:\ %f\ %h%r%m
+set ttimeoutlen=10
+
+" Charset, Line ending
+" ---------------------------------------------------------------------------------------------------
+set encoding=utf-8
+scriptencoding utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs-bom,default,latin1
+set fileformats=unix,dos,mac
+if exists('&ambiwidth')
+	set ambiwidth=double
+endif
+
+" }}}
+
+" Common Key Mappings {{{
+"====================================================================================================
+" ;
+" ---------------------------------------------------------------------------------------------------
+nnoremap ; :
+vnoremap ; :
+
+" Prefix
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix] <nop>
+nmap ,   [prefix]
+xnoremap [prefix] <nop>
+xmap ,   [prefix]
+
+" Command
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix]: <Esc>q:
+nnoremap [prefix]; <Esc>q:
+
+" Move
+" ---------------------------------------------------------------------------------------------------
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+nnoremap J <C-d>
+nnoremap K <C-u>
+vnoremap J <C-d>
+vnoremap K <C-u>
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+" Emacs-like
+" Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
+inoremap <C-p>  <Up>
+inoremap <C-n>  <Down>
+inoremap <C-b>  <Left>
+inoremap <C-f>  <Right>
+" inoremap <C-e>  <End>
+" inoremap <C-a>  <Home>
+inoremap <C-h>  <Backspace>
+inoremap <C-d>  <Del>
+inoremap <expr> <C-k> col('.')==col('$')?'':'<C-o>D'
+" inoremap <C-l>  <C-o>zz
+
+" Buffer
+" ---------------------------------------------------------------------------------------------------
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
+
+" Tab
+" ---------------------------------------------------------------------------------------------------
+nnoremap <TAB>   :tabn<CR>
+nnoremap <S-TAB> :tabp<CR>
+nnoremap <C-TAB> :tabnew<CR>
+" alternative
+nnoremap <C-t>   :tabnew<CR>
+nnoremap <C-l>   :tabn<CR>
+nnoremap <C-h>   :tabp<CR>
+
+" Window
+" ---------------------------------------------------------------------------------------------------
+nnoremap <Right> <C-w>>
+nnoremap <Left>  <C-w><
+nnoremap <Up>    <C-w>-
+nnoremap <Down>  <C-w>+
+
+" Search / Replace
+" ---------------------------------------------------------------------------------------------------
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" TextObj
+" ---------------------------------------------------------------------------------------------------
+vmap s  <Plug>VSurround
+omap ab <Plug>(textobj-multiblock-a)
+omap ib <Plug>(textobj-multiblock-i)
+vmap ab <Plug>(textobj-multiblock-a)
+vmap ib <Plug>(textobj-multiblock-i)
+
+" Macro
+" ---------------------------------------------------------------------------------------------------
+nnoremap q <Nop>
+nnoremap Q q
+
+" Select
+" ---------------------------------------------------------------------------------------------------
+nnoremap <C-a> ggVG
+nnoremap [prefix]vl `[v`]
+onoremap [prefix]vl <Esc>gc<CR>
+vnoremap [prefix]vl <Esc>gc<CR>
+
+onoremap ) f)
+onoremap ( t(
+vnoremap ) f)
+vnoremap ( t(
+
+" Indent
+" ---------------------------------------------------------------------------------------------------
+nnoremap > >>
+nnoremap < <<
+vnoremap > >gv
+vnoremap < <gv
+
+" }}}
+
