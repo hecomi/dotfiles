@@ -1,7 +1,0 @@
-names=include?
-visibility=public
-kind=defined
-
---- include?(handler)
-@todo
-

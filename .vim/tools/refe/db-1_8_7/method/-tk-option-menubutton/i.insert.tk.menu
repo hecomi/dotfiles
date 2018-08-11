@@ -1,7 +1,0 @@
-names=insert
-visibility=public
-kind=defined
-
---- insert(index, value)
-@todo
-

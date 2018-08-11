@@ -1,9 +1,0 @@
-type=class
-superclass=TkWindow
-included=Tk=Wm,TkMenuSpec
-extended=
-library=tk.toplevel
-aliases=
-aliasof=TopLevel
-
-

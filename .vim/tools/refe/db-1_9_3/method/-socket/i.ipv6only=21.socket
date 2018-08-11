@@ -1,8 +1,0 @@
-names=ipv6only!
-visibility=public
-kind=defined
-
---- ipv6only! -> ()
-ソケットの IPV6_V6ONLY オプションを有効にします。
-
-IPV6_V6ONLY オプションが使えない場合はこのメソッドは何もしません。

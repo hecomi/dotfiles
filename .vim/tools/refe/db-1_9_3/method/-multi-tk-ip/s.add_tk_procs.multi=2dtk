@@ -1,7 +1,0 @@
-names=add_tk_procs
-visibility=public
-kind=defined
-
---- add_tk_procs(name, args = nil, body = nil)
-@todo
-

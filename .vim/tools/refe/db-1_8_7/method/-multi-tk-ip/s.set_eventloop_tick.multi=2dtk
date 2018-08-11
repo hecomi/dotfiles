@@ -1,7 +1,0 @@
-names=set_eventloop_tick
-visibility=public
-kind=defined
-
---- set_eventloop_tick(tick)
-@todo
-

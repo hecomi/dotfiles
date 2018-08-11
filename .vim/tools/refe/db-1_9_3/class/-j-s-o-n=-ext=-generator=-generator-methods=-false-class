@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=json
-aliases=
-aliasof=JSON=Generator=GeneratorMethods=FalseClass
-
-Alias of [[c:JSON::Generator::GeneratorMethods::FalseClass]]

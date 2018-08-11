@@ -1,7 +1,0 @@
-names=title
-visibility=public
-kind=defined
-
---- title(str = nil)
-@todo
-

@@ -1,7 +1,0 @@
-names=hash
-visibility=public
-kind=defined
-
---- hash -> Fixnum
-ハッシュ値を返します。
-

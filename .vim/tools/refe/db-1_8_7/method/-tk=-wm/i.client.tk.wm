@@ -1,7 +1,0 @@
-names=client
-visibility=public
-kind=defined
-
---- client(name = Tk::None)
-@todo
-

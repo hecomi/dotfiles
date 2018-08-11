@@ -1,7 +1,0 @@
-names=F_SETFD
-visibility=public
-kind=defined
-
---- F_SETFD -> Integer
-ファイルディスクリプタに close-on-exec フラグの値を設定します。
-

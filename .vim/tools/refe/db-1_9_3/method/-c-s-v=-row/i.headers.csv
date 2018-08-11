@@ -1,7 +1,0 @@
-names=headers
-visibility=public
-kind=defined
-
---- headers -> Array
-この行のヘッダのリストを返します。
-

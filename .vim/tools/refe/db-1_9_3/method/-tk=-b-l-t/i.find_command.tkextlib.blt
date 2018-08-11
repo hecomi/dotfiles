@@ -1,9 +1,0 @@
-names=find_command
-visibility=public
-kind=defined
-
---- find_command(pat)
-@todo
-
-
-

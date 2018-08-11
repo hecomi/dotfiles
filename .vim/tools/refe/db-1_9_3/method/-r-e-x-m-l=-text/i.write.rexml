@@ -1,7 +1,0 @@
-names=write
-visibility=public
-kind=defined
-
---- write(writer, indent = -1, transitive = false, ie_hack = false)
-@todo
-

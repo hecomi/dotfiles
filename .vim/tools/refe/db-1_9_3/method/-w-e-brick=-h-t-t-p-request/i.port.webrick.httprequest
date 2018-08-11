@@ -1,8 +1,0 @@
-names=port
-visibility=public
-kind=defined
-
---- port    -> String
-
-サーバのポートを文字列で返します。
-

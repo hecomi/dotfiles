@@ -1,8 +1,0 @@
-names=add_method_with_soapaction_as,add_rpc_method_with_soapaction_as
-visibility=public
-kind=defined
-
---- add_rpc_method_with_soapaction_as(name, name_as, soapaction, *params)
---- add_method_with_soapaction_as(name, name_as, soapaction, *params)
-@todo
-

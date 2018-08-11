@@ -1,9 +1,0 @@
-names=curselection
-visibility=public
-kind=defined
-
---- curselection
-@todo
-
-((<選択>))された要素の要素番号を配列にして返します(要素番号は上端が0)
-

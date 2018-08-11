@@ -1,7 +1,0 @@
-names=parse_type
-visibility=public
-kind=defined
-
---- parse_type(string)
-@todo
-

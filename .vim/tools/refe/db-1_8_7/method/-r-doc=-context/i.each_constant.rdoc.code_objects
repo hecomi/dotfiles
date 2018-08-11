@@ -1,8 +1,0 @@
-names=each_constant
-visibility=public
-kind=defined
-
---- each_constant {|c| ... } -> [RDoc::Constant]
-
-追加された [[c:RDoc::Constant]] に対してブロックを評価します。
-

@@ -1,8 +1,0 @@
-names=KEY_SBEG
-visibility=public
-kind=defined
-
---- KEY_SBEG -> Integer
-@todo
-Shifted beginning key
-

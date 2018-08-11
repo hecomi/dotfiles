@@ -1,7 +1,0 @@
-names=apply
-visibility=public
-kind=defined
-
---- apply(obj, enc)
-@todo
-

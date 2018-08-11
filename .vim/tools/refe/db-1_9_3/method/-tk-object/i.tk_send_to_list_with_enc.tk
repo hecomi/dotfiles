@@ -1,7 +1,0 @@
-names=tk_send_to_list_with_enc
-visibility=public
-kind=defined
-
---- tk_send_to_list_with_enc(cmd, *rest)
-@todo
-

@@ -1,7 +1,0 @@
-names=local_assign
-visibility=protected 
-kind=defined
-
---- local_assign(key, value)
-@todo
-

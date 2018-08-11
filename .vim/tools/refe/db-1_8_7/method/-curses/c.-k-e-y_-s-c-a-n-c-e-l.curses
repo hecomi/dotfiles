@@ -1,8 +1,0 @@
-names=KEY_SCANCEL
-visibility=public
-kind=defined
-
---- KEY_SCANCEL -> Integer
-
-Shift + Cancel キーを表す定数です。
-

@@ -1,7 +1,0 @@
-names=filter
-visibility=public
-kind=defined
-
---- filter(elements, path)
-@todo
-

@@ -1,9 +1,0 @@
-type=class
-superclass=Exception
-included=
-extended=
-library=irb
-aliases=
-aliasof=
-
-実行中の処理を中断する時に発生させる例外クラスです。

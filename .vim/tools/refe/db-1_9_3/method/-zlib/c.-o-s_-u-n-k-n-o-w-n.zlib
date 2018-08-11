@@ -1,8 +1,0 @@
-names=OS_UNKNOWN
-visibility=public
-kind=defined
-
---- OS_UNKNOWN -> Fixnum
-
-OS の種類を表す定数です。
-

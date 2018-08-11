@@ -1,7 +1,0 @@
-names=VT_INT
-visibility=public
-kind=defined
-
---- VT_INT -> Integer
-符号付き整数（int）を示します（22）。
-

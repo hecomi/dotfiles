@@ -1,9 +1,0 @@
-type=class
-superclass=SOAP=SOAPStruct
-included=
-extended=
-library=soap.rpc.element
-aliases=
-aliasof=
-
-

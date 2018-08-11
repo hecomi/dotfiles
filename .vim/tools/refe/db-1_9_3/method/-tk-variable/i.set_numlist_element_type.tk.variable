@@ -1,7 +1,0 @@
-names=set_numlist_element_type
-visibility=public
-kind=defined
-
---- set_numlist_element_type(idxs, val)
-@todo
-

@@ -1,7 +1,0 @@
-names=element_lappend
-visibility=public
-kind=defined
-
---- element_lappend(idxs, *elems)
-@todo
-

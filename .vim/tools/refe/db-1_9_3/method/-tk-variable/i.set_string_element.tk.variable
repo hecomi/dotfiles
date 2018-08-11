@@ -1,7 +1,0 @@
-names=set_string_element
-visibility=public
-kind=defined
-
---- set_string_element(idxs, val)
-@todo
-

@@ -1,7 +1,0 @@
-names=replace
-visibility=public
-kind=defined
-
---- replace(ltn, knj = Tk::None)
-@todo
-

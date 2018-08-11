@@ -1,9 +1,0 @@
-type=class
-superclass=TkObject
-included=TkText=IndexModMethods
-extended=
-library=tk.textmark
-aliases=
-aliasof=
-
-

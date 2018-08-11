@@ -1,7 +1,0 @@
-names=add_method
-visibility=public
-kind=defined
-
---- add_method(m, visibility = :public)
-@todo
-

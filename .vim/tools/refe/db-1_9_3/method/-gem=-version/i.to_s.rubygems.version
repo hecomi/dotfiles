@@ -1,8 +1,0 @@
-names=to_s
-visibility=public 
-kind=defined
-
---- to_s -> String
-
-バージョン情報を文字列として返します。
-

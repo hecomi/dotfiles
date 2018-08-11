@@ -1,8 +1,0 @@
-names=mapping_registry,mapping_registry=
-visibility=public
-kind=defined
-
---- mapping_registry
---- mapping_registry=(mapping_registry)
-@todo
-

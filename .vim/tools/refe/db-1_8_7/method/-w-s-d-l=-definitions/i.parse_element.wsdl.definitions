@@ -1,9 +1,0 @@
-names=parse_element
-visibility=public
-kind=defined
-
---- parse_element(element)
-@todo
-
-[[m:WSDL::Info#parse_element]]を呼び出そうとするが実装が無い
-

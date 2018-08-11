@@ -1,8 +1,0 @@
-names=length,size
-visibility=public
-kind=defined
-
---- size -> Integer
---- length -> Integer
-メールのサイズ (単位はバイト) をかえします。
-

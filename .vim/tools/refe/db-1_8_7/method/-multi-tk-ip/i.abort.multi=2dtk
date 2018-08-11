@@ -1,7 +1,0 @@
-names=abort
-visibility=public
-kind=defined
-
---- abort(msg = nil)
-@todo
-

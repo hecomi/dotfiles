@@ -1,7 +1,0 @@
-names=set_default_value
-visibility=public
-kind=defined
-
---- set_default_value(val)
-@todo
-

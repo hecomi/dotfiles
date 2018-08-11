@@ -1,8 +1,0 @@
-filename=object.c
-macro=false
-private=true
-type=VALUE
-name=rb_mod_attr_writer
-params=(int argc, VALUE *argv, VALUE klass)
-
-

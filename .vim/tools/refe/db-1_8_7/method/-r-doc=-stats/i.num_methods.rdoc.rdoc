@@ -1,8 +1,0 @@
-names=num_methods
-visibility=public
-kind=defined
-
---- num_methods -> Integer
-
-解析したメソッドの数を返します。
-

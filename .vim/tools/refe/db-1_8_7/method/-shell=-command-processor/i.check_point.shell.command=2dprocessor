@@ -1,8 +1,0 @@
-names=check_point,finish_all_jobs
-visibility=public
-kind=defined
-
---- check_point
---- finish_all_jobs
-@todo
-

@@ -1,7 +1,0 @@
-names=replace_node
-visibility=public
-kind=defined
-
---- replace_node(node)
-@todo
-

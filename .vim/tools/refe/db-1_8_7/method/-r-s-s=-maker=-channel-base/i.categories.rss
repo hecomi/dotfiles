@@ -1,8 +1,0 @@
-names=categories
-visibility=public
-kind=defined
-
---- categories
-@todo
-categoriesを返します．
-

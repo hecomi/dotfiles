@@ -1,8 +1,0 @@
-names=KEY_SREDO
-visibility=public
-kind=defined
-
---- KEY_SREDO -> Integer
-
-Shift + Redo キーを表す定数です。
-

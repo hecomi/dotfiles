@@ -1,7 +1,0 @@
-names=parse_error
-visibility=public
-kind=defined
-
---- parse_error(msg)
-@todo
-

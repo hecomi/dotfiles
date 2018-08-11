@@ -1,8 +1,0 @@
-requires=
-classes=Ripper=Lexer
-methods=Ripper/s.lex.ripper.lexer,Ripper/s.tokenize.ripper.lexer,Ripper/s.slice.ripper.lexer,Ripper/s.token_match.ripper.lexer
-sublibraries=
-is_sublibrary=true
-category=
-
-Ruby プログラムをトークンのリストとして処理するためのライブラリです。

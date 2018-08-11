@@ -1,7 +1,0 @@
-names=do_parse
-visibility=public
-kind=defined
-
---- do_parse(string_or_readable)
-@todo
-

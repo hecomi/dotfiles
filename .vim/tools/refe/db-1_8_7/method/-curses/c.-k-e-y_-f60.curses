@@ -1,8 +1,0 @@
-names=KEY_F60
-visibility=public
-kind=defined
-
---- KEY_F60 -> Integer
-
-F60 キーを表す定数です。
-

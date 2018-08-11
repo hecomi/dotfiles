@@ -1,9 +1,0 @@
-names=STATUS_TERMINATED
-visibility=protected 
-kind=defined
-
---- STATUS_TERMINATED -> 2
-
-内部状態を管理するための定数です。ユーザが使用することはありません。
-
-

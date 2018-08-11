@@ -1,8 +1,0 @@
-requires=
-classes=RDoc=TopLevel
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-[[c:RDoc::TopLevel]] を定義するサブライブラリです。

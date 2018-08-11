@@ -1,7 +1,0 @@
-names=PROFILE_PROC
-visibility=public
-kind=defined
-
---- PROFILE_PROC -> Proc
-
-内部で使用します。

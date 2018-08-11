@@ -1,9 +1,0 @@
-type=class
-superclass=URI=Error
-included=
-extended=
-library=uri
-aliases=
-aliasof=
-
-URI として正しいが、使い方が悪いときに発生します。

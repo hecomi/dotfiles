@@ -1,8 +1,0 @@
-names=passwd=
-visibility=public
-kind=defined
-
---- passwd=(passwd)
-
-このユーザの暗号化されたパスワードを設定します。
-

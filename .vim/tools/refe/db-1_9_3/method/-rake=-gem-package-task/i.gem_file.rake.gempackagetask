@@ -1,8 +1,0 @@
-names=gem_file
-visibility=public 
-kind=defined
-
---- gem_file -> String
-
-Gem パッケージの名前を返します。
-

@@ -1,7 +1,0 @@
-names=function
-visibility=public
-kind=defined
-
---- function(elements, fname, rest)
-@todo
-

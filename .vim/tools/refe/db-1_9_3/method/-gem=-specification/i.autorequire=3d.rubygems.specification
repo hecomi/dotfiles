@@ -1,8 +1,0 @@
-names=autorequire=
-visibility=public
-kind=defined
-
---- autorequire=(lib)
-
-非推奨の属性です。
-

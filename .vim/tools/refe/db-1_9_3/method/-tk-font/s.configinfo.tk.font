@@ -1,7 +1,0 @@
-names=configinfo
-visibility=public
-kind=defined
-
---- configinfo(fnt, slot = nil)
-@todo
-

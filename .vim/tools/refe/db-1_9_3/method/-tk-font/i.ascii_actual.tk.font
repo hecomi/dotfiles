@@ -1,8 +1,0 @@
-names=ascii_actual,latin_actual
-visibility=public
-kind=defined
-
---- latin_actual(option = nil)
---- ascii_actual(option = nil)
-@todo
-

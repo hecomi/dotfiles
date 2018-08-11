@@ -1,9 +1,0 @@
-names=debug_output_exclusive_unlock
-visibility=public
-kind=defined
-
---- debug_output_exclusive_unlock{ ... } -> Mutex | nil
-@todo
-
-@see [[m:Mutex#exclusive_unlock]]
-

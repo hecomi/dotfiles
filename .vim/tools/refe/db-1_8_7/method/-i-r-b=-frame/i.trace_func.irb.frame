@@ -1,7 +1,0 @@
-names=trace_func
-visibility=public
-kind=defined
-
---- trace_func(event, file, line, id, binding) -> Binding
-
-ライブラリ内部で使用します。

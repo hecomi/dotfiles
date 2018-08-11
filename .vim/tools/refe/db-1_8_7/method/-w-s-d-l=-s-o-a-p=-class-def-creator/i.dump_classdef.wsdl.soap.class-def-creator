@@ -1,7 +1,0 @@
-names=dump_classdef
-visibility=private 
-kind=defined
-
---- dump_classdef(qname, typedef, qualified = false)
-@todo
-

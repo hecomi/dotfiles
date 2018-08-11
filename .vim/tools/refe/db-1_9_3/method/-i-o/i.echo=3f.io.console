@@ -1,8 +1,0 @@
-names=echo?
-visibility=public
-kind=added
-
---- echo? -> bool
-
-文字入力時のエコーバックが有効かどうかを返します。
-

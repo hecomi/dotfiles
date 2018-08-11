@@ -1,7 +1,0 @@
-names=copy
-visibility=public
-kind=defined
-
---- copy(src, *opts)
-@todo
-

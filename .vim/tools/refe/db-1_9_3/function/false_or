@@ -1,8 +1,0 @@
-filename=object.c
-macro=false
-private=true
-type=VALUE
-name=false_or
-params=(VALUE obj, VALUE obj2)
-
-

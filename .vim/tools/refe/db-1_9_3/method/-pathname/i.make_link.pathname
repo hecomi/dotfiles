@@ -1,9 +1,0 @@
-names=make_link
-visibility=public
-kind=defined
-
---- make_link(old) -> 0
-File.link(old, self.to_s) と同じです。
-
-@see [[m:File.link]]
-

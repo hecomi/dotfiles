@@ -1,8 +1,0 @@
-names=file_stat
-visibility=public
-kind=defined
-
---- file_stat -> File::Stat
-
-自身が管理するファイルに関する [[c:File::Stat]] オブジェクトを返します。
-

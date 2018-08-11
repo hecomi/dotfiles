@@ -1,9 +1,0 @@
-type=class
-superclass=WSDL=Info
-included=
-extended=
-library=wsdl.import
-aliases=
-aliasof=
-
-

@@ -1,7 +1,0 @@
-names=collect_type
-visibility=private 
-kind=defined
-
---- collect_type(type)
-@todo
-

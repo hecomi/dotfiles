@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=json
-aliases=
-aliasof=JSON=Generator=GeneratorMethods=Integer
-
-Alias of [[c:JSON::Generator::GeneratorMethods::Integer]]

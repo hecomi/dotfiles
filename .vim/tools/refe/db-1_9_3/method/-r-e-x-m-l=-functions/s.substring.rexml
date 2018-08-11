@@ -1,7 +1,0 @@
-names=substring
-visibility=public
-kind=defined
-
---- substring(string, start, length = nil)
-@todo
-

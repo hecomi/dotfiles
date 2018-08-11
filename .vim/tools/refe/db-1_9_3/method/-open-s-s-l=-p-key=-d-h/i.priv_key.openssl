@@ -1,9 +1,0 @@
-names=priv_key
-visibility=public
-kind=defined
-
---- priv_key -> OpenSSL::BN
-DH 鍵共有プロトコルの秘密鍵を返します。
-
-@see [[m:OpenSSL::PKey::DH#priv_key=]]
-

@@ -1,7 +1,0 @@
-names=eval
-visibility=public
-kind=defined
-
---- eval(topic, cmd, *args)
-@todo
-

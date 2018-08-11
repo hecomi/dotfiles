@@ -1,7 +1,0 @@
-names=aliases
-visibility=public
-kind=defined
-
---- aliases(slave = '')
-@todo
-

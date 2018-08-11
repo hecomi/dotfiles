@@ -1,8 +1,0 @@
-names=version
-visibility=public
-kind=defined
-
---- version
-@todo
-作成するXMLのバージョンを返します．
-

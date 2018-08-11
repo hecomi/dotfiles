@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=e2mmap
-aliases=
-aliasof=Exception2MessageMapper
-
-Alias of [[c:Exception2MessageMapper]]

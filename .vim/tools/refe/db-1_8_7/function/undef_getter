@@ -1,8 +1,0 @@
-filename=variable.c
-macro=false
-private=true
-type=VALUE
-name=undef_getter
-params=(ID id)
-
-

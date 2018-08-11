@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=tsort
-aliases=
-aliasof=
-
-閉路が存在する時、発生します。

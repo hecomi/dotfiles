@@ -1,8 +1,0 @@
-names=command,command=
-visibility=public
-kind=defined
-
---- command
---- command=(cmd)
-@todo
-

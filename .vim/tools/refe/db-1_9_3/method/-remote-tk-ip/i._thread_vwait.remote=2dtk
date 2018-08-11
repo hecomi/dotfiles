@@ -1,7 +1,0 @@
-names=_thread_vwait
-visibility=public
-kind=defined
-
---- _thread_vwait(var_name)
-@todo
-

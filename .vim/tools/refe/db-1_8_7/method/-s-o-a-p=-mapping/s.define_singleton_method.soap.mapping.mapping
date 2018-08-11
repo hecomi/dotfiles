@@ -1,7 +1,0 @@
-names=define_singleton_method
-visibility=public
-kind=defined
-
---- define_singleton_method(obj, name) { ... }
-@todo
-

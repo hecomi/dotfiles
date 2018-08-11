@@ -1,9 +1,0 @@
-names=encoding
-visibility=public
-kind=defined
-
---- encoding
-@todo
-作成するXMLのエンコーディングを返します．デフォルトは
-UTF-8です．
-

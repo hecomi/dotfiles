@@ -1,7 +1,0 @@
-names=init_widget_font
-visibility=public
-kind=defined
-
---- init_widget_font(pathname, *args)
-@todo
-

@@ -1,9 +1,0 @@
-names=BINARY
-visibility=public
-kind=defined
-
---- BINARY -> Integer
-ファイルをバイナリとして開きます。
-open(2) で O_BINARYが指定できる場合に使えます。
-[[m:File.open]]で使用します。
-

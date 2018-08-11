@@ -1,8 +1,0 @@
-names=loader
-visibility=public 
-kind=defined
-
---- loader -> Symbol
-
-テストをロードする方法を返します。
-

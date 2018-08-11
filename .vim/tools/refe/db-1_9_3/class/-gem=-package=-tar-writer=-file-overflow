@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=rubygems.package.tar_writer
-aliases=
-aliasof=
-
-上限サイズを越えて書き込もうとした場合に発生する例外です。

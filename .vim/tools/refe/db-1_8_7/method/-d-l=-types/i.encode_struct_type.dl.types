@@ -1,9 +1,0 @@
-names=encode_struct_type
-visibility=public
-kind=defined
-
---- encode_struct_type(alias_type)
-@todo
-
-
-

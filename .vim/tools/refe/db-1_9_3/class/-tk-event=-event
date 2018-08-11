@@ -1,9 +1,0 @@
-type=class
-superclass=TkUtil=CallbackSubst
-included=
-extended=
-library=tk.event
-aliases=
-aliasof=
-
-

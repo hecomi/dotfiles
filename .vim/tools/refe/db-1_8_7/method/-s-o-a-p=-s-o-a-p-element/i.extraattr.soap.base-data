@@ -1,8 +1,0 @@
-names=extraattr,extraattr=
-visibility=public
-kind=defined
-
---- extraattr
---- extraattr=(value)
-@todo
-

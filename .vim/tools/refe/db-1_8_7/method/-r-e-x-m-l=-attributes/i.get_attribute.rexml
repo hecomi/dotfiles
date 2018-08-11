@@ -1,7 +1,0 @@
-names=get_attribute
-visibility=public
-kind=defined
-
---- get_attribute(name)
-@todo
-

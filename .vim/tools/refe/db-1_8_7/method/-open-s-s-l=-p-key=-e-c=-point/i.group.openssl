@@ -1,8 +1,0 @@
-names=group
-visibility=public
-kind=defined
-
---- group -> OpenSSL::PKey::EC::Group
-
-自身と関連付けられた群を返します。
-

@@ -1,8 +1,0 @@
-names=count_observers
-visibility=public
-kind=defined
-
---- count_observers -> Fixnum
-
-登録されているオブザーバの数を返します。
-

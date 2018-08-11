@@ -1,8 +1,0 @@
-names=day,mday
-visibility=public
-kind=defined
-
---- mday -> Integer
---- day -> Integer
-月の日を返します (1-31)。
-

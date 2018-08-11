@@ -1,9 +1,0 @@
-names=to_id
-visibility=public
-kind=defined
-
---- to_id(obj)
-@todo
-
-Convert a local object to a dRuby reference. 
-

@@ -1,7 +1,0 @@
-names=find_mapped_soap_class
-visibility=public
-kind=defined
-
---- find_mapped_soap_class(obj_class)
-@todo
-

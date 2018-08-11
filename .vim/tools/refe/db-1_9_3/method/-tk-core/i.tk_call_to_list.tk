@@ -1,7 +1,0 @@
-names=tk_call_to_list
-visibility=public
-kind=defined
-
---- tk_call_to_list(*args)
-@todo
-

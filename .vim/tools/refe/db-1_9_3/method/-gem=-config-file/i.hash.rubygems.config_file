@@ -1,8 +1,0 @@
-names=hash
-visibility=protected 
-kind=defined
-
---- hash -> Hash
-
-設定ファイルの各項目のキーと値を要素として持つハッシュです。
-

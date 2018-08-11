@@ -1,9 +1,0 @@
-type=class
-superclass=SOAP=Mapping=Registry
-included=
-extended=
-library=soap.mapping.wsdlliteralregistry
-aliases=
-aliasof=
-
-

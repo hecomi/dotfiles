@@ -1,6 +1,0 @@
-names=new
-visibility=public
-kind=defined
-
---- new(text, parent = nil, keys = {})
-@todo

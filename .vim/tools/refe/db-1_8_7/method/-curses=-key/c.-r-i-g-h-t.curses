@@ -1,8 +1,0 @@
-names=RIGHT
-visibility=public
-kind=defined
-
---- RIGHT -> Integer
-
-右矢印キーを表す定数です。
-

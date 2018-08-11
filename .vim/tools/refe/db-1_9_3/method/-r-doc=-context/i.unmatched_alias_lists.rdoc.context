@@ -1,9 +1,0 @@
-names=unmatched_alias_lists
-visibility=public
-kind=defined
-
---- unmatched_alias_lists -> {String => RDoc::Alias}
-
-メソッド名の対応が取れていない alias の旧メソッド名がキー、
-[[c:RDoc::Alias]] が値の [[c:Hash]] を返します。
-

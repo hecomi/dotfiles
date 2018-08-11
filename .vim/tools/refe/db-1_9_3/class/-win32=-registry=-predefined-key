@@ -1,9 +1,0 @@
-type=class
-superclass=Win32=Registry
-included=
-extended=
-library=win32.registry
-aliases=
-aliasof=
-
-

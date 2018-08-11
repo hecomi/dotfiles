@@ -1,8 +1,0 @@
-names=eof?
-visibility=public
-kind=defined
-
---- eof? -> bool
-
-入力が EOF(End Of File)に達したかどうかを返します。
-

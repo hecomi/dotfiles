@@ -1,7 +1,0 @@
-names=valid_error
-visibility=public
-kind=defined
-
---- valid_error(msg)
-@todo
-

@@ -1,7 +1,0 @@
-names=dump_simpletypedef
-visibility=private 
-kind=defined
-
---- dump_simpletypedef(qname, simpletype)
-@todo
-

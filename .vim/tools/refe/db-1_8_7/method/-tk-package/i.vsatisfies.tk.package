@@ -1,7 +1,0 @@
-names=vsatisfies
-visibility=public
-kind=defined
-
---- vsatisfies(version1, version2)
-@todo
-

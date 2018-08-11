@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Package=Error
-included=
-extended=
-library=rubygems.package
-aliases=
-aliasof=
-
-シークできない IO に対してシーク使用とした場合に発生する例外です。

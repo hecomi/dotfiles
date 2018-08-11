@@ -1,8 +1,0 @@
-names=ENTER
-visibility=public
-kind=defined
-
---- ENTER -> Integer
-
-Enter キーを表す定数です。
-

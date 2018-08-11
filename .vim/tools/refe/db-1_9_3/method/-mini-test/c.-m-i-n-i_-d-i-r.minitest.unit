@@ -1,8 +1,0 @@
-names=MINI_DIR
-visibility=public
-kind=defined
-
---- MINI_DIR -> String
-
-このライブラリがインストールされているディレクトリの親ディレクトリの名前を返します。
-

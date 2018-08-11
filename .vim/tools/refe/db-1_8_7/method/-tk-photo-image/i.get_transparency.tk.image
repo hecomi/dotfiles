@@ -1,7 +1,0 @@
-names=get_transparency
-visibility=public
-kind=defined
-
---- get_transparency(x, y)
-@todo
-

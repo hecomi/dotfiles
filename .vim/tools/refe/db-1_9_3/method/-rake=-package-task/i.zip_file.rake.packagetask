@@ -1,9 +1,0 @@
-names=zip_file
-visibility=public 
-kind=defined
-
---- zip_file -> String
-
-zip ファイル用のファイル名を返します。
-
-

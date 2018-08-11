@@ -1,7 +1,0 @@
-names=replace
-visibility=public
-kind=defined
-
---- replace {|ele| ... }
-@todo
-

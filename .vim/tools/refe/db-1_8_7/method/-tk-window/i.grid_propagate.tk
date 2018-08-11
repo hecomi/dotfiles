@@ -1,7 +1,0 @@
-names=grid_propagate
-visibility=public
-kind=defined
-
---- grid_propagate(mode = Tk::None)
-@todo
-

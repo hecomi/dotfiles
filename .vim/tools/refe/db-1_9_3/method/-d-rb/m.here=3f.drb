@@ -1,9 +1,0 @@
-names=here?
-visibility=public
-kind=defined
-
---- here?(uri)
-@todo
-
-Is uri the URI for the current local server?
-

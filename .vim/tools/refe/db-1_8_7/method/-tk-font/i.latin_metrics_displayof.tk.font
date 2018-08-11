@@ -1,7 +1,0 @@
-names=latin_metrics_displayof
-visibility=public
-kind=defined
-
---- latin_metrics_displayof(win, option = nil)
-@todo
-

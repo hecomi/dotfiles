@@ -1,9 +1,0 @@
-type=class
-superclass=
-included=
-extended=
-library=tk.menu
-aliases=
-aliasof=TkOptionMenubutton
-
-Alias of [[c:TkOptionMenubutton]]

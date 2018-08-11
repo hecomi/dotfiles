@@ -1,8 +1,0 @@
-names=status
-visibility=public
-kind=defined
-
---- status -> Process::Status
-
-子プロセスの終了ステータスを[[c:Process::Status]]オブジェクトで返します。
-

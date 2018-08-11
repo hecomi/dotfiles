@@ -1,8 +1,0 @@
-names=autorequire
-visibility=public
-kind=defined
-
---- autorequire -> String
-
-非推奨の属性です。
-

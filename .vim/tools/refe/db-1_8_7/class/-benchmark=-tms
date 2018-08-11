@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=benchmark
-aliases=
-aliasof=
-
-ベンチマークの計測に関連する各種時間を表現するクラスです。

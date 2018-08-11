@@ -1,7 +1,0 @@
-names=delete,delete_dependency
-visibility=public
-kind=defined
-
---- delete(id, dependant, method = :finalize)
---- delete_dependency(id, dependant, method = :finalize)
-

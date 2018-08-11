@@ -1,7 +1,0 @@
-names=const_from_name
-visibility=public
-kind=defined
-
---- const_from_name(fqname)
-@todo
-

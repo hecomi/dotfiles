@@ -1,8 +1,0 @@
-names=outdated
-visibility=public
-kind=defined
-
---- outdated -> Array
-
-更新されていない [[c:Gem::Specification]] のリストを返します。
-

@@ -1,7 +1,0 @@
-names=nextrange
-visibility=public
-kind=defined
-
---- nextrange(first, last = Tk::None)
-@todo
-

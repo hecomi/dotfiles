@@ -1,7 +1,0 @@
-names=new_from_file
-visibility=public
-kind=defined
-
---- new_from_file(file_name)
-@todo
-

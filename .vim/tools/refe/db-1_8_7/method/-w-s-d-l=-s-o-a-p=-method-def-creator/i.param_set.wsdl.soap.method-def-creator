@@ -1,7 +1,0 @@
-names=param_set
-visibility=private 
-kind=defined
-
---- param_set(io_type, name, type, ele = nil)
-@todo
-

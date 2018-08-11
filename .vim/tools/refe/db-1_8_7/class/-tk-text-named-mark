@@ -1,9 +1,0 @@
-type=class
-superclass=TkTextMark
-included=
-extended=
-library=tk.textmark
-aliases=
-aliasof=
-
-

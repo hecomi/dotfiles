@@ -1,7 +1,0 @@
-names=encode_argument_type
-visibility=public
-kind=defined
-
---- encode_argument_type(alias_type)
-@todo
-

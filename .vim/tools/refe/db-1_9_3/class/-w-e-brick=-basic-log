@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=webrick.log
-aliases=
-aliasof=
-
-ログを取る機能を提供するクラスです。

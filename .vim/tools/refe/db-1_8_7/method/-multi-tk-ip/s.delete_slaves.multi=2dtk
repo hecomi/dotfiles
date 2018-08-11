@@ -1,7 +1,0 @@
-names=delete_slaves
-visibility=public
-kind=defined
-
---- delete_slaves(*args)
-@todo
-

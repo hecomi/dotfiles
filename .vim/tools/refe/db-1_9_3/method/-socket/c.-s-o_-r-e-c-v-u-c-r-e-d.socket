@@ -1,8 +1,0 @@
-names=SO_RECVUCRED
-visibility=public
-kind=defined
-
---- SO_RECVUCRED -> Integer
-@todo
-Receive user credentials with datagram。
-

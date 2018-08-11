@@ -1,9 +1,0 @@
-type=class
-superclass=DRb=DRbIdConv
-included=
-extended=
-library=drb.timeridconv
-aliases=
-aliasof=
-
-

@@ -1,8 +1,0 @@
-names=grid_rowconfig,grid_rowconfigure
-visibility=public
-kind=defined
-
---- grid_rowconfig(index, keys)
---- grid_rowconfigure(index, keys)
-@todo
-

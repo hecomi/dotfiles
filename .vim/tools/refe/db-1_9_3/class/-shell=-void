@@ -1,9 +1,0 @@
-type=class
-superclass=Shell=BuiltInCommand
-included=
-extended=
-library=shell.builtin=2dcommand
-aliases=
-aliasof=
-
-何もしないコマンドです。

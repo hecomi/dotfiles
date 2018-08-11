@@ -1,7 +1,0 @@
-names=active?
-visibility=public
-kind=defined
-
---- active? -> bool
-@todo
-

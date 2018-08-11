@@ -1,7 +1,0 @@
-names=add_rpc_request_servant
-visibility=public
-kind=defined
-
---- add_rpc_request_servant(factory, namespace = @default_namespace)
-@todo
-

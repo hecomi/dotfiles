@@ -1,9 +1,0 @@
-type=class
-superclass=JSON=JSONError
-included=
-extended=
-library=json
-aliases=
-aliasof=
-
-JSON のパースエラーを通知する例外です。

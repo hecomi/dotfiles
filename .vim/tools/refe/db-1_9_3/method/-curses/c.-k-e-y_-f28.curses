@@ -1,8 +1,0 @@
-names=KEY_F28
-visibility=public
-kind=defined
-
---- KEY_F28 -> Integer
-
-F28 キーを表す定数です。
-

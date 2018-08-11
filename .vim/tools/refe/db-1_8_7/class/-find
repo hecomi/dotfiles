@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=find
-aliases=
-aliasof=
-
-ディレクトリ配下のファイルを探索するためのモジュールです。

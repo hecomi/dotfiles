@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=uri
-aliases=
-aliasof=
-
-URI を扱うためのモジュールです。

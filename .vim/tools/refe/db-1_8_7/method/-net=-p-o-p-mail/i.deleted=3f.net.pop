@@ -1,9 +1,0 @@
-names=deleted?
-visibility=public
-kind=defined
-
---- deleted? -> bool
-メールに削除マークが付けられている場合に真を返します。
-
-@see [[m:Net::POPMail#delete]]
-

@@ -1,9 +1,0 @@
-type=class
-superclass=RSS=Maker=ChannelBase
-included=
-extended=
-library=rss
-aliases=
-aliasof=
-
-

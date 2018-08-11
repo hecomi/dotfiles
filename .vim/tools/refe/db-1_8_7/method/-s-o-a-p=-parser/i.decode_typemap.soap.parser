@@ -1,8 +1,0 @@
-names=decode_typemap,decode_typemap=
-visibility=public
-kind=defined
-
---- decode_typemap
---- decode_typemap=(value)
-@todo
-

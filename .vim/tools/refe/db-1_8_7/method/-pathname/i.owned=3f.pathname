@@ -1,9 +1,0 @@
-names=owned?
-visibility=public
-kind=defined
-
---- owned? -> bool
-FileTest.owned?(self.to_s) と同じです。
-
-@see [[m:FileTest.#owned?]]
-

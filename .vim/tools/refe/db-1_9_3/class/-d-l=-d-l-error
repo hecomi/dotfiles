@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=dl
-aliases=
-aliasof=
-
-

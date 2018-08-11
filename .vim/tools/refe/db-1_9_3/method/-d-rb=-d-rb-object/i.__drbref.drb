@@ -1,8 +1,0 @@
-names=__drbref
-visibility=public
-kind=defined
-
---- __drbref
-@todo
-
-Get the reference of the object, if local.

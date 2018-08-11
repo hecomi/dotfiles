@@ -1,9 +1,0 @@
-type=class
-superclass=WEBrick=HTTPStatus=ServerError
-included=
-extended=
-library=webrick.httpstatus
-aliases=
-aliasof=
-
-HTTP のステータスコード 502 Bad Gateway を表すクラスです。

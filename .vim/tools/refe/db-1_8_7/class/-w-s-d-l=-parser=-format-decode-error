@@ -1,9 +1,0 @@
-type=class
-superclass=WSDL=Parser=ParseError
-included=
-extended=
-library=wsdl.parser
-aliases=
-aliasof=
-
-

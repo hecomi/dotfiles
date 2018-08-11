@@ -1,8 +1,0 @@
-names=yaml_new
-visibility=public
-kind=added
-
---- yaml_new(klass, tag, val)
-
-ライブラリ内部で使用します。
-

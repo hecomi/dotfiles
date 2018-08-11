@@ -1,9 +1,0 @@
-type=class
-superclass=Struct
-included=
-extended=
-library=psych.parser
-aliases=
-aliasof=
-
-

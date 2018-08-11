@@ -1,8 +1,0 @@
-names=mem=
-visibility=public
-kind=defined
-
---- mem=(mem)
-
-このグループに所属するメンバーのログイン名を設定します。
-

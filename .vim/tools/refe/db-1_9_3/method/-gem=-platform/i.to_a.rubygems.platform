@@ -1,8 +1,0 @@
-names=to_a
-visibility=public 
-kind=defined
-
---- to_a -> Array
-
-自身にセットされている CPU, OS, バージョンを配列として返します。
-

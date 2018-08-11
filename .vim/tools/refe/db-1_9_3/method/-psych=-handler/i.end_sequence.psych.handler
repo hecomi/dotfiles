@@ -1,9 +1,0 @@
-names=end_sequence
-visibility=public
-kind=added
-
---- end_sequence
-@todo
-
-Called when a sequence ends.
-

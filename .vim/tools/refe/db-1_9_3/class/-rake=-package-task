@@ -1,9 +1,0 @@
-type=class
-superclass=Rake=TaskLib
-included=
-extended=
-library=rake.packagetask
-aliases=
-aliasof=
-
-配布するパッケージ (zip, tar, etc...) を作成するためのタスクを定義するクラスです。

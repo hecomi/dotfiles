@@ -1,8 +1,0 @@
-names=mem
-visibility=public
-kind=defined
-
---- mem -> [String]
-
-このグループに所属するメンバーのログイン名を配列で返します。
-

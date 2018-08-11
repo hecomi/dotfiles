@@ -1,7 +1,0 @@
-names=RTLD_LAZY
-visibility=public
-kind=defined
-
---- RTLD_LAZY
-@todo
-

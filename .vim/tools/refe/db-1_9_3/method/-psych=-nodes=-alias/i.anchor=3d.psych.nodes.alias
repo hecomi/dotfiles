@@ -1,8 +1,0 @@
-names=anchor=
-visibility=public
-kind=defined
-
---- anchor=(val)
-@todo
-
-The anchor this alias links to

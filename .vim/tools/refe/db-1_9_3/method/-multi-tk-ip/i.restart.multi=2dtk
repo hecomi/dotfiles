@@ -1,7 +1,0 @@
-names=restart
-visibility=public
-kind=defined
-
---- restart(*args)
-@todo
-

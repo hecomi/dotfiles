@@ -1,7 +1,0 @@
-names=bind
-visibility=public
-kind=defined
-
---- bind(*args) { ... }
-@todo
-

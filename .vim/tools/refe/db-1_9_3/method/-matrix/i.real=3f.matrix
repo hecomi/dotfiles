@@ -1,8 +1,0 @@
-names=real?
-visibility=public
-kind=defined
-
---- real? -> bool
-@todo
-
-Returns +true+ if all entries of the matrix are real.

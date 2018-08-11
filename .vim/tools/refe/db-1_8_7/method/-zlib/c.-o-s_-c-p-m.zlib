@@ -1,8 +1,0 @@
-names=OS_CPM
-visibility=public
-kind=defined
-
---- OS_CPM -> Fixnum
-
-OS の種類を表す定数です。
-

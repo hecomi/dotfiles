@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Exception
-included=
-extended=
-library=rubygems.exceptions
-aliases=
-aliasof=
-
-サポートされていない操作を行った場合に使用する例外です。

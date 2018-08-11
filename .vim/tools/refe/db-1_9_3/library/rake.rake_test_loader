@@ -1,9 +1,0 @@
-requires=
-classes=
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-このライブラリを require すると、
-コマンドラインからテスト対象のファイルをロードします。

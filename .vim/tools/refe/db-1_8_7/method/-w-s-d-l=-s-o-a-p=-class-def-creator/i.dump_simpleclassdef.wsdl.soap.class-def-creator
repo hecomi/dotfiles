@@ -1,7 +1,0 @@
-names=dump_simpleclassdef
-visibility=private 
-kind=defined
-
---- dump_simpleclassdef(type_or_element)
-@todo
-

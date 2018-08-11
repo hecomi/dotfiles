@@ -1,7 +1,0 @@
-names=configure_cmd
-visibility=public
-kind=defined
-
---- configure_cmd(slot, value)
-@todo
-

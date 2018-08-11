@@ -1,8 +1,0 @@
-names=skipDays
-visibility=public
-kind=defined
-
---- skipDays
-@todo
-skipDaysを返します．
-

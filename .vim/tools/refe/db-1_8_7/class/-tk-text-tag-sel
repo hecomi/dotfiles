@@ -1,9 +1,0 @@
-type=class
-superclass=TkTextNamedTag
-included=
-extended=
-library=tk.texttag
-aliases=
-aliasof=
-
-

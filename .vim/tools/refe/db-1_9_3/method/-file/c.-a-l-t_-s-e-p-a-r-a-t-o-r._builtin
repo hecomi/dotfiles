@@ -1,9 +1,0 @@
-names=ALT_SEPARATOR
-visibility=public
-kind=defined
-
---- ALT_SEPARATOR -> "\\" | nil
-
-システムのファイルパスのセパレータが SEPARATOR と異なる場合
-に設定されます。MS-DOS などでは "\\" です。UNIX や Cygwin などでは nil です。
-

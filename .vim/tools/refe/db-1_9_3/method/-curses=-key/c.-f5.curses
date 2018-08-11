@@ -1,8 +1,0 @@
-names=F5
-visibility=public
-kind=defined
-
---- F5 -> Integer
-
-F5 キーを表す定数です。
-

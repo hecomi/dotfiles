@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=REXML=Validation=Validator
-extended=
-library=rexml
-aliases=
-aliasof=
-
-

@@ -1,9 +1,0 @@
-names=pipe
-visibility=public
-kind=defined
-
---- pipe -> bool
-
-コマンドライン引数の --pipe オプションを指定していた場合、true を返しま
-す。そうでない場合は false を返します。
-

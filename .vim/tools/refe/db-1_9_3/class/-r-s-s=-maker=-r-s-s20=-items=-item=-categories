@@ -1,9 +1,0 @@
-type=class
-superclass=RSS=Maker=RSS09=Items=Item=Categories
-included=Enumerable
-extended=
-library=rss
-aliases=
-aliasof=
-
-RSS 2.0を生成するときだけ利用されます．

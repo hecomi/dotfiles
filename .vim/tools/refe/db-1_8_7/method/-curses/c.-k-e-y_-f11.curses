@@ -1,8 +1,0 @@
-names=KEY_F11
-visibility=public
-kind=defined
-
---- KEY_F11 -> Integer
-
-F11 キーを表す定数です。
-

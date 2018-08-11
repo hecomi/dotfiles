@@ -1,8 +1,0 @@
-names=WARN
-visibility=public
-kind=defined
-
---- WARN
-
-ログレベルを表す定数です。重要度は3番です。
-

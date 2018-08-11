@@ -1,8 +1,0 @@
-names=date=
-visibility=public
-kind=defined
-
---- date=(date)
-
-@param date 日付をセットします。デフォルトは今日です。
-

@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=rubygems.user_interaction
-aliases=
-aliasof=
-
-何もしない進捗報告のクラスです。

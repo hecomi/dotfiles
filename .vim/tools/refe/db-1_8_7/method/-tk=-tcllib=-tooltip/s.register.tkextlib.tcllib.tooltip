@@ -1,7 +1,0 @@
-names=register
-visibility=public
-kind=defined
-
---- register(widget, msg, keys = nil)
-@todo
-

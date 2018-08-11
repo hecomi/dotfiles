@@ -1,9 +1,0 @@
-type=class
-superclass=Rake=PackageTask
-included=
-extended=
-library=rake.gempackagetask
-aliases=
-aliasof=
-
-Gem Spec ファイルを元にして Gem パッケージを作成するタスクを定義するためのクラスです。

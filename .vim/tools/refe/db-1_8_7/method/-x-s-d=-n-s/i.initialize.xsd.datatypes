@@ -1,7 +1,0 @@
-names=initialize
-visibility=public
-kind=defined
-
---- initialize(tag2ns = {})
-@todo
-

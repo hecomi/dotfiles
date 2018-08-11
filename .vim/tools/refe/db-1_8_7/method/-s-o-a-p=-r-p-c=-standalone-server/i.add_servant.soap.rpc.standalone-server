@@ -1,7 +1,0 @@
-names=add_servant
-visibility=public
-kind=defined
-
---- add_servant(obj, namespace = @default_namespace)
-@todo
-

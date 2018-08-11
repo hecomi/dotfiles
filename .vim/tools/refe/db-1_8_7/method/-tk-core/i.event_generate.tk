@@ -1,7 +1,0 @@
-names=event_generate
-visibility=public
-kind=defined
-
---- event_generate(win, context, keys = nil)
-@todo
-

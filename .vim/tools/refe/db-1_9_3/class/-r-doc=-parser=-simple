@@ -1,9 +1,0 @@
-type=class
-superclass=RDoc=Parser
-included=
-extended=
-library=rdoc.parser.simple
-aliases=
-aliasof=
-
-ソースコード以外のファイルを解析するためのクラスです。

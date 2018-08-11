@@ -1,9 +1,0 @@
-type=class
-superclass=RSS=Maker=ItemsBase=ItemBase=EnclosureBase
-included=
-extended=
-library=rss
-aliases=
-aliasof=
-
-

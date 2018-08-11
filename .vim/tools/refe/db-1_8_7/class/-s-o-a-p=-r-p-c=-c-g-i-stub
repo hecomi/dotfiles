@@ -1,9 +1,0 @@
-type=class
-superclass=Logger=Application
-included=SOAP,WEBrick
-extended=
-library=soap.rpc.cgistub
-aliases=
-aliasof=
-
-

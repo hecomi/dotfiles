@@ -1,7 +1,0 @@
-names=set_start_proc
-visibility=public
-kind=defined
-
---- set_start_proc(sleep = nil, init_proc = nil, *init_args) { .... }
-@todo
-

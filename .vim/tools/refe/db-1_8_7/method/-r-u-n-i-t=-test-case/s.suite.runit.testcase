@@ -1,8 +1,0 @@
-names=suite
-visibility=public
-kind=defined
-
---- suite -> RUNIT::TestSuite
-
-テストスイートを作成して返します。
-

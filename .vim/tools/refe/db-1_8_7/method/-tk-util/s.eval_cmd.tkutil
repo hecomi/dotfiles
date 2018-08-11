@@ -1,7 +1,0 @@
-names=eval_cmd
-visibility=public
-kind=defined
-
---- eval_cmd(*args)
-@todo
-

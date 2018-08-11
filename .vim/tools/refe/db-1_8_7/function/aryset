@@ -1,8 +1,0 @@
-filename=parse.y
-macro=false
-private=true
-type=NODE *
-name=aryset
-params=(NODE *recv, NODE *idx)
-
-

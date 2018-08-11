@@ -1,7 +1,0 @@
-names=deep_map
-visibility=public
-kind=defined
-
---- deep_map(ary) {|ele| ... }
-@todo
-

@@ -1,9 +1,0 @@
-names=itemconfiginfo
-visibility=public
-kind=defined
-
---- itemconfiginfo(tagOrId, slot = nil)
-@todo
-
-
-

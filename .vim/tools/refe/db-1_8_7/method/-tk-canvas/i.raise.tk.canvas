@@ -1,8 +1,0 @@
-names=raise
-visibility=public
-kind=defined
-
---- raise(tag, above = nil)
-@todo
-
-

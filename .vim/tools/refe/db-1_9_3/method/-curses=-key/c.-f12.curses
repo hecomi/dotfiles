@@ -1,8 +1,0 @@
-names=F12
-visibility=public
-kind=defined
-
---- F12 -> Integer
-
-F12 キーを表す定数です。
-

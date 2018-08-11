@@ -1,7 +1,0 @@
-names=useinputmethods_displayof
-visibility=public
-kind=defined
-
---- useinputmethods_displayof(window, value = Tk::None)
-@todo
-

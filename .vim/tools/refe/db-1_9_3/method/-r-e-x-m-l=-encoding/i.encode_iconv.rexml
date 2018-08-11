@@ -1,7 +1,0 @@
-names=encode_iconv
-visibility=public
-kind=added
-
---- encode_iconv(content)
-@todo
-

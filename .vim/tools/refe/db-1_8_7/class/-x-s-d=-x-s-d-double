@@ -1,9 +1,0 @@
-type=class
-superclass=XSD=XSDAnySimpleType
-included=XSD=FloatConstants
-extended=
-library=xsd.datatypes
-aliases=
-aliasof=
-
-

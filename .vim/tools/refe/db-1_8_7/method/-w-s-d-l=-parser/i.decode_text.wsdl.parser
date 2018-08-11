@@ -1,8 +1,0 @@
-names=decode_text
-visibility=private 
-kind=defined
-
---- decode_text(ns, text)
-@todo
-
-

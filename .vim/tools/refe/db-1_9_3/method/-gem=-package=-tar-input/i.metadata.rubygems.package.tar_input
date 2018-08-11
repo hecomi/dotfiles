@@ -1,8 +1,0 @@
-names=metadata
-visibility=public 
-kind=defined
-
---- metadata -> Gem::Specification
-
-メタデータを返します。
-

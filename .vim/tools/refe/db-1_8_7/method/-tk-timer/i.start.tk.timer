@@ -1,7 +1,0 @@
-names=start
-visibility=public
-kind=defined
-
---- start(*init_args) { .... }
-@todo
-

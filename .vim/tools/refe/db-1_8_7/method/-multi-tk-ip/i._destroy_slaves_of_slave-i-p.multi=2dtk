@@ -1,7 +1,0 @@
-names=_destroy_slaves_of_slaveIP
-visibility=public
-kind=defined
-
---- _destroy_slaves_of_slaveIP(ip)
-@todo
-

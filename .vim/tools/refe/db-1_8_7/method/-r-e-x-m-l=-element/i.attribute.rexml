@@ -1,7 +1,0 @@
-names=attribute
-visibility=public
-kind=defined
-
---- attribute(name, namespace = nil)
-@todo
-

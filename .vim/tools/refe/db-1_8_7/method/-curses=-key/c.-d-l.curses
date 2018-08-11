@@ -1,8 +1,0 @@
-names=DL
-visibility=public
-kind=defined
-
---- DL -> Integer
-
-行を削除するキーを表す定数です。
-

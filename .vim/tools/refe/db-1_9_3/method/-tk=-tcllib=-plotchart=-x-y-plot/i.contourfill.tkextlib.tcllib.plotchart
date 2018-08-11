@@ -1,7 +1,0 @@
-names=contourfill
-visibility=public
-kind=defined
-
---- contourfill(xcrd, ycrd, vals, klasses = None)
-@todo
-

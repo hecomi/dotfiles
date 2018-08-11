@@ -1,8 +1,0 @@
-names=marshal_version
-visibility=public
-kind=defined
-
---- marshal_version -> String
-
-[[c:Marshal]] のバージョンを表す文字列を返します。
-

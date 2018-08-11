@@ -1,9 +1,0 @@
-names=read
-visibility=public
-kind=defined
-
---- read(tuple, sec=nil)
-@todo
-
-Reads +tuple+, but does not remove it.
-

@@ -1,7 +1,0 @@
-names=to_a
-visibility=public
-kind=defined
-
---- to_a
-Returns all date/time components in an array.
-Returns [year, month, day, hour, min, sec].

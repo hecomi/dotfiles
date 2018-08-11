@@ -1,9 +1,0 @@
-names=nan?
-visibility=public
-kind=defined
-
---- nan?
-@todo
-
-a.nan? は a が NaN のとき真を返します。 
-

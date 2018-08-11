@@ -1,8 +1,0 @@
-names=set_fcgi_request
-visibility=public
-kind=defined
-
---- set_fcgi_request(request)
-@todo
-
-

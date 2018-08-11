@@ -1,8 +1,0 @@
-names=ipv6_linklocal?
-visibility=public
-kind=defined
-
---- ipv6_linklocal? -> bool
-IPv6 のリンクローカルアドレス(ff80::/10)であれば真を返します。
-
-

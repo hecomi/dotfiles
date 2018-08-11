@@ -1,7 +1,0 @@
-names=find_first_recursive
-visibility=public
-kind=defined
-
---- find_first_recursive {|node| ... }
-@todo
-

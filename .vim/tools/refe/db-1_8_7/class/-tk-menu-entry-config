@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=TkItemConfigMethod
-extended=
-library=tk.menu
-aliases=
-aliasof=
-
-

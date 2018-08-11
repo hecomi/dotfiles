@@ -1,8 +1,0 @@
-names=dir=
-visibility=public
-kind=defined
-
---- dir=(dir)
-
-このユーザのホームディレクトリを表すパスを設定します。
-

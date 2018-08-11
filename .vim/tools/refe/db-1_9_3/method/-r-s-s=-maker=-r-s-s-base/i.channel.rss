@@ -1,8 +1,0 @@
-names=channel
-visibility=public
-kind=defined
-
---- channel
-@todo
-channel要素を生成するオブジェクトを返します．
-

@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=VALUE
-name=rb_trap_eval
-params=(VALUE cmd, int sig)
-
-

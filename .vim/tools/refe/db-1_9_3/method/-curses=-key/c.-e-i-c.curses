@@ -1,8 +1,0 @@
-names=EIC
-visibility=public
-kind=defined
-
---- EIC -> Integer
-
-挿入モードに入るキーを表す定数です。
-

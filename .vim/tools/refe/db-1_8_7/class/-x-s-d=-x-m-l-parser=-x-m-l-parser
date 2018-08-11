@@ -1,9 +1,0 @@
-type=class
-superclass=XSD=XMLParser=Parser
-included=
-extended=
-library=xsd.xmlparser
-aliases=
-aliasof=
-
-require 'xml/parser'

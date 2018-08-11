@@ -1,7 +1,0 @@
-names=delete_namespace
-visibility=public
-kind=defined
-
---- delete_namespace(namespace = "xmlns")
-@todo
-

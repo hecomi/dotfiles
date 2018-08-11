@@ -1,9 +1,0 @@
-names=dchars
-visibility=public
-kind=defined
-
---- dchars(tag, first, last = Tk::None)
-@todo
-
-
-

@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=rubygems.package.tar_writer
-aliases=
-aliasof=
-
-データサイズの上限がある [[c:IO]] のラッパークラスです。

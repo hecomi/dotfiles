@@ -1,8 +1,0 @@
-names=clone
-visibility=public
-kind=defined
-
---- clone -> Matrix
-自分自身のコピーを返します。
-
-

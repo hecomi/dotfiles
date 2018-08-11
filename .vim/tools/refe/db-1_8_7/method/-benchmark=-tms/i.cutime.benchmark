@@ -1,8 +1,0 @@
-names=cutime
-visibility=public
-kind=defined
-
---- cutime -> Float
-
-子プロセスの User CPU time
-

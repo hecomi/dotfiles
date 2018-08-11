@@ -1,8 +1,0 @@
-names=platform
-visibility=public
-kind=defined
-
---- platform -> String
-
-この Gem パッケージを使用できるプラットフォームを返します。
-

@@ -1,9 +1,0 @@
-names=inv,inverse
-visibility=public
-kind=defined
-
---- inverse -> Matrix
---- inv -> Matrix
-
-逆行列を返します。
-

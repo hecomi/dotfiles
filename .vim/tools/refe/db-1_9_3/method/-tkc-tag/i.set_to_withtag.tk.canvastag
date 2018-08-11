@@ -1,8 +1,0 @@
-names=set_to_withtag,withtag
-visibility=public
-kind=defined
-
---- set_to_withtag(target)
---- withtag(target)
-@todo
-

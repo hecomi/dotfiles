@@ -1,7 +1,0 @@
-names=addIPAddrMentry
-visibility=public
-kind=defined
-
---- addIPAddrMentry(name = None)
-@todo
-

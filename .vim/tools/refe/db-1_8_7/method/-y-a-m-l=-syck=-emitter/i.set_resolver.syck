@@ -1,7 +1,0 @@
-names=set_resolver
-visibility=public
-kind=defined
-
---- set_resolver(resolver) -> YAML::Syck::Emitter
-@todo
-

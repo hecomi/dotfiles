@@ -1,7 +1,0 @@
-names=period
-visibility=public
-kind=defined
-
---- period(txt, time_begin, time_end, col = None)
-@todo
-

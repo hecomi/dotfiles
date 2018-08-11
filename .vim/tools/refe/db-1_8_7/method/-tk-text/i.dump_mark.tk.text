@@ -1,7 +1,0 @@
-names=dump_mark
-visibility=public
-kind=defined
-
---- dump_mark(*index) { ... }
-@todo
-

@@ -1,9 +1,0 @@
-names=RubyGemsPackageVersion,RubyGemsVersion
-visibility=public
-kind=defined
-
---- RubyGemsVersion        -> String
---- RubyGemsPackageVersion -> String
-
-このライブラリのバージョンを表す文字列。
-

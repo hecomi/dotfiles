@@ -1,7 +1,0 @@
-names=op_bind_rpc?
-visibility=private 
-kind=defined
-
---- op_bind_rpc?(op_bind)
-@todo
-

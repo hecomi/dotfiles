@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=tkextlib.tile.tradiobutton
-aliases=Tk=Tile=TkRadioButton
-aliasof=
-
-

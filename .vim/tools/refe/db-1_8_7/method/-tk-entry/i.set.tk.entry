@@ -1,9 +1,0 @@
-names=set,value=
-visibility=public
-kind=defined
-
---- value=(val)
---- set(val)
-@todo
-
-

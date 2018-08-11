@@ -1,9 +1,0 @@
-names=iv=
-visibility=public
-kind=defined
-
---- iv=(iv) 
-IV(Initialization Vector) を設定します。
-
-@param iv IV文字列
-

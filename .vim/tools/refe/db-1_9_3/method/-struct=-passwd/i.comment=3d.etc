@@ -1,8 +1,0 @@
-names=comment=
-visibility=public
-kind=defined
-
---- comment=(comment)
-
-コメント(文字列)を設定します。このメンバはシステム依存です。
-

@@ -1,8 +1,0 @@
-names=load_documents
-visibility=public
-kind=defined
-
---- load_documents(io)
---- load_documents(io) { |doc| ... }
-@todo
-

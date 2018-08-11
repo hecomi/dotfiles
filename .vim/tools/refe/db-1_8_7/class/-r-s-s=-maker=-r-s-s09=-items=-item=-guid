@@ -1,9 +1,0 @@
-type=class
-superclass=RSS=Maker=ItemsBase=ItemBase=GuidBase
-included=
-extended=
-library=rss
-aliases=
-aliasof=
-
-

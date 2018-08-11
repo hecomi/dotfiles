@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=CGI=QueryExtension
-extended=
-library=cgi.core
-aliases=
-aliasof=
-
-CGI スクリプトを書くために必要な機能を提供するクラスです。

@@ -1,8 +1,0 @@
-names=MSG_RCVMORE
-visibility=public
-kind=defined
-
---- MSG_RCVMORE -> Integer
-@todo
-Data remains in the current packet
-

@@ -1,9 +1,0 @@
-names=NOCONV
-visibility=public
-kind=defined
-
---- NOCONV -> nil
-
-変換されないことを表します。
-出力エンコーディングの指定にのみ用います。
-

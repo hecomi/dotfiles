@@ -1,7 +1,0 @@
-names=encode_name_end
-visibility=public
-kind=defined
-
---- encode_name_end(ns, data)
-@todo
-

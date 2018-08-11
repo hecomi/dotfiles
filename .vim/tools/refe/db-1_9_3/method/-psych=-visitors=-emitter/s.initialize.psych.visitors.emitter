@@ -1,9 +1,0 @@
-names=initialize
-visibility=public
-kind=defined
-
---- initialize(io, options = {}) -> Psych::Visitors::Emitter
-@todo
-
-自身を初期化します。
-

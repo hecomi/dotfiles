@@ -1,8 +1,0 @@
-names=RESUME
-visibility=public
-kind=defined
-
---- RESUME -> Integer
-
-Resume キーを表す定数です。
-

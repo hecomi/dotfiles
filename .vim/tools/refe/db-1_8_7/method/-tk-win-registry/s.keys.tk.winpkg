@@ -1,8 +1,0 @@
-names=keys
-visibility=public
-kind=defined
-
---- keys(keynam, pattern = nil)
-@todo
-
-

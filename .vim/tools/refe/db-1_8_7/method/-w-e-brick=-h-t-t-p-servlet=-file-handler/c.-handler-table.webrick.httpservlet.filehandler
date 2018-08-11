@@ -1,8 +1,0 @@
-names=HandlerTable
-visibility=public
-kind=defined
-
---- HandlerTable -> Hash
-
-拡張子に対応するサーブレットを登録するためのハッシュです。
-

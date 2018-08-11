@@ -1,7 +1,0 @@
-names=getenv
-visibility=public
-kind=defined
-
---- getenv(name)
-@todo
-

@@ -1,7 +1,0 @@
-names=postcommand
-visibility=public
-kind=defined
-
---- postcommand(cmd = Proc.new)
-@todo
-

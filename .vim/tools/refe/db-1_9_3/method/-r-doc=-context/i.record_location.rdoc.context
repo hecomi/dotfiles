@@ -1,8 +1,0 @@
-names=record_location
-visibility=public
-kind=defined
-
---- record_location(toplevel)
-
-Record the file that we happen to find it in
-

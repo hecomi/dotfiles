@@ -1,8 +1,0 @@
-names=nlsolve
-visibility=public
-kind=defined
-
---- nlsolve(f, x)
-@todo
-
-

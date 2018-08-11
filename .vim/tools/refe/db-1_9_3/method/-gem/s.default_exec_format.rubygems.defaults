@@ -1,8 +1,0 @@
-names=default_exec_format
-visibility=public
-kind=added
-
---- default_exec_format -> String
-
-デフォルトのインストールするコマンド名を決めるためのフォーマット文字列を返します。
-

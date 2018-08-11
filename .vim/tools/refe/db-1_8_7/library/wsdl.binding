@@ -1,8 +1,0 @@
-requires=wsdl.info,xsd.namedelements
-classes=WSDL=Binding
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-

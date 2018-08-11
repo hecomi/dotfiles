@@ -1,9 +1,0 @@
-names=select
-visibility=public
-kind=defined
-
---- select(mode, *args)
-@todo
-
-
-

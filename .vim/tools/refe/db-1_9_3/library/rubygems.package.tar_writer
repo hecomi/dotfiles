@@ -1,8 +1,0 @@
-requires=
-classes=Gem=Package=TarWriter,Gem=Package=TarWriter=BoundedStream,Gem=Package=TarWriter=RestrictedStream,Gem=Package=TarWriter=FileOverflow
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-tar ファイルを書き込むためのクラスを提供するライブラリです。

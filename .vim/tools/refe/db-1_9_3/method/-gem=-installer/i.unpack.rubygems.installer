@@ -1,9 +1,0 @@
-names=unpack
-visibility=public 
-kind=defined
-
---- unpack(directory)
-与えられたディレクトリに Gem を展開します。
-
-@param directory Gem を展開するディレクトリを指定します。
-

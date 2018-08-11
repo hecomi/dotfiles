@@ -1,8 +1,0 @@
-names=any_line,any_lines
-visibility=public
-kind=defined
-
---- any_lines(mod)
---- any_line(mod)
-@todo
-

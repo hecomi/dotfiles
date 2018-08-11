@@ -1,7 +1,0 @@
-names=attributes
-visibility=public
-kind=defined
-
---- attributes(slot = nil, value = Tk::None)
-@todo
-

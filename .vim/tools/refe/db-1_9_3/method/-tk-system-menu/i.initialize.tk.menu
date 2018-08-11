@@ -1,6 +1,0 @@
-names=initialize
-visibility=public
-kind=defined
-
---- initialize(parent, keys = nil)
-@todo

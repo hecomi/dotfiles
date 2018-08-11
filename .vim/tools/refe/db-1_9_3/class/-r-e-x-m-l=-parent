@@ -1,9 +1,0 @@
-type=class
-superclass=REXML=Child
-included=Enumerable
-extended=
-library=rexml
-aliases=
-aliasof=
-
-

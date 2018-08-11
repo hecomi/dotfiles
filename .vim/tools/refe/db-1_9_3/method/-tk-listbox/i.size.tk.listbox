@@ -1,9 +1,0 @@
-names=size
-visibility=public
-kind=defined
-
---- size
-@todo
-
-要素の数を返します。
-

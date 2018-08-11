@@ -1,9 +1,0 @@
-names=names
-visibility=public
-kind=defined
-
---- names -> String
-エンコーディングの名前とエイリアス名の配列を返します。
-
-    Encoding::UTF_8.names      => ["UTF-8", "CP65001"]
-

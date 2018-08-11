@@ -1,8 +1,0 @@
-names=close
-visibility=public
-kind=defined
-
---- close -> nil
-
-DBM ファイルをクローズします。以後の操作は例外を発生させます。
-

@@ -1,9 +1,0 @@
-type=class
-superclass=
-included=
-extended=
-library=net.protocol
-aliases=
-aliasof=Net=ProtoRetriableError
-
-Alias of [[c:Net::ProtoRetriableError]]

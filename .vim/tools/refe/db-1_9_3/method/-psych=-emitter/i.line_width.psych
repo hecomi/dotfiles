@@ -1,9 +1,0 @@
-names=line_width
-visibility=public
-kind=defined
-
---- line_width -> Integer
-@todo
-
-Get the preferred line width.
-

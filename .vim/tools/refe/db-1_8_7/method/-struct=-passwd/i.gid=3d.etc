@@ -1,8 +1,0 @@
-names=gid=
-visibility=public
-kind=defined
-
---- gid=(gid)
-
-このユーザの gid を設定します。
-

@@ -1,8 +1,0 @@
-names=procedure_type=,set_procedure_type
-visibility=public
-kind=defined
-
---- procedure_type=
---- set_procedure_type(cmd)
-@todo
-

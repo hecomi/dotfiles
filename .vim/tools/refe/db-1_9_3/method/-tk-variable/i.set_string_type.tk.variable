@@ -1,8 +1,0 @@
-names=set_string_type,string_type=
-visibility=public
-kind=defined
-
---- string_type=
---- set_string_type(val)
-@todo
-

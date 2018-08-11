@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Command
-included=
-extended=
-library=rubygems.commands.environment_command
-aliases=
-aliasof=
-
-RubyGems の環境に関する情報を表示するためのクラスです。

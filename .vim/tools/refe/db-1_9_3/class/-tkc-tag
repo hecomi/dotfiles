@@ -1,9 +1,0 @@
-type=class
-superclass=TkObject
-included=TkcTagAccess
-extended=
-library=tk.canvastag
-aliases=
-aliasof=
-
-

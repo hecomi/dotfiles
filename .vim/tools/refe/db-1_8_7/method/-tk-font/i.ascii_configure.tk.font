@@ -1,8 +1,0 @@
-names=ascii_configure,latin_configure
-visibility=public
-kind=defined
-
---- latin_configure(slot, value = Tk::None)
---- ascii_configure(slot, value = Tk::None)
-@todo
-

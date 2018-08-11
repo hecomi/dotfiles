@@ -1,7 +1,0 @@
-names=wait?
-visibility=public
-kind=defined
-
---- wait? -> bool
-@todo
-

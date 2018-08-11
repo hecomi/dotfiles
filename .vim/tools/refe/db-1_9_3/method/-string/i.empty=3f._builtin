@@ -1,8 +1,0 @@
-names=empty?
-visibility=public
-kind=defined
-
---- empty? -> bool
-
-文字列が空 (つまり長さ 0) の時、真を返します。
-

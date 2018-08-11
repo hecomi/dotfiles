@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=rubygems.package.tar_reader
-aliases=
-aliasof=
-
-IO がシーク可能でない場合に発生する例外です。

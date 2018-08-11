@@ -1,8 +1,0 @@
-names=all_classes_and_modules
-visibility=public
-kind=defined
-
---- all_classes_and_modules -> [RDoc::NormalClass | RDoc::SingleClass | RDoc::NormalModule]
-
-RDoc が収集したクラス、モジュールを配列で返します。
-

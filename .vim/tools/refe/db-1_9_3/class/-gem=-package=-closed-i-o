@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Package=Error
-included=
-extended=
-library=rubygems.package
-aliases=
-aliasof=
-
-既に閉じている IO を操作した場合に発生する例外です。

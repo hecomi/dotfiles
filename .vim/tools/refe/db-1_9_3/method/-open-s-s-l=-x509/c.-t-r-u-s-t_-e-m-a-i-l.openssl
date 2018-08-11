@@ -1,7 +1,0 @@
-names=TRUST_EMAIL
-visibility=public
-kind=defined
-
---- TRUST_EMAIL -> Integer
-@todo
-

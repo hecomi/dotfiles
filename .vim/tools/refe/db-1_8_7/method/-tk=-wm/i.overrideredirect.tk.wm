@@ -1,7 +1,0 @@
-names=overrideredirect
-visibility=public
-kind=defined
-
---- overrideredirect(mode = Tk::None)
-@todo
-

@@ -1,8 +1,0 @@
-names=MARK
-visibility=public
-kind=defined
-
---- MARK -> Integer
-
-Mark キーを表す定数です。
-

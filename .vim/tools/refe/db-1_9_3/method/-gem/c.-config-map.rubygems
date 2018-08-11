@@ -1,8 +1,0 @@
-names=ConfigMap
-visibility=public
-kind=defined
-
---- ConfigMap -> Hash
-
-[[m:RbConfig::CONFIG]] の中からこのライブラリで使用するものを抽出して定義したハッシュ。
-

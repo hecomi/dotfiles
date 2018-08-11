@@ -1,7 +1,0 @@
-names=dump_input_init
-visibility=private 
-kind=defined
-
---- dump_input_init(input)
-@todo
-

@@ -1,7 +1,0 @@
-names=address
-visibility=public
-kind=defined
-
---- address -> String
-4byte バイト列の IPv4 アドレスを返します。
-

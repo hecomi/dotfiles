@@ -1,7 +1,0 @@
-names=append
-visibility=public
-kind=defined
-
---- append(data, keys = nil)
-@todo
-

@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=getoptlong
-aliases=
-aliasof=
-
-このライブラリで発生する例外の基底クラスです。

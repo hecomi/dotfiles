@@ -1,9 +1,0 @@
-type=class
-superclass=
-included=
-extended=
-library=rubygems.source_index
-aliases=
-aliasof=Gem=SourceIndex
-
-Alias of [[c:Gem::SourceIndex]]

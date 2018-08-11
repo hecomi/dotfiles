@@ -1,7 +1,0 @@
-names=notify
-visibility=public
-kind=defined
-
---- notify(*opts){ ... } -> ()
-@todo
-

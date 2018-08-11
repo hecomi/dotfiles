@@ -1,9 +1,0 @@
-names=to_json
-visibility=public
-kind=defined
-
---- to_json(o) -> String
-@todo
-
-Dump Ruby object +o+ to a JSON string.
-

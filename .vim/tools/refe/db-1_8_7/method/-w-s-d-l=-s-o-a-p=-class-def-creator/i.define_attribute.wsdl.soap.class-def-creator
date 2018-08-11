@@ -1,7 +1,0 @@
-names=define_attribute
-visibility=private 
-kind=defined
-
---- define_attribute(c, attributes)
-@todo
-

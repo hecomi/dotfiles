@@ -1,7 +1,0 @@
-names=window_cget
-visibility=public
-kind=defined
-
---- window_cget(tagOrId, option)
-@todo
-

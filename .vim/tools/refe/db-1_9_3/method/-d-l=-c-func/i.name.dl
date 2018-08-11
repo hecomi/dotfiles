@@ -1,8 +1,0 @@
-names=name
-visibility=public
-kind=defined
-
---- name   -> String
-
-自身の名前を文字列で返します。
-

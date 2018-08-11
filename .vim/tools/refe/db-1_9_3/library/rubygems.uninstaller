@@ -1,8 +1,0 @@
-requires=rubygems,rubygems.defaults,rubygems.exceptions,rubygems.version,rubygems.requirement,rubygems.dependency,rubygems.gem_path_searcher,rubygems.source_index,rubygems.user_interaction,rubygems.specification,rubygems.platform,rubygems.spec_fetcher,rubygems.remote_fetcher,rubygems.digest.sha2,rubygems.source_info_cache,rubygems.source_info_cache_entry,rubygems.builder,rubygems.dependency_list,rubygems.doc_manager
-classes=Gem=Uninstaller
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-Gem のアンインストールを行うためのライブラリです。

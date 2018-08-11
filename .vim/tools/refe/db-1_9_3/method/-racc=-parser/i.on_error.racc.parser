@@ -1,7 +1,0 @@
-names=on_error
-visibility=private 
-kind=defined
-
---- on_error(t, val, vstack)
-@todo
-

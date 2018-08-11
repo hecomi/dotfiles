@@ -1,9 +1,0 @@
-names=read
-visibility=public
-kind=defined
-
---- read(tuple, sec = nil){|template| ... }
-@todo
-
-詳細は [[m:Rinda::TupleSpace#read]] 参照
-

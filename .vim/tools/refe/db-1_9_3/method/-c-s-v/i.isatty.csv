@@ -1,9 +1,0 @@
-names=isatty,tty?
-visibility=public
-kind=defined
-
---- isatty    -> bool
---- tty?      -> bool
-
-[[m:IO#isatty]], [[m:IO#tty?]] に委譲します。
-

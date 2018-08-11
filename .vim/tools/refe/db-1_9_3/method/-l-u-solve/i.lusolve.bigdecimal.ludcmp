@@ -1,8 +1,0 @@
-names=lusolve
-visibility=public
-kind=defined
-
---- lusolve(a, b, ps, zero = 0.0)
-@todo
-
-

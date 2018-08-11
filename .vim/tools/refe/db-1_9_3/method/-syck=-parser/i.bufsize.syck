@@ -1,7 +1,0 @@
-names=bufsize
-visibility=public
-kind=defined
-
---- bufsize(val)
-@todo
-

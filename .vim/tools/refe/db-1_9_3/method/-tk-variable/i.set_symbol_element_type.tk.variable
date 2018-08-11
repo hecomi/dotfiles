@@ -1,8 +1,0 @@
-names=set_symbol_element_type
-visibility=public
-kind=defined
-
---- set_symbol_element_type(idxs, val)
-@todo
-
-

@@ -1,8 +1,0 @@
-names=test_order
-visibility=public
-kind=defined
-
---- test_order    -> Symbol
-
-テストの実行順序を返します。
-

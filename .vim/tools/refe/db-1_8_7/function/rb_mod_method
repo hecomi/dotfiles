@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=VALUE
-name=rb_mod_method
-params=(VALUE mod, VALUE vid)
-
-

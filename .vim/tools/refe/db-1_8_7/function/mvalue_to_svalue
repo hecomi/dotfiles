@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=VALUE
-name=mvalue_to_svalue
-params=(VALUE v)
-
-

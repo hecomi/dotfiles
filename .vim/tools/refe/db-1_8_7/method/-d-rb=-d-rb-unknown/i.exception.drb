@@ -1,9 +1,0 @@
-names=exception
-visibility=public
-kind=defined
-
---- exception()
-@todo
-
-Create a DRbUnknownError exception containing this object. 
-

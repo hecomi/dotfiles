@@ -1,7 +1,0 @@
-names=uncapitalize
-visibility=public
-kind=defined
-
---- uncapitalize(target)
-@todo
-

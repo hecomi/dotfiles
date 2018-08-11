@@ -1,9 +1,0 @@
-names=cert_chain=
-visibility=public
-kind=defined
-
---- cert_chain=(arr)
-@todo
-
-@param arr デフォルトは空の配列です。
-

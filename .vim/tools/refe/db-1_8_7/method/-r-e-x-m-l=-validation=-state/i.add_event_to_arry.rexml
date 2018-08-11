@@ -1,7 +1,0 @@
-names=add_event_to_arry
-visibility=protected 
-kind=defined
-
---- add_event_to_arry(arry, evt)
-@todo
-

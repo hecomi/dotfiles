@@ -1,9 +1,0 @@
-type=class
-superclass=TkMenu
-included=TkSystemMenu
-extended=
-library=tk.menu
-aliases=
-aliasof=
-
-

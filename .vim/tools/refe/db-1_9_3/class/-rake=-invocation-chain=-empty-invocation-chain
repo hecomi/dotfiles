@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=rake
-aliases=
-aliasof=
-
-呼び出し関係のトップレベルを表します。

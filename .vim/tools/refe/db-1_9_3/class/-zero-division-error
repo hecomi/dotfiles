@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=_builtin
-aliases=
-aliasof=
-
-整数に対して整数の 0 で除算を行ったときに発生します。

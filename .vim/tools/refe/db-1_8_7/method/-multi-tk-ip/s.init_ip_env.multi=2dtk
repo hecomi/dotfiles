@@ -1,7 +1,0 @@
-names=init_ip_env
-visibility=public
-kind=defined
-
---- init_ip_env(script = Proc.new)
-@todo
-

@@ -1,8 +1,0 @@
-names=grid_rowconfiginfo
-visibility=public
-kind=defined
-
---- grid_rowconfiginfo(index, slot = nil)
-@todo
-
-

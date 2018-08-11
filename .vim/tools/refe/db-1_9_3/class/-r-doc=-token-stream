@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=rdoc.token_stream
-aliases=
-aliasof=
-
-ライブラリの内部で使用します。

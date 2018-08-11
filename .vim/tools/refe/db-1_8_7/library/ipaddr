@@ -1,8 +1,0 @@
-requires=
-classes=IPAddr
-methods=
-sublibraries=
-is_sublibrary=false
-category=Network
-
-IPアドレスを扱うライブラリです。

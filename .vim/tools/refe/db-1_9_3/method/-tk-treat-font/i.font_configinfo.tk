@@ -1,9 +1,0 @@
-names=font_configinfo,fontobj
-visibility=public
-kind=defined
-
---- font_configinfo(key = nil)
---- fontobj(key = nil)
-@todo
-
-

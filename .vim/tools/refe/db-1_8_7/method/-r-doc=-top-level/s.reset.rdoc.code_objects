@@ -1,9 +1,0 @@
-names=reset
-visibility=public
-kind=defined
-
---- reset -> ()
-
-RDoc が収集した [[c:RDoc::TopLevel]] の情報(クラス、モジュール、ファイ
-ル)をクリアします。
-

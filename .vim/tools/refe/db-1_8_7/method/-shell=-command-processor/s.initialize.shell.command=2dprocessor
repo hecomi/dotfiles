@@ -1,9 +1,0 @@
-names=initialize
-visibility=public
-kind=defined
-
---- initialize -> ()
-@todo
-
-このクラスを初期化します。
-

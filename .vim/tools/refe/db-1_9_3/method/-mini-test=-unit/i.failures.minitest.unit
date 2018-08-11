@@ -1,8 +1,0 @@
-names=failures
-visibility=public 
-kind=defined
-
---- failures -> Fixnum
-
-失敗したアサーション数を返します。
-

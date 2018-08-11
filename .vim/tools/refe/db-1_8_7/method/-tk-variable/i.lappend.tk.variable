@@ -1,7 +1,0 @@
-names=lappend
-visibility=public
-kind=defined
-
---- lappend(*elems)
-@todo
-

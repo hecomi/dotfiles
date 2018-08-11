@@ -1,7 +1,0 @@
-names=do_GET
-visibility=public
-kind=defined
-
---- do_GET(req, res)
-@todo
-

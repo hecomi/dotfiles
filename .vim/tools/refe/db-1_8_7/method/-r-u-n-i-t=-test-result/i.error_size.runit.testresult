@@ -1,8 +1,0 @@
-names=error_size
-visibility=public
-kind=defined
-
---- error_size -> Integer
-
-エラーが発生した件数を返します。
-

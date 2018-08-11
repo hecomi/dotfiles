@@ -1,8 +1,0 @@
-names=rewind
-visibility=public
-kind=defined
-
---- rewind -> nil
-
-列挙状態を巻き戻します。
-

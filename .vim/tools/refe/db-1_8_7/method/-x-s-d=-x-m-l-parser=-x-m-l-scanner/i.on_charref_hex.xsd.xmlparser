@@ -1,7 +1,0 @@
-names=on_charref_hex
-visibility=public
-kind=defined
-
---- on_charref_hex(code)
-@todo
-

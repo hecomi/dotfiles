@@ -1,7 +1,0 @@
-names=prevrange
-visibility=public
-kind=defined
-
---- prevrange(first, last = Tk::None)
-@todo
-

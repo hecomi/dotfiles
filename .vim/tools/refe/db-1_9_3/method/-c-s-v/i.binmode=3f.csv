@@ -1,8 +1,0 @@
-names=binmode?
-visibility=public
-kind=defined
-
---- binmode? -> bool
-
-[[m:IO#binmode?]] に委譲します。
-

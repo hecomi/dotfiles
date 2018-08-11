@@ -1,9 +1,0 @@
-names=asciifont_configure,latinfont_configure
-visibility=public
-kind=defined
-
---- latinfont_configure(ltn, keys = nil)
---- asciifont_configure(ltn, keys = nil)
-@todo
-
-

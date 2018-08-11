@@ -1,7 +1,0 @@
-names=fault2exception
-visibility=public
-kind=defined
-
---- fault2exception(fault, registry = nil)
-@todo
-

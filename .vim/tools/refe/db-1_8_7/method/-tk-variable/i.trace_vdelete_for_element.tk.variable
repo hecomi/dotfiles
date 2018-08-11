@@ -1,7 +1,0 @@
-names=trace_vdelete_for_element
-visibility=public
-kind=defined
-
---- trace_vdelete_for_element(elem, opts, cmd)
-@todo
-

@@ -1,8 +1,0 @@
-names=nearest_cell,nearestcell
-visibility=public
-kind=defined
-
---- nearest_cell(x, y)
---- nearestcell(x, y)
-@todo
-

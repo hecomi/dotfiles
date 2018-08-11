@@ -1,8 +1,0 @@
-names=indent
-visibility=public 
-kind=defined
-
---- indent -> String
-
-インデントに使用する文字列を返します。
-

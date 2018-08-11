@@ -1,7 +1,0 @@
-names=parse_attr
-visibility=public
-kind=defined
-
---- parse_attr(attr, name)
-@todo
-

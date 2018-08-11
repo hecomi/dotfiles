@@ -1,8 +1,0 @@
-names=SIC
-visibility=public
-kind=defined
-
---- SIC -> Integer
-@todo ???
-Shift + ... キーを表す定数です。
-

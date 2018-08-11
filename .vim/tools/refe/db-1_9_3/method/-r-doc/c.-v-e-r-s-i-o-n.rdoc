@@ -1,8 +1,0 @@
-names=VERSION
-visibility=public
-kind=defined
-
---- VERSION -> String
-
-RDoc のバージョンを表す文字列を返します。
-

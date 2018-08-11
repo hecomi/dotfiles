@@ -1,9 +1,0 @@
-names=insert
-visibility=public
-kind=defined
-
---- insert(tagOrId, index, string)
-@todo
-
-
-

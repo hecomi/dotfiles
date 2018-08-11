@@ -1,8 +1,0 @@
-names=write
-visibility=public
-kind=defined
-
---- write(tuple, sec = nil)
-@todo
-
-詳細は [[m:Rinda::TupleSpace#write]] 参照

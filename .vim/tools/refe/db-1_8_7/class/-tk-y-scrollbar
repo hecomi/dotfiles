@@ -1,9 +1,0 @@
-type=class
-superclass=TkScrollbar
-included=
-extended=
-library=tk.scrollbar
-aliases=
-aliasof=
-
-

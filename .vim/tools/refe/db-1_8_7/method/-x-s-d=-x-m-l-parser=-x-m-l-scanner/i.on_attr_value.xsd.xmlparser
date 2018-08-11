@@ -1,7 +1,0 @@
-names=on_attr_value
-visibility=public
-kind=defined
-
---- on_attr_value(str)
-@todo
-

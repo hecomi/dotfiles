@@ -1,9 +1,0 @@
-type=class
-superclass=RuntimeError
-included=
-extended=
-library=cgi.session
-aliases=
-aliasof=
-
-セッションが初期化されていない場合に発生する例外です。

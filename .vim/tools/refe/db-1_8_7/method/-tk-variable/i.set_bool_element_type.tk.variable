@@ -1,7 +1,0 @@
-names=set_bool_element_type
-visibility=public
-kind=defined
-
---- set_bool_element_type(idxs, val)
-@todo
-

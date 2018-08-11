@@ -1,8 +1,0 @@
-names=nearest_column,nearestcolumn
-visibility=public
-kind=defined
-
---- nearest_column(x)
---- nearestcolumn(x)
-@todo
-

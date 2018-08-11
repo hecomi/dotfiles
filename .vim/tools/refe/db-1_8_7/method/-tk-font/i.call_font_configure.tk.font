@@ -1,7 +1,0 @@
-names=call_font_configure
-visibility=public
-kind=defined
-
---- call_font_configure(path, *args)
-@todo
-

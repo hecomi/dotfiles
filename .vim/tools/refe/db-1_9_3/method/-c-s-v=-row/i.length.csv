@@ -1,9 +1,0 @@
-names=length,size
-visibility=public
-kind=defined
-
---- length -> Fixnum
---- size -> Fixnum
-
-[[m:Array#length]], [[m:Array#size]] に委譲します。
-

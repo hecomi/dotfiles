@@ -1,9 +1,0 @@
-names=BMPSTRING
-visibility=public
-kind=defined
-
---- BMPSTRING -> Integer
-
-ASN.1 UNIVERSAL タグの、
-BMPSTRING のタグ番号 30 を表す定数です。
-

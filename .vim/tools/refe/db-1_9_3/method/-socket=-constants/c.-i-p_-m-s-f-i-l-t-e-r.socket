@@ -1,8 +1,0 @@
-names=IP_MSFILTER
-visibility=public
-kind=defined
-
---- IP_MSFILTER -> Integer
-@todo
-Multicast source filtering
-

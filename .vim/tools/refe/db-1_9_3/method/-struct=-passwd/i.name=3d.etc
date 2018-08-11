@@ -1,8 +1,0 @@
-names=name=
-visibility=public
-kind=defined
-
---- name=(name)
-
-このユーザのログイン名を設定します。
-

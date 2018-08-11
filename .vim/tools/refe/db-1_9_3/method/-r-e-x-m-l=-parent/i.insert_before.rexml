@@ -1,7 +1,0 @@
-names=insert_before
-visibility=public
-kind=defined
-
---- insert_before(child1, child2)
-@todo
-

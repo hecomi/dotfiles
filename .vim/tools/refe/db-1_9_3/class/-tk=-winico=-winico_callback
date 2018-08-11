@@ -1,9 +1,0 @@
-type=class
-superclass=TkValidateCommand
-included=
-extended=
-library=tkextlib.winico.winico
-aliases=
-aliasof=
-
-

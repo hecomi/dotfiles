@@ -1,9 +1,0 @@
-names=*
-visibility=public
-kind=defined
-
---- *(other) -> OpenSSL::BN
-自身と other の積を返します。
-
-@param other かける数
-@raise OpenSSL::BNError 計算時エラー

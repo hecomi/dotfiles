@@ -1,8 +1,0 @@
-names=row
-visibility=protected 
-kind=defined
-
---- row -> Array
-
-同値性を比較するために使用する内部的なデータです。
-

@@ -1,7 +1,0 @@
-names=ensemble_configure
-visibility=public
-kind=defined
-
---- ensemble_configure(cmd, slot, value = Tk::None)
-@todo
-

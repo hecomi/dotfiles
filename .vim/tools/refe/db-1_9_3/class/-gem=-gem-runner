@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=rubygems.gem_runner
-aliases=
-aliasof=
-
-gem コマンドを実行するためのクラスです。

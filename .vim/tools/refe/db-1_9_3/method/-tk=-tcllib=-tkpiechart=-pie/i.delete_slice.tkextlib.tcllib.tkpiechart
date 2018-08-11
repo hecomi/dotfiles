@@ -1,7 +1,0 @@
-names=delete_slice
-visibility=public
-kind=defined
-
---- delete_slice(slice)
-@todo
-

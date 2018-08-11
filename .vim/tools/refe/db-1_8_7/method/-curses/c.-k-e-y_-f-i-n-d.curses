@@ -1,8 +1,0 @@
-names=KEY_FIND
-visibility=public
-kind=defined
-
---- KEY_FIND -> Integer
-
-Find キーを表す定数です。
-

@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=Comparable
-extended=
-library=rubygems.version
-aliases=
-aliasof=
-
-文字列で表現されたバージョンを比較可能 (Comparable) にするためのクラスです。

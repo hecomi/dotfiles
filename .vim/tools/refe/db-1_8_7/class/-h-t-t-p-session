@@ -1,9 +1,0 @@
-type=class
-superclass=
-included=
-extended=
-library=net.http
-aliases=
-aliasof=Net=HTTP
-
-Alias of [[c:Net::HTTP]]

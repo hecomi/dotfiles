@@ -1,8 +1,0 @@
-names=to_i
-visibility=public
-kind=defined
-
---- to_i -> Fixnum
-
-0 を返します。
-

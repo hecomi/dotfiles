@@ -1,9 +1,0 @@
-names=ascii_only?
-visibility=public
-kind=defined
-
---- ascii_only?  -> bool
-
-文字列がASCII文字のみで構成されている場合に true を返します。さもなくば
-false を返します。
-

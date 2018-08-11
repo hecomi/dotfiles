@@ -1,8 +1,0 @@
-names=options
-visibility=public
-kind=defined
-
---- options -> {Symbol => object}
-
-オプションの一覧を返します。
-

@@ -1,7 +1,0 @@
-names=configure
-visibility=public
-kind=defined
-
---- configure(key, value = nil)
-@todo
-

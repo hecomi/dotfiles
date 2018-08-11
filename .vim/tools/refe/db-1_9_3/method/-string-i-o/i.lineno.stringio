@@ -1,8 +1,0 @@
-names=lineno
-visibility=public
-kind=defined
-
---- lineno    -> Integer
-
-現在の行番号を返します。これは [[m:StringIO#gets]] が呼ばれた回数です。
-

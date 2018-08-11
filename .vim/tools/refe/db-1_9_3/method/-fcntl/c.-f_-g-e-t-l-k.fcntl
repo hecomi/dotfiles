@@ -1,7 +1,0 @@
-names=F_GETLK
-visibility=public
-kind=defined
-
---- F_GETLK -> Integer
-与えられたファイルの範囲のロック状態を取得します。
-

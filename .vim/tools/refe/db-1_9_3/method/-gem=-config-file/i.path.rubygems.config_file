@@ -1,8 +1,0 @@
-names=path
-visibility=public 
-kind=defined
-
---- path -> String
-
-Gem を探索するパスを返します。
-

@@ -1,9 +1,0 @@
-type=class
-superclass=TkFrame
-included=TkComposite,TkMenuSpec
-extended=
-library=tk.menubar
-aliases=
-aliasof=
-
-

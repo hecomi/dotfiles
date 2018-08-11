@@ -1,8 +1,0 @@
-names=size
-visibility=public
-kind=defined
-
---- size -> Integer
-
-自身のサイズを返します。
-

@@ -1,9 +1,0 @@
-names=encoding
-visibility=public
-kind=defined
-
---- encoding -> String
-Content-Transfer-Encoding の値を文字列で返します。
-
-@see [[RFC:2045]]
-

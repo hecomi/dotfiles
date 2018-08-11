@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=Tk
-extended=Tk
-library=tk.console
-aliases=
-aliasof=
-
-

@@ -1,7 +1,0 @@
-names=exist?
-visibility=public
-kind=defined
-
---- exist?(slave = '')
-@todo
-

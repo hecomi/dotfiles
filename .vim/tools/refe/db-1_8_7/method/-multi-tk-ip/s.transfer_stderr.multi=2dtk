@@ -1,7 +1,0 @@
-names=transfer_stderr
-visibility=public
-kind=defined
-
---- transfer_stderr(dist, src = '')
-@todo
-

@@ -1,8 +1,0 @@
-names=wsdl_mapping_registry,wsdl_mapping_registry=
-visibility=public
-kind=defined
-
---- wsdl_mapping_registry
---- wsdl_mapping_registry=(value)
-@todo
-

@@ -1,7 +1,0 @@
-names=normalize
-visibility=public
-kind=defined
-
---- normalize(input, doctype = nil, entity_filter = nil)
-@todo
-

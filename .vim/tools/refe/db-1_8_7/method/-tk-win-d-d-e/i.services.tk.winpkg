@@ -1,6 +1,0 @@
-names=services
-visibility=public
-kind=defined
-
---- services(service, topic)
-@todo

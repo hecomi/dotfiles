@@ -1,9 +1,0 @@
-names=RTLD_GLOBAL,RTLD_LAZY,RTLD_NOW,RUBY_FREE
-visibility=public
-kind=defined
-
---- RTLD_GLOBAL
---- RTLD_LAZY
---- RTLD_NOW
---- RUBY_FREE
-

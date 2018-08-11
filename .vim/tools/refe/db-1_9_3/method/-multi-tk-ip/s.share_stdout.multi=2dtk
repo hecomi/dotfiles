@@ -1,7 +1,0 @@
-names=share_stdout
-visibility=public
-kind=defined
-
---- share_stdout(dist, src = '')
-@todo
-

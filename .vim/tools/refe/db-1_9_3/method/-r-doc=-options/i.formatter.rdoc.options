@@ -1,9 +1,0 @@
-names=formatter
-visibility=public
-kind=defined
-
---- formatter -> nil
-
-使用されていません。常に nil を返します。
-
-

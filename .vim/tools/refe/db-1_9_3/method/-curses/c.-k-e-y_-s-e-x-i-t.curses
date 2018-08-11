@@ -1,8 +1,0 @@
-names=KEY_SEXIT
-visibility=public
-kind=defined
-
---- KEY_SEXIT -> Integer
-
-Shift + Exit キーを表す定数です。
-

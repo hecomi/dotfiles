@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=irb.inspector
-aliases=
-aliasof=
-
-実行結果の出力を行うためのクラスです。

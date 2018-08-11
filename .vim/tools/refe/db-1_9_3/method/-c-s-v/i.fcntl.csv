@@ -1,8 +1,0 @@
-names=fcntl
-visibility=public
-kind=defined
-
---- fcntl(cmd, arg = 0)    -> Integer
-
-[[m:IO#fcntl]] に委譲します。
-

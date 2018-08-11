@@ -1,7 +1,0 @@
-names=loadproperty
-visibility=public
-kind=defined
-
---- loadproperty(propname)
-@todo
-

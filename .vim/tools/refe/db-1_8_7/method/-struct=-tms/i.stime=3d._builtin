@@ -1,7 +1,0 @@
-names=stime=
-visibility=public
-kind=defined
-
---- stime=(n)
-システム CPU 時間をセットします。
-

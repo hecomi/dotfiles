@@ -1,7 +1,0 @@
-names=psych_y,y
-visibility=public
-kind=added
-
---- y(*objects) -> String
---- psych_y(*objects) -> String
-@todo

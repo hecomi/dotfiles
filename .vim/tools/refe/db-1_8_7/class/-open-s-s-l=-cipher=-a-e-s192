@@ -1,9 +1,0 @@
-type=class
-superclass=OpenSSL=Cipher
-included=
-extended=
-library=openssl
-aliases=
-aliasof=
-
-鍵長 192 ビットの AES 暗号を表すクラス

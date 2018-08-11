@@ -1,9 +1,0 @@
-names=new
-visibility=public
-kind=defined
-
---- new -> Gem::GemPathSearcher
-
-検索を行うのに必要なデータを初期化します。
-
-

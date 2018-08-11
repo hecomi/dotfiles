@@ -1,8 +1,0 @@
-names=root?
-visibility=public
-kind=defined
-
---- root? -> bool
-self がルートディレクトリであれば真を返します。判断は文字列操作によっ
-て行われ、ファイルシステムはアクセスされません。
-

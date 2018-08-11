@@ -1,9 +1,0 @@
-names=stand_alone?,standalone,standalone=
-visibility=public
-kind=defined
-
---- standalone
---- standalone=(value)
---- stand_alone?
-@todo
-

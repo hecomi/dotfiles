@@ -1,8 +1,0 @@
-names=WRONLY
-visibility=public
-kind=defined
-
---- WRONLY -> Integer
-書き込みのみのモードでファイルを開くときに指定します。
-[[m:File.open]]で使用します。
-

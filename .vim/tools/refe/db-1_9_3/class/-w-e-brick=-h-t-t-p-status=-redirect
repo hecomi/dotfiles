@@ -1,9 +1,0 @@
-type=class
-superclass=WEBrick=HTTPStatus=Status
-included=
-extended=
-library=webrick.httpstatus
-aliases=
-aliasof=
-
-HTTP のステータスコード転送 3XX の親クラスです。

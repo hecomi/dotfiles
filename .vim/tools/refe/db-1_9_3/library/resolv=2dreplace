@@ -1,8 +1,0 @@
-requires=
-classes=
-methods=IPSocket/s.getaddress.resolv=2dreplace,TCPSocket/s.new.resolv=2dreplace,UDPSocket/i.bind.resolv=2dreplace,UDPSocket/i.connect.resolv=2dreplace,UDPSocket/i.send.resolv=2dreplace,SOCKSSocket/s.new.resolv=2dreplace
-sublibraries=
-is_sublibrary=false
-category=Network
-
-名前解決に resolv を使用するためのライブラリです。

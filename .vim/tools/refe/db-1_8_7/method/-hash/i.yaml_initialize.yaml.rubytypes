@@ -1,8 +1,0 @@
-names=yaml_initialize
-visibility=public
-kind=added
-
---- yaml_initialize(tag, val)
-
-ライブラリ内部で使用します。
-

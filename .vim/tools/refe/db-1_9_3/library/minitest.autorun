@@ -1,8 +1,0 @@
-requires=minitest.unit
-classes=
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-このファイルを [[m:Kernel.#require]] するとテストが [[lib:test/unit]] と同じように自動実行されます。

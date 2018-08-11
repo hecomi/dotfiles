@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=syck.basenode
-aliases=
-aliasof=
-
-YAML のノードを検索するのためのモジュールです。

@@ -1,7 +1,0 @@
-names=metrics_displayof
-visibility=public
-kind=defined
-
---- metrics_displayof(fnt, win, option = nil)
-@todo
-

@@ -1,7 +1,0 @@
-names=rowconfiginfo
-visibility=public
-kind=defined
-
---- rowconfiginfo(master, index, slot=nil)
-@todo
-

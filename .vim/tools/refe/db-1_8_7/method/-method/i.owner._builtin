@@ -1,8 +1,0 @@
-names=owner
-visibility=public
-kind=defined
-
---- owner    -> Class | Module
-
-このメソッドが定義されている class か module を返します。
-

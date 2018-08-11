@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=VALUE
-name=proc_eq
-params=(VALUE self, VALUE other)
-
-

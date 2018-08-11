@@ -1,9 +1,0 @@
-type=class
-superclass=WEBrick=HTTPStatus=Status
-included=
-extended=
-library=webrick.httpstatus
-aliases=
-aliasof=
-
-HTTP のステータスコードエラーの親クラスです。

@@ -1,7 +1,0 @@
-names=tag_raise
-visibility=public
-kind=defined
-
---- tag_raise(tag, above = Tk::None)
-@todo
-

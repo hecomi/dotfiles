@@ -1,7 +1,0 @@
-names=get_displaychars
-visibility=public
-kind=defined
-
---- get_displaychars(*index)
-@todo
-

@@ -1,9 +1,0 @@
-names=SEQUENCE
-visibility=public
-kind=defined
-
---- SEQUENCE -> Integer
-
-ASN.1 UNIVERSAL タグの、
-SEQUENCE のタグ番号 16 を表す定数です。
-

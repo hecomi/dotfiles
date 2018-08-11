@@ -1,7 +1,0 @@
-names=provide
-visibility=public
-kind=defined
-
---- provide(package, version=nil)
-@todo
-

@@ -1,9 +1,0 @@
-names=parent_name
-visibility=public
-kind=defined
-
---- parent_name -> String
-
-self.parent の名前を返します。
-
-@see [[m:RDoc::CodeObject#parent]]

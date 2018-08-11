@@ -1,7 +1,0 @@
-names=_get_eval_string
-visibility=public
-kind=defined
-
---- _get_eval_string(*args)
-@todo
-

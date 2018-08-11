@@ -1,9 +1,0 @@
-names=starting
-visibility=protected 
-kind=defined
-
---- starting -> ()
-
-[[m:GServer#audit]] が真ならば、サーバ起動時に呼ばれます。
-サブクラスでオーバーライドします。
-

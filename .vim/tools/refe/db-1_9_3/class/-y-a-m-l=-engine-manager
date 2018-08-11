@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=yaml
-aliases=
-aliasof=
-
-[[lib:yaml]] のバックエンドを管理するクラスです。

@@ -1,7 +1,0 @@
-names=get_on_display
-visibility=public
-kind=defined
-
---- get_on_display(win, keys = nil)
-@todo
-

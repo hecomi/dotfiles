@@ -1,9 +1,0 @@
-type=class
-superclass=JSON=ParserError
-included=
-extended=
-library=json
-aliases=
-aliasof=
-
-パースしようとしているデータ構造のネストが深すぎる場合に発生する例外です。

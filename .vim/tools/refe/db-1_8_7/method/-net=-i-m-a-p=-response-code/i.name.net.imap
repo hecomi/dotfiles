@@ -1,9 +1,0 @@
-names=name
-visibility=public
-kind=defined
-
---- name -> String
-レスポンスコードを表す文字列を返します。
- 
-"ALERT"、"PERMANENTFLAGS"、"UIDVALIDITY" などを返します。
-

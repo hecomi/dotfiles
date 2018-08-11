@@ -1,7 +1,0 @@
-names=get_eventloop_tick
-visibility=public
-kind=defined
-
---- get_eventloop_tick
-@todo
-

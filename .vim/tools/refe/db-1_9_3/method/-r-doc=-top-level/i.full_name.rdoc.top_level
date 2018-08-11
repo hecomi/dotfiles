@@ -1,8 +1,0 @@
-names=full_name
-visibility=public
-kind=defined
-
---- full_name -> String
-
-自身が管理するファイルの名前を返します。
-

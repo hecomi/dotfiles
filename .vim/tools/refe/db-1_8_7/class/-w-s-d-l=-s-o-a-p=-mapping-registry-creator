@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=WSDL=SOAP=ClassDefCreatorSupport
-extended=
-library=wsdl.soap.mappingRegistryCreator
-aliases=
-aliasof=
-
-

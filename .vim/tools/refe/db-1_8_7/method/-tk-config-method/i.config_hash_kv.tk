@@ -1,7 +1,0 @@
-names=config_hash_kv
-visibility=public
-kind=defined
-
---- config_hash_kv(keys, enc_mode = nil, conf = nil)
-@todo
-

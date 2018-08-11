@@ -1,8 +1,0 @@
-names=forget
-visibility=public 
-kind=defined
-
---- forget(object) -> object
-
-[[m:JSON::State#remember]] で記録したオブジェクトを記録から削除します。
-

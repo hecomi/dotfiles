@@ -1,8 +1,0 @@
-names=add_headerhandler,add_rpc_headerhandler
-visibility=public
-kind=defined
-
---- add_headerhandler(obj)
---- add_rpc_headerhandler(obj)
-@todo
-

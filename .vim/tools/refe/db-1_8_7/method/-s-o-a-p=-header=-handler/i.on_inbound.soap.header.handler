@@ -1,7 +1,0 @@
-names=on_inbound
-visibility=public
-kind=defined
-
---- on_inbound(header, mustunderstand = false)
-@todo
-

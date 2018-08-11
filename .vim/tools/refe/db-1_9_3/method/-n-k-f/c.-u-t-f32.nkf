@@ -1,9 +1,0 @@
-names=UTF32
-visibility=public
-kind=defined
-
---- UTF32 -> Encoding
-
-UTF-32 (BigEndian) コードを表します。
-
-

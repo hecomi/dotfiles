@@ -1,9 +1,0 @@
-names=CHARACTER_STRING
-visibility=public
-kind=defined
-
---- CHARACTER_STRING -> Integer
-
-ASN.1 UNIVERSAL タグの、
-CHARACTER_STRING のタグ番号 29 を表す定数です。
-

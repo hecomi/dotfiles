@@ -1,8 +1,0 @@
-names=name=
-visibility=public
-kind=defined
-
---- name=(name)
-
-グループ名を返します。
-

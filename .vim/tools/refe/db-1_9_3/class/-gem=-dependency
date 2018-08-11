@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=rubygems.dependency
-aliases=
-aliasof=
-
-Gem の依存関係を管理するクラスです。

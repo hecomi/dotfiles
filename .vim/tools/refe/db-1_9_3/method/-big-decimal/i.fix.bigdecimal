@@ -1,9 +1,0 @@
-names=fix
-visibility=public
-kind=defined
-
---- fix
-@todo
-
-self の小数点以下の切り捨て。
-

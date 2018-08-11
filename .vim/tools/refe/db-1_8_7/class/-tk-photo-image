@@ -1,9 +1,0 @@
-type=class
-superclass=TkImage
-included=
-extended=
-library=tk.image
-aliases=
-aliasof=PhotoImage
-
-

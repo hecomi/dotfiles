@@ -1,8 +1,0 @@
-requires=
-classes=RDoc=NormalModule
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-[[c:RDoc::NormalModule]] を定義するサブライブラリです。

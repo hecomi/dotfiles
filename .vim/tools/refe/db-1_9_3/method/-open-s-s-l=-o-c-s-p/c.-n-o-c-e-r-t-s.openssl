@@ -1,7 +1,0 @@
-names=NOCERTS
-visibility=public
-kind=defined
-
---- NOCERTS -> Integer
-署名時に署名データに証明書を含めないことを意味します。
-

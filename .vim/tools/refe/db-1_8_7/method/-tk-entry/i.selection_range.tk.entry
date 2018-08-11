@@ -1,7 +1,0 @@
-names=selection_range
-visibility=public
-kind=defined
-
---- selection_range(s, e)
-@todo
-

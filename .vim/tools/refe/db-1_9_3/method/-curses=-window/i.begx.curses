@@ -1,9 +1,0 @@
-names=begx
-visibility=public
-kind=defined
-
---- begx -> Integer
-
-親ウィンドウの中でウィンドウの左上がある x 座標を返します。
-始点は 0 です。
-

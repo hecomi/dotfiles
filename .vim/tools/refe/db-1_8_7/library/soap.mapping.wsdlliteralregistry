@@ -1,8 +1,0 @@
-requires=
-classes=SOAP=Mapping=WSDLLiteralRegistry
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-

@@ -1,8 +1,0 @@
-names=ipv6?
-visibility=public
-kind=defined
-
---- ipv6? -> bool
-
-IPv6 なら真を返します。
-

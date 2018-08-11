@@ -1,9 +1,0 @@
-type=class
-superclass=Psych=Nodes=Node
-included=
-extended=
-library=psych.nodes.stream
-aliases=
-aliasof=
-
-

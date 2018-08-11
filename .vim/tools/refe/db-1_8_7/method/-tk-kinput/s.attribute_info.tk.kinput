@@ -1,7 +1,0 @@
-names=attribute_info
-visibility=public
-kind=defined
-
---- attribute_info(win, slot = nil)
-@todo
-

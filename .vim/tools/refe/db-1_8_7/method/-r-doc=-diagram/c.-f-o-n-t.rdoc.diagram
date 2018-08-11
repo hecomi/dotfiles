@@ -1,8 +1,0 @@
-names=FONT
-visibility=public
-kind=defined
-
---- FONT -> "Arial"
-
-[[c:RDoc::Diagram]] が使用するフォント名を返します。
-

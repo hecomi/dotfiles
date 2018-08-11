@@ -1,9 +1,0 @@
-type=class
-superclass=Resolv=DNS=Resource
-included=
-extended=
-library=resolv
-aliases=
-aliasof=
-
-汎用DNSリソース抽象クラスです。

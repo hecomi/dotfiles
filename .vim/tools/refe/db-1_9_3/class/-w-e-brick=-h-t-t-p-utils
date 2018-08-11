@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=webrick.httputils
-aliases=
-aliasof=
-
-HTTP のためのユーティリティ関数を提供します。

@@ -1,7 +1,0 @@
-names=tokenize
-visibility=public
-kind=defined
-
---- tokenize(string)
-@todo
-

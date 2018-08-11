@@ -1,8 +1,0 @@
-names=async_eval
-visibility=public
-kind=defined
-
---- async_eval(topic, cmd, *args)
-@todo
-
-

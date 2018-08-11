@@ -1,8 +1,0 @@
-names=KEY_SELECT
-visibility=public
-kind=defined
-
---- KEY_SELECT -> Integer
-
-Select キーを表す定数です。
-

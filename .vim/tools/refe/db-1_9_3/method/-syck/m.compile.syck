@@ -1,9 +1,0 @@
-names=compile
-visibility=public
-kind=defined
-
---- compile(io)
-@todo
-
-Convert YAML to bytecode
-

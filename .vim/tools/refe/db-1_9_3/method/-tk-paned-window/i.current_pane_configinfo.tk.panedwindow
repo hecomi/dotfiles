@@ -1,8 +1,0 @@
-names=current_pane_configinfo,current_paneconfiginfo
-visibility=public
-kind=defined
-
---- current_paneconfiginfo(win, key = nil)
---- current_pane_configinfo(win, key = nil)
-@todo
-

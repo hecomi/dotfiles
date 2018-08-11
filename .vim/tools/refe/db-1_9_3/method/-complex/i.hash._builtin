@@ -1,8 +1,0 @@
-names=hash
-visibility=public
-kind=defined
-
---- hash -> Integer
-
-自身のハッシュ値を返します。
-

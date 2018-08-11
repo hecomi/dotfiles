@@ -1,9 +1,0 @@
-type=class
-superclass=Struct
-included=
-extended=
-library=net.imap
-aliases=
-aliasof=
-
-STATUS 応答を表わすクラスです。

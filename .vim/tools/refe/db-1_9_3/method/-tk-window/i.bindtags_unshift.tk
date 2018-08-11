@@ -1,7 +1,0 @@
-names=bindtags_unshift
-visibility=public
-kind=defined
-
---- bindtags_unshift(tag)
-@todo
-

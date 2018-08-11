@@ -1,8 +1,0 @@
-names=A1
-visibility=public
-kind=defined
-
---- A1 -> Integer
-
-キーパッドの左上を表す定数です。
-

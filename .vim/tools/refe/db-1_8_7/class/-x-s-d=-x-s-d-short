@@ -1,9 +1,0 @@
-type=class
-superclass=XSD=XSDInt
-included=
-extended=
-library=xsd.datatypes
-aliases=
-aliasof=
-
-

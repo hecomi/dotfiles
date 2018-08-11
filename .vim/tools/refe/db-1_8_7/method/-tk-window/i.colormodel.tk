@@ -1,7 +1,0 @@
-names=colormodel
-visibility=public
-kind=defined
-
---- colormodel(model = Tk::None)
-@todo
-

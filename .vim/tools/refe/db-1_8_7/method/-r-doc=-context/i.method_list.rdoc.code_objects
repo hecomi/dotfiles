@@ -1,9 +1,0 @@
-names=method_list
-visibility=public
-kind=defined
-
---- method_list -> [RDoc::AnyMethod]
-
-追加された([[c:RDoc::AnyMethod]] かそのサブクラスのオブジェクト)の配列
-を返します。
-

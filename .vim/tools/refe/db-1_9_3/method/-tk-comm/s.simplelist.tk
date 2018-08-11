@@ -1,8 +1,0 @@
-names=simplelist
-visibility=public
-kind=defined
-
---- simplelist(val, src_enc = true, dst_enc = true)
-@todo
-
-

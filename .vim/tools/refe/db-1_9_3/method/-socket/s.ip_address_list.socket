@@ -1,7 +1,0 @@
-names=ip_address_list
-visibility=public
-kind=defined
-
---- ip_address_list -> [Addrinfo]
-ローカルの IP アドレスを配列で返します。
-

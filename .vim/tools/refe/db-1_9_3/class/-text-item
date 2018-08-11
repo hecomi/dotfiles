@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=tkclass
-aliases=TkcText
-aliasof=
-
-

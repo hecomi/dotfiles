@@ -1,8 +1,0 @@
-names=DateTimeMatcher
-visibility=public
-kind=defined
-
---- DateTimeMatcher -> Regexp
-
-日時 (DateTime) 形式のデータを発見したり変換したりするための正規表現です。
-

@@ -1,9 +1,0 @@
-names=pos,tell
-visibility=public
-kind=defined
-
---- pos    -> Integer
---- tell   -> Integer
-
-自身の現在の位置を返します。
-

@@ -1,7 +1,0 @@
-names=decode_eucjp
-visibility=public
-kind=added
-
---- decode_eucjp(str)
-@todo
-

@@ -1,8 +1,0 @@
-names=name
-visibility=public
-kind=defined
-
---- name -> String
-メールボックスの名前を文字列で返します。
-
-

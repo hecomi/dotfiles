@@ -1,8 +1,0 @@
-requires=
-classes=Observable
-methods=
-sublibraries=
-is_sublibrary=false
-category=DesignPattern
-
-Observer パターンを扱うためのライブラリです。

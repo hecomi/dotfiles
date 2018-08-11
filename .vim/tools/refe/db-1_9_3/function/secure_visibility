@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=void
-name=secure_visibility
-params=(VALUE self)
-
-

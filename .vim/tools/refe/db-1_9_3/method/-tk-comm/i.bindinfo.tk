@@ -1,7 +1,0 @@
-names=bindinfo
-visibility=public
-kind=defined
-
---- bindinfo(tag_or_class, context = nil)
-@todo
-

@@ -1,8 +1,0 @@
-requires=
-classes=Gem=DependencyList
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-Gem の依存関係を扱うためのライブラリです。

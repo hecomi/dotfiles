@@ -1,8 +1,0 @@
-names=element_lget,element_lindex
-visibility=public
-kind=defined
-
---- element_lindex(elem_idxs, idx)
---- element_lget(elem_idxs, idx)
-@todo
-

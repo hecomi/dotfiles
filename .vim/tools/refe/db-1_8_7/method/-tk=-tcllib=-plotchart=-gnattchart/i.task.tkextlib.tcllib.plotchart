@@ -1,7 +1,0 @@
-names=task
-visibility=public
-kind=defined
-
---- task(txt, time_begin, time_end, completed = 0.0)
-@todo
-

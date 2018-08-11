@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=VALUE
-name=rb_thread_aset
-params=(VALUE thread, VALUE id, VALUE val)
-
-

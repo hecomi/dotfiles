@@ -1,8 +1,0 @@
-names=DC
-visibility=public
-kind=defined
-
---- DC -> Integer
-@todo ???
-Delete キーを表す定数です。
-

@@ -1,8 +1,0 @@
-filename=variable.c
-macro=false
-private=true
-type=int
-name=gvar_i
-params=(ID key, struct global_entry *entry, VALUE ary)
-
-

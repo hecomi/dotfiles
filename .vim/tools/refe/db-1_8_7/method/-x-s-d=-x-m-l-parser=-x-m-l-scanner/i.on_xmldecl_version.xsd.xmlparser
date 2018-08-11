@@ -1,7 +1,0 @@
-names=on_xmldecl_version
-visibility=public
-kind=defined
-
---- on_xmldecl_version(str)
-@todo
-

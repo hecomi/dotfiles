@@ -1,8 +1,0 @@
-names=RLIM_SAVED_MAX
-visibility=public
-kind=defined
-
---- RLIM_SAVED_MAX -> Integer
-
-[[m:Process.#getrlimit]], [[m:Process.#setrlimit]] で使われます。詳しくは [[man:setrlimit(2)]] を参照して下さい。
-

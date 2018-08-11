@@ -1,7 +1,0 @@
-names=milestone
-visibility=public
-kind=defined
-
---- milestone(txt, time, col = None)
-@todo
-

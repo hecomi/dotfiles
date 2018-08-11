@@ -1,8 +1,0 @@
-names=httpproxy,httpproxy=
-visibility=public
-kind=defined
-
---- httpproxy
---- httpproxy=(httpproxy)
-@todo
-

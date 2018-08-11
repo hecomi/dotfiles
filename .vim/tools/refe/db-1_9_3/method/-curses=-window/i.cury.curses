@@ -1,9 +1,0 @@
-names=cury
-visibility=public
-kind=defined
-
---- cury -> Integer
-
-ウィンドウ内におけるカーソルの行番号を返します。
-一行目が 0 です。
-

@@ -1,8 +1,0 @@
-names=each
-visibility=public
-kind=defined
-
---- each{|key, val| ... }
-
-レスポンスのヘッダ名を key、内容を val としてブロックを評価します。
-

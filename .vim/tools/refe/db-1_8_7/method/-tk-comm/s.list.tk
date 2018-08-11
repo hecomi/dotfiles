@@ -1,7 +1,0 @@
-names=list
-visibility=public
-kind=defined
-
---- list(val, depth = 0, enc = true)
-@todo
-

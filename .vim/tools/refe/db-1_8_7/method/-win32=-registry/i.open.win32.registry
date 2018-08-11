@@ -1,9 +1,0 @@
-names=open
-visibility=public
-kind=defined
-
---- open(subkey, desired = KEY_READ, opt = REG_OPTION_RESERVED)
-@todo
-
-[[m:Win32::Registry.open]](self, subkey, desired, opt) と同じです。
-

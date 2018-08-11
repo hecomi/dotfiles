@@ -1,9 +1,0 @@
-names=bbox
-visibility=public
-kind=defined
-
---- bbox(tagOrId, *tags)
-@todo
-
-
-

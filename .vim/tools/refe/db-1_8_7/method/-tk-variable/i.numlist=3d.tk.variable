@@ -1,8 +1,0 @@
-names=numlist=,set_numlist
-visibility=public
-kind=defined
-
---- set_numlist(val)
---- numlist=
-@todo
-

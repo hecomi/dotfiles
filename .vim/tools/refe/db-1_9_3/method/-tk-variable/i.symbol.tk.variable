@@ -1,8 +1,0 @@
-names=symbol,to_sym
-visibility=public
-kind=defined
-
---- symbol
---- to_sym
-@todo
-

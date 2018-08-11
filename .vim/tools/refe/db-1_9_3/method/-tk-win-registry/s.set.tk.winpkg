@@ -1,8 +1,0 @@
-names=set
-visibility=public
-kind=defined
-
---- set(keynam, valnam = Tk::None, data = Tk::None, dattype = Tk::None)
-@todo
-
-

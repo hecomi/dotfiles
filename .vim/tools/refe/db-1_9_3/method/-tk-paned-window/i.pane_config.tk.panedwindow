@@ -1,8 +1,0 @@
-names=pane_config,paneconfigure
-visibility=public
-kind=defined
-
---- paneconfigure(win, key, value = nil)
---- pane_config(win, key, value = nil)
-@todo
-

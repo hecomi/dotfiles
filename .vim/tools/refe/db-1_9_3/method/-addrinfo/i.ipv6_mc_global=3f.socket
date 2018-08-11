@@ -1,9 +1,0 @@
-names=ipv6_mc_global?
-visibility=public
-kind=defined
-
---- ipv6_mc_global? -> bool
-IPv6 のマルチキャスト(グローバルスコープ)
-アドレスであれば真を返します。
-
-

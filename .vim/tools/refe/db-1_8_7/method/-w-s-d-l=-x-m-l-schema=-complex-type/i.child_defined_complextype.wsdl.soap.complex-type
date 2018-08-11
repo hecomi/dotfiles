@@ -1,7 +1,0 @@
-names=child_defined_complextype
-visibility=public
-kind=added
-
---- child_defined_complextype(name)
-@todo
-

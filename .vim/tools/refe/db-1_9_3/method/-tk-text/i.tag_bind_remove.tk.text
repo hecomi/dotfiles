@@ -1,7 +1,0 @@
-names=tag_bind_remove
-visibility=public
-kind=defined
-
---- tag_bind_remove(tag, seq)
-@todo
-

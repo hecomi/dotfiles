@@ -1,6 +1,0 @@
-names=try_enter
-visibility=public
-kind=defined
-
---- try_enter -> bool
-[[m:MonitorMixin#mon_try_enter]] の別名です。

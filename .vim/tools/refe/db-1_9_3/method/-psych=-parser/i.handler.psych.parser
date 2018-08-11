@@ -1,9 +1,0 @@
-names=handler
-visibility=public
-kind=added
-
---- handler
-@todo
-
-The handler on which events will be called
-

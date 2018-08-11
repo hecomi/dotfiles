@@ -1,9 +1,0 @@
-names=parse_range_header
-visibility=public
-kind=defined
-
---- parse_range_header(ranges_specifier)
-@todo ???
-
-@param ranges_specifier 
-

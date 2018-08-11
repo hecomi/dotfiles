@@ -1,7 +1,0 @@
-names=list
-visibility=public
-kind=defined
-
---- list(rsrcType, rsrcRef = nil)
-@todo
-

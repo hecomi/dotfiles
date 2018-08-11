@@ -1,8 +1,0 @@
-names=defined_in?
-visibility=public
-kind=defined
-
---- defined_in?(file)
-
-Return true if at least part of this thing was defined in file
-

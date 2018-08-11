@@ -1,7 +1,0 @@
-names=start_mapping
-visibility=public
-kind=defined
-
---- start_mapping(anchor, tag, implicit, style)
-@todo
-

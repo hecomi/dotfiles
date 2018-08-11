@@ -1,9 +1,0 @@
-names=alive?
-visibility=public
-kind=defined
-
---- alive?
-@todo
-
-A TupleEntry is dead when it is canceled or expired.
-

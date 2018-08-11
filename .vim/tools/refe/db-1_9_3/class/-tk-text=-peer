@@ -1,9 +1,0 @@
-type=class
-superclass=TkText
-included=
-extended=
-library=tk.text
-aliases=
-aliasof=
-
-

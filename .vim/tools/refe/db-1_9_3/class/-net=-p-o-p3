@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=net.pop
-aliases=Net=POP,Net=POPSession
-aliasof=
-
-POP3 のセッションを表すクラスです。

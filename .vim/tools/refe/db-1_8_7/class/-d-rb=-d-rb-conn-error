@@ -1,9 +1,0 @@
-type=class
-superclass=DRb=DRbError
-included=
-extended=
-library=drb
-aliases=
-aliasof=
-
-Error raised when an error occurs on the underlying communication protocol.

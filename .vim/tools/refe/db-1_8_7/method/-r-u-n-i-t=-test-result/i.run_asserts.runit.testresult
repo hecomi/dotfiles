@@ -1,8 +1,0 @@
-names=run_asserts
-visibility=public
-kind=defined
-
---- run_asserts -> Integer
-
-アサーションの件数を返します。
-

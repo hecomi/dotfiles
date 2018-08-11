@@ -1,8 +1,0 @@
-names=KEY_SDL
-visibility=public
-kind=defined
-
---- KEY_SDL -> Integer
-
-Shift + 行を削除するキーを表す定数です。
-

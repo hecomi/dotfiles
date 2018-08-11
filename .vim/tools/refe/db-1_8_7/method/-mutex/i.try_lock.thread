@@ -1,8 +1,0 @@
-names=try_lock
-visibility=public
-kind=defined
-
---- try_lock -> bool
-mutex をロックしようとして、ロックが成功した場合、真を返します。
-ロックできなかった場合にはブロックせず偽を返します。
-

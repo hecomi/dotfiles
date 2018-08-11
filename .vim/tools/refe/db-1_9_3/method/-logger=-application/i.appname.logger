@@ -1,8 +1,0 @@
-names=appname
-visibility=public
-kind=defined
-
---- appname -> String
-
-アプリケーション名を取得します。
-

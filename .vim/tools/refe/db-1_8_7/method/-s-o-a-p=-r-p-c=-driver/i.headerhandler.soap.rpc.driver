@@ -1,8 +1,0 @@
-names=headerhandler,headerhandler=
-visibility=public
-kind=defined
-
---- headerhandler
---- headerhandler=(value)
-@todo
-

@@ -1,9 +1,0 @@
-names=ssl_version
-visibility=public
-kind=added
-
---- ssl_version -> String | Symbol | nil
-利用するプロトコルの種類を返します。
-
-@see [[m:Net::HTTP#ssl_version=]]
-

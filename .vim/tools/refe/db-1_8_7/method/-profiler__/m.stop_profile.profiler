@@ -1,8 +1,0 @@
-names=stop_profile
-visibility=public
-kind=defined
-
---- stop_profile -> nil
-
-プロファイルの取得を停止します。
-

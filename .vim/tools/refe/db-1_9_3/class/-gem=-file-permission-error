@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Exception
-included=
-extended=
-library=rubygems.exceptions
-aliases=
-aliasof=
-
-ファイルの権限に関する例外です。

@@ -1,7 +1,0 @@
-names=new_menuspec
-visibility=public
-kind=defined
-
---- new_menuspec(menu_spec, parent = nil, tearoff = false, keys = nil)
-@todo
-

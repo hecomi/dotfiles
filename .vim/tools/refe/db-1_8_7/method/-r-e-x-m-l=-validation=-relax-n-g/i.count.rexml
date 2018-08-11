@@ -1,8 +1,0 @@
-names=count,count=
-visibility=public
-kind=defined
-
---- count
---- count=(value)
-@todo
-

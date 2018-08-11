@@ -1,8 +1,0 @@
-names=SHELP
-visibility=public
-kind=defined
-
---- SHELP -> Integer
-
-Shift + Help キーを表す定数です。
-

@@ -1,7 +1,0 @@
-names=upvar
-visibility=public
-kind=defined
-
---- upvar(*var_pairs)
-@todo
-

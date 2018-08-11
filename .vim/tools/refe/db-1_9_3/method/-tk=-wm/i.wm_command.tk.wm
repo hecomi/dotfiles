@@ -1,7 +1,0 @@
-names=wm_command
-visibility=public
-kind=defined
-
---- wm_command(value = nil)
-@todo
-

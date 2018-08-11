@@ -1,7 +1,0 @@
-names=route
-visibility=public
-kind=defined
-
---- route(req_header, req_body, reqopt, resopt)
-@todo
-

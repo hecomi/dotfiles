@@ -1,7 +1,0 @@
-names=set_options
-visibility=public
-kind=defined
-
---- set_options(client, options)
-@todo
-

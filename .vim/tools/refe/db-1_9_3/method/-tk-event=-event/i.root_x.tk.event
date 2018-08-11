@@ -1,9 +1,0 @@
-names=root_x,rootx,x_root
-visibility=public
-kind=defined
-
---- x_root
---- root_x
---- rootx
-@todo
-

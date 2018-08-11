@@ -1,7 +1,0 @@
-names=dump_method
-visibility=private 
-kind=defined
-
---- dump_method(operation, binding)
-@todo
-

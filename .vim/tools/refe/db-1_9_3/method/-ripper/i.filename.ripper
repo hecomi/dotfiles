@@ -1,8 +1,0 @@
-names=filename
-visibility=public
-kind=defined
-
---- filename -> String
-
-自身の持つ Ruby プログラムのファイル名を文字列で返します。
-

@@ -1,7 +1,0 @@
-names=install_indicies
-visibility=public 
-kind=defined
-
---- install_indicies
-作成済みのインデックスを所定のディレクトリに保存します。
-

@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=int
-name=proc_get_safe_level
-params=(VALUE data)
-
-

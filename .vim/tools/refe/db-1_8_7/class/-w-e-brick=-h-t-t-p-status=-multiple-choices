@@ -1,9 +1,0 @@
-type=class
-superclass=WEBrick=HTTPStatus=Redirect
-included=
-extended=
-library=webrick.httpstatus
-aliases=
-aliasof=
-
-HTTP のステータスコード 300 Multiple Choices を表すクラスです。

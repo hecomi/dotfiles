@@ -1,8 +1,0 @@
-filename=eval.c
-macro=false
-private=true
-type=VALUE
-name=rb_f_abort
-params=(int argc, VALUE *argv)
-
-

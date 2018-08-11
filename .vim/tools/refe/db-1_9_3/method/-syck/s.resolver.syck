@@ -1,8 +1,0 @@
-names=resolver
-visibility=public
-kind=defined
-
---- resolver -> Syck::DefaultResolver
-
-タグ URI との関連付けを解決するリゾルバを返します。
-

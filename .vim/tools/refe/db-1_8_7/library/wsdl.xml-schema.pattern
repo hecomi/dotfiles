@@ -1,8 +1,0 @@
-requires=wsdl.info
-classes=WSDL=XMLSchema=Pattern
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-

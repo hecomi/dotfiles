@@ -1,7 +1,0 @@
-names=which_command
-visibility=public
-kind=defined
-
---- which_command(name)
-@todo
-

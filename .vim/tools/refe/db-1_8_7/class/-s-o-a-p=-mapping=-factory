@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=SOAP=Mapping=TraverseSupport
-extended=
-library=soap.mapping.factory
-aliases=
-aliasof=
-
-

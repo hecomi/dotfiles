@@ -1,9 +1,0 @@
-names=protocol
-visibility=public
-kind=defined
-
---- protocol -> Integer
-IPプロトコル番号を返します。
-
-例えば 6 は TCP に対応します。
-

@@ -1,9 +1,0 @@
-names=bind
-visibility=public
-kind=defined
-
---- bind(cl) -> ()
-@todo
-
-@param cl xxx
-

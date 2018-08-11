@@ -1,5 +1,0 @@
-.compile	YAML::Syck.#compile
-#compile	YAML::Syck.#compile
-:DefaultResolver	YAML::Syck::DefaultResolver
-:GenericResolver	YAML::Syck::GenericResolver
-:VERSION	YAML::Syck::VERSION

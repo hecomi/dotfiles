@@ -1,7 +1,0 @@
-names=appname
-visibility=public
-kind=defined
-
---- appname(name = Tk::None)
-@todo
-

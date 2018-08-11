@@ -1,8 +1,0 @@
-requires=
-classes=RDoc=AnonClass
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-[[c:RDoc::AnonClass]] を定義するサブライブラリです。

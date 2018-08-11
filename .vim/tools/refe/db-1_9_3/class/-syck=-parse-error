@@ -1,9 +1,0 @@
-type=class
-superclass=Syck=Error
-included=
-extended=
-library=syck.error
-aliases=
-aliasof=
-
-将来のために予約されています。現在は発生しません。

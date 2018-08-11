@@ -1,8 +1,0 @@
-names=gid=
-visibility=public
-kind=defined
-
---- gid=(gid)
-
-グループ ID を設定します。
-

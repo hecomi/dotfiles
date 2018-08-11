@@ -1,8 +1,0 @@
-names=MAX_10_EXP
-visibility=public
-kind=defined
-
---- MAX_10_EXP -> Fixnum
-
-最大の 10 進の指数
-

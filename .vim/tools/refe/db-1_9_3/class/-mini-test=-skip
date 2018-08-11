@@ -1,9 +1,0 @@
-type=class
-superclass=MiniTest=Assertion
-included=
-extended=
-library=minitest.unit
-aliases=
-aliasof=
-
-[[m:MiniTest::Assertions#skip]] を呼び出した時に発生する例外です。

@@ -1,8 +1,0 @@
-names=os_code
-visibility=public
-kind=defined
-
---- os_code -> Integer
-
-gzip ファイルのヘッダーに記録されている OS コード番号を返します。
-

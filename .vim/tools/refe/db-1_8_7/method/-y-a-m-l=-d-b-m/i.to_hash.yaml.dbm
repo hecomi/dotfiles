@@ -1,8 +1,0 @@
-names=to_hash
-visibility=public
-kind=defined
-
---- to_hash -> Hash
-
-自身のキー、値をハッシュにしたものを返します。
-

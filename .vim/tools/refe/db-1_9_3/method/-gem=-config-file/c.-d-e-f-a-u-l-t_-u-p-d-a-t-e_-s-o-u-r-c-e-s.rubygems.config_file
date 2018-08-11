@@ -1,8 +1,0 @@
-names=DEFAULT_UPDATE_SOURCES
-visibility=protected 
-kind=defined
-
---- DEFAULT_UPDATE_SOURCES -> true
-
-毎回 [[c:Gem::SourceInfoCache]] を更新するかどうかのデフォルト値です。
-

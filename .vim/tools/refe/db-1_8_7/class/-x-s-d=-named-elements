@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=Enumerable
-extended=
-library=xsd.datatypes
-aliases=
-aliasof=
-
-

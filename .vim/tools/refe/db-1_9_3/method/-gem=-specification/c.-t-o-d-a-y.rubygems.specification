@@ -1,9 +1,0 @@
-names=TODAY
-visibility=public
-kind=defined
-
---- TODAY -> Time
-
-本日の日付を返します。
-
-

@@ -1,8 +1,0 @@
-names=to_proc
-visibility=public
-kind=defined
-
---- to_proc -> self
-
-self を返します。
-

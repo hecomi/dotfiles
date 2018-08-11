@@ -1,9 +1,0 @@
-names=description
-visibility=public
-kind=defined
-
---- description -> String | nil
-Content-Description の値を文字列で返します。
-
-@see [[RFC:2045]]
-

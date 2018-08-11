@@ -1,7 +1,0 @@
-names=winfo_containing
-visibility=public
-kind=defined
-
---- winfo_containing(x, y)
-@todo
-

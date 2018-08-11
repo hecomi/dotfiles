@@ -1,9 +1,0 @@
-type=class
-superclass=RSS=InvalidRSSError
-included=
-extended=
-library=rss
-aliases=
-aliasof=
-
-

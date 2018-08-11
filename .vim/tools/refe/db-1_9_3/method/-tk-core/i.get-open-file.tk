@@ -1,7 +1,0 @@
-names=getOpenFile
-visibility=public
-kind=defined
-
---- getOpenFile(keys = nil)
-@todo
-

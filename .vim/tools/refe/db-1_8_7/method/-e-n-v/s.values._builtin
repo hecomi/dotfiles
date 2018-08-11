@@ -1,8 +1,0 @@
-names=values
-visibility=public
-kind=defined
-
---- values -> [String]
-
-環境変数の全値の配列を返します。
-

@@ -1,7 +1,0 @@
-names=new
-visibility=public
-kind=defined
-
---- new(qname, param_def = nil)
-@todo
-

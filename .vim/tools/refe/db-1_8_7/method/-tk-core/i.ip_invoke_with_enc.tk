@@ -1,7 +1,0 @@
-names=ip_invoke_with_enc
-visibility=public
-kind=defined
-
---- ip_invoke_with_enc(*args)
-@todo
-

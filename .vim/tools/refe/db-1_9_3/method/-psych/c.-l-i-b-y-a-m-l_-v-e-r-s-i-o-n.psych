@@ -1,9 +1,0 @@
-names=LIBYAML_VERSION
-visibility=public
-kind=defined
-
---- LIBYAML_VERSION -> String
-@todo
-
-The version of libyaml Psych is using
-

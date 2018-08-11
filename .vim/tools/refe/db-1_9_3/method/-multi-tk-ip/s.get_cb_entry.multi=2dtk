@@ -1,7 +1,0 @@
-names=get_cb_entry
-visibility=public
-kind=defined
-
---- get_cb_entry(cmd)
-@todo
-

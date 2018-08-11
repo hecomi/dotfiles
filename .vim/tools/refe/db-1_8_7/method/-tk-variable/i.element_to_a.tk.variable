@@ -1,8 +1,0 @@
-names=element_to_a,list_element
-visibility=public
-kind=defined
-
---- list_element(*idxs)
---- element_to_a(*idxs)
-@todo
-

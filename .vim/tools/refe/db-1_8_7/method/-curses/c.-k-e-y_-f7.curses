@@ -1,8 +1,0 @@
-names=KEY_F7
-visibility=public
-kind=defined
-
---- KEY_F7 -> Integer
-
-F7 キーを表す定数です。
-

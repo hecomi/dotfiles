@@ -1,8 +1,0 @@
-names=chooseDirectory
-visibility=public
-kind=defined
-
---- chooseDirectory(keys = nil)
-@todo
-
-

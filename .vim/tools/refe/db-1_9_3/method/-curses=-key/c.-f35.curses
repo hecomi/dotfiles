@@ -1,8 +1,0 @@
-names=F35
-visibility=public
-kind=defined
-
---- F35 -> Integer
-
-F35 キーを表す定数です。
-

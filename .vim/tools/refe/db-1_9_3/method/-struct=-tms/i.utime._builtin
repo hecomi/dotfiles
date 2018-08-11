@@ -1,7 +1,0 @@
-names=utime
-visibility=public
-kind=defined
-
---- utime -> Float
-ユーザー CPU 時間を返します。
-

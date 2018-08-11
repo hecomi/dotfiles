@@ -1,9 +1,0 @@
-names=diagram
-visibility=public
-kind=defined
-
---- diagram -> bool
-
-コマンドライン引数の --diagram オプションを指定していた場合、true を返
-します。そうでない場合は false を返します。
-

@@ -1,8 +1,0 @@
-names=BufSize
-visibility=public
-kind=defined
-
---- BufSize
-ストリームバッファの1回の読み込みデータサイズ
-1024 * 8 = 8192
-

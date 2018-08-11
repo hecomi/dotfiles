@@ -1,8 +1,0 @@
-names=close
-visibility=public
-kind=defined
-
---- close -> ()
-セッションの状態をファイルに保存してファイルを閉じます。
-このクラスでは何もしません。
-

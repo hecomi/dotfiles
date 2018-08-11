@@ -1,7 +1,0 @@
-names=obj2soap
-visibility=public
-kind=defined
-
---- obj2soap(obj, type_qname = nil)
-@todo
-

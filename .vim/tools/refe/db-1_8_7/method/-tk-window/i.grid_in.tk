@@ -1,7 +1,0 @@
-names=grid_in
-visibility=public
-kind=defined
-
---- grid_in(target, kers = nil)
-@todo
-

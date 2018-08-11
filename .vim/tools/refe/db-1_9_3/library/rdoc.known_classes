@@ -1,8 +1,0 @@
-requires=
-classes=
-methods=RDoc/c.KNOWN_CLASSES.rdoc.known_classes
-sublibraries=
-is_sublibrary=true
-category=
-
-Ruby の組み込みクラスに関する定数を定義するサブライブラリです。

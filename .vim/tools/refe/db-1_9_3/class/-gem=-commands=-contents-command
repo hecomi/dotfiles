@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Command
-included=Gem=VersionOption
-extended=
-library=rubygems.commands.contents_command
-aliases=
-aliasof=
-
-インストールされている Gem パッケージに含まれているファイルリストを表示するためのクラスです。

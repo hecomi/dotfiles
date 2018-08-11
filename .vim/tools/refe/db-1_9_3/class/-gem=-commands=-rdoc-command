@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Command
-included=
-extended=
-library=rubygems.commands.rdoc_command
-aliases=
-aliasof=
-
-RDoc と ri のライブラリを生成するためのクラスです。

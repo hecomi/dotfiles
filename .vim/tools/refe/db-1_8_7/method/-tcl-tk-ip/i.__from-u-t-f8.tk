@@ -1,8 +1,0 @@
-names=__fromUTF8
-visibility=public
-kind=added
-
---- __fromUTF8(str, encoding = nil)
-@todo
-
-

@@ -1,9 +1,0 @@
-names=sender
-visibility=public
-kind=defined
-
---- sender -> object
-
-センダになっているオブジェクトを取り出します。
-センダとは、そのメソッドを呼び出した側の self のことです。
-

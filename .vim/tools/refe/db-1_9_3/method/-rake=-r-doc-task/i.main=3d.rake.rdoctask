@@ -1,8 +1,0 @@
-names=main=
-visibility=public 
-kind=defined
-
---- main=(filename)
-
-メインとして使用されるファイル名をセットします。
-

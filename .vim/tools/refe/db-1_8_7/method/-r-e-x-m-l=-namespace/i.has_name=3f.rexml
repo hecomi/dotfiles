@@ -1,7 +1,0 @@
-names=has_name?
-visibility=public
-kind=defined
-
---- has_name?(other, ns = nil)
-@todo
-

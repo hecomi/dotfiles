@@ -1,8 +1,0 @@
-names=KEY_SPREVIOUS
-visibility=public
-kind=defined
-
---- KEY_SPREVIOUS -> Integer
-
-Shift + Previous キーを表す定数です。
-

@@ -1,8 +1,0 @@
-names=set_variable_type,variable_type=
-visibility=public
-kind=defined
-
---- set_variable_type(var)
---- variable_type=
-@todo
-

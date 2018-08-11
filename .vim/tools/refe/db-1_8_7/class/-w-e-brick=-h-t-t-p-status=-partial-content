@@ -1,9 +1,0 @@
-type=class
-superclass=WEBrick=HTTPStatus=Success
-included=
-extended=
-library=webrick.httpstatus
-aliases=
-aliasof=
-
-HTTP のステータスコード 206 Partial Content を表すクラスです。

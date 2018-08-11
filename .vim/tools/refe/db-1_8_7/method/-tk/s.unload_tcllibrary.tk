@@ -1,7 +1,0 @@
-names=unload_tcllibrary
-visibility=public
-kind=defined
-
---- unload_tcllibrary(*args)
-@todo
-

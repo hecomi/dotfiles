@@ -1,8 +1,0 @@
-names=move_column,movecolumn
-visibility=public
-kind=defined
-
---- move_column(src, target)
---- movecolumn(src, target)
-@todo
-

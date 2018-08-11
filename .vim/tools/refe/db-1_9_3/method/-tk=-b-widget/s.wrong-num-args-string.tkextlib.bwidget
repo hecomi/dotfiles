@@ -1,9 +1,0 @@
-names=wrongNumArgsString
-visibility=public
-kind=defined
-
---- wrongNumArgsString(str)
-@todo
-
-
-

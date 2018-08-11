@@ -1,8 +1,0 @@
-requires=psych.json.tree_builder,psych.json.stream
-classes=Psych=JSON
-methods=
-sublibraries=psych.json.tree_builder,psych.json.stream
-is_sublibrary=true
-category=
-
-

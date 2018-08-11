@@ -1,8 +1,0 @@
-names=fsync
-visibility=public
-kind=defined
-
---- fsync    -> 0
-
-何もせずに 0 を返します。
-

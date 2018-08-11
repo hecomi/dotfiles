@@ -1,7 +1,0 @@
-names=encode_data_end
-visibility=public
-kind=defined
-
---- encode_data_end(generator, ns, data, parent)
-@todo
-

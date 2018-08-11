@@ -1,9 +1,0 @@
-names=flash
-visibility=public
-kind=defined
-
---- flash -> nil
-
-画面を一瞬点滅させます。
-この機能がないところでは単に無視されます。
-

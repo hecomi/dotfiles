@@ -1,7 +1,0 @@
-names=load_tclscript_rsrcid
-visibility=public
-kind=added
-
---- load_tclscript_rsrcid(resource_id, file = Tk::None)
-@todo
-

@@ -1,8 +1,0 @@
-names=cpu
-visibility=public 
-kind=defined
-
---- cpu -> String
-
-CPU のアーキテクチャを返します。
-

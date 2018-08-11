@@ -1,8 +1,0 @@
-names=[]
-visibility=public
-kind=defined
-
---- [](key)    -> object
-
-self.config[key] と同じです。
-

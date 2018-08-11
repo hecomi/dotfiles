@@ -1,7 +1,0 @@
-names=set_basic_auth
-visibility=public
-kind=defined
-
---- set_basic_auth(client, basic_auth)
-@todo
-

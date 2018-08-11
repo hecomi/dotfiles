@@ -1,7 +1,0 @@
-names=which_variable
-visibility=public
-kind=defined
-
---- which_variable(name)
-@todo
-

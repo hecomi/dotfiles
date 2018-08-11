@@ -1,8 +1,0 @@
-requires=tk,tcltklib,tkutil,tk.autoload,tk.bgerror,tk.bindtag,tk.button,tk.label,tk.canvas,tk.canvastag,tk.tagfont,tk.itemconfig,tk.itemfont,tk.scrollable,tk.checkbutton,tk.radiobutton,tk.clipboard,tk.clock,tk.composite,tk.console,tk.dialog,tk.variable,tk.encodedstr,tk.entry,tk.validation,tk.event,tk.font,tk.frame,tk.grid,tk.image,tk.kinput,tk.labelframe,tk.listbox,tk.txtwin_abst,tk.macpkg,tk.menu,tk.menuspec,tk.menubar,tk.message,tk.mngfocus,tk.msgcat,tk.namespace,tk.optiondb,tk.optionobj,tk.pack,tk.package,tk.palette,tk.panedwindow,tk.place,tk.root,tk.wm,tk.scale,tk.scrollbar,tk.scrollbox,tk.selection,tk.spinbox,tk.text,tk.textimage,tk.textmark,tk.texttag,tk.textwindow,tk.timer,tk.toplevel,tk.virtevent,tk.winfo,tk.winpkg,tk.xim
-classes=Tk=ICONS
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-ICONS support

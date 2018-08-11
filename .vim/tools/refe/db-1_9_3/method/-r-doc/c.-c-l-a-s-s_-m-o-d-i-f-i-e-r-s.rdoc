@@ -1,8 +1,0 @@
-names=CLASS_MODIFIERS
-visibility=public
-kind=defined
-
---- CLASS_MODIFIERS    -> [String]
-
-ライブラリの内部で使用します。
-

@@ -1,8 +1,0 @@
-names=send_string,send_string=
-visibility=public
-kind=defined
-
---- send_string
---- send_string=(value)
-@todo
-

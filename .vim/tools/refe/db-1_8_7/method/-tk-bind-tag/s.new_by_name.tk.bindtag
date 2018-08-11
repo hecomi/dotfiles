@@ -1,7 +1,0 @@
-names=new_by_name
-visibility=public
-kind=defined
-
---- new_by_name(name, *args, &b)
-@todo
-

@@ -1,8 +1,0 @@
-names=INSECURE_METHOD
-visibility=public
-kind=defined
-
---- INSECURE_METHOD
-@todo
-List of insecure methods.
-These methods are not callable via dRuby. 

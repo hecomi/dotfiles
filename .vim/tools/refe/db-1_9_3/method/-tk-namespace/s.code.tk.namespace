@@ -1,7 +1,0 @@
-names=code
-visibility=public
-kind=defined
-
---- code(script = Proc.new)
-@todo
-

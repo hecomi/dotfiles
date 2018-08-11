@@ -1,8 +1,0 @@
-names=author=
-visibility=public
-kind=defined
-
---- author=(name)
-
-作成者の名前をセットします。
-

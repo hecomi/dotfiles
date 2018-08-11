@@ -1,9 +1,0 @@
-type=class
-superclass=XSD=Charset=CharsetError
-included=
-extended=
-library=xsd.datatypes
-aliases=
-aliasof=
-
-

@@ -1,7 +1,0 @@
-names=require
-visibility=public
-kind=defined
-
---- require(package, version=None)
-@todo
-

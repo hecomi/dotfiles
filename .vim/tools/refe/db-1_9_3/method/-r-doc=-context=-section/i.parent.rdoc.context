@@ -1,7 +1,0 @@
-names=parent
-visibility=public
-kind=defined
-
---- parent -> RDoc::Context
-
-自身が所属する [[c:RDoc::Context]] オブジェクトを返します。

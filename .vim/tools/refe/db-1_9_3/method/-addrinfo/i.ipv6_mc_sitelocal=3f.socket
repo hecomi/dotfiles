@@ -1,8 +1,0 @@
-names=ipv6_mc_sitelocal?
-visibility=public
-kind=defined
-
---- ipv6_mc_sitelocal? -> bool
-IPv6 のマルチキャスト(サイトローカルスコープ)アドレスであれば真を返します。
-
-

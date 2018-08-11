@@ -1,9 +1,0 @@
-type=class
-superclass=ScriptError
-included=
-extended=
-library=_builtin
-aliases=
-aliasof=
-
-実装されていない機能が呼び出されたときに発生します。

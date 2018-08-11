@@ -1,8 +1,0 @@
-names=latest_specs
-visibility=public
-kind=defined
-
---- latest_specs -> Array
-
-自身に含まれる最新の [[c:Gem::Specification]] のリストを返します。
-

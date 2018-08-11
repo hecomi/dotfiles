@@ -1,7 +1,0 @@
-names=parse_source
-visibility=public
-kind=defined
-
---- parse_source(source, listener)
-@todo
-

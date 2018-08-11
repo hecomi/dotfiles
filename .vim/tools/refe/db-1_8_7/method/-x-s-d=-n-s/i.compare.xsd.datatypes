@@ -1,7 +1,0 @@
-names=compare
-visibility=public
-kind=defined
-
---- compare(ns, name, rhs)
-@todo
-

@@ -1,9 +1,0 @@
-names=lower
-visibility=public
-kind=defined
-
---- lower(belowthis = Tk::None)
-@todo
-
-
-

@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=openssl
-aliases=
-aliasof=
-
-OpenSSL PKCS#5 関連の機能を集めたモジュール

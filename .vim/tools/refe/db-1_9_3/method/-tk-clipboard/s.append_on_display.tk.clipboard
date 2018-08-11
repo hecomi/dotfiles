@@ -1,7 +1,0 @@
-names=append_on_display
-visibility=public
-kind=defined
-
---- append_on_display(win, data, keys = nil)
-@todo
-

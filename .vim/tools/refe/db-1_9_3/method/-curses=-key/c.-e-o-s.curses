@@ -1,8 +1,0 @@
-names=EOS
-visibility=public
-kind=defined
-
---- EOS -> Integer
-
-スクリーンの末尾までクリアするキーを表す定数です。
-

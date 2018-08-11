@@ -1,8 +1,0 @@
-requires=
-classes=
-methods=Dir/s.mktmpdir.tmpdir,Dir/s.tmpdir.tmpdir
-sublibraries=
-is_sublibrary=false
-category=File
-
-テンポラリディレクトリのためのライブラリです。

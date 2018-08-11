@@ -1,7 +1,0 @@
-names=raise_fault
-visibility=public
-kind=defined
-
---- raise_fault(mapping_registry, literal_mapping_registry)
-@todo
-

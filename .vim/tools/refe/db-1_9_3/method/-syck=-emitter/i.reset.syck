@@ -1,7 +1,0 @@
-names=reset
-visibility=public
-kind=defined
-
---- reset(*options) -> YAML::Syck::Emitter
-@todo
-

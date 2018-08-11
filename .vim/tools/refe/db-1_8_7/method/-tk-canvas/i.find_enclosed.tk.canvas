@@ -1,9 +1,0 @@
-names=find_enclosed
-visibility=public
-kind=defined
-
---- find_enclosed(x1, y1, x2, y2)
-@todo
-
-
-

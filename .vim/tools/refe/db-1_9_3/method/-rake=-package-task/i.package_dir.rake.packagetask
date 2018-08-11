@@ -1,8 +1,0 @@
-names=package_dir
-visibility=public 
-kind=defined
-
---- package_dir -> String
-
-パッケージに入れるファイルを保存するディレクトリ名を返します。
-

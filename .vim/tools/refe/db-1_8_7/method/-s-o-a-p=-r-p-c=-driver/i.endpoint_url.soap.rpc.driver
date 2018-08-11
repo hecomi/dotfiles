@@ -1,8 +1,0 @@
-names=endpoint_url,endpoint_url=
-visibility=public
-kind=defined
-
---- endpoint_url
---- endpoint_url=(value)
-@todo
-

@@ -1,8 +1,0 @@
-names=path=
-visibility=public 
-kind=defined
-
---- path=(path)
-
-Gem を探索するパスをセットします。
-

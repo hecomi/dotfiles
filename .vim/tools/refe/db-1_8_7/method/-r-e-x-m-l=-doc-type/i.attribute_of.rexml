@@ -1,7 +1,0 @@
-names=attribute_of
-visibility=public
-kind=defined
-
---- attribute_of(element, attribute)
-@todo
-

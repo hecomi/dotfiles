@@ -1,8 +1,0 @@
-names=SNEXT
-visibility=public
-kind=defined
-
---- SNEXT -> Integer
-
-Shift + Next キーを表す定数です。
-

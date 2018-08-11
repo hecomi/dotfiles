@@ -1,8 +1,0 @@
-names=KEY_RESIZE
-visibility=public
-kind=defined
-
---- KEY_RESIZE -> Integer
-
-スクリーンがリサイズされたことを表す定数です。
-

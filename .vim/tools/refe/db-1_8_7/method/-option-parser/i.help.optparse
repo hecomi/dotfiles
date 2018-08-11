@@ -1,9 +1,0 @@
-names=help,to_s
-visibility=public
-kind=defined
-
---- help    -> String
---- to_s    -> String
-
-サマリの文字列を返します。
-

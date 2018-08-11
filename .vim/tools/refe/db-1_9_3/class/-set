@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=Enumerable
-extended=
-library=set
-aliases=
-aliasof=
-
-集合を表すクラスです。要素の間に順序関係はありません。

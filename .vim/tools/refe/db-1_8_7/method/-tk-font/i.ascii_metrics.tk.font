@@ -1,8 +1,0 @@
-names=ascii_metrics,latin_metrics
-visibility=public
-kind=defined
-
---- latin_metrics(option = nil)
---- ascii_metrics(option = nil)
-@todo
-

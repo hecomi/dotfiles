@@ -1,7 +1,0 @@
-names=RD_ACCESS
-visibility=private 
-kind=defined
-
---- RD_ACCESS -> Fixnum
-内部で利用する定数です。
-

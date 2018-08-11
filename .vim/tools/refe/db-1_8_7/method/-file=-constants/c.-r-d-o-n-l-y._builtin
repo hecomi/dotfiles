@@ -1,8 +1,0 @@
-names=RDONLY
-visibility=public
-kind=defined
-
---- RDONLY -> Integer
-読み込みのみのモードでファイルを開くときに指定します。
-[[m:File.open]]で使用します。
-

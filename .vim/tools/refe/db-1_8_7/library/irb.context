@@ -1,8 +1,0 @@
-requires=irb.workspace,irb.ws=2dfor=2dcase=2d2
-classes=IRB=Context
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-irb の設定を扱うためのサブライブラリです。

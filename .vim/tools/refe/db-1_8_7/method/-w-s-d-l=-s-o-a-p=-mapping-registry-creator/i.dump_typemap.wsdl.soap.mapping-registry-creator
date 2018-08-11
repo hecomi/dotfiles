@@ -1,7 +1,0 @@
-names=dump_typemap
-visibility=private 
-kind=defined
-
---- dump_typemap(type)
-@todo
-

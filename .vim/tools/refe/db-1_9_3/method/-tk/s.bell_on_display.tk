@@ -1,7 +1,0 @@
-names=bell_on_display
-visibility=public
-kind=defined
-
---- bell_on_display(win, nice = false)
-@todo
-

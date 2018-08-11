@@ -1,8 +1,0 @@
-names=transfer_stdout
-visibility=public
-kind=defined
-
---- transfer_stdout(dist, src = '')
-@todo
-
-

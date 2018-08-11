@@ -1,8 +1,0 @@
-names=default_sources
-visibility=public
-kind=added
-
---- default_sources -> [String]
-
-デフォルトのパッケージ情報取得先のリストを返します。
-

@@ -1,7 +1,0 @@
-names=remove_tk_procs
-visibility=public
-kind=defined
-
---- remove_tk_procs(*names)
-@todo
-

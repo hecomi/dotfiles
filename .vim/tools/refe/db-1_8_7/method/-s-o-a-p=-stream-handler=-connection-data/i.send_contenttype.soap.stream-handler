@@ -1,8 +1,0 @@
-names=send_contenttype,send_contenttype=
-visibility=public
-kind=defined
-
---- send_contenttype
---- send_contenttype=(value)
-@todo
-

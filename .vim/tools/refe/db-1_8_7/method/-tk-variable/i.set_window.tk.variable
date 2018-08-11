@@ -1,8 +1,0 @@
-names=set_window,window=
-visibility=public
-kind=defined
-
---- set_window(win)
---- window=
-@todo
-

@@ -1,7 +1,0 @@
-names=delete_at
-visibility=public
-kind=defined
-
---- delete_at(index)
-@todo
-

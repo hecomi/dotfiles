@@ -1,8 +1,0 @@
-names=keys
-visibility=public
-kind=defined
-
---- keys -> [String]
-
-データベース中に存在するキー全てを含む配列を返します。
-

@@ -1,8 +1,0 @@
-names=OS_RISCOS
-visibility=public
-kind=defined
-
---- OS_RISCOS -> Fixnum
-
-OS の種類を表す定数です。
-

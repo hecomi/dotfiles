@@ -1,7 +1,0 @@
-names=slave_of?
-visibility=public
-kind=defined
-
---- slave_of?(master)
-@todo
-

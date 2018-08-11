@@ -1,8 +1,0 @@
-names=grid_columnconfig,grid_columnconfigure
-visibility=public
-kind=defined
-
---- grid_columnconfig(index, keys)
---- grid_columnconfigure(index, keys)
-@todo
-

@@ -1,2 +1,0 @@
-.def_inspector	IRB::INSPECTORS.def_inspector
-.keys_with_inspector	IRB::INSPECTORS.keys_with_inspector

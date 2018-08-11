@@ -1,9 +1,0 @@
-names=A_VERTICAL
-visibility=public
-kind=defined
-
---- A_VERTICAL -> Integer
-@todo
-vertical highlight
-@see [[man:curs_attr(3x)]]
-

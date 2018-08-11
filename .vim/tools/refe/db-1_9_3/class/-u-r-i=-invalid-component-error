@@ -1,9 +1,0 @@
-type=class
-superclass=URI=Error
-included=
-extended=
-library=uri
-aliases=
-aliasof=
-
-不正な構成要素を指定したときに発生します。

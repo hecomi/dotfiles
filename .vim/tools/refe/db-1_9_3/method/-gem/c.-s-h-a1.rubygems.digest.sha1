@@ -1,7 +1,0 @@
-names=SHA1
-visibility=public
-kind=added
-
---- SHA1 -> Class
-
-[[c:Digest::SHA1]] です。

@@ -1,7 +1,0 @@
-names=each_ns
-visibility=public
-kind=defined
-
---- each_ns {|ns, tag| .... }
-@todo
-

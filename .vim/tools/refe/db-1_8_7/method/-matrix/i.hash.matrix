@@ -1,7 +1,0 @@
-names=hash
-visibility=public
-kind=defined
-
---- hash -> Fixnum
-行列のHash値を返します。
-

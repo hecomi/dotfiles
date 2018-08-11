@@ -1,7 +1,0 @@
-names=to_obj
-visibility=public
-kind=defined
-
---- to_obj(klass)
-@todo
-

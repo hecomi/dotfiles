@@ -1,8 +1,0 @@
-names=encoding_from_xml
-visibility=public
-kind=defined
-
---- encoding_from_xml(str, charset)
-@todo
-
-

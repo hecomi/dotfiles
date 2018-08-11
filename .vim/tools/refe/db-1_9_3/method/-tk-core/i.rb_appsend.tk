@@ -1,7 +1,0 @@
-names=rb_appsend
-visibility=public
-kind=defined
-
---- rb_appsend(interp, async, *args)
-@todo
-

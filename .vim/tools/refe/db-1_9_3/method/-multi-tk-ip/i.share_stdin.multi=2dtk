@@ -1,7 +1,0 @@
-names=share_stdin
-visibility=public
-kind=defined
-
---- share_stdin(dist, src = '')
-@todo
-

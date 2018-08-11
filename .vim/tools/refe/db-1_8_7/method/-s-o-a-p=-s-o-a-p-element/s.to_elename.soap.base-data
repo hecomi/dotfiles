@@ -1,7 +1,0 @@
-names=to_elename
-visibility=public
-kind=defined
-
---- to_elename(obj, namespace = nil)
-@todo
-

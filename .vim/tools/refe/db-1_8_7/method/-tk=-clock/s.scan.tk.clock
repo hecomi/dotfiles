@@ -1,7 +1,0 @@
-names=scan
-visibility=public
-kind=defined
-
---- scan(str, base = nil)
-@todo
-

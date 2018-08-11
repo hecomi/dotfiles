@@ -1,8 +1,0 @@
-names=prefix,prefix=
-visibility=public
-kind=defined
-
---- prefix
---- prefix=(value)
-@todo
-

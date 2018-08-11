@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=_builtin
-aliases=
-aliasof=
-
-エンコーディング関連の例外の基底クラス。

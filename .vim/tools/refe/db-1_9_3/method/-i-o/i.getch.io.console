@@ -1,8 +1,0 @@
-names=getch
-visibility=public
-kind=added
-
---- getch -> String
-
-raw モードで一文字読み込んだ結果を返します。
-

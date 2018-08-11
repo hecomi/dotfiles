@@ -1,7 +1,0 @@
-names=pack_propagate
-visibility=public
-kind=defined
-
---- pack_propagate(mode = Tk::None)
-@todo
-

@@ -1,7 +1,0 @@
-names=delete
-visibility=public
-kind=defined
-
---- delete(idx, &block)
-@todo
-

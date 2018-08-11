@@ -1,8 +1,0 @@
-names=HTTP
-visibility=public
-kind=redefined
-
---- HTTP -> Hash
-
-[[m:WEBrick::Config::SSL]] の内容がマージされています。
-

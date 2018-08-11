@@ -1,8 +1,0 @@
-names=V_CERTSTATUS_GOOD
-visibility=public
-kind=defined
-
---- V_CERTSTATUS_GOOD -> Integer
-[[m:OpenSSL::OCSP::BasicResponse#status]] 
-のステータスコードで証明書が有効であることを意味します。
-

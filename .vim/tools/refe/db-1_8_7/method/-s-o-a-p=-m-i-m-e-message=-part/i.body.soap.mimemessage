@@ -1,9 +1,0 @@
-names=body,body=,content
-visibility=public
-kind=defined
-
---- body
---- body=(value)
---- content
-@todo
-

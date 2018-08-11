@@ -1,9 +1,0 @@
-type=class
-superclass=REXML=Child
-included=REXML=XMLTokens
-extended=
-library=rexml
-aliases=
-aliasof=
-
-

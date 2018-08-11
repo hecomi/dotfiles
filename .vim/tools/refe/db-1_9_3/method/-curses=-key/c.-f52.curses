@@ -1,8 +1,0 @@
-names=F52
-visibility=public
-kind=defined
-
---- F52 -> Integer
-
-F52 キーを表す定数です。
-

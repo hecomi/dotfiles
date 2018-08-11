@@ -1,8 +1,0 @@
-names=chop!
-visibility=public
-kind=redefined
-
---- chop! -> self | nil
-
-[[m:String#chop!]] の日本語対応版です。
-

@@ -1,8 +1,0 @@
-names=KEY_CTRL_U
-visibility=public
-kind=defined
-
---- KEY_CTRL_U -> Integer
-
-Ctrl + U を表す定数です。
-

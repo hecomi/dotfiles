@@ -1,8 +1,0 @@
-names=pos
-visibility=public 
-kind=defined
-
---- pos -> Integer
-
-自身から読み込んだバイト数を返します。
-

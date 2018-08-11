@@ -1,8 +1,0 @@
-filename=parse.y
-macro=false
-private=true
-type=NODE *
-name=ret_args
-params=(NODE *node)
-
-

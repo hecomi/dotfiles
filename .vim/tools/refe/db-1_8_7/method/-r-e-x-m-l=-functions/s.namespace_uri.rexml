@@ -1,7 +1,0 @@
-names=namespace_uri
-visibility=public
-kind=defined
-
---- namespace_uri(node_set = nil)
-@todo
-

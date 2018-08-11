@@ -1,7 +1,0 @@
-names=set_outparam
-visibility=public
-kind=defined
-
---- set_outparam(params)
-@todo
-

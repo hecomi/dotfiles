@@ -1,8 +1,0 @@
-names=KEY_SCOMMAND
-visibility=public
-kind=defined
-
---- KEY_SCOMMAND -> Integer
-
-Shift + Command キーを表す定数です。
-

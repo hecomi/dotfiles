@@ -1,8 +1,0 @@
-names=psych_yaml_as,yaml_as
-visibility=public
-kind=added
-
---- yaml_as(url)
---- psych_yaml_as(url)
-@todo
-

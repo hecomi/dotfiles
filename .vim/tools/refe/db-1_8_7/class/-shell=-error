@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=Exception2MessageMapper
-library=shell.error
-aliases=
-aliasof=
-
-[[lib:shell]] で使用する例外のための名前空間です。

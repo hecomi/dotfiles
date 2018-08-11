@@ -1,7 +1,0 @@
-names=search
-visibility=public
-kind=defined
-
---- search(pat, start, stop = Tk::None)
-@todo
-

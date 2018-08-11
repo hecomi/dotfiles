@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=Tk=X_Scrollable,Tk=Y_Scrollable
-extended=
-library=tk.scrollable
-aliases=
-aliasof=
-
-

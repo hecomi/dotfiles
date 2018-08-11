@@ -1,9 +1,0 @@
-type=class
-superclass=Rake=TaskLib
-included=
-extended=
-library=rake.rdoctask
-aliases=
-aliasof=
-
-

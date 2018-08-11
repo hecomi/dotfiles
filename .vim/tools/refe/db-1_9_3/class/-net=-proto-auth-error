@@ -1,9 +1,0 @@
-type=class
-superclass=Net=ProtocolError
-included=
-extended=
-library=net.protocol
-aliases=
-aliasof=
-
-認証に問題があった場合に発生する例外です。

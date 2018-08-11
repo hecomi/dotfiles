@@ -1,9 +1,0 @@
-names=specs
-visibility=public
-kind=defined
-
---- specs -> Hash
-
-キャッシュされている全ての gemspec を返します。
-
-

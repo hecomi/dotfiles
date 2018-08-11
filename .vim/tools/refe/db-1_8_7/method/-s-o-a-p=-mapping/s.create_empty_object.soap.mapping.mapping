@@ -1,7 +1,0 @@
-names=create_empty_object
-visibility=public
-kind=defined
-
---- create_empty_object(klass)
-@todo
-

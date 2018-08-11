@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=rubygems.package.tar_writer
-aliases=
-aliasof=
-
-write メソッドのみを提供する [[c:IO]] のラッパークラスです。

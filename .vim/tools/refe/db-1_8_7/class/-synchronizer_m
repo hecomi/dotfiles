@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=sync
-aliases=
-aliasof=Sync_m
-
-Alias of [[c:Sync_m]]

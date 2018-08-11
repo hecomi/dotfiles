@@ -1,8 +1,0 @@
-names=ssl_config,ssl_config=
-visibility=public
-kind=defined
-
---- ssl_config
---- ssl_config=(value)
-@todo
-

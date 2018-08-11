@@ -1,8 +1,0 @@
-names=encoding
-visibility=public
-kind=defined
-
---- encoding   -> Encoding
-正規表現オブジェクトのエンコーディングを表す [[c:Encoding]] オブジェクト
-を返します。
-

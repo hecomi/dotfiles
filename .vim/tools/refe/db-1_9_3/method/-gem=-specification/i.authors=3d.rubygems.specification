@@ -1,8 +1,0 @@
-names=authors=
-visibility=public
-kind=defined
-
---- authors=(names)
-
-作成者の名前の配列をセットします。
-

@@ -1,7 +1,0 @@
-names=method_missing
-visibility=public
-kind=defined
-
---- method_missing(id, *args)
-@todo
-

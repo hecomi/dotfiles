@@ -1,9 +1,0 @@
-names=parser
-visibility=public
-kind=defined
-
---- parser -> Psych::Parser
-@todo
-
-Returns a default parser
-

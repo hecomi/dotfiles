@@ -1,8 +1,0 @@
-names=sync
-visibility=public
-kind=defined
-
---- sync -> bool
-
-[[m:IO#sync]] に委譲します。
-

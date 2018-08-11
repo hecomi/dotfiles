@@ -1,7 +1,0 @@
-names=tag_configinfo
-visibility=public
-kind=defined
-
---- tag_configinfo(tagOrId, slot = nil)
-@todo
-

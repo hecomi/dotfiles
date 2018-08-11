@@ -1,2 +1,0 @@
-.gets	WEBrick::NullReader.gets
-.read	WEBrick::NullReader.gets

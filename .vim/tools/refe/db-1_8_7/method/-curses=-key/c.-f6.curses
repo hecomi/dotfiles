@@ -1,8 +1,0 @@
-names=F6
-visibility=public
-kind=defined
-
---- F6 -> Integer
-
-F6 キーを表す定数です。
-

@@ -1,8 +1,0 @@
-names=MAX_KEY_LENGTH,MAX_VALUE_LENGTH
-visibility=public
-kind=defined
-
---- MAX_KEY_LENGTH
---- MAX_VALUE_LENGTH
-@todo
-

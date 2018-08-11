@@ -1,7 +1,0 @@
-names=each
-visibility=public
-kind=defined
-
---- each(rs = nil){|file| ... }
-@todo
-

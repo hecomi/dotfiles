@@ -1,8 +1,0 @@
-filename=variable.c
-macro=false
-private=true
-type=int
-name=list_i
-params=(ID key, ID value, VALUE ary)
-
-

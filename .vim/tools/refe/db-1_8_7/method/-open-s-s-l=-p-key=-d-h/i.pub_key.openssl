@@ -1,9 +1,0 @@
-names=pub_key
-visibility=public
-kind=defined
-
---- pub_key -> OpenSSL::BN
-DH 鍵共有プロトコルの公開鍵を返します。
-
-@see [[m:OpenSSL::PKey::DH#pub_key=]]
-

@@ -1,7 +1,0 @@
-names=validate
-visibility=public
-kind=defined
-
---- validate(mode = nil)
-@todo
-

@@ -1,8 +1,0 @@
-names=CR
-visibility=public
-kind=added
-
---- CR -> "\x0d"
-
-内部で利用する定数です。
-

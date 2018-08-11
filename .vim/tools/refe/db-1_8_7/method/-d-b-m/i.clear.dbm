@@ -1,8 +1,0 @@
-names=clear
-visibility=public
-kind=defined
-
---- clear -> self
-
-DBM ファイルを空にします。
-

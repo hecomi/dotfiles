@@ -1,9 +1,0 @@
-type=class
-superclass=TkcItem
-included=
-extended=
-library=tk.canvas
-aliases=
-aliasof=Arc
-
-

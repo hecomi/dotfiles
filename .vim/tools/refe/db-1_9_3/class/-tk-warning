@@ -1,9 +1,0 @@
-type=class
-superclass=TkWarningObj
-included=
-extended=
-library=tk.dialog
-aliases=
-aliasof=
-
-

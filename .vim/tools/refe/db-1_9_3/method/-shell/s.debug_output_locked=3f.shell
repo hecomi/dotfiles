@@ -1,9 +1,0 @@
-names=debug_output_locked?
-visibility=public
-kind=defined
-
---- debug_output_locked? -> bool
-@todo
-
-@see [[m:Mutex#locked?]]
-

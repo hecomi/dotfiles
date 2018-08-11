@@ -1,8 +1,0 @@
-names=faultcode,faultcode=
-visibility=public
-kind=defined
-
---- faultcode
---- faultcode=(rhs)
-@todo
-

@@ -1,8 +1,0 @@
-requires=webrick.config,webrick.httpversion,webrick.httputils,webrick.utils,webrick.log,webrick.httpstatus,webrick.httpauth.authenticator
-classes=WEBrick=HTTPAuth=BasicAuth,WEBrick=HTTPAuth=ProxyBasicAuth
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-HTTP の Basic 認証のためのライブラリです。

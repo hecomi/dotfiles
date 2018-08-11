@@ -1,4 +1,0 @@
-.alias_extension	RDoc::ParserFactory.alias_extension
-.can_parse	RDoc::ParserFactory.can_parse
-.parser_for	RDoc::ParserFactory.parser_for
-#parse_files_matching	RDoc::ParserFactory#parse_files_matching

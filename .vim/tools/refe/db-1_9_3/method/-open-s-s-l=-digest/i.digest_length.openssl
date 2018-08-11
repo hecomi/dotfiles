@@ -1,7 +1,0 @@
-names=digest_length
-visibility=public
-kind=defined
-
---- digest_length -> Integer
-ハッシュ値の長さ(バイト数)を返します。
-

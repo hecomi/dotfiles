@@ -1,9 +1,0 @@
-requires=
-classes=
-methods=
-sublibraries=
-is_sublibrary=false
-category=Obsolete
-
-このライブラリは obsolete です。
-[[lib:importenv]] を参照してください。

@@ -1,7 +1,0 @@
-names=add_document_operation
-visibility=public
-kind=defined
-
---- add_document_operation(soapaction, name, param_def, opt = {})
-@todo
-

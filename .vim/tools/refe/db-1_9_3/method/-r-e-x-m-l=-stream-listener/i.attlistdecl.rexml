@@ -1,7 +1,0 @@
-names=attlistdecl
-visibility=public
-kind=defined
-
---- attlistdecl(element_name, attributes, raw_content)
-@todo
-

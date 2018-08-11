@@ -1,8 +1,0 @@
-names=waiting_jobs
-visibility=public
-kind=defined
-
---- waiting_jobs -> Array
-
-待機中のジョブを返します。
-

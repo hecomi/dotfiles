@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=Tk,TkMacResource
-library=tk.macpkg
-aliases=
-aliasof=
-
-

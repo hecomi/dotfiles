@@ -1,8 +1,0 @@
-names=run
-visibility=public
-kind=defined
-
---- run -> ()
-
-サーバを実行します。
-

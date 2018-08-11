@@ -1,9 +1,0 @@
-names=A_TOP
-visibility=public
-kind=defined
-
---- A_TOP -> Integer
-@todo
-top highlight
-@see [[man:curs_attr(3x)]]
-

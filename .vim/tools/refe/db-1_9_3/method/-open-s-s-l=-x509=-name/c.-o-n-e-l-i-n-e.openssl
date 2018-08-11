@@ -1,9 +1,0 @@
-names=ONELINE
-visibility=public
-kind=defined
-
---- ONELINE -> Integer
-[[m:OpenSSL::X509::Name#to_s]] のフラグとして使います。
-
-1行で読みやすくフォーマットされます。
-

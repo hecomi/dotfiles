@@ -1,7 +1,0 @@
-names=translate
-visibility=public
-kind=defined
-
---- translate(string, tr1, tr2)
-@todo
-

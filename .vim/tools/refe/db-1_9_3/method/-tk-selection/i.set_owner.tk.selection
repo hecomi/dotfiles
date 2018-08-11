@@ -1,6 +1,0 @@
-names=set_owner
-visibility=public
-kind=defined
-
---- set_owner(keys = nil)
-@todo

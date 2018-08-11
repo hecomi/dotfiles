@@ -1,8 +1,0 @@
-requires=
-classes=WEBrick=HTMLUtils
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-HTML のためのユーティリティ関数を提供します。

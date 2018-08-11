@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=net.smtp
-aliases=
-aliasof=
-
-[[c:Net::SMTP]] の内部用クラスです。

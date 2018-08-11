@@ -1,7 +1,0 @@
-names=add_menubar
-visibility=public
-kind=defined
-
---- add_menubar(menu_spec, tearoff = false, opts = nil)
-@todo
-

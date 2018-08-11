@@ -1,9 +1,0 @@
-requires=
-classes=IRB=Inspector,IRB=INSPECTORS
-methods=IRB/s.Inspector.irb.inspector
-sublibraries=
-is_sublibrary=true
-category=
-
-irb コマンドで実行結果の出力方式(inspect_mode)を定義するためのサブライ
-ブラリです。

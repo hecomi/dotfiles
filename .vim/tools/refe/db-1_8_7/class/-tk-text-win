@@ -1,9 +1,0 @@
-type=class
-superclass=TkWindow
-included=
-extended=
-library=tk.txtwin_abst
-aliases=
-aliasof=
-
-

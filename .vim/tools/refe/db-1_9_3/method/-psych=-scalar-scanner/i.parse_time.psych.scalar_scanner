@@ -1,6 +1,0 @@
-names=parse_time
-visibility=public
-kind=defined
-
---- parse_time(string)
-@todo

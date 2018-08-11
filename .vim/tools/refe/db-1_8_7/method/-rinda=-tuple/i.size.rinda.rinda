@@ -1,9 +1,0 @@
-names=size
-visibility=public
-kind=defined
-
---- size
-@todo
-
-サイズを整数で返します。
-

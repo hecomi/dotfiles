@@ -1,7 +1,0 @@
-names=files
-visibility=public
-kind=defined
-
---- files(rsrcRef = nil)
-@todo
-

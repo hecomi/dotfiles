@@ -1,8 +1,0 @@
-names=is_nil,is_nil=
-visibility=public
-kind=defined
-
---- is_nil
---- is_nil=(bool)
-@todo
-

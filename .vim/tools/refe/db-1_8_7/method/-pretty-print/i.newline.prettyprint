@@ -1,8 +1,0 @@
-names=newline
-visibility=public
-kind=defined
-
---- newline    -> String
-
-自身の改行文字を返します。
-

@@ -1,9 +1,0 @@
-names=gets,read
-visibility=public
-kind=defined
-
---- read(*args) -> nil
---- gets(*args) -> nil
-
-常に nil を返します。
-

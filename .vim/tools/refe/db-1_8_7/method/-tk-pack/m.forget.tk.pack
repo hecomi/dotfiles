@@ -1,9 +1,0 @@
-names=forget
-visibility=public
-kind=defined
-
---- forget(*args)
-@todo
-
-argsで指定したウィジェットの配置を取り下げます(非表示になります)。
-

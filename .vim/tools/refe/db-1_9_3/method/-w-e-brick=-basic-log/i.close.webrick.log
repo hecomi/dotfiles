@@ -1,8 +1,0 @@
-names=close
-visibility=public
-kind=defined
-
---- close    -> ()
-
-自身を閉じます。ログを取ることができなくなります。
-

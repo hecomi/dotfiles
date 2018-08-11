@@ -1,9 +1,0 @@
-names=debug_output_synchronize
-visibility=public
-kind=defined
-
---- debug_output_synchronize
-@todo
-
-@see [[m:Mutex#synchronize]]
-

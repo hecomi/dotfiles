@@ -1,9 +1,0 @@
-names=asciifont_configure
-visibility=public
-kind=defined
-
---- asciifont_configure(ltn, keys = nil)
-@todo
-
-Alias for #latinfont_configure
-

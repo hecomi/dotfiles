@@ -1,9 +1,0 @@
-type=class
-superclass=TkMenubutton
-included=
-extended=
-library=tk.menu
-aliases=TkOptionMenuButton
-aliasof=
-
-

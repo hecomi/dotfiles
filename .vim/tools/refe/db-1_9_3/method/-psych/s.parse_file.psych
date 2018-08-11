@@ -1,9 +1,0 @@
-names=parse_file
-visibility=public
-kind=defined
-
---- parse_file(filename) -> object
-@todo
-
-Parse a file at +filename+. Returns the YAML AST.
-

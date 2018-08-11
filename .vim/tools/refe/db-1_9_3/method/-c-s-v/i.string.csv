@@ -1,8 +1,0 @@
-names=string
-visibility=public
-kind=defined
-
---- string -> String
-
-[[m:StringIO#string]] に委譲します。
-

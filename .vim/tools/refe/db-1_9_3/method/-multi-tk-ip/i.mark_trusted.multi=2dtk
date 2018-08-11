@@ -1,7 +1,0 @@
-names=mark_trusted
-visibility=public
-kind=defined
-
---- mark_trusted(slave = '')
-@todo
-

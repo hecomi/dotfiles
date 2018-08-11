@@ -1,7 +1,0 @@
-names=write
-visibility=public
-kind=defined
-
---- write(file, *opts)
-@todo
-

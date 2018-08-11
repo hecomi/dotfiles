@@ -1,9 +1,0 @@
-type=class
-superclass=Exception
-included=
-extended=
-library=rdoc
-aliases=
-aliasof=
-
-ドキュメントの処理中にエラーがあった場合に発生します。

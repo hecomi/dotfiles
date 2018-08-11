@@ -1,8 +1,0 @@
-names=KEY_F15
-visibility=public
-kind=defined
-
---- KEY_F15 -> Integer
-
-F15 キーを表す定数です。
-

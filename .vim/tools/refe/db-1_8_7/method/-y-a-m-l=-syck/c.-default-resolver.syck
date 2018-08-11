@@ -1,7 +1,0 @@
-names=DefaultResolver
-visibility=public
-kind=defined
-
---- DefaultResolver -> YAML::Syck::Resolver
-@todo
-

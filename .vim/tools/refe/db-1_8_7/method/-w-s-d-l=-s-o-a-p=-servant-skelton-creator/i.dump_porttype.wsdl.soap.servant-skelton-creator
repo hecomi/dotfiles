@@ -1,6 +1,0 @@
-names=dump_porttype
-visibility=private 
-kind=defined
-
---- dump_porttype(name)
-@todo

@@ -1,8 +1,0 @@
-names=UNSAFE
-visibility=public
-kind=defined
-
---- UNSAFE -> Regexp
-URIとして指定できない文字にマッチする正規表現
-  /[^-_.!~*'()a-zA-Z\d;\/?:@&=+$,\[\]]/n
-です。

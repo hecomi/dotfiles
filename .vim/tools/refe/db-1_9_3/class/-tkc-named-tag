@@ -1,9 +1,0 @@
-type=class
-superclass=
-included=
-extended=
-library=tk.canvastag
-aliases=
-aliasof=TkcTagString
-
-Alias of [[c:TkcTagString]]

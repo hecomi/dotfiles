@@ -1,8 +1,0 @@
-names=includes
-visibility=public
-kind=defined
-
---- includes -> [RDoc::Include]
-
-追加された [[c:RDoc::Include]] の配列を返します。
-

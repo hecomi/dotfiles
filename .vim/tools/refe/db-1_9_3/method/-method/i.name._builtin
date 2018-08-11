@@ -1,8 +1,0 @@
-names=name
-visibility=public
-kind=defined
-
---- name    -> Symbol
-
-このメソッドの名前を返します。
-

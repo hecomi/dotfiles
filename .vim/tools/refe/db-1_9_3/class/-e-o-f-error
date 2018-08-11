@@ -1,9 +1,0 @@
-type=class
-superclass=IOError
-included=
-extended=
-library=_builtin
-aliases=
-aliasof=
-
-EOF(End Of File)に達したときに発生します。

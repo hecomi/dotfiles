@@ -1,8 +1,0 @@
-names=ns_tk_call,tk_call
-visibility=public
-kind=defined
-
---- tk_call(*args)
---- ns_tk_call(*args)
-@todo
-

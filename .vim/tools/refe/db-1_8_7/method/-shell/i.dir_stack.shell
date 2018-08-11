@@ -1,8 +1,0 @@
-names=dir_stack,dirs
-visibility=public
-kind=defined
-
---- dirs -> [String]
---- dir_stack -> [String]
-@todo
-

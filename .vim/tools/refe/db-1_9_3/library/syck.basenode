@@ -1,8 +1,0 @@
-requires=syck.ypath
-classes=Syck=BaseNode
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-YAML のノードを検索するためのサブライブラリです。

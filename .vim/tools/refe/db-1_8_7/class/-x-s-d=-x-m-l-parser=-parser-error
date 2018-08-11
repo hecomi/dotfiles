@@ -1,9 +1,0 @@
-type=class
-superclass=XSD=Error
-included=
-extended=
-library=xsd.xmlparser
-aliases=
-aliasof=
-
-

@@ -1,8 +1,0 @@
-names=ConverterEncoding
-visibility=public
-kind=defined
-
---- ConverterEncoding -> Encoding
-
-すべての変換器で使用するエンコーディングです。
-

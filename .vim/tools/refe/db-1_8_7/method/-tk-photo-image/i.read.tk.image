@@ -1,7 +1,0 @@
-names=read
-visibility=public
-kind=defined
-
---- read(file, *opts)
-@todo
-

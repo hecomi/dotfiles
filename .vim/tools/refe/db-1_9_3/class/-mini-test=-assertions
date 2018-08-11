@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=minitest.unit
-aliases=
-aliasof=
-
-各種 assert メソッドを提供します。

@@ -1,8 +1,0 @@
-names=start_profile
-visibility=public
-kind=defined
-
---- start_profile -> object
-
-プロファイルの取得を開始します。
-

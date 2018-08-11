@@ -1,7 +1,0 @@
-names=set_path
-visibility=public
-kind=defined
-
---- set_path(*namespace_list)
-@todo
-

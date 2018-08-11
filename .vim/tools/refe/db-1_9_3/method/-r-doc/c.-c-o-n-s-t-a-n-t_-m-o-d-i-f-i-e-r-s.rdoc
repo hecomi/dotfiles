@@ -1,8 +1,0 @@
-names=CONSTANT_MODIFIERS
-visibility=public
-kind=defined
-
---- CONSTANT_MODIFIERS -> [String]
-
-ライブラリの内部で使用します。
-

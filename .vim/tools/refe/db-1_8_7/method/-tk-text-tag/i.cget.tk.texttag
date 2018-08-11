@@ -1,7 +1,0 @@
-names=cget
-visibility=public
-kind=defined
-
---- cget(key)
-@todo
-

@@ -1,9 +1,0 @@
-names=allow_addr?
-visibility=public
-kind=defined
-
---- allow_addr?(addr)
-@todo
-
-
-

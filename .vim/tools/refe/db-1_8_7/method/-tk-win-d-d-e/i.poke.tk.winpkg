@@ -1,7 +1,0 @@
-names=poke
-visibility=public
-kind=defined
-
---- poke(service, topic, item, data)
-@todo
-

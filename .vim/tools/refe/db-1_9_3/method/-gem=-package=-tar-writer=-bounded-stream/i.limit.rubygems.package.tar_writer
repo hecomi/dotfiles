@@ -1,8 +1,0 @@
-names=limit
-visibility=public 
-kind=defined
-
---- limit -> Integer
-
-書き込み可能な最大のサイズを返します。
-

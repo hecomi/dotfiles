@@ -1,7 +1,0 @@
-names=_get_global_var
-visibility=public
-kind=defined
-
---- _get_global_var(var)
-@todo
-

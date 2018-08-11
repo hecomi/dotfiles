@@ -1,8 +1,0 @@
-names=KEY_UP
-visibility=public
-kind=defined
-
---- KEY_UP -> Integer
-
-上矢印キーを表す定数です。
-

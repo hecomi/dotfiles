@@ -1,9 +1,0 @@
-names=apply,notify
-visibility=public
-kind=defined
-
---- notify(target = nil)
---- apply(target = nil)
-@todo
-
-

@@ -1,8 +1,0 @@
-names=pid
-visibility=public
-kind=defined
-
---- pid    -> Integer
-
-終了したプロセスのプロセス ID を返します。
-

@@ -1,9 +1,0 @@
-type=class
-superclass=OptionParser=ParseError
-included=
-extended=
-library=optparse
-aliases=
-aliasof=
-
-引数を取らないはずのオプションに引数が与えられた場合に投げられます。

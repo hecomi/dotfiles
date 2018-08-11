@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=tracer
-aliases=
-aliasof=
-
-実行トレース出力をとる機能を提供するクラスです。

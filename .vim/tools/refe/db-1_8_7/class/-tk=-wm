@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=TkComm
-extended=
-library=tk.wm
-aliases=
-aliasof=
-
-

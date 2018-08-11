@@ -1,8 +1,0 @@
-names=F18
-visibility=public
-kind=defined
-
---- F18 -> Integer
-
-F18 キーを表す定数です。
-

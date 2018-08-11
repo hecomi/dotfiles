@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=rubygems.package.tar_reader.entry
-aliases=
-aliasof=
-
-tar アーカイブ中のそれぞれのエントリを扱うためのクラスです。

@@ -1,7 +1,0 @@
-names=invoke_hidden
-visibility=public
-kind=defined
-
---- invoke_hidden(slave, cmd, *args)
-@todo
-

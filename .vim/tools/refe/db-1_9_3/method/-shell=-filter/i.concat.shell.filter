@@ -1,7 +1,0 @@
-names=concat
-visibility=public
-kind=defined
-
---- concat(*jobs) -> Shell::Concat
-@todo
-

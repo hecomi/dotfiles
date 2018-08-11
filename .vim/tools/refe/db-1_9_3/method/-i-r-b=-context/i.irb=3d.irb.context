@@ -1,8 +1,0 @@
-names=irb=
-visibility=public
-kind=defined
-
---- irb=(val)
-
-ライブラリ内部で使用します。
-

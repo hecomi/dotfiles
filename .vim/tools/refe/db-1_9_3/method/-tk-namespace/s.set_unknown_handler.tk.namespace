@@ -1,7 +1,0 @@
-names=set_unknown_handler
-visibility=public
-kind=defined
-
---- set_unknown_handler(cmd = Proc.new)
-@todo
-

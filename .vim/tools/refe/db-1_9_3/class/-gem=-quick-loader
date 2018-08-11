@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=rubygems
-aliases=
-aliasof=
-
-prelude.c で定義されている内部用のモジュールです。

@@ -1,8 +1,0 @@
-filename=gc.c
-macro=false
-private=true
-type=void
-name=obj_free
-params=(VALUE obj)
-
-

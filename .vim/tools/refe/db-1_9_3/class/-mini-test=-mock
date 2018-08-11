@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=minitest.mock
-aliases=
-aliasof=
-
-シンプルなモックを実現するためのクラスです。

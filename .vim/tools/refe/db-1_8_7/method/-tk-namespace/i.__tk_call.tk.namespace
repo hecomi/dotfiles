@@ -1,7 +1,0 @@
-names=__tk_call
-visibility=public
-kind=defined
-
---- __tk_call(*args)
-@todo
-

@@ -1,7 +1,0 @@
-names=_get_subst_key
-visibility=public
-kind=defined
-
---- _get_subst_key(str)
-@todo
-

@@ -1,8 +1,0 @@
-requires=rubygems.version,rubygems,rubygems.defaults,rubygems.exceptions,rubygems.requirement,rubygems.dependency,rubygems.gem_path_searcher,rubygems.source_index,rubygems.user_interaction,rubygems.specification,rubygems.platform,rubygems.spec_fetcher,rubygems.remote_fetcher,rubygems.digest.sha2,rubygems.source_info_cache,rubygems.source_info_cache_entry,rubygems.builder
-classes=Gem=Requirement,Gem=Version=Requirement
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-Gem パッケージのバージョンに関する必須条件を扱うためのライブラリです。

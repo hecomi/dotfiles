@@ -1,8 +1,0 @@
-names=SO_WANTMORE
-visibility=public
-kind=defined
-
---- SO_WANTMORE -> Integer
-@todo
-Give a hint when more data is ready。
-

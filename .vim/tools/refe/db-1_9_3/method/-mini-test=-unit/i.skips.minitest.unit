@@ -1,8 +1,0 @@
-names=skips
-visibility=public 
-kind=defined
-
---- skips -> Fixnum
-
-実行しなかったテストケース数を返します。
-

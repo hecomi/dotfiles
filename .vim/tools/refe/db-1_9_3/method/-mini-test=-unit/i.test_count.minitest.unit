@@ -1,8 +1,0 @@
-names=test_count
-visibility=public 
-kind=defined
-
---- test_count -> Fixnum
-
-テストケース数を返します。
-

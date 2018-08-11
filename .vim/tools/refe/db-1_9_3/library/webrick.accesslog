@@ -1,8 +1,0 @@
-requires=
-classes=WEBrick=AccessLog,WEBrick=AccessLog=AccessLogError
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-WEBrick::HTTPServer のアクセスログの形式を処理するために内部で使われるライブラリです。

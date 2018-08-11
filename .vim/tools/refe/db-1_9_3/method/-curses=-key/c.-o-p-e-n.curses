@@ -1,8 +1,0 @@
-names=OPEN
-visibility=public
-kind=defined
-
---- OPEN -> Integer
-
-Open キーを表す定数です。
-

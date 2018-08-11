@@ -1,7 +1,0 @@
-names=set_window_element
-visibility=public
-kind=defined
-
---- set_window_element(idxs, win)
-@todo
-

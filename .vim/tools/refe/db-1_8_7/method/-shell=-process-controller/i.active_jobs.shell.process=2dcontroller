@@ -1,8 +1,0 @@
-names=active_jobs
-visibility=public
-kind=defined
-
---- active_jobs -> Array
-
-実行中のジョブの配列を返します。
-

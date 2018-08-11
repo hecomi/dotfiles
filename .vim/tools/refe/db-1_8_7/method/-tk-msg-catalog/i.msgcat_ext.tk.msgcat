@@ -1,8 +1,0 @@
-names=msgcat_ext,msgcat_ext=
-visibility=public
-kind=defined
-
---- msgcat_ext
---- msgcat_ext=(value)
-@todo
-

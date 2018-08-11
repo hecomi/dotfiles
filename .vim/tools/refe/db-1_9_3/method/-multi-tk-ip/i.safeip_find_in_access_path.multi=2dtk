@@ -1,7 +1,0 @@
-names=safeip_find_in_access_path
-visibility=public
-kind=defined
-
---- safeip_find_in_access_path(dir)
-@todo
-

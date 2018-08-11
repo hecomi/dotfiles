@@ -1,9 +1,0 @@
-type=class
-superclass=Rinda=RindaError
-included=
-extended=
-library=rinda.rinda
-aliases=
-aliasof=
-
-Raised when a hash-based tuple has an invalid key.

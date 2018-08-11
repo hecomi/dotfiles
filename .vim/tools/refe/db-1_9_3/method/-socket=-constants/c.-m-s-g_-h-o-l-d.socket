@@ -1,8 +1,0 @@
-names=MSG_HOLD
-visibility=public
-kind=defined
-
---- MSG_HOLD -> Integer
-@todo
-Hold fragment in so_temp
-

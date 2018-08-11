@@ -1,8 +1,0 @@
-names=kind
-visibility=public
-kind=defined
-
---- kind -> "map" | "seq" | "scalar"
-
-ノードの種別を文字列で返します。
-

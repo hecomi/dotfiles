@@ -1,7 +1,0 @@
-names=RTLD_NOW
-visibility=public
-kind=defined
-
---- RTLD_NOW
-@todo
-

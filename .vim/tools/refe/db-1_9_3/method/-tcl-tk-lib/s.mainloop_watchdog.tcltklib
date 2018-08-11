@@ -1,7 +1,0 @@
-names=mainloop_watchdog
-visibility=public
-kind=defined
-
---- mainloop_watchdog(*args)
-@todo
-

@@ -1,8 +1,0 @@
-names=reset
-visibility=public
-kind=defined
-
---- reset -> nil
-
-自身の内容をクリアします。
-

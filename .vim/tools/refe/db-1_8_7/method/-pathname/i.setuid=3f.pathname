@@ -1,9 +1,0 @@
-names=setuid?
-visibility=public
-kind=defined
-
---- setuid? -> bool
-FileTest.setuid?(self.to_s) と同じです。
-
-@see [[m:FileTest.#setuid?]]
-

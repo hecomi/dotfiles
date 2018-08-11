@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=minitest.unit
-aliases=
-aliasof=
-
-[[lib:minitest/unit]] で使用するクラスやモジュールを定義しているモジュールです。

@@ -1,8 +1,0 @@
-filename=object.c
-macro=false
-private=true
-type=VALUE
-name=sym_to_s
-params=(VALUE sym)
-
-

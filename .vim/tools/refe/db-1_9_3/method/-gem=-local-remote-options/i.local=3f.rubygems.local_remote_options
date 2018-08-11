@@ -1,9 +1,0 @@
-names=local?
-visibility=public 
-kind=defined
-
---- local? -> bool
-
-ローカルの情報を取得する場合は真を返します。
-そうでない場合は偽を返します。
-

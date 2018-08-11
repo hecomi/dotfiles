@@ -1,8 +1,0 @@
-names=KEY_B2
-visibility=public
-kind=defined
-
---- KEY_B2 -> Integer
-
-キーパッドの中心を表す定数です。
-

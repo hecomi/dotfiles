@@ -1,7 +1,0 @@
-names=utf_to_backslash
-visibility=public
-kind=defined
-
---- utf_to_backslash(str)
-@todo
-

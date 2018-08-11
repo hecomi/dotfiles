@@ -1,7 +1,0 @@
-names=match
-visibility=public
-kind=defined
-
---- match(element, path = nil, namespaces = {}, variables = {})
-@todo
-

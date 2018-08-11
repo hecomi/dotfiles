@@ -1,7 +1,0 @@
-names=each_attribute
-visibility=public
-kind=defined
-
---- each_attribute {|attribute| ... }
-@todo
-

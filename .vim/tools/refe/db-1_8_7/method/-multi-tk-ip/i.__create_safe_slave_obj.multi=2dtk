@@ -1,7 +1,0 @@
-names=__create_safe_slave_obj
-visibility=public
-kind=defined
-
---- __create_safe_slave_obj(safe_opts, app_name, tk_opts)
-@todo
-

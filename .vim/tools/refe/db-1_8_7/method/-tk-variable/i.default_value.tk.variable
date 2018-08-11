@@ -1,8 +1,0 @@
-names=default_value
-visibility=public
-kind=defined
-
---- default_value(val = nil)
---- default_value(val = nil) { .... }
-@todo
-

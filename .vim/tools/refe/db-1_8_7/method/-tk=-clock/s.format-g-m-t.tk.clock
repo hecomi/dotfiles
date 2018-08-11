@@ -1,7 +1,0 @@
-names=formatGMT
-visibility=public
-kind=defined
-
---- formatGMT(clk, form = nil)
-@todo
-

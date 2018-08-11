@@ -1,8 +1,0 @@
-names=closed?,ended?
-visibility=public
-kind=defined
-
---- closed? -> bool
---- ended? -> bool
-
-ストリームが閉じられている時に真を返します。

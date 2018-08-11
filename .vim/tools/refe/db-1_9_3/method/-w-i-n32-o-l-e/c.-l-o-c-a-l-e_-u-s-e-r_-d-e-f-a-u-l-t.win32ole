@@ -1,7 +1,0 @@
-names=LOCALE_USER_DEFAULT
-visibility=public
-kind=defined
-
---- LOCALE_USER_DEFAULT  -> Fixnum
-
-ユーザ既定のロケールを示すLCID(0x0400)です。

@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=irb.input=2dmethod
-aliases=
-aliasof=
-
-抽象的な入力を表すクラスです。ライブラリ内部で使用します。

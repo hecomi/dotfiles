@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=Gem=UserInteraction
-library=rubygems.format
-aliases=
-aliasof=
-
-RubyGems の Gem ファイルの内部構造を表すクラスです。

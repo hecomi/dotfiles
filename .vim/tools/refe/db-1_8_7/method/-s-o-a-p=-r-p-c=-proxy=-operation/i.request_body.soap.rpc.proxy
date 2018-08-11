@@ -1,7 +1,0 @@
-names=request_body
-visibility=public
-kind=defined
-
---- request_body(values, mapping_registry, literal_mapping_registry, opt)
-@todo
-

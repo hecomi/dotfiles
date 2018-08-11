@@ -1,7 +1,0 @@
-names=add_element
-visibility=public
-kind=defined
-
---- add_element(element, attrs = nil)
-@todo
-

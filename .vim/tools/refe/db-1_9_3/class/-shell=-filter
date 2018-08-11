@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=Enumerable
-extended=
-library=shell.filter
-aliases=
-aliasof=
-
-コマンドの実行結果はすべて [[c:Shell::Filter]] か、そのサブクラスのインスタンスとして返ります。

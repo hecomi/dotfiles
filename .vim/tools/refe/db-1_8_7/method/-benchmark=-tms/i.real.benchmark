@@ -1,8 +1,0 @@
-names=real
-visibility=public
-kind=defined
-
---- real -> Float
-
-実経過時間。
-

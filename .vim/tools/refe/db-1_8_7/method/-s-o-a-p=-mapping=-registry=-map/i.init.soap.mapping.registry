@@ -1,7 +1,0 @@
-names=init
-visibility=public
-kind=defined
-
---- init(init_map = [])
-@todo
-

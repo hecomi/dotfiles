@@ -1,9 +1,0 @@
-names=new
-visibility=public
-kind=defined
-
---- new(parent, name, mode = nil, *args)
-@todo
-
-
-

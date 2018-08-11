@@ -1,7 +1,0 @@
-names=command_processor
-visibility=public
-kind=defined
-
---- command_processor -> Shell::CommandProcessor
-@todo
-

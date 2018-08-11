@@ -1,7 +1,0 @@
-names=new
-visibility=public
-kind=defined
-
---- new(appname, default_namespace, host = "0.0.0.0", port = 8080)
-@todo
-

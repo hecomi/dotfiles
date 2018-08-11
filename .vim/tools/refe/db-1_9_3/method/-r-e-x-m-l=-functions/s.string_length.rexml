@@ -1,7 +1,0 @@
-names=string_length
-visibility=public
-kind=defined
-
---- string_length(string)
-@todo
-

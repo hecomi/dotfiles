@@ -1,7 +1,0 @@
-names=SYSTEM_WIDE_CONFIG_FILE
-visibility=protected 
-kind=defined
-
---- SYSTEM_WIDE_CONFIG_FILE -> String
-
-システム全体の設定ファイルのパスです。

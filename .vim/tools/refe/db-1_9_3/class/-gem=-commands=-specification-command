@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Command
-included=Gem=LocalRemoteOptions,Gem=VersionOption
-extended=
-library=rubygems.commands.specification_command
-aliases=
-aliasof=
-
-指定された Gem パッケージの gemspec の情報を YAML 形式で表示するためのクラスです。

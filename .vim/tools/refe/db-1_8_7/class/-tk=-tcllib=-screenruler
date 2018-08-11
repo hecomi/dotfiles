@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=tkextlib.tcllib.screenruler
-aliases=Tk=Tcllib=ScreenRuler
-aliasof=
-
-

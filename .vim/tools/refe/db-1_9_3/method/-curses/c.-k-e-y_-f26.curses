@@ -1,8 +1,0 @@
-names=KEY_F26
-visibility=public
-kind=defined
-
---- KEY_F26 -> Integer
-
-F26 キーを表す定数です。
-

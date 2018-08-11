@@ -1,9 +1,0 @@
-names=sysaccept
-visibility=public
-kind=defined
-
---- sysaccept -> Array
-
-接続したクライアントのファイル記述子とアドレスのペアを返すことを除
-けば [[m:Socket#accept]] と同じです。
-

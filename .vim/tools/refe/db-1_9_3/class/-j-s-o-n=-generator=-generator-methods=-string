@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=json
-aliases=JSON=Ext=Generator=GeneratorMethods=String
-aliasof=
-
-[[c:String]] に JSON で使用するインスタンスメソッドを追加するためのモジュールです。

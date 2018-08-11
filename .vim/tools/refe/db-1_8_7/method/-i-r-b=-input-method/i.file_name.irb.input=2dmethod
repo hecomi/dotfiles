@@ -1,9 +1,0 @@
-names=file_name
-visibility=public
-kind=defined
-
---- file_name -> String
-
-ファイル名を文字列で返します。
-
-

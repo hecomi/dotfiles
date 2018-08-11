@@ -1,7 +1,0 @@
-names=new
-visibility=public
-kind=defined
-
---- new(style, op_name, optype_name, headerparts, bodyparts, faultpart, soapaction)
-@todo
-

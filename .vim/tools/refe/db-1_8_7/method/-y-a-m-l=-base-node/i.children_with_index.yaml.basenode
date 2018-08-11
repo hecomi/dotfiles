@@ -1,8 +1,0 @@
-names=children_with_index
-visibility=public
-kind=defined
-
---- children_with_index -> [[object, Integer]]
-
-自身が持つ値とインデックス(もしくはキー)の配列の配列を返します。
-

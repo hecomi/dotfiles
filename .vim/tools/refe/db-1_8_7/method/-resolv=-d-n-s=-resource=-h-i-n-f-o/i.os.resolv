@@ -1,8 +1,0 @@
-names=os
-visibility=public
-kind=defined
-
---- os -> String
-ホストで使われる OS 名を返します。
-
-

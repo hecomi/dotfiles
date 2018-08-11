@@ -1,7 +1,0 @@
-names=delete_procs
-visibility=public
-kind=defined
-
---- delete_procs(*procs)
-@todo
-

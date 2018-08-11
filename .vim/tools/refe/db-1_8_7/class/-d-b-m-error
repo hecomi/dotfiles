@@ -1,9 +1,0 @@
-type=class
-superclass=StandardError
-included=
-extended=
-library=dbm
-aliases=
-aliasof=
-
-DBM 内部で使用する例外クラスです。

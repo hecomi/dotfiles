@@ -1,8 +1,0 @@
-names=stdout
-visibility=public
-kind=defined
-
---- stdout -> object
-
-トレース出力先を参照します。
-

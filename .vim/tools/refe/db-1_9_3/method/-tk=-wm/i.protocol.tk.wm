@@ -1,7 +1,0 @@
-names=protocol
-visibility=public
-kind=defined
-
---- protocol(name = nil, cmd = nil, &block)
-@todo
-

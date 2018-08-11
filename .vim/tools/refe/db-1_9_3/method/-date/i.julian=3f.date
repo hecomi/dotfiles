@@ -1,7 +1,0 @@
-names=julian?
-visibility=public
-kind=defined
-
---- julian? -> bool
-ユリウス暦なら真を返します。
-

@@ -1,9 +1,0 @@
-type=class
-superclass=Gem=Package=Error
-included=
-extended=
-library=rubygems.package
-aliases=
-aliasof=
-
-チェックサムが一致しない場合に発生する例外です。

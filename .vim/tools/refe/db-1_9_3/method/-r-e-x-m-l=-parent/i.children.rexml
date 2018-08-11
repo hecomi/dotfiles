@@ -1,8 +1,0 @@
-names=children,to_a
-visibility=public
-kind=defined
-
---- to_a
---- children
-@todo
-

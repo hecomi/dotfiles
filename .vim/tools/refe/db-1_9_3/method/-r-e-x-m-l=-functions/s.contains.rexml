@@ -1,7 +1,0 @@
-names=contains
-visibility=public
-kind=defined
-
---- contains(string, test)
-@todo
-

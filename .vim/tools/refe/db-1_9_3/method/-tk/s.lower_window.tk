@@ -1,7 +1,0 @@
-names=lower_window
-visibility=public
-kind=defined
-
---- lower_window(win, below = Tk::None)
-@todo
-

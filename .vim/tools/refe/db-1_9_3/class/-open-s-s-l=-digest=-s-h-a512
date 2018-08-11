@@ -1,9 +1,0 @@
-type=class
-superclass=OpenSSL=Digest
-included=
-extended=
-library=openssl
-aliases=
-aliasof=
-
-ハッシュ関数 SHA512 を表すクラス

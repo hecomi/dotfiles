@@ -1,8 +1,0 @@
-names=default_path
-visibility=public
-kind=added
-
---- default_path -> [String]
-
-デフォルトの Gem パッケージをロードするディレクトリのリストを返します。
-

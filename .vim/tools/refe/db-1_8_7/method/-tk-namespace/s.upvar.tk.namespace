@@ -1,7 +1,0 @@
-names=upvar
-visibility=public
-kind=defined
-
---- upvar(namespace, *var_pairs)
-@todo
-

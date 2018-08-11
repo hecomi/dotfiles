@@ -1,8 +1,0 @@
-filename=object.c
-macro=false
-private=true
-type=VALUE
-name=sym_inspect
-params=(VALUE sym)
-
-

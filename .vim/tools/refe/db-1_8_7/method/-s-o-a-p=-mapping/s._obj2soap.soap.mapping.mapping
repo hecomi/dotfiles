@@ -1,7 +1,0 @@
-names=_obj2soap
-visibility=public
-kind=defined
-
---- _obj2soap(obj, registry, type = nil)
-@todo
-

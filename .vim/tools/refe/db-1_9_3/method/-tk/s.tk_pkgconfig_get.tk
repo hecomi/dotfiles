@@ -1,7 +1,0 @@
-names=tk_pkgconfig_get
-visibility=public
-kind=defined
-
---- tk_pkgconfig_get(key)
-@todo
-

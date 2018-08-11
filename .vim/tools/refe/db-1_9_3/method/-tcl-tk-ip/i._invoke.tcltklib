@@ -1,7 +1,0 @@
-names=_invoke
-visibility=public
-kind=defined
-
---- _invoke(*cmds)
-@todo
-

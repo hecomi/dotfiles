@@ -1,7 +1,0 @@
-names=to_s
-visibility=public
-kind=defined
-
---- to_s(indent = -1)
-@todo
-

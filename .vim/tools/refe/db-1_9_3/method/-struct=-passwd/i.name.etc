@@ -1,8 +1,0 @@
-names=name
-visibility=public
-kind=defined
-
---- name -> String
-
-このユーザのログイン名を返します。
-

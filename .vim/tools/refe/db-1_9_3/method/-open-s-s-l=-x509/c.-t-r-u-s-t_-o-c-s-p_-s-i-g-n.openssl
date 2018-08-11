@@ -1,8 +1,0 @@
-names=TRUST_OCSP_SIGN
-visibility=public
-kind=defined
-
---- TRUST_OCSP_SIGN -> Integer
-@todo
-
-

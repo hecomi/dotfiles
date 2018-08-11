@@ -1,7 +1,0 @@
-names=ip_eval_with_enc
-visibility=public
-kind=defined
-
---- ip_eval_with_enc(cmd_string)
-@todo
-

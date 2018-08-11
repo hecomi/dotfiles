@@ -1,9 +1,0 @@
-names=update_without_notify
-visibility=public
-kind=defined
-
---- update_without_notify(hash)
-@todo
-
-[[m:Hash#update]] と同じ。
-

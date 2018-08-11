@@ -1,8 +1,0 @@
-names=gem_file_list
-visibility=public 
-kind=defined
-
---- gem_file_list -> Array
-
-インデックスを作成するために使用する Gem ファイルのリストを返します。
-

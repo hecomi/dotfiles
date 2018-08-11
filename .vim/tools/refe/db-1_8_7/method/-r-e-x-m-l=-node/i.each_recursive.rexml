@@ -1,7 +1,0 @@
-names=each_recursive
-visibility=public
-kind=defined
-
---- each_recursive {|node| ... }
-@todo
-

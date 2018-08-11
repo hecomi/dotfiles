@@ -1,7 +1,0 @@
-names=inspect
-visibility=public
-kind=defined
-
---- inspect -> String
-ASCII 互換であるエンコーディングの文字列で自身の情報を返します。
-

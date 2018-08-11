@@ -1,7 +1,0 @@
-names=create_slave
-visibility=public
-kind=defined
-
---- create_slave(name, safe = false)
-@todo
-

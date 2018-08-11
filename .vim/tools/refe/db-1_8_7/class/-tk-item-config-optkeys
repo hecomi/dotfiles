@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=TkUtil
-extended=
-library=tk.itemconfig
-aliases=
-aliasof=
-
-

@@ -1,8 +1,0 @@
-names=value
-visibility=public
-kind=defined
-
---- value -> String | Array | Hash
-
-値を返します。
-

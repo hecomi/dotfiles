@@ -1,7 +1,0 @@
-names=from_obj
-visibility=public
-kind=defined
-
---- from_obj(obj, namespace = nil)
-@todo
-

@@ -1,6 +1,0 @@
-names=parse
-visibility=private 
-kind=defined
-
---- parse(content, location, originalroot)
-@todo

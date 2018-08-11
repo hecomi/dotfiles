@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=cgi.session.pstore
-aliases=
-aliasof=
-
-セッションの保存先として [[c:PStore]] を使用します。

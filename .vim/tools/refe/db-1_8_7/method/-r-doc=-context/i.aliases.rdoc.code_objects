@@ -1,8 +1,0 @@
-names=aliases
-visibility=public
-kind=defined
-
---- aliases -> [RDoc::Alias]
-
-追加された [[c:RDoc::Alias]] の配列を返します。
-

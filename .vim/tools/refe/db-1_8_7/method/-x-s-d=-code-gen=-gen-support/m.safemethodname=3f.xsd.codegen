@@ -1,7 +1,0 @@
-names=safemethodname?
-visibility=public
-kind=defined
-
---- safemethodname?(name)
-@todo
-

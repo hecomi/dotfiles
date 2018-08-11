@@ -1,7 +1,0 @@
-names=local_assign_hook
-visibility=protected 
-kind=defined
-
---- local_assign_hook(key, cascade, &hook)
-@todo
-

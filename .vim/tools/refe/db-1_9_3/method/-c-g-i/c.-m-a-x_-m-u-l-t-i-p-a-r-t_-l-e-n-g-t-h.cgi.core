@@ -1,8 +1,0 @@
-names=MAX_MULTIPART_LENGTH
-visibility=public
-kind=defined
-
---- MAX_MULTIPART_LENGTH -> Fixnum
-
-Maximum content length of multipart data
-

@@ -1,7 +1,0 @@
-names=plot
-visibility=public
-kind=defined
-
---- plot(series, radius, angle)
-@todo
-

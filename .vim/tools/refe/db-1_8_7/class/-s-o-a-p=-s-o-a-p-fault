@@ -1,9 +1,0 @@
-type=class
-superclass=SOAP=SOAPStruct
-included=SOAP=SOAPEnvelopeElement,SOAP=SOAPCompoundtype
-extended=
-library=soap.element
-aliases=
-aliasof=
-
-

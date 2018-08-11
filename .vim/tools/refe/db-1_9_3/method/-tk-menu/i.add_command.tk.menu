@@ -1,7 +1,0 @@
-names=add_command
-visibility=public
-kind=defined
-
---- add_command(keys = nil)
-@todo
-

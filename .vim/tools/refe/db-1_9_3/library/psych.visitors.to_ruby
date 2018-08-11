@@ -1,8 +1,0 @@
-requires=psych.scalar_scanner,strscan
-classes=Psych=Visitors=ToRuby
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-

@@ -1,8 +1,0 @@
-names=configure,place
-visibility=public
-kind=defined
-
---- configure(win, slot, value = Tk::None)
---- place(win, slot, value = Tk::None)
-@todo
-

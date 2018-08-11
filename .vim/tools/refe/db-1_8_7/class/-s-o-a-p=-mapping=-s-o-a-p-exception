@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=SOAP=Marshallable
-extended=
-library=soap.mapping.registry
-aliases=
-aliasof=
-
-

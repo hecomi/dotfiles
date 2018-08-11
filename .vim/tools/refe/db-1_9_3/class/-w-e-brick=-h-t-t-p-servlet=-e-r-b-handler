@@ -1,9 +1,0 @@
-type=class
-superclass=WEBrick=HTTPServlet=AbstractServlet
-included=
-extended=
-library=webrick.httpservlet.erbhandler
-aliases=
-aliasof=
-
-ERB を扱うためのサーブレットです。

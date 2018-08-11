@@ -1,7 +1,0 @@
-names=format
-visibility=public
-kind=defined
-
---- format(str, indent = nil)
-@todo
-

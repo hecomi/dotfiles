@@ -1,9 +1,0 @@
-type=class
-superclass=RuntimeError
-included=
-extended=
-library=rexml
-aliases=
-aliasof=
-
-

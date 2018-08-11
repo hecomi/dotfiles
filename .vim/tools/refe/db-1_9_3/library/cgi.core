@@ -1,8 +1,0 @@
-requires=
-classes=CGI,CGI=QueryExtension,CGI=QueryExtension=Value,CGI=InvalidEncoding
-methods=
-sublibraries=
-is_sublibrary=true
-category=
-
-cgi ライブラリのコア機能を提供するライブラリです。

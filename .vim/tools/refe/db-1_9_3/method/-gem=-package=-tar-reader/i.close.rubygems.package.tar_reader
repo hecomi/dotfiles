@@ -1,8 +1,0 @@
-names=close
-visibility=public 
-kind=defined
-
---- close -> nil
-
-自身を close します。
-

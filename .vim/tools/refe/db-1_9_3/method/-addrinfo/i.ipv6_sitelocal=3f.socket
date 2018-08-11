@@ -1,8 +1,0 @@
-names=ipv6_sitelocal?
-visibility=public
-kind=defined
-
---- ipv6_sitelocal? -> bool
-IPv6 のサイトローカルアドレス(ffc0::/10)であれば真を返します。
-
-

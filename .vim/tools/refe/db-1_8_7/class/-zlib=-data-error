@@ -1,9 +1,0 @@
-type=class
-superclass=Zlib=Error
-included=
-extended=
-library=zlib
-aliases=
-aliasof=
-
-入力データが壊れている場合などに発生します。

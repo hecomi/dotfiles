@@ -1,8 +1,0 @@
-names=wiredump_file_base,wiredump_file_base=
-visibility=public
-kind=defined
-
---- wiredump_file_base
---- wiredump_file_base=(value)
-@todo
-

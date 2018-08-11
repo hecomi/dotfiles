@@ -1,7 +1,0 @@
-names=processing_instruction
-visibility=public
-kind=defined
-
---- processing_instruction(node)
-@todo
-

@@ -1,9 +1,0 @@
-type=class
-superclass=RSS=Maker=TextinputBase
-included=
-extended=
-library=rss
-aliases=
-aliasof=
-
-

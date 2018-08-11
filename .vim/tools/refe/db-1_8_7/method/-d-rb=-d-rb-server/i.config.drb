@@ -1,8 +1,0 @@
-names=config
-visibility=public
-kind=defined
-
---- config 
-@todo
-The configuration of this DRbServer
-

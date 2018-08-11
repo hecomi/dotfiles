@@ -1,7 +1,0 @@
-names=fromUTF8
-visibility=public
-kind=defined
-
---- fromUTF8(str, encoding = nil)
-@todo
-

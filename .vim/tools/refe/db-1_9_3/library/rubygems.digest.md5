@@ -1,8 +1,0 @@
-requires=
-classes=
-methods=Gem/c.MD5.rubygems.digest.md5
-sublibraries=
-is_sublibrary=true
-category=
-
-[[c:Digest::MD5]] をラップするためのライブラリです。

@@ -1,8 +1,0 @@
-names=each
-visibility=public
-kind=defined
-
---- each(rs = nil){ ... } -> nil
-
-何もしません。
-

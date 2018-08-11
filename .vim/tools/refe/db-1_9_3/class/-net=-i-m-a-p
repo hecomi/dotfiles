@@ -1,9 +1,0 @@
-type=class
-superclass=Object
-included=
-extended=
-library=net.imap
-aliases=
-aliasof=
-
-IMAP 接続を表現するクラスです。

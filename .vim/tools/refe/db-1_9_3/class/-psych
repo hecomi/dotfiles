@@ -1,9 +1,0 @@
-type=module
-superclass=
-included=
-extended=
-library=psych
-aliases=
-aliasof=
-
-[[lib:yaml]] のバックエンドのためのモジュールです。

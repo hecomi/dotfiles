@@ -1,8 +1,0 @@
-names=focus_to
-visibility=public
-kind=defined
-
---- focus_to(win, force = false)
-@todo
-
-

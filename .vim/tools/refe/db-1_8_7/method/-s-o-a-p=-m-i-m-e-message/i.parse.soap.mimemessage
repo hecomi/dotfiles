@@ -1,7 +1,0 @@
-names=parse
-visibility=public
-kind=defined
-
---- parse(head, str)
-@todo
-
