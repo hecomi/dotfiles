@@ -1,7 +1,9 @@
-.vim/save_point
-.vim/plugins
-.vim/.tweetvim
-.zsh/zsh-completions
-_viminfo
-.cache
+# Directories
+.vim/*
+.zsh/*
+.config/*
+.cache/*
 
+# Files
+_viminfo
+.DS_Store
