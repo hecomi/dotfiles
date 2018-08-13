@@ -1,0 +1,24 @@
+# Shougo-san's plugins {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'Shougo/dein.vim'
+# }}}
+
+# Appearance {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'hecomi/tsubakumi.vim'
+# }}}
+
+# Syntax {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+# }}}
