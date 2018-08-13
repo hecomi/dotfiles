@@ -2,6 +2,45 @@
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+
+[[plugins]]
+repo = 'Shougo/deoppet.nvim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+# }}}
+
+# Key {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+
+[[plugins]]
+repo = 'houtsnip/vim-emacscommandline'
 # }}}
 
 # Appearance {{{
@@ -14,11 +53,25 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'hecomi/tsubakumi.vim'
+
+[[plugins]]
+repo = 'kien/rainbow_parentheses.vim'
 # }}}
 
 # Syntax {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'cespare/vim-toml'
+# }}}
 
+# Text-Object {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'osyo-manga/vim-textobj-multiblock'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-comment'
 # }}}

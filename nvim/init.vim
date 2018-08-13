@@ -117,6 +117,10 @@ set hlsearch
 
 " View
 " ---------------------------------------------------------------------------------------------------
+set clipboard+=unnamedplus
+
+" View
+" ---------------------------------------------------------------------------------------------------
 set showmatch
 set showcmd
 set showmode
@@ -226,17 +230,16 @@ endfunction
 imap <silent><expr> <Esc> NotMoveWhenLeavingFromInsertMode()
 
 " Emacs-like
-" Ref: http://gravity-crim.blogspot.jp/2011/07/vimemacs_15.html
 inoremap <C-p>  <Up>
 inoremap <C-n>  <Down>
 inoremap <C-b>  <Left>
 inoremap <C-f>  <Right>
-" inoremap <C-e>  <End>
-" inoremap <C-a>  <Home>
+inoremap <C-e>  <End>
+inoremap <C-a>  <Home>
 inoremap <C-h>  <Backspace>
 inoremap <C-d>  <Del>
 inoremap <expr> <C-k> col('.')==col('$')?'':'<C-o>D'
-" inoremap <C-l>  <C-o>zz
+inoremap <C-l>  <C-o>zz
 
 " Buffer
 " ---------------------------------------------------------------------------------------------------
@@ -273,30 +276,6 @@ nmap # <Plug>(anzu-sharp-with-echo)N
 nnoremap <C-w>* <C-w>s<Plug>(anzu-star-with-echo)N
 nnoremap <C-w># <C-w>s<Plug>(anzu-sharp-with-echo)N
 
-" Ref: http://d.hatena.ne.jp/osyo-manga/20130424/1366800441
-function! s:move_cursor_pos_mapping(str, ...)
-    let left = get(a:, 1, '<Left>')
-    let lefts = join(map(split(matchstr(a:str, '.*<Cursor>\zs.*\ze'), '.\zs'), 'left'), '')
-    return substitute(a:str, '<Cursor>', '', '') . lefts
-endfunction
-
-function! _(str)
-    return s:move_cursor_pos_mapping(a:str, "\<Left>")
-endfunction
-
-nnoremap <expr> [prefix]s _(":%s/<Cursor>//g")
-vnoremap <expr> [prefix]s _(":S/<Cursor>//g")
-nnoremap <expr> [prefix]S _(":%S/<Cursor>//g")
-vnoremap <expr> [prefix]S _(":S/<Cursor>//g")
-
-" TextObj
-" ---------------------------------------------------------------------------------------------------
-vmap s  <Plug>VSurround
-omap ab <Plug>(textobj-multiblock-a)
-omap ib <Plug>(textobj-multiblock-i)
-vmap ab <Plug>(textobj-multiblock-a)
-vmap ib <Plug>(textobj-multiblock-i)
-
 " Macro
 " ---------------------------------------------------------------------------------------------------
 nnoremap q <Nop>
@@ -305,14 +284,6 @@ nnoremap Q q
 " Select
 " ---------------------------------------------------------------------------------------------------
 nnoremap <C-a> ggVG
-nnoremap [prefix]vl `[v`]
-onoremap [prefix]vl <Esc>gc<CR>
-vnoremap [prefix]vl <Esc>gc<CR>
-
-onoremap ) f)
-onoremap ( t(
-vnoremap ) f)
-vnoremap ( t(
 
 " Copy
 " ---------------------------------------------------------------------------------------------------
@@ -382,15 +353,25 @@ if s:is_win
     nnoremap [prefix]reload :source ~/_vimrc<CR>
     nnoremap [prefix]vimrc  :e ~/_vimrc<CR>
     nnoremap [prefix]gvimrc :e ~/_gvimrc<CR>
+    nnoremap [prefix]nvimrc :e ~/nvim/init.vim<CR>
 elseif s:is_mac
     nnoremap [prefix]reload :source ~/dotfiles/.vimrc<CR>
     nnoremap [prefix]vimrc  :e ~/dotfiles/.vimrc<CR>:cd ~/dotfiles<CR>
     nnoremap [prefix]gvimrc :e ~/dotfiles/.gvimrc<CR>:cd ~/dotfiles<CR>
+    nnoremap [prefix]nvimrc :e ~/dotfiles/nvim/init.vim<CR>:cd ~/dotfiles/nvim<CR>
 else
     nnoremap [prefix]reload :source ~/.vimrc<CR>
     nnoremap [prefix]vimrc  :e ~/.vimrc<CR>
     nnoremap [prefix]gvimrc :e ~/.gvimrc<CR>
+    nnoremap [prefix]nvimrc :e ~/nvim/init.vim<CR>
 endif
+
+" Text object
+" ---------------------------------------------------------------------------------------------------
+omap ab <Plug>(textobj-multiblock-a)
+omap ib <Plug>(textobj-multiblock-i)
+vmap ab <Plug>(textobj-multiblock-a)
+vmap ib <Plug>(textobj-multiblock-i)
 
 " }}}
 
@@ -431,7 +412,7 @@ function! s:MyColorScheme()
     hi Comment      ctermbg=none ctermfg=239  guibg=#000000 guifg=#444444
     hi LineNr       ctermbg=none ctermfg=232  guibg=#010101 guifg=#333333
     hi Line         ctermbg=232  ctermfg=none guibg=#222222 guifg=NONE
-    hi CursorLine   ctermbg=233  ctermfg=none guibg=#1a1512 guifg=NONE
+    hi CursorLine   ctermbg=234  ctermfg=none guibg=#1a1512 guifg=NONE
     hi CursorLineNr ctermbg=234  ctermfg=33   guibg=#1a1512 guifg=#268bd2 cterm=bold gui=bold
     hi SpecialKey   ctermbg=none ctermfg=232  guibg=NONE    guifg=#0a0a0a
     hi FoldColumn   ctermbg=234  ctermfg=232  guibg=#222222 guifg=#444444
@@ -509,57 +490,140 @@ let g:c_no_curly_error = 1
 
 " lightline {{{
 "====================================================================================================
-let g:unite_force_overwrite_statusline    = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
-let g:tagbar_status_func                  = 'TagbarStatusFunc'
-
 let g:lightline = {
-	\ 'colorscheme': 'tsubakumi',
-	\ 'enable' : {
-		\ 'statusline' : 1,
-		\ 'tabline'    : 0
-	\ },
-	\ 'mode_map' : {
-		\ 'n'      : 'N',
-		\ 'i'      : 'I',
-		\ 'R'      : 'R',
-		\ 'v'      : 'V',
-		\ 'V'      : 'VL',
-		\ 'c'      : 'C',
-		\ "\<C-v>" : 'VB',
-		\ 's'      : 'S',
-		\ 'S'      : 'SL',
-		\ "\<C-s>" : 'SB',
-		\ '?'      : '  '
-	\ },
-	\ 'active' : {
-		\ 'left' : [
-			\ [ 'mode' ],
-			\ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
-		\ ],
-		\ 'right' : [
-			\ [ 'percent' ],
-			\ [ 'lineinfo' ],
-			\ [ 'fileformat', 'fileencoding', 'filetype' ]
-		\ ]
-	\ },
-	\ 'separator' : {
-		\ 'left'  : '⮀',
-		\ 'right' : '⮂'
-	\ },
-	\ 'subseparator' : {
-		\ 'left'  : '⮁',
-		\ 'right' : '⮃'
-	\ },
-	\ 'component' : {
-		\ 'lineinfo' : '⭡ %3l:%-1v',
-		\ 'percent'  : '%2p%%',
-	\ },
-	\ 'tab' : {
-		\ 'active'   : [ 'tabnum', 'filename', 'modified' ],
-		\ 'inactive' : ['tabnum', 'filename', 'modified' ],
-	\ },
+    \ 'colorscheme': 'tsubakumi',
+    \ 'enable' : {
+        \ 'statusline' : 1,
+        \ 'tabline'    : 0
+    \ },
+    \ 'mode_map' : {
+        \ 'n'      : 'N',
+        \ 'i'      : 'I',
+        \ 'R'      : 'R',
+        \ 'v'      : 'V',
+        \ 'V'      : 'VL',
+        \ 'c'      : 'C',
+        \ "\<C-v>" : 'VB',
+        \ 's'      : 'S',
+        \ 'S'      : 'SL',
+        \ "\<C-s>" : 'SB',
+        \ '?'      : '  '
+    \ },
+    \ 'active' : {
+        \ 'left' : [
+            \ [ 'mode' ],
+            \ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
+        \ ],
+        \ 'right' : [
+            \ [ 'percent' ],
+            \ [ 'lineinfo' ],
+            \ [ 'fileformat', 'fileencoding', 'filetype' ]
+        \ ]
+    \ },
+    \ 'separator' : {
+        \ 'left'  : '⮀',
+        \ 'right' : '⮂'
+    \ },
+    \ 'subseparator' : {
+        \ 'left'  : '⮁',
+        \ 'right' : '⮃'
+    \ },
+    \ 'component' : {
+        \ 'lineinfo' : '⭡ %3l:%-1v',
+        \ 'percent'  : '%2p%%',
+    \ },
+    \ 'component_function': {
+        \ 'mode': 'MyLightLineDeniteMode',
+    \ },
+    \ 'tab' : {
+        \ 'active'   : [ 'tabnum', 'filename', 'modified' ],
+        \ 'inactive' : ['tabnum', 'filename', 'modified' ],
+    \ },
 \ }
+
+" }}}
+
+" Denite {{{
+"====================================================================================================
+" Settings
+" ---------------------------------------------------------------------------------------------------
+call denite#custom#option('default', 'prompt', '>')
+call denite#custom#option('default', 'statusline', v:false)
+call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
+call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
+
+" Key mappings
+" ---------------------------------------------------------------------------------------------------
+nnoremap [denite] <nop>
+xnoremap [denite] <nop>
+nmap <Space> [denite]
+xmap <Space> [denite]
+
+nnoremap [denite]  :Denite
+nnoremap [denite]b :Denite buffer<CR>
+nnoremap [denite]t :Denite tab<CR>
+nnoremap [denite]w :Denite window<CR>
+
+nnoremap [denite]h :<C-u>execute
+    \ 'Denite'
+    \ 'buffer file_mru'
+    \ 'file:'.fnameescape(expand('%:p:h'))
+    \ 'file_rec:!:'.fnameescape(expand('%:p:h'))
+    \ <CR>
+
+" lightline
+" ---------------------------------------------------------------------------------------------------
+"  Ref: https://gist.github.com/pocari/84c78efa38b5c2fc1f659d1aac3face8
+function! MyLightLineDeniteMode()
+    if &ft == 'denite'
+        let mode_str = substitute(denite#get_status_mode(), "-\\| ", "", "g")
+        call lightline#link(tolower(mode_str[0]))
+        return mode_str
+    else
+        return winwidth('.') > 60 ? lightline#mode() : ''
+    endif
+endfunction
+
+" neomru
+" ---------------------------------------------------------------------------------------------------
+let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
+
+" }}}
+
+" Easy Motion {{{
+"====================================================================================================
+let g:EasyMotion_do_mapping = 0
+nmap [prefix]f <Plug>(easymotion-overwin-w)
+
+" }}}
+
+" Alignta {{{
+"====================================================================================================
+let g:unite_source_alignta_preset_arguments = [
+	\ ["Align at '='", '=>\='],
+	\ ["Align at ':'", '01 :'],
+	\ ["Align at ':'", '11 :'],
+	\ ["Align at ':'", '01 :/1'],
+	\ ["Align at ':'", '11 :/1'],
+	\ ["Align at '|'", '|'   ],
+	\ ["Align at ')'", '0 )' ],
+	\ ["Align at ']'", '0 ]' ],
+	\ ["Align at '}'", '}'   ],
+\]
+
+vnoremap a  :Alignta
+vnoremap a= :Alignta =<CR>
+vnoremap a+ :Alignta +<CR>
+vnoremap a: :Alignta 11 :/1<CR>
+vnoremap a; :Alignta 11 :/1<CR>
+vnoremap a, :Alignta 01 ,<CR>
+vnoremap as :Alignta <<0 \s\s*<CR>
+vnoremap ae :Alignta -e
+vnoremap ar :Alignta -r
+vnoremap ap :Alignta -p
+vnoremap ag :Alignta g/^\s*
+vnoremap av :Alignta v/^\s*
 
 " }}}
