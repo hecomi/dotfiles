@@ -535,39 +535,42 @@ let g:lightline = {
         \ 'percent'  : '%2p%%',
     \ },
     \ 'component_function': {
+        \ 'mode'         : 'LightLineComponentFuncMode',
         \ 'filename'     : 'LightLineComponentFuncFilename',
         \ 'fileformat'   : 'LightLineComponentFuncFileFormat',
         \ 'filetype'     : 'LightLineComponentFuncFileType',
         \ 'fileencoding' : 'LightLineComponentFuncFileEncoding',
-        \ 'mode'         : 'LightLineComponentFuncMode',
     \ },
     \ 'tab' : {
-        \ 'active'   : [ 'tabnum', 'filename', 'modified' ],
+        \ 'active'   : ['tabnum', 'filename', 'modified' ],
         \ 'inactive' : ['tabnum', 'filename', 'modified' ],
     \ },
 \ }
 
 " Component Functions
 " ---------------------------------------------------------------------------------------------------
-function! MyModified()
-    return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-    return &ft !~? 'help' && &readonly ? '⭤' : ''
+function! LightLineComponentFuncMode()
+    if &ft == 'denite'
+        call lightline#link("i")
+        return "I"
+    else
+        return winwidth('.') > 60 ? lightline#mode() : ''
+    endif
 endfunction
 
 function! LightLineComponentFuncFilename()
-    if &ft == 'denite'
-        return denite#get_status_string()
-    elseif &ft == 'vimfiler'
-        return vimfiler#get_status_string()
+    let l:fname = expand('%:t')
+    if fname == '[denite]'
+        return 'denite'
+    elseif match(fname, 'vimfiler:') == 0
+        return 'vimfiler'
     else
-        let l:fname = expand('%:t')
+        let l:readonly = &ft !~? 'help' && &readonly ? '⭤' : ''
+        let l:modified = &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
         return
-            \ (MyReadonly() != '' ? MyReadonly() . ' ' : '') .
-            \ (fname != '' ? fname : '[No Name]') .
-            \ (MyModified() != '' ? ' ' . MyModified() : '')
+            \ (readonly != '' ? readonly . ' ' : '') .
+            \ (fname    != '' ? fname : '[No Name]') .
+            \ (modified != '' ? ' ' . modified : '')
     endif
 endfunction
 
@@ -581,17 +584,6 @@ endfunction
 
 function! LightLineComponentFuncFileEncoding()
     return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineComponentFuncMode()
-    let fname = expand('%:t')
-    if &ft == 'denite'
-        let mode_str = substitute(denite#get_status_mode(), "-\\| ", "", "g")
-        call lightline#link(tolower(mode_str[0]))
-        return mode_str
-    else
-        return winwidth('.') > 60 ? lightline#mode() : ''
-    endif
 endfunction
 
 " }}}
@@ -645,6 +637,38 @@ let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
 
 " }}}
 
+" deoplete {{{
+"====================================================================================================
+" Flags
+" ---------------------------------------------------------------------------------------------------
+let g:deoplete#enable_at_startup          = 1
+let g:deoplete#auto_complete_delay        = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case          = 1
+let g:deoplete#enable_ignore_case         = 1
+let g:deoplete#enable_smart_case          = 1
+let g:deoplete#enable_refresh_always      = 1
+let g:deoplete#file#enable_buffer_path    = 1
+let g:deoplete#max_list                   = 100
+
+" Omni patterns
+" ---------------------------------------------------------------------------------------------------
+call deoplete#custom#var('omni', 'input_patterns', {
+    \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
+    \ 'java': '[^. *\t]\.\w*',
+    \ 'php': '\w+|[^. \t]->\w*|\w+::\w*',
+    \ 'c': '\%(\.\|->\)\h\w*',
+    \ 'cs': '.*',
+    \ 'cpp':'\h\w*\%(\.\|->\)\h\w*\|\h\w*::',
+\})
+
+" Basic settings
+" ---------------------------------------------------------------------------------------------------
+inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
+inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
+inoremap <expr><CR>    pumvisible() ? deoplete#close_popup() : '<CR>'
+" }}}
+
 " vimfiler {{{
 "====================================================================================================
 " Basic settings
@@ -654,7 +678,7 @@ let g:vimfiler_safe_mode_by_default       = 0
 let g:vimfiler_sort_type                  = 'TIME'
 let g:vimfiler_file_icon                  = '-'
 let g:vimfiler_marked_file_icon           = '*'
-let g:vimfiler_force_overwrite_statusline = 1
+let g:vimfiler_force_overwrite_statusline = 0
 
 if s:is_win
     let g:vimfiler_tree_leaf_icon         = '|'

@@ -16,6 +16,17 @@ repo = 'cespare/vim-toml'
 on_ft = ['toml']
 # }}}
 
+# Complete {{{
+[[plugins]]
+repo = 'Shougo/neco-vim'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+# }}}
+
 # Web {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
