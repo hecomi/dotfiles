@@ -10,7 +10,7 @@
 "
 " ---------------------------------------------------------------------------------------------------
 
-" OS {{{
+" os / neovim {{{
 "====================================================================================================
 let s:is_win   = has('win32') || has('win64')
 let s:is_mac   = has('mac') || system('uname') =~? '^darwin'
@@ -19,7 +19,7 @@ let s:nvim_dir = expand('~/.config/nvim')
 
 " }}}
 
-" Dein {{{
+" dein {{{
 "====================================================================================================
 " Install dein
 " ---------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ if &runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)
         execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
     endif
-    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+    execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
 " Load toml
@@ -52,7 +52,7 @@ endif
 
 " }}}
 
-" Flags {{{
+" flags {{{
 "====================================================================================================
 " Common
 " ---------------------------------------------------------------------------------------------------
@@ -182,7 +182,7 @@ endif
 
 " }}}
 
-" Key Mappings {{{
+" keys {{{
 "====================================================================================================
 " ;
 " ---------------------------------------------------------------------------------------------------
@@ -243,18 +243,16 @@ inoremap <C-l>  <C-o>zz
 
 " Buffer
 " ---------------------------------------------------------------------------------------------------
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
+nnoremap <silent> <C-j> :bn<CR>
+nnoremap <silent> <C-k> :bp<CR>
 
 " Tab
 " ---------------------------------------------------------------------------------------------------
-nnoremap <TAB>   :tabn<CR>
-nnoremap <S-TAB> :tabp<CR>
-nnoremap <C-TAB> :tabnew<CR>
-" alternative
-nnoremap <C-t>   :tabnew<CR>
-nnoremap <C-l>   :tabn<CR>
-nnoremap <C-h>   :tabp<CR>
+nnoremap <silent> <TAB>   :tabn<CR>
+nnoremap <silent> <S-TAB> :tabp<CR>
+nnoremap <silent> <C-TAB> :tabnew<CR>
+nnoremap <silent> <C-l>   :tabn<CR>
+nnoremap <silent> <C-h>   :tabp<CR>
 
 " Window
 " ---------------------------------------------------------------------------------------------------
@@ -262,6 +260,10 @@ nnoremap <Right> <C-w>>
 nnoremap <Left>  <C-w><
 nnoremap <Up>    <C-w>-
 nnoremap <Down>  <C-w>+
+nnoremap <silent> [prefix]sk :sp<CR>
+nnoremap <silent> [prefix]sj :sp<CR><C-w>j
+nnoremap <silent> [prefix]sl :vsp<CR><C-w>l
+nnoremap <silent> [prefix]sh :vsp<CR>
 
 " Search / Replace
 " ---------------------------------------------------------------------------------------------------
@@ -310,7 +312,7 @@ vnoremap <leader>s :!sort<cr>
 " ---------------------------------------------------------------------------------------------------
 augroup MyXML
     autocmd!
-    autocmd Filetype xml,html,eruby inoremap <buffer> </ </<C-x><C-o>
+    autocmd FileType xml,html,eruby inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 " IME
@@ -375,7 +377,7 @@ vmap ib <Plug>(textobj-multiblock-i)
 
 " }}}
 
-" Common Settings {{{
+" common {{{
 "====================================================================================================
 " Move cursor to last point
 " ---------------------------------------------------------------------------------------------------
@@ -390,7 +392,7 @@ let g:vim_indent_cont=0
 
 " }}}
 
-" Appearance {{{
+" appearance {{{
 "====================================================================================================
 " Color scheme
 " ---------------------------------------------------------------------------------------------------
@@ -512,7 +514,7 @@ let g:lightline = {
     \ 'active' : {
         \ 'left' : [
             \ [ 'mode' ],
-            \ [ 'paste', 'fugitive', 'filename', 'gitgutter', 'quickrun' ],
+            \ [ 'paste', 'filename', 'quickrun' ],
         \ ],
         \ 'right' : [
             \ [ 'percent' ],
@@ -533,7 +535,11 @@ let g:lightline = {
         \ 'percent'  : '%2p%%',
     \ },
     \ 'component_function': {
-        \ 'mode': 'MyLightLineDeniteMode',
+        \ 'filename'     : 'LightLineComponentFuncFilename',
+        \ 'fileformat'   : 'LightLineComponentFuncFileFormat',
+        \ 'filetype'     : 'LightLineComponentFuncFileType',
+        \ 'fileencoding' : 'LightLineComponentFuncFileEncoding',
+        \ 'mode'         : 'LightLineComponentFuncMode',
     \ },
     \ 'tab' : {
         \ 'active'   : [ 'tabnum', 'filename', 'modified' ],
@@ -541,9 +547,56 @@ let g:lightline = {
     \ },
 \ }
 
+" Component Functions
+" ---------------------------------------------------------------------------------------------------
+function! MyModified()
+    return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+    return &ft !~? 'help' && &readonly ? '⭤' : ''
+endfunction
+
+function! LightLineComponentFuncFilename()
+    if &ft == 'denite'
+        return denite#get_status_string()
+    elseif &ft == 'vimfiler'
+        return vimfiler#get_status_string()
+    else
+        let l:fname = expand('%:t')
+        return
+            \ (MyReadonly() != '' ? MyReadonly() . ' ' : '') .
+            \ (fname != '' ? fname : '[No Name]') .
+            \ (MyModified() != '' ? ' ' . MyModified() : '')
+    endif
+endfunction
+
+function! LightLineComponentFuncFileFormat()
+    return winwidth('.') > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineComponentFuncFileType()
+    return winwidth('.') > 70 && strlen(&filetype) ? &filetype : ''
+endfunction
+
+function! LightLineComponentFuncFileEncoding()
+    return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineComponentFuncMode()
+    let fname = expand('%:t')
+    if &ft == 'denite'
+        let mode_str = substitute(denite#get_status_mode(), "-\\| ", "", "g")
+        call lightline#link(tolower(mode_str[0]))
+        return mode_str
+    else
+        return winwidth('.') > 60 ? lightline#mode() : ''
+    endif
+endfunction
+
 " }}}
 
-" Denite {{{
+" denite {{{
 "====================================================================================================
 " Settings
 " ---------------------------------------------------------------------------------------------------
@@ -565,7 +618,7 @@ nnoremap [denite]  :Denite
 nnoremap [denite]b :Denite buffer<CR>
 nnoremap [denite]t :Denite tab<CR>
 nnoremap [denite]w :Denite window<CR>
-
+nnoremap [denite]y :Denite neoyank<CR>
 nnoremap [denite]h :<C-u>execute
     \ 'Denite'
     \ 'buffer file_mru'
@@ -592,25 +645,81 @@ let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
 
 " }}}
 
-" Easy Motion {{{
+" vimfiler {{{
+"====================================================================================================
+" Basic settings
+" ---------------------------------------------------------------------------------------------------
+let g:vimfiler_as_default_explorer        = 1
+let g:vimfiler_safe_mode_by_default       = 0
+let g:vimfiler_sort_type                  = 'TIME'
+let g:vimfiler_file_icon                  = '-'
+let g:vimfiler_marked_file_icon           = '*'
+let g:vimfiler_force_overwrite_statusline = 1
+
+if s:is_win
+    let g:vimfiler_tree_leaf_icon         = '|'
+    let g:vimfiler_tree_opened_icon       = '-'
+    let g:vimfiler_tree_closed_icon       = '+'
+else
+    let g:vimfiler_tree_leaf_icon         = ' '
+    let g:vimfiler_tree_opened_icon       = '▾'
+    let g:vimfiler_tree_closed_icon       = '▸'
+endif
+
+if s:is_mac
+    let g:vimfiler_readonly_file_icon     = '✗'
+    let g:vimfiler_marked_file_icon       = '✓'
+else
+    let g:vimfiler_readonly_file_icon     = 'x'
+    let g:vimfiler_marked_file_icon       = 'v'
+endif
+
+" Key binds
+" ---------------------------------------------------------------------------------------------------
+nnoremap [prefix]vf     :VimFiler<CR>
+nnoremap [prefix]vf<CR> :VimFiler<CR>
+nnoremap [prefix]vfe    :VimFilerExplorer<CR>
+augroup VimFilerCustomKeyBinding
+    autocmd!
+    autocmd FileType vimfiler nnoremap <buffer> K <C-u>
+    autocmd FileType vimfiler nnoremap <buffer> <C-j> :bn<CR>
+    autocmd FileType vimfiler nnoremap <buffer> <C-k> :bp<CR>
+augroup END
+" }}}
+
+" easymotion {{{
 "====================================================================================================
 let g:EasyMotion_do_mapping = 0
 nmap [prefix]f <Plug>(easymotion-overwin-w)
 
 " }}}
 
-" Alignta {{{
+" ambicmd {{{
+"====================================================================================================
+cnoremap <expr> <Space> ambicmd#expand("\<Space>")
+cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
+" }}}
+
+" yankround {{{
+"====================================================================================================
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+" }}}
+
+" alignta {{{
 "====================================================================================================
 let g:unite_source_alignta_preset_arguments = [
-	\ ["Align at '='", '=>\='],
-	\ ["Align at ':'", '01 :'],
-	\ ["Align at ':'", '11 :'],
-	\ ["Align at ':'", '01 :/1'],
-	\ ["Align at ':'", '11 :/1'],
-	\ ["Align at '|'", '|'   ],
-	\ ["Align at ')'", '0 )' ],
-	\ ["Align at ']'", '0 ]' ],
-	\ ["Align at '}'", '}'   ],
+    \ ["Align at '='", '=>\='],
+    \ ["Align at ':'", '01 :'],
+    \ ["Align at ':'", '11 :'],
+    \ ["Align at ':'", '01 :/1'],
+    \ ["Align at ':'", '11 :/1'],
+    \ ["Align at '|'", '|'   ],
+    \ ["Align at ')'", '0 )' ],
+    \ ["Align at ']'", '0 ]' ],
+    \ ["Align at '}'", '}'   ],
 \]
 
 vnoremap a  :Alignta
@@ -626,4 +735,38 @@ vnoremap ap :Alignta -p
 vnoremap ag :Alignta g/^\s*
 vnoremap av :Alignta v/^\s*
 
+" }}}
+
+" openbrowser {{{
+"====================================================================================================
+nmap [prefix]bo <Plug>(openbrowser-smart-search)
+vmap [prefix]bo <Plug>(openbrowser-smart-search)
+" }}}
+
+" neoyank {{{
+"====================================================================================================
+let g:neoyank#file = s:nvim_dir .'/tmp/yankring.txt'
+" }}}
+
+" memolist {{{
+"====================================================================================================
+" map
+nnoremap <silent> [prefix]mn :set noimdisable<CR>:MemoNew<CR>
+nnoremap <silent> [prefix]ml :MemoList<CR>
+nnoremap <silent> [prefix]mg :MemoGrep<CR>
+
+" parameters
+let g:memolist_path              = '~/Memo'
+let g:memolist_memo_suffix       = 'txt'
+let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
+let g:memolist_prompt_tags       = 0
+let g:memolist_prompt_categories = 0
+let g:memolist_qfixgrep          = 1
+let g:memolist_vimfiler          = 1
+let g:memolist_template_dir_path = s:nvim_dir . '/template/memolist'
+
+augroup MemoSetFileType
+    autocmd!
+    autocmd BufNewFile,BufRead *.txt set filetype=memo
+augroup END
 " }}}

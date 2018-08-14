@@ -4,22 +4,28 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
-repo = 'Shougo/deol.nvim'
+repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
-repo = 'Shougo/deoppet.nvim'
+repo = 'Shougo/unite.vim'
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
+repo = 'Shougo/vimfiler'
+
+# [[plugins]]
+# repo = 'Shougo/defx.nvim'
+
+# [[plugins]]
+# repo = 'Shougo/deol.nvim'
+
+# [[plugins]]
+# repo = 'Shougo/deoppet.nvim'
 # }}}
 
 # Key {{{
@@ -41,6 +47,12 @@ repo = 'tyru/caw.vim'
 
 [[plugins]]
 repo = 'houtsnip/vim-emacscommandline'
+
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+
+[[plugins]]
+repo = 'thinca/vim-ambicmd'
 # }}}
 
 # Appearance {{{
@@ -56,12 +68,9 @@ repo = 'hecomi/tsubakumi.vim'
 
 [[plugins]]
 repo = 'kien/rainbow_parentheses.vim'
-# }}}
 
-# Syntax {{{
-# ---------------------------------------------------------------------------------------------------
 [[plugins]]
-repo = 'cespare/vim-toml'
+repo = 'thinca/vim-splash'
 # }}}
 
 # Text-Object {{{

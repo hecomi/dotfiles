@@ -1,3 +1,31 @@
+# Shougo-san's plugins {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['denite.nvim']
+# }}}
+
+# Syntax {{{
+# ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['md', 'markdown']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+# }}}
+
+# Web {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_map = ['<Plug>(openbrowser-']
+# }}}
+
+# Others {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+on_cmd = ['MemoNew', 'MemoList', 'MemoGrep']
+# }}}
