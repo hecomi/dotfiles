@@ -352,20 +352,11 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
-    nnoremap [prefix]reload :source ~/_vimrc<CR>
-    nnoremap [prefix]vimrc  :e ~/_vimrc<CR>
-    nnoremap [prefix]gvimrc :e ~/_gvimrc<CR>
-    nnoremap [prefix]nvimrc :e ~/nvim/init.vim<CR>
+    nnoremap [prefix]vimrc :e ~/nvim/init.vim<CR>:cd ~/nvim<CR>
 elseif s:is_mac
-    nnoremap [prefix]reload :source ~/dotfiles/.vimrc<CR>
-    nnoremap [prefix]vimrc  :e ~/dotfiles/.vimrc<CR>:cd ~/dotfiles<CR>
-    nnoremap [prefix]gvimrc :e ~/dotfiles/.gvimrc<CR>:cd ~/dotfiles<CR>
-    nnoremap [prefix]nvimrc :e ~/dotfiles/nvim/init.vim<CR>:cd ~/dotfiles/nvim<CR>
+    nnoremap [prefix]vimrc :e ~/dotfiles/nvim/init.vim<CR>:cd ~/dotfiles/nvim<CR>
 else
-    nnoremap [prefix]reload :source ~/.vimrc<CR>
-    nnoremap [prefix]vimrc  :e ~/.vimrc<CR>
-    nnoremap [prefix]gvimrc :e ~/.gvimrc<CR>
-    nnoremap [prefix]nvimrc :e ~/nvim/init.vim<CR>
+    nnoremap [prefix]vimrc :e ~/nvim/init.vim<CR>:cd ~/nvim<CR>
 endif
 
 " Text object
@@ -474,7 +465,7 @@ vnoremap <silent> <expr> <SID>(CursorLineNrColorVisual)  <SID>CursorLineNrColorV
 nnoremap <silent> <script> v v<SID>(CursorLineNrColorVisual)lh
 nnoremap <silent> <script> V V<SID>(CursorLineNrColorVisual)lh
 nnoremap <silent> <script> <C-v> <C-v><SID>(CursorLineNrColorVisual)lh
-nnoremap r :call <SID>CursorLineNrColorInsert('replace-one-character')<CR>r
+nnoremap <silent> r :call <SID>CursorLineNrColorInsert('replace-one-character')<CR>r
 
 augroup ChangeLineNumber
     autocmd!
@@ -651,6 +642,10 @@ let g:deoplete#enable_refresh_always      = 1
 let g:deoplete#file#enable_buffer_path    = 1
 let g:deoplete#max_list                   = 100
 
+call deoplete#custom#option('sources', {
+    \ 'cs' : ['omnisharp', 'buffer'],
+\ })
+
 " Omni patterns
 " ---------------------------------------------------------------------------------------------------
 call deoplete#custom#var('omni', 'input_patterns', {
@@ -793,4 +788,45 @@ augroup MemoSetFileType
     autocmd!
     autocmd BufNewFile,BufRead *.txt set filetype=memo
 augroup END
+" }}}
+
+" Rainbow Parenthesis {{{
+"====================================================================================================
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+\ ]
+let g:rbpt_max = 16
+
+augroup RainbowParenthesisSettings
+    autocmd!
+    autocmd VimEnter *   RainbowParenthesesToggle
+    autocmd Syntax   *   RainbowParenthesesLoadRound
+    autocmd Syntax   *   RainbowParenthesesLoadSquare
+    autocmd Syntax   *   RainbowParenthesesLoadBraces
+    " autocmd FileType cpp RainbowParenthesesLoadChevrons
+augroup END
+" }}}
+
+" omnisharp {{{
+"====================================================================================================
+if s:is_mac
+    let g:OmniSharp_server_path = s:nvim_dir . '/tools/omnisharp.http-osx.1.30.1/omnisharp/OmniSharp.exe'
+    let g:OmniSharp_server_type = 'roslyn'
+    let g:OmniSharp_server_use_mono = 1
+endif
+
 " }}}

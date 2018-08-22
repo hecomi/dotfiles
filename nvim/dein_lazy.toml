@@ -19,12 +19,26 @@ on_ft = ['toml']
 # Complete {{{
 [[plugins]]
 repo = 'Shougo/neco-vim'
-
-[[plugins]]
-repo = 'Shougo/neco-syntax'
+on_ft = ['vim']
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
+on_ft = ['vim']
+# }}}
+
+# C / C++ {{{
+[[plugins]]
+repo = 'vim-scripts/a.vim'
+on_ft = ['c', 'cpp']
+hook_source = '''
+    nmap <silent> <C-t> :A<CR>
+'''
+# }}}
+
+# CSharp {{{
+[[plugins]]
+repo = "OmniSharp/omnisharp-vim"
+on_ft = ["cs"]
 # }}}
 
 # Web {{{
