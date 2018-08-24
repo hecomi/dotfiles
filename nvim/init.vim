@@ -483,6 +483,10 @@ let g:c_no_curly_error = 1
 
 " lightline {{{
 "====================================================================================================
+let g:unite_force_overwrite_statusline    = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+
 let g:lightline = {
     \ 'colorscheme': 'tsubakumi',
     \ 'enable' : {
@@ -505,7 +509,7 @@ let g:lightline = {
     \ 'active' : {
         \ 'left' : [
             \ [ 'mode' ],
-            \ [ 'paste', 'filename', 'quickrun' ],
+            \ [ 'paste', 'filename', 'quickrun', 'quickfix' ],
         \ ],
         \ 'right' : [
             \ [ 'percent' ],
@@ -526,11 +530,12 @@ let g:lightline = {
         \ 'percent'  : '%2p%%',
     \ },
     \ 'component_function': {
-        \ 'mode'         : 'LightLineComponentFuncMode',
-        \ 'filename'     : 'LightLineComponentFuncFilename',
-        \ 'fileformat'   : 'LightLineComponentFuncFileFormat',
-        \ 'filetype'     : 'LightLineComponentFuncFileType',
-        \ 'fileencoding' : 'LightLineComponentFuncFileEncoding',
+        \ 'mode'         : 'LightlineComponentFuncMode',
+        \ 'filename'     : 'LightlineComponentFuncFilename',
+        \ 'fileformat'   : 'LightlineComponentFuncFileFormat',
+        \ 'filetype'     : 'LightlineComponentFuncFileType',
+        \ 'fileencoding' : 'LightlineComponentFuncFileEncoding',
+        \ 'quickrun'     : 'LightlineComponentFuncQuickrun',
     \ },
     \ 'tab' : {
         \ 'active'   : ['tabnum', 'filename', 'modified' ],
@@ -540,7 +545,7 @@ let g:lightline = {
 
 " Component Functions
 " ---------------------------------------------------------------------------------------------------
-function! LightLineComponentFuncMode()
+function! LightlineComponentFuncMode()
     if &ft == 'denite'
         call lightline#link("i")
         return "I"
@@ -549,12 +554,17 @@ function! LightLineComponentFuncMode()
     endif
 endfunction
 
-function! LightLineComponentFuncFilename()
+function! LightlineComponentFuncFilename()
     let l:fname = expand('%:t')
-    if fname == '[denite]'
-        return 'denite'
-    elseif match(fname, 'vimfiler:') == 0
-        return 'vimfiler'
+    if &ft == 'denite'
+        return denite#get_status_sources()
+    elseif &ft == 'unite'
+        return unite#get_status_string()
+    elseif &ft == 'vimfiler'
+        return vimfiler#get_status_string()
+    elseif &ft == 'quickrun'
+        let l:is_running =rquickrun#is_running() ? ' (running)' : ''
+        return 'output' . is_running
     else
         let l:readonly = &ft !~? 'help' && &readonly ? '⭤' : ''
         let l:modified = &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -565,16 +575,20 @@ function! LightLineComponentFuncFilename()
     endif
 endfunction
 
-function! LightLineComponentFuncFileFormat()
+function! LightlineComponentFuncFileFormat()
     return winwidth('.') > 70 ? &fileformat : ''
 endfunction
 
-function! LightLineComponentFuncFileType()
+function! LightlineComponentFuncFileType()
     return winwidth('.') > 70 && strlen(&filetype) ? &filetype : ''
 endfunction
 
-function! LightLineComponentFuncFileEncoding()
+function! LightlineComponentFuncFileEncoding()
     return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineComponentFuncQuickrun()
+    return shabadou#get_anim_output('inu')
 endfunction
 
 " }}}
@@ -608,19 +622,7 @@ nnoremap [denite]h :<C-u>execute
     \ 'file:'.fnameescape(expand('%:p:h'))
     \ 'file_rec:!:'.fnameescape(expand('%:p:h'))
     \ <CR>
-
-" lightline
-" ---------------------------------------------------------------------------------------------------
-"  Ref: https://gist.github.com/pocari/84c78efa38b5c2fc1f659d1aac3face8
-function! MyLightLineDeniteMode()
-    if &ft == 'denite'
-        let mode_str = substitute(denite#get_status_mode(), "-\\| ", "", "g")
-        call lightline#link(tolower(mode_str[0]))
-        return mode_str
-    else
-        return winwidth('.') > 60 ? lightline#mode() : ''
-    endif
-endfunction
+nnoremap [denite]qc :Unite quickrun_config<CR>
 
 " neomru
 " ---------------------------------------------------------------------------------------------------
@@ -790,7 +792,7 @@ augroup MemoSetFileType
 augroup END
 " }}}
 
-" Rainbow Parenthesis {{{
+" rainbow parenthesis {{{
 "====================================================================================================
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -837,5 +839,72 @@ if s:is_mac
     let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
     let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 endif
+
+" }}}
+
+" include / linkage {{{
+"====================================================================================================
+let s:cpp_include_path = ''
+let s:cpp_library_path = ''
+
+if s:is_mac
+    let s:cpp_include_path  = '/usr/local/include'
+    let s:cpp_library_path  = '/usr/local/lib'
+elseif s:is_win
+    let s:cpp_include_path = 'C:/include'
+    let s:cpp_library_path = 'C:/include/boost/stage/lib'
+else
+    let s:cpp_include_path = '/usr/local/include,/usr/include'
+    let s:cpp_library_path = '/usr/local/lib,/usr/lib'
+endif
+
+let s:cpp_include_options = ' -I' . join(split(s:cpp_include_path, ','), ' -I')
+let s:cpp_library_options = ' -L' . join(split(s:cpp_library_path, ','), ' -L')
+let &path = s:cpp_include_path . ',' . &path
+
+" }}}
+
+" quickrun {{{
+"====================================================================================================
+let g:quickrun_config = {}
+
+" Shabadou {{{
+" ---------------------------------------------------------------------------------------------------
+" inu does not animate now...
+let g:quickrun_config['_'] = {
+    \ 'hook/echo/priority_exit'                      : 100,
+    \ 'hook/echo/enable_output_exit'                 : 1,
+    \ 'hook/close_unite_quickfix/enable_hook_loaded' : 1,
+    \ 'hook/unite_quickfix/enable_failure'           : 1,
+    \ 'hook/close_quickfix/enable_exit'              : 1,
+    \ 'hook/close_buffer/enable_failure'             : 1,
+    \ 'hook/close_buffer/enable_empty_data'          : 1,
+    \ 'hook/echo/enable'                             : 1,
+    \ 'hook/echo/output_success'                     : '凸 < ｷﾀｺﾚ!!',
+    \ 'hook/echo/output_failure'                     : '凹 < ﾍｺﾑﾜ...',
+    \ 'hook/inu/enable'                              : 1,
+    \ 'hook/inu/echo'                                : 0,
+    \ 'hook/inu/wait'                                : 5,
+    \ 'hook/time/enable'                             : 1,
+    \ 'outputter'                                    : 'multi:buffer:quickfix',
+    \ 'outputter/buffer/split'                       : ':botright 8sp',
+    \ 'outputter/buffer/close_on_empty'              : 1,
+    \ 'runner'                                       : 'vimproc',
+    \ 'runner/vimproc/updatetime'                    : 40,
+\ }
+" }}}
+
+" C++ {{{
+" ---------------------------------------------------------------------------------------------------
+let s:quickrun_clang_command  = 'clang++'
+let s:quickrun_clang_options  = s:cpp_include_options . ' ' . s:cpp_library_options . ' -std=c++17'
+let s:quickrun_clang_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
+
+let g:quickrun_config['cpp/clang++'] = {
+    \ 'exec'      : s:quickrun_clang_cpp_exec,
+    \ 'command'   : s:quickrun_clang_command,
+    \ 'cmdopt'    : s:quickrun_clang_options,
+    \ 'runner'    : 'vimproc',
+\ }
 
 " }}}

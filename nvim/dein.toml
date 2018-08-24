@@ -13,10 +13,11 @@ repo = 'Shougo/deoplete.nvim'
 repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'Shougo/vimfiler'
 
 [[plugins]]
-repo = 'Shougo/vimfiler'
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 # [[plugins]]
 # repo = 'Shougo/defx.nvim'
@@ -92,4 +93,16 @@ repo = 'osyo-manga/vim-textobj-multiblock'
 
 [[plugins]]
 repo = 'thinca/vim-textobj-comment'
+# }}}
+
+# Others {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'osyo-manga/unite-quickfix'
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
 # }}}
