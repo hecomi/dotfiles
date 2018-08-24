@@ -648,14 +648,14 @@ call deoplete#custom#option('sources', {
 
 " Omni patterns
 " ---------------------------------------------------------------------------------------------------
-call deoplete#custom#var('omni', 'input_patterns', {
-    \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
-    \ 'java': '[^. *\t]\.\w*',
-    \ 'php': '\w+|[^. \t]->\w*|\w+::\w*',
-    \ 'c': '\%(\.\|->\)\h\w*',
-    \ 'cs': '.*',
-    \ 'cpp':'\h\w*\%(\.\|->\)\h\w*\|\h\w*::',
-\})
+" call deoplete#custom#var('omni', 'input_patterns', {
+"     \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
+"     \ 'java': '[^. *\t]\.\w*',
+"     \ 'php': '\w+|[^. \t]->\w*|\w+::\w*',
+"     \ 'c': '\%(\.\|->\)\h\w*',
+"     \ 'cs': '.*',
+"     \ 'cpp':'\h\w*\%(\.\|->\)\h\w*\|\h\w*::',
+" \})
 
 " Basic settings
 " ---------------------------------------------------------------------------------------------------
@@ -827,6 +827,15 @@ if s:is_mac
     let g:OmniSharp_server_path = s:nvim_dir . '/tools/omnisharp.http-osx.1.30.1/omnisharp/OmniSharp.exe'
     let g:OmniSharp_server_type = 'roslyn'
     let g:OmniSharp_server_use_mono = 1
+endif
+
+" }}}
+
+" clang {{{
+"====================================================================================================
+if s:is_mac
+    let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 endif
 
 " }}}
