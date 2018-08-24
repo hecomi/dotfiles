@@ -564,7 +564,7 @@ function! LightlineComponentFuncFilename()
     elseif &ft == 'vimfiler'
         return vimfiler#get_status_string()
     elseif &ft == 'quickrun'
-        let l:is_running =rquickrun#is_running() ? ' (running)' : ''
+        let l:is_running = quickrun#is_running() ? ' (running)' : ''
         return 'output' . is_running
     else
         let l:readonly = &ft !~? 'help' && &readonly ? '⭤' : ''
@@ -681,8 +681,8 @@ inoremap <expr><CR>    pumvisible() ? deoplete#close_popup() : '<CR>'
 " Sources
 " ---------------------------------------------------------------------------------------------------
 if s:is_mac
-    let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
+    let g:deoplete#sources#clang#libclang_path ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 endif
 
 " }}}
@@ -854,7 +854,7 @@ endif
 
 " }}}
 
-" include / linkage {{{
+" path / include / linkage {{{
 "====================================================================================================
 let s:cpp_include_path = ''
 let s:cpp_library_path = ''
@@ -873,6 +873,191 @@ endif
 let s:cpp_include_options = ' -I' . join(split(s:cpp_include_path, ','), ' -I')
 let s:cpp_library_options = ' -L' . join(split(s:cpp_library_path, ','), ' -L')
 let &path = s:cpp_include_path . ',' . &path
+
+" }}}
+
+" quickrun {{{
+"====================================================================================================
+let g:quickrun_config = {}
+
+" Shabadou
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['_'] = {
+    \ 'hook/echo/priority_exit'                      : 100,
+    \ 'hook/echo/enable_output_exit'                 : 1,
+    \ 'hook/close_unite_quickfix/enable_hook_loaded' : 1,
+    \ 'hook/unite_quickfix/enable_failure'           : 1,
+    \ 'hook/close_quickfix/enable_exit'              : 1,
+    \ 'hook/close_buffer/enable_failure'             : 1,
+    \ 'hook/close_buffer/enable_empty_data'          : 1,
+    \ 'hook/echo/enable'                             : 1,
+    \ 'hook/echo/output_success'                     : '凸 < ｷﾀｺﾚ!!',
+    \ 'hook/echo/output_failure'                     : '凹 < ﾍｺﾑﾜ...',
+    \ 'hook/inu/enable'                              : 1,
+    \ 'hook/inu/echo'                                : 0,
+    \ 'hook/inu/wait'                                : 5,
+    \ 'hook/time/enable'                             : 1,
+    \ 'outputter'                                    : 'multi:buffer:quickfix',
+    \ 'outputter/buffer/split'                       : ':botright 8sp',
+    \ 'outputter/buffer/close_on_empty'              : 1,
+    \ 'runner'                                       : 'vimproc',
+    \ 'runner/vimproc/updatetime'                    : 40,
+\ }
+
+" Common
+" ---------------------------------------------------------------------------------------------------
+let s:quickrun_cpp_path_options = s:cpp_include_options . ' ' . s:cpp_library_options
+let s:quickrun_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
+
+" C
+" ---------------------------------------------------------------------------------------------------
+if s:is_mac
+    let g:quickrun_config['c/default-clang'] = {
+        \ 'exec'    : s:quickrun_cpp_exec,
+        \ 'command' : '/usr/bin/clang',
+        \ 'cmdopt'  : s:quickrun_cpp_path_options,
+        \ 'runner'  : 'vimproc',
+    \ }
+
+    let g:quickrun_config['c/llvm-clang'] = {
+        \ 'exec'    : s:quickrun_cpp_exec,
+        \ 'command' : '/usr/local/Cellar/llvm/6.0.1/bin/clang',
+        \ 'cmdopt'  : s:quickrun_cpp_path_options,
+        \ 'runner'  : 'vimproc',
+    \ }
+
+    let g:quickrun_config['c/ndk-build'] = {
+        \ 'exec'   : '%c',
+        \ 'command': 'ndk-build',
+        \ 'runner' : 'vimproc',
+    \ }
+
+    let g:quickrun_config['c'] = g:quickrun_config['c/default-clang']
+endif
+
+" C++
+" ---------------------------------------------------------------------------------------------------
+let s:quickrun_cpp_options = '-std=c++17 -stdlib=libc++'
+
+if s:is_mac
+    let g:quickrun_config['cpp/default-clang'] = {
+        \ 'exec'    : s:quickrun_cpp_exec,
+        \ 'command' : '/usr/bin/clang++',
+        \ 'cmdopt'  : s:quickrun_cpp_path_options . ' ' . s:quickrun_cpp_options,
+        \ 'runner'  : 'vimproc',
+    \ }
+
+    let g:quickrun_config['cpp/llvm-clang'] = {
+        \ 'exec'    : s:quickrun_cpp_exec,
+        \ 'command' : '/usr/local/Cellar/llvm/6.0.1/bin/clang++',
+        \ 'cmdopt'  : s:quickrun_cpp_path_options . ' ' . s:quickrun_cpp_options,
+        \ 'runner'  : 'vimproc',
+    \ }
+
+    let g:quickrun_config['cpp/ndk-build'] = {
+        \ 'exec'      : '%c',
+        \ 'command'   : 'ndk-build',
+        \ 'runner'    : 'vimproc',
+    \ }
+
+    let g:quickrun_config['cpp'] = g:quickrun_config['cpp/llvm-clang']
+endif
+
+" JavaScript
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['javascript/node'] = {
+    \ 'exec'      : '%c %o %s:p',
+    \ 'command'   : 'node',
+    \ 'cmdopt'    : '--harmony',
+    \ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['javascript/jshint'] = {
+    \ 'exec'      : '%c %s:p ',
+    \ 'command'   : 'jshint',
+    \ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['javascript/jslint'] = {
+    \ 'exec'      : '%c %s:p ',
+    \ 'command'   : 'jslint',
+    \ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['javascript/mocha'] = {
+    \ 'exec'      : '%c %o %s:p',
+    \ 'command'   : 'mocha',
+    \ 'cmdopt'    : '--no-colors -R spec',
+    \ 'runner'    : 'vimproc',
+\ }
+
+let g:quickrun_config['javascript'] = g:quickrun_config['javascript/node']
+
+" JSON
+" ---------------------------------------------------------------------------------------------------
+if s:is_mac
+    let g:quickrun_config['json/jq'] = {
+        \ 'command' : 'jq',
+        \ 'exec'    : '%c . %s:p',
+    \ }
+
+    let g:quickrun_config['json'] = g:quickrun_config['json/jq']
+endif
+
+" C#
+" ---------------------------------------------------------------------------------------------------
+if s:is_win
+    let g:quickrun_config['cs/csc']  = {
+        \ 'command' : 'csc',
+        \ 'exec'    : ['%c %o /out:%s:p:r__.exe %s:p', '%s:p:r__.exe', 'rm %s:p:r__.exe'],
+        \ 'cmdopt'  : '/nologo /utf8output',
+    \ }
+
+    let g:quickrun_config['cs/dmcs']  = {
+        \ 'command' : 'dmcs',
+        \ 'exec'    : ['%c %o %s:p -out:%s:p:r__.exe', '%s:p:r__.exe', 'rm %s:p:r__.exe'],
+        \ 'hook/output_encode/encoding' : 'cp932',
+    \ }
+
+    let g:quickrun_config['cs'] = g:quickrun_config['cs/csc']
+else
+    let g:quickrun_config['cs/mcs']  = {
+        \ 'command' : 'mcs',
+        \ 'exec'    : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
+        \ 'cmdopt'  : '-warn:4 -pkg:dotnet',
+        \ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+    \ }
+
+    let g:quickrun_config['cs'] = g:quickrun_config['cs/mcs']
+endif
+
+" VimScript
+" ---------------------------------------------------------------------------------------------------
+let g:quickrun_config['vim/async'] = {
+    \ 'command' : 'vim',
+    \ 'exec'    : '%C -N -u NONE -i NONE -V1 -e -s --cmd "source %s" --cmd qall!',
+    \ 'runner'  : 'vimproc',
+\ }
+
+let g:quickrun_config['vim'] = g:quickrun_config['vim/async']
+
+" Python
+" ---------------------------------------------------------------------------------------------------
+if s:is_mac
+    let g:quickrun_config['python/default'] = {
+        \ 'command' : '/usr/bin/python',
+        \ 'exec'    : '%c %s:p',
+        \ 'runner'  : 'vimproc',
+    \ }
+
+    let g:quickrun_config['python/anaconda'] = {
+        \ 'command' : '/Users/hecomi/anaconda/bin/python',
+        \ 'exec'    : '%c %s:p',
+        \ 'runner'  : 'vimproc',
+    \ }
+
+    let g:quickrun_config['python'] = g:quickrun_config['python/anaconda']
+endif
 
 " }}}
 

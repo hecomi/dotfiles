@@ -19,10 +19,6 @@ repo = 'Shougo/vimfiler'
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
 # [[plugins]]
 # repo = 'Shougo/defx.nvim'
 
@@ -103,6 +99,15 @@ repo = 'thinca/vim-textobj-comment'
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'kana/vim-operator-user'
+# }}}
+
+# Git {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 # }}}
 
 # Others {{{
