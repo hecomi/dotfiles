@@ -972,15 +972,9 @@ let g:quickrun_config['javascript/node'] = {
     \ 'runner'    : 'vimproc',
 \ }
 
-let g:quickrun_config['javascript/jshint'] = {
+let g:quickrun_config['javascript/eslint'] = {
     \ 'exec'      : '%c %s:p ',
-    \ 'command'   : 'jshint',
-    \ 'runner'    : 'vimproc',
-\ }
-
-let g:quickrun_config['javascript/jslint'] = {
-    \ 'exec'      : '%c %s:p ',
-    \ 'command'   : 'jslint',
+    \ 'command'   : 'eslint',
     \ 'runner'    : 'vimproc',
 \ }
 
@@ -1034,7 +1028,7 @@ endif
 " VimScript
 " ---------------------------------------------------------------------------------------------------
 let g:quickrun_config['vim/async'] = {
-    \ 'command' : 'vim',
+    \ 'command' : 'nvim',
     \ 'exec'    : '%C -N -u NONE -i NONE -V1 -e -s --cmd "source %s" --cmd qall!',
     \ 'runner'  : 'vimproc',
 \ }
@@ -1072,6 +1066,7 @@ let g:gitgutter_sign_removed    = '-'
 nnoremap [prefix]gg :GitGutterToggle<CR>
 nnoremap [prefix]gn :GitGutterNextHunk<CR>
 nnoremap [prefix]gN :GitGutterPrevHunk<CR>
+
 " }}}
 
 " fugitive {{{
@@ -1083,4 +1078,15 @@ nnoremap [prefix]gl :Glog<CR>
 nnoremap [prefix]ga :Gwrite<CR>
 nnoremap [prefix]gc :Gread<CR>
 nnoremap [prefix]gC :Gcommit<CR>
+
+" }}}
+
+" ale {{{
+"====================================================================================================
+let g:ale_lint_on_enter = 0
+
+let g:ale_linters = {
+    \ 'javascript' : ['eslint'],
+\ }
+
 " }}}

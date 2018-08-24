@@ -110,7 +110,7 @@ repo = 'airblade/vim-gitgutter'
 repo = 'tpope/vim-fugitive'
 # }}}
 
-# Others {{{
+# Run {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'osyo-manga/unite-quickfix'
@@ -120,4 +120,10 @@ repo = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+# }}}
+
+# Run {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'w0rp/ale'
 # }}}
