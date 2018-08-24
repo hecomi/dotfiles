@@ -19,6 +19,10 @@ repo = 'Shougo/vimfiler'
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
 # [[plugins]]
 # repo = 'Shougo/defx.nvim'
 

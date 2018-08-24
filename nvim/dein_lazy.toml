@@ -7,6 +7,10 @@ on_source = ['denite.nvim']
 [[plugins]]
 repo = 'Shougo/unite.vim'
 on_cmd = ['Unite']
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
 # }}}
 
 # Syntax {{{
