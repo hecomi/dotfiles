@@ -514,7 +514,7 @@ let g:lightline = {
         \ 'right' : [
             \ [ 'percent' ],
             \ [ 'lineinfo' ],
-            \ [ 'fileformat', 'fileencoding', 'filetype' ]
+            \ [ 'ale', 'fileformat', 'fileencoding', 'filetype' ]
         \ ]
     \ },
     \ 'separator' : {
@@ -537,6 +537,7 @@ let g:lightline = {
         \ 'fileencoding' : 'LightlineComponentFuncFileEncoding',
         \ 'quickrun'     : 'LightlineComponentFuncQuickrun',
         \ 'fugitive'     : 'LightlineComponentFuncFugitive',
+        \ 'ale'          : 'LightlineComponentFuncAle',
     \ },
     \ 'tab' : {
         \ 'active'   : ['tabnum', 'filename', 'modified' ],
@@ -602,6 +603,14 @@ function! LightlineComponentFuncFugitive()
     catch
     endtry
     return ''
+endfunction
+
+function! LightlineComponentFuncAle()
+    "Ref: https://rcmdnk.com/blog/2017/09/25/computer-vim/
+    let l:count = ale#statusline#Count(bufnr(''))
+    let l:errors = l:count.error + l:count.style_error
+    let l:warnings = l:count.warning + l:count.style_warning
+    return l:count.total > 0 ? 'E:' . l:errors . ' W:' . l:warnings : ''
 endfunction
 
 " }}}
@@ -1084,6 +1093,10 @@ nnoremap [prefix]gC :Gcommit<CR>
 " ale {{{
 "====================================================================================================
 let g:ale_lint_on_enter = 0
+
+nmap <silent> [prefix]ap <Plug>(ale_previous)
+nmap <silent> [prefix]an <Plug>(ale_next)
+nmap <silent> [prefix]at <Plug>(ale_toggle)
 
 let g:ale_linters = {
     \ 'javascript' : ['eslint'],
