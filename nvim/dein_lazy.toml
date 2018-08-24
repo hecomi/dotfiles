@@ -37,7 +37,7 @@ on_ft = ['vim', 'memo', 'txt']
 repo = 'vim-scripts/a.vim'
 on_ft = ['c', 'cpp']
 hook_source = '''
-    nmap <silent> <C-t> :A<CR>
+nmap <silent> <C-t> :A<CR>
 '''
 
 [[plugins]]
@@ -47,6 +47,14 @@ on_ft = ['c', 'cpp']
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 on_ft = ['c', 'cpp']
+
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+on_ft = ['c', 'cpp']
+hook_source = '''
+nmap [prefix]cf <Plug>(operator-clang-format)
+vmap [prefix]cf <Plug>(operator-clang-format)
+'''
 # }}}
 
 # CSharp {{{

@@ -664,6 +664,14 @@ call deoplete#custom#option('sources', {
 inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 inoremap <expr><CR>    pumvisible() ? deoplete#close_popup() : '<CR>'
+
+" Sources
+" ---------------------------------------------------------------------------------------------------
+if s:is_mac
+    let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
+endif
+
 " }}}
 
 " vimfiler {{{
@@ -833,15 +841,6 @@ endif
 
 " }}}
 
-" clang {{{
-"====================================================================================================
-if s:is_mac
-    let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-endif
-
-" }}}
-
 " include / linkage {{{
 "====================================================================================================
 let s:cpp_include_path = ''
@@ -905,6 +904,20 @@ let g:quickrun_config['cpp/clang++'] = {
     \ 'command'   : s:quickrun_clang_command,
     \ 'cmdopt'    : s:quickrun_clang_options,
     \ 'runner'    : 'vimproc',
+\ }
+
+" }}}
+
+" clang-format {{{
+"====================================================================================================
+let g:clang_format#command = '/usr/local/bin/clang-format'
+let g:clang_format#code_style = 'google'
+let g:clang_format#style_options = {
+    \ 'AccessModifierOffset'                : -4,
+    \ 'AllowShortIfStatementsOnASingleLine' : 'true',
+    \ 'AlwaysBreakTemplateDeclarations'     : 'true',
+    \ 'Standard'                            : 'C++11',
+    \ 'BreakBeforeBraces'                   : 'Stroustrup'
 \ }
 
 " }}}
