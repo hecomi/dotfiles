@@ -509,7 +509,7 @@ let g:lightline = {
     \ 'active' : {
         \ 'left' : [
             \ [ 'mode' ],
-            \ [ 'paste', 'filename', 'quickrun', 'quickfix' ],
+            \ [ 'paste', 'fugitive', 'filename', 'quickrun', 'quickfix' ],
         \ ],
         \ 'right' : [
             \ [ 'percent' ],
@@ -536,6 +536,7 @@ let g:lightline = {
         \ 'filetype'     : 'LightlineComponentFuncFileType',
         \ 'fileencoding' : 'LightlineComponentFuncFileEncoding',
         \ 'quickrun'     : 'LightlineComponentFuncQuickrun',
+        \ 'fugitive'     : 'LightlineComponentFuncFugitive',
     \ },
     \ 'tab' : {
         \ 'active'   : ['tabnum', 'filename', 'modified' ],
@@ -589,6 +590,18 @@ endfunction
 
 function! LightlineComponentFuncQuickrun()
     return shabadou#get_anim_output('inu')
+endfunction
+
+function! LightlineComponentFuncFugitive()
+    try
+        if expand('%:t') !~? 'Tagbar\|Gundo' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+            let l:mark = '⭠ '
+            let l:head = fugitive#head()
+            return strlen(head) ? mark . head : ''
+        endif
+    catch
+    endtry
+    return ''
 endfunction
 
 " }}}
@@ -863,61 +876,26 @@ let &path = s:cpp_include_path . ',' . &path
 
 " }}}
 
-" quickrun {{{
+" gitgutter {{{
 "====================================================================================================
-let g:quickrun_config = {}
+let g:gitgutter_enabled         = 1
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_sign_added      = '+'
+let g:gitgutter_sign_modified   = '~'
+let g:gitgutter_sign_removed    = '-'
 
-" Shabadou {{{
-" ---------------------------------------------------------------------------------------------------
-" inu does not animate now...
-let g:quickrun_config['_'] = {
-    \ 'hook/echo/priority_exit'                      : 100,
-    \ 'hook/echo/enable_output_exit'                 : 1,
-    \ 'hook/close_unite_quickfix/enable_hook_loaded' : 1,
-    \ 'hook/unite_quickfix/enable_failure'           : 1,
-    \ 'hook/close_quickfix/enable_exit'              : 1,
-    \ 'hook/close_buffer/enable_failure'             : 1,
-    \ 'hook/close_buffer/enable_empty_data'          : 1,
-    \ 'hook/echo/enable'                             : 1,
-    \ 'hook/echo/output_success'                     : '凸 < ｷﾀｺﾚ!!',
-    \ 'hook/echo/output_failure'                     : '凹 < ﾍｺﾑﾜ...',
-    \ 'hook/inu/enable'                              : 1,
-    \ 'hook/inu/echo'                                : 0,
-    \ 'hook/inu/wait'                                : 5,
-    \ 'hook/time/enable'                             : 1,
-    \ 'outputter'                                    : 'multi:buffer:quickfix',
-    \ 'outputter/buffer/split'                       : ':botright 8sp',
-    \ 'outputter/buffer/close_on_empty'              : 1,
-    \ 'runner'                                       : 'vimproc',
-    \ 'runner/vimproc/updatetime'                    : 40,
-\ }
+nnoremap [prefix]gg :GitGutterToggle<CR>
+nnoremap [prefix]gn :GitGutterNextHunk<CR>
+nnoremap [prefix]gN :GitGutterPrevHunk<CR>
 " }}}
 
-" C++ {{{
-" ---------------------------------------------------------------------------------------------------
-let s:quickrun_clang_command  = 'clang++'
-let s:quickrun_clang_options  = s:cpp_include_options . ' ' . s:cpp_library_options . ' -std=c++17'
-let s:quickrun_clang_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tmp']
-
-let g:quickrun_config['cpp/clang++'] = {
-    \ 'exec'      : s:quickrun_clang_cpp_exec,
-    \ 'command'   : s:quickrun_clang_command,
-    \ 'cmdopt'    : s:quickrun_clang_options,
-    \ 'runner'    : 'vimproc',
-\ }
-
-" }}}
-
-" clang-format {{{
+" fugitive {{{
 "====================================================================================================
-let g:clang_format#command = '/usr/local/bin/clang-format'
-let g:clang_format#code_style = 'google'
-let g:clang_format#style_options = {
-    \ 'AccessModifierOffset'                : -4,
-    \ 'AllowShortIfStatementsOnASingleLine' : 'true',
-    \ 'AlwaysBreakTemplateDeclarations'     : 'true',
-    \ 'Standard'                            : 'C++11',
-    \ 'BreakBeforeBraces'                   : 'Stroustrup'
-\ }
-
+nnoremap [prefix]gb :Gblame<CR>
+nnoremap [prefix]gd :Gdiff<CR>
+nnoremap [prefix]gs :Gstatus<CR>
+nnoremap [prefix]gl :Glog<CR>
+nnoremap [prefix]ga :Gwrite<CR>
+nnoremap [prefix]gc :Gread<CR>
+nnoremap [prefix]gC :Gcommit<CR>
 " }}}
