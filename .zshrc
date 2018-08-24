@@ -231,7 +231,8 @@ export PATH="$ANACONDA_BIN_PATH:$PATH"
 alias python="python3"
 
 # Dotnet
-export PATH=/usr/local/share/dotnet:$PATH
+# export PATH=/usr/local/share/dotnet:$PATH
+export PATH=/Library/Frameworks/Mono.framework/Commands:$PATH
 
 # }}}
 
