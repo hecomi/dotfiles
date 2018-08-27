@@ -130,8 +130,7 @@ set hlsearch
 
 " View
 " ---------------------------------------------------------------------------------------------------
-set clipboard&
-set clipboard^=unnamedplus
+set clipboard+=unnamedplus
 
 " View
 " ---------------------------------------------------------------------------------------------------
@@ -309,7 +308,7 @@ augroup SetNoPaste
     autocmd!
     autocmd InsertLeave * if &paste | set nopaste | endif
 augroup END
-nnoremap p :set paste<CR>p:set nopaste<CR>
+nnoremap <silent>p :set paste<CR>p:set nopaste<CR>
 
 " Wrap
 " ---------------------------------------------------------------------------------------------------
