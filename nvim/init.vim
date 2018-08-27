@@ -10,17 +10,31 @@
 "
 " ---------------------------------------------------------------------------------------------------
 
+" init {{{
+"====================================================================================================
+set nocompatible
+set shellslash
+
+" }}}
+
 " os / neovim {{{
 "====================================================================================================
 let s:is_win   = has('win32') || has('win64')
-let s:is_mac   = has('mac') || system('uname') =~? '^darwin'
+let s:is_mac   = has('mac')
 let s:is_linux = !s:is_mac && has('unix')
+let s:is_nvim  = has('nvim')
 let s:nvim_dir = expand('~/.config/nvim')
 
 " }}}
 
 " dein {{{
 "====================================================================================================
+" Vim8
+" ---------------------------------------------------------------------------------------------------
+if !s:is_nvim && s:is_win
+    let g:python3_host_prog = $HOME . '/AppData/Local/Programs/Python/Python35/python.exe'
+endif
+
 " Install dein
 " ---------------------------------------------------------------------------------------------------
 let s:dein_dir = s:nvim_dir . '/dein'
@@ -56,7 +70,6 @@ endif
 "====================================================================================================
 " Common
 " ---------------------------------------------------------------------------------------------------
-set nocompatible
 filetype plugin indent on
 syntax on
 
@@ -117,7 +130,8 @@ set hlsearch
 
 " View
 " ---------------------------------------------------------------------------------------------------
-set clipboard+=unnamedplus
+set clipboard&
+set clipboard^=unnamedplus
 
 " View
 " ---------------------------------------------------------------------------------------------------
@@ -352,7 +366,7 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
-    nnoremap [prefix]vimrc :e ~/nvim/init.vim<CR>:cd ~/nvim<CR>
+    nnoremap [prefix]vimrc :e ~/.config/nvim/init.vim<CR>:cd ~/.config/nvim<CR>
 elseif s:is_mac
     nnoremap [prefix]vimrc :e ~/dotfiles/nvim/init.vim<CR>:cd ~/dotfiles/nvim<CR>
 else
