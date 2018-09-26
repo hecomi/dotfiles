@@ -1,5 +1,4 @@
-" ---------------------------------------------------------------------------------------------------
-"   ____       ____
+" ---------------------------------------------------------------------------------------------------"
 "  |    |     |    |
 "  |    |_____|    |
 "  |               |     _                                    _            _
@@ -31,7 +30,7 @@ let s:nvim_dir = expand('~/.config/nvim')
 "====================================================================================================
 " Vim8
 " ---------------------------------------------------------------------------------------------------
-if !s:is_nvim && s:is_win
+if s:is_win
     let g:python3_host_prog = $HOME . '/AppData/Local/Programs/Python/Python35/python.exe'
 endif
 
@@ -61,7 +60,7 @@ endif
 " Install plugins
 " ---------------------------------------------------------------------------------------------------
 if dein#check_install()
-  call dein#install()
+    call dein#install()
 endif
 
 " }}}
@@ -101,7 +100,7 @@ set history=1000
 " ---------------------------------------------------------------------------------------------------
 " set noexpandtab
 set expandtab
-set tabstop=4 shiftwidth=4 softtabstop=0
+set tabstop=4 shiftwidth=4 softtabstop=-1
 set autoindent smartindent
 
 augroup FileDependentIndentSettings
@@ -130,7 +129,7 @@ set hlsearch
 
 " View
 " ---------------------------------------------------------------------------------------------------
-set clipboard+=unnamedplus
+set clipboard+=unnamed,unnamedplus
 
 " View
 " ---------------------------------------------------------------------------------------------------
@@ -144,7 +143,7 @@ set list
 if s:is_win
     set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 else
-    set listchars=tab:▸\ ,trail:･,extends:»,precedes:«,nbsp:%
+    set listchars=tab:?\ ,trail:･,extends:≫,precedes:≪,nbsp:%
 endif
 set notitle
 set scrolloff=5
@@ -192,6 +191,15 @@ if exists('+guicursor')
     set guicursor&
     set guicursor=a:blinkwait2000-blinkon1000-blinkoff500
 endif
+
+" File Type
+" ---------------------------------------------------------------------------------------------------
+augroup OnFileTypeGroup
+    autocmd!
+    autocmd BufRead,BufNewFile *.shader setfiletype shaderlab
+    autocmd BufRead,BufNewFile *.cginc setfiletype hlsl
+    autocmd BufRead,BufNewFile *.compute setfiletype hlsl
+augroup END
 
 " }}}
 
@@ -531,15 +539,15 @@ let g:lightline = {
         \ ]
     \ },
     \ 'separator' : {
-        \ 'left'  : '⮀',
-        \ 'right' : '⮂'
+        \ 'left'  : '?',
+        \ 'right' : '?'
     \ },
     \ 'subseparator' : {
-        \ 'left'  : '⮁',
-        \ 'right' : '⮃'
+        \ 'left'  : '?',
+        \ 'right' : '?'
     \ },
     \ 'component' : {
-        \ 'lineinfo' : '⭡ %3l:%-1v',
+        \ 'lineinfo' : '? %3l:%-1v',
         \ 'percent'  : '%2p%%',
     \ },
     \ 'component_function': {
@@ -580,7 +588,7 @@ function! LightlineComponentFuncFilename()
         let l:is_running = quickrun#is_running() ? ' (running)' : ''
         return 'output' . is_running
     else
-        let l:readonly = &ft !~? 'help' && &readonly ? '⭤' : ''
+        let l:readonly = &ft !~? 'help' && &readonly ? '?' : ''
         let l:modified = &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
         return
             \ (readonly != '' ? readonly . ' ' : '') .
@@ -608,7 +616,7 @@ endfunction
 function! LightlineComponentFuncFugitive()
     try
         if expand('%:t') !~? 'Tagbar\|Gundo' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-            let l:mark = '⭠ '
+            let l:mark = '? '
             let l:head = fugitive#head()
             return strlen(head) ? mark . head : ''
         endif
@@ -661,18 +669,21 @@ let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
 " Flags
 " ---------------------------------------------------------------------------------------------------
 let g:deoplete#enable_at_startup          = 1
-let g:deoplete#auto_complete_delay        = 0
 let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#auto_complete_delay        = 0
 let g:deoplete#enable_camel_case          = 1
 let g:deoplete#enable_ignore_case         = 1
 let g:deoplete#enable_smart_case          = 1
 let g:deoplete#enable_refresh_always      = 1
+let g:deoplete#auto_reflesh_delay         = 0
 let g:deoplete#file#enable_buffer_path    = 1
-let g:deoplete#max_list                   = 100
+let g:deoplete#max_list                   = 1000
 
 call deoplete#custom#option('sources', {
     \ 'cs' : ['omnisharp', 'buffer'],
 \ })
+
+call deoplete#enable()
 
 " Omni patterns
 " ---------------------------------------------------------------------------------------------------
@@ -717,13 +728,13 @@ if s:is_win
     let g:vimfiler_tree_closed_icon       = '+'
 else
     let g:vimfiler_tree_leaf_icon         = ' '
-    let g:vimfiler_tree_opened_icon       = '▾'
-    let g:vimfiler_tree_closed_icon       = '▸'
+    let g:vimfiler_tree_opened_icon       = '?'
+    let g:vimfiler_tree_closed_icon       = '?'
 endif
 
 if s:is_mac
-    let g:vimfiler_readonly_file_icon     = '✗'
-    let g:vimfiler_marked_file_icon       = '✓'
+    let g:vimfiler_readonly_file_icon     = '?'
+    let g:vimfiler_marked_file_icon       = '?'
 else
     let g:vimfiler_readonly_file_icon     = 'x'
     let g:vimfiler_marked_file_icon       = 'v'
@@ -751,8 +762,8 @@ nmap [prefix]f <Plug>(easymotion-overwin-w)
 
 " ambicmd {{{
 "====================================================================================================
-cnoremap <expr> <Space> ambicmd#expand("\<Space>")
-cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
+"cnoremap <expr> <Space> ambicmd#expand("\<Space>")
+"cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
 " }}}
 
 " yankround {{{

@@ -13,8 +13,12 @@ let s:nvim_dir = expand('~/.config/nvim')
 " Font
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
-	set guifont=Ricty_for_Powerline:h14
-	set guifontwide=Ricty:h14
+    if s:is_nvim
+        GuiFont Ricty for Powerline:h14
+    else
+        set guifont=Ricty_for_Powerline:h14
+        set guifontwide=Ricty:h14
+    endif
 elseif s:is_mac
 	set guifont=Ricty_for_Powerline:h18
 	set guifontwide=Ricty:h18

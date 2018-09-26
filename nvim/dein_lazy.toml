@@ -22,6 +22,10 @@ on_ft = ['md', 'markdown']
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+[[plugins]]
+repo = 'vim-scripts/ShaderHighLight'
+on_ft = ['shaderlab', 'cg', 'glsl']
 # }}}
 
 # Complete {{{
@@ -73,6 +77,10 @@ on_ft = ["cs"]
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_map = ['<Plug>(openbrowser-']
+
+[[plugins]]
+repo = 'mattn/gist-vim'
+on_cmd = ['Gist']
 # }}}
 
 # Unite {{{
