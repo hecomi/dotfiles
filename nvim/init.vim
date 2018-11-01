@@ -143,7 +143,7 @@ set list
 if s:is_win
     set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 else
-    set listchars=tab:?\ ,trail:･,extends:≫,precedes:≪,nbsp:%
+    set listchars=tab:▸\ ,trail:･,extends:»,precedes:«,nbsp:%
 endif
 set notitle
 set scrolloff=5
@@ -539,15 +539,15 @@ let g:lightline = {
         \ ]
     \ },
     \ 'separator' : {
-        \ 'left'  : '?',
-        \ 'right' : '?'
+        \ 'left'  : '⮀',
+        \ 'right' : '⮂'
     \ },
     \ 'subseparator' : {
-        \ 'left'  : '?',
-        \ 'right' : '?'
+        \ 'left'  : '⮁',
+        \ 'right' : '⮃'
     \ },
     \ 'component' : {
-        \ 'lineinfo' : '? %3l:%-1v',
+        \ 'lineinfo' : '⭡ %3l:%-1v',
         \ 'percent'  : '%2p%%',
     \ },
     \ 'component_function': {
@@ -589,7 +589,7 @@ function! LightlineComponentFuncFilename()
         let l:is_running = quickrun#is_running() ? ' (running)' : ''
         return 'output' . is_running
     else
-        let l:readonly = &ft !~? 'help' && &readonly ? '?' : ''
+        let l:readonly = &ft !~? 'help' && &readonly ? '⭤' : ''
         let l:modified = &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
         return
             \ (readonly != '' ? readonly . ' ' : '') .
@@ -617,7 +617,7 @@ endfunction
 function! LightlineComponentFuncFugitive()
     try
         if expand('%:t') !~? 'Tagbar\|Gundo' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-            let l:mark = '? '
+            let l:mark = '⭠ '
             let l:head = fugitive#head()
             return strlen(head) ? mark . head : ''
         endif
@@ -737,13 +737,13 @@ if s:is_win
     let g:vimfiler_tree_closed_icon       = '+'
 else
     let g:vimfiler_tree_leaf_icon         = ' '
-    let g:vimfiler_tree_opened_icon       = '?'
-    let g:vimfiler_tree_closed_icon       = '?'
+    let g:vimfiler_tree_opened_icon       = '▾'
+    let g:vimfiler_tree_closed_icon       = '▸'
 endif
 
 if s:is_mac
-    let g:vimfiler_readonly_file_icon     = '?'
-    let g:vimfiler_marked_file_icon       = '?'
+    let g:vimfiler_readonly_file_icon     = '✗'
+    let g:vimfiler_marked_file_icon       = '✓'
 else
     let g:vimfiler_readonly_file_icon     = 'x'
     let g:vimfiler_marked_file_icon       = 'v'
