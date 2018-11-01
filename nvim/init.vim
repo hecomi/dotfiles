@@ -644,6 +644,11 @@ call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
 call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-color'])
 
 " Key mappings
 " ---------------------------------------------------------------------------------------------------
@@ -657,6 +662,7 @@ nnoremap [denite]b :Denite buffer<CR>
 nnoremap [denite]t :Denite tab<CR>
 nnoremap [denite]w :Denite window<CR>
 nnoremap [denite]y :Denite neoyank<CR>
+nnoremap [denite]g :Denite grep<CR>
 nnoremap [denite]h :<C-u>execute
     \ 'Denite'
     \ 'buffer file_mru'
