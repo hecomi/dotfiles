@@ -196,9 +196,7 @@ endif
 " ---------------------------------------------------------------------------------------------------
 augroup OnFileTypeGroup
     autocmd!
-    autocmd BufRead,BufNewFile *.shader setfiletype shaderlab
-    autocmd BufRead,BufNewFile *.cginc setfiletype hlsl
-    autocmd BufRead,BufNewFile *.compute setfiletype hlsl
+    autocmd BufRead,BufNewFile *.shader,*.cginc,*.compute setfiletype shaderlab
 augroup END
 
 " }}}
