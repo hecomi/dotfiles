@@ -715,13 +715,6 @@ inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 inoremap <expr><CR>    pumvisible() ? deoplete#close_popup() : '<CR>'
 
-" Sources
-" ---------------------------------------------------------------------------------------------------
-if s:is_mac
-    let g:deoplete#sources#clang#libclang_path ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-endif
-
 " }}}
 
 " vimfiler {{{
@@ -1128,6 +1121,7 @@ nmap <silent> [prefix]at <Plug>(ale_toggle)
 
 let g:ale_linters = {
     \ 'javascript' : ['eslint'],
+    \ 'cs': ['OmniSharp'],
 \ }
 
 " }}}
