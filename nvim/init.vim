@@ -409,9 +409,10 @@ let g:vim_indent_cont=0
 command! MyColorScheme :call s:MyColorScheme()
 function! s:MyColorScheme()
     " base theme
-    let g:solarized_termcolors=256
+    " let g:solarized_termcolors=256
+    set termguicolors
     set background=dark
-    colorscheme solarized
+    colorscheme NeoSolarized
 
     " highlight
     hi clear Cursor

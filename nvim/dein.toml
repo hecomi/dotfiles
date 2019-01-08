@@ -80,6 +80,9 @@ repo = 'thinca/vim-ambicmd'
 repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
+repo = 'icymind/NeoSolarized'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
@@ -138,4 +141,10 @@ repo = 'w0rp/ale'
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'cocopon/pgmnt.vim'
+
+[[plugins]]
+repo = 'hecomi/colorscheme.vim'
 # }}}
