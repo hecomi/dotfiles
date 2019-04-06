@@ -125,9 +125,6 @@ repo = 'tpope/vim-fugitive'
 # Run {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
-repo = 'osyo-manga/unite-quickfix'
-
-[[plugins]]
 repo = 'osyo-manga/shabadou.vim'
 
 [[plugins]]

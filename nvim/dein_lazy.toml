@@ -98,6 +98,10 @@ on_source = ['unite.vim']
 [[plugins]]
 repo = 'osyo-manga/unite-quickrun_config'
 on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'osyo-manga/unite-quickfix'
+on_source = ['unite.vim']
 # }}}
 
 # Others {{{
