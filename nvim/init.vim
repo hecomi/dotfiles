@@ -1016,6 +1016,12 @@ let g:quickrun_config['javascript/mocha'] = {
     \ 'runner'    : 'vimproc',
 \ }
 
+let g:quickrun_config['javascript/electron'] = {
+    \ 'exec'      : '%c .',
+    \ 'command'   : 'electron',
+    \ 'runner'    : 'vimproc',
+\ }
+
 let g:quickrun_config['javascript'] = g:quickrun_config['javascript/node']
 
 " JSON
