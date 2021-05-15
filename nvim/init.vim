@@ -31,7 +31,9 @@ let s:nvim_dir = expand('~/.config/nvim')
 " Vim8
 " ---------------------------------------------------------------------------------------------------
 if s:is_win
-    let g:python3_host_prog = $HOME . '/AppData/Local/Programs/Python/Python35/python.exe'
+    set pythonthreehome=~/AppData/Local/Programs/Python/Python39
+    set pythonthreedll=python39.dll
+    let g:python3_host_prog = $HOME . '/AppData/Local/Programs/Python/Python39/python3.exe'
 endif
 
 " Install dein
@@ -196,7 +198,7 @@ endif
 " ---------------------------------------------------------------------------------------------------
 augroup OnFileTypeGroup
     autocmd!
-    autocmd BufRead,BufNewFile *.shader,*.cginc,*.compute setfiletype shaderlab
+    autocmd BufRead,BufNewFile *.cginc,*.compute setfiletype hlsl
 augroup END
 
 " }}}
@@ -286,8 +288,6 @@ nnoremap <silent> [prefix]sh :vsp<CR>
 
 " Search / Replace
 " ---------------------------------------------------------------------------------------------------
-" map /  <Plug>(incsearch-forward)
-" map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 nnoremap <Esc><Esc> :nohlsearch<CR>
 nmap n <Plug>(anzu-n-with-echo)
@@ -556,7 +556,6 @@ let g:lightline = {
         \ 'fileencoding' : 'LightlineComponentFuncFileEncoding',
         \ 'quickrun'     : 'LightlineComponentFuncQuickrun',
         \ 'fugitive'     : 'LightlineComponentFuncFugitive',
-        \ 'ale'          : 'LightlineComponentFuncAle',
     \ },
     \ 'tab' : {
         \ 'active'   : ['tabnum', 'filename', 'modified' ],
@@ -624,14 +623,6 @@ function! LightlineComponentFuncFugitive()
     return ''
 endfunction
 
-function! LightlineComponentFuncAle()
-    "Ref: https://rcmdnk.com/blog/2017/09/25/computer-vim/
-    let l:count = ale#statusline#Count(bufnr(''))
-    let l:errors = l:count.error + l:count.style_error
-    let l:warnings = l:count.warning + l:count.style_warning
-    return l:count.total > 0 ? 'E:' . l:errors . ' W:' . l:warnings : ''
-endfunction
-
 " }}}
 
 " denite {{{
@@ -645,10 +636,21 @@ call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
 call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
 call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-color'])
+if s:is_win
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', ['.'])
+else
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+endif
 
 " Key mappings
 " ---------------------------------------------------------------------------------------------------
@@ -681,46 +683,26 @@ let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
 "====================================================================================================
 " Flags
 " ---------------------------------------------------------------------------------------------------
-let g:deoplete#enable_at_startup          = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#auto_complete_delay        = 0
-let g:deoplete#enable_camel_case          = 1
-let g:deoplete#enable_ignore_case         = 1
-let g:deoplete#enable_smart_case          = 1
-let g:deoplete#enable_refresh_always      = 1
-let g:deoplete#auto_reflesh_delay         = 0
-let g:deoplete#file#enable_buffer_path    = 1
-let g:deoplete#max_list                   = 1000
+let g:deoplete#enable_at_startup = 1
 
-call deoplete#custom#option('sources', {
-    \ 'cs' : ['omnisharp', 'buffer'],
+call deoplete#custom#option({
+    \ 'min_pattern_length'  : 1,
+    \ 'auto_complete_delay' : 0,
+    \ 'camel_case'          : 1,
+    \ 'smart_case'          : 1,
+    \ 'refresh_always'      : 1,
+    \ 'auto_refresh_delay'  : 0,
+    \ 'enable_buffer_path'  : 1,
+    \ 'max_list'            : 1000,
 \ })
 
 call deoplete#enable()
-
-" Omni patterns
-" ---------------------------------------------------------------------------------------------------
-" call deoplete#custom#var('omni', 'input_patterns', {
-"     \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
-"     \ 'java': '[^. *\t]\.\w*',
-"     \ 'php': '\w+|[^. \t]->\w*|\w+::\w*',
-"     \ 'c': '\%(\.\|->\)\h\w*',
-"     \ 'cs': '.*',
-"     \ 'cpp':'\h\w*\%(\.\|->\)\h\w*\|\h\w*::',
-" \})
 
 " Basic settings
 " ---------------------------------------------------------------------------------------------------
 inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 inoremap <expr><CR>    pumvisible() ? deoplete#close_popup() : '<CR>'
-
-" Sources
-" ---------------------------------------------------------------------------------------------------
-if s:is_mac
-    let g:deoplete#sources#clang#libclang_path ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-endif
 
 " }}}
 
@@ -764,19 +746,6 @@ augroup VimFilerCustomKeyBinding
     autocmd FileType vimfiler nnoremap <buffer> <C-j> :bn<CR>
     autocmd FileType vimfiler nnoremap <buffer> <C-k> :bp<CR>
 augroup END
-" }}}
-
-" easymotion {{{
-"====================================================================================================
-let g:EasyMotion_do_mapping = 0
-nmap [prefix]f <Plug>(easymotion-overwin-w)
-
-" }}}
-
-" ambicmd {{{
-"====================================================================================================
-"cnoremap <expr> <Space> ambicmd#expand("\<Space>")
-"cnoremap <expr> <CR>    ambicmd#expand("\<CR>")
 " }}}
 
 " yankround {{{
@@ -879,16 +848,6 @@ augroup RainbowParenthesisSettings
     autocmd Syntax   *   RainbowParenthesesLoadBraces
     " autocmd FileType cpp RainbowParenthesesLoadChevrons
 augroup END
-" }}}
-
-" omnisharp {{{
-"====================================================================================================
-if s:is_mac
-    let g:OmniSharp_server_path = s:nvim_dir . '/tools/omnisharp.http-osx.1.30.1/omnisharp/OmniSharp.exe'
-    let g:OmniSharp_server_type = 'roslyn'
-    let g:OmniSharp_server_use_mono = 1
-endif
-
 " }}}
 
 " path / include / linkage {{{
@@ -1115,19 +1074,5 @@ nnoremap [prefix]gl :Glog<CR>
 nnoremap [prefix]ga :Gwrite<CR>
 nnoremap [prefix]gc :Gread<CR>
 nnoremap [prefix]gC :Gcommit<CR>
-
-" }}}
-
-" ale {{{
-"====================================================================================================
-let g:ale_lint_on_enter = 0
-
-nmap <silent> [prefix]ap <Plug>(ale_previous)
-nmap <silent> [prefix]an <Plug>(ale_next)
-nmap <silent> [prefix]at <Plug>(ale_toggle)
-
-let g:ale_linters = {
-    \ 'javascript' : ['eslint'],
-\ }
 
 " }}}

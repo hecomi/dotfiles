@@ -18,15 +18,6 @@ repo = 'Shougo/vimfiler'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
-
-# [[plugins]]
-# repo = 'Shougo/defx.nvim'
-
-# [[plugins]]
-# repo = 'Shougo/deol.nvim'
-
-# [[plugins]]
-# repo = 'Shougo/deoppet.nvim'
 # }}}
 
 # For Vim8 {{{
@@ -45,21 +36,18 @@ repo = 'Shougo/neco-syntax'
 
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
 # }}}
 
 # Key {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
-repo = 'Lokaltog/vim-easymotion'
-
-[[plugins]]
 repo = 'h1mesuke/vim-alignta'
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
-
-[[plugins]]
-repo = 'osyo-manga/vim-anzu'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
@@ -122,20 +110,8 @@ repo = 'tpope/vim-fugitive'
 # Run {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
-repo = 'osyo-manga/unite-quickfix'
-
-[[plugins]]
 repo = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-
-[[plugins]]
-repo = 'w0rp/ale'
-# }}}
-
-# Others {{{
-# ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = 'mattn/webapi-vim'
 # }}}
