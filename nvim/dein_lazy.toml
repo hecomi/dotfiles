@@ -3,6 +3,9 @@
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_source = ['denite.nvim']
+hook_add = '''
+let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
+'''
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -38,44 +41,12 @@ nmap <silent> <C-t> :A<CR>
 '''
 
 [[plugins]]
-repo = 'zchee/libclang-python3'
-on_ft = ['c', 'cpp']
-hook_source = '''
-if has('mac')
-    let g:deoplete#sources#clang#libclang_path ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-endif
-'''
-
-[[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['c', 'cpp']
-
-[[plugins]]
 repo = 'rhysd/vim-clang-format'
 on_ft = ['c', 'cpp']
-hook_source = '''
+hook_add = '''
 nmap [prefix]cf <Plug>(operator-clang-format)
 vmap [prefix]cf <Plug>(operator-clang-format)
 '''
-# }}}
-
-# CSharp {{{
-# ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = "OmniSharp/omnisharp-vim"
-on_ft = ["cs"]
-# }}}
-
-# Web {{{
-# ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_map = ['<Plug>(openbrowser-']
-
-[[plugins]]
-repo = 'mattn/gist-vim'
-on_cmd = ['Gist']
 # }}}
 
 # Unite {{{
@@ -94,4 +65,25 @@ on_source = ['unite.vim']
 [[plugins]]
 repo = 'glidenote/memolist.vim'
 on_cmd = ['MemoNew', 'MemoList', 'MemoGrep']
+hook_add = '''
+" map
+nnoremap <silent> [prefix]mn :set noimdisable<CR>:MemoNew<CR>
+nnoremap <silent> [prefix]ml :MemoList<CR>
+nnoremap <silent> [prefix]mg :MemoGrep<CR>
+
+" parameters
+let g:memolist_path              = '~/Memo'
+let g:memolist_memo_suffix       = 'txt'
+let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
+let g:memolist_prompt_tags       = 0
+let g:memolist_prompt_categories = 0
+let g:memolist_qfixgrep          = 1
+let g:memolist_vimfiler          = 1
+let g:memolist_template_dir_path = g:nvim_dir . '/template/memolist'
+
+augroup MemoSetFileType
+    autocmd!
+    autocmd BufNewFile,BufRead *.txt set filetype=memo
+augroup END
+'''
 # }}}

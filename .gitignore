@@ -3,6 +3,7 @@
 .zsh/*
 .config/*
 .cache/*
+configstore/*
 
 # Files
 _viminfo

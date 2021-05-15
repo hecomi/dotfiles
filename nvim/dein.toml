@@ -1,25 +1,3 @@
-# Shougo-san's plugins {{{
-# ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-
-[[plugins]]
-repo = 'Shougo/vimfiler'
-
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-# }}}
-
 # For Vim8 {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
@@ -27,6 +5,159 @@ repo = 'roxma/nvim-yarp'
 
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
+# }}}
+#
+# Shougo-san's plugins {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_post_update = '''
+call denite#custom#option('default', 'prompt', '>')
+call denite#custom#option('default', 'statusline', v:false)
+call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
+call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+if g:is_win
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', ['.'])
+else
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+endif
+
+nnoremap [denite] <nop>
+xnoremap [denite] <nop>
+nmap <Space> [denite]
+xmap <Space> [denite]
+
+nnoremap [denite]  :Denite
+nnoremap [denite]b :Denite buffer<CR>
+nnoremap [denite]t :Denite tab<CR>
+nnoremap [denite]w :Denite window<CR>
+nnoremap [denite]y :Denite neoyank<CR>
+nnoremap [denite]g :Denite grep<CR>
+nnoremap [denite]h :<C-u>execute
+    \ 'Denite'
+    \ 'buffer file_mru'
+    \ 'file:'.fnameescape(expand('%:p:h'))
+    \ 'file_rec:!:'.fnameescape(expand('%:p:h'))
+    \ <CR>
+nnoremap [denite]qc :Unite quickrun_config<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+hook_add = '''
+let g:neoyank#file = g:nvim_dir .'/tmp/yankring.txt'
+'''
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+hook_add = '''
+let g:vimfiler_as_default_explorer        = 1
+let g:vimfiler_safe_mode_by_default       = 0
+let g:vimfiler_sort_type                  = 'TIME'
+let g:vimfiler_file_icon                  = '-'
+let g:vimfiler_marked_file_icon           = '*'
+let g:vimfiler_force_overwrite_statusline = 0
+
+if has('win32') || has('win64')
+    let g:vimfiler_tree_leaf_icon         = '|'
+    let g:vimfiler_tree_opened_icon       = '-'
+    let g:vimfiler_tree_closed_icon       = '+'
+else
+    let g:vimfiler_tree_leaf_icon         = ' '
+    let g:vimfiler_tree_opened_icon       = '▾'
+    let g:vimfiler_tree_closed_icon       = '▸'
+endif
+
+if has('mac')
+    let g:vimfiler_readonly_file_icon     = '✗'
+    let g:vimfiler_marked_file_icon       = '✓'
+else
+    let g:vimfiler_readonly_file_icon     = 'x'
+    let g:vimfiler_marked_file_icon       = 'v'
+endif
+
+nnoremap [prefix]vf     :VimFiler<CR>
+nnoremap [prefix]vf<CR> :VimFiler<CR>
+nnoremap [prefix]vfe    :VimFilerExplorer<CR>
+augroup VimFilerCustomKeyBinding
+    autocmd!
+    autocmd FileType vimfiler nnoremap <buffer> K <C-u>
+    autocmd FileType vimfiler nnoremap <buffer> <C-j> :bn<CR>
+    autocmd FileType vimfiler nnoremap <buffer> <C-k> :bp<CR>
+augroup END
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+if has('win32')
+    let cmd = 'tools\\update-dll-mingw'
+elseif has('win32unix')
+    let cmd = 'make -f make_cygwin.mak'
+elseif executable('gmake')
+    let cmd = 'gmake'
+else
+    let cmd = 'make'
+endif
+let g:dein#plugin.build = cmd
+'''
+# }}}
+
+# Completion {{{
+# ---------------------------------------------------------------------------------------------------
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> <f1> <plug>(lsp-hover)
+    nmap <buffer> <f11> <plug>(lsp-declaration)
+    nmap <buffer> <f12> <plug>(lsp-definition)
+    nmap <buffer> <f2> <plug>(lsp-rename)
+    inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
+
+augroup lsp-install
+    autocmd!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_text_edit_enabled = 1
+let g:lsp_diagnostics_echo_delay = 200
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 1
+let g:asyncomplete_popup_delay = 30
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
 # }}}
 
 # Common {{{
@@ -45,6 +176,32 @@ repo = 'osyo-manga/vim-anzu'
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'h1mesuke/vim-alignta'
+hook_add = '''
+let g:unite_source_alignta_preset_arguments = [
+    \ ["Align at '='", '=>\='],
+    \ ["Align at ':'", '01 :'],
+    \ ["Align at ':'", '11 :'],
+    \ ["Align at ':'", '01 :/1'],
+    \ ["Align at ':'", '11 :/1'],
+    \ ["Align at '|'", '|'   ],
+    \ ["Align at ')'", '0 )' ],
+    \ ["Align at ']'", '0 ]' ],
+    \ ["Align at '}'", '}'   ],
+\]
+
+vnoremap a  :Alignta
+vnoremap a= :Alignta =<CR>
+vnoremap a+ :Alignta +<CR>
+vnoremap a: :Alignta 11 :/1<CR>
+vnoremap a; :Alignta 11 :/1<CR>
+vnoremap a, :Alignta 01 ,<CR>
+vnoremap as :Alignta <<0 \s\s*<CR>
+vnoremap ae :Alignta -e
+vnoremap ar :Alignta -r
+vnoremap ap :Alignta -p
+vnoremap ag :Alignta g/^\s*
+vnoremap av :Alignta v/^\s*
+'''
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
@@ -57,6 +214,16 @@ repo = 'houtsnip/vim-emacscommandline'
 
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
+hook_add = '''
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+'''
 
 [[plugins]]
 repo = 'thinca/vim-ambicmd'
@@ -78,6 +245,35 @@ repo = 'hecomi/tsubakumi.vim'
 
 [[plugins]]
 repo = 'kien/rainbow_parentheses.vim'
+hook_add = '''
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+\ ]
+let g:rbpt_max = 16
+
+augroup RainbowParenthesisSettings
+    autocmd!
+    autocmd VimEnter *   RainbowParenthesesToggle
+    autocmd Syntax   *   RainbowParenthesesLoadRound
+    autocmd Syntax   *   RainbowParenthesesLoadSquare
+    autocmd Syntax   *   RainbowParenthesesLoadBraces
+    " autocmd FileType cpp RainbowParenthesesLoadChevrons
+augroup END
+'''
 
 [[plugins]]
 repo = 'thinca/vim-splash'
@@ -105,9 +301,29 @@ repo = 'kana/vim-operator-user'
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add = '''
+let g:gitgutter_enabled         = 1
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_sign_added      = '+'
+let g:gitgutter_sign_modified   = '~'
+let g:gitgutter_sign_removed    = '-'
+
+nnoremap [prefix]gg :GitGutterToggle<CR>
+nnoremap [prefix]gn :GitGutterNextHunk<CR>
+nnoremap [prefix]gN :GitGutterPrevHunk<CR>
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+hook_add = '''
+nnoremap [prefix]gb :Gblame<CR>
+nnoremap [prefix]gd :Gdiff<CR>
+nnoremap [prefix]gs :Gstatus<CR>
+nnoremap [prefix]gl :Glog<CR>
+nnoremap [prefix]ga :Gwrite<CR>
+nnoremap [prefix]gc :Gread<CR>
+nnoremap [prefix]gC :Gcommit<CR>
+'''
 # }}}
 
 # Run {{{
@@ -120,4 +336,16 @@ repo = 'thinca/vim-quickrun'
 
 [[plugins]]
 repo = 'w0rp/ale'
+hook_add = '''
+let g:ale_lint_on_enter = 0
+
+nmap <silent> [prefix]ap <Plug>(ale_previous)
+nmap <silent> [prefix]an <Plug>(ale_next)
+nmap <silent> [prefix]at <Plug>(ale_toggle)
+
+let g:ale_linters = {
+    \ 'javascript' : ['eslint'],
+    \ 'cs': ['OmniSharp'],
+\ }
+'''
 # }}}

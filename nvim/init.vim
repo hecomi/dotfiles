@@ -18,11 +18,11 @@ set shellslash
 
 " os / neovim {{{
 "====================================================================================================
-let s:is_win   = has('win32') || has('win64')
-let s:is_mac   = has('mac')
-let s:is_linux = !s:is_mac && has('unix')
-let s:is_nvim  = has('nvim')
-let s:nvim_dir = expand('~/.config/nvim')
+let g:is_win   = has('win32') || has('win64')
+let g:is_mac   = has('mac')
+let g:is_linux = !g:is_mac && has('unix')
+let g:is_nvim  = has('nvim')
+let g:nvim_dir = expand('~/.config/nvim')
 
 " }}}
 
@@ -30,15 +30,16 @@ let s:nvim_dir = expand('~/.config/nvim')
 "====================================================================================================
 " Vim8
 " ---------------------------------------------------------------------------------------------------
-if s:is_win
-    set pythonthreehome=~/AppData/Local/Programs/Python/Python39
-    set pythonthreedll=python39.dll
-    let g:python3_host_prog = $HOME . '/AppData/Local/Programs/Python/Python39/python3.exe'
+if g:is_win || has('win32unix')
+    "set pythonthreehome=~/AppData/Local/Programs/Python/Python39
+    "set pythonthreedll=python39.dll
+    set pythonthreedll=~/AppData/Local/Programs/Python/Python39/python39.dll
+    let g:python3_host_prog = '~/AppData/Local/Programs/Python/Python39/python.exe'
 endif
 
 " Install dein
 " ---------------------------------------------------------------------------------------------------
-let s:dein_dir = s:nvim_dir . '/dein'
+let s:dein_dir = g:nvim_dir . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if &runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)
@@ -50,8 +51,8 @@ endif
 " Load toml
 " ---------------------------------------------------------------------------------------------------
 if dein#load_state(s:dein_dir)
-    let s:dein_toml = s:nvim_dir . '/dein.toml'
-    let s:dein_lazy_toml = s:nvim_dir . '/dein_lazy.toml'
+    let s:dein_toml = g:nvim_dir . '/dein.toml'
+    let s:dein_lazy_toml = g:nvim_dir . '/dein_lazy.toml'
     call dein#begin(s:dein_dir)
     call dein#load_toml(s:dein_toml, {'lazy': 0})
     call dein#load_toml(s:dein_lazy_toml, {'lazy': 1})
@@ -142,7 +143,7 @@ set number
 set nowrap
 set showbreak=>>
 set list
-if s:is_win
+if g:is_win
     set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 else
     set listchars=tab:▸\ ,trail:･,extends:»,precedes:«,nbsp:%
@@ -314,7 +315,6 @@ augroup SetNoPaste
     autocmd!
     autocmd InsertLeave * if &paste | set nopaste | endif
 augroup END
-nnoremap <silent>p :set paste<CR>p:set nopaste<CR>
 
 " Wrap
 " ---------------------------------------------------------------------------------------------------
@@ -370,9 +370,9 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
-if s:is_win
+if g:is_win
     nnoremap [prefix]vimrc :e ~/.config/nvim/init.vim<CR>:cd ~/.config/nvim<CR>
-elseif s:is_mac
+elseif g:is_mac
     nnoremap [prefix]vimrc :e ~/dotfiles/nvim/init.vim<CR>:cd ~/dotfiles/nvim<CR>
 else
     nnoremap [prefix]vimrc :e ~/nvim/init.vim<CR>:cd ~/nvim<CR>
@@ -635,240 +635,15 @@ endfunction
 
 " }}}
 
-" denite {{{
-"====================================================================================================
-" Settings
-" ---------------------------------------------------------------------------------------------------
-call denite#custom#option('default', 'prompt', '>')
-call denite#custom#option('default', 'statusline', v:false)
-call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
-call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
-call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
-call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-if s:is_win
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', ['.'])
-else
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-endif
-
-" Key mappings
-" ---------------------------------------------------------------------------------------------------
-nnoremap [denite] <nop>
-xnoremap [denite] <nop>
-nmap <Space> [denite]
-xmap <Space> [denite]
-
-nnoremap [denite]  :Denite
-nnoremap [denite]b :Denite buffer<CR>
-nnoremap [denite]t :Denite tab<CR>
-nnoremap [denite]w :Denite window<CR>
-nnoremap [denite]y :Denite neoyank<CR>
-nnoremap [denite]g :Denite grep<CR>
-nnoremap [denite]h :<C-u>execute
-    \ 'Denite'
-    \ 'buffer file_mru'
-    \ 'file:'.fnameescape(expand('%:p:h'))
-    \ 'file_rec:!:'.fnameescape(expand('%:p:h'))
-    \ <CR>
-nnoremap [denite]qc :Unite quickrun_config<CR>
-
-" neomru
-" ---------------------------------------------------------------------------------------------------
-let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
-
-" }}}
-
-" deoplete {{{
-"====================================================================================================
-" Flags
-" ---------------------------------------------------------------------------------------------------
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option({
-    \ 'min_pattern_length'  : 1,
-    \ 'auto_complete_delay' : 0,
-    \ 'camel_case'          : 1,
-    \ 'smart_case'          : 1,
-    \ 'refresh_always'      : 1,
-    \ 'auto_refresh_delay'  : 0,
-    \ 'enable_buffer_path'  : 1,
-    \ 'max_list'            : 1000,
-\ })
-
-call deoplete#enable()
-
-" Basic settings
-" ---------------------------------------------------------------------------------------------------
-inoremap <expr><TAB>   pumvisible() ? '<C-n>' : '<TAB>'
-inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
-inoremap <expr><CR>    pumvisible() ? deoplete#close_popup() : '<CR>'
-
-" }}}
-
-" vimfiler {{{
-"====================================================================================================
-" Basic settings
-" ---------------------------------------------------------------------------------------------------
-let g:vimfiler_as_default_explorer        = 1
-let g:vimfiler_safe_mode_by_default       = 0
-let g:vimfiler_sort_type                  = 'TIME'
-let g:vimfiler_file_icon                  = '-'
-let g:vimfiler_marked_file_icon           = '*'
-let g:vimfiler_force_overwrite_statusline = 0
-
-if s:is_win
-    let g:vimfiler_tree_leaf_icon         = '|'
-    let g:vimfiler_tree_opened_icon       = '-'
-    let g:vimfiler_tree_closed_icon       = '+'
-else
-    let g:vimfiler_tree_leaf_icon         = ' '
-    let g:vimfiler_tree_opened_icon       = '▾'
-    let g:vimfiler_tree_closed_icon       = '▸'
-endif
-
-if s:is_mac
-    let g:vimfiler_readonly_file_icon     = '✗'
-    let g:vimfiler_marked_file_icon       = '✓'
-else
-    let g:vimfiler_readonly_file_icon     = 'x'
-    let g:vimfiler_marked_file_icon       = 'v'
-endif
-
-" Key binds
-" ---------------------------------------------------------------------------------------------------
-nnoremap [prefix]vf     :VimFiler<CR>
-nnoremap [prefix]vf<CR> :VimFiler<CR>
-nnoremap [prefix]vfe    :VimFilerExplorer<CR>
-augroup VimFilerCustomKeyBinding
-    autocmd!
-    autocmd FileType vimfiler nnoremap <buffer> K <C-u>
-    autocmd FileType vimfiler nnoremap <buffer> <C-j> :bn<CR>
-    autocmd FileType vimfiler nnoremap <buffer> <C-k> :bp<CR>
-augroup END
-" }}}
-
-" yankround {{{
-"====================================================================================================
-nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-" }}}
-
-" alignta {{{
-"====================================================================================================
-let g:unite_source_alignta_preset_arguments = [
-    \ ["Align at '='", '=>\='],
-    \ ["Align at ':'", '01 :'],
-    \ ["Align at ':'", '11 :'],
-    \ ["Align at ':'", '01 :/1'],
-    \ ["Align at ':'", '11 :/1'],
-    \ ["Align at '|'", '|'   ],
-    \ ["Align at ')'", '0 )' ],
-    \ ["Align at ']'", '0 ]' ],
-    \ ["Align at '}'", '}'   ],
-\]
-
-vnoremap a  :Alignta
-vnoremap a= :Alignta =<CR>
-vnoremap a+ :Alignta +<CR>
-vnoremap a: :Alignta 11 :/1<CR>
-vnoremap a; :Alignta 11 :/1<CR>
-vnoremap a, :Alignta 01 ,<CR>
-vnoremap as :Alignta <<0 \s\s*<CR>
-vnoremap ae :Alignta -e
-vnoremap ar :Alignta -r
-vnoremap ap :Alignta -p
-vnoremap ag :Alignta g/^\s*
-vnoremap av :Alignta v/^\s*
-
-" }}}
-
-" openbrowser {{{
-"====================================================================================================
-nmap [prefix]bo <Plug>(openbrowser-smart-search)
-vmap [prefix]bo <Plug>(openbrowser-smart-search)
-" }}}
-
-" neoyank {{{
-"====================================================================================================
-let g:neoyank#file = s:nvim_dir .'/tmp/yankring.txt'
-" }}}
-
-" memolist {{{
-"====================================================================================================
-" map
-nnoremap <silent> [prefix]mn :set noimdisable<CR>:MemoNew<CR>
-nnoremap <silent> [prefix]ml :MemoList<CR>
-nnoremap <silent> [prefix]mg :MemoGrep<CR>
-
-" parameters
-let g:memolist_path              = '~/Memo'
-let g:memolist_memo_suffix       = 'txt'
-let g:memolist_memo_date         = '%Y-%m-%d %H:%M'
-let g:memolist_prompt_tags       = 0
-let g:memolist_prompt_categories = 0
-let g:memolist_qfixgrep          = 1
-let g:memolist_vimfiler          = 1
-let g:memolist_template_dir_path = s:nvim_dir . '/template/memolist'
-
-augroup MemoSetFileType
-    autocmd!
-    autocmd BufNewFile,BufRead *.txt set filetype=memo
-augroup END
-" }}}
-
-" rainbow parenthesis {{{
-"====================================================================================================
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-\ ]
-let g:rbpt_max = 16
-
-augroup RainbowParenthesisSettings
-    autocmd!
-    autocmd VimEnter *   RainbowParenthesesToggle
-    autocmd Syntax   *   RainbowParenthesesLoadRound
-    autocmd Syntax   *   RainbowParenthesesLoadSquare
-    autocmd Syntax   *   RainbowParenthesesLoadBraces
-    " autocmd FileType cpp RainbowParenthesesLoadChevrons
-augroup END
-" }}}
-
 " path / include / linkage {{{
 "====================================================================================================
 let s:cpp_include_path = ''
 let s:cpp_library_path = ''
 
-if s:is_mac
+if g:is_mac
     let s:cpp_include_path  = '/usr/local/include'
     let s:cpp_library_path  = '/usr/local/lib'
-elseif s:is_win
+elseif g:is_win
     let s:cpp_include_path = 'C:/include'
     let s:cpp_library_path = 'C:/include/boost/stage/lib'
 else
@@ -917,7 +692,7 @@ let s:quickrun_cpp_exec = ['%c %o %s -o %s:p:r.tmp', '%s:p:r.tmp', 'rm %s:p:r.tm
 
 " C
 " ---------------------------------------------------------------------------------------------------
-if s:is_mac
+if g:is_mac
     let g:quickrun_config['c/default-clang'] = {
         \ 'exec'    : s:quickrun_cpp_exec,
         \ 'command' : '/usr/bin/clang',
@@ -945,7 +720,7 @@ endif
 " ---------------------------------------------------------------------------------------------------
 let s:quickrun_cpp_options = '-std=c++17 -stdlib=libc++'
 
-if s:is_mac
+if g:is_mac
     let g:quickrun_config['cpp/default-clang'] = {
         \ 'exec'    : s:quickrun_cpp_exec,
         \ 'command' : '/usr/bin/clang++',
@@ -1001,7 +776,7 @@ let g:quickrun_config['javascript'] = g:quickrun_config['javascript/node']
 
 " JSON
 " ---------------------------------------------------------------------------------------------------
-if s:is_mac
+if g:is_mac
     let g:quickrun_config['json/jq'] = {
         \ 'command' : 'jq',
         \ 'exec'    : '%c . %s:p',
@@ -1012,7 +787,7 @@ endif
 
 " C#
 " ---------------------------------------------------------------------------------------------------
-if s:is_win
+if g:is_win
     let g:quickrun_config['cs/csc']  = {
         \ 'command' : 'csc',
         \ 'exec'    : ['%c %o /out:%s:p:r__.exe %s:p', '%s:p:r__.exe', 'rm %s:p:r__.exe'],
@@ -1049,7 +824,7 @@ let g:quickrun_config['vim'] = g:quickrun_config['vim/async']
 
 " Python
 " ---------------------------------------------------------------------------------------------------
-if s:is_mac
+if g:is_mac
     let g:quickrun_config['python/default'] = {
         \ 'command' : '/usr/bin/python',
         \ 'exec'    : '%c %s:p',
@@ -1064,46 +839,5 @@ if s:is_mac
 
     let g:quickrun_config['python'] = g:quickrun_config['python/anaconda']
 endif
-
-" }}}
-
-" gitgutter {{{
-"====================================================================================================
-let g:gitgutter_enabled         = 1
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_sign_added      = '+'
-let g:gitgutter_sign_modified   = '~'
-let g:gitgutter_sign_removed    = '-'
-
-nnoremap [prefix]gg :GitGutterToggle<CR>
-nnoremap [prefix]gn :GitGutterNextHunk<CR>
-nnoremap [prefix]gN :GitGutterPrevHunk<CR>
-
-" }}}
-
-" fugitive {{{
-"====================================================================================================
-nnoremap [prefix]gb :Gblame<CR>
-nnoremap [prefix]gd :Gdiff<CR>
-nnoremap [prefix]gs :Gstatus<CR>
-nnoremap [prefix]gl :Glog<CR>
-nnoremap [prefix]ga :Gwrite<CR>
-nnoremap [prefix]gc :Gread<CR>
-nnoremap [prefix]gC :Gcommit<CR>
-
-" }}}
-
-" ale {{{
-"====================================================================================================
-let g:ale_lint_on_enter = 0
-
-nmap <silent> [prefix]ap <Plug>(ale_previous)
-nmap <silent> [prefix]an <Plug>(ale_next)
-nmap <silent> [prefix]at <Plug>(ale_toggle)
-
-let g:ale_linters = {
-    \ 'javascript' : ['eslint'],
-    \ 'cs': ['OmniSharp'],
-\ }
 
 " }}}
