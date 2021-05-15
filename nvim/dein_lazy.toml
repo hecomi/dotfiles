@@ -40,6 +40,12 @@ nmap <silent> <C-t> :A<CR>
 [[plugins]]
 repo = 'zchee/libclang-python3'
 on_ft = ['c', 'cpp']
+hook_source = '''
+if has('mac')
+    let g:deoplete#sources#clang#libclang_path ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header ='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
+endif
+'''
 
 [[plugins]]
 repo = 'zchee/deoplete-clang'

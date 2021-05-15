@@ -2914,5 +2914,3 @@ if filereadable(expand('~/.vimrc.experiment'))
 	source ~/.vimrc.experiment
 endif
 " }}}
-"
-
