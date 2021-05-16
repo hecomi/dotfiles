@@ -32,8 +32,8 @@ let g:nvim_dir = expand($HOME . '/.config/nvim')
 " Vim8
 " ---------------------------------------------------------------------------------------------------
 if g:is_win || has('win32unix')
-    set pythonthreedll=$HOME/AppData/Local/Programs/Python/Python39/python39.dll
-    let g:python3_host_prog = $HOME . '/AppData/Local/Programs/Python/Python39/python.exe'
+    set pythonthreedll=~/AppData/Local/Programs/Python/Python39/python39.dll
+    let g:python3_host_prog = '~/AppData/Local/Programs/Python/Python39/python.exe'
 endif
 
 " Install dein

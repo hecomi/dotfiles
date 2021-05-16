@@ -32,9 +32,9 @@ else
     let g:vimfiler_tree_closed_icon       = '▸'
 endif
 
-nnoremap [prefix]vf     :VimFiler<CR>
-nnoremap [prefix]vf<CR> :VimFiler<CR>
-nnoremap [prefix]vfe    :VimFilerExplorer<CR>
+nnoremap <silent> [prefix]vf     :VimFilerBufferDir<CR>
+nnoremap <silent> [prefix]vf<CR> :VimFilerBufferDir<CR>
+nnoremap <silent> [prefix]vfe    :set autochdir<CR>:set noautochdir<CR>:VimFilerExplorer<CR>
 augroup VimFilerCustomKeyBinding
     autocmd!
     autocmd FileType vimfiler nnoremap <buffer> K <C-u>
@@ -69,7 +69,6 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> <f11> <plug>(lsp-declaration)
     nmap <buffer> <f12> <plug>(lsp-definition)
     nmap <buffer> <f2> <plug>(lsp-rename)
-    inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
 endfunction
 
 augroup lsp-install
@@ -87,8 +86,13 @@ let g:lsp_diagnostics_echo_delay = 200
 repo = 'prabirshrestha/asyncomplete.vim'
 hook_add = '''
 let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_popup_delay = 10
 let g:asyncomplete_auto_completeopt = 1
-let g:asyncomplete_popup_delay = 30
+let g:asyncomplete_min_chars = 1
+let g:asyncomplete_matchfuzzy = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() : "\<CR>"
 '''
 
 [[plugins]]
