@@ -18,11 +18,12 @@ set shellslash
 
 " os / neovim {{{
 "====================================================================================================
-let g:is_win   = has('win32') || has('win64')
+let g:is_win   = has('win32') || has('win64') || has('win32unix')
 let g:is_mac   = has('mac')
 let g:is_linux = !g:is_mac && has('unix')
+let g:is_gui   = has('gui_running')
 let g:is_nvim  = has('nvim')
-let g:nvim_dir = expand('~/.config/nvim')
+let g:nvim_dir = expand($HOME . '/.config/nvim')
 
 " }}}
 
@@ -31,8 +32,8 @@ let g:nvim_dir = expand('~/.config/nvim')
 " Vim8
 " ---------------------------------------------------------------------------------------------------
 if g:is_win || has('win32unix')
-    set pythonthreedll=~/AppData/Local/Programs/Python/Python39/python39.dll
-    let g:python3_host_prog = '~/AppData/Local/Programs/Python/Python39/python.exe'
+    set pythonthreedll=$HOME/AppData/Local/Programs/Python/Python39/python39.dll
+    let g:python3_host_prog = $HOME . '/AppData/Local/Programs/Python/Python39/python.exe'
 endif
 
 " Install dein
@@ -72,6 +73,10 @@ endif
 " ---------------------------------------------------------------------------------------------------
 filetype plugin indent on
 syntax on
+
+" Bell
+" ---------------------------------------------------------------------------------------------------
+set belloff=all
 
 " File
 " ---------------------------------------------------------------------------------------------------
@@ -347,8 +352,6 @@ nnoremap [prefix]sni :set noimdisable<CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 nnoremap [prefix]co :ContinuousNumber <C-a><CR>
 vnoremap [prefix]co :ContinuousNumber <C-a><CR>
-nnoremap + <C-a>
-nnoremap - <C-x>
 
 " Indent
 " ---------------------------------------------------------------------------------------------------
@@ -369,11 +372,9 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
 if g:is_win
-    nnoremap [prefix]vimrc :e ~/.config/nvim/init.vim<CR>:cd ~/.config/nvim<CR>
-elseif g:is_mac
-    nnoremap [prefix]vimrc :e ~/dotfiles/nvim/init.vim<CR>:cd ~/dotfiles/nvim<CR>
+    nnoremap [prefix]vimrc :e $HOME/dotfiles/nvim/init.vim<CR>
 else
-    nnoremap [prefix]vimrc :e ~/nvim/init.vim<CR>:cd ~/nvim<CR>
+    nnoremap [prefix]vimrc :e $HOME/nvim/init.vim<CR>
 endif
 
 " Text object
@@ -407,8 +408,10 @@ let g:vim_indent_cont=0
 command! MyColorScheme :call s:MyColorScheme()
 function! s:MyColorScheme()
     " base theme
-    let g:solarized_termcolors=256
-    set termguicolors
+    if g:is_gui == 0
+        let g:solarized_termcolors=256
+    endif
+    " set termguicolors
     set background=dark
     colorscheme solarized
 
@@ -420,8 +423,8 @@ function! s:MyColorScheme()
     hi CursorIM     guifg=#ff0000
 
     hi Normal       ctermbg=none ctermfg=245  guibg=#000000 guifg=#cccccc
-    hi Comment      ctermbg=none ctermfg=239  guibg=#000000 guifg=#444444
-    hi LineNr       ctermbg=none ctermfg=232  guibg=#010101 guifg=#333333
+    hi Comment      ctermbg=none ctermfg=236  guibg=#000000 guifg=#444444
+    hi LineNr       ctermbg=none ctermfg=235  guibg=#010101 guifg=#333333
     hi Line         ctermbg=232  ctermfg=none guibg=#222222 guifg=NONE
     hi CursorLine   ctermbg=234  ctermfg=none guibg=#1a1512 guifg=NONE
     hi CursorLineNr ctermbg=234  ctermfg=33   guibg=#1a1512 guifg=#268bd2 cterm=bold gui=bold
@@ -478,8 +481,7 @@ function! s:CursorLineNrColorVisual()
     return ''
 endfunction
 
-vnoremap <silent> <expr> <SID>(CursorLineNrColorVisual)  <SID>CursorLineNrColorVisual()
-" MEMO: need 'lh' to fire CursorMoved event to update highlight..., not cool.
+vnoremap <silent> <expr> <SID>(CursorLineNrColorVisual) <SID>CursorLineNrColorVisual()
 nnoremap <silent> <script> v v<SID>(CursorLineNrColorVisual)lh
 nnoremap <silent> <script> V V<SID>(CursorLineNrColorVisual)lh
 nnoremap <silent> <script> <C-v> <C-v><SID>(CursorLineNrColorVisual)lh

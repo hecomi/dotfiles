@@ -1,25 +1,15 @@
-" OS {{{
-"====================================================================================================
-let s:is_win   = has('win32') || has('win64')
-let s:is_mac   = has('mac')
-let s:is_linux = !s:is_mac && has('unix')
-let s:is_nvim  = has('nvim')
-let s:nvim_dir = expand('~/.config/nvim')
-
-" }}}
-
 " Style {{{
 "====================================================================================================
 " Font
 " ---------------------------------------------------------------------------------------------------
-if s:is_win
-    if s:is_nvim
+if g:is_win
+    if g:is_nvim
         GuiFont Ricty for Powerline:h14
     else
         set guifont=Ricty_for_Powerline:h14
         set guifontwide=Ricty:h14
     endif
-elseif s:is_mac
+elseif g:is_mac
 	set guifont=Ricty_for_Powerline:h18
 	set guifontwide=Ricty:h18
 endif
@@ -47,12 +37,5 @@ if has('gui_macvim')
 else
 	set transparency=248
 endif
-
-" }}}
-
-" fontzoom {{{
-"====================================================================================================
-nmap + <Plug>(fontzoom-larger)
-nmap - <Plug>(fontzoom-smaller)
 
 " }}}

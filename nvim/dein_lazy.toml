@@ -59,7 +59,7 @@ on_ft = ['shaderlab', 'cg', 'glsl', 'hlsl']
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
-on_ft = ['md', 'markdown', 'toml', 'vim', 'html']
+on_ft = ['md', 'markdown', 'toml', 'html']
 hook_add = '''
 augroup vim-precious
 	autocmd!
@@ -144,5 +144,15 @@ augroup MemoSetFileType
     autocmd!
     autocmd BufNewFile,BufRead *.txt set filetype=memo
 augroup END
+'''
+
+[[plugins]]
+repo = 'thinca/vim-fontzoom'
+gui = 1
+hook_add = '''
+nmap + <Plug>(fontzoom-larger)
+nmap - <Plug>(fontzoom-smaller)
+nmap <C-ScrollWheelUp> <Plug>(fontzoom-larger)
+nmap <C-ScrollWheelDown> <Plug>(fontzoom-smaller)
 '''
 # }}}
