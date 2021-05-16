@@ -6,75 +6,23 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 # }}}
-#
-# Shougo-san's plugins {{{
+
+# Common {{{
 # ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_post_update = '''
-call denite#custom#option('default', 'prompt', '>')
-call denite#custom#option('default', 'statusline', v:false)
-call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
-call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
-call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
-call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-if g:is_win
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', ['.'])
-else
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-endif
-
-nnoremap [denite] <nop>
-xnoremap [denite] <nop>
-nmap <Space> [denite]
-xmap <Space> [denite]
-
-nnoremap [denite]  :Denite
-nnoremap [denite]b :Denite buffer<CR>
-nnoremap [denite]t :Denite tab<CR>
-nnoremap [denite]w :Denite window<CR>
-nnoremap [denite]y :Denite neoyank<CR>
-nnoremap [denite]g :Denite grep<CR>
-nnoremap [denite]h :<C-u>execute
-    \ 'Denite'
-    \ 'buffer file_mru'
-    \ 'file:'.fnameescape(expand('%:p:h'))
-    \ 'file_rec:!:'.fnameescape(expand('%:p:h'))
-    \ <CR>
-nnoremap [denite]qc :Unite quickrun_config<CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-hook_add = '''
-let g:neoyank#file = g:nvim_dir .'/tmp/yankring.txt'
-'''
-
 [[plugins]]
 repo = 'Shougo/vimfiler'
 hook_add = '''
 let g:vimfiler_as_default_explorer        = 1
+let g:vimfiler_enable_auto_cd             = 1
 let g:vimfiler_safe_mode_by_default       = 0
 let g:vimfiler_sort_type                  = 'TIME'
 let g:vimfiler_file_icon                  = '-'
 let g:vimfiler_marked_file_icon           = '*'
 let g:vimfiler_force_overwrite_statusline = 0
+let g:vimfiler_readonly_file_icon         = '✗'
+let g:vimfiler_marked_file_icon           = '✓'
 
-if has('win32') || has('win64')
+if g:is_win
     let g:vimfiler_tree_leaf_icon         = '|'
     let g:vimfiler_tree_opened_icon       = '-'
     let g:vimfiler_tree_closed_icon       = '+'
@@ -82,14 +30,6 @@ else
     let g:vimfiler_tree_leaf_icon         = ' '
     let g:vimfiler_tree_opened_icon       = '▾'
     let g:vimfiler_tree_closed_icon       = '▸'
-endif
-
-if has('mac')
-    let g:vimfiler_readonly_file_icon     = '✗'
-    let g:vimfiler_marked_file_icon       = '✓'
-else
-    let g:vimfiler_readonly_file_icon     = 'x'
-    let g:vimfiler_marked_file_icon       = 'v'
 endif
 
 nnoremap [prefix]vf     :VimFiler<CR>
@@ -117,6 +57,15 @@ else
 endif
 let g:dein#plugin.build = cmd
 '''
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'itchyny/vim-cursorword'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
 # }}}
 
 # Completion {{{
@@ -160,49 +109,8 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 repo = 'mattn/vim-lsp-settings'
 # }}}
 
-# Common {{{
-# ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-
-[[plugins]]
-repo = 'itchyny/vim-cursorword'
-
-[[plugins]]
-repo = 'osyo-manga/vim-anzu'
-# }}}
-
 # Key {{{
 # ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = 'h1mesuke/vim-alignta'
-hook_add = '''
-let g:unite_source_alignta_preset_arguments = [
-    \ ["Align at '='", '=>\='],
-    \ ["Align at ':'", '01 :'],
-    \ ["Align at ':'", '11 :'],
-    \ ["Align at ':'", '01 :/1'],
-    \ ["Align at ':'", '11 :/1'],
-    \ ["Align at '|'", '|'   ],
-    \ ["Align at ')'", '0 )' ],
-    \ ["Align at ']'", '0 ]' ],
-    \ ["Align at '}'", '}'   ],
-\]
-
-vnoremap a  :Alignta
-vnoremap a= :Alignta =<CR>
-vnoremap a+ :Alignta +<CR>
-vnoremap a: :Alignta 11 :/1<CR>
-vnoremap a; :Alignta 11 :/1<CR>
-vnoremap a, :Alignta 01 ,<CR>
-vnoremap as :Alignta <<0 \s\s*<CR>
-vnoremap ae :Alignta -e
-vnoremap ar :Alignta -r
-vnoremap ap :Alignta -p
-vnoremap ag :Alignta g/^\s*
-vnoremap av :Alignta v/^\s*
-'''
-
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
 

@@ -1,19 +1,46 @@
-# Shougo-san's plugins {{{
+# Unite {{{
 # ---------------------------------------------------------------------------------------------------
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_source = ['denite.nvim']
-hook_add = '''
-let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
-'''
-
 [[plugins]]
 repo = 'Shougo/unite.vim'
 on_cmd = ['Unite']
+if = 'g:is_nvim == 0'
+hook_add = '''
+nnoremap [unite] <nop>
+xnoremap [unite] <nop>
+nmap <Space> [unite]
+xmap <Space> [unite]
+
+nnoremap [unite]  :Unite
+nnoremap [unite]b :Unite buffer<CR>
+nnoremap [unite]t :Unite tab<CR>
+nnoremap [unite]w :Unite window<CR>
+nnoremap [unite]g :Unite grep<CR>
+'''
 
 [[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_ft = ['c', 'cpp']
+repo = 'osyo-manga/unite-quickfix'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'osyo-manga/unite-quickrun_config'
+on_source = ['unite.vim']
+hook_add = '''
+nnoremap [unite]qc :Unite quickrun_config<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['unite.vim']
+hook_add = '''
+let g:neomru#time_format = "%Y/%m/%d %H:%M:%S"
+
+nnoremap [unite]h :<C-u>execute
+    \ 'Unite'
+    \ 'buffer file_mru'
+    \ 'file:'.fnameescape(expand('%:p:h'))
+    \ 'file_rec:!:'.fnameescape(expand('%:p:h'))
+    \ <CR>
+'''
 # }}}
 
 # Syntax {{{
@@ -29,6 +56,24 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'vim-scripts/ShaderHighLight'
 on_ft = ['shaderlab', 'cg', 'glsl', 'hlsl']
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+on_ft = ['md', 'markdown', 'toml', 'vim', 'html']
+hook_add = '''
+augroup vim-precious
+	autocmd!
+	autocmd User PreciousFileType :echo precious#context_filetype()
+augroup END
+'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+on_source = ['vim-precious']
+hook_add = '''
+let g:context_filetype#search_offset = 300
+'''
+
 # }}}
 
 # C / C++ {{{
@@ -47,17 +92,31 @@ hook_add = '''
 nmap [prefix]cf <Plug>(operator-clang-format)
 vmap [prefix]cf <Plug>(operator-clang-format)
 '''
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
 # }}}
 
-# Unite {{{
+# Format {{{
 # ---------------------------------------------------------------------------------------------------
 [[plugins]]
-repo = 'osyo-manga/unite-quickfix'
-on_source = ['unite.vim']
-
-[[plugins]]
-repo = 'osyo-manga/unite-quickrun_config'
-on_source = ['unite.vim']
+repo = 'h1mesuke/vim-alignta'
+on_cmd = ['Alignta']
+hook_add = '''
+vnoremap a  :Alignta
+vnoremap a= :Alignta =<CR>
+vnoremap a+ :Alignta +<CR>
+vnoremap a: :Alignta 11 :/1<CR>
+vnoremap a; :Alignta 11 :/1<CR>
+vnoremap a, :Alignta 01 ,<CR>
+vnoremap as :Alignta <<0 \s\s*<CR>
+vnoremap ae :Alignta -e
+vnoremap ar :Alignta -r
+vnoremap ap :Alignta -p
+vnoremap ag :Alignta g/^\s*
+vnoremap av :Alignta v/^\s*
+'''
 # }}}
 
 # Others {{{
