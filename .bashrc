@@ -1,6 +1,7 @@
 [ -z "$PS1" ] && return
 
 source ~/.bash/git-prompt.sh
+source ~/.bash/git-completion.bash
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
