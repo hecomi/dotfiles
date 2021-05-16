@@ -34,7 +34,7 @@ endif
 
 nnoremap <silent> [prefix]vf     :VimFilerBufferDir<CR>
 nnoremap <silent> [prefix]vf<CR> :VimFilerBufferDir<CR>
-nnoremap <silent> [prefix]vfe    :set autochdir<CR>:set noautochdir<CR>:VimFilerExplorer<CR>
+nnoremap <silent> [prefix]vfe    :VimFilerBufferDir -explorer<CR>
 augroup VimFilerCustomKeyBinding
     autocmd!
     autocmd FileType vimfiler nnoremap <buffer> K <C-u>

@@ -84,18 +84,6 @@ on_ft = ['c', 'cpp']
 hook_source = '''
 nmap <silent> <C-t> :A<CR>
 '''
-
-[[plugins]]
-repo = 'rhysd/vim-clang-format'
-on_ft = ['c', 'cpp']
-hook_add = '''
-nmap [prefix]cf <Plug>(operator-clang-format)
-vmap [prefix]cf <Plug>(operator-clang-format)
-'''
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_ft = ['c', 'cpp']
 # }}}
 
 # Format {{{
