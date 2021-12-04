@@ -60,72 +60,7 @@ linux-gnu)
 	alias ls="ls -G -C"
 	;;
 esac
-alias la="ls -a"
-alias lf="ls -F"
 alias ll="ls -al"
-
-# grep
-# ---------------------------------------------------------------------------------------------------
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-# cmdline-fu
-# ---------------------------------------------------------------------------------------------------
-alias cmdf='cmdline-fu matching'
-
-# C++
-# ---------------------------------------------------------------------------------------------------
-case ${OSTYPE} in
-linux*)
-	alias clang++='clang++ -std=c++0x'
-	alias g++='g++-4.7 -std=c++0x'
-	export CXX=g++-4.7
-	;;
-darwin*)
-	# alias clang='/usr/local/bin/clang -std=c++1y -stdlib=libc++'
-	# alias clang++='/usr/local/bin/clang++ -std=c++1y -stdlib=libc++'
-	alias vim='/usr/local/bin/vim'
-	;;
-esac
-
-# Node.js
-# ---------------------------------------------------------------------------------------------------
-alias nave='~/.nave/nave/nave.sh'
-case ${OSTYPE} in
-linux*)
-	export SHELL=/bin/bash
-	;;
-darwin*)
-	alias node='node --harmony'
-	;;
-esac
-
-# ctags
-# ---------------------------------------------------------------------------------------------------
-case ${OSTYPE} in
-darwin*)
-	alias ctags='/usr/local/bin/ctags'
-	;;
-esac
-
-# Android
-# ---------------------------------------------------------------------------------------------------
-android_create_project() {
-	android create project --target 3 --name $1 --path $PWD --activity $1 --package $2
-}
-
-# earthquake
-# ---------------------------------------------------------------------------------------------------
-alias earthquake="$HOME/.earthquake/bin/earthquake"
-
-# git
-# ---------------------------------------------------------------------------------------------------
-alias git-rm-auto="git status | grep deleted: | cut -c 14- | sed -e 's/ /\\ /g' | xargs git rm"
-
-# kill vim
-# ---------------------------------------------------------------------------------------------------
-alias kill-vim="ps | grep vim | egrep -v grep | awk '{print \$1}' | xargs kill -9"
 
 # }}}
 
@@ -144,9 +79,6 @@ zstyle ':completion:*:processes' menu yes select=2
 # zsh-completions
 fpath=($HOME/.zsh/zsh-completions/src $fpath)
 fpath=($HOME/.zsh/zsh-completions-additional/src $fpath)
-
-# autoload predict-on
-# predict-on
 
 # }}}
 
@@ -199,43 +131,6 @@ setopt PROMPT_SUBST
 
 # }}}
 
-# Path / Environmental Variables {{{
-# ====================================================================================================
-# Common
-local LOCAL_BIN_PATH="/usr/local/bin"
-local LOCAL_SBIN_PATH="/usr/local/sbin"
-local USER_BIN_PATH="$HOME/bin"
-export PATH="$USER_BIN_PATH:$LOCAL_BIN_PATH:$LOCAL_SBIN_PATH:$PATH"
-
-# Git
-local GIT_PATH="$HOME/.git/git-tasukete"
-export PATH="$GIT_PATH:$PATH"
-
-# Vim
-local VIM_PATH="/usr/local/bin/vim"
-export PATH="$VIM_PATH:$PATH"
-
-# Android
-local ANDROID_SDK_TOOLS_PATH="$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"
-local ANDROID_NDK_TOOLS_PATH="$HOME/android-sdks/ndk-bundle"
-local ANDROID_NDK_HOME=$ANDROID_NDK_TOOLS_PATH
-export PATH="$ANDROID_NDK_TOOLS_PATH:$ANDROID_SDK_TOOLS_PATH:$PATH"
-
-# Node.js
-local NODEBREW_PATH="$HOME/.nodebrew/current/bin"
-export PATH="$NODEBREW_PATH:$PATH"
-
-# Python
-export ANACONDA_BIN_PATH="$HOME/anaconda/bin"
-export PATH="$ANACONDA_BIN_PATH:$PATH"
-alias python="python3"
-
-# Dotnet
-# export PATH=/usr/local/share/dotnet:$PATH
-export PATH=/Library/Frameworks/Mono.framework/Commands:$PATH
-
-# }}}
-
 # Others {{{
 # ====================================================================================================
 
@@ -244,7 +139,7 @@ export PATH=/Library/Frameworks/Mono.framework/Commands:$PATH
 # z
 case ${OSTYPE} in
 darwin*)
-	. /usr/local/etc/profile.d/z.sh
+	. ~/.zsh/z/z.sh
 	function _Z_precmd {
 		_z --add "$(pwd -P)"
 	}
@@ -257,4 +152,5 @@ esac
 # Local {{{
 # ====================================================================================================
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 # }}}

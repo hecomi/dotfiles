@@ -371,11 +371,7 @@ nnoremap <silent> [prefix]cd :set autochdir<CR>:set noautochdir<CR>
 
 " Edit vimrcs
 " ---------------------------------------------------------------------------------------------------
-if g:is_win
-    nnoremap [prefix]vimrc :e $HOME/dotfiles/nvim/init.vim<CR>
-else
-    nnoremap [prefix]vimrc :e $HOME/nvim/init.vim<CR>
-endif
+nnoremap [prefix]vimrc :e $HOME/dotfiles/nvim/init.vim<CR>
 
 " Text object
 " ---------------------------------------------------------------------------------------------------

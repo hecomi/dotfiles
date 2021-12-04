@@ -146,7 +146,7 @@ repo = 'hecomi/tsubakumi.vim'
 
 [[plugins]]
 repo = 'kien/rainbow_parentheses.vim'
-hook_add = '''
+hook_post_source = '''
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
