@@ -1,0 +1,21 @@
+set line-graphics = ascii
+set wrap-lines = yes
+set truncation-delimiter = ~
+set ignore-case = true
+set ignore-space = true
+set vertical-split = no
+set split-view-height = 80%
+set diff-context = 5
+
+set main-view = id:width=6 date author:width=8 commit-title:graph=yes,refs=yes
+set main-view-date = custom
+set main-view-date-format = "%m-%d %H:%M"
+
+set refs-view = id:width=6 date author ref commit-title
+set refs-view-date = custom
+set refs-view-date-format = "%Y-%m-%d %H:%M"
+
+bind generic J move-half-page-down
+bind generic K move-half-page-up
+bind generic <C-j> next
+bind generic <C-k> previous
